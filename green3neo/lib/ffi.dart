@@ -18,3 +18,4 @@ const _base = 'backend';
 final path = io.Platform.isWindows ? '$_base.dll' : 'lib$_base.so';
 
 late final dylib = loadLibForFlutter(path);
+late final backendApi = BackendImpl(dylib);

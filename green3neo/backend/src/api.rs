@@ -1,5 +1,3 @@
-#![allow(unused_variables, dead_code)]
-
-pub fn add(left: usize, right: usize) -> usize {
-    left + right
+pub fn get_me() -> u8 {
+    rand::random::<u8>()
 }
