@@ -7,13 +7,16 @@ environment:
   sdk: '>=3.0.5 <4.0.0'
 
 dependencies:
+  ffi: ^2.0.2
   flutter:
     sdk: flutter
+  flutter_rust_bridge: ^1.78.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
+  ffigen: ^8.0.2
 
 flutter:
   uses-material-design: true
