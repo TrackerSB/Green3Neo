@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:green3neo/table_view.dart';
+import 'package:green3neo/data_table_page.dart';
 
 void main() {
   runApp(const MainApp());
@@ -11,7 +11,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: TableView(),
+      home: DataTablePage(),
     );
   }
 }
