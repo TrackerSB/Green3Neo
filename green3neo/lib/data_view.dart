@@ -6,8 +6,6 @@ class TableView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("build TableView");
-
     final tableViewState = context.watch<TableViewState>();
 
     if (tableViewState.columns.isEmpty) {
@@ -26,7 +24,6 @@ class TableViewState extends ChangeNotifier {
   final List<DataRow> rows = [];
 
   void setData(List<List<String>> data) {
-    print("setData");
     columns.clear();
     rows.clear();
 
