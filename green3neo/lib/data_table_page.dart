@@ -13,18 +13,30 @@ class DataTablePage extends StatefulWidget {
 class DataTablePageState extends State<DataTablePage> {
   final TableViewState tableViewState = TableViewState();
 
+  DataTablePageState() {
+    updateDataFromDB();
+  }
+
+  void updateDataFromDB() {
+    backendApi.getMemberData().then((memberData) {
+      setState(() {
+        tableViewState.setData(memberData);
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        ElevatedButton(
-          onPressed: () async {
-            final memberData = await backendApi.getMemberData();
-            setState(() {
-              tableViewState.setData(memberData);
-            });
-          },
-          child: const Text("Retrieve data"),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center ,
+          children: [
+            ElevatedButton(
+              onPressed: updateDataFromDB,
+              child: const Text("Update data"),
+            )
+          ],
         ),
         ChangeNotifierProvider(
           create: (_) => tableViewState,
