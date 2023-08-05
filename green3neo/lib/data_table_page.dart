@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'data_view.dart';
+import 'table_view.dart';
 import 'ffi.dart';
 
 class DataTablePage extends StatefulWidget {
