@@ -11,7 +11,7 @@ class DataTablePage extends StatefulWidget {
 }
 
 class DataTablePageState extends State<DataTablePage> {
-  final TableViewState tableViewState = TableViewState();
+  final _tableViewState = TableViewState();
 
   DataTablePageState() {
     updateDataFromDB();
@@ -20,7 +20,7 @@ class DataTablePageState extends State<DataTablePage> {
   void updateDataFromDB() {
     backendApi.getMemberData().then((memberData) {
       setState(() {
-        tableViewState.setData(memberData);
+        _tableViewState.setData(memberData);
       });
     });
   }
@@ -39,7 +39,7 @@ class DataTablePageState extends State<DataTablePage> {
           ],
         ),
         ChangeNotifierProvider(
-          create: (_) => tableViewState,
+          create: (_) => _tableViewState,
           child: const TableView(),
         ),
       ],

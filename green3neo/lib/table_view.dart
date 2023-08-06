@@ -8,25 +8,25 @@ class TableView extends StatelessWidget {
   Widget build(BuildContext context) {
     final tableViewState = context.watch<TableViewState>();
 
-    if (tableViewState.columns.isEmpty) {
+    if (tableViewState._columns.isEmpty) {
       return const Text("No data");
     }
 
     return DataTable(
-      columns: tableViewState.columns,
-      rows: tableViewState.rows,
+      columns: tableViewState._columns,
+      rows: tableViewState._rows,
     );
   }
 }
 
 class TableViewState extends ChangeNotifier {
-  final List<DataColumn> columns = [];
-  final List<DataRow> rows = [];
-  final Map<int, Map<int, String>> cellChanges = {};
+  final List<DataColumn> _columns = [];
+  final List<DataRow> _rows = [];
+  final Map<int, Map<int, String>> _cellChanges = {};
 
   void setData(List<List<String>> data) {
-    columns.clear();
-    rows.clear();
+    _columns.clear();
+    _rows.clear();
 
     /* FIXME It is assumed every row has at least the number of entries the
      * first row has.
@@ -34,13 +34,13 @@ class TableViewState extends ChangeNotifier {
 
     if (data.isNotEmpty) {
       for (final String columnName in data.first) {
-        columns.add(DataColumn(label: Text(columnName)));
+        _columns.add(DataColumn(label: Text(columnName)));
       }
 
       for (int rowIndex = 1; rowIndex < data.length; rowIndex++) {
         final List<String> rowData = data.elementAt(rowIndex);
         final List<DataCell> cells = [];
-        for (int columnIndex = 0; columnIndex < columns.length; columnIndex++) {
+        for (int columnIndex = 0; columnIndex < _columns.length; columnIndex++) {
           final String cellData = rowData.elementAt(columnIndex);
           cells.add(DataCell(
             TextFormField(
@@ -48,7 +48,7 @@ class TableViewState extends ChangeNotifier {
               decoration: InputDecoration(
                   labelText: data.first.elementAtOrNull(columnIndex)),
               onFieldSubmitted: (newCellValue) {
-                cellChanges.update(
+                _cellChanges.update(
                   rowIndex,
                   (columnChanges) {
                     columnChanges.update(
@@ -63,7 +63,7 @@ class TableViewState extends ChangeNotifier {
                 );
 
                 print("Cell changes:");
-                for (final columnChanges in cellChanges.entries) {
+                for (final columnChanges in _cellChanges.entries) {
                   print("Row ${columnChanges.key.toString()}");
                   for (final newCellValue in columnChanges.value.entries) {
                     print(
@@ -74,7 +74,7 @@ class TableViewState extends ChangeNotifier {
             ),
           ));
         }
-        rows.add(DataRow(cells: cells));
+        _rows.add(DataRow(cells: cells));
       }
     }
 
