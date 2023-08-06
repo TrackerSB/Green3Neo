@@ -40,7 +40,9 @@ class TableViewState extends ChangeNotifier {
       for (int rowIndex = 1; rowIndex < data.length; rowIndex++) {
         final List<String> rowData = data.elementAt(rowIndex);
         final List<DataCell> cells = [];
-        for (int columnIndex = 0; columnIndex < _columns.length; columnIndex++) {
+        for (int columnIndex = 0;
+            columnIndex < _columns.length;
+            columnIndex++) {
           final String cellData = rowData.elementAt(columnIndex);
           cells.add(DataCell(
             TextFormField(
