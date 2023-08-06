@@ -10,19 +10,50 @@ class DataTablePage extends StatefulWidget {
   State<StatefulWidget> createState() => DataTablePageState();
 }
 
+class Member {
+  Member(this.id, this.prename, this.surname);
+
+  int id;
+  String prename;
+  String surname;
+}
+
+class DataRetriever<DataObject> {
+  DataRetriever(this.retrievers);
+  Map<String, dynamic Function(DataObject)> retrievers;
+}
+
 class DataTablePageState extends State<DataTablePage> {
-  final _tableViewState = TableViewState();
+  final _tableViewState =
+      TableViewState<Member>(DataRetriever<Member>(Map.fromEntries([
+    MapEntry("Nummer", (member) => member.id),
+    MapEntry("Vorname", (member) => member.prename),
+    MapEntry("Nachname", (member) => member.surname)
+  ])));
 
   DataTablePageState() {
-    updateDataFromDB();
+    _receiveDataFromDB();
   }
 
-  void updateDataFromDB() {
-    backendApi.getMemberData().then((memberData) {
+  void _receiveDataFromDB() {
+    backendApi.getMemberData().then((data) {
+      final List<Member> memberData = [];
+
+      // Skip headings assuming the order of columns
+      for (final row in data.skip(1)) {
+        memberData.add(Member(
+            int.parse(row.elementAt(0)), row.elementAt(1), row.elementAt(2)));
+      }
+
       setState(() {
         _tableViewState.setData(memberData);
       });
     });
+  }
+
+  void _commitDataChanges() {
+    // backendApi.applyMemberDataChanges(_tableViewState.getChanges());
+    // TODO
   }
 
   @override
@@ -30,17 +61,21 @@ class DataTablePageState extends State<DataTablePage> {
     return Column(
       children: [
         Row(
-          mainAxisAlignment: MainAxisAlignment.center ,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton(
-              onPressed: updateDataFromDB,
+              onPressed: _receiveDataFromDB,
               child: const Text("Update data"),
-            )
+            ),
+            ElevatedButton(
+              onPressed: _commitDataChanges,
+              child: const Text("Commit changes"),
+            ),
           ],
         ),
         ChangeNotifierProvider(
           create: (_) => _tableViewState,
-          child: const TableView(),
+          child: const TableView<Member>(),
         ),
       ],
     );

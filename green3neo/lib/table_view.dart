@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:green3neo/data_table_page.dart';
 import 'package:provider/provider.dart';
 
-class TableView extends StatelessWidget {
+class TableView<DataObject> extends StatelessWidget {
   const TableView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final tableViewState = context.watch<TableViewState>();
+    final tableViewState = context.watch<TableViewState<DataObject>>();
 
     if (tableViewState._columns.isEmpty) {
       return const Text("No data");
@@ -19,67 +21,82 @@ class TableView extends StatelessWidget {
   }
 }
 
-class TableViewState extends ChangeNotifier {
+class TableViewState<DataObject> extends ChangeNotifier {
   final List<DataColumn> _columns = [];
+  final List<dynamic Function(DataObject)> _columnRetrievers = [];
   final List<DataRow> _rows = [];
-  final Map<int, Map<int, String>> _cellChanges = {};
+  final Map<DataObject, DataObject> _dataChanges = {};
 
-  void setData(List<List<String>> data) {
-    _columns.clear();
+  TableViewState(DataRetriever<DataObject> dataRetriever) {
+    for (final entry in dataRetriever.retrievers.entries) {
+      _columns.add(DataColumn(label: Text(entry.key)));
+      _columnRetrievers.add(entry.value);
+    }
+  }
+
+  TextFormField _generateStringDataCell(String initialValue) {
+    onFieldSubmitted(newCellValue) {
+      // TODO Implement
+    }
+
+    return TextFormField(
+      initialValue: initialValue,
+      onFieldSubmitted: onFieldSubmitted,
+    );
+  }
+
+  TextFormField _generateIntDataCell(int initialValue) {
+    return TextFormField(
+      keyboardType:
+          TextInputType.numberWithOptions(decimal: false, signed: false),
+      initialValue: initialValue.toString(),
+      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+    );
+  }
+
+  Text _generateFixedStringDataCell(String value) {
+    return Text(value);
+  }
+
+  DataCell _generateDataCell(
+      dynamic Function(DataObject) retriever, DataObject object) {
+    final dynamic initialValue = retriever(object);
+
+    Widget cellContent;
+    switch (initialValue.runtimeType) {
+      case String:
+        cellContent = _generateStringDataCell(initialValue as String);
+        break;
+      case int:
+        cellContent = _generateIntDataCell(initialValue as int);
+        break;
+      default:
+        cellContent = _generateFixedStringDataCell(initialValue.toString());
+        break;
+    }
+
+    return DataCell(cellContent);
+  }
+
+  void setData(List<DataObject> data) {
     _rows.clear();
 
-    /* FIXME It is assumed every row has at least the number of entries the
-     * first row has.
-     */
-
-    if (data.isNotEmpty) {
-      for (final String columnName in data.first) {
-        _columns.add(DataColumn(label: Text(columnName)));
-      }
-
-      for (int rowIndex = 1; rowIndex < data.length; rowIndex++) {
-        final List<String> rowData = data.elementAt(rowIndex);
+    if (_columns.isNotEmpty) {
+      for (final object in data) {
         final List<DataCell> cells = [];
-        for (int columnIndex = 0;
-            columnIndex < _columns.length;
-            columnIndex++) {
-          final String cellData = rowData.elementAt(columnIndex);
-          cells.add(DataCell(
-            TextFormField(
-              initialValue: cellData,
-              decoration: InputDecoration(
-                  labelText: data.first.elementAtOrNull(columnIndex)),
-              onFieldSubmitted: (newCellValue) {
-                _cellChanges.update(
-                  rowIndex,
-                  (columnChanges) {
-                    columnChanges.update(
-                      columnIndex,
-                      (oldCellValue) => newCellValue,
-                      ifAbsent: () => newCellValue,
-                    );
-                    return columnChanges;
-                  },
-                  ifAbsent: () =>
-                      Map.fromIterables([columnIndex], [newCellValue]),
-                );
 
-                print("Cell changes:");
-                for (final columnChanges in _cellChanges.entries) {
-                  print("Row ${columnChanges.key.toString()}");
-                  for (final newCellValue in columnChanges.value.entries) {
-                    print(
-                        "Column ${newCellValue.key} --> ${newCellValue.value}");
-                  }
-                }
-              },
-            ),
-          ));
+        for (final retriever in _columnRetrievers) {
+          cells.add(_generateDataCell(retriever, object));
         }
+
         _rows.add(DataRow(cells: cells));
       }
     }
 
     notifyListeners();
+  }
+
+  Map<DataObject, DataObject> getChanges() {
+    return _dataChanges;
   }
 }

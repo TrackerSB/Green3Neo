@@ -22,3 +22,7 @@ pub fn get_member_data() -> Vec<Vec<String>> {
         ],
     ]
 }
+
+pub fn apply_member_data_changes() {
+    // TODO Implement
+}
