@@ -10,43 +10,21 @@ class DataTablePage extends StatefulWidget {
   State<StatefulWidget> createState() => DataTablePageState();
 }
 
-class Member {
-  Member(this.id, this.prename, this.surname);
-
-  int id;
-  String prename;
-  String surname;
-}
-
-class DataRetriever<DataObject> {
-  DataRetriever(this.retrievers);
-  Map<String, dynamic Function(DataObject)> retrievers;
-}
-
 class DataTablePageState extends State<DataTablePage> {
   final _tableViewState =
-      TableViewState<Member>(DataRetriever<Member>(Map.fromEntries([
-    MapEntry("Nummer", (member) => member.id),
-    MapEntry("Vorname", (member) => member.prename),
-    MapEntry("Nachname", (member) => member.surname)
-  ])));
+      TableViewState<Member>(backendApi.getMemberConnection());
 
   DataTablePageState() {
     _receiveDataFromDB();
   }
 
   void _receiveDataFromDB() {
-    backendApi.getMemberData().then((data) {
-      final List<Member> memberData = [];
-
-      // Skip headings assuming the order of columns
-      for (final row in data.skip(1)) {
-        memberData.add(Member(
-            int.parse(row.elementAt(0)), row.elementAt(1), row.elementAt(2)));
-      }
-
-      setState(() {
-        _tableViewState.setData(memberData);
+    backendApi.getMemberConnection().then((connection) {
+      final data = MemberConnection.getData(bridge: backendApi);
+      data.then((d) {
+        setState(() {
+          _tableViewState.setData(d);
+        });
       });
     });
   }

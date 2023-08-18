@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:green3neo/data_table_page.dart';
 import 'package:provider/provider.dart';
+import 'ffi.dart';
 
 class TableView<DataObject> extends StatelessWidget {
   const TableView({super.key});
@@ -27,11 +28,18 @@ class TableViewState<DataObject> extends ChangeNotifier {
   final List<DataRow> _rows = [];
   final Map<DataObject, DataObject> _dataChanges = {};
 
-  TableViewState(DataRetriever<DataObject> dataRetriever) {
-    for (final entry in dataRetriever.retrievers.entries) {
-      _columns.add(DataColumn(label: Text(entry.key)));
-      _columnRetrievers.add(entry.value);
-    }
+  TableViewState(Future<MemberConnection> connection) {
+    connection.then((c) {
+      c.getColumnNames().then((columnNames) {
+        for (final columnName in columnNames) {
+          _columns.add(DataColumn(label: Text(columnName)));
+          _columnRetrievers.add((member) async {
+            return await c.getValueOf(
+                member: member as Member, columnName: columnName);
+          });
+        }
+      });
+    });
   }
 
   TextFormField _generateStringDataCell(String initialValue) {
@@ -58,9 +66,9 @@ class TableViewState<DataObject> extends ChangeNotifier {
     return Text(value);
   }
 
-  DataCell _generateDataCell(
-      dynamic Function(DataObject) retriever, DataObject object) {
-    final dynamic initialValue = retriever(object);
+  Future<DataCell> _generateDataCell(
+      dynamic Function(DataObject) retriever, DataObject object) async {
+    final dynamic initialValue = await retriever(object);
 
     Widget cellContent;
     switch (initialValue.runtimeType) {
@@ -78,7 +86,7 @@ class TableViewState<DataObject> extends ChangeNotifier {
     return DataCell(cellContent);
   }
 
-  void setData(List<DataObject> data) {
+  void setData(List<DataObject> data) async {
     _rows.clear();
 
     if (_columns.isNotEmpty) {
@@ -86,7 +94,7 @@ class TableViewState<DataObject> extends ChangeNotifier {
         final List<DataCell> cells = [];
 
         for (final retriever in _columnRetrievers) {
-          cells.add(_generateDataCell(retriever, object));
+          cells.add(await _generateDataCell(retriever, object));
         }
 
         _rows.add(DataRow(cells: cells));
