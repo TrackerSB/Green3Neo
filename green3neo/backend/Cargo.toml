@@ -10,7 +10,9 @@ crate-type = ["staticlib", "cdylib"]
 
 [build-dependencies]
 flutter_rust_bridge_codegen = "1.78.0"
+dotenv = "0.15.0"
 
 [dependencies]
 flutter_rust_bridge = "1.78.0"
 rand = "0.8.4"
+diesel = {version = "2.1.2", features = ["postgres"]}

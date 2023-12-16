@@ -1,6 +1,11 @@
 use std::process::{exit, Command};
+use dotenv::dotenv;
 
 fn main() {
+    // Load local environment variables
+    dotenv().ok();
+
+    // Find GCC include dir
     let clang_output_child = Command::new("clang")
         .args(&["-v"])
         .output()
@@ -38,11 +43,22 @@ fn main() {
         .env("CPATH", gcc_include_dir)
         .env("RUST_BACKTRACE", "1")
         .output()
-        .expect("Failed to execute code generation command.");
+        .expect("Failed to execute code generation command");
 
     if !generation_result.status.success() {
         let error_message = String::from_utf8_lossy(&generation_result.stderr);
-        eprintln!("Code generation command failed: {}", error_message);
+        eprintln!("Code generation failed: {}", error_message);
+        exit(1);
+    }
+
+    // Generate diesel schema
+    let diesel_output = Command::new("diesel")
+        .arg("setup")
+        .output()
+        .expect("Failed to execute schema generation command");
+    if !diesel_output.status.success() {
+        let error_message = String::from_utf8_lossy(&diesel_output.stderr);
+        eprintln!("Schema generation failed: {}", error_message);
         exit(1);
     }
 }
