@@ -8,14 +8,6 @@ pub struct Member {
     pub surname: String,
 }
 
-pub fn get_member() -> Member {
-    Member {
-        id: 0,
-        prename: "prename".to_owned(),
-        surname: "surname".to_owned(),
-    }
-}
-
 impl Member {
     pub fn get_id(&self) -> DartAbi {
         self.id.into_dart()
