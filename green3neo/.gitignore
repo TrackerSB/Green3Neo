@@ -47,3 +47,7 @@ app.*.map.json
 backend/src/bridge_generated.io.rs
 backend/src/bridge_generated.rs
 lib/bridge_generated.dart
+
+# diesel generated
+backend/src/schema.rs
+backend/migrations/
