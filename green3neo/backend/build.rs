@@ -1,5 +1,7 @@
 use dotenv::dotenv;
+use std::io::Write;
 use std::process::{exit, Command};
+use std::fs::File;
 
 fn main() {
     println!("cargo:warning=Load local environment variables");
@@ -57,10 +59,33 @@ fn main() {
     let diesel_setup_output = Command::new("diesel")
         .arg("setup")
         .output()
+        .expect("Failed to set up diesel");
+    if !diesel_setup_output.status.success() {
+        let error_message = String::from_utf8_lossy(&diesel_setup_output.stderr);
+        println!("cargo:warning=Schema setup failed: {}", error_message);
+        exit(1);
+    }
+
+    println!("cargo:warning=Generate diesel schema");
+    let diesel_schema_output = Command::new("diesel")
+        .arg("print-schema")
+        .output()
         .expect("Failed to execute schema generation command");
-    if !diesel_output.status.success() {
-        let error_message = String::from_utf8_lossy(&diesel_output.stderr);
-        eprintln!("Schema generation failed: {}", error_message);
+    if !diesel_schema_output.status.success() {
+        let error_message = String::from_utf8_lossy(&diesel_schema_output.stderr);
+        println!("cargo:warning=Schema generation failed: {}", error_message);
+        exit(1);
+    }
+
+    let schema_file_path = "src/schema.rs"; // FIXME Determine from diesel.toml
+    let file_creation_result = File::create(schema_file_path);
+    if file_creation_result.is_err(){
+        println!("Could not create file {} for schema", schema_file_path);
+        exit(1);
+    }
+
+    if file_creation_result.unwrap().write_all(&diesel_schema_output.stdout).is_err(){
+        println!("Could not write schema to {}", schema_file_path);
         exit(1);
     }
 }
