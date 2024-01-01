@@ -1,0 +1,80 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Delete database tables",
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "clear": true
+            },
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "[Internal] Delete database tables",
+                "[Internal] Deactivate venv for tasks"
+            ],
+        },
+        // Internal tasks
+        {
+            "label": "[Internal] Create and activate venv for tasks",
+            "type": "shell",
+            "command": "${config:python.defaultInterpreterPath}",
+            "args": [
+                "-m",
+                "venv",
+                "${workspaceFolder}/tasks/.venv"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "[Internal] Enable tasks environment",
+            "type": "shell",
+            "command": "${workspaceFolder}/tasks/.venv/bin/pip",
+            "args": [
+                "install",
+                "-r",
+                "${workspaceFolder}/tasks/requirements.txt"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "dependsOn": "[Internal] Create and activate venv for tasks"
+        },
+        {
+            "label": "[Internal] Deactivate venv for tasks",
+            "type": "shell",
+            "command": "${config:python.defaultInterpreterPath}",
+            "args": [
+                "-m",
+                "venv",
+                "deactivate"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "[Internal] Delete database tables",
+            "type": "shell",
+            "command": "${workspaceFolder}/tasks/.venv/bin/python",
+            "args": [
+                "${workspaceFolder}/tasks/delete_db_tables.py"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "dependsOn": "[Internal] Enable tasks environment",
+        }
+    ]
+}
