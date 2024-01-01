@@ -51,3 +51,6 @@ lib/bridge_generated.dart
 # diesel generated
 backend/src/schema.rs
 backend/migrations/
+
+# Virtual environments
+.venv/
