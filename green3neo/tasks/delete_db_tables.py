@@ -1,58 +1,35 @@
-import psycopg2
-from dotenv import load_dotenv
-from os import getenv
+from psycopg2._psycopg import connection
+from task_lib import db_connection
+from typing import List
 
 
-def _get_existing_tables(connection):
-    try:
-        cursor = connection.cursor()
-
-        cursor.execute(
-            """
-            SELECT table_name
-            FROM information_schema.tables
-            WHERE table_schema = 'public'
-                AND table_type = 'BASE_TABLE';
+def _get_existing_tables(connection: connection) -> List[str]:
+    existing_tables = db_connection.execute_query(
+        connection,
         """
+        SELECT table_name
+        FROM information_schema.tables
+        WHERE table_schema = 'public'
+            AND table_type = 'BASE_TABLE';
+        """,
+    )
+
+    return [record[0] for record in existing_tables]
+
+
+def _delete_tables(connection: connection) -> None:
+    existing_tables = _get_existing_tables(connection)
+
+    for table_name in existing_tables:
+        print(f"Drop table {table_name}")
+        db_connection.execute_query(
+            connection, f"DROP TABLE IF EXISTS {table_name} CASCADE;"
         )
-
-        return [record[0] for record in cursor.fetchall()]
-    except Exception as ex:
-        print("Requesting existing tables failed")
-        raise ex
-    finally:
-        cursor.close()
-
-
-def _delete_tables(connection):
-    try:
-        cursor = connection.cursor()
-
-        tables_to_delete = _get_existing_tables(connection)
-        for table in tables_to_delete:
-            cursor.execute(f"DROP TABLE IF EXISTS {table} CASCADE;")
-
-        connection.commit()
-    except Exception as ex:
-        print("Dropping database tables failed")
-        raise ex
-    finally:
-        cursor.close()
 
 
 def _main() -> None:
-    load_dotenv()
-
-    db_config = {
-        "host": getenv("DB_HOST"),
-        "port": getenv("DB_PORT"),
-        "database": getenv("DB_NAME"),
-        "user": getenv("DB_USER"),
-        "password": getenv("DB_PASSWORD"),
-    }
-
     try:
-        connection = psycopg2.connect(**db_config)
+        connection = db_connection.create_connection()
 
         _delete_tables(connection)
     except Exception as ex:

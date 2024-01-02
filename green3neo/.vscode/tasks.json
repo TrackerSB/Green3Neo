@@ -2,6 +2,23 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "Create database tables if non existent",
+            "type": "shell",
+            "command": "zsh",
+            "args": [
+                "${workspaceFolder}/tasks/create_db_tables.zsh"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/tasks"
+            },
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "dependsOn": "[Internal] Create venv for tasks"
+        },
+        {
             "label": "Delete database tables",
             "type": "shell",
             "command": "zsh",
