@@ -10,7 +10,7 @@ def _get_existing_tables(connection: connection) -> List[str]:
         SELECT table_name
         FROM information_schema.tables
         WHERE table_schema = 'public'
-            AND table_type = 'BASE_TABLE';
+            AND table_type = 'BASE TABLE';
         """,
     )
 
