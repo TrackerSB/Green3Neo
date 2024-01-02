@@ -36,7 +36,7 @@
             "dependsOn": "[Internal] Create venv for tasks"
         },
         {
-            "label": "Clear database tables",
+            "label": "Recreate database tables",
             "group": "build",
             "presentation": {
                 "reveal": "always",
