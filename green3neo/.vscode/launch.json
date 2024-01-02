@@ -1,0 +1,13 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Flutter run",
+            "type": "dart",
+            "request": "launch",
+            "program": "lib/main.dart",
+            "cwd": "${workspaceFolder}",
+            "flutterMode": "debug"
+        }
+    ]
+}
