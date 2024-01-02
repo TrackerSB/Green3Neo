@@ -2,23 +2,56 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Delete database tables",
+            "label": "Create database tables if non existent",
+            "type": "shell",
+            "command": "zsh",
+            "args": [
+                "${workspaceFolder}/tasks/create_db_tables.zsh"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/tasks"
+            },
             "group": "build",
             "presentation": {
                 "reveal": "always",
-                "panel": "dedicated",
-                "clear": true
+                "panel": "shared"
+            },
+            "dependsOn": "[Internal] Create venv for tasks"
+        },
+        {
+            "label": "Drop database tables",
+            "type": "shell",
+            "command": "zsh",
+            "args": [
+                "${workspaceFolder}/tasks/delete_db_tables.zsh"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/tasks"
+            },
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "dependsOn": "[Internal] Create venv for tasks"
+        },
+        {
+            "label": "Clear database tables",
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
             },
             "dependsOrder": "sequence",
             "dependsOn": [
-                "[Internal] Delete database tables",
-                "[Internal] Deactivate venv for tasks"
-            ],
+                "Drop database tables",
+                "Create database tables if non existent"
+            ]
         },
         // Internal tasks
         {
-            "label": "[Internal] Create and activate venv for tasks",
-            "type": "shell",
+            "label": "[Internal] Create venv for tasks",
+            "type": "process",
             "command": "${config:python.defaultInterpreterPath}",
             "args": [
                 "-m",
@@ -30,51 +63,6 @@
                 "reveal": "always",
                 "panel": "shared"
             }
-        },
-        {
-            "label": "[Internal] Enable tasks environment",
-            "type": "shell",
-            "command": "${workspaceFolder}/tasks/.venv/bin/pip",
-            "args": [
-                "install",
-                "-r",
-                "${workspaceFolder}/tasks/requirements.txt"
-            ],
-            "group": "build",
-            "presentation": {
-                "reveal": "always",
-                "panel": "shared"
-            },
-            "dependsOn": "[Internal] Create and activate venv for tasks"
-        },
-        {
-            "label": "[Internal] Deactivate venv for tasks",
-            "type": "shell",
-            "command": "${config:python.defaultInterpreterPath}",
-            "args": [
-                "-m",
-                "venv",
-                "deactivate"
-            ],
-            "group": "build",
-            "presentation": {
-                "reveal": "always",
-                "panel": "shared"
-            }
-        },
-        {
-            "label": "[Internal] Delete database tables",
-            "type": "shell",
-            "command": "${workspaceFolder}/tasks/.venv/bin/python",
-            "args": [
-                "${workspaceFolder}/tasks/delete_db_tables.py"
-            ],
-            "group": "build",
-            "presentation": {
-                "reveal": "always",
-                "panel": "shared"
-            },
-            "dependsOn": "[Internal] Enable tasks environment",
         }
     ]
 }
