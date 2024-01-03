@@ -42,16 +42,16 @@ fn main() {
         + "/include";
 
     println!("cargo:warning=Generate flutter rust bindings");
-    let generation_result = Command::new("flutter_rust_bridge_codegen")
+    let frb_generation_result = Command::new("flutter_rust_bridge_codegen")
         .args(&["-r", "./src/api.rs", "-d", "../lib/bridge_generated.dart"])
         .env("CPATH", gcc_include_dir)
         .env("RUST_BACKTRACE", "1")
         .output()
-        .expect("Failed to execute code generation command");
+        .expect("Failed to execute FRB code generation command");
 
-    if !generation_result.status.success() {
-        let error_message = String::from_utf8_lossy(&generation_result.stderr);
-        println!("cargo:warning=Code generation failed: {}", error_message);
+    if !frb_generation_result.status.success() {
+        let error_message = String::from_utf8_lossy(&frb_generation_result.stderr);
+        println!("cargo:warning=FRB code generation failed: {}", error_message);
         exit(1);
     }
 
