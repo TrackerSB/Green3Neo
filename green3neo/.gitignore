@@ -49,6 +49,7 @@ backend/src/bridge_generated.rs
 lib/bridge_generated.dart
 
 # diesel generated
+backend/src/models.rs
 backend/src/schema.rs
 backend/migrations/
 

@@ -88,4 +88,27 @@ fn main() {
         println!("Could not write schema to {}", schema_file_path);
         exit(1);
     }
+
+    println!("cargo:warning=Generate diesel models");
+    let diesel_models_output = Command::new("diesel_ext")
+        .arg("--model")
+        .output()
+        .expect("Failed to execute model generation command");
+    if !diesel_models_output.status.success() {
+        let error_message = String::from_utf8_lossy(&diesel_models_output.stderr);
+        println!("cargo:warning=Model generation failed: {}", error_message);
+        exit(1);
+    }
+
+    let models_file_path = "src/models.rs"; // FIXME Determine from somewhere like diesel.toml?
+    let file_creation_result = File::create(models_file_path);
+    if file_creation_result.is_err(){
+        println!("Could not create file {} for models", models_file_path);
+        exit(1);
+    }
+
+    if file_creation_result.unwrap().write_all(&diesel_models_output.stdout).is_err(){
+        println!("Could not write models to {}", models_file_path);
+        exit(1);
+    }
 }
