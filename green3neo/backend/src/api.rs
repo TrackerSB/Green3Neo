@@ -1,3 +1,5 @@
+use chrono::NaiveDate;
+
 //use std::collections::HashMap;
 use crate::models::Member;
 //use flutter_rust_bridge::{DartAbi, IntoDart, RustOpaque};
@@ -12,7 +14,39 @@ pub struct MemberConnection {
  * generation
  */
 pub fn get_dummy_member() -> Member {
-    Member
+    Member {
+        membershipid: 42,
+        prename: String::default(),
+        surname: String::default(),
+        title: None,
+        ismale: true,
+        birthday: NaiveDate::default(),
+        street: String::default(),
+        housenumber: String::default(),
+        zipcode: String::default(),
+        city: String::default(),
+        isactive: true,
+        isfoundingmember: true,
+        ishonorarymember: true,
+        iscontributionfree: true,
+        contributorsinceyear: None,
+        joindate: NaiveDate::default(),
+        exitdate: None,
+        phonenumber: None,
+        mobilenumber: None,
+        email: None,
+        accountholderprename: None,
+        accountholdersurname: None,
+        iban: String::default(),
+        bic: String::default(),
+        mandatesince: NaiveDate::default(),
+        honoraryyears: None,
+        contributionhonoraryyears: None,
+        hasgauehrenzeichen: true,
+        isehrenschriftf_hrer: true,
+        isehrenvorstand: true,
+        ismemberofboard: true,
+    }
 }
 /*
 pub fn get_dummy_member_connection() -> MemberConnection {

@@ -1,7 +1,7 @@
 use dotenv::dotenv;
+use std::fs::File;
 use std::io::Write;
 use std::process::{exit, Command};
-use std::fs::File;
 
 fn main() {
     println!("cargo:warning=Load local environment variables");
@@ -31,19 +31,32 @@ fn main() {
 
     let schema_file_path = "src/schema.rs"; // FIXME Determine from diesel.toml
     let file_creation_result = File::create(schema_file_path);
-    if file_creation_result.is_err(){
+    if file_creation_result.is_err() {
         println!("Could not create file {} for schema", schema_file_path);
         exit(1);
     }
 
-    if file_creation_result.unwrap().write_all(&diesel_schema_output.stdout).is_err(){
+    if file_creation_result
+        .unwrap()
+        .write_all(&diesel_schema_output.stdout)
+        .is_err()
+    {
         println!("Could not write schema to {}", schema_file_path);
         exit(1);
     }
 
     println!("cargo:warning=Generate diesel models");
     let diesel_models_output = Command::new("diesel_ext")
-        .arg("--model")
+        /* NOTE 2024-01-14:  The additional imports are added to the model output whereas the additional types in the
+         * diesel config are added to the schema output
+         */
+        .args([
+            "--model",
+            "--import-types",
+            "diesel::Queryable",
+            "--import-types",
+            "diesel::Identifiable",
+        ])
         .output()
         .expect("Failed to execute model generation command");
     if !diesel_models_output.status.success() {
@@ -54,12 +67,16 @@ fn main() {
 
     let models_file_path = "src/models.rs"; // FIXME Determine from somewhere like diesel.toml?
     let file_creation_result = File::create(models_file_path);
-    if file_creation_result.is_err(){
+    if file_creation_result.is_err() {
         println!("Could not create file {} for models", models_file_path);
         exit(1);
     }
 
-    if file_creation_result.unwrap().write_all(&diesel_models_output.stdout).is_err(){
+    if file_creation_result
+        .unwrap()
+        .write_all(&diesel_models_output.stdout)
+        .is_err()
+    {
         println!("Could not write models to {}", models_file_path);
         exit(1);
     }

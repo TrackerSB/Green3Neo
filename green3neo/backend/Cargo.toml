@@ -9,10 +9,12 @@ name = "backend"
 crate-type = ["staticlib", "cdylib"]
 
 [build-dependencies]
+diesel_cli_ext = "0.3.13"
 flutter_rust_bridge_codegen = "2.0.0-dev.19"
 dotenv = "0.15.0"
 
 [dependencies]
 flutter_rust_bridge = "2.0.0-dev.19"
 rand = "0.8.4"
+chrono = "0.4.31"
 diesel = {version = "2.1.2", features = ["postgres"]}
