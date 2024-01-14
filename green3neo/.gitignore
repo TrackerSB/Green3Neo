@@ -48,11 +48,6 @@ backend/src/bridge_generated.io.rs
 backend/src/bridge_generated.rs
 lib/bridge_generated.dart
 
-# diesel generated
-backend/src/models.rs
-backend/src/schema.rs
-backend/migrations/
-
 # Created by https://www.toptal.com/developers/gitignore/api/python
 # Edit at https://www.toptal.com/developers/gitignore?templates=python
 
@@ -230,3 +225,8 @@ pyrightconfig.json
 
 # End of https://www.toptal.com/developers/gitignore/api/python
 
+# diesel generated
+backend/src/models.rs
+backend/src/schema.rs
+backend/migrations/
+!backend/build/
