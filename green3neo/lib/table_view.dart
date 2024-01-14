@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:green3neo/api.dart';
 import 'package:green3neo/data_table_page.dart';
 import 'package:provider/provider.dart';
-import 'ffi.dart';
 
 class TableView<DataObject> extends StatelessWidget {
   const TableView({super.key});

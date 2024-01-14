@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-use flutter_rust_bridge::{DartAbi, IntoDart, RustOpaque};
+use flutter_rust_bridge::{DartDynamic, IntoDart, RustOpaque};
 
 pub struct Member {
     pub id: u32,
@@ -16,25 +16,11 @@ pub fn get_member() -> Member {
     }
 }
 
-impl Member {
-    pub fn get_id(&self) -> DartAbi {
-        self.id.into_dart()
-    }
-
-    pub fn get_prename(&self) -> DartAbi {
-        self.prename.as_str().into_dart()
-    }
-
-    pub fn get_surname(&self) -> DartAbi {
-        self.surname.as_str().into_dart()
-    }
-}
-
 /*
 pub trait DBConnection<DataObject> {
     fn get_column_names(&self) -> Vec<String>;
     fn get_data() -> Vec<DataObject>;
-    fn get_value_of(&self, member: DataObject, column_name: String) -> DartAbi;
+    fn get_value_of(&self, member: DataObject, column_name: String) -> DartCObject;
 }
 
 // The following is not supported by FRB
@@ -42,7 +28,7 @@ impl DBConnection<Member> for MemberConnection{...}
 */
 
 pub struct MemberConnection {
-    pub retrievers: RustOpaque<HashMap<String, fn(&Member) -> DartAbi>>,
+    pub retrievers: RustOpaque<HashMap<String, fn(&Member) -> DartDynamic>>,
 }
 
 impl MemberConnection {
@@ -50,7 +36,7 @@ impl MemberConnection {
         self.retrievers.keys().cloned().collect()
     }
 
-    pub fn get_value_of(&self, member: Member, column_name: String) -> DartAbi {
+    pub fn get_value_of(&self, member: Member, column_name: String) -> DartDynamic {
         self.retrievers
             .get(&column_name)
             .expect(&("Could not get value of column ".to_owned() + &column_name))(&member)
@@ -80,12 +66,10 @@ impl MemberConnection {
 
 pub fn get_member_connection() -> MemberConnection {
     MemberConnection {
-        retrievers: RustOpaque::new(HashMap::from([
-            (
-                "Nummer".to_owned(),
-                Member::get_id as fn(&Member) -> DartAbi,
-            ),
-            ("Vorname".to_owned(), Member::get_prename),
-        ])),
+        retrievers: RustOpaque::new(HashMap::from([]))
+        // retrievers: RustOpaque::new(HashMap::from([
+        //     ("Nummer".to_owned(), |m| m.surname as DartDynamic),
+        //     ("Vorname".to_owned(), |m| m.prename),
+        // ])),
     }
 }
