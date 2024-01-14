@@ -33,6 +33,7 @@ impl Member {
     }
 }
 
+/*
 pub trait DBConnection<DataObject> {
     fn get_column_names(&self) -> Vec<String>;
     fn get_data() -> Vec<DataObject>;
@@ -41,6 +42,7 @@ pub trait DBConnection<DataObject> {
 
 // The following is not supported by FRB
 impl DBConnection<Member> for MemberConnection{...}
+*/
 
 pub struct MemberConnection {
     pub retrievers: RustOpaque<HashMap<String, fn(&Member) -> DartAbi>>,

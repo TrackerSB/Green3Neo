@@ -44,9 +44,12 @@ app.*.map.json
 /android/app/release
 
 # Flutter_rust_bridge generated files
-backend/src/bridge_generated.io.rs
-backend/src/bridge_generated.rs
-lib/bridge_generated.dart
+backend/src/frb_generated.rs
+backend/src/frb_generated.io.rs
+backend/src/frb_generated.web.rs
+lib/frb_generated.dart
+lib/frb_generated.io.dart
+lib/frb_generated.web.dart
 
 # Created by https://www.toptal.com/developers/gitignore/api/python
 # Edit at https://www.toptal.com/developers/gitignore?templates=python

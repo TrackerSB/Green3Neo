@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:green3neo/data_table_page.dart';
+import 'package:green3neo/frb_generated.dart';
 
-void main() {
+void main() async {
+  await RustLib.init();
+
   runApp(const MainApp());
 }
 
