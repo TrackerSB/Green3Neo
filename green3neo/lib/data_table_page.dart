@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:green3neo/api.dart';
 import 'package:provider/provider.dart';
 import 'table_view.dart';
-import 'ffi.dart';
 
 class DataTablePage extends StatefulWidget {
   const DataTablePage({super.key});
@@ -12,15 +12,15 @@ class DataTablePage extends StatefulWidget {
 
 class DataTablePageState extends State<DataTablePage> {
   final _tableViewState =
-      TableViewState<Member>(backendApi.getMemberConnection());
+      TableViewState<Member>(getMemberConnection());
 
   DataTablePageState() {
     _receiveDataFromDB();
   }
 
   void _receiveDataFromDB() {
-    backendApi.getMemberConnection().then((connection) {
-      final data = MemberConnection.getData(bridge: backendApi);
+    getMemberConnection().then((connection) {
+      final data = MemberConnection.getData();
       data.then((d) {
         setState(() {
           _tableViewState.setData(d);
