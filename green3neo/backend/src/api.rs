@@ -1,11 +1,22 @@
-use std::collections::HashMap;
+//use std::collections::HashMap;
+use crate::models::Member;
+//use flutter_rust_bridge::{DartAbi, IntoDart, RustOpaque};
 
-use flutter_rust_bridge::{DartAbi, IntoDart, RustOpaque};
+/*
+pub struct MemberConnection {
+    pub foo: u32,
+}
+*/
 
-pub struct Member {
-    pub id: u32,
-    pub prename: String,
-    pub surname: String,
+/* The following methods create dummy instances of classes to ensure they're not optimized away before FRB code
+ * generation
+ */
+pub fn get_dummy_member() -> Member {
+    Member
+}
+/*
+pub fn get_dummy_member_connection() -> MemberConnection {
+    MemberConnection { foo: 42 }
 }
 
 impl Member {
@@ -22,7 +33,6 @@ impl Member {
     }
 }
 
-/*
 pub trait DBConnection<DataObject> {
     fn get_column_names(&self) -> Vec<String>;
     fn get_data() -> Vec<DataObject>;
@@ -31,7 +41,6 @@ pub trait DBConnection<DataObject> {
 
 // The following is not supported by FRB
 impl DBConnection<Member> for MemberConnection{...}
-*/
 
 pub struct MemberConnection {
     pub retrievers: RustOpaque<HashMap<String, fn(&Member) -> DartAbi>>,
@@ -75,9 +84,10 @@ pub fn get_member_connection() -> MemberConnection {
         retrievers: RustOpaque::new(HashMap::from([
             (
                 "Nummer".to_owned(),
-                Member::get_id as fn(&Member) -> DartAbi,
+                Member::id as fn(&Member) -> DartAbi,
             ),
-            ("Vorname".to_owned(), Member::get_prename),
+            ("Vorname".to_owned(), Member::prename),
         ])),
     }
 }
+*/
