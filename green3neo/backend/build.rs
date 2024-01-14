@@ -37,7 +37,7 @@ fn main() {
 
     println!("cargo:warning=Generate flutter rust bindings");
     let frb_generation_result = Command::new("flutter_rust_bridge_codegen")
-        .args(&["generate", "-r", "./src/api.rs", "-d", "../lib/"])
+        .args(&["generate", "--no-web", "--no-add-mod-to-lib", "-r", "./src/api.rs", "-d", "../lib/"])
         .env("CPATH", gcc_include_dir)
         .env("RUST_BACKTRACE", "full")
         .output()
