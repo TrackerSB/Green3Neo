@@ -56,7 +56,7 @@ class TableViewState<DataObject> extends ChangeNotifier {
   TextFormField _generateIntDataCell(int initialValue) {
     return TextFormField(
       keyboardType:
-          TextInputType.numberWithOptions(decimal: false, signed: false),
+          const TextInputType.numberWithOptions(decimal: false, signed: false),
       initialValue: initialValue.toString(),
       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
     );
