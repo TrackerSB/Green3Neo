@@ -56,6 +56,9 @@ fn main() {
             "diesel::Queryable",
             "--import-types",
             "diesel::Identifiable",
+            "--import-types",
+            "crate::schema::*",
+            "--add-table-name"
         ])
         .output()
         .expect("Failed to execute model generation command");
