@@ -43,10 +43,14 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
+# Flutter reflectable
+*.reflectable.dart
+
 # Flutter_rust_bridge generated files
 backend/src/frb_generated.rs
 backend/src/frb_generated.io.rs
 backend/src/frb_generated.web.rs
+lib/api.dart
 lib/frb_generated.dart
 lib/frb_generated.io.dart
 lib/frb_generated.web.dart
@@ -72,6 +76,8 @@ downloads/
 eggs/
 .eggs/
 lib/
+# Do not ignore Dart files
+!/lib/
 lib64/
 parts/
 sdist/

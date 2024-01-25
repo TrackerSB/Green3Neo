@@ -128,6 +128,8 @@ fn main() {
             "./src/api.rs",
             "-d",
             "../lib/",
+            "--extra-headers",
+            "foo",
         ])
         .env("CPATH", gcc_include_dir)
         .env("RUST_BACKTRACE", "full")
@@ -138,6 +140,26 @@ fn main() {
         let error_message = String::from_utf8_lossy(&frb_generation_result.stderr);
         println!(
             "cargo:warning=FRB code generation failed: {}",
+            error_message
+        );
+        exit(1);
+    }
+
+    println!("cargo:warning=Generate flutter reflectable code");
+    let reflectable_generation_result = Command::new("flutter")
+        .args(&[
+              "pub",
+              "run",
+              "build_runner",
+              "build"
+        ])
+        .output()
+        .expect("Failed to execute reflectable code generation command");
+
+    if !reflectable_generation_result.status.success() {
+        let error_message = String::from_utf8_lossy(&reflectable_generation_result.stderr);
+        println!(
+            "cargo:warning=Reflectable code generation failed: {}",
             error_message
         );
         exit(1);

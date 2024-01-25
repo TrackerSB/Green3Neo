@@ -11,27 +11,20 @@ class DataTablePage extends StatefulWidget {
 }
 
 class DataTablePageState extends State<DataTablePage> {
-  final _tableViewState =
-      TableViewState<Member>(getMemberConnection());
+  final _tableViewState = TableViewState<Member>();
 
   DataTablePageState() {
     _receiveDataFromDB();
   }
 
   void _receiveDataFromDB() {
-    getMemberConnection().then((connection) {
-      final data = MemberConnection.getData();
-      data.then((d) {
-        setState(() {
-          _tableViewState.setData(d);
-        });
-      });
-    });
+    getDummyMember().then((member) => setState(() {
+          _tableViewState.setData(List<Member>.of(<Member>[member]));
+        }));
   }
 
   void _commitDataChanges() {
-    // backendApi.applyMemberDataChanges(_tableViewState.getChanges());
-    // TODO
+    // TODO Implement
   }
 
   @override
