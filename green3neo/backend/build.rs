@@ -144,12 +144,13 @@ fn main() {
     }
 
     println!("cargo:warning=Generate flutter reflectable code");
-    let reflectable_generation_result = Command::new("flutter")
+    let reflectable_generation_result = Command::new("dart")
+        .current_dir("..")
         .args(&[
-              "pub",
               "run",
               "build_runner",
-              "build"
+              "build",
+              "--delete-conflicting-outputs",
         ])
         .output()
         .expect("Failed to execute reflectable code generation command");
