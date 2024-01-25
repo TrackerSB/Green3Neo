@@ -128,8 +128,6 @@ fn main() {
             "./src/api.rs",
             "--dart-output",
             "../lib/",
-            "--extra-headers",
-            "foo",
         ])
         .env("CPATH", gcc_include_dir)
         .env("RUST_BACKTRACE", "full")
