@@ -18,6 +18,7 @@ generate-diesel-schema:
 generate-diesel-models:
     cd {{ backend_dir }} && diesel_ext --model --import-types diesel::Queryable --import-types diesel::Identifiable --import-types crate::schema::* --add-table-name > src/models.rs
 
+# Is building rust required? It's triggered by CMake in the linux application.
 build-rust:
     cd {{ backend_dir }} && cargo build
 
