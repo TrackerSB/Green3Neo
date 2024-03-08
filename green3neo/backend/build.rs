@@ -1,8 +1,7 @@
 use std::process::{exit, Command};
 
-fn main() {
-    println!("cargo:warning=Load local environment variables");
 
+fn main() {
     println!("cargo:warning=Find GCC include dir candidates");
     let clang_output_child = Command::new("clang")
         .args(&["-v"])
