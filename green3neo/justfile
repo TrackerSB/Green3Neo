@@ -1,0 +1,26 @@
+set dotenv-load
+
+backend_dir := "./backend"
+
+default:
+    @just --list
+
+[confirm]
+clean:
+    git clean -xfd
+
+setup-diesel:
+    cd {{ backend_dir }} && diesel setup
+
+generate-diesel-schema:
+    cd {{ backend_dir }} && diesel print-schema > src/schema.rs
+
+generate-diesel-models:
+    cd {{ backend_dir }} && diesel_ext --model --import-types diesel::Queryable --import-types diesel::Identifiable --import-types crate::schema::* --add-table-name > src/models.rs
+
+build-rust:
+    cd {{ backend_dir }} && cargo build
+
+build: setup-diesel generate-diesel-schema generate-diesel-models build-rust
+
+rebuild: clean build

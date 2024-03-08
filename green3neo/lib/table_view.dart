@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
+import 'package:reflectable/mirrors.dart';
 import 'reflectable.dart';
 
 class TableView<DataObject> extends StatelessWidget {
@@ -34,10 +35,10 @@ class TableViewState<DataObject> extends ChangeNotifier {
       return;
     }
 
-    var classMirror = reflectableMarker.reflectType(DataObject);
-    var typeVariables = classMirror.typeVariables;
-    for (var t in typeVariables) {
-      print(t.runtimeType);
+    var classMirror = reflectableMarker.reflectType(DataObject) as ClassMirror;
+    var classDeclarations = classMirror.declarations;
+    for (var name in classDeclarations.keys) {
+      print("$name --> ${classDeclarations[name].runtimeType}");
     }
 
     /*connection.then((c) {
