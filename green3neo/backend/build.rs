@@ -1,6 +1,4 @@
-use core::time;
 use std::process::{exit, Command};
-use std::thread;
 
 fn main() {
     println!("cargo:warning=Load local environment variables");
@@ -59,29 +57,6 @@ fn main() {
         let error_message = String::from_utf8_lossy(&frb_generation_result.stderr);
         println!(
             "cargo:warning=FRB code generation failed: {}",
-            error_message
-        );
-        exit(1);
-    }
-
-    thread::sleep(time::Duration::from_secs(5)); // Wait for generated flutter files to appear (required?)
-
-    println!("cargo:warning=Generate flutter reflectable code");
-    let reflectable_generation_result = Command::new("dart")
-        .current_dir("..")
-        .args(&[
-            "run",
-            "build_runner",
-            "build",
-            "--delete-conflicting-outputs",
-        ])
-        .output()
-        .expect("Failed to execute reflectable code generation command");
-
-    if !reflectable_generation_result.status.success() {
-        let error_message = String::from_utf8_lossy(&reflectable_generation_result.stderr);
-        println!(
-            "cargo:warning=Reflectable code generation failed: {}",
             error_message
         );
         exit(1);

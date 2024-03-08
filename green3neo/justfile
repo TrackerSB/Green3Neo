@@ -21,6 +21,9 @@ generate-diesel-models:
 build-rust:
     cd {{ backend_dir }} && cargo build
 
-build: setup-diesel generate-diesel-schema generate-diesel-models build-rust
+generate-flutter-reflectable:
+    dart run build_runner build --delete-conflicting-outputs
+
+build: setup-diesel generate-diesel-schema generate-diesel-models build-rust generate-flutter-reflectable
 
 rebuild: clean build
