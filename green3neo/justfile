@@ -7,7 +7,7 @@ default:
 
 [confirm]
 clean:
-    git clean -xfd
+    git clean -Xfd
 
 setup-diesel:
     cd {{ backend_dir }} && diesel setup
