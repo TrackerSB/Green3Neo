@@ -21,7 +21,7 @@ generate-diesel-models:
     cd {{ backend_dir }} && diesel_ext --model --import-types diesel::Queryable --import-types diesel::Identifiable --import-types crate::schema::* --add-table-name > src/models.rs
 
 generate-flutter-rust-bindings:
-    flutter_rust_bridge_codegen generate --no-web --no-add-mod-to-lib --llvm-path {{ llvmIncludeDir }} --rust-input {{ backend_dir }}/src/api.rs --dart-output lib/
+    flutter_rust_bridge_codegen generate --no-web --no-add-mod-to-lib --llvm-path {{ llvmIncludeDir }} --rust-input {{ backend_dir }}/src/api/**/*.rs --dart-output lib/
 
 # Is building rust required? It's triggered by CMake in the linux application.
 build-rust:

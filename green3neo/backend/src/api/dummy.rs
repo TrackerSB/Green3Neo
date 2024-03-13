@@ -4,6 +4,11 @@ use chrono::NaiveDate;
 use crate::models::Member;
 //use flutter_rust_bridge::{DartAbi, IntoDart, RustOpaque};
 
+// #[flutter_rust_bridge::frb(init)]
+// pub fn init_app(){
+//     flutter_rust_bridge::setup_default_user_utils();
+// }
+
 /*
 pub struct MemberConnection {
     pub foo: u32,
