@@ -32,4 +32,7 @@ generate-flutter-reflectable:
 
 build: setup-diesel generate-diesel-schema generate-diesel-models generate-flutter-rust-bindings build-rust generate-flutter-reflectable
 
+run: build
+    flutter run
+
 rebuild: clean build
