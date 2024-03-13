@@ -30,7 +30,10 @@ build-rust:
 generate-flutter-reflectable:
     dart run build_runner build --delete-conflicting-outputs
 
-build: setup-diesel generate-diesel-schema generate-diesel-models generate-flutter-rust-bindings build-rust generate-flutter-reflectable
+build-flutter:
+    flutter build linux
+
+build: setup-diesel generate-diesel-schema generate-diesel-models generate-flutter-rust-bindings build-rust generate-flutter-reflectable build-flutter
 
 run: build
     flutter run
