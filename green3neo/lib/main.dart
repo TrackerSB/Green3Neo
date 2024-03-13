@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:green3neo/data_table_page.dart';
-import 'package:green3neo/frb_generated.dart';
+import 'package:green3neo/backend/frb_generated.dart';
 import 'main.reflectable.dart';
 
 void main() async {

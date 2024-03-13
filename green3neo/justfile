@@ -1,6 +1,7 @@
 set dotenv-load
 
 backend_dir := "./backend"
+frb_dart_output_dir := "./lib/backend"
 llvmPath := `clang -v 2>&1 | grep 'Selected GCC installation' | rev | cut -d' ' -f1 | rev`
 llvmIncludeDir := llvmPath + "/include"
 
@@ -20,8 +21,10 @@ generate-diesel-schema:
 generate-diesel-models:
     cd {{ backend_dir }} && diesel_ext --model --import-types diesel::Queryable --import-types diesel::Identifiable --import-types crate::schema::* --add-table-name > src/models.rs
 
+# FIXME Verify that FRB versions in Cargo.toml, pubspec.yaml and the installed FRB codegen correspond to each other
 generate-flutter-rust-bindings:
-    flutter_rust_bridge_codegen generate --no-web --no-add-mod-to-lib --llvm-path {{ llvmIncludeDir }} --rust-input {{ backend_dir }}/src/api/**/*.rs --dart-output lib/
+    mkdir -p {{ frb_dart_output_dir }}
+    flutter_rust_bridge_codegen generate --no-web --no-add-mod-to-lib --llvm-path {{ llvmIncludeDir }} --rust-input {{ backend_dir }}/src/api/**/*.rs --dart-output {{ frb_dart_output_dir }}
 
 # Is building rust required? It's triggered by CMake in the linux application.
 build-rust:
