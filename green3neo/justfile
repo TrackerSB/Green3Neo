@@ -39,7 +39,7 @@ generate-flutter-reflectable:
 build-flutter:
     flutter build linux
 
-build: start-postgresql setup-diesel generate-diesel-schema generate-diesel-models generate-flutter-rust-bindings build-rust generate-flutter-reflectable build-flutter
+build: setup-diesel generate-diesel-schema generate-diesel-models generate-flutter-rust-bindings build-rust generate-flutter-reflectable build-flutter
 
 run: build
     flutter run
