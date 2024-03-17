@@ -12,6 +12,9 @@ default:
 clean:
     git clean -Xfd
 
+start-postgresql:
+    sudo systemctl start postgresql
+
 setup-diesel:
     cd {{ backend_dir }} && diesel setup
 
@@ -36,7 +39,7 @@ generate-flutter-reflectable:
 build-flutter:
     flutter build linux
 
-build: setup-diesel generate-diesel-schema generate-diesel-models generate-flutter-rust-bindings build-rust generate-flutter-reflectable build-flutter
+build: start-postgresql setup-diesel generate-diesel-schema generate-diesel-models generate-flutter-rust-bindings build-rust generate-flutter-reflectable build-flutter
 
 run: build
     flutter run
