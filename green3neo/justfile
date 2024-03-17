@@ -31,7 +31,7 @@ generate-flutter-rust-bindings:
 
 # Is building rust required? It's triggered by CMake in the linux application.
 build-rust:
-    cd {{ backend_dir }} && cargo build
+    cd {{ backend_dir }} && cargo build --release
 
 generate-flutter-reflectable:
     dart run build_runner build --delete-conflicting-outputs
