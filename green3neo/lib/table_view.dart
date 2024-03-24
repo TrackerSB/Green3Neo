@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:green3neo/api.dart';
-import 'package:green3neo/data_table_page.dart';
 import 'package:provider/provider.dart';
+import 'package:reflectable/mirrors.dart';
+import 'reflectable.dart';
 
 class TableView<DataObject> extends StatelessWidget {
   const TableView({super.key});
@@ -28,8 +28,20 @@ class TableViewState<DataObject> extends ChangeNotifier {
   final List<DataRow> _rows = [];
   final Map<DataObject, DataObject> _dataChanges = {};
 
-  TableViewState(Future<MemberConnection> connection) {
-    connection.then((c) {
+  TableViewState() {
+    if (!reflectableMarker.canReflectType(DataObject)) {
+      print(
+          "Cannot generate table view for type '$DataObject' since it's not reflectable.");
+      return;
+    }
+
+    var classMirror = reflectableMarker.reflectType(DataObject) as ClassMirror;
+    var classDeclarations = classMirror.declarations;
+    for (var name in classDeclarations.keys) {
+      print("$name --> ${classDeclarations[name].runtimeType}");
+    }
+
+    /*connection.then((c) {
       c.getColumnNames().then((columnNames) {
         for (final columnName in columnNames) {
           _columns.add(DataColumn(label: Text(columnName)));
@@ -39,7 +51,7 @@ class TableViewState<DataObject> extends ChangeNotifier {
           });
         }
       });
-    });
+    });*/
   }
 
   TextFormField _generateStringDataCell(String initialValue) {
@@ -56,7 +68,7 @@ class TableViewState<DataObject> extends ChangeNotifier {
   TextFormField _generateIntDataCell(int initialValue) {
     return TextFormField(
       keyboardType:
-          TextInputType.numberWithOptions(decimal: false, signed: false),
+          const TextInputType.numberWithOptions(decimal: false, signed: false),
       initialValue: initialValue.toString(),
       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
     );

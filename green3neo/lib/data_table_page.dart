@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:green3neo/api.dart';
+import 'package:green3neo/backend/api/dummy.dart';
+import 'package:green3neo/backend/models.dart';
 import 'package:provider/provider.dart';
 import 'table_view.dart';
 
@@ -11,27 +12,20 @@ class DataTablePage extends StatefulWidget {
 }
 
 class DataTablePageState extends State<DataTablePage> {
-  final _tableViewState =
-      TableViewState<Member>(getMemberConnection());
+  final _tableViewState = TableViewState<Member>();
 
   DataTablePageState() {
     _receiveDataFromDB();
   }
 
   void _receiveDataFromDB() {
-    getMemberConnection().then((connection) {
-      final data = MemberConnection.getData();
-      data.then((d) {
-        setState(() {
-          _tableViewState.setData(d);
-        });
-      });
-    });
+    getDummyMember().then((member) => setState(() {
+          _tableViewState.setData(List<Member>.of(<Member>[member]));
+        }));
   }
 
   void _commitDataChanges() {
-    // backendApi.applyMemberDataChanges(_tableViewState.getChanges());
-    // TODO
+    // TODO Implement
   }
 
   @override
