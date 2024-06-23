@@ -19,8 +19,13 @@ class DataTablePageState extends State<DataTablePage> {
   }
 
   void _receiveDataFromDB() {
-    getDummyMember().then((member) => setState(() {
-          _tableViewState.setData(List<Member>.of(<Member>[member]));
+    getDummyMembers().then((members) => setState(() {
+          if (members == null) {
+            // FIXME Provide error message
+            _tableViewState.setData(List.empty());
+          } else {
+            _tableViewState.setData(members);
+          }
         }));
   }
 
