@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:reflectable/mirrors.dart';
 import 'reflectable.dart';
 
-class TableView<DataObject> extends StatelessWidget {
+class TableView<DataObject extends Object> extends StatelessWidget {
   const TableView({super.key});
 
   @override
@@ -22,7 +22,7 @@ class TableView<DataObject> extends StatelessWidget {
   }
 }
 
-class TableViewState<DataObject> extends ChangeNotifier {
+class TableViewState<DataObject extends Object> extends ChangeNotifier {
   final List<DataColumn> _columns = [];
   final List<dynamic Function(DataObject)> _columnRetrievers = [];
   final List<DataRow> _rows = [];
@@ -41,21 +41,14 @@ class TableViewState<DataObject> extends ChangeNotifier {
     classDeclarations.forEach((name, declarationMirror) {
       if (declarationMirror is VariableMirror) {
         VariableMirror variableMirror = declarationMirror;
-        print("$name --> ${variableMirror.reflectedType}");
+        _columns.add(DataColumn(label: Text(name)));
+        _columnRetrievers.add((member) {
+          return reflectableMarker
+              .reflect(member)
+              .invokeGetter(variableMirror.simpleName);
+        });
       }
     });
-
-    /*connection.then((c) {
-      c.getColumnNames().then((columnNames) {
-        for (final columnName in columnNames) {
-          _columns.add(DataColumn(label: Text(columnName)));
-          _columnRetrievers.add((member) async {
-            return await c.getValueOf(
-                member: member as Member, columnName: columnName);
-          });
-        }
-      });
-    });*/
   }
 
   TextFormField _generateStringDataCell(String initialValue) {
