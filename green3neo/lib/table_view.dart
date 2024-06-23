@@ -63,11 +63,16 @@ class TableViewState<DataObject extends Object> extends ChangeNotifier {
   }
 
   TextFormField _generateIntDataCell(int initialValue) {
+    onFieldSubmitted(newCellValue) {
+      // TODO Implement
+    }
+
     return TextFormField(
       keyboardType:
           const TextInputType.numberWithOptions(decimal: false, signed: false),
       initialValue: initialValue.toString(),
       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+      onFieldSubmitted: onFieldSubmitted,
     );
   }
 
