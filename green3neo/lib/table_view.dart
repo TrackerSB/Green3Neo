@@ -36,10 +36,14 @@ class TableViewState<DataObject> extends ChangeNotifier {
     }
 
     var classMirror = reflectableMarker.reflectType(DataObject) as ClassMirror;
-    var classDeclarations = classMirror.declarations;
-    for (var name in classDeclarations.keys) {
-      print("$name --> ${classDeclarations[name].runtimeType}");
-    }
+    Map<String, DeclarationMirror> classDeclarations = classMirror.declarations;
+
+    classDeclarations.forEach((name, declarationMirror) {
+      if (declarationMirror is VariableMirror) {
+        VariableMirror variableMirror = declarationMirror;
+        print("$name --> ${variableMirror.reflectedType}");
+      }
+    });
 
     /*connection.then((c) {
       c.getColumnNames().then((columnNames) {
