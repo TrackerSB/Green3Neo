@@ -48,23 +48,6 @@
                 "Create database tables if non existent"
             ]
         },
-        {
-            "label": "Populate database tables",
-            "type": "shell",
-            "command": "zsh",
-            "args": [
-                "${workspaceFolder}/tasks/populate_db_tables.zsh"
-            ],
-            "options": {
-                "cwd": "${workspaceFolder}/tasks"
-            },
-            "group": "build",
-            "presentation": {
-                "reveal": "always",
-                "panel": "shared"
-            },
-            "dependsOn": "[Internal] Create venv for tasks"
-        },
         // Internal tasks
         {
             "label": "[Internal] Create venv for tasks",

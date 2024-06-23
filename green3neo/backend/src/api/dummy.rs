@@ -1,4 +1,4 @@
-// use chrono::NaiveDate;
+use chrono::NaiveDate;
 
 //use std::collections::HashMap;
 use crate::models::Member;
@@ -25,7 +25,7 @@ pub fn get_dummy_member() -> Member {
         surname: String::default(),
         title: None,
         ismale: true,
-        // birthday: NaiveDate::default(),
+        birthday: NaiveDate::default(),
         street: String::default(),
         housenumber: String::default(),
         zipcode: String::default(),
@@ -35,8 +35,8 @@ pub fn get_dummy_member() -> Member {
         ishonorarymember: true,
         iscontributionfree: true,
         contributorsinceyear: None,
-        // joindate: NaiveDate::default(),
-        // exitdate: None,
+        joindate: NaiveDate::default(),
+        exitdate: None,
         phonenumber: None,
         mobilenumber: None,
         email: None,
@@ -44,7 +44,7 @@ pub fn get_dummy_member() -> Member {
         accountholdersurname: None,
         iban: String::default(),
         bic: String::default(),
-        // mandatesince: NaiveDate::default(),
+        mandatesince: NaiveDate::default(),
         honoraryyears: None,
         contributionhonoraryyears: None,
         hasgauehrenzeichen: true,
