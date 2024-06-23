@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:reflectable/mirrors.dart';
 import 'reflectable.dart';
 
-class TableView<DataObject> extends StatelessWidget {
+class TableView<DataObject extends Object> extends StatelessWidget {
   const TableView({super.key});
 
   @override
@@ -22,7 +22,7 @@ class TableView<DataObject> extends StatelessWidget {
   }
 }
 
-class TableViewState<DataObject> extends ChangeNotifier {
+class TableViewState<DataObject extends Object> extends ChangeNotifier {
   final List<DataColumn> _columns = [];
   final List<dynamic Function(DataObject)> _columnRetrievers = [];
   final List<DataRow> _rows = [];
@@ -36,22 +36,19 @@ class TableViewState<DataObject> extends ChangeNotifier {
     }
 
     var classMirror = reflectableMarker.reflectType(DataObject) as ClassMirror;
-    var classDeclarations = classMirror.declarations;
-    for (var name in classDeclarations.keys) {
-      print("$name --> ${classDeclarations[name].runtimeType}");
-    }
+    Map<String, DeclarationMirror> classDeclarations = classMirror.declarations;
 
-    /*connection.then((c) {
-      c.getColumnNames().then((columnNames) {
-        for (final columnName in columnNames) {
-          _columns.add(DataColumn(label: Text(columnName)));
-          _columnRetrievers.add((member) async {
-            return await c.getValueOf(
-                member: member as Member, columnName: columnName);
-          });
-        }
-      });
-    });*/
+    classDeclarations.forEach((name, declarationMirror) {
+      if (declarationMirror is VariableMirror) {
+        VariableMirror variableMirror = declarationMirror;
+        _columns.add(DataColumn(label: Text(name)));
+        _columnRetrievers.add((member) {
+          return reflectableMarker
+              .reflect(member)
+              .invokeGetter(variableMirror.simpleName);
+        });
+      }
+    });
   }
 
   TextFormField _generateStringDataCell(String initialValue) {
@@ -66,11 +63,16 @@ class TableViewState<DataObject> extends ChangeNotifier {
   }
 
   TextFormField _generateIntDataCell(int initialValue) {
+    onFieldSubmitted(newCellValue) {
+      // TODO Implement
+    }
+
     return TextFormField(
       keyboardType:
           const TextInputType.numberWithOptions(decimal: false, signed: false),
       initialValue: initialValue.toString(),
       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+      onFieldSubmitted: onFieldSubmitted,
     );
   }
 
