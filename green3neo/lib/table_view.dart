@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:pair/pair.dart';
 import 'package:provider/provider.dart';
 import 'package:reflectable/mirrors.dart';
 import 'reflectable.dart';
@@ -15,17 +15,128 @@ class TableView<DataObject extends Object> extends StatelessWidget {
       return const Text("No data");
     }
 
-    return DataTable(
-      columns: tableViewState._columns,
-      rows: tableViewState._rows,
+    return PaginatedDataTable(
+      columns: tableViewState._columns.map((e) => e.key).toList(),
+      source: TableViewSource(
+        context,
+        tableViewState._content,
+        tableViewState._columns.map((e) => e.value).toList(),
+      ),
     );
   }
 }
 
+class TableViewSource<DataObject extends Object> extends DataTableSource {
+  final BuildContext _context;
+  final List<DataObject> _content;
+  final List<dynamic Function(DataObject)> _columnRetrievers;
+
+  TableViewSource(this._context, this._content, this._columnRetrievers);
+
+  DataCell _generateStringDataCell(String initialValue) {
+    onFieldSubmitted(newCellValue) {
+      // TODO Implement
+    }
+
+    return DataCell(
+      Text(initialValue),
+      onTap: () {
+        showGeneralDialog(
+          context: _context,
+          pageBuilder: (context, animation, secondaryAnimation) {
+            return Dialog(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: TextFormField(
+                      initialValue: initialValue,
+                      onFieldSubmitted: onFieldSubmitted,
+                    ),
+                  ),
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      ElevatedButton(
+                        onPressed: () => Navigator.pop(_context),
+                        child: Text("Save"),
+                      ),
+                      ElevatedButton(
+                        onPressed: () => Navigator.pop(_context),
+                        child: Text("Cancel"),
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            );
+          },
+        );
+      },
+    );
+  }
+
+  DataCell _generateIntDataCell(int initialValue) {
+    // onFieldSubmitted(newCellValue) {
+    //   // TODO Implement
+    // }
+
+    // return TextFormField(
+    //   keyboardType:
+    //       const TextInputType.numberWithOptions(decimal: false, signed: false),
+    //   initialValue: initialValue.toString(),
+    //   inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+    //   onFieldSubmitted: onFieldSubmitted,
+    // );
+
+    return DataCell(Text(initialValue.toString()));
+  }
+
+  DataCell _generateFixedStringDataCell(String value) {
+    return DataCell(Text(value));
+  }
+
+  DataCell _generateDataCell(
+      dynamic Function(DataObject) retriever, DataObject object) {
+    final dynamic initialValue = retriever(object);
+
+    switch (initialValue.runtimeType) {
+      case String:
+        return _generateStringDataCell(initialValue as String);
+      case int:
+        return _generateIntDataCell(initialValue as int);
+      default:
+        return _generateFixedStringDataCell(initialValue.toString());
+    }
+  }
+
+  @override
+  DataRow? getRow(int index) {
+    final object = _content[index];
+    final List<DataCell> cells = [];
+
+    for (var retriever in _columnRetrievers) {
+      cells.add(_generateDataCell(retriever, object));
+    }
+
+    return DataRow(cells: cells);
+  }
+
+  @override
+  bool get isRowCountApproximate => false;
+
+  @override
+  int get rowCount => _content.length;
+
+  @override
+  int get selectedRowCount => 0;
+}
+
 class TableViewState<DataObject extends Object> extends ChangeNotifier {
-  final List<DataColumn> _columns = [];
-  final List<dynamic Function(DataObject)> _columnRetrievers = [];
-  final List<DataRow> _rows = [];
+  final List<Pair<DataColumn, dynamic Function(DataObject)>> _columns = [];
+  final List<DataObject> _content = [];
   final Map<DataObject, DataObject> _dataChanges = {};
 
   TableViewState() {
@@ -41,80 +152,23 @@ class TableViewState<DataObject extends Object> extends ChangeNotifier {
     classDeclarations.forEach((name, declarationMirror) {
       if (declarationMirror is VariableMirror) {
         VariableMirror variableMirror = declarationMirror;
-        _columns.add(DataColumn(label: Text(name)));
-        _columnRetrievers.add((member) {
-          return reflectableMarker
-              .reflect(member)
-              .invokeGetter(variableMirror.simpleName);
-        });
+        _columns.add(
+          Pair(
+            DataColumn(label: Text(name)),
+            (member) {
+              return reflectableMarker
+                  .reflect(member)
+                  .invokeGetter(variableMirror.simpleName);
+            },
+          ),
+        );
       }
     });
   }
 
-  TextFormField _generateStringDataCell(String initialValue) {
-    onFieldSubmitted(newCellValue) {
-      // TODO Implement
-    }
-
-    return TextFormField(
-      initialValue: initialValue,
-      onFieldSubmitted: onFieldSubmitted,
-    );
-  }
-
-  TextFormField _generateIntDataCell(int initialValue) {
-    onFieldSubmitted(newCellValue) {
-      // TODO Implement
-    }
-
-    return TextFormField(
-      keyboardType:
-          const TextInputType.numberWithOptions(decimal: false, signed: false),
-      initialValue: initialValue.toString(),
-      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-      onFieldSubmitted: onFieldSubmitted,
-    );
-  }
-
-  Text _generateFixedStringDataCell(String value) {
-    return Text(value);
-  }
-
-  Future<DataCell> _generateDataCell(
-      dynamic Function(DataObject) retriever, DataObject object) async {
-    final dynamic initialValue = await retriever(object);
-
-    Widget cellContent;
-    switch (initialValue.runtimeType) {
-      case String:
-        cellContent = _generateStringDataCell(initialValue as String);
-        break;
-      case int:
-        cellContent = _generateIntDataCell(initialValue as int);
-        break;
-      default:
-        cellContent = _generateFixedStringDataCell(initialValue.toString());
-        break;
-    }
-
-    return DataCell(cellContent);
-  }
-
-  void setData(List<DataObject> data) async {
-    _rows.clear();
-
-    if (_columns.isNotEmpty) {
-      for (final object in data) {
-        final List<DataCell> cells = [];
-
-        for (final retriever in _columnRetrievers) {
-          cells.add(await _generateDataCell(retriever, object));
-        }
-
-        _rows.add(DataRow(cells: cells));
-      }
-    }
-
+  void setData(List<DataObject> data) {
+    _content.clear();
+    _content.addAll(data);
     notifyListeners();
   }
 
