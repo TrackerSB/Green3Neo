@@ -23,6 +23,9 @@ class TableView<DataObject extends Object> extends StatelessWidget {
         tableViewState._content,
         tableViewState._columns.map((e) => e.value).toList(),
       ),
+      rowsPerPage: 20,
+      showFirstLastButtons: true,
+      showCheckboxColumn: true, // FIXME Has it any effect?
     );
   }
 }

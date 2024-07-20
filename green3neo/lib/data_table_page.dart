@@ -33,6 +33,19 @@ class DataTablePageState extends State<DataTablePage> {
     // TODO Implement
   }
 
+  Widget _wrapInScrollable(Widget toWrap, Axis direction) {
+    var scrollController = ScrollController();
+
+    return Scrollbar(
+      controller: scrollController,
+      child: SingleChildScrollView(
+        controller: scrollController,
+        scrollDirection: direction,
+        child: toWrap,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -50,9 +63,22 @@ class DataTablePageState extends State<DataTablePage> {
             ),
           ],
         ),
-        ChangeNotifierProvider(
-          create: (_) => _tableViewState,
-          child: const TableView<Member>(),
+        Expanded(
+          child: ScrollConfiguration(
+            behavior:
+                ScrollConfiguration.of(context).copyWith(scrollbars: true),
+            child: _wrapInScrollable(
+                _wrapInScrollable(
+                    SizedBox(
+                      width: 2000, // FIXME Determine required width for table
+                      child: ChangeNotifierProvider(
+                        create: (_) => _tableViewState,
+                        child: const TableView<Member>(),
+                      ),
+                    ),
+                    Axis.horizontal),
+                Axis.vertical),
+          ),
         ),
       ],
     );
