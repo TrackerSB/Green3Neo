@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:pair/pair.dart';
 import 'package:provider/provider.dart';
 import 'package:reflectable/mirrors.dart';
@@ -33,11 +34,7 @@ class TableViewSource<DataObject extends Object> extends DataTableSource {
 
   TableViewSource(this._context, this._content, this._columnRetrievers);
 
-  DataCell _generateStringDataCell(String initialValue) {
-    onFieldSubmitted(newCellValue) {
-      // TODO Implement
-    }
-
+  DataCell _generateEditPopup(String initialValue, Widget content) {
     return DataCell(
       Text(initialValue),
       onTap: () {
@@ -51,10 +48,7 @@ class TableViewSource<DataObject extends Object> extends DataTableSource {
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(10),
-                    child: TextFormField(
-                      initialValue: initialValue,
-                      onFieldSubmitted: onFieldSubmitted,
-                    ),
+                    child: content,
                   ),
                   Row(
                     mainAxisSize: MainAxisSize.min,
@@ -78,20 +72,34 @@ class TableViewSource<DataObject extends Object> extends DataTableSource {
     );
   }
 
+  DataCell _generateStringDataCell(String initialValue) {
+    onFieldSubmitted(newCellValue) {
+      // TODO Implement
+    }
+
+    return _generateEditPopup(
+      initialValue,
+      TextFormField(
+        initialValue: initialValue,
+        onFieldSubmitted: onFieldSubmitted,
+      ),
+    );
+  }
+
   DataCell _generateIntDataCell(int initialValue) {
-    // onFieldSubmitted(newCellValue) {
-    //   // TODO Implement
-    // }
+    onFieldSubmitted(newCellValue) {
+      // TODO Implement
+    }
 
-    // return TextFormField(
-    //   keyboardType:
-    //       const TextInputType.numberWithOptions(decimal: false, signed: false),
-    //   initialValue: initialValue.toString(),
-    //   inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-    //   onFieldSubmitted: onFieldSubmitted,
-    // );
-
-    return DataCell(Text(initialValue.toString()));
+    return _generateEditPopup(
+        initialValue.toString(),
+        TextFormField(
+          keyboardType: const TextInputType.numberWithOptions(
+              decimal: false, signed: false),
+          initialValue: initialValue.toString(),
+          inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+          onFieldSubmitted: onFieldSubmitted,
+        ));
   }
 
   DataCell _generateFixedStringDataCell(String value) {
