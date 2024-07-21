@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:pair/pair.dart';
 import 'package:provider/provider.dart';
 import 'package:reflectable/mirrors.dart';
 import 'reflectable.dart';
@@ -17,11 +16,11 @@ class TableView<DataObject extends Object> extends StatelessWidget {
     }
 
     return PaginatedDataTable(
-      columns: tableViewState._columns.map((e) => e.key).toList(),
+      columns: tableViewState._columns.keys.toList(),
       source: TableViewSource(
         context,
         tableViewState._content,
-        tableViewState._columns.map((e) => e.value).toList(),
+        tableViewState._columns.values.toList(),
       ),
       rowsPerPage: 20,
       showFirstLastButtons: true,
@@ -33,9 +32,9 @@ class TableView<DataObject extends Object> extends StatelessWidget {
 class TableViewSource<DataObject extends Object> extends DataTableSource {
   final BuildContext _context;
   final List<DataObject> _content;
-  final List<dynamic Function(DataObject)> _columnRetrievers;
+  final List<DataColumnInfo<DataObject>> _columnInfos;
 
-  TableViewSource(this._context, this._content, this._columnRetrievers);
+  TableViewSource(this._context, this._content, this._columnInfos);
 
   DataCell _generateEditPopup(String initialValue, Widget content) {
     return DataCell(
@@ -123,9 +122,8 @@ class TableViewSource<DataObject extends Object> extends DataTableSource {
     return DataCell(Text(value));
   }
 
-  DataCell _generateDataCell(
-      dynamic Function(DataObject) retriever, DataObject object) {
-    final dynamic initialValue = retriever(object);
+  DataCell _generateDataCell(DataColumnInfo<DataObject> info, DataObject object) {
+    final dynamic initialValue = info.getter(object);
 
     switch (initialValue.runtimeType) {
       case String:
@@ -144,8 +142,8 @@ class TableViewSource<DataObject extends Object> extends DataTableSource {
     final object = _content[index];
     final List<DataCell> cells = [];
 
-    for (var retriever in _columnRetrievers) {
-      cells.add(_generateDataCell(retriever, object));
+    for (var info in _columnInfos) {
+      cells.add(_generateDataCell(info, object));
     }
 
     return DataRow(cells: cells);
@@ -161,8 +159,14 @@ class TableViewSource<DataObject extends Object> extends DataTableSource {
   int get selectedRowCount => 0;
 }
 
+class DataColumnInfo<DataObject extends Object> {
+  final dynamic Function(DataObject) getter;
+
+  DataColumnInfo(this.getter);
+}
+
 class TableViewState<DataObject extends Object> extends ChangeNotifier {
-  final List<Pair<DataColumn, dynamic Function(DataObject)>> _columns = [];
+  final Map<DataColumn, DataColumnInfo<DataObject>> _columns = {};
   final List<DataObject> _content = [];
   final Map<DataObject, DataObject> _dataChanges = {};
 
@@ -179,15 +183,12 @@ class TableViewState<DataObject extends Object> extends ChangeNotifier {
     classDeclarations.forEach((name, declarationMirror) {
       if (declarationMirror is VariableMirror) {
         VariableMirror variableMirror = declarationMirror;
-        _columns.add(
-          Pair(
-            DataColumn(label: Text(name)),
-            (member) {
-              return reflectableMarker
-                  .reflect(member)
-                  .invokeGetter(variableMirror.simpleName);
-            },
-          ),
+        _columns[DataColumn(label: Text(name))] = DataColumnInfo<DataObject>(
+          (member) {
+            return reflectableMarker
+                .reflect(member)
+                .invokeGetter(variableMirror.simpleName);
+          },
         );
       }
     });
