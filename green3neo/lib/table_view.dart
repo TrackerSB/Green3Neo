@@ -74,13 +74,17 @@ class TableViewSource<DataObject extends Object> extends DataTableSource {
     );
   }
 
-  DataCell _generateStringDataCell(String initialValue) {
+  DataCell _generateStringDataCell(String? initialValue, bool isNullableType) {
     onFieldSubmitted(newCellValue) {
       // TODO Implement
     }
 
+    if (isNullableType) {
+      return _generateFixedStringDataCell(initialValue.toString());
+    }
+
     return _generateEditPopup(
-      initialValue,
+      initialValue.toString(),
       TextFormField(
         initialValue: initialValue,
         onFieldSubmitted: onFieldSubmitted,
@@ -88,9 +92,13 @@ class TableViewSource<DataObject extends Object> extends DataTableSource {
     );
   }
 
-  DataCell _generateIntDataCell(int initialValue) {
+  DataCell _generateIntDataCell(int? initialValue, bool isNullableType) {
     onFieldSubmitted(newCellValue) {
       // TODO Implement
+    }
+
+    if (isNullableType) {
+      return _generateFixedStringDataCell(initialValue.toString());
     }
 
     return _generateEditPopup(
@@ -104,9 +112,13 @@ class TableViewSource<DataObject extends Object> extends DataTableSource {
         ));
   }
 
-  DataCell _generateBoolDataCell(bool initialValue) {
+  DataCell _generateBoolDataCell(bool? initialValue, bool isNullableType) {
     onChanged(newCellValue) {
       // TODO Implement
+    }
+
+    if (isNullableType) {
+      return _generateFixedStringDataCell(initialValue.toString());
     }
 
     return _generateEditPopup(
@@ -118,20 +130,29 @@ class TableViewSource<DataObject extends Object> extends DataTableSource {
     );
   }
 
-  DataCell _generateFixedStringDataCell(String value) {
-    return DataCell(Text(value));
+  DataCell _generateFixedStringDataCell(String? value) {
+    return DataCell(Text(value.toString()));
   }
 
-  DataCell _generateDataCell(DataColumnInfo<DataObject> info, DataObject object) {
+  DataCell _generateDataCell(
+      DataColumnInfo<DataObject> info, DataObject object) {
     final dynamic initialValue = info.getter(object);
 
-    switch (initialValue.runtimeType) {
+    final isNullableType = info.type.toString().endsWith("?");
+    print(initialValue);
+    print(info.type.toString());
+    print(isNullableType);
+
+    assert(isNullableType || (initialValue != null));
+
+    switch (info.type) {
+      // NOTE Switch-case does not support nullable types
       case String:
-        return _generateStringDataCell(initialValue as String);
+        return _generateStringDataCell(initialValue as String?, isNullableType);
       case int:
-        return _generateIntDataCell(initialValue as int);
+        return _generateIntDataCell(initialValue as int?, isNullableType);
       case bool:
-        return _generateBoolDataCell(initialValue as bool);
+        return _generateBoolDataCell(initialValue as bool?, isNullableType);
       default:
         return _generateFixedStringDataCell(initialValue.toString());
     }
@@ -160,9 +181,10 @@ class TableViewSource<DataObject extends Object> extends DataTableSource {
 }
 
 class DataColumnInfo<DataObject extends Object> {
+  final TypeMirror type;
   final dynamic Function(DataObject) getter;
 
-  DataColumnInfo(this.getter);
+  DataColumnInfo(this.type, this.getter);
 }
 
 class TableViewState<DataObject extends Object> extends ChangeNotifier {
@@ -182,12 +204,12 @@ class TableViewState<DataObject extends Object> extends ChangeNotifier {
 
     classDeclarations.forEach((name, declarationMirror) {
       if (declarationMirror is VariableMirror) {
-        VariableMirror variableMirror = declarationMirror;
         _columns[DataColumn(label: Text(name))] = DataColumnInfo<DataObject>(
+          declarationMirror.type,
           (member) {
             return reflectableMarker
                 .reflect(member)
-                .invokeGetter(variableMirror.simpleName);
+                .invokeGetter(declarationMirror.simpleName);
           },
         );
       }
