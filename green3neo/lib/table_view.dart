@@ -105,6 +105,20 @@ class TableViewSource<DataObject extends Object> extends DataTableSource {
         ));
   }
 
+  DataCell _generateBoolDataCell(bool initialValue) {
+    onChanged(newCellValue) {
+      // TODO Implement
+    }
+
+    return _generateEditPopup(
+      initialValue.toString(),
+      Checkbox(
+        value: initialValue,
+        onChanged: onChanged,
+      ),
+    );
+  }
+
   DataCell _generateFixedStringDataCell(String value) {
     return DataCell(Text(value));
   }
@@ -118,6 +132,8 @@ class TableViewSource<DataObject extends Object> extends DataTableSource {
         return _generateStringDataCell(initialValue as String);
       case int:
         return _generateIntDataCell(initialValue as int);
+      case bool:
+        return _generateBoolDataCell(initialValue as bool);
       default:
         return _generateFixedStringDataCell(initialValue.toString());
     }
