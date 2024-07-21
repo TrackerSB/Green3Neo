@@ -68,16 +68,18 @@ class DataTablePageState extends State<DataTablePage> {
             behavior:
                 ScrollConfiguration.of(context).copyWith(scrollbars: true),
             child: _wrapInScrollable(
-                _wrapInScrollable(
-                    SizedBox(
-                      width: 2000, // FIXME Determine required width for table
-                      child: ChangeNotifierProvider(
-                        create: (_) => _tableViewState,
-                        child: const TableView<Member>(),
-                      ),
-                    ),
-                    Axis.horizontal),
-                Axis.vertical),
+              _wrapInScrollable(
+                SizedBox(
+                  width: 2000, // FIXME Determine required width for table
+                  child: ChangeNotifierProvider(
+                    create: (_) => _tableViewState,
+                    child: const TableView<Member>(),
+                  ),
+                ),
+                Axis.horizontal,
+              ),
+              Axis.vertical,
+            ),
           ),
         ),
       ],
