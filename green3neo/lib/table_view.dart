@@ -138,14 +138,10 @@ class TableViewSource<DataObject extends Object> extends DataTableSource {
       DataColumnInfo<DataObject> info, DataObject object) {
     final dynamic initialValue = info.getter(object);
 
-    final isNullableType = info.type.toString().endsWith("?");
-    print(initialValue);
-    print(info.type.toString());
-    print(isNullableType);
-
+    final isNullableType = info.type.isNullable;
     assert(isNullableType || (initialValue != null));
 
-    switch (info.type) {
+    switch (info.type.reflectedType) {
       // NOTE Switch-case does not support nullable types
       case String:
         return _generateStringDataCell(initialValue as String?, isNullableType);
