@@ -142,7 +142,6 @@ class TableViewSource<DataObject extends Object> extends DataTableSource {
     assert(isNullableType || (initialValue != null));
 
     switch (info.type.reflectedType) {
-      // NOTE Switch-case does not support nullable types
       case String:
         return _generateStringDataCell(initialValue as String?, isNullableType);
       case int:
