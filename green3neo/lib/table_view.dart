@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 import 'package:reflectable/mirrors.dart';
 import 'reflectable.dart';
@@ -36,7 +37,7 @@ class TableViewSource<DataObject extends Object> extends DataTableSource {
 
   TableViewSource(this._context, this._content, this._columnInfos);
 
-  DataCell _generateEditPopup(String initialValue, Widget content) {
+  DataCell _wrapIntoDataCell(String initialValue, Widget content) {
     return DataCell(
       Text(initialValue),
       onTap: () {
@@ -74,64 +75,59 @@ class TableViewSource<DataObject extends Object> extends DataTableSource {
     );
   }
 
-  DataCell _generateStringDataCell(String? initialValue, bool isNullableType) {
-    onFieldSubmitted(newCellValue) {
+  Widget _wrapIntoNullableDataCell(Widget content, bool isNull) {
+    onChanged(isChecked) {
       // TODO Implement
     }
 
-    if (isNullableType) {
-      return _generateFixedStringDataCell(initialValue.toString());
-    }
-
-    return _generateEditPopup(
-      initialValue.toString(),
-      TextFormField(
-        initialValue: initialValue,
-        onFieldSubmitted: onFieldSubmitted,
-      ),
+    return Row(
+      children: [
+        Checkbox(value: isNull, onChanged: onChanged),
+        Expanded(
+          child: content,
+        ),
+      ],
     );
   }
 
-  DataCell _generateIntDataCell(int? initialValue, bool isNullableType) {
+  Widget _generateStringDataCell(String? initialValue) {
     onFieldSubmitted(newCellValue) {
       // TODO Implement
     }
 
-    if (isNullableType) {
-      return _generateFixedStringDataCell(initialValue.toString());
-    }
-
-    return _generateEditPopup(
-        initialValue.toString(),
-        TextFormField(
-          keyboardType: const TextInputType.numberWithOptions(
-              decimal: false, signed: false),
-          initialValue: initialValue.toString(),
-          inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-          onFieldSubmitted: onFieldSubmitted,
-        ));
+    return TextFormField(
+      initialValue: initialValue,
+      onFieldSubmitted: onFieldSubmitted,
+    );
   }
 
-  DataCell _generateBoolDataCell(bool? initialValue, bool isNullableType) {
+  Widget _generateIntDataCell(int? initialValue) {
+    onFieldSubmitted(newCellValue) {
+      // TODO Implement
+    }
+
+    return TextFormField(
+      keyboardType:
+          const TextInputType.numberWithOptions(decimal: false, signed: false),
+      initialValue: initialValue.toString(),
+      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+      onFieldSubmitted: onFieldSubmitted,
+    );
+  }
+
+  Widget _generateBoolDataCell(bool? initialValue) {
     onChanged(newCellValue) {
       // TODO Implement
     }
 
-    if (isNullableType) {
-      return _generateFixedStringDataCell(initialValue.toString());
-    }
-
-    return _generateEditPopup(
-      initialValue.toString(),
-      Checkbox(
-        value: initialValue,
-        onChanged: onChanged,
-      ),
+    return Checkbox(
+      value: initialValue,
+      onChanged: onChanged,
     );
   }
 
-  DataCell _generateFixedStringDataCell(String? value) {
-    return DataCell(Text(value.toString()));
+  Widget _generateFixedStringDataCell(String? value) {
+    return Text(value.toString());
   }
 
   DataCell _generateDataCell(
@@ -141,16 +137,23 @@ class TableViewSource<DataObject extends Object> extends DataTableSource {
     final isNullableType = info.type.isNullable;
     assert(isNullableType || (initialValue != null));
 
+    Widget dataCell;
     switch (info.type.reflectedType) {
       case String:
-        return _generateStringDataCell(initialValue as String?, isNullableType);
+        dataCell = _generateStringDataCell(initialValue as String?);
       case int:
-        return _generateIntDataCell(initialValue as int?, isNullableType);
+        dataCell = _generateIntDataCell(initialValue as int?);
       case bool:
-        return _generateBoolDataCell(initialValue as bool?, isNullableType);
+        dataCell = _generateBoolDataCell(initialValue as bool?);
       default:
-        return _generateFixedStringDataCell(initialValue.toString());
+        dataCell = _generateFixedStringDataCell(initialValue.toString());
     }
+
+    if (isNullableType) {
+      dataCell = _wrapIntoNullableDataCell(dataCell, initialValue == null);
+    }
+
+    return _wrapIntoDataCell(initialValue.toString(), dataCell);
   }
 
   @override
