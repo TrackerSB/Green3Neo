@@ -188,15 +188,15 @@ class TableView<DataObject extends Object> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final tableViewState = context.watch<TableViewState<DataObject>>();
+    final tableViewContent = context.watch<TableViewContent<DataObject>>();
 
-    if (tableViewState._columnInfo.isEmpty) {
+    if (tableViewContent._columnInfo.isEmpty) {
       return const Text("No data");
     }
 
     return PaginatedDataTable(
       columns: _createColumns(
-        tableViewState._columnInfo.map(
+        tableViewContent._columnInfo.map(
           (name, info) {
             return MapEntry(name, info.type);
           },
@@ -204,8 +204,8 @@ class TableView<DataObject extends Object> extends StatelessWidget {
       ),
       source: TableViewSource(
         // FIXME Should this be a copy avoiding direct access?
-        tableViewState._content,
-        _createCellGenerators(context, tableViewState._columnInfo),
+        tableViewContent._content,
+        _createCellGenerators(context, tableViewContent._columnInfo),
       ),
       rowsPerPage: 20,
       showFirstLastButtons: true,
@@ -254,12 +254,12 @@ class DataColumnInfo<DataObject extends Object> {
   );
 }
 
-class TableViewState<DataObject extends Object> extends ChangeNotifier {
+class TableViewContent<DataObject extends Object> extends ChangeNotifier {
   final Map<String, DataColumnInfo<DataObject>> _columnInfo = {};
   final List<DataObject> _content = [];
   final Map<DataObject, DataObject> _dataChanges = {};
 
-  TableViewState() {
+  TableViewContent() {
     if (!reflectableMarker.canReflectType(DataObject)) {
       print(
           "Cannot generate table view for type '$DataObject' since it's not reflectable.");

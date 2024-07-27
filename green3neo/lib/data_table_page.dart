@@ -12,7 +12,7 @@ class DataTablePage extends StatefulWidget {
 }
 
 class DataTablePageState extends State<DataTablePage> {
-  final _tableViewState = TableViewState<Member>();
+  final _tableViewState = TableViewContent<Member>();
 
   DataTablePageState() {
     _receiveDataFromDB();
