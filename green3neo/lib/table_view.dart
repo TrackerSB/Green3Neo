@@ -137,17 +137,18 @@ class TableViewSource<DataObject extends Object> extends DataTableSource {
     final isNullableType = info.type.isNullable;
     assert(isNullableType || (initialValue != null));
 
-    Widget dataCell;
-    switch (info.type.reflectedType) {
-      case String:
-        dataCell = _generateStringDataCell(initialValue as String?);
-      case int:
-        dataCell = _generateIntDataCell(initialValue as int?);
-      case bool:
-        dataCell = _generateBoolDataCell(initialValue as bool?);
-      default:
-        dataCell = _generateFixedStringDataCell(initialValue.toString());
-    }
+    Widget dataCell = (() {
+      switch (info.type.reflectedType) {
+        case String:
+          return _generateStringDataCell(initialValue as String?);
+        case int:
+          return _generateIntDataCell(initialValue as int?);
+        case bool:
+          return _generateBoolDataCell(initialValue as bool?);
+        default:
+          return _generateFixedStringDataCell(initialValue.toString());
+      }
+    })();
 
     if (isNullableType) {
       dataCell = _wrapIntoNullableDataCell(dataCell, initialValue == null);
