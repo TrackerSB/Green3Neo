@@ -94,7 +94,7 @@ class TableView<DataObject extends Object> extends StatelessWidget {
       // TODO Implement
     }
 
-    return (object) {
+    return (DataObject object) {
       final dynamic currentValue = info.getter(object);
 
       return TextFormField(
@@ -137,6 +137,10 @@ class TableView<DataObject extends Object> extends StatelessWidget {
     final isNullableType = info.type.isNullable;
 
     Widget Function(DataObject) widgetGenerator = (() {
+      if (info.setter == null) {
+        return _createFixedStringWidgetGenerator(info);
+      }
+
       switch (info.type.reflectedType) {
         case String:
           return _createStringWidgetGenerator(info);
@@ -245,7 +249,7 @@ class TableViewSource<DataObject extends Object> extends DataTableSource {
 class DataColumnInfo<DataObject extends Object> {
   final TypeMirror type;
   final dynamic Function(DataObject) getter;
-  final void Function(DataObject, dynamic) setter;
+  final void Function(DataObject, dynamic)? setter;
 
   DataColumnInfo(
     this.type,
@@ -279,12 +283,14 @@ class TableViewContent<DataObject extends Object> extends ChangeNotifier {
                   .reflect(object)
                   .invokeGetter(declarationMirror.simpleName);
             },
-            (object, newValue) {
-              // FIXME Is the setter result required for anything?
-              final setterResult = reflectableMarker
-                  .reflect(object)
-                  .invokeSetter(declarationMirror.simpleName, newValue);
-            },
+            declarationMirror.isFinal
+                ? null
+                : (object, newValue) {
+                    // FIXME Is the setter result required for anything?
+                    final setterResult = reflectableMarker
+                        .reflect(object)
+                        .invokeSetter(declarationMirror.simpleName, newValue);
+                  },
           );
         }
       },
