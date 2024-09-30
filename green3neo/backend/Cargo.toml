@@ -9,11 +9,11 @@ crate-type = ["cdylib"]
 
 [build-dependencies]
 dotenv = "0.15.0"
-flutter_rust_bridge_codegen = "=2.0.0-dev.28"
+flutter_rust_bridge_codegen = "=2.4.0"
 
 [dependencies]
 dotenv = "0.15.0"
-flutter_rust_bridge = "=2.0.0"
+flutter_rust_bridge = "=2.4.0"
 rand = "0.8.4"
 chrono = "0.4.31"
 diesel = {version = "2.1.2", features = ["postgres"]}
