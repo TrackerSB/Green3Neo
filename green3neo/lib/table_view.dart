@@ -181,7 +181,7 @@ class TableView<DataObject extends Object> extends StatelessWidget {
           return MapEntry(
             name,
             DataColumn(
-              label: Text(type.simpleName),
+              label: Text(name),
             ),
           );
         })
