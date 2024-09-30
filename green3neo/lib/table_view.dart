@@ -108,16 +108,19 @@ class TableView<DataObject extends Object> extends StatelessWidget {
 
   Widget Function(DataObject) _createBoolWidgetGenerator(
       DataColumnInfo<DataObject> info) {
-    onChanged(newCellValue) {
-      // TODO Implement
-    }
+    return (DataObject object) {
+      dynamic currentValue = info.getter(object);
 
-    return (object) {
-      final dynamic currentValue = info.getter(object);
-
-      return Checkbox(
-        value: currentValue,
-        onChanged: onChanged,
+      return StatefulBuilder(
+        builder: (BuildContext context, StateSetter setState) {
+          return Checkbox(
+            value: currentValue,
+            onChanged: (bool? newCellValue) {
+              info.setter!(object, newCellValue);
+              setState(() => currentValue = newCellValue);
+            },
+          );
+        },
       );
     };
   }
