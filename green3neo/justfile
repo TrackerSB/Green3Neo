@@ -22,7 +22,7 @@ generate-diesel-schema:
     cd {{ backend_dir }} && diesel print-schema > src/schema.rs
 
 generate-diesel-models:
-    cd {{ backend_dir }} && diesel_ext --model --import-types diesel::Queryable --import-types diesel::Selectable --import-types diesel::Identifiable --import-types flutter_rust_bridge::frb --import-types crate::schema::* --derive Queryable,Selectable --add-table-name > src/models.rs
+    cd {{ backend_dir }} && diesel_ext --model --import-types diesel::Queryable --import-types diesel::Selectable --import-types diesel::Identifiable --import-types backend_macros::make_fields_non_final --import-types flutter_rust_bridge::frb --import-types crate::schema::* --derive Queryable,Selectable --add-table-name > src/models.rs
     git apply ./patches/models.rs.patch
 
 # FIXME Verify that FRB versions in Cargo.toml, pubspec.yaml and the installed FRB codegen correspond to each other

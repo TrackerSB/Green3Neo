@@ -12,6 +12,7 @@ dotenv = "0.15.0"
 flutter_rust_bridge_codegen = "=2.4.0"
 
 [dependencies]
+backend_macros = { path = "../backend_macros" }
 dotenv = "0.15.0"
 flutter_rust_bridge = "=2.4.0"
 rand = "0.8.4"

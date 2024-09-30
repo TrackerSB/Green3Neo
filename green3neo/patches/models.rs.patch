@@ -4,7 +4,7 @@
  #[derive(Queryable,Selectable, Identifiable)]
  #[diesel(primary_key(membershipid))]
  #[diesel(table_name = member)]
-+#[frb(non_final)]
++#[make_fields_non_final]
  pub struct Member {
      pub membershipid: i32,
      pub prename: String,
