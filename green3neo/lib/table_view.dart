@@ -33,11 +33,11 @@ class TableView<DataObject extends Object> extends StatelessWidget {
                       children: [
                         ElevatedButton(
                           onPressed: () => Navigator.pop(context),
-                          child: Text("Save"),
+                          child: const Text("Save"),
                         ),
                         ElevatedButton(
                           onPressed: () => Navigator.pop(context),
-                          child: Text("Cancel"),
+                          child: const Text("Cancel"),
                         ),
                       ],
                     )
