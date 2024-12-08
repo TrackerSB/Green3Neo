@@ -1,20 +1,99 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:provider/provider.dart';
 import 'package:reflectable/mirrors.dart';
 import 'reflectable.dart';
 
+part 'table_view.freezed.dart';
+
+@Freezed()
+sealed class SupportedType with _$SupportedType {
+  const SupportedType._();
+
+  const factory SupportedType.int(int value) = IntVariant;
+  const factory SupportedType.string(String value) = StringVariant;
+  const factory SupportedType.bool(bool value) = BoolVariant;
+  const factory SupportedType.unsupported(dynamic value) = UnsupportedVariant;
+
+  Widget
+      generateWidget<DataObject extends Object, CellType extends SupportedType>(
+          DataObject object,
+          CellType initialValue,
+          void Function(CellType) setter) {
+    return initialValue.when(
+      int: (value) =>
+          generateIntWidget(object, value, setter as void Function(IntVariant)),
+      string: (value) => generateStringWidget(
+          object, value, setter as void Function(StringVariant)),
+      bool: (value) => generateBoolWidget(
+          object, value, setter as void Function(BoolVariant)),
+      unsupported: (value) => generateUnsupportedWidget(
+          object, value, setter as void Function(UnsupportedVariant)),
+    );
+  }
+}
+
+Widget generateIntWidget<DataObject extends Object>(
+    DataObject object, int initialValue, void Function(IntVariant) setter) {
+  onFieldSubmitted(newCellValue) {
+    // TODO Implement
+  }
+
+  return TextFormField(
+    keyboardType:
+        const TextInputType.numberWithOptions(decimal: false, signed: false),
+    initialValue: initialValue.toString(),
+    inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+    onFieldSubmitted: onFieldSubmitted,
+  );
+}
+
+Widget generateStringWidget<DataObject extends Object>(DataObject object,
+    String initialValue, void Function(StringVariant) setter) {
+  onFieldSubmitted(newCellValue) {
+    // TODO Implement
+  }
+
+  return TextFormField(
+    initialValue: initialValue,
+    onFieldSubmitted: onFieldSubmitted,
+  );
+}
+
+Widget generateBoolWidget<DataObject extends Object>(
+    DataObject object, bool initialValue, void Function(BoolVariant) setter) {
+  return Checkbox(
+    value: initialValue,
+    onChanged: (bool? newCellValue) {
+      print("Change to $newCellValue");
+      setter(BoolVariant(newCellValue!));
+    },
+  );
+}
+
+Widget generateUnsupportedWidget<DataObject extends Object>(DataObject object,
+    dynamic initialValue, void Function(UnsupportedVariant) setter) {
+  return Text(initialValue.toString());
+}
+
+typedef CellSetter = void Function(SupportedType?);
+typedef CellWidgetGenerator<DataObject, CellType extends SupportedType?>
+    = Widget Function(DataObject, CellType, CellSetter);
+typedef DataCellGenerator<DataObject> = DataCell Function(DataObject);
+
 class TableView<DataObject extends Object> extends StatelessWidget {
   const TableView({super.key});
 
-  DataCell Function(DataObject) _wrapIntoCellGenerator(
+  DataCellGenerator<DataObject> _wrapIntoCellGenerator(
       BuildContext context,
-      Widget Function(DataObject) widgetGenerator,
-      DataColumnInfo<DataObject> info) {
-    return (object) {
-      final dynamic initialValue = info.getter(object);
+      CellWidgetGenerator<DataObject, SupportedType?> widgetGenerator,
+      DataColumnInfo<DataObject, SupportedType> info) {
+    return (DataObject object) {
+      SupportedType? currentValue = info.getter(object);
+
       return DataCell(
-        Text(initialValue.toString()),
+        Text(currentValue.toString()),
         onTap: () {
           showGeneralDialog(
             context: context,
@@ -26,7 +105,16 @@ class TableView<DataObject extends Object> extends StatelessWidget {
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(10),
-                      child: widgetGenerator(object),
+                      child: StatefulBuilder(
+                        builder: (BuildContext context, StateSetter setState) {
+                          return widgetGenerator(
+                              object,
+                              currentValue,
+                              (newCellValue) => setState(
+                                    () => currentValue = newCellValue,
+                                  ));
+                        },
+                      ),
                     ),
                     Row(
                       mainAxisSize: MainAxisSize.min,
@@ -51,127 +139,63 @@ class TableView<DataObject extends Object> extends StatelessWidget {
     };
   }
 
-  Widget Function(DataObject) _wrapIntoNullWidgetGenerator(
-      Widget Function(DataObject) cellGenerator,
-      DataColumnInfo<DataObject> info) {
+  CellWidgetGenerator<DataObject, SupportedType?> _wrapIntoNullWidgetGenerator(
+      CellWidgetGenerator<DataObject, SupportedType> cellGenerator,
+      DataColumnInfo<DataObject, SupportedType> info) {
     onChanged(isChecked) {
       // TODO Implement
     }
 
-    return (object) {
-      final dynamic isNull = (info.getter(object) == null);
+    return (DataObject object, SupportedType? currentValue, CellSetter setter) {
+      final bool isNull = (info.getter(object) == null);
+
       return Row(
         children: [
           Checkbox(value: isNull, onChanged: onChanged),
           Expanded(
-            child: cellGenerator(object),
+            child: (currentValue == null)
+                ? const Text("Value is currently null")
+                : cellGenerator(object, currentValue, setter),
           ),
         ],
       );
     };
   }
 
-  Widget Function(DataObject) _createStringWidgetGenerator(
-      DataColumnInfo<DataObject> info) {
-    onFieldSubmitted(newCellValue) {
-      // TODO Implement
-    }
+  DataCellGenerator<DataObject> _createCellGenerator(
+      BuildContext context, DataColumnInfo<DataObject, SupportedType> info) {
+    final isNullableType = info.typeMirror.isNullable;
 
-    return (object) {
-      final dynamic currentValue = info.getter(object);
-
-      return TextFormField(
-        initialValue: currentValue,
-        onFieldSubmitted: onFieldSubmitted,
-      );
-    };
-  }
-
-  Widget Function(DataObject) _createIntWidgetGenerator(
-      DataColumnInfo<DataObject> info) {
-    onFieldSubmitted(newCellValue) {
-      // TODO Implement
-    }
-
-    return (DataObject object) {
-      final dynamic currentValue = info.getter(object);
-
-      return TextFormField(
-        keyboardType: const TextInputType.numberWithOptions(
-            decimal: false, signed: false),
-        initialValue: currentValue.toString(),
-        inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-        onFieldSubmitted: onFieldSubmitted,
-      );
-    };
-  }
-
-  Widget Function(DataObject) _createBoolWidgetGenerator(
-      DataColumnInfo<DataObject> info) {
-    return (DataObject object) {
-      dynamic currentValue = info.getter(object);
-
-      return StatefulBuilder(
-        builder: (BuildContext context, StateSetter setState) {
-          return Checkbox(
-            value: currentValue,
-            onChanged: (bool? newCellValue) {
-              info.setter!(object, newCellValue);
-              setState(() => currentValue = newCellValue);
-            },
-          );
-        },
-      );
-    };
-  }
-
-  Widget Function(DataObject) _createFixedStringWidgetGenerator(
-      DataColumnInfo<DataObject> info) {
-    return (object) {
-      final dynamic initialValue = info.getter(object);
-
-      return Text(initialValue.toString());
-    };
-  }
-
-  DataCell Function(DataObject) _createCellGenerator(
-      BuildContext context, DataColumnInfo<DataObject> info) {
-    final isNullableType = info.type.isNullable;
-
-    Widget Function(DataObject) widgetGenerator = (() {
-      if (info.setter == null) {
-        return _createFixedStringWidgetGenerator(info);
-      }
-
-      switch (info.type.reflectedType) {
-        case String:
-          return _createStringWidgetGenerator(info);
-        case int:
-          return _createIntWidgetGenerator(info);
-        case bool:
-          return _createBoolWidgetGenerator(info);
-        default:
-          return _createFixedStringWidgetGenerator(info);
-      }
-    })();
-
+    CellWidgetGenerator<DataObject, SupportedType?> nullableWidgetGenerator;
     if (isNullableType) {
-      widgetGenerator = _wrapIntoNullWidgetGenerator(widgetGenerator, info);
+      nullableWidgetGenerator =
+          _wrapIntoNullWidgetGenerator(info.supportedType.generateWidget, info);
+    } else {
+      nullableWidgetGenerator =
+          (DataObject object, SupportedType? initialValue, CellSetter setter) {
+        // ignore: null_check_on_nullable_type_parameter
+        return info.supportedType.generateWidget(object, initialValue!, setter);
+      };
     }
 
-    return _wrapIntoCellGenerator(context, widgetGenerator, info);
+    return _wrapIntoCellGenerator(context, nullableWidgetGenerator, info);
   }
 
-  List<DataCell Function(DataObject)> _createCellGenerators(
+  List<DataCellGenerator<DataObject>> _createCellGenerators(
       BuildContext context,
-      Map<String, DataColumnInfo<DataObject>> columnInfo) {
+      Map<String, DataColumnInfo<DataObject, SupportedType>> columnInfo) {
     return columnInfo
         .map(
           (name, info) {
-            return MapEntry(
-              name,
-              _createCellGenerator(context, info),
-            );
+            DataCellGenerator<DataObject> generator = () {
+              return info.supportedType.when(
+                int: (value) => _createCellGenerator(context, info),
+                bool: (value) => _createCellGenerator(context, info),
+                string: (value) => _createCellGenerator(context, info),
+                unsupported: (value) => _createCellGenerator(context, info),
+              );
+            }();
+            return MapEntry(name, generator);
           },
         )
         .values
@@ -204,7 +228,7 @@ class TableView<DataObject extends Object> extends StatelessWidget {
       columns: _createColumns(
         tableViewContent._columnInfo.map(
           (name, info) {
-            return MapEntry(name, info.type);
+            return MapEntry(name, info.typeMirror);
           },
         ),
       ),
@@ -222,7 +246,7 @@ class TableView<DataObject extends Object> extends StatelessWidget {
 
 class TableViewSource<DataObject extends Object> extends DataTableSource {
   final List<DataObject> _content;
-  final List<DataCell Function(DataObject)> _cellGenerator;
+  final List<DataCellGenerator<DataObject>> _cellGenerator;
 
   TableViewSource(this._content, this._cellGenerator);
 
@@ -248,20 +272,23 @@ class TableViewSource<DataObject extends Object> extends DataTableSource {
   int get selectedRowCount => 0;
 }
 
-class DataColumnInfo<DataObject extends Object> {
-  final TypeMirror type;
-  final dynamic Function(DataObject) getter;
-  final void Function(DataObject, dynamic)? setter;
+class DataColumnInfo<DataObject extends Object,
+    CellType extends SupportedType> {
+  final SupportedType supportedType;
+  final TypeMirror typeMirror;
+  final CellType? Function(DataObject) getter;
+  final void Function(DataObject, CellType?)? setter;
 
   DataColumnInfo(
-    this.type,
+    this.supportedType,
+    this.typeMirror,
     this.getter,
     this.setter,
   );
 }
 
 class TableViewContent<DataObject extends Object> extends ChangeNotifier {
-  final Map<String, DataColumnInfo<DataObject>> _columnInfo = {};
+  final Map<String, DataColumnInfo<DataObject, SupportedType>> _columnInfo = {};
   final List<DataObject> _content = [];
   final Map<DataObject, DataObject> _dataChanges = {};
 
@@ -278,16 +305,43 @@ class TableViewContent<DataObject extends Object> extends ChangeNotifier {
     classDeclarations.forEach(
       (name, declarationMirror) {
         if (declarationMirror is VariableMirror) {
-          _columnInfo[name] = DataColumnInfo(
+          dynamic constructor;
+          SupportedType supportedType;
+          switch (declarationMirror.type.reflectedType) {
+            case String:
+              constructor = SupportedType.string;
+              supportedType = const StringVariant("");
+              break;
+            case bool:
+              constructor = SupportedType.bool;
+              supportedType = const BoolVariant(false);
+              break;
+            case int:
+              constructor = SupportedType.int;
+              supportedType = const IntVariant(0);
+              break;
+            default:
+              constructor = SupportedType.unsupported;
+              supportedType = const UnsupportedVariant(null);
+              break;
+          }
+          _columnInfo[name] = DataColumnInfo<DataObject, SupportedType>(
+            supportedType,
             declarationMirror.type,
-            (object) {
-              return reflectableMarker
+            (DataObject object) {
+              var value = reflectableMarker
                   .reflect(object)
                   .invokeGetter(declarationMirror.simpleName);
+              if (value == null) {
+                return null;
+              }
+
+              var supportedTypeValue = constructor(value);
+              return supportedTypeValue;
             },
             declarationMirror.isFinal
                 ? null
-                : (object, newValue) {
+                : (DataObject object, Object? newValue) {
                     // FIXME Is the setter result required for anything?
                     final setterResult = reflectableMarker
                         .reflect(object)
