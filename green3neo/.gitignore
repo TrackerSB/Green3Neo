@@ -46,6 +46,9 @@ app.*.map.json
 # Flutter reflectable
 *.reflectable.dart
 
+# Flutter freezed
+*.freezed.dart
+
 # Flutter_rust_bridge generated files
 backend/src/frb_generated.rs
 backend/src/frb_generated.io.rs
