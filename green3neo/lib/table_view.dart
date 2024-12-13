@@ -21,18 +21,18 @@ sealed class SupportedType with _$SupportedType {
       CellType initialValue, void Function(CellType) setter) {
     return initialValue.when(
       int: (value) =>
-          generateIntWidget(object, value, setter as void Function(IntVariant)),
-      string: (value) => generateStringWidget(
+          generateIntPopup(object, value, setter as void Function(IntVariant)),
+      string: (value) => generateStringPopup(
           object, value, setter as void Function(StringVariant)),
-      bool: (value) => generateBoolWidget(
+      bool: (value) => generateBoolPopup(
           object, value, setter as void Function(BoolVariant)),
-      unsupported: (value) => generateUnsupportedWidget(
+      unsupported: (value) => generateUnsupportedPopup(
           object, value, setter as void Function(UnsupportedVariant)),
     );
   }
 }
 
-Widget generateIntWidget<DataObject extends Object>(
+Widget generateIntPopup<DataObject extends Object>(
     DataObject object, int initialValue, void Function(IntVariant) setter) {
   onFieldSubmitted(newCellValue) {
     // TODO Implement
@@ -47,7 +47,7 @@ Widget generateIntWidget<DataObject extends Object>(
   );
 }
 
-Widget generateStringWidget<DataObject extends Object>(DataObject object,
+Widget generateStringPopup<DataObject extends Object>(DataObject object,
     String initialValue, void Function(StringVariant) setter) {
   onFieldSubmitted(newCellValue) {
     // TODO Implement
@@ -59,7 +59,7 @@ Widget generateStringWidget<DataObject extends Object>(DataObject object,
   );
 }
 
-Widget generateBoolWidget<DataObject extends Object>(
+Widget generateBoolPopup<DataObject extends Object>(
     DataObject object, bool initialValue, void Function(BoolVariant) setter) {
   return Checkbox(
     value: initialValue,
@@ -70,7 +70,7 @@ Widget generateBoolWidget<DataObject extends Object>(
   );
 }
 
-Widget generateUnsupportedWidget<DataObject extends Object>(DataObject object,
+Widget generateUnsupportedPopup<DataObject extends Object>(DataObject object,
     dynamic initialValue, void Function(UnsupportedVariant) setter) {
   return Text(initialValue.toString());
 }
