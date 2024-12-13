@@ -149,7 +149,7 @@ class TableView<DataObject extends Object> extends StatelessWidget {
 
       return Row(
         children: [
-          Checkbox(value: isNull, onChanged: onChanged),
+          Checkbox(value: !isNull, onChanged: onChanged),
           Expanded(
             child: (currentValue == null)
                 ? const Text("Value is currently null")
