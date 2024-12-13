@@ -152,22 +152,44 @@ class TableView<DataObject extends Object> extends StatelessWidget {
   CellPopupGenerator<DataObject, SupportedType?> _wrapIntoNullPopupGenerator(
       CellPopupGenerator<DataObject, SupportedType> popupGenerator,
       DataColumnInfo<DataObject, SupportedType> info) {
-    onChanged(isChecked) {
-      // TODO Implement
-    }
-
     return (DataObject object, SupportedType? currentValue, CellSetter setter) {
-      final bool isNull = (info.getter(object) == null);
+      StateSetter setCellState = (setter) {
+        // WARN Setter is executed without actually updating cell state
+        setter();
+      };
 
-      return Row(
-        children: [
-          Checkbox(value: !isNull, onChanged: onChanged),
-          Expanded(
-            child: (currentValue == null)
-                ? const Text("Value is currently null")
-                : popupGenerator(object, currentValue, setter),
-          ),
-        ],
+      onChanged(isChecked) {
+        setCellState(() {
+          if (isChecked) {
+            currentValue = info.supportedType.when(
+              int: (value) => const SupportedType.int(0),
+              string: (value) => const SupportedType.string(""),
+              bool: (value) => const SupportedType.bool(false),
+              unsupported: SupportedType.unsupported,
+            );
+          } else {
+            currentValue = null;
+          }
+        });
+      }
+
+      return StatefulBuilder(
+        builder: (BuildContext context, StateSetter setState) {
+          setCellState = setState;
+
+          return Row(
+            children: [
+              Checkbox(
+                value: currentValue != null,
+                onChanged: onChanged,
+              ),
+              Expanded(
+                  child: (currentValue == null)
+                      ? const Text("Value is currently null")
+                      : popupGenerator(object, currentValue!, setter)),
+            ],
+          );
+        },
       );
     };
   }
