@@ -31,7 +31,6 @@ generate-flutter-rust-bindings:
     flutter_rust_bridge_codegen generate --no-web --no-add-mod-to-lib --llvm-path {{ llvmIncludeDir }} --rust-input "crate::api" --rust-root {{ backend_dir }} --dart-output {{ frb_dart_output_dir }}
     git apply ./patches/models.dart.patch
 
-# Is building rust required? It's triggered by CMake in the linux application.
 build-rust:
     cd {{ backend_dir }} && cargo build --release
 
