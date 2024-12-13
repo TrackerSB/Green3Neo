@@ -35,7 +35,7 @@ sealed class SupportedType with _$SupportedType {
 Widget generateIntPopup<DataObject extends Object>(
     DataObject object, int initialValue, void Function(IntVariant) setter) {
   onFieldSubmitted(newCellValue) {
-    // TODO Implement
+    setter(IntVariant(int.parse(newCellValue)));
   }
 
   return TextFormField(
@@ -50,7 +50,7 @@ Widget generateIntPopup<DataObject extends Object>(
 Widget generateStringPopup<DataObject extends Object>(DataObject object,
     String initialValue, void Function(StringVariant) setter) {
   onFieldSubmitted(newCellValue) {
-    // TODO Implement
+    setter(StringVariant(newCellValue));
   }
 
   return TextFormField(
@@ -61,12 +61,13 @@ Widget generateStringPopup<DataObject extends Object>(DataObject object,
 
 Widget generateBoolPopup<DataObject extends Object>(
     DataObject object, bool initialValue, void Function(BoolVariant) setter) {
+  onChanged(newCellValue) {
+    setter(BoolVariant(newCellValue!));
+  }
+
   return Checkbox(
     value: initialValue,
-    onChanged: (bool? newCellValue) {
-      print("Change to $newCellValue");
-      setter(BoolVariant(newCellValue!));
-    },
+    onChanged: onChanged,
   );
 }
 
@@ -88,10 +89,27 @@ class TableView<DataObject extends Object> extends StatelessWidget {
       CellPopupGenerator<DataObject, SupportedType?> popupGenerator,
       DataColumnInfo<DataObject, SupportedType> info) {
     return (DataObject object) {
-      SupportedType? currentValue = info.getter(object);
+      SupportedType? currentCellValue = info.getter(object);
+      // TODO Reflect data cell changes in data objects
+
+      StateSetter setCellState = (setter) {
+        // WARN Setter is executed without actually updating cell state
+        setter();
+      };
 
       return DataCell(
-        Text((currentValue == null) ? "null" : currentValue.value.toString()),
+        StatefulBuilder(
+          builder: (BuildContext context, StateSetter setState) {
+            setCellState = setState;
+
+            dynamic cellValue = currentCellValue?.value;
+            if (cellValue == null) {
+              return const Text("null");
+            }
+
+            return Text(cellValue.toString());
+          },
+        ),
         onTap: () {
           showGeneralDialog(
             context: context,
@@ -103,24 +121,18 @@ class TableView<DataObject extends Object> extends StatelessWidget {
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(10),
-                      child: StatefulBuilder(
-                        builder: (BuildContext context, StateSetter setState) {
-                          return popupGenerator(
-                              object,
-                              currentValue,
-                              (newCellValue) => setState(
-                                    () => currentValue = newCellValue,
-                                  ));
+                      child: popupGenerator(
+                        object,
+                        currentCellValue,
+                        (newCellValue) {
+                          setCellState(() => currentCellValue = newCellValue);
+                          Navigator.pop(context);
                         },
                       ),
                     ),
                     Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        ElevatedButton(
-                          onPressed: () => Navigator.pop(context),
-                          child: const Text("Save"),
-                        ),
                         ElevatedButton(
                           onPressed: () => Navigator.pop(context),
                           child: const Text("Cancel"),
@@ -164,17 +176,19 @@ class TableView<DataObject extends Object> extends StatelessWidget {
       BuildContext context, DataColumnInfo<DataObject, SupportedType> info) {
     final isNullableType = info.typeMirror.isNullable;
 
+    popupGenerator(
+        DataObject object, SupportedType? initialValue, CellSetter setter) {
+      // ignore: null_check_on_nullable_type_parameter
+      return info.supportedType
+          .generateCellPopup(object, initialValue!, setter);
+    }
+
     CellPopupGenerator<DataObject, SupportedType?> nullablePopupGenerator;
     if (isNullableType) {
-      nullablePopupGenerator = _wrapIntoNullPopupGenerator(
-          info.supportedType.generateCellPopup, info);
-    } else {
       nullablePopupGenerator =
-          (DataObject object, SupportedType? initialValue, CellSetter setter) {
-        // ignore: null_check_on_nullable_type_parameter
-        return info.supportedType
-            .generateCellPopup(object, initialValue!, setter);
-      };
+          _wrapIntoNullPopupGenerator(popupGenerator, info);
+    } else {
+      nullablePopupGenerator = popupGenerator;
     }
 
     return _wrapIntoCellGenerator(context, nullablePopupGenerator, info);
