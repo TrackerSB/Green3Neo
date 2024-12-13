@@ -12,21 +12,26 @@ class DataTablePage extends StatefulWidget {
 }
 
 class DataTablePageState extends State<DataTablePage> {
-  final _tableViewState = TableViewContent<Member>();
+  TableViewSource<Member>? _tableViewState;
 
   DataTablePageState() {
     _receiveDataFromDB();
   }
 
   void _receiveDataFromDB() {
-    getDummyMembers().then((members) => setState(() {
+    getDummyMembers().then(
+      (members) => setState(
+        () {
+          // FIXME Warn about state not being initialized yet
           if (members == null) {
             // FIXME Provide error message
-            _tableViewState.setData(List.empty());
+            _tableViewState?.setData(List.empty());
           } else {
-            _tableViewState.setData(members);
+            _tableViewState?.setData(members);
           }
-        }));
+        },
+      ),
+    );
   }
 
   void _commitDataChanges() {
@@ -48,6 +53,8 @@ class DataTablePageState extends State<DataTablePage> {
 
   @override
   Widget build(BuildContext context) {
+    _tableViewState = TableViewSource<Member>(context);
+
     return Column(
       children: [
         Row(
