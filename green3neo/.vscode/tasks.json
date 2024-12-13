@@ -68,12 +68,10 @@
         // Internal tasks
         {
             "label": "[Internal] Create venv for tasks",
-            "type": "process",
-            "command": "${config:python.defaultInterpreterPath}",
+            "type": "shell",
+            "command": "just",
             "args": [
-                "-m",
-                "venv",
-                "${workspaceFolder}/tasks/.venv"
+                "create-venv"
             ],
             "group": "build",
             "presentation": {

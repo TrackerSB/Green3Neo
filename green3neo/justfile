@@ -1,7 +1,9 @@
-set dotenv-load
+set dotenv-load := true
 
-backend_dir := "./backend"
-frb_dart_output_dir := "./lib/backend"
+workspace_folder := "."
+tasks_folder := workspace_folder + "/tasks"
+backend_dir := workspace_folder + "/backend"
+frb_dart_output_dir := workspace_folder + "/lib/backend"
 llvmPath := `clang -v 2>&1 | grep 'Selected GCC installation' | rev | cut -d' ' -f1 | rev`
 llvmIncludeDir := llvmPath + "/include"
 
@@ -11,6 +13,9 @@ default:
 [confirm]
 clean:
     git clean -Xfd
+
+create-venv:
+    python -m venv {{ tasks_folder }}/.venv
 
 start-postgresql:
     sudo systemctl start postgresql
