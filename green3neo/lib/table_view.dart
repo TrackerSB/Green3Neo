@@ -91,7 +91,7 @@ class TableView<DataObject extends Object> extends StatelessWidget {
       SupportedType? currentValue = info.getter(object);
 
       return DataCell(
-        Text(currentValue.toString()),
+        Text((currentValue == null) ? "null" : currentValue.value.toString()),
         onTap: () {
           showGeneralDialog(
             context: context,
