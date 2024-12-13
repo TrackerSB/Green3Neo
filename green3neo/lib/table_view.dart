@@ -52,7 +52,7 @@ Widget generateIntPopup<DataObject extends Object>(
     initialValue: initialValue.toString(),
     inputFormatters: [FilteringTextInputFormatter.digitsOnly],
     onChanged: (newValue) => onValueChange(IntVariant(int.parse(newValue))),
-    onFieldSubmitted: (newValue) => onValueSubmit,
+    onFieldSubmitted: (newValue) => onValueSubmit(),
   );
 }
 
@@ -64,7 +64,7 @@ Widget generateStringPopup<DataObject extends Object>(
   return TextFormField(
     initialValue: initialValue,
     onChanged: (newValue) => onValueChange(StringVariant(newValue)),
-    onFieldSubmitted: (newValue) => onValueSubmit,
+    onFieldSubmitted: (newValue) => onValueSubmit(),
   );
 }
 
