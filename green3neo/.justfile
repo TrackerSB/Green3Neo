@@ -1,4 +1,5 @@
 set dotenv-load := true
+set dotenv-required := true
 
 workspace_folder := "."
 tasks_folder := workspace_folder + "/tasks"

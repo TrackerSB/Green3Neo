@@ -3,9 +3,12 @@
     "tasks": [
         {
             "label": "Build application",
-            "command": "just",
+            "type": "shell",
+            "command": "bash",
             "args": [
-                "build"
+                "-c",
+                // When calling justfile via VSCode tasks .env seems not to be loaded automatically
+                "source .env && just build"
             ],
             "group": {
                 "kind": "build",
@@ -18,6 +21,7 @@
         },
         {
             "label": "Create database tables if non existent",
+            "type": "shell",
             "command": "just",
             "args": [
                 "database-create-tables"
