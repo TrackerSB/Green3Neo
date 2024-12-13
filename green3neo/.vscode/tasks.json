@@ -3,14 +3,10 @@
     "tasks": [
         {
             "label": "Create database tables if non existent",
-            "type": "shell",
-            "command": "zsh",
+            "command": "just",
             "args": [
-                "${workspaceFolder}/tasks/create_db_tables.zsh"
+                "database-create-tables"
             ],
-            "options": {
-                "cwd": "${workspaceFolder}/tasks"
-            },
             "group": "build",
             "presentation": {
                 "reveal": "always",
@@ -21,63 +17,41 @@
         {
             "label": "Drop database tables",
             "type": "shell",
-            "command": "zsh",
+            "command": "just",
             "args": [
-                "${workspaceFolder}/tasks/delete_db_tables.zsh"
+                "database-drop-tables"
             ],
-            "options": {
-                "cwd": "${workspaceFolder}/tasks"
-            },
             "group": "build",
             "presentation": {
                 "reveal": "always",
                 "panel": "shared"
             },
-            "dependsOn": "[Internal] Create venv for tasks"
         },
         {
             "label": "Recreate database tables",
+            "type": "shell",
+            "command": "just",
+            "args": [
+                "database-recreate-tables"
+            ],
             "group": "build",
             "presentation": {
                 "reveal": "always",
                 "panel": "shared"
             },
-            "dependsOrder": "sequence",
-            "dependsOn": [
-                "Drop database tables",
-                "Create database tables if non existent"
-            ]
         },
         {
             "label": "Populate database tables",
             "type": "shell",
-            "command": "zsh",
-            "args": [
-                "${workspaceFolder}/tasks/populate_db_tables.zsh"
-            ],
-            "options": {
-                "cwd": "${workspaceFolder}/tasks"
-            },
-            "group": "build",
-            "presentation": {
-                "reveal": "always",
-                "panel": "shared"
-            },
-            "dependsOn": "[Internal] Create venv for tasks"
-        },
-        // Internal tasks
-        {
-            "label": "[Internal] Create venv for tasks",
-            "type": "shell",
             "command": "just",
             "args": [
-                "tasks-create-venv"
+                "database-populate-tables"
             ],
             "group": "build",
             "presentation": {
                 "reveal": "always",
                 "panel": "shared"
-            }
-        }
+            },
+        },
     ]
 }
