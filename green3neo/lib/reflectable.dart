@@ -3,10 +3,11 @@ import 'package:reflectable/reflectable.dart';
 class Reflector extends Reflectable {
   const Reflector()
       : super(
-            declarationsCapability, // For allowing access to declarations
-            instanceInvokeCapability, // For allowing reading declarations (fields and methods)
-            reflectedTypeCapability, // For allowing access to types of fields
-            );
+          // NOTE 2024-07-26: This set of required capabilities is found by try and error
+          reflectedTypeCapability,
+          typeAnnotationDeepQuantifyCapability,
+          instanceInvokeCapability,
+        );
 }
 
 const reflectableMarker = Reflector();

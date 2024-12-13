@@ -12,20 +12,38 @@ class DataTablePage extends StatefulWidget {
 }
 
 class DataTablePageState extends State<DataTablePage> {
-  final _tableViewState = TableViewState<Member>();
+  final _tableViewState = TableViewContent<Member>();
 
   DataTablePageState() {
     _receiveDataFromDB();
   }
 
   void _receiveDataFromDB() {
-    getDummyMember().then((member) => setState(() {
-          _tableViewState.setData(List<Member>.of(<Member>[member]));
+    getDummyMembers().then((members) => setState(() {
+          if (members == null) {
+            // FIXME Provide error message
+            _tableViewState.setData(List.empty());
+          } else {
+            _tableViewState.setData(members);
+          }
         }));
   }
 
   void _commitDataChanges() {
     // TODO Implement
+  }
+
+  Widget _wrapInScrollable(Widget toWrap, Axis direction) {
+    var scrollController = ScrollController();
+
+    return Scrollbar(
+      controller: scrollController,
+      child: SingleChildScrollView(
+        controller: scrollController,
+        scrollDirection: direction,
+        child: toWrap,
+      ),
+    );
   }
 
   @override
@@ -45,9 +63,24 @@ class DataTablePageState extends State<DataTablePage> {
             ),
           ],
         ),
-        ChangeNotifierProvider(
-          create: (_) => _tableViewState,
-          child: const TableView<Member>(),
+        Expanded(
+          child: ScrollConfiguration(
+            behavior:
+                ScrollConfiguration.of(context).copyWith(scrollbars: true),
+            child: _wrapInScrollable(
+              _wrapInScrollable(
+                SizedBox(
+                  width: 2000, // FIXME Determine required width for table
+                  child: ChangeNotifierProvider(
+                    create: (_) => _tableViewState,
+                    child: const TableView<Member>(),
+                  ),
+                ),
+                Axis.horizontal,
+              ),
+              Axis.vertical,
+            ),
+          ),
         ),
       ],
     );
