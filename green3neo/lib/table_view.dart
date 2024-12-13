@@ -16,11 +16,9 @@ sealed class SupportedType with _$SupportedType {
   const factory SupportedType.bool(bool value) = BoolVariant;
   const factory SupportedType.unsupported(dynamic value) = UnsupportedVariant;
 
-  Widget
-      generateCellPopup<DataObject extends Object, CellType extends SupportedType>(
-          DataObject object,
-          CellType initialValue,
-          void Function(CellType) setter) {
+  Widget generateCellPopup<DataObject extends Object,
+          CellType extends SupportedType>(DataObject object,
+      CellType initialValue, void Function(CellType) setter) {
     return initialValue.when(
       int: (value) =>
           generateIntWidget(object, value, setter as void Function(IntVariant)),
@@ -78,8 +76,8 @@ Widget generateUnsupportedWidget<DataObject extends Object>(DataObject object,
 }
 
 typedef CellSetter = void Function(SupportedType?);
-typedef CellPopupGenerator<DataObject, CellType extends SupportedType?>
-    = Widget Function(DataObject, CellType, CellSetter);
+typedef CellPopupGenerator<DataObject, CellType extends SupportedType?> = Widget
+    Function(DataObject, CellType, CellSetter);
 typedef DataCellGenerator<DataObject> = DataCell Function(DataObject);
 
 class TableView<DataObject extends Object> extends StatelessWidget {
@@ -168,13 +166,14 @@ class TableView<DataObject extends Object> extends StatelessWidget {
 
     CellPopupGenerator<DataObject, SupportedType?> nullablePopupGenerator;
     if (isNullableType) {
-      nullablePopupGenerator =
-          _wrapIntoNullPopupGenerator(info.supportedType.generateCellPopup, info);
+      nullablePopupGenerator = _wrapIntoNullPopupGenerator(
+          info.supportedType.generateCellPopup, info);
     } else {
       nullablePopupGenerator =
           (DataObject object, SupportedType? initialValue, CellSetter setter) {
         // ignore: null_check_on_nullable_type_parameter
-        return info.supportedType.generateCellPopup(object, initialValue!, setter);
+        return info.supportedType
+            .generateCellPopup(object, initialValue!, setter);
       };
     }
 
