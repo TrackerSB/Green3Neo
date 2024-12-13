@@ -246,16 +246,16 @@ class TableView<DataObject extends Object> extends StatelessWidget {
 
 class TableViewSource<DataObject extends Object> extends DataTableSource {
   final List<DataObject> _content;
-  final List<DataCellGenerator<DataObject>> _cellGenerator;
+  final List<DataCellGenerator<DataObject>> _cellGenerators;
 
-  TableViewSource(this._content, this._cellGenerator);
+  TableViewSource(this._content, this._cellGenerators);
 
   @override
   DataRow? getRow(int index) {
     final object = _content[index];
     final List<DataCell> cells = [];
 
-    for (var generator in _cellGenerator) {
+    for (var generator in _cellGenerators) {
       cells.add(generator(object));
     }
 
