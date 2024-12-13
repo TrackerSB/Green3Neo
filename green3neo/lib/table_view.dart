@@ -9,8 +9,8 @@ part 'table_view.freezed.dart';
 
 typedef CellValueHandler = void Function(SupportedType?);
 typedef CellSubmitHandler = VoidCallback;
-typedef CellPopupGenerator<DataObject, CellType extends SupportedType?> = Widget
-    Function(DataObject, CellType, CellValueHandler, CellSubmitHandler);
+typedef CellPopupGenerator<CellType extends SupportedType?> = Widget Function(
+    CellType, CellValueHandler, CellSubmitHandler);
 typedef DataCellGenerator<DataObject> = DataCell Function(DataObject);
 
 @Freezed()
@@ -23,29 +23,23 @@ sealed class SupportedType with _$SupportedType {
   const factory SupportedType.unsupported(dynamic value) = UnsupportedVariant;
 
   Widget generateCellPopup<DataObject extends Object,
-          CellType extends SupportedType>(
-      DataObject object,
-      CellType initialValue,
-      void Function(CellType) onValueChange,
-      CellSubmitHandler onValueSubmit) {
+          CellType extends SupportedType>(CellType initialValue,
+      void Function(CellType) onValueChange, CellSubmitHandler onValueSubmit) {
     return initialValue.when(
-      int: (value) => generateIntPopup(object, value,
-          onValueChange as void Function(IntVariant), onValueSubmit),
-      string: (value) => generateStringPopup(object, value,
-          onValueChange as void Function(StringVariant), onValueSubmit),
-      bool: (value) => generateBoolPopup(object, value,
-          onValueChange as void Function(BoolVariant), onValueSubmit),
-      unsupported: (value) => generateUnsupportedPopup(object, value,
+      int: (value) => generateIntPopup(
+          value, onValueChange as void Function(IntVariant), onValueSubmit),
+      string: (value) => generateStringPopup(
+          value, onValueChange as void Function(StringVariant), onValueSubmit),
+      bool: (value) => generateBoolPopup(
+          value, onValueChange as void Function(BoolVariant), onValueSubmit),
+      unsupported: (value) => generateUnsupportedPopup(value,
           onValueChange as void Function(UnsupportedVariant), onValueSubmit),
     );
   }
 }
 
-Widget generateIntPopup<DataObject extends Object>(
-    DataObject object,
-    int initialValue,
-    void Function(IntVariant) onValueChange,
-    CellSubmitHandler onValueSubmit) {
+Widget generateIntPopup<DataObject extends Object>(int initialValue,
+    void Function(IntVariant) onValueChange, CellSubmitHandler onValueSubmit) {
   return TextFormField(
     keyboardType:
         const TextInputType.numberWithOptions(decimal: false, signed: false),
@@ -57,7 +51,6 @@ Widget generateIntPopup<DataObject extends Object>(
 }
 
 Widget generateStringPopup<DataObject extends Object>(
-    DataObject object,
     String initialValue,
     void Function(StringVariant) onValueChange,
     CellSubmitHandler onValueSubmit) {
@@ -68,11 +61,8 @@ Widget generateStringPopup<DataObject extends Object>(
   );
 }
 
-Widget generateBoolPopup<DataObject extends Object>(
-    DataObject object,
-    bool initialValue,
-    void Function(BoolVariant) onValueChange,
-    CellSubmitHandler onValueSubmit) {
+Widget generateBoolPopup<DataObject extends Object>(bool initialValue,
+    void Function(BoolVariant) onValueChange, CellSubmitHandler onValueSubmit) {
   bool currentValue = initialValue;
 
   return StatefulBuilder(
@@ -87,7 +77,6 @@ Widget generateBoolPopup<DataObject extends Object>(
 }
 
 Widget generateUnsupportedPopup<DataObject extends Object>(
-    DataObject object,
     dynamic initialValue,
     void Function(UnsupportedVariant) onValueChange,
     CellSubmitHandler onValueSubmit) {
@@ -99,7 +88,7 @@ class TableView<DataObject extends Object> extends StatelessWidget {
 
   DataCellGenerator<DataObject> _wrapIntoCellGenerator(
       BuildContext context,
-      CellPopupGenerator<DataObject, SupportedType?> popupGenerator,
+      CellPopupGenerator<SupportedType?> popupGenerator,
       DataColumnInfo<DataObject, SupportedType> info) {
     return (DataObject object) {
       SupportedType? initialCellValue = info.getter(object);
@@ -144,8 +133,8 @@ class TableView<DataObject extends Object> extends StatelessWidget {
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(10),
-                      child: popupGenerator(object, currentCellValue,
-                          onValueChange, onValueSubmit),
+                      child: popupGenerator(
+                          currentCellValue, onValueChange, onValueSubmit),
                     ),
                     Row(
                       mainAxisSize: MainAxisSize.min,
@@ -174,11 +163,11 @@ class TableView<DataObject extends Object> extends StatelessWidget {
     };
   }
 
-  CellPopupGenerator<DataObject, SupportedType?> _wrapIntoNullPopupGenerator(
-      CellPopupGenerator<DataObject, SupportedType> popupGenerator,
+  CellPopupGenerator<SupportedType?> _wrapIntoNullPopupGenerator(
+      CellPopupGenerator<SupportedType> popupGenerator,
       DataColumnInfo<DataObject, SupportedType> info) {
-    return (DataObject object, SupportedType? currentValue,
-        CellValueHandler onValueChange, CellSubmitHandler onValueSubmit) {
+    return (SupportedType? currentValue, CellValueHandler onValueChange,
+        CellSubmitHandler onValueSubmit) {
       StateSetter setCellState = (setter) {
         // WARN Setter is executed without actually updating cell state
         setter();
@@ -214,7 +203,7 @@ class TableView<DataObject extends Object> extends StatelessWidget {
                   child: (currentValue == null)
                       ? const Text("Value is currently null")
                       : popupGenerator(
-                          object, currentValue!, onValueChange, onValueSubmit)),
+                          currentValue!, onValueChange, onValueSubmit)),
             ],
           );
         },
@@ -226,14 +215,14 @@ class TableView<DataObject extends Object> extends StatelessWidget {
       BuildContext context, DataColumnInfo<DataObject, SupportedType> info) {
     final isNullableType = info.typeMirror.isNullable;
 
-    popupGenerator(DataObject object, SupportedType? initialValue,
-        CellValueHandler onValueChange, CellSubmitHandler onValueSubmit) {
+    popupGenerator(SupportedType? initialValue, CellValueHandler onValueChange,
+        CellSubmitHandler onValueSubmit) {
       // ignore: null_check_on_nullable_type_parameter
-      return info.supportedType.generateCellPopup(
-          object, initialValue!, onValueChange, onValueSubmit);
+      return info.supportedType
+          .generateCellPopup(initialValue!, onValueChange, onValueSubmit);
     }
 
-    CellPopupGenerator<DataObject, SupportedType?> nullablePopupGenerator;
+    CellPopupGenerator<SupportedType?> nullablePopupGenerator;
     if (isNullableType) {
       nullablePopupGenerator =
           _wrapIntoNullPopupGenerator(popupGenerator, info);
