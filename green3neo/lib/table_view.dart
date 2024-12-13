@@ -73,13 +73,16 @@ Widget generateBoolPopup<DataObject extends Object>(
     bool initialValue,
     void Function(BoolVariant) onValueChange,
     CellSubmitHandler onValueSubmit) {
-  // FIXME Stage checkbox change before submitting
-  return Checkbox(
-    value: initialValue,
-    onChanged: (newValue) {
-      onValueChange(BoolVariant(newValue == true));
-      onValueSubmit();
-    },
+  bool currentValue = initialValue;
+
+  return StatefulBuilder(
+    builder: (BuildContext context, StateSetter setState) => Checkbox(
+      value: currentValue,
+      onChanged: (newValue) {
+        onValueChange(BoolVariant(newValue == true));
+        setState(() => currentValue = !currentValue);
+      },
+    ),
   );
 }
 
