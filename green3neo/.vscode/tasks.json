@@ -71,7 +71,7 @@
             "type": "shell",
             "command": "just",
             "args": [
-                "create-venv"
+                "tasks-create-venv"
             ],
             "group": "build",
             "presentation": {
