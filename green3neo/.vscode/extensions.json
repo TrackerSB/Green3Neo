@@ -1,0 +1,19 @@
+{
+    "recommendations": [
+        // Dart
+        "Dart-Code.dart-code",
+        // Flutter
+        "Dart-Code.flutter",
+        // Toml
+        "tamasfe.even-better-toml",
+        // PostgreSQL
+        "ms-ossdata.vscode-postgresql",
+        // Python
+        "ms-python.python",
+        // Rust
+        "rust-lang.rust-analyzer",
+        // Just
+        "kokakiwi.vscode-just",
+        "TobiasHochguertel.just-formatter"
+    ]
+}
