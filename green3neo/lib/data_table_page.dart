@@ -35,7 +35,20 @@ class DataTablePageState extends State<DataTablePage> {
   }
 
   void _commitDataChanges() {
-    // TODO Implement
+    if (_tableViewState == null) {
+      print("Cannot commit changes without table state");
+      return;
+    }
+
+    final dataChanges = _tableViewState!.changeRecords;
+    print("Following changes are made ${dataChanges.length}");
+    // FIXME Why is dataChanges always empty?
+    dataChanges.forEach((object, changeRecords) {
+      print("For object $object");
+      changeRecords.forEach((setterName, newValue) {
+        print("Set $setterName to ${newValue?.value}");
+      });
+    });
   }
 
   Widget _wrapInScrollable(Widget toWrap, Axis direction) {

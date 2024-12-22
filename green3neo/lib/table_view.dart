@@ -314,10 +314,13 @@ class TableView<DataObject extends Object> extends StatelessWidget {
   }
 }
 
+// Map setter name to new value
+typedef ChangeRecords = Map<String, SupportedType?>;
+
 class TableViewSource<DataObject extends Object> extends DataTableSource {
   final List<DataObject> _content = [];
   final Map<String, DataColumnInfo<DataObject, SupportedType>> _columnInfo = {};
-  final Map<DataObject, DataObject> _dataChanges = {};
+  final Map<DataObject, ChangeRecords> _changeRecords = {};
 
   TableViewSource(BuildContext context) {
     if (!reflectableMarker.canReflectType(DataObject)) {
@@ -330,7 +333,7 @@ class TableViewSource<DataObject extends Object> extends DataTableSource {
     Map<String, DeclarationMirror> classDeclarations = classMirror.declarations;
 
     classDeclarations.forEach(
-      (name, declarationMirror) {
+      (columnName, declarationMirror) {
         if (declarationMirror is! VariableMirror) {
           return;
         }
@@ -368,31 +371,36 @@ class TableViewSource<DataObject extends Object> extends DataTableSource {
           return constructor(value);
         }
 
-        void setObjectValue<CellType extends SupportedType>(
+        void recordObjectValueChange<CellType extends SupportedType>(
             DataObject object, CellType? newValue) {
           // FIXME Is the setter result required for anything?
-          print("Set ${newValue?.value}");
-          final setterResult = reflectableMarker
-              .reflect(object)
-              .invokeSetter(declarationMirror.simpleName, newValue?.value);
+          // final setterResult = reflectableMarker
+          //     .reflect(object)
+          //     .invokeSetter(declarationMirror.simpleName, newValue?.value);
+          print("Remember change to $newValue");
+          print(_changeRecords.length);
+          _changeRecords.putIfAbsent(object, () => <String, SupportedType?>{});
+          print(_changeRecords.length);
+          _changeRecords[object]![declarationMirror.simpleName] = newValue;
+          print(_changeRecords.length);
         }
 
         final bool isNullableType = declarationMirror.type.isNullable;
 
-        _columnInfo[name] = DataColumnInfo<DataObject, SupportedType>(
+        _columnInfo[columnName] = DataColumnInfo<DataObject, SupportedType>(
           supportedType,
           declarationMirror.type,
           getObjectValue,
-          declarationMirror.isFinal ? null : setObjectValue,
+          declarationMirror.isFinal ? null : recordObjectValueChange,
           supportedType.when(
             int: (value) => _createCellGenerator(context, supportedType,
-                isNullableType, getObjectValue, setObjectValue),
+                isNullableType, getObjectValue, recordObjectValueChange),
             bool: (value) => _createCellGenerator(context, supportedType,
-                isNullableType, getObjectValue, setObjectValue),
+                isNullableType, getObjectValue, recordObjectValueChange),
             string: (value) => _createCellGenerator(context, supportedType,
-                isNullableType, getObjectValue, setObjectValue),
+                isNullableType, getObjectValue, recordObjectValueChange),
             unsupported: (value) => _createCellGenerator(context, supportedType,
-                isNullableType, getObjectValue, setObjectValue),
+                isNullableType, getObjectValue, recordObjectValueChange),
           ),
         );
       },
@@ -426,7 +434,5 @@ class TableViewSource<DataObject extends Object> extends DataTableSource {
     notifyListeners();
   }
 
-  Map<DataObject, DataObject> getChanges() {
-    return _dataChanges;
-  }
+  Map<DataObject, ChangeRecords> get changeRecords => _changeRecords;
 }
