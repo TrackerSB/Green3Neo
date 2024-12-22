@@ -16,6 +16,8 @@ typedef ObjectValueGetter<DataObject, CellType extends SupportedType?>
     = CellType? Function(DataObject);
 typedef ObjectValueSetter<DataObject, CellType extends SupportedType?> = void
     Function(DataObject, CellType?);
+typedef ObjectChangeHandler<DataObject> = void Function(
+    DataObject, String, SupportedType?);
 typedef DataCellGenerator<DataObject> = DataCell Function(DataObject);
 
 @Freezed()
@@ -287,6 +289,92 @@ List<DataColumn> _createColumns(Map<String, TypeMirror> columnInfo) {
       .toList();
 }
 
+Map<String, DataColumnInfo<DataObject, SupportedType>>
+    generateColumnInfo<DataObject extends Object>(
+        BuildContext context, ObjectChangeHandler<DataObject> onCellChange) {
+  if (!reflectableMarker.canReflectType(DataObject)) {
+    // FIXME Provide either logging or error handling
+    print(
+        "Cannot generate table view for type '$DataObject' since it's not reflectable.");
+    return <String, DataColumnInfo<DataObject, SupportedType>>{};
+  }
+
+  Map<String, DataColumnInfo<DataObject, SupportedType>> columnInfos = {};
+
+  var classMirror = reflectableMarker.reflectType(DataObject) as ClassMirror;
+  Map<String, DeclarationMirror> classDeclarations = classMirror.declarations;
+
+  classDeclarations.forEach(
+    (columnName, declarationMirror) {
+      if (declarationMirror is! VariableMirror) {
+        return;
+      }
+
+      dynamic constructor;
+      SupportedType supportedType;
+      switch (declarationMirror.type.reflectedType) {
+        case String:
+          constructor = SupportedType.string;
+          supportedType = const StringVariant("");
+          break;
+        case bool:
+          constructor = SupportedType.bool;
+          supportedType = const BoolVariant(false);
+          break;
+        case int:
+          constructor = SupportedType.int;
+          supportedType = const IntVariant(0);
+          break;
+        default:
+          constructor = SupportedType.unsupported;
+          supportedType = const UnsupportedVariant(null);
+          break;
+      }
+
+      CellType? getObjectValue<CellType extends SupportedType>(
+          DataObject object) {
+        var value = reflectableMarker
+            .reflect(object)
+            .invokeGetter(declarationMirror.simpleName);
+        if (value == null) {
+          return null;
+        }
+
+        return constructor(value);
+      }
+
+      void recordObjectValueChange<CellType extends SupportedType>(
+          DataObject object, CellType? newValue) {
+        // FIXME Is the setter result required for anything?
+        final setterResult = reflectableMarker
+            .reflect(object)
+            .invokeSetter(declarationMirror.simpleName, newValue?.value);
+        onCellChange(object, declarationMirror.simpleName, newValue);
+      }
+
+      final bool isNullableType = declarationMirror.type.isNullable;
+
+      columnInfos[columnName] = DataColumnInfo<DataObject, SupportedType>(
+        supportedType,
+        declarationMirror.type,
+        getObjectValue,
+        declarationMirror.isFinal ? null : recordObjectValueChange,
+        supportedType.when(
+          int: (value) => _createCellGenerator(context, supportedType,
+              isNullableType, getObjectValue, recordObjectValueChange),
+          bool: (value) => _createCellGenerator(context, supportedType,
+              isNullableType, getObjectValue, recordObjectValueChange),
+          string: (value) => _createCellGenerator(context, supportedType,
+              isNullableType, getObjectValue, recordObjectValueChange),
+          unsupported: (value) => _createCellGenerator(context, supportedType,
+              isNullableType, getObjectValue, recordObjectValueChange),
+        ),
+      );
+    },
+  );
+  return columnInfos;
+}
+
 class TableView<DataObject extends Object> extends StatelessWidget {
   const TableView({super.key});
 
@@ -318,85 +406,9 @@ class TableViewSource<DataObject extends Object> extends DataTableSource {
   final List<DataObject> _content = [];
   final Map<String, DataColumnInfo<DataObject, SupportedType>> _columnInfo = {};
 
-  TableViewSource(BuildContext context,
-      void Function(DataObject, String, SupportedType?) onCellChange) {
-    if (!reflectableMarker.canReflectType(DataObject)) {
-      print(
-          "Cannot generate table view for type '$DataObject' since it's not reflectable.");
-      return;
-    }
-
-    var classMirror = reflectableMarker.reflectType(DataObject) as ClassMirror;
-    Map<String, DeclarationMirror> classDeclarations = classMirror.declarations;
-
-    classDeclarations.forEach(
-      (columnName, declarationMirror) {
-        if (declarationMirror is! VariableMirror) {
-          return;
-        }
-
-        dynamic constructor;
-        SupportedType supportedType;
-        switch (declarationMirror.type.reflectedType) {
-          case String:
-            constructor = SupportedType.string;
-            supportedType = const StringVariant("");
-            break;
-          case bool:
-            constructor = SupportedType.bool;
-            supportedType = const BoolVariant(false);
-            break;
-          case int:
-            constructor = SupportedType.int;
-            supportedType = const IntVariant(0);
-            break;
-          default:
-            constructor = SupportedType.unsupported;
-            supportedType = const UnsupportedVariant(null);
-            break;
-        }
-
-        CellType? getObjectValue<CellType extends SupportedType>(
-            DataObject object) {
-          var value = reflectableMarker
-              .reflect(object)
-              .invokeGetter(declarationMirror.simpleName);
-          if (value == null) {
-            return null;
-          }
-
-          return constructor(value);
-        }
-
-        void recordObjectValueChange<CellType extends SupportedType>(
-            DataObject object, CellType? newValue) {
-          // FIXME Is the setter result required for anything?
-          final setterResult = reflectableMarker
-              .reflect(object)
-              .invokeSetter(declarationMirror.simpleName, newValue?.value);
-          onCellChange(object, declarationMirror.simpleName, newValue);
-        }
-
-        final bool isNullableType = declarationMirror.type.isNullable;
-
-        _columnInfo[columnName] = DataColumnInfo<DataObject, SupportedType>(
-          supportedType,
-          declarationMirror.type,
-          getObjectValue,
-          declarationMirror.isFinal ? null : recordObjectValueChange,
-          supportedType.when(
-            int: (value) => _createCellGenerator(context, supportedType,
-                isNullableType, getObjectValue, recordObjectValueChange),
-            bool: (value) => _createCellGenerator(context, supportedType,
-                isNullableType, getObjectValue, recordObjectValueChange),
-            string: (value) => _createCellGenerator(context, supportedType,
-                isNullableType, getObjectValue, recordObjectValueChange),
-            unsupported: (value) => _createCellGenerator(context, supportedType,
-                isNullableType, getObjectValue, recordObjectValueChange),
-          ),
-        );
-      },
-    );
+  TableViewSource(
+      BuildContext context, ObjectChangeHandler<DataObject> onCellChange) {
+    _columnInfo.addAll(generateColumnInfo<DataObject>(context, onCellChange));
   }
 
   @override
