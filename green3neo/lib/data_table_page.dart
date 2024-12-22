@@ -11,8 +11,12 @@ class DataTablePage extends StatefulWidget {
   State<StatefulWidget> createState() => DataTablePageState();
 }
 
+// Map setter name to new value
+typedef ChangeRecords = Map<String, SupportedType?>;
+
 class DataTablePageState extends State<DataTablePage> {
-  TableViewSource<Member>? _tableViewState;
+  TableViewSource<Member>? _tableViewSource;
+  final Map<Member, ChangeRecords> _changeRecords = {};
 
   DataTablePageState() {
     _receiveDataFromDB();
@@ -25,9 +29,9 @@ class DataTablePageState extends State<DataTablePage> {
           // FIXME Warn about state not being initialized yet
           if (members == null) {
             // FIXME Provide error message
-            _tableViewState?.setData(List.empty());
+            _tableViewSource?.setData(List.empty());
           } else {
-            _tableViewState?.setData(members);
+            _tableViewSource?.setData(members);
           }
         },
       ),
@@ -35,15 +39,14 @@ class DataTablePageState extends State<DataTablePage> {
   }
 
   void _commitDataChanges() {
-    if (_tableViewState == null) {
+    if (_tableViewSource == null) {
       print("Cannot commit changes without table state");
       return;
     }
 
-    final dataChanges = _tableViewState!.changeRecords;
-    print("Following changes are made ${dataChanges.length}");
+    print("Following changes are made ${_changeRecords.length}");
     // FIXME Why is dataChanges always empty?
-    dataChanges.forEach((object, changeRecords) {
+    _changeRecords.forEach((object, changeRecords) {
       print("For object $object");
       changeRecords.forEach((setterName, newValue) {
         print("Set $setterName to ${newValue?.value}");
@@ -64,9 +67,15 @@ class DataTablePageState extends State<DataTablePage> {
     );
   }
 
+  void onCellChange(
+      Member member, String setterName, SupportedType? newCellValue) {
+    _changeRecords.putIfAbsent(member, () => <String, SupportedType?>{});
+    _changeRecords[member]![setterName] = newCellValue;
+  }
+
   @override
   Widget build(BuildContext context) {
-    _tableViewState = TableViewSource<Member>(context);
+    _tableViewSource = TableViewSource<Member>(context, onCellChange);
 
     return Column(
       children: [
@@ -92,7 +101,7 @@ class DataTablePageState extends State<DataTablePage> {
                 SizedBox(
                   width: 2000, // FIXME Determine required width for table
                   child: ChangeNotifierProvider(
-                    create: (_) => _tableViewState,
+                    create: (_) => _tableViewSource,
                     child: const TableView<Member>(),
                   ),
                 ),

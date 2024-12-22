@@ -314,15 +314,12 @@ class TableView<DataObject extends Object> extends StatelessWidget {
   }
 }
 
-// Map setter name to new value
-typedef ChangeRecords = Map<String, SupportedType?>;
-
 class TableViewSource<DataObject extends Object> extends DataTableSource {
   final List<DataObject> _content = [];
   final Map<String, DataColumnInfo<DataObject, SupportedType>> _columnInfo = {};
-  final Map<DataObject, ChangeRecords> _changeRecords = {};
 
-  TableViewSource(BuildContext context) {
+  TableViewSource(BuildContext context,
+      void Function(DataObject, String, SupportedType?) onCellChange) {
     if (!reflectableMarker.canReflectType(DataObject)) {
       print(
           "Cannot generate table view for type '$DataObject' since it's not reflectable.");
@@ -374,15 +371,10 @@ class TableViewSource<DataObject extends Object> extends DataTableSource {
         void recordObjectValueChange<CellType extends SupportedType>(
             DataObject object, CellType? newValue) {
           // FIXME Is the setter result required for anything?
-          // final setterResult = reflectableMarker
-          //     .reflect(object)
-          //     .invokeSetter(declarationMirror.simpleName, newValue?.value);
-          print("Remember change to $newValue");
-          print(_changeRecords.length);
-          _changeRecords.putIfAbsent(object, () => <String, SupportedType?>{});
-          print(_changeRecords.length);
-          _changeRecords[object]![declarationMirror.simpleName] = newValue;
-          print(_changeRecords.length);
+          final setterResult = reflectableMarker
+              .reflect(object)
+              .invokeSetter(declarationMirror.simpleName, newValue?.value);
+          onCellChange(object, declarationMirror.simpleName, newValue);
         }
 
         final bool isNullableType = declarationMirror.type.isNullable;
@@ -433,6 +425,4 @@ class TableViewSource<DataObject extends Object> extends DataTableSource {
     _content.addAll(data);
     notifyListeners();
   }
-
-  Map<DataObject, ChangeRecords> get changeRecords => _changeRecords;
 }
