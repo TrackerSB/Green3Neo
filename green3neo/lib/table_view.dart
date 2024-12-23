@@ -70,15 +70,6 @@ Widget _createCellPopup<CellType extends SupportedType>(CellType? initialValue,
               onCellValueSubmitted as CellValueHandler<UnsupportedVariant?>));
 }
 
-class DataColumnInfo<DataObject extends Object,
-    CellType extends SupportedType> {
-  final DataCellGenerator<DataObject> dataCellGenerator;
-
-  DataColumnInfo(
-    this.dataCellGenerator,
-  );
-}
-
 class CellValueState<CellType extends SupportedType> extends ChangeNotifier {
   CellType? _value;
 
@@ -90,7 +81,7 @@ class CellValueState<CellType extends SupportedType> extends ChangeNotifier {
   }
 }
 
-DataColumnInfo<DataObject, CellType> _generateDataColumnTypeInfo<
+DataCellGenerator<DataObject> _createDataCellGenerator<
         DataObject extends Object, CellType extends SupportedType>(
     BuildContext context,
     VariableMirror variableMirror,
@@ -161,22 +152,20 @@ DataColumnInfo<DataObject, CellType> _generateDataColumnTypeInfo<
     );
   }
 
-  return DataColumnInfo<DataObject, CellType>(
-    createDataCellFromObject,
-  );
+  return createDataCellFromObject;
 }
 
-Map<String, DataColumnInfo<DataObject, SupportedType>>
-    _generateDataColumnInfos<DataObject extends Object>(BuildContext context,
+Map<String, DataCellGenerator<DataObject>>
+    _createColumnGenerators<DataObject extends Object>(BuildContext context,
         ObjectChangeHandler<DataObject> onObjectValueChange) {
   if (!reflectableMarker.canReflectType(DataObject)) {
     // FIXME Provide either logging or error handling
     print(
         "Cannot generate table view for type '$DataObject' since it's not reflectable.");
-    return <String, DataColumnInfo<DataObject, SupportedType>>{};
+    return <String, DataCellGenerator<DataObject>>{};
   }
 
-  Map<String, DataColumnInfo<DataObject, SupportedType>> columnInfos = {};
+  Map<String, DataCellGenerator<DataObject>> columnInfos = {};
 
   var classMirror = reflectableMarker.reflectType(DataObject) as ClassMirror;
   Map<String, DeclarationMirror> classDeclarations = classMirror.declarations;
@@ -190,22 +179,22 @@ Map<String, DataColumnInfo<DataObject, SupportedType>>
       switch (declarationMirror.type.reflectedType) {
         case String:
           columnInfos[columnName] =
-              _generateDataColumnTypeInfo<DataObject, StringVariant>(
+              _createDataCellGenerator<DataObject, StringVariant>(
                   context, declarationMirror, onObjectValueChange);
           break;
         case bool:
           columnInfos[columnName] =
-              _generateDataColumnTypeInfo<DataObject, BoolVariant>(
+              _createDataCellGenerator<DataObject, BoolVariant>(
                   context, declarationMirror, onObjectValueChange);
           break;
         case int:
           columnInfos[columnName] =
-              _generateDataColumnTypeInfo<DataObject, IntVariant>(
+              _createDataCellGenerator<DataObject, IntVariant>(
                   context, declarationMirror, onObjectValueChange);
           break;
         default:
           columnInfos[columnName] =
-              _generateDataColumnTypeInfo<DataObject, UnsupportedVariant>(
+              _createDataCellGenerator<DataObject, UnsupportedVariant>(
                   context, declarationMirror, onObjectValueChange);
           break;
       }
@@ -447,11 +436,11 @@ class TableView<DataObject extends Object> extends StatelessWidget {
   Widget build(BuildContext context) {
     final tableViewSource = context.watch<TableViewSource<DataObject>>();
 
-    if (tableViewSource._columnInfo.isEmpty) {
+    if (tableViewSource._generators.isEmpty) {
       return const Text("No data");
     }
 
-    List<DataColumn> dataColumns = tableViewSource._columnInfo
+    List<DataColumn> dataColumns = tableViewSource._generators
         .map<String, DataColumn>((columnName, columnInfo) {
           return MapEntry(
             columnName,
@@ -475,12 +464,12 @@ class TableView<DataObject extends Object> extends StatelessWidget {
 
 class TableViewSource<DataObject extends Object> extends DataTableSource {
   final List<DataObject> _content = [];
-  final Map<String, DataColumnInfo<DataObject, SupportedType>> _columnInfo = {};
+  final Map<String, DataCellGenerator<DataObject>> _generators = {};
 
   TableViewSource(
       BuildContext context, ObjectChangeHandler<DataObject> onCellChange) {
-    _columnInfo
-        .addAll(_generateDataColumnInfos<DataObject>(context, onCellChange));
+    _generators
+        .addAll(_createColumnGenerators<DataObject>(context, onCellChange));
   }
 
   @override
@@ -488,9 +477,9 @@ class TableViewSource<DataObject extends Object> extends DataTableSource {
     final object = _content[index];
     final List<DataCell> cells = [];
 
-    _columnInfo.forEach((columnName, info) {
-      cells.add(info.dataCellGenerator(object));
-    });
+    for (final generator in _generators.values) {
+      cells.add(generator(object));
+    }
 
     return DataRow(cells: cells);
   }
