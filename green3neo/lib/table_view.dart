@@ -113,14 +113,6 @@ DataCellGenerator<DataObject> _createDataCellGenerator<
     return constructor(value);
   }
 
-  void recordObjectValueChange(DataObject object, CellType? newValue) {
-    // FIXME Is the setter result required for anything?
-    final setterResult = reflectableMarker
-        .reflect(object)
-        .invokeSetter(variableMirror.simpleName, newValue?.value);
-    onObjectValueChange(object, variableMirror.simpleName, newValue);
-  }
-
   DataCell createDataCellFromObject(DataObject object) {
     final currentCellValue = CellValueState<CellType>();
     currentCellValue.value = getObjectValue(object);
@@ -130,6 +122,11 @@ DataCellGenerator<DataObject> _createDataCellGenerator<
 
     void onCellValueSubmitted(CellType? newCellValue) {
       currentCellValue.value = newCellValue;
+      // FIXME Is the setter result required for anything?
+      final setterResult = reflectableMarker
+          .reflect(object)
+          .invokeSetter(variableMirror.simpleName, newCellValue?.value);
+      onObjectValueChange(object, variableMirror.simpleName, newCellValue);
     }
 
     return DataCell(
