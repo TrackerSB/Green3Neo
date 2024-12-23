@@ -27,24 +27,6 @@ sealed class SupportedType with _$SupportedType {
   const factory SupportedType.unsupported(dynamic value) = UnsupportedVariant;
 }
 
-DataCell _createDataCell<CellType extends SupportedType>(
-    BuildContext context,
-    CellValueState<CellType> cellState,
-    Widget cell,
-    Widget Function(CellType?) popupGenerator) {
-  return DataCell(
-    cell,
-    onTap: () {
-      showGeneralDialog(
-        context: context,
-        pageBuilder: (context, animation, secondaryAnimation) {
-          return Dialog(child: popupGenerator(cellState.value));
-        },
-      );
-    },
-  );
-}
-
 CellType createDefaultValue<CellType extends SupportedType>() {
   if (CellType == IntVariant) {
     return const SupportedType.int(0) as CellType;
@@ -164,15 +146,22 @@ DataColumnInfo<DataObject, CellType> _generateDataColumnTypeInfo<
       currentCellValue.value = newCellValue;
     }
 
-    return _createDataCell(
-        context,
-        currentCellValue,
-        ChangeNotifierProvider(
-          create: (_) => currentCellValue,
-          child: TableViewCell<CellType>(),
-        ),
-        (CellType? initialValue) => _createCellPopup<CellType>(
-            initialValue, isNullableType, onCellValueSubmitted));
+    return DataCell(
+      ChangeNotifierProvider(
+        create: (_) => currentCellValue,
+        child: TableViewCell<CellType>(),
+      ),
+      onTap: () {
+        showGeneralDialog(
+          context: context,
+          pageBuilder: (context, animation, secondaryAnimation) {
+            return Dialog(
+                child: _createCellPopup<CellType>(currentCellValue.value,
+                    isNullableType, onCellValueSubmitted));
+          },
+        );
+      },
+    );
   }
 
   return DataColumnInfo<DataObject, CellType>(
@@ -325,9 +314,9 @@ abstract class TableViewCellPopupState<CellType extends SupportedType>
 
     // WARN Non-null popup content must only be created if value is not null
     Widget createNonNullPopupContent() => Padding(
-      padding: const EdgeInsets.all(10),
-      child: buildPopup(context),
-    );
+          padding: const EdgeInsets.all(10),
+          child: buildPopup(context),
+        );
 
     if (widget.isNullable) {
       return Row(
