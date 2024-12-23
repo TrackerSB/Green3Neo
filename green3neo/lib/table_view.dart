@@ -8,10 +8,7 @@ import 'reflectable.dart';
 part 'table_view.freezed.dart';
 
 typedef CellValueHandler<CellType extends SupportedType?> = void Function(
-    CellType);
-typedef CellSubmitHandler = VoidCallback;
-typedef CellPopupGenerator<CellType extends SupportedType?> = Widget Function(
-    CellType, CellValueHandler<CellType>, CellSubmitHandler);
+    CellType?);
 typedef ObjectValueGetter<DataObject, CellType extends SupportedType?>
     = CellType? Function(DataObject);
 typedef ObjectValueSetter<DataObject, CellType extends SupportedType?> = void
@@ -28,270 +25,167 @@ sealed class SupportedType with _$SupportedType {
   const factory SupportedType.string(String value) = StringVariant;
   const factory SupportedType.bool(bool value) = BoolVariant;
   const factory SupportedType.unsupported(dynamic value) = UnsupportedVariant;
-
-  Widget generateCellPopup<CellType extends SupportedType>(
-      CellType initialValue,
-      void Function(CellType) onValueChange,
-      CellSubmitHandler onValueSubmit) {
-    return initialValue.when(
-      int: (value) => generateIntPopup(
-          value, onValueChange as void Function(IntVariant), onValueSubmit),
-      string: (value) => generateStringPopup(
-          value, onValueChange as void Function(StringVariant), onValueSubmit),
-      bool: (value) => generateBoolPopup(
-          value, onValueChange as void Function(BoolVariant), onValueSubmit),
-      unsupported: (value) => generateUnsupportedPopup(value,
-          onValueChange as void Function(UnsupportedVariant), onValueSubmit),
-    );
-  }
 }
 
-class DataColumnInfo<DataObject extends Object,
-    CellType extends SupportedType> {
-  final SupportedType supportedType;
-  final TypeMirror typeMirror;
-  final ObjectValueGetter<DataObject, CellType> objectGetter;
-  final ObjectValueSetter<DataObject, CellType>? objectSetter;
-  final DataCellGenerator<DataObject> cellGenerator;
-
-  DataColumnInfo(
-    this.supportedType,
-    this.typeMirror,
-    this.objectGetter,
-    this.objectSetter,
-    this.cellGenerator,
-  );
-}
-
-Widget generateIntPopup(int initialValue,
-    void Function(IntVariant) onValueChange, CellSubmitHandler onValueSubmit) {
-  return TextFormField(
-    keyboardType:
-        const TextInputType.numberWithOptions(decimal: false, signed: false),
-    initialValue: initialValue.toString(),
-    inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-    onChanged: (newValue) => onValueChange(IntVariant(int.parse(newValue))),
-    onFieldSubmitted: (newValue) => onValueSubmit(),
-  );
-}
-
-Widget generateStringPopup(
-    String initialValue,
-    void Function(StringVariant) onValueChange,
-    CellSubmitHandler onValueSubmit) {
-  return TextFormField(
-    initialValue: initialValue,
-    onChanged: (newValue) => onValueChange(StringVariant(newValue)),
-    onFieldSubmitted: (newValue) => onValueSubmit(),
-  );
-}
-
-Widget generateBoolPopup(bool initialValue,
-    void Function(BoolVariant) onValueChange, CellSubmitHandler onValueSubmit) {
-  bool currentValue = initialValue;
-
-  return StatefulBuilder(
-    builder: (BuildContext context, StateSetter setState) => Checkbox(
-      value: currentValue,
-      onChanged: (newValue) {
-        onValueChange(BoolVariant(newValue == true));
-        setState(() => currentValue = !currentValue);
-      },
-    ),
-  );
-}
-
-Widget generateUnsupportedPopup(
-    dynamic initialValue,
-    void Function(UnsupportedVariant) onValueChange,
-    CellSubmitHandler onValueSubmit) {
-  return Text(initialValue.toString());
-}
-
-DataCell _wrapIntoCellGenerator<CellType extends SupportedType?>(
+DataCell _createDataCell<CellType extends SupportedType>(
     BuildContext context,
-    CellPopupGenerator<CellType> popupGenerator,
-    CellType initialCellValue,
-    CellValueHandler<CellType> objectSetter) {
-  CellType currentCellValue = initialCellValue;
-
-  StateSetter setCellState = (cellSetter) {
-    /* WARN Setter is executed without actually updating cell state if not set
-     * by cell
-     */
-    cellSetter();
-  };
-
-  onValueChange(newCellValue) {
-    setCellState(() => currentCellValue = newCellValue);
-  }
-
-  onValueSubmit() {
-    initialCellValue = currentCellValue;
-    objectSetter(currentCellValue);
-    Navigator.pop(context);
-  }
-
+    CellValueState<CellType> cellState,
+    Widget cell,
+    Widget Function(CellType?) popupGenerator) {
   return DataCell(
-    StatefulBuilder(
-      builder: (BuildContext context, StateSetter setState) {
-        setCellState = setState;
-
-        dynamic cellValue = currentCellValue?.value;
-        if (cellValue == null) {
-          return const Text("null");
-        }
-
-        return Text(cellValue.toString());
-      },
-    ),
+    cell,
     onTap: () {
       showGeneralDialog(
         context: context,
         pageBuilder: (context, animation, secondaryAnimation) {
-          return Dialog(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(10),
-                  child: popupGenerator(
-                      currentCellValue, onValueChange, onValueSubmit),
-                ),
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    ElevatedButton(
-                      // FIXME Save button does not actually save
-                      onPressed: onValueSubmit,
-                      child: const Text("Save"),
-                    ),
-                    ElevatedButton(
-                      onPressed: () {
-                        onValueChange(initialCellValue);
-                        onValueSubmit();
-                      },
-                      child: const Text("Cancel"),
-                    ),
-                  ],
-                )
-              ],
-            ),
-          );
+          return Dialog(child: popupGenerator(cellState.value));
         },
       );
     },
   );
 }
 
-CellPopupGenerator<CellType?>
-    _wrapIntoNullPopupGenerator<CellType extends SupportedType>(
-        CellPopupGenerator<CellType> popupGenerator, CellType supportedType) {
-  return (CellType? currentValue, CellValueHandler<CellType?> onValueChange,
-      CellSubmitHandler onValueSubmit) {
-    StateSetter setCellState = (setter) {
-      // WARN Setter is executed without actually updating cell state
-      setter();
-    };
+CellType createDefaultValue<CellType extends SupportedType>() {
+  if (CellType == IntVariant) {
+    return const SupportedType.int(0) as CellType;
+  }
+  if (CellType == StringVariant) {
+    return const SupportedType.string("") as CellType;
+  }
+  if (CellType == BoolVariant) {
+    return const SupportedType.bool(false) as CellType;
+  }
+  if (CellType == UnsupportedVariant) {
+    return const SupportedType.unsupported(null) as CellType;
+  }
 
-    onChanged(isChecked) {
-      setCellState(() {
-        if (isChecked) {
-          currentValue = supportedType.when(
-            int: (value) => const SupportedType.int(0) as CellType,
-            string: (value) => const SupportedType.string("") as CellType,
-            bool: (value) => const SupportedType.bool(false) as CellType,
-            unsupported: (value) =>
-                const SupportedType.unsupported(null) as CellType,
-          );
-        } else {
-          currentValue = null;
-        }
-        onValueChange(currentValue);
-      });
-    }
-
-    return StatefulBuilder(
-      builder: (BuildContext context, StateSetter setState) {
-        setCellState = setState;
-
-        return Row(
-          children: [
-            Checkbox(
-              value: currentValue != null,
-              onChanged: onChanged,
-            ),
-            Expanded(
-                child: (currentValue == null)
-                    ? const Text("Value is currently null")
-                    : popupGenerator(
-                        currentValue!, onValueChange, onValueSubmit)),
-          ],
-        );
-      },
-    );
-  };
+  // FIXME Throw exception or add warning
+  return const SupportedType.unsupported(null) as CellType;
 }
 
-DataCellGenerator<DataObject> _createCellGenerator<DataObject extends Object,
-        CellType extends SupportedType>(
+Widget _createCellPopup<CellType extends SupportedType>(CellType? initialValue,
+    bool isNullableType, CellValueHandler<CellType?> onCellValueSubmitted) {
+  return createDefaultValue<CellType>().when(
+      int: (value) => TableViewIntCellPopup(
+          initialValue: initialValue as IntVariant?,
+          isNullable: isNullableType,
+          onCellValueSubmitted:
+              onCellValueSubmitted as CellValueHandler<IntVariant?>),
+      string: (value) => TableViewStringCellPopup(
+          initialValue: initialValue as StringVariant?,
+          isNullable: isNullableType,
+          onCellValueSubmitted:
+              onCellValueSubmitted as CellValueHandler<StringVariant?>),
+      bool: (value) => TableViewBoolCellPopup(
+          initialValue: initialValue as BoolVariant?,
+          isNullable: isNullableType,
+          onCellValueSubmitted:
+              onCellValueSubmitted as CellValueHandler<BoolVariant?>),
+      unsupported: (value) => TableViewUnsupportedCellPopup(
+          initialValue: initialValue as UnsupportedVariant?,
+          isNullable: isNullableType,
+          onCellValueSubmitted:
+              onCellValueSubmitted as CellValueHandler<UnsupportedVariant?>));
+}
+
+class DataColumnInfo<DataObject extends Object,
+    CellType extends SupportedType> {
+  final TypeMirror typeMirror;
+  final ObjectValueGetter<DataObject, CellType> objectGetter;
+  final ObjectValueSetter<DataObject, CellType>? objectSetter;
+  final DataCellGenerator<DataObject> dataCellGenerator;
+
+  DataColumnInfo(
+    this.typeMirror,
+    this.objectGetter,
+    this.objectSetter,
+    this.dataCellGenerator,
+  );
+}
+
+class CellValueState<CellType extends SupportedType> extends ChangeNotifier {
+  CellType? _value;
+
+  CellType? get value => _value;
+
+  set value(newValue) {
+    _value = newValue;
+    notifyListeners();
+  }
+}
+
+DataColumnInfo<DataObject, CellType> _generateDataColumnTypeInfo<
+        DataObject extends Object, CellType extends SupportedType>(
     BuildContext context,
-    CellType supportedType,
-    bool isNullableType,
-    ObjectValueGetter<DataObject, CellType> objectGetter,
-    ObjectValueSetter<DataObject, CellType> objectSetter) {
-  popupGenerator(
-      CellType initialValue,
-      CellValueHandler<CellType> onValueChange,
-      CellSubmitHandler onValueSubmit) {
-    return supportedType.generateCellPopup<CellType>(
-        initialValue, onValueChange, onValueSubmit);
+    VariableMirror variableMirror,
+    ObjectChangeHandler<DataObject> onObjectValueChange) {
+  dynamic constructor;
+  switch (variableMirror.type.reflectedType) {
+    case String:
+      constructor = SupportedType.string;
+      break;
+    case bool:
+      constructor = SupportedType.bool;
+      break;
+    case int:
+      constructor = SupportedType.int;
+      break;
+    default:
+      constructor = SupportedType.unsupported;
+      break;
   }
 
-  CellPopupGenerator<CellType?> nullablePopupGenerator;
-  if (isNullableType) {
-    nullablePopupGenerator =
-        _wrapIntoNullPopupGenerator(popupGenerator, supportedType);
-  } else {
-    nonNullPopupGenerator(
-        CellType? initialValue,
-        CellValueHandler<CellType?> onValueChange,
-        CellSubmitHandler onValueSubmit) {
-      assert(initialValue != null);
-      return popupGenerator(initialValue!, onValueChange, onValueSubmit);
+  CellType? getObjectValue(DataObject object) {
+    var value = reflectableMarker
+        .reflect(object)
+        .invokeGetter(variableMirror.simpleName);
+    if (value == null) {
+      return null;
     }
 
-    nullablePopupGenerator = nonNullPopupGenerator;
+    return constructor(value);
   }
 
-  return (DataObject object) {
-    void setCellValue(CellType? newCellValue) {
-      objectSetter(object, newCellValue);
+  void recordObjectValueChange(DataObject object, CellType? newValue) {
+    // FIXME Is the setter result required for anything?
+    final setterResult = reflectableMarker
+        .reflect(object)
+        .invokeSetter(variableMirror.simpleName, newValue?.value);
+    onObjectValueChange(object, variableMirror.simpleName, newValue);
+  }
+
+  DataCell createDataCellFromObject(DataObject object) {
+    final currentCellValue = CellValueState<CellType>();
+    currentCellValue.value = getObjectValue(object);
+
+    final bool isNullableType = variableMirror.type.isNullable;
+
+    void onCellValueSubmitted(CellType? newCellValue) {
+      currentCellValue.value = newCellValue;
     }
 
-    return _wrapIntoCellGenerator<CellType?>(
-        context, nullablePopupGenerator, objectGetter(object), setCellValue);
-  };
-}
+    return _createDataCell(
+        context,
+        currentCellValue,
+        ChangeNotifierProvider(
+          create: (_) => currentCellValue,
+          child: TableViewCell<CellType>(),
+        ),
+        (CellType? initialValue) => _createCellPopup<CellType>(
+            initialValue, isNullableType, onCellValueSubmitted));
+  }
 
-List<DataColumn> _createColumns(Map<String, TypeMirror> columnInfo) {
-  return columnInfo
-      .map<String, DataColumn>((name, type) {
-        return MapEntry(
-          name,
-          DataColumn(
-            label: Text(name),
-          ),
-        );
-      })
-      .values
-      .toList();
+  return DataColumnInfo<DataObject, CellType>(
+    variableMirror.type,
+    getObjectValue,
+    variableMirror.isFinal ? null : recordObjectValueChange,
+    createDataCellFromObject,
+  );
 }
 
 Map<String, DataColumnInfo<DataObject, SupportedType>>
-    generateColumnInfo<DataObject extends Object>(
-        BuildContext context, ObjectChangeHandler<DataObject> onCellChange) {
+    _generateDataColumnInfos<DataObject extends Object>(BuildContext context,
+        ObjectChangeHandler<DataObject> onObjectValueChange) {
   if (!reflectableMarker.canReflectType(DataObject)) {
     // FIXME Provide either logging or error handling
     print(
@@ -310,69 +204,257 @@ Map<String, DataColumnInfo<DataObject, SupportedType>>
         return;
       }
 
-      dynamic constructor;
-      SupportedType supportedType;
       switch (declarationMirror.type.reflectedType) {
         case String:
-          constructor = SupportedType.string;
-          supportedType = const StringVariant("");
+          columnInfos[columnName] =
+              _generateDataColumnTypeInfo<DataObject, StringVariant>(
+                  context, declarationMirror, onObjectValueChange);
           break;
         case bool:
-          constructor = SupportedType.bool;
-          supportedType = const BoolVariant(false);
+          columnInfos[columnName] =
+              _generateDataColumnTypeInfo<DataObject, BoolVariant>(
+                  context, declarationMirror, onObjectValueChange);
           break;
         case int:
-          constructor = SupportedType.int;
-          supportedType = const IntVariant(0);
+          columnInfos[columnName] =
+              _generateDataColumnTypeInfo<DataObject, IntVariant>(
+                  context, declarationMirror, onObjectValueChange);
           break;
         default:
-          constructor = SupportedType.unsupported;
-          supportedType = const UnsupportedVariant(null);
+          columnInfos[columnName] =
+              _generateDataColumnTypeInfo<DataObject, UnsupportedVariant>(
+                  context, declarationMirror, onObjectValueChange);
           break;
       }
-
-      CellType? getObjectValue<CellType extends SupportedType>(
-          DataObject object) {
-        var value = reflectableMarker
-            .reflect(object)
-            .invokeGetter(declarationMirror.simpleName);
-        if (value == null) {
-          return null;
-        }
-
-        return constructor(value);
-      }
-
-      void recordObjectValueChange<CellType extends SupportedType>(
-          DataObject object, CellType? newValue) {
-        // FIXME Is the setter result required for anything?
-        final setterResult = reflectableMarker
-            .reflect(object)
-            .invokeSetter(declarationMirror.simpleName, newValue?.value);
-        onCellChange(object, declarationMirror.simpleName, newValue);
-      }
-
-      final bool isNullableType = declarationMirror.type.isNullable;
-
-      columnInfos[columnName] = DataColumnInfo<DataObject, SupportedType>(
-        supportedType,
-        declarationMirror.type,
-        getObjectValue,
-        declarationMirror.isFinal ? null : recordObjectValueChange,
-        supportedType.when(
-          int: (value) => _createCellGenerator(context, supportedType,
-              isNullableType, getObjectValue, recordObjectValueChange),
-          bool: (value) => _createCellGenerator(context, supportedType,
-              isNullableType, getObjectValue, recordObjectValueChange),
-          string: (value) => _createCellGenerator(context, supportedType,
-              isNullableType, getObjectValue, recordObjectValueChange),
-          unsupported: (value) => _createCellGenerator(context, supportedType,
-              isNullableType, getObjectValue, recordObjectValueChange),
-        ),
-      );
     },
   );
   return columnInfos;
+}
+
+class TableViewCell<CellType extends SupportedType> extends StatelessWidget {
+  const TableViewCell({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final currentCellValue = context.watch<CellValueState<CellType>>();
+
+    dynamic cellValue = currentCellValue.value?.value;
+    if (cellValue == null) {
+      return const Text("null");
+    }
+
+    return Text(cellValue.toString());
+  }
+}
+
+abstract class TableViewCellPopup<CellType extends SupportedType>
+    extends StatefulWidget {
+  final CellType? initialValue;
+  final bool isNullable;
+  final CellValueHandler<CellType?> onCellValueSubmitted;
+
+  const TableViewCellPopup(
+      {super.key,
+      required this.initialValue,
+      required this.isNullable,
+      required this.onCellValueSubmitted});
+}
+
+abstract class TableViewCellPopupState<CellType extends SupportedType>
+    extends State<TableViewCellPopup<CellType>> {
+  CellType? _currentValue;
+
+  TableViewCellPopupState();
+
+  CellType get currentValue => _currentValue!;
+
+  setInternalValue(CellType? newCellValue) {
+    setState(() => _currentValue = newCellValue);
+  }
+
+  submitInternalValue() {
+    widget.onCellValueSubmitted(_currentValue);
+    Navigator.pop(context);
+  }
+
+  setInternalNullState(isChecked) {
+    CellType? newValue;
+    if (isChecked) {
+      newValue = createDefaultValue<CellType>();
+    } else {
+      newValue = null;
+    }
+    setInternalValue(newValue);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _currentValue = widget.initialValue;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final Widget actions = Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        ElevatedButton(
+          onPressed: submitInternalValue,
+          child: const Text("Save"),
+        ),
+        ElevatedButton(
+          onPressed: () {
+            setInternalValue(widget.initialValue);
+            submitInternalValue();
+          },
+          child: const Text("Cancel"),
+        ),
+      ],
+    );
+
+    Widget createPopupContent(Widget content) {
+      return Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [content, actions],
+      );
+    }
+
+    // FIXME Localize text
+    const Widget nullPopupContent = Text("Value is currently null");
+
+    // WARN Non-null popup content must only be created if value is not null
+    Widget createNonNullPopupContent() => Padding(
+      padding: const EdgeInsets.all(10),
+      child: buildPopup(context),
+    );
+
+    if (widget.isNullable) {
+      return Row(
+        children: [
+          Checkbox(
+            value: _currentValue != null,
+            onChanged: setInternalNullState,
+          ),
+          Expanded(
+              child: createPopupContent((_currentValue == null)
+                  ? nullPopupContent
+                  : createNonNullPopupContent())),
+        ],
+      );
+    }
+
+    return createPopupContent(createNonNullPopupContent());
+  }
+
+  Widget buildPopup(BuildContext context) {
+    return const Placeholder();
+  }
+}
+
+class TableViewUnsupportedCellPopup
+    extends TableViewCellPopup<UnsupportedVariant> {
+  const TableViewUnsupportedCellPopup(
+      {super.key,
+      required super.initialValue,
+      required super.isNullable,
+      required super.onCellValueSubmitted});
+
+  @override
+  State<StatefulWidget> createState() => TableViewUnsupportedCellPopupState();
+}
+
+class TableViewUnsupportedCellPopupState
+    extends TableViewCellPopupState<UnsupportedVariant> {
+  TableViewUnsupportedCellPopupState();
+
+  @override
+  Widget buildPopup(BuildContext context) {
+    return Text(currentValue.value.toString());
+  }
+}
+
+class TableViewIntCellPopup extends TableViewCellPopup<IntVariant> {
+  const TableViewIntCellPopup(
+      {super.key,
+      required super.initialValue,
+      required super.isNullable,
+      required super.onCellValueSubmitted});
+
+  @override
+  State<StatefulWidget> createState() => TableViewIntCellPopupState();
+}
+
+class TableViewIntCellPopupState extends TableViewCellPopupState<IntVariant> {
+  TableViewIntCellPopupState();
+
+  @override
+  Widget buildPopup(BuildContext context) {
+    return TextFormField(
+      keyboardType:
+          const TextInputType.numberWithOptions(decimal: false, signed: false),
+      initialValue: currentValue.value.toString(),
+      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+      onChanged: (newValue) =>
+          setInternalValue(IntVariant(int.parse(newValue))),
+      onFieldSubmitted: (newValue) => submitInternalValue(),
+    );
+  }
+}
+
+class TableViewStringCellPopup extends TableViewCellPopup<StringVariant> {
+  const TableViewStringCellPopup(
+      {super.key,
+      required super.initialValue,
+      required super.isNullable,
+      required super.onCellValueSubmitted});
+
+  @override
+  State<StatefulWidget> createState() => TableViewStringCellPopupState();
+}
+
+class TableViewStringCellPopupState
+    extends TableViewCellPopupState<StringVariant> {
+  TableViewStringCellPopupState();
+
+  @override
+  Widget buildPopup(BuildContext context) {
+    return TextFormField(
+      initialValue: currentValue.value,
+      onChanged: (newValue) => setInternalValue(StringVariant(newValue)),
+      onFieldSubmitted: (newValue) => submitInternalValue(),
+    );
+  }
+}
+
+class TableViewBoolCellPopup extends TableViewCellPopup<BoolVariant> {
+  const TableViewBoolCellPopup(
+      {super.key,
+      required super.initialValue,
+      required super.isNullable,
+      required super.onCellValueSubmitted});
+
+  @override
+  State<StatefulWidget> createState() => TableViewBoolCellPopupState();
+}
+
+class TableViewBoolCellPopupState extends TableViewCellPopupState<BoolVariant> {
+  TableViewBoolCellPopupState();
+
+  @override
+  Widget buildPopup(BuildContext context) {
+    bool nonNullCurrentValue = currentValue.value;
+
+    return StatefulBuilder(
+      builder: (BuildContext context, StateSetter setState) => Checkbox(
+        value: nonNullCurrentValue,
+        onChanged: (newValue) {
+          setInternalValue(BoolVariant(newValue == true));
+          setState(() => nonNullCurrentValue = !nonNullCurrentValue);
+        },
+      ),
+    );
+  }
 }
 
 class TableView<DataObject extends Object> extends StatelessWidget {
@@ -386,14 +468,20 @@ class TableView<DataObject extends Object> extends StatelessWidget {
       return const Text("No data");
     }
 
+    List<DataColumn> dataColumns = tableViewSource._columnInfo
+        .map<String, DataColumn>((columnName, columnInfo) {
+          return MapEntry(
+            columnName,
+            DataColumn(
+              label: Text(columnName),
+            ),
+          );
+        })
+        .values
+        .toList();
+
     return PaginatedDataTable(
-      columns: _createColumns(
-        tableViewSource._columnInfo.map(
-          (name, info) {
-            return MapEntry(name, info.typeMirror);
-          },
-        ),
-      ),
+      columns: dataColumns,
       source: tableViewSource,
       rowsPerPage: 20,
       showFirstLastButtons: true,
@@ -408,7 +496,8 @@ class TableViewSource<DataObject extends Object> extends DataTableSource {
 
   TableViewSource(
       BuildContext context, ObjectChangeHandler<DataObject> onCellChange) {
-    _columnInfo.addAll(generateColumnInfo<DataObject>(context, onCellChange));
+    _columnInfo
+        .addAll(_generateDataColumnInfos<DataObject>(context, onCellChange));
   }
 
   @override
@@ -417,7 +506,7 @@ class TableViewSource<DataObject extends Object> extends DataTableSource {
     final List<DataCell> cells = [];
 
     _columnInfo.forEach((columnName, info) {
-      cells.add(info.cellGenerator(object));
+      cells.add(info.dataCellGenerator(object));
     });
 
     return DataRow(cells: cells);
