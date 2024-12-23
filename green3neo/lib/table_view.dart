@@ -72,15 +72,9 @@ Widget _createCellPopup<CellType extends SupportedType>(CellType? initialValue,
 
 class DataColumnInfo<DataObject extends Object,
     CellType extends SupportedType> {
-  final TypeMirror typeMirror;
-  final ObjectValueGetter<DataObject, CellType> objectGetter;
-  final ObjectValueSetter<DataObject, CellType>? objectSetter;
   final DataCellGenerator<DataObject> dataCellGenerator;
 
   DataColumnInfo(
-    this.typeMirror,
-    this.objectGetter,
-    this.objectSetter,
     this.dataCellGenerator,
   );
 }
@@ -141,6 +135,7 @@ DataColumnInfo<DataObject, CellType> _generateDataColumnTypeInfo<
     currentCellValue.value = getObjectValue(object);
 
     final bool isNullableType = variableMirror.type.isNullable;
+    final bool isFinal = variableMirror.isFinal;
 
     void onCellValueSubmitted(CellType? newCellValue) {
       currentCellValue.value = newCellValue;
@@ -152,22 +147,21 @@ DataColumnInfo<DataObject, CellType> _generateDataColumnTypeInfo<
         child: TableViewCell<CellType>(),
       ),
       onTap: () {
-        showGeneralDialog(
-          context: context,
-          pageBuilder: (context, animation, secondaryAnimation) {
-            return Dialog(
-                child: _createCellPopup<CellType>(currentCellValue.value,
-                    isNullableType, onCellValueSubmitted));
-          },
-        );
+        if (!isFinal) {
+          showGeneralDialog(
+            context: context,
+            pageBuilder: (context, animation, secondaryAnimation) {
+              return Dialog(
+                  child: _createCellPopup<CellType>(currentCellValue.value,
+                      isNullableType, onCellValueSubmitted));
+            },
+          );
+        }
       },
     );
   }
 
   return DataColumnInfo<DataObject, CellType>(
-    variableMirror.type,
-    getObjectValue,
-    variableMirror.isFinal ? null : recordObjectValueChange,
     createDataCellFromObject,
   );
 }
