@@ -15,7 +15,7 @@ typedef ObjectValueSetter<DataObject, CellType extends SupportedType?> = void
     Function(DataObject, CellType?);
 typedef ObjectChangeHandler<DataObject> = void Function(
     DataObject, String, SupportedType?);
-typedef DataCellGenerator<DataObject> = DataCell Function(DataObject);
+typedef DataCellGenerator<DataObject> = DataCell Function(DataObject, int);
 
 @Freezed()
 sealed class SupportedType with _$SupportedType {
@@ -81,7 +81,7 @@ class CellValueState<CellType extends SupportedType> extends ChangeNotifier {
   }
 }
 
-DataCellGenerator<DataObject> _createDataCellGenerator<
+DataCellGenerator<DataObject> _createDataCellGeneratorForColumn<
         DataObject extends Object, CellType extends SupportedType>(
     BuildContext context,
     VariableMirror variableMirror,
@@ -113,8 +113,20 @@ DataCellGenerator<DataObject> _createDataCellGenerator<
     return constructor(value);
   }
 
-  DataCell createDataCellFromObject(DataObject object) {
-    final currentCellValue = CellValueState<CellType>();
+  /* NOTE For each required cell at any point a new DataCell is created. So,
+   * there at most numRows x numColumns DataCell objects.
+   * However, widgets representing these DataCells are only create as many as
+   * are visible, i.e. numRowsPerPage x numColumns.
+   * Therefore cell states have to be associated with visible widgets instead
+   * of DataCells.
+   */
+
+  // States for each visible cell in this column
+  final Map<int, CellValueState<CellType>> cellStates = {};
+
+  DataCell createDataCellFromObject(DataObject object, int pageRowIndex) {
+    cellStates.putIfAbsent(pageRowIndex, CellValueState<CellType>.new);
+    final currentCellValue = cellStates[pageRowIndex]!;
     currentCellValue.value = getObjectValue(object);
 
     final bool isNullableType = variableMirror.type.isNullable;
@@ -131,6 +143,7 @@ DataCellGenerator<DataObject> _createDataCellGenerator<
 
     return DataCell(
       ChangeNotifierProvider(
+        // NOTE Created only once for each visible cell, NOT for every DataCell
         create: (_) => currentCellValue,
         child: TableViewCell<CellType>(),
       ),
@@ -176,22 +189,22 @@ Map<String, DataCellGenerator<DataObject>>
       switch (declarationMirror.type.reflectedType) {
         case String:
           columnInfos[columnName] =
-              _createDataCellGenerator<DataObject, StringVariant>(
+              _createDataCellGeneratorForColumn<DataObject, StringVariant>(
                   context, declarationMirror, onObjectValueChange);
           break;
         case bool:
           columnInfos[columnName] =
-              _createDataCellGenerator<DataObject, BoolVariant>(
+              _createDataCellGeneratorForColumn<DataObject, BoolVariant>(
                   context, declarationMirror, onObjectValueChange);
           break;
         case int:
           columnInfos[columnName] =
-              _createDataCellGenerator<DataObject, IntVariant>(
+              _createDataCellGeneratorForColumn<DataObject, IntVariant>(
                   context, declarationMirror, onObjectValueChange);
           break;
         default:
           columnInfos[columnName] =
-              _createDataCellGenerator<DataObject, UnsupportedVariant>(
+              _createDataCellGeneratorForColumn<DataObject, UnsupportedVariant>(
                   context, declarationMirror, onObjectValueChange);
           break;
       }
@@ -437,7 +450,7 @@ class TableView<DataObject extends Object> extends StatelessWidget {
       return const Text("No data");
     }
 
-    List<DataColumn> dataColumns = tableViewSource._generators
+    final List<DataColumn> dataColumns = tableViewSource._generators
         .map<String, DataColumn>((columnName, columnInfo) {
           return MapEntry(
             columnName,
@@ -452,30 +465,38 @@ class TableView<DataObject extends Object> extends StatelessWidget {
     return PaginatedDataTable(
       columns: dataColumns,
       source: tableViewSource,
-      rowsPerPage: 20,
+      rowsPerPage: tableViewSource.rowsPerPage,
       showFirstLastButtons: true,
       showCheckboxColumn: true, // FIXME Has it any effect?
+      // FIXME Accessing possible null value
+      onRowsPerPageChanged: (value) => tableViewSource.rowsPerPage = value!,
     );
   }
 }
 
 class TableViewSource<DataObject extends Object> extends DataTableSource {
-  final List<DataObject> _content = [];
+  List<DataObject> _content = [];
+  int _rowsPerPage;
   final Map<String, DataCellGenerator<DataObject>> _generators = {};
 
-  TableViewSource(
-      BuildContext context, ObjectChangeHandler<DataObject> onCellChange) {
+  TableViewSource(BuildContext context, this._rowsPerPage,
+      ObjectChangeHandler<DataObject> onCellChange) {
     _generators
         .addAll(_createColumnGenerators<DataObject>(context, onCellChange));
   }
 
   @override
-  DataRow? getRow(int index) {
-    final object = _content[index];
+  DataRow? getRow(int rowIndex) {
+    if ((rowIndex > _content.length) || (rowIndex < 0)) {
+      return null;
+    }
+
+    final DataObject object = _content[rowIndex];
+    final int pageRowIndex = rowIndex % _rowsPerPage;
     final List<DataCell> cells = [];
 
     for (final generator in _generators.values) {
-      cells.add(generator(object));
+      cells.add(generator(object, pageRowIndex));
     }
 
     return DataRow(cells: cells);
@@ -490,9 +511,14 @@ class TableViewSource<DataObject extends Object> extends DataTableSource {
   @override
   int get selectedRowCount => 0;
 
-  void setData(List<DataObject> data) {
-    _content.clear();
-    _content.addAll(data);
+  set data(List<DataObject> data) {
+    _content = data;
     notifyListeners();
+  }
+
+  int get rowsPerPage => _rowsPerPage;
+
+  set rowsPerPage(int rowsPerPage) {
+    _rowsPerPage = rowsPerPage;
   }
 }

@@ -24,17 +24,19 @@ class DataTablePageState extends State<DataTablePage> {
 
   void _receiveDataFromDB() {
     getDummyMembers().then(
-      (members) => setState(
-        () {
-          // FIXME Warn about state not being initialized yet
-          if (members == null) {
+      (members) {
+        // FIXME Warn about state not being initialized yet
+        if (members == null) {
+          setState(() {
             // FIXME Provide error message
-            _tableViewSource?.setData(List.empty());
-          } else {
-            _tableViewSource?.setData(members);
-          }
-        },
-      ),
+            _tableViewSource?.data = List.empty();
+          });
+        } else {
+          setState(() {
+            _tableViewSource?.data = members;
+          });
+        }
+      },
     );
   }
 
@@ -69,13 +71,15 @@ class DataTablePageState extends State<DataTablePage> {
 
   void onCellChange(
       Member member, String setterName, SupportedType? newCellValue) {
-    _changeRecords.putIfAbsent(member, () => <String, SupportedType?>{});
-    _changeRecords[member]![setterName] = newCellValue;
+    setState(() {
+      _changeRecords.putIfAbsent(member, () => <String, SupportedType?>{});
+      _changeRecords[member]![setterName] = newCellValue;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    _tableViewSource ??= TableViewSource<Member>(context, onCellChange);
+    _tableViewSource ??= TableViewSource<Member>(context, 20, onCellChange);
 
     return Column(
       children: [
