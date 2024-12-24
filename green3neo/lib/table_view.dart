@@ -71,13 +71,22 @@ Widget _createCellPopup<CellType extends SupportedType>(CellType? initialValue,
 }
 
 class CellValueState<CellType extends SupportedType> extends ChangeNotifier {
+  final VoidCallback onDispose;
   CellType? _value;
+
+  CellValueState({required this.onDispose});
 
   CellType? get value => _value;
 
   set value(newValue) {
     _value = newValue;
     notifyListeners();
+  }
+
+  @override
+  void dispose() {
+    onDispose();
+    super.dispose();
   }
 }
 
@@ -125,7 +134,11 @@ DataCellGenerator<DataObject> _createDataCellGeneratorForColumn<
   final Map<int, CellValueState<CellType>> cellStates = {};
 
   DataCell createDataCellFromObject(DataObject object, int pageRowIndex) {
-    cellStates.putIfAbsent(pageRowIndex, CellValueState<CellType>.new);
+    cellStates.putIfAbsent(
+        pageRowIndex,
+        () => CellValueState<CellType>(
+            onDispose: () => cellStates.remove(pageRowIndex)));
+
     final currentCellValue = cellStates[pageRowIndex]!;
     currentCellValue.value = getObjectValue(object);
 
@@ -144,7 +157,7 @@ DataCellGenerator<DataObject> _createDataCellGeneratorForColumn<
     return DataCell(
       ChangeNotifierProvider(
         // NOTE Created only once for each visible cell, NOT for every DataCell
-        create: (_) => currentCellValue,
+        create: (context) => currentCellValue,
         child: TableViewCell<CellType>(),
       ),
       onTap: () {
@@ -520,5 +533,6 @@ class TableViewSource<DataObject extends Object> extends DataTableSource {
 
   set rowsPerPage(int rowsPerPage) {
     _rowsPerPage = rowsPerPage;
+    notifyListeners();
   }
 }
