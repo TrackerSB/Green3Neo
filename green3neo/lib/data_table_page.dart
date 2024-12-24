@@ -79,7 +79,7 @@ class DataTablePageState extends State<DataTablePage> {
 
   @override
   Widget build(BuildContext context) {
-    _tableViewSource ??= TableViewSource<Member>(context, 20, onCellChange);
+    _tableViewSource ??= TableViewSource<Member>(context, onCellChange);
 
     return Column(
       children: [

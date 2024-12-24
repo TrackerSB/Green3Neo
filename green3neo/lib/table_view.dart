@@ -15,7 +15,7 @@ typedef ObjectValueSetter<DataObject, CellType extends SupportedType?> = void
     Function(DataObject, CellType?);
 typedef ObjectChangeHandler<DataObject> = void Function(
     DataObject, String, SupportedType?);
-typedef DataCellGenerator<DataObject> = DataCell Function(DataObject, int);
+typedef DataCellGenerator<DataObject> = DataCell Function(DataObject);
 
 @Freezed()
 sealed class SupportedType with _$SupportedType {
@@ -71,22 +71,13 @@ Widget _createCellPopup<CellType extends SupportedType>(CellType? initialValue,
 }
 
 class CellValueState<CellType extends SupportedType> extends ChangeNotifier {
-  final VoidCallback onDispose;
   CellType? _value;
-
-  CellValueState({required this.onDispose});
 
   CellType? get value => _value;
 
   set value(newValue) {
     _value = newValue;
     notifyListeners();
-  }
-
-  @override
-  void dispose() {
-    onDispose();
-    super.dispose();
   }
 }
 
@@ -122,24 +113,8 @@ DataCellGenerator<DataObject> _createDataCellGeneratorForColumn<
     return constructor(value);
   }
 
-  /* NOTE For each required cell at any point a new DataCell is created. So,
-   * there at most numRows x numColumns DataCell objects.
-   * However, widgets representing these DataCells are only create as many as
-   * are visible, i.e. numRowsPerPage x numColumns.
-   * Therefore cell states have to be associated with visible widgets instead
-   * of DataCells.
-   */
-
-  // States for each visible cell in this column
-  final Map<int, CellValueState<CellType>> cellStates = {};
-
-  DataCell createDataCellFromObject(DataObject object, int pageRowIndex) {
-    cellStates.putIfAbsent(
-        pageRowIndex,
-        () => CellValueState<CellType>(
-            onDispose: () => cellStates.remove(pageRowIndex)));
-
-    final currentCellValue = cellStates[pageRowIndex]!;
+  DataCell createDataCellFromObject(DataObject object) {
+    final currentCellValue = CellValueState<CellType>();
     currentCellValue.value = getObjectValue(object);
 
     final bool isNullableType = variableMirror.type.isNullable;
@@ -155,11 +130,7 @@ DataCellGenerator<DataObject> _createDataCellGeneratorForColumn<
     }
 
     return DataCell(
-      ChangeNotifierProvider(
-        // NOTE Created only once for each visible cell, NOT for every DataCell
-        create: (context) => currentCellValue,
-        child: TableViewCell<CellType>(),
-      ),
+      TableViewCell<CellType>(cellValueState: currentCellValue),
       onTap: () {
         if (!isFinal) {
           showGeneralDialog(
@@ -226,14 +197,47 @@ Map<String, DataCellGenerator<DataObject>>
   return columnInfos;
 }
 
-class TableViewCell<CellType extends SupportedType> extends StatelessWidget {
-  const TableViewCell({super.key});
+class TableViewCell<CellType extends SupportedType> extends StatefulWidget {
+  final CellValueState<CellType> cellValueState;
+
+  const TableViewCell({super.key, required this.cellValueState});
+
+  @override
+  TableViewCellState<CellType> createState() => TableViewCellState<CellType>();
+}
+
+class TableViewCellState<CellType extends SupportedType>
+    extends State<TableViewCell<CellType>> {
+  dynamic cellValue;
+
+  void updateCellValue() {
+    setState(() => cellValue = widget.cellValueState.value?.value);
+  }
+
+  void observeWidget(covariant TableViewCell<CellType>? oldWidget,
+      covariant TableViewCell<CellType> newWidget) {
+    if (oldWidget != null) {
+      oldWidget.cellValueState.removeListener(updateCellValue);
+    }
+
+    newWidget.cellValueState.addListener(updateCellValue);
+    updateCellValue();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    observeWidget(null, widget);
+  }
+
+  @override
+  void didUpdateWidget(covariant TableViewCell<CellType> oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    observeWidget(oldWidget, widget);
+  }
 
   @override
   Widget build(BuildContext context) {
-    final currentCellValue = context.watch<CellValueState<CellType>>();
-
-    dynamic cellValue = currentCellValue.value?.value;
     if (cellValue == null) {
       return const Text("null");
     }
@@ -478,22 +482,19 @@ class TableView<DataObject extends Object> extends StatelessWidget {
     return PaginatedDataTable(
       columns: dataColumns,
       source: tableViewSource,
-      rowsPerPage: tableViewSource.rowsPerPage,
+      rowsPerPage: 20,
       showFirstLastButtons: true,
       showCheckboxColumn: true, // FIXME Has it any effect?
-      // FIXME Accessing possible null value
-      onRowsPerPageChanged: (value) => tableViewSource.rowsPerPage = value!,
     );
   }
 }
 
 class TableViewSource<DataObject extends Object> extends DataTableSource {
   List<DataObject> _content = [];
-  int _rowsPerPage;
   final Map<String, DataCellGenerator<DataObject>> _generators = {};
 
-  TableViewSource(BuildContext context, this._rowsPerPage,
-      ObjectChangeHandler<DataObject> onCellChange) {
+  TableViewSource(
+      BuildContext context, ObjectChangeHandler<DataObject> onCellChange) {
     _generators
         .addAll(_createColumnGenerators<DataObject>(context, onCellChange));
   }
@@ -505,11 +506,10 @@ class TableViewSource<DataObject extends Object> extends DataTableSource {
     }
 
     final DataObject object = _content[rowIndex];
-    final int pageRowIndex = rowIndex % _rowsPerPage;
     final List<DataCell> cells = [];
 
     for (final generator in _generators.values) {
-      cells.add(generator(object, pageRowIndex));
+      cells.add(generator(object));
     }
 
     return DataRow(cells: cells);
@@ -526,13 +526,6 @@ class TableViewSource<DataObject extends Object> extends DataTableSource {
 
   set data(List<DataObject> data) {
     _content = data;
-    notifyListeners();
-  }
-
-  int get rowsPerPage => _rowsPerPage;
-
-  set rowsPerPage(int rowsPerPage) {
-    _rowsPerPage = rowsPerPage;
     notifyListeners();
   }
 }
