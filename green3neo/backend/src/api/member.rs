@@ -41,3 +41,22 @@ pub fn get_all_members() -> Option<Vec<Member>> {
 
     Some(member_entries.unwrap())
 }
+
+pub struct ChangeRecord {
+    // Primary key for identification
+    pub membershipid: i32,
+
+    // Data to change
+    pub column: String,
+    pub value: Option<String>,
+}
+
+pub fn change_member(changes: Vec<ChangeRecord>) {
+    println!("Changing data is not implemented");
+    for change in changes {
+        println!(
+            "Change {} of {} to {:?}",
+            change.membershipid, change.column, change.value
+        );
+    }
+}

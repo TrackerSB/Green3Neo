@@ -11,12 +11,9 @@ class DataTablePage extends StatefulWidget {
   State<StatefulWidget> createState() => DataTablePageState();
 }
 
-// Map setter name to new value
-typedef ChangeRecords = Map<String, SupportedType?>;
-
 class DataTablePageState extends State<DataTablePage> {
   TableViewSource<Member>? _tableViewSource;
-  final Map<Member, ChangeRecords> _changeRecords = {};
+  final List<ChangeRecord> _changeRecords = [];
 
   DataTablePageState() {
     _receiveDataFromDB();
@@ -46,14 +43,7 @@ class DataTablePageState extends State<DataTablePage> {
       return;
     }
 
-    print("Following changes are made ${_changeRecords.length}");
-    // FIXME Why is dataChanges always empty?
-    _changeRecords.forEach((object, changeRecords) {
-      print("For object $object");
-      changeRecords.forEach((setterName, newValue) {
-        print("Set $setterName to ${newValue?.value}");
-      });
-    });
+    changeMember(changes: _changeRecords);
   }
 
   Widget _wrapInScrollable(Widget toWrap, Axis direction) {
@@ -71,10 +61,11 @@ class DataTablePageState extends State<DataTablePage> {
 
   void onCellChange(
       Member member, String setterName, SupportedType? newCellValue) {
-    setState(() {
-      _changeRecords.putIfAbsent(member, () => <String, SupportedType?>{});
-      _changeRecords[member]![setterName] = newCellValue;
-    });
+    var internalValue = newCellValue?.value;
+    setState(() => _changeRecords.add(ChangeRecord(
+        membershipid: member.membershipid,
+        column: setterName,
+        value: (internalValue != null) ? internalValue.toString() : null)));
   }
 
   @override
