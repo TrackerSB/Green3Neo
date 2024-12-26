@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:green3neo/backend/api/dummy.dart';
+import 'package:green3neo/backend/api/member.dart';
 import 'package:green3neo/backend/models.dart';
 import 'package:provider/provider.dart';
 import 'table_view.dart';
@@ -23,7 +23,7 @@ class DataTablePageState extends State<DataTablePage> {
   }
 
   void _receiveDataFromDB() {
-    getDummyMembers().then(
+    getAllMembers().then(
       (members) {
         // FIXME Warn about state not being initialized yet
         if (members == null) {

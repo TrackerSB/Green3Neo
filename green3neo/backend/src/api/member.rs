@@ -4,7 +4,7 @@ use diesel::{
 };
 use dotenv::dotenv;
 
-pub fn get_dummy_members() -> Option<Vec<Member>> {
+fn get_connection() -> Option<PgConnection> {
     dotenv().ok();
 
     let url = std::env::var("DATABASE_URL");
@@ -17,6 +17,16 @@ pub fn get_dummy_members() -> Option<Vec<Member>> {
 
     if connection.is_err() {
         return None; // FIXME Improve error message
+    }
+
+    Some(connection.unwrap())
+}
+
+pub fn get_all_members() -> Option<Vec<Member>> {
+    let connection = get_connection();
+
+    if connection.is_none() {
+        return None;
     }
 
     use crate::schema::member::dsl::*;
