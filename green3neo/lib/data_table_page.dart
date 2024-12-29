@@ -43,6 +43,7 @@ class DataTablePageState extends State<DataTablePage> {
       return;
     }
 
+    // Copy list for improved thread safety
     final List<ChangeRecord> records = _changeRecords.toList();
     _changeRecords.clear();
     changeMember(changes: records).then(
