@@ -20,8 +20,8 @@ jobs:
       - name: Setup PostgreSQL server
         uses: harmon758/postgresql-action@v1
         with:
-          postgresql db: "$DB_NAME"
-          postgresql user: "$DB_USER"
-          postgresql password: "$DB_PASSWORD"
+          postgresql db: ${{ steps.dotenv.outputs.db_name }}
+          postgresql user: ${{ steps.dotenv.outputs.db_user }}
+          postgresql password: ${{ steps.dotenv.outputs.db_password }}
       - working-directory: ${{ github.workspace }}/green3neo
         run: just build
