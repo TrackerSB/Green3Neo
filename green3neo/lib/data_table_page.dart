@@ -43,7 +43,19 @@ class DataTablePageState extends State<DataTablePage> {
       return;
     }
 
-    changeMember(changes: _changeRecords);
+    final List<ChangeRecord> records = _changeRecords.toList();
+    _changeRecords.clear();
+    changeMember(changes: records).then(
+      (succeededUpdateIndices) {
+        succeededUpdateIndices.sort();
+        for (final BigInt index in succeededUpdateIndices.reversed) {
+          records.removeAt(index.toInt());
+        }
+
+        // Add records that failed to update back to the list
+        _changeRecords.addAll(records);
+      },
+    );
   }
 
   Widget _wrapInScrollable(Widget toWrap, Axis direction) {
