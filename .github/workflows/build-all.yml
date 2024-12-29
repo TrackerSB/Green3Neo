@@ -6,6 +6,8 @@ jobs:
     steps:
       - name: Load environment variables
         uses: falti/dotenv-action@v1.1.2
+        with:
+          path: ${{ github.workspace }}/green3neo/.env
       - name: Install just command runner
         uses: extractions/setup-just@v2
       - name: Setup PostgreSQL server
