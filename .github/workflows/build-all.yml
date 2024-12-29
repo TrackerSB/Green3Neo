@@ -6,5 +6,7 @@ jobs:
     steps:
       - name: Install just command runner
         uses: extractions/setup-just@v2
-      - working-directory: ./green3neo
+      - name: Clone repository
+        uses: actions/checkout@v4
+      - working-directory: ${{ github.workspace }}/green3neo
         run: just build
