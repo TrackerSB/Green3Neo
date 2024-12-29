@@ -4,8 +4,16 @@ jobs:
   Build-All:
     runs-on: ubuntu-latest
     steps:
+      - name: Load environment variables
+        uses: falti/dotenv-action@v1.1.2
       - name: Install just command runner
         uses: extractions/setup-just@v2
+      - name: Setup PostgreSQL server
+        uses: harmon758/postgresql-action@v1
+        with:
+          postgresql db: "$DB_NAME"
+          postgresql user: "$DB_USER"
+          postgresql password: "$DB_PASSWORD"
       - name: Install diesel_cli --no-default-features --features "postgres"
         run: cargo install diesel_cli
       - name: Install diesel_cli_ext
