@@ -16,8 +16,8 @@ jobs:
     steps:
       - name: Install just command runner
         uses: extractions/setup-just@v2
-      - name: Install diesel_cli --no-default-features --features "postgres"
-        run: cargo install diesel_cli
+      - name: Install diesel_cli
+        run: cargo install diesel_cli --no-default-features --features "postgres"
       - name: Install diesel_cli_ext
         run: cargo install diesel_cli_ext
       - name: Clone repository
