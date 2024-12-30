@@ -45,7 +45,8 @@ diesel-generate-models:
     cd {{ backend_dir }} && diesel_ext --model --import-types diesel::Queryable --import-types diesel::Selectable --import-types diesel::Identifiable --import-types backend_macros::make_fields_non_final --import-types flutter_rust_bridge::frb --import-types crate::schema::* --derive Queryable,Selectable --add-table-name > src/models.rs
     git apply ./patches/models.rs.patch
 
-# FIXME Verify that FRB versions in Cargo.toml, pubspec.yaml and the installed FRB codegen correspond to each other
+# FIXME Verify that FRB versions in Cargo.toml, pubspec.yaml and the installed FRB codegen (locally and in Github
+# Actions) correspond to each other
 frb-generate:
     mkdir -p {{ frb_dart_output_dir }}
     flutter_rust_bridge_codegen generate --no-web --no-add-mod-to-lib --llvm-path {{ llvmIncludeDir }} --rust-input "crate::api" --rust-root {{ backend_dir }} --dart-output {{ frb_dart_output_dir }}
