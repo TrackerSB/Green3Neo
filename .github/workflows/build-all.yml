@@ -23,6 +23,7 @@ jobs:
           postgres_user: ${{ env.DB_USER }}
           postgres_password: ${{ env.DB_PASSWORD }}
       - name: Create DB tables
+        working-directory: ${{ github.workspace }}/green3neo
         run: just database-create-tables
       - name: Execute full build
         working-directory: ${{ github.workspace }}/green3neo
