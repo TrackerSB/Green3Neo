@@ -7,7 +7,7 @@ jobs:
       postgres:
         image: postgres
         env:
-          POSTGRES_HOST: myFancyDatabaseName
+          POSTGRES_HOST: postgres
           POSTGRES_PASSWORD: prettySafePassword
         options: >-
           --health-cmd pg_isready
