@@ -35,5 +35,6 @@ jobs:
       #     postgresql db: ${{ steps.dotenv.outputs.db_name }}
       #     postgresql user: ${{ steps.dotenv.outputs.db_user }}
       #     postgresql password: ${{ steps.dotenv.outputs.db_password }}
-      - working-directory: ${{ github.workspace }}/green3neo
+      - name: Execute full build
+        working-directory: ${{ github.workspace }}/green3neo
         run: just build
