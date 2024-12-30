@@ -37,5 +37,5 @@ jobs:
       - working-directory: ${{ github.workspace }}/green3neo
         run: just build
         env:
-          POSTGRES_HOST: postgres
+          POSTGRES_HOST: myFancyDatabaseName
           POSTGRES_PORT: 5432
