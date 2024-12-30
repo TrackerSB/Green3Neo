@@ -8,6 +8,7 @@ jobs:
         image: postgres
         env:
           POSTGRES_HOST: postgres
+          POSTGRES_USER: testuser
           POSTGRES_PASSWORD: prettySafePassword
         options: >-
           --health-cmd pg_isready
