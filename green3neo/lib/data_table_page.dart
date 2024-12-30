@@ -72,6 +72,58 @@ class DataTablePageState extends State<DataTablePage> {
     );
   }
 
+  Widget _visualizeChanges(List<ChangeRecord> changeRecords) {
+    return Table(
+      children: [
+        const TableRow(
+          children: [
+            // FIXME Localize texts
+            Text("Membership ID"),
+            Text("Column"),
+            Text("Value"),
+          ],
+        ),
+        for (final record in changeRecords)
+          TableRow(
+            children: [
+              Text(record.membershipid.toString()),
+              Text(record.column),
+              Text(record.value ?? "null"),
+            ],
+          ),
+      ],
+    );
+  }
+
+  void _showPersistChangesDialog() {
+    showGeneralDialog(
+      context: context,
+      // FIXME Localize texts
+      pageBuilder: (context, animation, secondaryAnimation) => Dialog(
+        child: Column(
+          children: [
+            _visualizeChanges(_changeRecords),
+            Row(
+              children: [
+                TextButton(
+                  onPressed: Navigator.of(context).pop,
+                  child: const Text("Cancel"),
+                ),
+                TextButton(
+                  onPressed: () {
+                    _commitDataChanges();
+                    Navigator.of(context).pop();
+                  },
+                  child: const Text("Commit"),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   void onCellChange(
       Member member, String setterName, SupportedType? newCellValue) {
     var internalValue = newCellValue?.value;
@@ -97,32 +149,9 @@ class DataTablePageState extends State<DataTablePage> {
             ),
             ElevatedButton(
               onPressed: () {
-                if (_changeRecords.isEmpty) {
-                  return;
+                if (_changeRecords.isNotEmpty) {
+                  _showPersistChangesDialog();
                 }
-
-                showAdaptiveDialog(
-                  context: context,
-                  // FIXME Localize texts
-                  builder: (context) => AlertDialog(
-                    title: const Text("Commit changes"),
-                    content: const Text(
-                        "Are you sure you want to commit the changes?"),
-                    actions: [
-                      TextButton(
-                        onPressed: Navigator.of(context).pop,
-                        child: const Text("Cancel"),
-                      ),
-                      TextButton(
-                        onPressed: () {
-                          _commitDataChanges();
-                          Navigator.of(context).pop();
-                        },
-                        child: const Text("Commit"),
-                      ),
-                    ],
-                  ),
-                ).ignore();
               },
               child: const Text("Commit changes"),
             ),
