@@ -11,12 +11,19 @@ jobs:
           cargo install diesel_cli --no-default-features --features "postgres"
           cargo install diesel_cli_ext
           cargo install flutter_rust_bridge_codegen
+      - name: Install Flutter SDK
+        uses: flutter-actions/setup-flutter@v4
+        with:
+          channel: stable
+          version: latest
       - name: Clone repository
         uses: actions/checkout@v4
       - name: Load environment variables
         uses: xom9ikk/dotenv@v2.3.0
         with:
           path: ${{ github.workspace }}/green3neo
+      - name: Install Flutter packages
+        run: flutter pub get
       - name: Setup PostgreSQL server
         uses: Daniel-Marynicz/postgresql-action@master
         with:
