@@ -29,7 +29,7 @@ jobs:
       - name: Load environment variables
         uses: xom9ikk/dotenv@v2.3.0
         with:
-          path: ${{ github.workspace }}/green3neo/.env
+          path: ${{ github.workspace }}/green3neo
       # - name: Load environment variables
       #   uses: falti/dotenv-action@v1.1.2
       #   with:
