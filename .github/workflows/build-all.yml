@@ -6,6 +6,8 @@ jobs:
     steps:
       - name: Install just command runner
         uses: extractions/setup-just@v2
+      - name: Install Ninja
+        uses: turtlesec-no/get-ninja@1.1.0
       - name: Install Rust command line tools
         run: |
           cargo install diesel_cli --no-default-features --features "postgres"
