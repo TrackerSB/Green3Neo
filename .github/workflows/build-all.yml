@@ -23,6 +23,7 @@ jobs:
         with:
           path: ${{ github.workspace }}/green3neo
       - name: Install Flutter packages
+        working-directory: ${{ github.workspace }}/green3neo
         run: flutter pub get
       - name: Setup PostgreSQL server
         uses: Daniel-Marynicz/postgresql-action@master
