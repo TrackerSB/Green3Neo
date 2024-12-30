@@ -10,7 +10,7 @@ jobs:
         run: |
           cargo install diesel_cli --no-default-features --features "postgres"
           cargo install diesel_cli_ext
-          cargo install flutter-rust-bridge-codegen
+          cargo install flutter_rust_bridge_codegen
       - name: Clone repository
         uses: actions/checkout@v4
       - name: Load environment variables
