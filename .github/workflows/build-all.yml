@@ -34,11 +34,17 @@ jobs:
           export-variables: true
           keys-case: upper
       - name: Setup PostgreSQL server
-        uses: harmon758/postgresql-action@v1
+        uses: Daniel-Marynicz/postgresql-action@master
         with:
-          postgresql db: postgres
-          postgresql user: testuser
-          postgresql password: prettySafePassword
+          postgres_db: postgres
+          postgres_user: testuser
+          postgres_password: prettySafePassword
+      # - name: Setup PostgreSQL server
+      #   uses: harmon758/postgresql-action@v1
+      #   with:
+      #     postgresql db: postgres
+      #     postgresql user: testuser
+      #     postgresql password: prettySafePassword
       - name: Execute full build
         working-directory: ${{ github.workspace }}/green3neo
         run: just build
