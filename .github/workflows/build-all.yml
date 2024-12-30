@@ -3,6 +3,17 @@ on: [push]
 jobs:
   Build-All:
     runs-on: ubuntu-latest
+    container: node:20-bookworm-slim
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_PASSWORD: prettySafePassword
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
     steps:
       - name: Install just command runner
         uses: extractions/setup-just@v2
@@ -17,11 +28,14 @@ jobs:
         with:
           path: ${{ github.workspace }}/green3neo/.env
           log-variables: true
-      - name: Setup PostgreSQL server
-        uses: harmon758/postgresql-action@v1
-        with:
-          postgresql db: ${{ steps.dotenv.outputs.db_name }}
-          postgresql user: ${{ steps.dotenv.outputs.db_user }}
-          postgresql password: ${{ steps.dotenv.outputs.db_password }}
+      # - name: Setup PostgreSQL server
+      #   uses: harmon758/postgresql-action@v1
+      #   with:
+      #     postgresql db: ${{ steps.dotenv.outputs.db_name }}
+      #     postgresql user: ${{ steps.dotenv.outputs.db_user }}
+      #     postgresql password: ${{ steps.dotenv.outputs.db_password }}
       - working-directory: ${{ github.workspace }}/green3neo
         run: just build
+        env:
+          POSTGRES_HOST: postgres
+          POSTGRES_PORT: 5432
