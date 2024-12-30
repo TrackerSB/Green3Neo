@@ -15,6 +15,8 @@ jobs:
           --health-timeout 5s
           --health-retries 5
     steps:
+      - name: Install curl
+        run: sudo apt-get update && sudo apt-get install -y curl
       - name: Install just command runner
         uses: extractions/setup-just@v2
       - name: Install Rust
