@@ -96,7 +96,34 @@ class DataTablePageState extends State<DataTablePage> {
               child: const Text("Update data"),
             ),
             ElevatedButton(
-              onPressed: _commitDataChanges,
+              onPressed: () {
+                if (_changeRecords.isEmpty) {
+                  return;
+                }
+
+                showAdaptiveDialog(
+                  context: context,
+                  // FIXME Localize texts
+                  builder: (context) => AlertDialog(
+                    title: const Text("Commit changes"),
+                    content: const Text(
+                        "Are you sure you want to commit the changes?"),
+                    actions: [
+                      TextButton(
+                        onPressed: Navigator.of(context).pop,
+                        child: const Text("Cancel"),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          _commitDataChanges();
+                          Navigator.of(context).pop();
+                        },
+                        child: const Text("Commit"),
+                      ),
+                    ],
+                  ),
+                ).ignore();
+              },
               child: const Text("Commit changes"),
             ),
           ],
