@@ -120,7 +120,6 @@ pub fn change_member(changes: Vec<ChangeRecord>) -> Vec<usize> {
         ));
 
         let changed_value = change.value.as_ref();
-        let mut update_result: QueryResult<usize> = Err(Error::NotFound);
 
         if changed_value.is_none() {
             // FIXME Verify whether column is nullable
@@ -132,25 +131,25 @@ pub fn change_member(changes: Vec<ChangeRecord>) -> Vec<usize> {
             // update_result = update_statement.execute(&mut connection);
             println!("Changing values to NULL is not supported yet");
             continue;
-        } else {
-            let boxed_unbound_update_statement = unbound_update_statement.into_boxed();
-            let changed_value_update_statement = match column_type.data_type.as_str() {
-                "text" => boxed_unbound_update_statement.bind::<Text, _>(changed_value.unwrap()),
-                "character varying" => {
-                    boxed_unbound_update_statement.bind::<Varchar, _>(changed_value.unwrap())
-                }
-                "integer" => boxed_unbound_update_statement
-                    .bind::<Integer, _>(changed_value.unwrap().parse::<i32>().unwrap()),
-                _ => {
-                    println!("Unknown type {}", column_type.data_type.as_str());
-                    // FIXME Handle error
-                    continue;
-                }
-            };
-            let update_statement =
-                changed_value_update_statement.bind::<Integer, _>(change.membershipid);
-            update_result = update_statement.execute(&mut connection);
         }
+
+        let boxed_unbound_update_statement = unbound_update_statement.into_boxed();
+        let changed_value_update_statement = match column_type.data_type.as_str() {
+            "text" => boxed_unbound_update_statement.bind::<Text, _>(changed_value.unwrap()),
+            "character varying" => {
+                boxed_unbound_update_statement.bind::<Varchar, _>(changed_value.unwrap())
+            }
+            "integer" => boxed_unbound_update_statement
+                .bind::<Integer, _>(changed_value.unwrap().parse::<i32>().unwrap()),
+            _ => {
+                println!("Unknown type {}", column_type.data_type.as_str());
+                // FIXME Handle error
+                continue;
+            }
+        };
+        let update_statement =
+            changed_value_update_statement.bind::<Integer, _>(change.membershipid);
+        let update_result = update_statement.execute(&mut connection);
 
         // FIXME Improve logging and error handling
         match update_result {
