@@ -29,6 +29,7 @@ jobs:
           path: ${{ github.workspace }}/green3neo/.env
           log-variables: true
           export-variables: true
+          keys-case: upper
       # - name: Setup PostgreSQL server
       #   uses: harmon758/postgresql-action@v1
       #   with:
