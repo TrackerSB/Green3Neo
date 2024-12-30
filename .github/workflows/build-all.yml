@@ -28,6 +28,7 @@ jobs:
         with:
           path: ${{ github.workspace }}/green3neo/.env
           log-variables: true
+          export-variables: true
       # - name: Setup PostgreSQL server
       #   uses: harmon758/postgresql-action@v1
       #   with:
@@ -36,6 +37,3 @@ jobs:
       #     postgresql password: ${{ steps.dotenv.outputs.db_password }}
       - working-directory: ${{ github.workspace }}/green3neo
         run: just build
-        env:
-          POSTGRES_HOST: myFancyDatabaseName
-          POSTGRES_PORT: 5432
