@@ -17,6 +17,11 @@ jobs:
     steps:
       - name: Install just command runner
         uses: extractions/setup-just@v2
+      - name: Install Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          profile: minimal
       - name: Install diesel_cli --no-default-features --features "postgres"
         run: cargo install diesel_cli
       - name: Install diesel_cli_ext
