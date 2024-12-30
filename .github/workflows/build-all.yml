@@ -27,24 +27,22 @@ jobs:
       - name: Clone repository
         uses: actions/checkout@v4
       - name: Load environment variables
-        uses: falti/dotenv-action@v1.1.2
+        uses: xom9ikk/dotenv@v2.3.0
         with:
           path: ${{ github.workspace }}/green3neo/.env
-          log-variables: true
-          export-variables: true
-          keys-case: upper
+      # - name: Load environment variables
+      #   uses: falti/dotenv-action@v1.1.2
+      #   with:
+      #     path: ${{ github.workspace }}/green3neo/.env
+      #     log-variables: true
+      #     export-variables: true
+      #     keys-case: upper
       - name: Setup PostgreSQL server
         uses: Daniel-Marynicz/postgresql-action@master
         with:
-          postgres_db: postgres
-          postgres_user: testuser
-          postgres_password: prettySafePassword
-      # - name: Setup PostgreSQL server
-      #   uses: harmon758/postgresql-action@v1
-      #   with:
-      #     postgresql db: postgres
-      #     postgresql user: testuser
-      #     postgresql password: prettySafePassword
+          postgres_db:  ${{ env.DB_NAME }}
+          postgres_user: ${{ env.DB_USER }}
+          postgres_password: ${{ env.DB_PASSWORD }}
       - name: Execute full build
         working-directory: ${{ github.workspace }}/green3neo
         run: just build
