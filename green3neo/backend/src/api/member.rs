@@ -1,9 +1,8 @@
 use crate::models::Member;
 use diesel::{
     query_dsl::methods::SelectDsl,
-    result::Error,
     sql_types::{Integer, Text, Varchar},
-    Connection, PgConnection, QueryResult, QueryableByName, RunQueryDsl, SelectableHelper,
+    Connection, PgConnection, QueryableByName, RunQueryDsl, SelectableHelper,
 };
 use dotenv::dotenv;
 
