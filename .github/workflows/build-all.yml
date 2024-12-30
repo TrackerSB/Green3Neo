@@ -6,10 +6,11 @@ jobs:
     steps:
       - name: Install just command runner
         uses: extractions/setup-just@v2
-      - name: Install diesel
+      - name: Install Rust command line tools
         run: |
           cargo install diesel_cli --no-default-features --features "postgres"
           cargo install diesel_cli_ext
+          cargo install flutter-rust-bridge-codegen
       - name: Clone repository
         uses: actions/checkout@v4
       - name: Load environment variables
