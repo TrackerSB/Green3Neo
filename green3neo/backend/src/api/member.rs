@@ -130,6 +130,7 @@ pub fn change_member(changes: Vec<ChangeRecord>) -> Vec<usize> {
             //     unbound_update_statement.bind::<Nullable<Integer>, _>(None);
             // let update_statement = null_update_statement.bind::<Integer, _>(change.membershipid);
             // update_result = update_statement.execute(&mut connection);
+            println!("Changing values to NULL is not supported yet");
             continue;
         } else {
             let boxed_unbound_update_statement = unbound_update_statement.into_boxed();
