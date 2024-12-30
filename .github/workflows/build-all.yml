@@ -1,0 +1,47 @@
+name: Build project
+on:
+  pull_request:
+    branches:
+      - main
+jobs:
+  Build-All:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install just command runner
+        uses: extractions/setup-just@v2
+      - name: Install Linux packages
+        run: |
+          sudo apt install libgtk-3-0 libgtk-3-dev
+      - name: Install Ninja
+        uses: turtlesec-no/get-ninja@1.1.0
+      - name: Install Rust command line tools
+        run: |
+          cargo install diesel_cli --no-default-features --features "postgres"
+          cargo install diesel_cli_ext
+          cargo install flutter_rust_bridge_codegen@2.4.0
+      - name: Install Flutter SDK
+        uses: flutter-actions/setup-flutter@v4
+        with:
+          channel: stable
+          version: latest
+      - name: Clone repository
+        uses: actions/checkout@v4
+      - name: Load environment variables
+        uses: xom9ikk/dotenv@v2.3.0
+        with:
+          path: ${{ github.workspace }}/green3neo
+      - name: Install Flutter packages
+        working-directory: ${{ github.workspace }}/green3neo
+        run: flutter pub get
+      - name: Setup PostgreSQL server
+        uses: Daniel-Marynicz/postgresql-action@master
+        with:
+          postgres_db:  ${{ env.DB_NAME }}
+          postgres_user: ${{ env.DB_USER }}
+          postgres_password: ${{ env.DB_PASSWORD }}
+      - name: Create DB tables
+        working-directory: ${{ github.workspace }}/green3neo
+        run: just database-create-tables
+      - name: Execute full build
+        working-directory: ${{ github.workspace }}/green3neo
+        run: just build
