@@ -1,8 +1,5 @@
-use std::ops::RangeInclusive;
-
-use crate::{models::Member, schema::member::table};
+use crate::models::Member;
 use diesel::{
-    dsl::Nullable,
     query_dsl::methods::SelectDsl,
     result::Error,
     sql_types::{Integer, Text, Varchar},
