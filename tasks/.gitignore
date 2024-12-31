@@ -1,65 +1,5 @@
-# Miscellaneous
-*.class
-*.log
-*.pyc
-*.swp
-.DS_Store
-.atom/
-.buildlog/
-.history
-.svn/
-migrate_working_dir/
-
-# IntelliJ related
-*.iml
-*.ipr
-*.iws
-.idea/
-
-# The .vscode folder contains launch configuration and tasks you configure in
-# VS Code which you may wish to be included in version control, so this line
-# is commented out by default.
-#.vscode/
-
-# Flutter/Dart/Pub related
-**/doc/api/
-**/ios/Flutter/.last_build_id
-.dart_tool/
-.flutter-plugins
-.flutter-plugins-dependencies
-.packages
-.pub-cache/
-.pub/
-/build/
-
-# Symbolication related
-app.*.symbols
-
-# Obfuscation related
-app.*.map.json
-
-# Android Studio will place build artifacts here
-/android/app/debug
-/android/app/profile
-/android/app/release
-
-# Flutter reflectable
-*.reflectable.dart
-
-# Flutter freezed
-*.freezed.dart
-
-# Flutter_rust_bridge generated files
-backend/src/frb_generated.rs
-backend/src/frb_generated.io.rs
-backend/src/frb_generated.web.rs
-lib/backend/
-lib/frb_generated.dart
-lib/frb_generated.io.dart
-lib/frb_generated.web.dart
-
-# Created by https://www.toptal.com/developers/gitignore/api/python
-# Edit at https://www.toptal.com/developers/gitignore?templates=python
+# Created by https://www.toptal.com/developers/gitignore/api/python,venv
+# Edit at https://www.toptal.com/developers/gitignore?templates=python,venv
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
@@ -79,8 +19,6 @@ downloads/
 eggs/
 .eggs/
 lib/
-# Do not ignore Dart files
-!/lib/
 lib64/
 parts/
 sdist/
@@ -235,10 +173,16 @@ poetry.toml
 # LSP config files
 pyrightconfig.json
 
-# End of https://www.toptal.com/developers/gitignore/api/python
+### venv ###
+# Virtualenv
+# http://iamzed.com/2009/05/07/a-primer-on-virtualenv/
+[Bb]in
+[Ii]nclude
+[Ll]ib
+[Ll]ib64
+[Ll]ocal
+[Ss]cripts
+pyvenv.cfg
+pip-selfcheck.json
 
-# diesel generated
-backend/src/models.rs
-backend/src/schema.rs
-backend/migrations/
-!backend/build/
+# End of https://www.toptal.com/developers/gitignore/api/python,venv
