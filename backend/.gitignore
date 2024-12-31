@@ -19,3 +19,7 @@ Cargo.lock
 
 # End of https://www.toptal.com/developers/gitignore/api/rust
 
+# diesel generated
+src/models.rs
+src/schema.rs
+migrations/

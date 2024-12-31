@@ -28,10 +28,8 @@ jobs:
         uses: actions/checkout@v4
       - name: Load environment variables
         uses: xom9ikk/dotenv@v2.3.0
-        with:
-          path: ${{ github.workspace }}/green3neo
       - name: Install Flutter packages
-        working-directory: ${{ github.workspace }}/green3neo
+        working-directory: ${{ github.workspace }}/frontend
         run: flutter pub get
       - name: Setup PostgreSQL server
         uses: Daniel-Marynicz/postgresql-action@master
@@ -40,8 +38,6 @@ jobs:
           postgres_user: ${{ env.DB_USER }}
           postgres_password: ${{ env.DB_PASSWORD }}
       - name: Create DB tables
-        working-directory: ${{ github.workspace }}/green3neo
         run: just database-create-tables
       - name: Execute full build
-        working-directory: ${{ github.workspace }}/green3neo
         run: just build
