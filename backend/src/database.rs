@@ -32,7 +32,7 @@ struct ColumnTypeInfo {
     pub data_type: String,
 }
 
-fn determine_column_type(column_name: &str) -> Option<ColumnTypeInfo> {
+fn determine_column_type(table_name: &str, column_name: &str) -> Option<ColumnTypeInfo> {
     let connection = get_connection();
 
     if connection.is_none() {
@@ -42,8 +42,9 @@ fn determine_column_type(column_name: &str) -> Option<ColumnTypeInfo> {
     let mut connection = connection.unwrap();
 
     let derived_column_types = diesel::sql_query(
-        "SELECT column_name, data_type FROM information_schema.columns WHERE table_name = 'member' AND column_name = $1",
+        "SELECT column_name, data_type FROM information_schema.columns WHERE table_name = $1 AND column_name = $2",
     )
+        .bind::<Varchar, _>(table_name)
         .bind::<Varchar, _>(column_name)
         .load::<ColumnTypeInfo>(&mut connection);
     if derived_column_types.is_err() || (derived_column_types.as_ref().unwrap().len() != 1) {
@@ -64,7 +65,7 @@ where
     str: ToSql<Text, DB>,
     str: ToSql<Varchar, DB>,
 {
-    let column_type = determine_column_type(column_name);
+    let column_type = determine_column_type("member", column_name);
 
     if column_type.is_none() {
         // FIXME Either throw exception or log warning etc.
