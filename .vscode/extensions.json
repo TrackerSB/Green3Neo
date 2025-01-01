@@ -12,6 +12,7 @@
         "ms-python.python",
         // Rust
         "rust-lang.rust-analyzer",
+        "vadimcn.vscode-lldb",
         // Just
         "kokakiwi.vscode-just",
         "TobiasHochguertel.just-formatter"
