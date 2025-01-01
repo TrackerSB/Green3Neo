@@ -1,0 +1,8 @@
+name: Prepare repository
+runs:
+  using: "composite"
+  steps:
+    - name: Clone repository
+      uses: actions/checkout@v4
+    - name: Load environment variables
+      uses: xom9ikk/dotenv@v2.3.0
