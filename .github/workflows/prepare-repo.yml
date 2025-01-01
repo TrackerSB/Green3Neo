@@ -1,3 +1,4 @@
+name: Prepare repository
 on:
   workflow_call:
 jobs:
