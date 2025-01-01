@@ -3,6 +3,12 @@ description: Install all dependencies required for building the backend
 runs:
   using: "composite"
   steps:
+    # WARN It is required to setup PostgreSQL before building backend
+    - name: Install Flutter SDK
+      uses: flutter-actions/setup-flutter@v4
+      with:
+        channel: stable
+        version: latest
     - name: Install Rust command line tools
       run: |
         cargo install diesel_cli --no-default-features --features "postgres"

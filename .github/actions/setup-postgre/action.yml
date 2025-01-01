@@ -11,6 +11,6 @@ runs:
         postgres_db:  ${{ env.DB_NAME }}
         postgres_user: ${{ env.DB_USER }}
         postgres_password: ${{ env.DB_PASSWORD }}
-    - name: Create demo DB tables
+    - name: Create empty DB tables
       run: just database-create-tables
       shell: bash
