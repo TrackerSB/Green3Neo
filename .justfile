@@ -70,3 +70,8 @@ run: build
     cd {{ frontend_dir }} && flutter run
 
 rebuild: clean build
+
+test-backend-unittets:
+    cd {{ backend_dir }} && cargo test
+
+test: test-backend-unittets
