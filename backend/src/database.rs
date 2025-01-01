@@ -75,7 +75,7 @@ where
 
     let column_type = column_type.unwrap();
 
-    let bound_query: BoxedSqlQuery<'_, DB, Query> = match column_type.data_type.as_str() {
+    let bound_query = match column_type.data_type.as_str() {
         "text" => sql_expression.bind::<Text, _>(value),
         "character varying" => sql_expression.bind::<Varchar, _>(value),
         "integer" => sql_expression.bind::<Integer, _>(value.parse::<i32>().unwrap()),
