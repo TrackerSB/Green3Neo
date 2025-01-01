@@ -1,4 +1,5 @@
 name: Setup PostgreSQL
+description: Set up and start a PostgreSQL server based on the environment variables given in the repository
 runs:
   using: "composite"
   steps:

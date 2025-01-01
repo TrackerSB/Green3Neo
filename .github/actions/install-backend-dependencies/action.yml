@@ -1,4 +1,5 @@
 name: Install backend dependencies
+description: Install all dependencies required for building the backend
 runs:
   using: "composite"
   steps:
@@ -6,3 +7,4 @@ runs:
       run: |
         cargo install diesel_cli --no-default-features --features "postgres"
         cargo install diesel_cli_ext
+      shell: bash
