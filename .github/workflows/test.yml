@@ -1,0 +1,15 @@
+name: Test project
+on:
+  pull_request:
+    branches:
+      - main
+jobs:
+  Build-All:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: TrackerSB/Green3Neo-Prepare-Action@main
+      - uses: ./.github/actions/setup-postgre
+      - name: Install just command runner
+        uses: extractions/setup-just@v2
+      - name: Execute tests
+        run: just test
