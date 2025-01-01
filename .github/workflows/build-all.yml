@@ -7,7 +7,7 @@ jobs:
   Build-All:
     runs-on: ubuntu-latest
     steps:
-      - uses: ./.github/actions/prepare-repo
+      - uses: TrackerSB/Green3Neo-Prepare-Action
       - name: Install just command runner
         uses: extractions/setup-just@v2
       - name: Install Linux packages
