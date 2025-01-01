@@ -11,9 +11,9 @@ jobs:
       - uses: ./.github/actions/install-frontend-dependencies
       - uses: ./.github/actions/install-backend-dependencies
       - uses: ./.github/actions/setup-postgre
-      - name: Create DB tables
-        run: just database-create-tables
       - name: Install just command runner
         uses: extractions/setup-just@v2
+      - name: Create DB tables
+        run: just database-create-tables
       - name: Execute full build
         run: just build
