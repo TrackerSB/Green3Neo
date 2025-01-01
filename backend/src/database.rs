@@ -91,12 +91,48 @@ where
 
 #[cfg(test)]
 mod test {
+    use sqlx::{PgPool, Row};
+
     use super::*;
 
-    // #[test]
-    // fn test_determine_column_type() {
-    //     let conn = get_connection().unwrap();
-    //     let column_type = determine_column_type(&conn, "users", "id");
-    //     assert_eq!(column_type, "integer");
-    // }
+    #[sqlx::test]
+    async fn test_determine_column_type(pool: PgPool) -> sqlx::Result<()> {
+        let table_name = "alltypes";
+        let mut connection = pool.acquire().await?;
+        sqlx::query(&format!(
+            "CREATE TABLE {}(\
+                serial SERIAL PRIMARY KEY,\
+                integer INTEGER NOT NULL,\
+                text TEXT NOT NULL,\
+                varchar VARCHAR NOT NULL\
+            )",
+            table_name
+        ))
+        .execute(connection.as_mut())
+        .await?;
+        let column_info = sqlx::query(
+            "SELECT column_name, data_type FROM information_schema.columns WHERE table_name = $1",
+        )
+        .bind(table_name)
+        .fetch_all(connection.as_mut())
+        .await?;
+
+        for row in column_info.iter() {
+            let column_name: String = row.try_get("column_name")?;
+            let expected_data_type: String = row.try_get("data_type")?;
+
+            let opt_actual_column_type: Option<ColumnTypeInfo> =
+                determine_column_type(table_name, &column_name);
+            assert!(
+                opt_actual_column_type.is_some(),
+                "Could not determine column type for column '{}'",
+                column_name
+            );
+            let actual_column_type = opt_actual_column_type.unwrap();
+            assert_eq!(actual_column_type.column_name, column_name);
+            assert_eq!(actual_column_type.data_type, expected_data_type);
+        }
+
+        Ok(())
+    }
 }
