@@ -29,6 +29,10 @@ jobs:
         with:
           channel: stable
           version: latest
+      - run: |
+          pwd
+          ls -lisah
+          ls -lisah frontend
       - name: Install Flutter packages
         working-directory: ${{ github.workspace }}/frontend
         run: flutter pub get
