@@ -6,8 +6,6 @@ on:
 jobs:
   Prepare-Repo:
     uses: ./.github/workflows/prepare-repo.yml
-    with:
-      ref: ${{github.workspace}}
   Build-All:
     runs-on: ubuntu-latest
     needs: Prepare-Repo
