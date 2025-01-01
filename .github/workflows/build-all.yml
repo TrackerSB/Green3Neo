@@ -4,8 +4,11 @@ on:
     branches:
       - main
 jobs:
+  Prepare-Repo:
+    uses: ./.github/workflows/prepare-repo.yml
   Build-All:
     runs-on: ubuntu-latest
+    needs: Prepare-Repo
     steps:
       - name: Install just command runner
         uses: extractions/setup-just@v2
@@ -24,7 +27,6 @@ jobs:
         with:
           channel: stable
           version: latest
-      - uses: ./.github/workflows/prepare-repo.yml
       - name: Install Flutter packages
         working-directory: ${{ github.workspace }}/frontend
         run: flutter pub get
