@@ -40,28 +40,27 @@ database-recreate-tables: database-drop-tables database-create-tables
 diesel-setup:
     cd {{ backend_dir }} && diesel setup
 
-diesel-generate-schema:
+diesel-generate-schema: diesel-setup
     cd {{ backend_dir }} && diesel print-schema > src/schema.rs
 
-diesel-generate-models:
+diesel-generate-models: diesel-generate-schema
     cd {{ backend_dir }} && diesel_ext --model --import-types diesel::Queryable --import-types diesel::Selectable --import-types diesel::Identifiable --import-types backend_macros::make_fields_non_final --import-types flutter_rust_bridge::frb --import-types crate::schema::* --derive Queryable,Selectable --add-table-name > src/models.rs
     git apply {{ patch_folder }}/backend/models.rs.patch
 
-# FIXME Verify that FRB versions in Cargo.toml, pubspec.yaml and the installed FRB codegen (locally and in Github
+backend-build: diesel-generate-models
+    cd {{ backend_dir }} && cargo build --release
 
+# FIXME Verify that FRB versions in Cargo.toml, pubspec.yaml and the installed FRB codegen (locally and in Github
 # Actions) correspond to each other
-frb-generate:
+frb-generate: backend-build
     mkdir -p {{ frb_dart_output_dir }}
     flutter_rust_bridge_codegen generate --no-web --no-add-mod-to-lib --llvm-path {{ llvmIncludeDir }} --rust-input "crate::api" --rust-root {{ backend_dir }} --dart-output {{ frb_dart_output_dir }}
     git apply {{ patch_folder }}/frontend/models.dart.patch
 
-backend-build:
-    cd {{ backend_dir }} && cargo build --release
-
-flutter-generate-reflectable:
+flutter-generate-reflectable: frb-generate
     cd {{ frontend_dir }} && dart run build_runner build --delete-conflicting-outputs
 
-flutter-build:
+flutter-build: flutter-generate-reflectable
     cd {{ frontend_dir }} && flutter build linux
 
 build: diesel-setup diesel-generate-schema diesel-generate-models frb-generate backend-build flutter-generate-reflectable flutter-build
@@ -71,7 +70,7 @@ run: build
 
 rebuild: clean build
 
-test-backend-unittets:
+test-backend-unittets: backend-build
     cd {{ backend_dir }} && cargo test
 
 test: test-backend-unittets
