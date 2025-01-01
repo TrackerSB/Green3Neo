@@ -9,10 +9,6 @@ runs:
       shell: bash
     - name: Install Ninja
       uses: turtlesec-no/get-ninja@1.1.0
-    - name: Install Rust command line tools
-      run: |
-        cargo install flutter_rust_bridge_codegen@2.4.0
-      shell: bash
     - name: Install Flutter SDK
       uses: flutter-actions/setup-flutter@v4
       with:
