@@ -10,8 +10,8 @@ jobs:
       - uses: TrackerSB/Green3Neo-Prepare-Action@main
       - uses: ./.github/actions/install-frontend-dependencies
       - uses: ./.github/actions/install-backend-dependencies
-      - uses: ./.github/actions/setup-postgre
       - name: Install just command runner
         uses: extractions/setup-just@v2
+      - uses: ./.github/actions/setup-postgre
       - name: Execute full build
         run: just build
