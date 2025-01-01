@@ -11,7 +11,7 @@ jobs:
       - name: Install just command runner
         uses: extractions/setup-just@v2
       - uses: ./.github/actions/setup-postgre
-      - uses: ./.github/actions/install-backend-dependencies
-      - uses: ./.github/actions/install-frontend-dependencies
+      - uses: ./.github/actions/prepare-backend-build
+      - uses: ./.github/actions/prepare-frontend-build
       - name: Execute full build
         run: just build
