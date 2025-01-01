@@ -4,7 +4,7 @@ on:
     branches:
       - main
 jobs:
-  Build-All:
+  Test-All:
     runs-on: ubuntu-latest
     steps:
       - uses: TrackerSB/Green3Neo-Prepare-Action@main
