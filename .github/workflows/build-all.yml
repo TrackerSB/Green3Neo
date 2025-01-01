@@ -8,17 +8,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: TrackerSB/Green3Neo-Prepare-Action@main
-      - name: Install just command runner
-        uses: extractions/setup-just@v2
       - uses: ./.github/actions/install-frontend-dependencies
       - uses: ./.github/actions/install-backend-dependencies
-      - name: Setup PostgreSQL server
-        uses: Daniel-Marynicz/postgresql-action@master
-        with:
-          postgres_db:  ${{ env.DB_NAME }}
-          postgres_user: ${{ env.DB_USER }}
-          postgres_password: ${{ env.DB_PASSWORD }}
+      - uses: ./.github/actions/prepare-postgre
       - name: Create DB tables
         run: just database-create-tables
+      - name: Install just command runner
+        uses: extractions/setup-just@v2
       - name: Execute full build
         run: just build
