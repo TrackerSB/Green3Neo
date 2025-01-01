@@ -13,7 +13,5 @@ jobs:
       - uses: ./.github/actions/setup-postgre
       - name: Install just command runner
         uses: extractions/setup-just@v2
-      - name: Create DB tables
-        run: just database-create-tables
       - name: Execute full build
         run: just build
