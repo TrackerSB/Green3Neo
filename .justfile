@@ -70,7 +70,7 @@ run: build
 
 rebuild: clean build
 
-test-backend-unittets: backend-build
+test-backend-unittets: frb-generate
     cd {{ backend_dir }} && cargo test
 
 test: test-backend-unittets
