@@ -109,6 +109,7 @@ mod test {
 
     use super::*;
 
+    // Create a diesel based connection to the same database
     async fn create_diesel_connection(
         sqlx_connection: &mut sqlx::PgConnection,
     ) -> diesel::PgConnection {
