@@ -177,4 +177,15 @@ mod test {
 
         Ok(())
     }
+
+    #[sqlx::test(fixtures("allsupportedtypes"))]
+    async fn test_bind_column(pool: PgPool) -> sqlx::Result<()> {
+        // FIXME Determine table name automatically
+        let table_name = "allsupportedtypes";
+        let mut test_connection = pool.acquire().await?;
+
+        // TODO Verify binding all supported column types
+
+        Ok(())
+    }
 }
