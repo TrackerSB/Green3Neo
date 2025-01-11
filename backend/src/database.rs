@@ -136,28 +136,10 @@ mod test {
         PgConnection::establish(&test_db_url).expect("Could not establish connection")
     }
 
-    #[sqlx::test]
+    #[sqlx::test(fixtures("allsupportedtypes"))]
     async fn test_determine_column_type(pool: PgPool) -> sqlx::Result<()> {
         let table_name = "allsupportedtypes";
         let mut test_connection = pool.acquire().await?;
-        let creation_result = sqlx::query(&format!(
-            "CREATE TABLE {}(\
-                serialColumn SERIAL PRIMARY KEY,\
-                integerColumn INTEGER NOT NULL,\
-                textColumn TEXT NOT NULL,\
-                varcharColumn VARCHAR NOT NULL\
-            )",
-            table_name
-        ))
-        .execute(test_connection.as_mut())
-        .await;
-
-        assert!(
-            creation_result.is_ok(),
-            "Creation of table failed due '{}'",
-            creation_result.err().unwrap()
-        );
-
         let column_info = sqlx::query(
             "SELECT column_name, data_type FROM information_schema.columns WHERE table_name = $1",
         )
@@ -171,9 +153,12 @@ mod test {
             column_info.err().unwrap()
         );
 
+        let column_info_ref = column_info.as_ref().unwrap();
+        assert!(column_info_ref.len() > 0, "No columns to check");
+
         let mut diesel_connection = create_diesel_connection(test_connection.as_mut()).await;
 
-        for row in column_info.unwrap().iter() {
+        for row in column_info_ref.iter() {
             let column_name: String = row.try_get("column_name")?;
             let expected_data_type: String = row.try_get("data_type")?;
 
