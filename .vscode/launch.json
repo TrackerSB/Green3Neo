@@ -24,7 +24,8 @@
                 "filter": {
                     "name": "backend"
                 }
-            }
+            },
+            "preLaunchTask": "Build backend"
         }
     ]
 }
