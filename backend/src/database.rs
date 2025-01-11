@@ -138,7 +138,7 @@ mod test {
 
     #[sqlx::test]
     async fn test_determine_column_type(pool: PgPool) -> sqlx::Result<()> {
-        let table_name = "alltypes";
+        let table_name = "allsupportedtypes";
         let mut test_connection = pool.acquire().await?;
         let creation_result = sqlx::query(&format!(
             "CREATE TABLE {}(\
