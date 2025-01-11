@@ -8,6 +8,8 @@
         "tamasfe.even-better-toml",
         // PostgreSQL
         "ms-ossdata.vscode-postgresql",
+        // SQL
+        "inferrinizzard.prettier-sql-vscode",
         // Python
         "ms-python.python",
         // Rust
