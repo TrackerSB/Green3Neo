@@ -1,5 +1,5 @@
-CREATE TABLE allsupportedtypes
-    (
+CREATE TABLE
+    allsupportedtypes (
         serialColumn SERIAL PRIMARY KEY,
         integerColumn INTEGER NOT NULL,
         textColumn TEXT NOT NULL,
