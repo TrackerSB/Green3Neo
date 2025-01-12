@@ -225,8 +225,6 @@ mod test {
                 table_name, row.column_name
             ));
 
-            println!("{:?}", base_sql_expression);
-
             let sql_expression = bind_column_value(
                 &mut diesel_connection,
                 &table_name,
