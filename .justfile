@@ -71,6 +71,6 @@ run: build
 rebuild: clean build
 
 test-backend-unittets: frb-generate
-    cd {{ backend_dir }} && cargo test
+    cd {{ backend_dir }} && cargo test -- --nocapture
 
 test: test-backend-unittets

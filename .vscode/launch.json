@@ -19,7 +19,10 @@
                     "test",
                     "--no-run",
                     "--manifest-path",
-                    "${workspaceFolder}/backend/Cargo.toml"
+                    "${workspaceFolder}/backend/Cargo.toml",
+                    "--",
+                    // FIXME Seems to have no effect
+                    "--nocapture"
                 ],
                 "filter": {
                     "name": "backend"
