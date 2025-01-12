@@ -229,7 +229,7 @@ mod test {
                 &mut diesel_connection,
                 &table_name,
                 &row.column_name,
-                &value_to_bind.unwrap(),
+                value_to_bind.unwrap(),
                 base_sql_expression.into_boxed(),
             );
 
