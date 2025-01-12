@@ -211,6 +211,7 @@ mod test {
                 "character varying" => Some("fancyVarChar"),
                 "integer" => Some("42"),
                 _ => None,
+                // FIXME Missing test case data not detected
             };
 
             if value_to_bind.is_none() {
