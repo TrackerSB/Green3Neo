@@ -20,6 +20,21 @@
             },
         },
         {
+            "label": "Build backend",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "-c",
+                // When calling justfile via VSCode tasks .env seems not to be loaded automatically
+                "source .env && just backend-build"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+        },
+        {
             "label": "Create database tables if non existent",
             "type": "shell",
             "command": "just",

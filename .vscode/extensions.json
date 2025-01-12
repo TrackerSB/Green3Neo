@@ -8,10 +8,13 @@
         "tamasfe.even-better-toml",
         // PostgreSQL
         "ms-ossdata.vscode-postgresql",
+        // SQL
+        "inferrinizzard.prettier-sql-vscode",
         // Python
         "ms-python.python",
         // Rust
         "rust-lang.rust-analyzer",
+        "vadimcn.vscode-lldb",
         // Just
         "kokakiwi.vscode-just",
         "TobiasHochguertel.just-formatter"
