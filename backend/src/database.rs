@@ -200,7 +200,47 @@ mod test {
         let table_name = "allsupportedtypes";
         let mut test_connection = pool.acquire().await?;
 
-        // TODO Verify binding all supported column types
+        let column_info = get_column_info(&mut test_connection, table_name).await;
+        assert!(column_info.len() > 0, "No columns to check");
+
+        let mut diesel_connection = create_diesel_connection(&mut test_connection).await;
+
+        for row in column_info.iter() {
+            let value_to_bind: Option<&str> = match row.data_type.as_str() {
+                "text" => Some("fancyText"),
+                "character varying" => Some("fancyVarChar"),
+                "integer" => Some("42"),
+                _ => None,
+            };
+
+            if value_to_bind.is_none() {
+                // FIXME Handle error
+                println!("No test case for type {}", row.data_type.as_str());
+                continue;
+            }
+
+            let base_sql_expression = diesel::sql_query(format!(
+                "SELECT {1} FROM {0} WHERE {1} = $1",
+                table_name, row.column_name
+            ));
+
+            println!("{:?}", base_sql_expression);
+
+            let sql_expression = bind_column_value(
+                &mut diesel_connection,
+                &table_name,
+                &row.column_name,
+                &value_to_bind.unwrap(),
+                base_sql_expression.into_boxed(),
+            );
+
+            assert!(sql_expression.is_some(), "Could not bind value to column");
+
+            sql_expression
+                .unwrap()
+                .execute(&mut diesel_connection)
+                .expect("Could not execute query");
+        }
 
         Ok(())
     }
