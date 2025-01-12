@@ -137,7 +137,10 @@ mod test {
         PgConnection::establish(&test_db_url).expect("Could not establish connection")
     }
 
-    async fn get_column_info(connection: &mut sqlx::PgConnection, table_name: &str) -> Vec<ColumnTypeInfo> {
+    async fn get_column_info(
+        connection: &mut sqlx::PgConnection,
+        table_name: &str,
+    ) -> Vec<ColumnTypeInfo> {
         let column_info = sqlx::query(
             "SELECT column_name, data_type FROM information_schema.columns WHERE table_name = $1",
         )
@@ -151,7 +154,8 @@ mod test {
             column_info.err().unwrap()
         );
 
-        column_info.unwrap()
+        column_info
+            .unwrap()
             .iter()
             .map(|row| ColumnTypeInfo {
                 column_name: row.get("column_name"),
@@ -165,11 +169,11 @@ mod test {
         // FIXME Determine table name automatically
         let table_name = "allsupportedtypes";
         let mut test_connection = pool.acquire().await?;
-        let column_info = get_column_info(&mut test_connection, table_name).await;
 
+        let column_info = get_column_info(&mut test_connection, table_name).await;
         assert!(column_info.len() > 0, "No columns to check");
 
-        let mut diesel_connection = create_diesel_connection(test_connection.as_mut()).await;
+        let mut diesel_connection = create_diesel_connection(&mut test_connection).await;
 
         for row in column_info.iter() {
             let expected_column_name = &row.column_name;
