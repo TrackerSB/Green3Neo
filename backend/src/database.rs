@@ -136,16 +136,12 @@ mod test {
         PgConnection::establish(&test_db_url).expect("Could not establish connection")
     }
 
-    #[sqlx::test(fixtures("allsupportedtypes"))]
-    async fn test_determine_column_type(pool: PgPool) -> sqlx::Result<()> {
-        // FIXME Determine table name automatically
-        let table_name = "allsupportedtypes";
-        let mut test_connection = pool.acquire().await?;
+    async fn get_column_info(connection: &mut sqlx::PgConnection, table_name: &str) -> Vec<ColumnTypeInfo> {
         let column_info = sqlx::query(
             "SELECT column_name, data_type FROM information_schema.columns WHERE table_name = $1",
         )
         .bind(table_name)
-        .fetch_all(test_connection.as_mut())
+        .fetch_all(connection)
         .await;
 
         assert!(
@@ -154,25 +150,40 @@ mod test {
             column_info.err().unwrap()
         );
 
-        let column_info_ref = column_info.as_ref().unwrap();
-        assert!(column_info_ref.len() > 0, "No columns to check");
+        column_info.unwrap()
+            .iter()
+            .map(|row| ColumnTypeInfo {
+                column_name: row.get("column_name"),
+                data_type: row.get("data_type"),
+            })
+            .collect()
+    }
+
+    #[sqlx::test(fixtures("allsupportedtypes"))]
+    async fn test_determine_column_type(pool: PgPool) -> sqlx::Result<()> {
+        // FIXME Determine table name automatically
+        let table_name = "allsupportedtypes";
+        let mut test_connection = pool.acquire().await?;
+        let column_info = get_column_info(&mut test_connection, table_name).await;
+
+        assert!(column_info.len() > 0, "No columns to check");
 
         let mut diesel_connection = create_diesel_connection(test_connection.as_mut()).await;
 
-        for row in column_info_ref.iter() {
-            let column_name: String = row.try_get("column_name")?;
-            let expected_data_type: String = row.try_get("data_type")?;
+        for row in column_info.iter() {
+            let expected_column_name = &row.column_name;
+            let expected_data_type = &row.data_type;
 
             let opt_actual_column_type: Option<ColumnTypeInfo> =
-                determine_column_type(&mut diesel_connection, table_name, &column_name);
+                determine_column_type(&mut diesel_connection, table_name, &expected_column_name);
             assert!(
                 opt_actual_column_type.is_some(),
                 "Could not determine column type for column '{}'",
-                column_name
+                expected_column_name
             );
             let actual_column_type = opt_actual_column_type.unwrap();
-            assert_eq!(actual_column_type.column_name, column_name);
-            assert_eq!(actual_column_type.data_type, expected_data_type);
+            assert_eq!(&actual_column_type.column_name, expected_column_name);
+            assert_eq!(&actual_column_type.data_type, expected_data_type);
         }
 
         Ok(())
