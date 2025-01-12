@@ -76,6 +76,7 @@ pub fn change_member(changes: Vec<ChangeRecord>) -> Vec<usize> {
         let boxed_unbound_update_statement = unbound_update_statement.into_boxed();
         let changed_value_update_statement = bind_column_value(
             &mut connection,
+            "member",
             change.column.as_str(),
             changed_value.unwrap().as_str(),
             boxed_unbound_update_statement,

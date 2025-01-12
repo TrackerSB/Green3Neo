@@ -69,6 +69,7 @@ fn determine_column_type(
 
 pub fn bind_column_value<'a, DB, Query>(
     connection: &mut PgConnection,
+    table_name: &'a str,
     column_name: &'a str,
     value: &'a str,
     sql_expression: BoxedSqlQuery<'a, DB, Query>,
@@ -79,7 +80,7 @@ where
     str: ToSql<Text, DB>,
     str: ToSql<Varchar, DB>,
 {
-    let column_type = determine_column_type(connection, "member", column_name);
+    let column_type = determine_column_type(connection, table_name, column_name);
 
     if column_type.is_none() {
         // FIXME Either throw exception or log warning etc.
