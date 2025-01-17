@@ -121,6 +121,7 @@ mod test {
         INIT.call_once(|| {
             let logger = Logger::try_with_env_or_str("info")
                 .unwrap()
+                // FIXME Where to put files based on CWD, environment, installation folder etc.?
                 .log_to_file(FileSpec::default().directory("./logs").suppress_timestamp())
                 .duplicate_to_stderr(Duplicate::Warn)
                 .adaptive_format_for_stderr(AdaptiveFormat::Detailed)
