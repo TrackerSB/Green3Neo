@@ -5,7 +5,7 @@ use diesel::serialize::ToSql;
 use diesel::sql_types::{Integer, Text, Varchar};
 use diesel::{Connection, PgConnection, QueryableByName, RunQueryDsl};
 use dotenv::dotenv;
-use log::info;
+use log::warn;
 
 pub fn get_connection() -> Option<PgConnection> {
     dotenv().ok();
@@ -13,13 +13,18 @@ pub fn get_connection() -> Option<PgConnection> {
     let url = std::env::var("DATABASE_URL");
 
     if url.is_err() {
-        return None; // FIXME Improve error message
+        warn!("Could not determine database URL");
+        return None;
     }
 
     let connection = PgConnection::establish(&url.unwrap());
 
     if connection.is_err() {
-        return None; // FIXME Improve error message
+        warn!(
+            "Connecting to database failed due '{}'",
+            connection.err().unwrap()
+        );
+        return None;
     }
 
     Some(connection.unwrap())
@@ -46,8 +51,7 @@ fn determine_column_type(
         .load::<ColumnTypeInfo>(connection);
 
     if derived_column_types.is_err() {
-        // FIXME Either throw exception or log warning etc.
-        println!("{}", derived_column_types.err().unwrap());
+        warn!("{}", derived_column_types.err().unwrap());
         return None;
     }
 
@@ -55,13 +59,11 @@ fn determine_column_type(
 
     let num_column_types = derived_column_types.as_ref().unwrap().len();
     if num_column_types == 0 {
-        // FIXME Either throw exception or log warning etc.
-        println!("Could not determine column type");
+        warn!("Could not determine column type");
         return None;
     }
     if num_column_types > 1 {
-        // FIXME Either throw exception or log warning etc.
-        println!("Column type is ambiguous");
+        warn!("Column type is ambiguous");
         return None;
     }
 
@@ -84,8 +86,7 @@ where
     let column_type = determine_column_type(connection, table_name, column_name);
 
     if column_type.is_none() {
-        // FIXME Either throw exception or log warning etc.
-        println!("Could not determine column type");
+        warn!("Could not determine column type");
         return None;
     }
 
@@ -96,8 +97,7 @@ where
         "character varying" => sql_expression.bind::<Varchar, _>(value),
         "integer" => sql_expression.bind::<Integer, _>(value.parse::<i32>().unwrap()),
         _ => {
-            println!("Unknown type {}", column_type.data_type.as_str());
-            // FIXME Handle error
+            warn!("Unknown type {}", column_type.data_type.as_str());
             return None;
         }
     };
@@ -111,6 +111,7 @@ mod test {
         detailed_format, AdaptiveFormat, Cleanup, Criterion, Duplicate, FileSpec, Logger,
         LoggerHandle, Naming, WriteMode,
     };
+    use log::error;
     use sqlx::{PgPool, Row};
     use std::sync::Once;
 
@@ -200,7 +201,6 @@ mod test {
     #[sqlx::test(fixtures("allsupportedtypes"))]
     async fn test_determine_column_type(pool: PgPool) -> sqlx::Result<()> {
         setup_tests();
-        info!("HERE");
 
         // FIXME Determine table name automatically
         let table_name = "allsupportedtypes";
@@ -248,13 +248,14 @@ mod test {
                 "text" => Some("fancyText"),
                 "character varying" => Some("fancyVarChar"),
                 "integer" => Some("42"),
-                _ => None,
-                // FIXME Missing test case data not detected
+                _ => {
+                    error!("No testdata defined for type {}", row.data_type);
+                    None
+                }
             };
 
             if value_to_bind.is_none() {
-                // FIXME Handle error
-                println!("No test case for type {}", row.data_type.as_str());
+                error!("No test case for type {}", row.data_type.as_str());
                 continue;
             }
 
