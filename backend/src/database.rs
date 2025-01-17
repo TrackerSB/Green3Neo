@@ -108,7 +108,8 @@ where
 #[cfg(test)]
 mod test {
     use flexi_logger::{
-        AdaptiveFormat, Cleanup, Criterion, Duplicate, FileSpec, Logger, Naming, WriteMode,
+        detailed_format, AdaptiveFormat, Cleanup, Criterion, Duplicate, FileSpec, Logger,
+        LoggerHandle, Naming, WriteMode,
     };
     use sqlx::{PgPool, Row};
     use std::sync::Once;
@@ -116,23 +117,29 @@ mod test {
     use super::*;
 
     static INIT: Once = Once::new();
+    static mut LOGGER: Option<LoggerHandle> = None;
 
     fn setup_tests() {
         INIT.call_once(|| {
-            let logger = Logger::try_with_env_or_str("info")
-                .unwrap()
-                // FIXME Where to put files based on CWD, environment, installation folder etc.?
-                .log_to_file(FileSpec::default().directory("./logs").suppress_timestamp())
-                .duplicate_to_stderr(Duplicate::Warn)
-                .adaptive_format_for_stderr(AdaptiveFormat::Detailed)
-                .write_mode(WriteMode::Async)
-                .rotate(
-                    Criterion::Size(1024 * 1024),
-                    Naming::Numbers,
-                    Cleanup::KeepLogFiles(2),
+            unsafe {
+                LOGGER = Some(
+                    Logger::try_with_env_or_str("info")
+                        .unwrap()
+                        .format(detailed_format)
+                        // FIXME Where to put files based on CWD, environment, installation folder etc.?
+                        .log_to_file(FileSpec::default().directory("./logs").suppress_timestamp())
+                        .duplicate_to_stderr(Duplicate::Warn)
+                        .adaptive_format_for_stderr(AdaptiveFormat::Detailed)
+                        .write_mode(WriteMode::Async)
+                        .rotate(
+                            Criterion::Size(1024 * 1024 * 1024), // 1 GB
+                            Naming::Numbers,
+                            Cleanup::KeepLogFiles(1),
+                        )
+                        .start()
+                        .unwrap(),
                 )
-                .start()
-                .unwrap();
+            };
         });
     }
 
