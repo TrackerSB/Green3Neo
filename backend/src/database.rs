@@ -5,6 +5,7 @@ use diesel::serialize::ToSql;
 use diesel::sql_types::{Integer, Text, Varchar};
 use diesel::{Connection, PgConnection, QueryableByName, RunQueryDsl};
 use dotenv::dotenv;
+use log::info;
 
 pub fn get_connection() -> Option<PgConnection> {
     dotenv().ok();
@@ -106,9 +107,29 @@ where
 
 #[cfg(test)]
 mod test {
+    use flexi_logger::{
+        AdaptiveFormat, Cleanup, Criterion, Duplicate, FileSpec, Logger, Naming, WriteMode,
+    };
     use sqlx::{PgPool, Row};
 
     use super::*;
+
+    #[ctor::ctor]
+    fn init() {
+        let logger = Logger::try_with_env_or_str("info")
+            .unwrap()
+            .log_to_file(FileSpec::default().directory("./logs").suppress_timestamp())
+            .duplicate_to_stderr(Duplicate::Warn)
+            .adaptive_format_for_stderr(AdaptiveFormat::Detailed)
+            .write_mode(WriteMode::Async)
+            .rotate(
+                Criterion::Size(1024 * 1024),
+                Naming::Numbers,
+                Cleanup::KeepLogFiles(2),
+            )
+            .start()
+            .unwrap();
+    }
 
     // Create a diesel based connection to the same database
     async fn create_diesel_connection(
@@ -166,6 +187,8 @@ mod test {
 
     #[sqlx::test(fixtures("allsupportedtypes"))]
     async fn test_determine_column_type(pool: PgPool) -> sqlx::Result<()> {
+        info!("HERE");
+
         // FIXME Determine table name automatically
         let table_name = "allsupportedtypes";
         let mut test_connection = pool.acquire().await?;
