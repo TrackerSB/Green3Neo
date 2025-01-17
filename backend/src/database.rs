@@ -111,24 +111,28 @@ mod test {
         AdaptiveFormat, Cleanup, Criterion, Duplicate, FileSpec, Logger, Naming, WriteMode,
     };
     use sqlx::{PgPool, Row};
+    use std::sync::Once;
 
     use super::*;
 
-    #[ctor::ctor]
-    fn init() {
-        let logger = Logger::try_with_env_or_str("info")
-            .unwrap()
-            .log_to_file(FileSpec::default().directory("./logs").suppress_timestamp())
-            .duplicate_to_stderr(Duplicate::Warn)
-            .adaptive_format_for_stderr(AdaptiveFormat::Detailed)
-            .write_mode(WriteMode::Async)
-            .rotate(
-                Criterion::Size(1024 * 1024),
-                Naming::Numbers,
-                Cleanup::KeepLogFiles(2),
-            )
-            .start()
-            .unwrap();
+    static INIT: Once = Once::new();
+
+    fn setup_tests() {
+        INIT.call_once(|| {
+            let logger = Logger::try_with_env_or_str("info")
+                .unwrap()
+                .log_to_file(FileSpec::default().directory("./logs").suppress_timestamp())
+                .duplicate_to_stderr(Duplicate::Warn)
+                .adaptive_format_for_stderr(AdaptiveFormat::Detailed)
+                .write_mode(WriteMode::Async)
+                .rotate(
+                    Criterion::Size(1024 * 1024),
+                    Naming::Numbers,
+                    Cleanup::KeepLogFiles(2),
+                )
+                .start()
+                .unwrap();
+        });
     }
 
     // Create a diesel based connection to the same database
@@ -187,6 +191,7 @@ mod test {
 
     #[sqlx::test(fixtures("allsupportedtypes"))]
     async fn test_determine_column_type(pool: PgPool) -> sqlx::Result<()> {
+        setup_tests();
         info!("HERE");
 
         // FIXME Determine table name automatically
@@ -219,6 +224,8 @@ mod test {
 
     #[sqlx::test(fixtures("allsupportedtypes"))]
     async fn test_bind_column(pool: PgPool) -> sqlx::Result<()> {
+        setup_tests();
+
         // FIXME Determine table name automatically
         let table_name = "allsupportedtypes";
         let mut test_connection = pool.acquire().await?;
