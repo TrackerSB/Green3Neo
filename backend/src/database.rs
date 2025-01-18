@@ -112,6 +112,14 @@ mod test {
         FileSpec, Logger, LoggerHandle, Naming, WriteMode,
     };
     use log::error;
+    use speculoos::{
+        assert_that,
+        option::OptionAssertions,
+        prelude::{BooleanAssertions, OrderedAssertions},
+        result::ResultAssertions,
+        vec::VecAssertions,
+        DescriptiveSpec,
+    };
     use sqlx::{PgPool, Row};
     use std::sync::Once;
 
@@ -129,7 +137,9 @@ mod test {
             record: &log::Record,
         ) -> std::io::Result<()> {
             let is_severe_log_output: bool = record.level() <= log::Level::Warn;
-            assert!(!is_severe_log_output, "Encountered severe log output");
+            assert_that(&is_severe_log_output)
+                .named("Severe log output")
+                .is_false();
             Ok(())
         }
 
@@ -204,11 +214,7 @@ mod test {
         .fetch_all(connection)
         .await;
 
-        assert!(
-            column_info.is_ok(),
-            "Fetching column info failed due '{}'",
-            column_info.err().unwrap()
-        );
+        assert_that(&column_info).named("Fetch column info").is_ok();
 
         column_info
             .unwrap()
@@ -229,7 +235,9 @@ mod test {
         let mut test_connection = pool.acquire().await?;
 
         let column_info = get_column_info(&mut test_connection, table_name).await;
-        assert!(column_info.len() > 0, "No columns to check");
+        assert_that(&column_info)
+            .named("Gather columns to check")
+            .is_not_empty();
 
         let mut diesel_connection = create_diesel_connection(&mut test_connection).await;
 
@@ -239,14 +247,13 @@ mod test {
 
             let opt_actual_column_type: Option<ColumnTypeInfo> =
                 determine_column_type(&mut diesel_connection, table_name, &expected_column_name);
-            assert!(
-                opt_actual_column_type.is_some(),
-                "Could not determine column type for column '{}'",
-                expected_column_name
-            );
-            let actual_column_type = opt_actual_column_type.unwrap();
-            assert_eq!(&actual_column_type.column_name, expected_column_name);
-            assert_eq!(&actual_column_type.data_type, expected_data_type);
+            assert_that(&opt_actual_column_type)
+                .named("Determine column type")
+                .is_some()
+                .matches(|actual_column_type| {
+                    &actual_column_type.column_name == expected_column_name
+                })
+                .matches(|actual_column_type| &actual_column_type.data_type == expected_data_type);
         }
 
         Ok(())
@@ -261,7 +268,9 @@ mod test {
         let mut test_connection = pool.acquire().await?;
 
         let column_info = get_column_info(&mut test_connection, table_name).await;
-        assert!(column_info.len() > 0, "No columns to check");
+        assert_that(&column_info)
+            .named("Gather columns to check")
+            .is_not_empty();
 
         let mut diesel_connection = create_diesel_connection(&mut test_connection).await;
 
@@ -294,7 +303,9 @@ mod test {
                 base_sql_expression.into_boxed(),
             );
 
-            assert!(sql_expression.is_some(), "Could not bind value to column");
+            assert_that(&sql_expression.as_ref().map(|_| ()))
+                .named("Bind column value")
+                .is_some();
 
             sql_expression
                 .unwrap()
