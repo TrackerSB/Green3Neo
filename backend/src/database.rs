@@ -108,8 +108,8 @@ where
 #[cfg(test)]
 mod test {
     use flexi_logger::{
-        detailed_format, AdaptiveFormat, Cleanup, Criterion, Duplicate, FileSpec, Logger,
-        LoggerHandle, Naming, WriteMode,
+        detailed_format, writers::LogWriter, AdaptiveFormat, Cleanup, Criterion, Duplicate,
+        FileSpec, Logger, LoggerHandle, Naming, WriteMode,
     };
     use log::error;
     use sqlx::{PgPool, Row};
@@ -120,6 +120,24 @@ mod test {
     static INIT: Once = Once::new();
     static mut LOGGER: Option<LoggerHandle> = None;
 
+    struct FailingWriter {}
+
+    impl LogWriter for FailingWriter {
+        fn write(
+            &self,
+            _now: &mut flexi_logger::DeferredNow,
+            record: &log::Record,
+        ) -> std::io::Result<()> {
+            let is_severe_log_output: bool = record.level() <= log::Level::Warn;
+            assert!(!is_severe_log_output, "Encountered severe log output");
+            Ok(())
+        }
+
+        fn flush(&self) -> std::io::Result<()> {
+            Ok(())
+        }
+    }
+
     fn setup_tests() {
         INIT.call_once(|| {
             unsafe {
@@ -128,7 +146,10 @@ mod test {
                         .unwrap()
                         .format(detailed_format)
                         // FIXME Where to put files based on CWD, environment, installation folder etc.?
-                        .log_to_file(FileSpec::default().directory("./logs").suppress_timestamp())
+                        .log_to_file_and_writer(
+                            FileSpec::default().directory("./logs").suppress_timestamp(),
+                            Box::new(FailingWriter {}),
+                        )
                         .duplicate_to_stderr(Duplicate::Warn)
                         .adaptive_format_for_stderr(AdaptiveFormat::Detailed)
                         .write_mode(WriteMode::Async)
