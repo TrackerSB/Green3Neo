@@ -137,7 +137,8 @@ mod test {
                             Naming::Numbers,
                             Cleanup::KeepLogFiles(1),
                         )
-                        .start()
+                        // FIXME Where to put files based on CWD, environment, installation folder etc.?
+                        .start_with_specfile("./logs/logspec.toml")
                         .unwrap(),
                 )
             };
