@@ -39,6 +39,8 @@ struct ColumnTypeRequestResult {
     pub data_type: String,
     #[sql_type = "Text"]
     pub udt_name: String,
+    #[sql_type = "Text"]
+    pub is_nullable: String,
 }
 
 #[derive(Debug)]
@@ -62,11 +64,13 @@ fn determine_column_type(
     column_name: &str,
 ) -> Option<ColumnTypeInfo> {
     let derived_column_types = diesel::sql_query(
-        "SELECT column_name, data_type, udt_name FROM information_schema.columns WHERE table_name = $1 AND column_name = $2",
+        "SELECT column_name, data_type, udt_name, is_nullable \
+        FROM information_schema.columns \
+        WHERE table_name = $1 AND column_name = $2",
     )
-        .bind::<Varchar, _>(table_name)
-        .bind::<Varchar, _>(column_name)
-        .load::<ColumnTypeRequestResult>(connection);
+    .bind::<Varchar, _>(table_name)
+    .bind::<Varchar, _>(column_name)
+    .load::<ColumnTypeRequestResult>(connection);
 
     if derived_column_types.is_err() {
         warn!("{}", derived_column_types.err().unwrap());
@@ -86,7 +90,10 @@ fn determine_column_type(
     }
 
     let column_type_result: ColumnTypeRequestResult = derived_column_types.unwrap().pop().unwrap();
-    if column_type_result.data_type == "ARRAY" {
+    let is_array = column_type_result.data_type == "ARRAY";
+    let is_nullable = column_type_result.is_nullable == "YES";
+
+    if is_array {
         let array_type = convert_array_type(column_type_result.udt_name.as_str());
         if array_type.is_none() {
             warn!("Unknown array type {}", column_type_result.udt_name);
@@ -95,18 +102,16 @@ fn determine_column_type(
         return Some(ColumnTypeInfo {
             column_name: column_type_result.column_name,
             data_type: array_type.unwrap().to_owned(),
-            is_array: true,
-            // FIXME Detect nullable
-            is_nullable: false,
+            is_array,
+            is_nullable,
         });
     }
 
     Some(ColumnTypeInfo {
         column_name: column_type_result.column_name,
         data_type: column_type_result.data_type,
-        is_array: false,
-        // FIXME Detect nullable
-        is_nullable: false,
+        is_array,
+        is_nullable,
     })
 }
 
@@ -282,7 +287,9 @@ mod test {
         table_name: &str,
     ) -> Vec<ColumnTypeInfo> {
         let column_info = sqlx::query(
-            "SELECT column_name, data_type, udt_name FROM information_schema.columns WHERE table_name = $1",
+            "SELECT column_name, data_type, udt_name, is_nullable \
+            FROM information_schema.columns \
+            WHERE table_name = $1",
         )
         .bind(table_name)
         .fetch_all(connection)
@@ -296,6 +303,7 @@ mod test {
             .map(|row| {
                 let data_type: String = row.get("data_type");
                 let is_array: bool = data_type == "ARRAY";
+                let is_nullable: String = row.get("is_nullable");
 
                 ColumnTypeInfo {
                     column_name: row.get("column_name"),
@@ -305,8 +313,7 @@ mod test {
                         data_type
                     },
                     is_array,
-                    // FIXME Detect nullable
-                    is_nullable: false,
+                    is_nullable: is_nullable == "YES",
                 }
             })
             .collect()

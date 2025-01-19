@@ -7,5 +7,6 @@ CREATE TABLE
         varcharColumn VARCHAR NOT NULL,
         booleanColumn BOOLEAN NOT NULL,
         doubleColumn DOUBLE PRECISION NOT NULL,
-        dateColumn DATE NOT NULL
+        dateColumn DATE NOT NULL,
+        nullableDateColumn DATE NULL
     )
