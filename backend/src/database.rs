@@ -148,7 +148,10 @@ where
                     .collect::<Vec<i32>>(),
             ),
             _ => {
-                warn!("Cannot bind to unsupported array type {}", column_type.data_type.as_str());
+                warn!(
+                    "Cannot bind to unsupported array type {}",
+                    column_type.data_type.as_str()
+                );
                 return None;
             }
         }
