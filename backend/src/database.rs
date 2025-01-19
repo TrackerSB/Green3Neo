@@ -6,7 +6,7 @@ use diesel::serialize::ToSql;
 use diesel::sql_types::{Array, Bool, Date, Double, HasSqlType, Integer, Nullable, Text, Varchar};
 use diesel::{Connection, PgConnection, QueryableByName, RunQueryDsl};
 use dotenv::dotenv;
-use log::warn;
+use log::{trace, warn};
 
 pub fn get_connection() -> Option<PgConnection> {
     dotenv().ok();
@@ -63,17 +63,21 @@ fn determine_column_type(
     table_name: &str,
     column_name: &str,
 ) -> Option<ColumnTypeInfo> {
-    let derived_column_types = diesel::sql_query(
+    let query = diesel::sql_query(
         "SELECT column_name, data_type, udt_name, is_nullable \
         FROM information_schema.columns \
         WHERE table_name = $1 AND column_name = $2",
     )
     .bind::<Varchar, _>(table_name)
-    .bind::<Varchar, _>(column_name)
-    .load::<ColumnTypeRequestResult>(connection);
+    .bind::<Varchar, _>(column_name);
+    trace!("query: {:?}", query);
+    let derived_column_types = query.load::<ColumnTypeRequestResult>(connection);
 
     if derived_column_types.is_err() {
-        warn!("Could not determine column types due '{}'", derived_column_types.err().unwrap());
+        warn!(
+            "Could not determine column types due '{}'",
+            derived_column_types.err().unwrap()
+        );
         return None;
     }
 
