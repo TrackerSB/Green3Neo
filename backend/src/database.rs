@@ -182,7 +182,7 @@ mod test {
         detailed_format, writers::LogWriter, AdaptiveFormat, Cleanup, Criterion, Duplicate,
         FileSpec, Logger, LoggerHandle, Naming, WriteMode,
     };
-    use log::error;
+    use log::{error, info};
     use speculoos::{
         assert_that, option::OptionAssertions, prelude::BooleanAssertions,
         result::ResultAssertions, vec::VecAssertions,
@@ -204,9 +204,16 @@ mod test {
             record: &log::Record,
         ) -> std::io::Result<()> {
             let is_severe_log_output: bool = record.level() <= log::Level::Warn;
-            assert_that(&is_severe_log_output)
-                .named("Severe log output")
-                .is_false();
+            let message: String = record.args().to_string();
+            let ignore_severe_message: bool =
+                message.starts_with("slow statement: execution time exceeded alert threshold");
+            if ignore_severe_message {
+                info!("Ignoring severe message");
+            } else {
+                assert_that(&is_severe_log_output)
+                    .named("Severe log output")
+                    .is_false();
+            }
             Ok(())
         }
 
