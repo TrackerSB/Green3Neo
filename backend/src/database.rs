@@ -2,7 +2,7 @@ use diesel::backend::Backend;
 use diesel::query_builder::bind_collector::RawBytesBindCollector;
 use diesel::query_builder::BoxedSqlQuery;
 use diesel::serialize::ToSql;
-use diesel::sql_types::{Integer, Text, Varchar};
+use diesel::sql_types::{Array, HasSqlType, Integer, Text, Varchar};
 use diesel::{Connection, PgConnection, QueryableByName, RunQueryDsl};
 use dotenv::dotenv;
 use log::warn;
@@ -31,11 +31,28 @@ pub fn get_connection() -> Option<PgConnection> {
 }
 
 #[derive(QueryableByName, Debug)]
-struct ColumnTypeInfo {
+struct ColumnTypeRequestResult {
     #[sql_type = "Text"]
     pub column_name: String,
     #[sql_type = "Text"]
     pub data_type: String,
+    #[sql_type = "Text"]
+    pub udt_name: String,
+}
+
+#[derive(Debug)]
+struct ColumnTypeInfo {
+    pub column_name: String,
+    pub data_type: String,
+    pub is_array: bool,
+    pub is_nullable: bool,
+}
+
+fn convert_array_type(array_type: &str) -> Option<&str> {
+    match array_type {
+        "_int4" => Some("integer"),
+        _ => None,
+    }
 }
 
 fn determine_column_type(
@@ -44,11 +61,11 @@ fn determine_column_type(
     column_name: &str,
 ) -> Option<ColumnTypeInfo> {
     let derived_column_types = diesel::sql_query(
-        "SELECT column_name, data_type FROM information_schema.columns WHERE table_name = $1 AND column_name = $2",
+        "SELECT column_name, data_type, udt_name FROM information_schema.columns WHERE table_name = $1 AND column_name = $2",
     )
         .bind::<Varchar, _>(table_name)
         .bind::<Varchar, _>(column_name)
-        .load::<ColumnTypeInfo>(connection);
+        .load::<ColumnTypeRequestResult>(connection);
 
     if derived_column_types.is_err() {
         warn!("{}", derived_column_types.err().unwrap());
@@ -67,7 +84,29 @@ fn determine_column_type(
         return None;
     }
 
-    Some(derived_column_types.unwrap().pop().unwrap())
+    let column_type_result: ColumnTypeRequestResult = derived_column_types.unwrap().pop().unwrap();
+    if column_type_result.data_type == "ARRAY" {
+        let array_type = convert_array_type(column_type_result.udt_name.as_str());
+        if array_type.is_none() {
+            warn!("Unknown array type {}", column_type_result.udt_name);
+            return None;
+        }
+        return Some(ColumnTypeInfo {
+            column_name: column_type_result.column_name,
+            data_type: array_type.unwrap().to_owned(),
+            is_array: true,
+            // FIXME Detect nullable
+            is_nullable: false,
+        });
+    }
+
+    Some(ColumnTypeInfo {
+        column_name: column_type_result.column_name,
+        data_type: column_type_result.data_type,
+        is_array: false,
+        // FIXME Detect nullable
+        is_nullable: false,
+    })
 }
 
 pub fn bind_column_value<'a, DB, Query>(
@@ -78,8 +117,9 @@ pub fn bind_column_value<'a, DB, Query>(
     sql_expression: BoxedSqlQuery<'a, DB, Query>,
 ) -> Option<BoxedSqlQuery<'a, DB, Query>>
 where
-    DB: Backend<BindCollector<'a> = RawBytesBindCollector<DB>>,
+    DB: Backend<BindCollector<'a> = RawBytesBindCollector<DB>> + HasSqlType<Array<Integer>>,
     i32: ToSql<Integer, DB>,
+    Vec<i32>: ToSql<Array<Integer>, DB>,
     str: ToSql<Text, DB>,
     str: ToSql<Varchar, DB>,
 {
@@ -92,13 +132,29 @@ where
 
     let column_type = column_type.unwrap();
 
-    let bound_query = match column_type.data_type.as_str() {
-        "text" => sql_expression.bind::<Text, _>(value),
-        "character varying" => sql_expression.bind::<Varchar, _>(value),
-        "integer" => sql_expression.bind::<Integer, _>(value.parse::<i32>().unwrap()),
-        _ => {
-            warn!("Unknown type {}", column_type.data_type.as_str());
-            return None;
+    let bound_query = if column_type.is_array {
+        let elements = value.split(",");
+        match column_type.data_type.as_str() {
+            "integer" => sql_expression.bind::<Array<Integer>, _>(
+                elements
+                    .map(|element| element.parse::<i32>())
+                    .map(|element| element.unwrap())
+                    .collect::<Vec<i32>>(),
+            ),
+            _ => {
+                warn!("Unknown array type {}", column_type.data_type.as_str());
+                return None;
+            }
+        }
+    } else {
+        match column_type.data_type.as_str() {
+            "text" => sql_expression.bind::<Text, _>(value),
+            "character varying" => sql_expression.bind::<Varchar, _>(value),
+            "integer" => sql_expression.bind::<Integer, _>(value.parse::<i32>().unwrap()),
+            _ => {
+                warn!("Unknown type {}", column_type.data_type.as_str());
+                return None;
+            }
         }
     };
 
@@ -204,7 +260,7 @@ mod test {
         table_name: &str,
     ) -> Vec<ColumnTypeInfo> {
         let column_info = sqlx::query(
-            "SELECT column_name, data_type FROM information_schema.columns WHERE table_name = $1",
+            "SELECT column_name, data_type, udt_name FROM information_schema.columns WHERE table_name = $1",
         )
         .bind(table_name)
         .fetch_all(connection)
@@ -215,9 +271,21 @@ mod test {
         column_info
             .unwrap()
             .iter()
-            .map(|row| ColumnTypeInfo {
-                column_name: row.get("column_name"),
-                data_type: row.get("data_type"),
+            .map(|row| {
+                let data_type: String = row.get("data_type");
+                let is_array: bool = data_type == "ARRAY";
+
+                ColumnTypeInfo {
+                    column_name: row.get("column_name"),
+                    data_type: if is_array {
+                        convert_array_type(row.get("udt_name")).unwrap().to_owned()
+                    } else {
+                        data_type
+                    },
+                    is_array,
+                    // FIXME Detect nullable
+                    is_nullable: false,
+                }
             })
             .collect()
     }
@@ -240,6 +308,8 @@ mod test {
         for row in column_info.iter() {
             let expected_column_name = &row.column_name;
             let expected_data_type = &row.data_type;
+            let expected_is_array = &row.is_array;
+            let expected_is_nullable = &row.is_nullable;
 
             let opt_actual_column_type: Option<ColumnTypeInfo> =
                 determine_column_type(&mut diesel_connection, table_name, &expected_column_name);
@@ -249,7 +319,11 @@ mod test {
                 .matches(|actual_column_type| {
                     &actual_column_type.column_name == expected_column_name
                 })
-                .matches(|actual_column_type| &actual_column_type.data_type == expected_data_type);
+                .matches(|actual_column_type| &actual_column_type.data_type == expected_data_type)
+                .matches(|actual_column_type| &actual_column_type.is_array == expected_is_array)
+                .matches(|actual_column_type| {
+                    &actual_column_type.is_nullable == expected_is_nullable
+                });
         }
 
         Ok(())
