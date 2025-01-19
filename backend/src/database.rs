@@ -113,12 +113,8 @@ mod test {
     };
     use log::error;
     use speculoos::{
-        assert_that,
-        option::OptionAssertions,
-        prelude::{BooleanAssertions, OrderedAssertions},
-        result::ResultAssertions,
-        vec::VecAssertions,
-        DescriptiveSpec,
+        assert_that, option::OptionAssertions, prelude::BooleanAssertions,
+        result::ResultAssertions, vec::VecAssertions,
     };
     use sqlx::{PgPool, Row};
     use std::sync::Once;
