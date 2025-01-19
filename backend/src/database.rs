@@ -240,7 +240,7 @@ mod test {
         }
     }
 
-    fn setup_tests() {
+    fn setup_test() {
         INIT.call_once(|| {
             unsafe {
                 LOGGER = Some(
@@ -334,7 +334,7 @@ mod test {
 
     #[sqlx::test(fixtures("allsupportedtypes"))]
     async fn test_determine_column_type(pool: PgPool) -> sqlx::Result<()> {
-        setup_tests();
+        setup_test();
 
         // FIXME Determine table name automatically
         let table_name = "allsupportedtypes";
@@ -373,7 +373,7 @@ mod test {
 
     #[sqlx::test(fixtures("allsupportedtypes"))]
     async fn test_bind_column(pool: PgPool) -> sqlx::Result<()> {
-        setup_tests();
+        setup_test();
 
         // FIXME Determine table name automatically
         let table_name = "allsupportedtypes";
