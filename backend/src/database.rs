@@ -142,37 +142,24 @@ where
     }
 
     let column_type = column_type.unwrap();
+    if value.is_none() && !column_type.is_nullable {
+        warn!("Cannot bind non-nullable column '{}' to null", column_name);
+        return None;
+    }
 
-    let bound_query = if value.is_none() {
-        if column_type.is_nullable {
-            // Handle nullable types which are set to null
-            match column_type.data_type.as_str() {
-                "date" => sql_expression.bind::<Nullable<Date>, _>(None::<NaiveDate>),
-                _ => {
-                    warn!(
-                        "Cannot bind null to unsupported type '{}'",
-                        column_type.data_type.as_str()
-                    );
-                    return None;
-                }
-            }
-        } else {
-            warn!("Cannot bind non nullable column '{}' to null", column_name);
-            return None;
-        }
-    } else {
-        let unwrapped_value = value.unwrap();
-
+    let bound_query =
         if column_type.is_array {
-            // Handle array types which are set to non-null values
-            let elements = unwrapped_value.split(",");
+            // Handle array types
+            let elements = value.map(|v| v.split(","));
             match column_type.data_type.as_str() {
-                "integer" => sql_expression.bind::<Array<Integer>, _>(
-                    elements
-                        .map(|element| element.parse::<i32>())
-                        .map(|element| element.unwrap())
-                        .collect::<Vec<i32>>(),
-                ),
+                "integer" => {
+                    sql_expression.bind::<Nullable<Array<Integer>>, _>(elements.map(|split| {
+                        split
+                            .map(|element| element.parse::<i32>())
+                            .map(|element| element.unwrap())
+                            .collect::<Vec<i32>>()
+                    }))
+                }
                 _ => {
                     warn!(
                         "Cannot bind to unsupported array type '{}'",
@@ -182,22 +169,18 @@ where
                 }
             }
         } else {
-            // Handle types which are set to non-null values
+            // Handle non-array types
             match column_type.data_type.as_str() {
-                "text" => sql_expression.bind::<Text, _>(unwrapped_value),
-                "character varying" => sql_expression.bind::<Varchar, _>(unwrapped_value),
-                "boolean" => {
-                    sql_expression.bind::<Bool, _>(unwrapped_value.parse::<bool>().unwrap())
-                }
-                "integer" => {
-                    sql_expression.bind::<Integer, _>(unwrapped_value.parse::<i32>().unwrap())
-                }
-                "double precision" => {
-                    sql_expression.bind::<Double, _>(unwrapped_value.parse::<f64>().unwrap())
-                }
-                "date" => {
-                    sql_expression.bind::<Date, _>(unwrapped_value.parse::<NaiveDate>().unwrap())
-                }
+                "text" => sql_expression.bind::<Nullable<Text>, _>(value),
+                "character varying" => sql_expression.bind::<Nullable<Varchar>, _>(value),
+                "boolean" => sql_expression
+                    .bind::<Nullable<Bool>, _>(value.map(|b| b.parse::<bool>().unwrap())),
+                "integer" => sql_expression
+                    .bind::<Nullable<Integer>, _>(value.map(|i| i.parse::<i32>().unwrap())),
+                "double precision" => sql_expression
+                    .bind::<Nullable<Double>, _>(value.map(|d| d.parse::<f64>().unwrap())),
+                "date" => sql_expression
+                    .bind::<Nullable<Date>, _>(value.map(|d| d.parse::<NaiveDate>().unwrap())),
                 _ => {
                     warn!(
                         "Cannot bind to unsupported type '{}'",
@@ -206,8 +189,7 @@ where
                     return None;
                 }
             }
-        }
-    };
+        };
 
     Some(bound_query)
 }
