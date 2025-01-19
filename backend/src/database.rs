@@ -73,7 +73,7 @@ fn determine_column_type(
     .load::<ColumnTypeRequestResult>(connection);
 
     if derived_column_types.is_err() {
-        warn!("{}", derived_column_types.err().unwrap());
+        warn!("Could not determine column types due '{}'", derived_column_types.err().unwrap());
         return None;
     }
 
@@ -81,7 +81,7 @@ fn determine_column_type(
 
     let num_column_types = derived_column_types.as_ref().unwrap().len();
     if num_column_types == 0 {
-        warn!("Could not determine column type");
+        warn!("Could not determine column type of '{}'", column_name);
         return None;
     }
     if num_column_types > 1 {
