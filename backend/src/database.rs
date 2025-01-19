@@ -33,13 +33,13 @@ pub fn get_connection() -> Option<PgConnection> {
 
 #[derive(QueryableByName, Debug)]
 struct ColumnTypeRequestResult {
-    #[sql_type = "Text"]
+    #[diesel(sql_type = Text)]
     pub column_name: String,
-    #[sql_type = "Text"]
+    #[diesel(sql_type = Text)]
     pub data_type: String,
-    #[sql_type = "Text"]
+    #[diesel(sql_type = Text)]
     pub udt_name: String,
-    #[sql_type = "Text"]
+    #[diesel(sql_type = Text)]
     pub is_nullable: String,
 }
 
