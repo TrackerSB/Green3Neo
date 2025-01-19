@@ -3,7 +3,7 @@ use diesel::backend::Backend;
 use diesel::query_builder::bind_collector::RawBytesBindCollector;
 use diesel::query_builder::BoxedSqlQuery;
 use diesel::serialize::ToSql;
-use diesel::sql_types::{Array, Bool, Date, Double, HasSqlType, Integer, Text, Varchar};
+use diesel::sql_types::{Array, Bool, Date, Double, HasSqlType, Integer, Nullable, Text, Varchar};
 use diesel::{Connection, PgConnection, QueryableByName, RunQueryDsl};
 use dotenv::dotenv;
 use log::warn;
@@ -119,7 +119,7 @@ pub fn bind_column_value<'a, DB, Query>(
     connection: &mut PgConnection,
     table_name: &'a str,
     column_name: &'a str,
-    value: &'a str,
+    value: Option<&'a str>,
     sql_expression: BoxedSqlQuery<'a, DB, Query>,
 ) -> Option<BoxedSqlQuery<'a, DB, Query>>
 where
@@ -143,37 +143,68 @@ where
 
     let column_type = column_type.unwrap();
 
-    let bound_query = if column_type.is_array {
-        let elements = value.split(",");
-        match column_type.data_type.as_str() {
-            "integer" => sql_expression.bind::<Array<Integer>, _>(
-                elements
-                    .map(|element| element.parse::<i32>())
-                    .map(|element| element.unwrap())
-                    .collect::<Vec<i32>>(),
-            ),
-            _ => {
-                warn!(
-                    "Cannot bind to unsupported array type {}",
-                    column_type.data_type.as_str()
-                );
-                return None;
+    let bound_query = if value.is_none() {
+        if column_type.is_nullable {
+            // Handle nullable types which are set to null
+            match column_type.data_type.as_str() {
+                "date" => sql_expression.bind::<Nullable<Date>, _>(None::<NaiveDate>),
+                _ => {
+                    warn!(
+                        "Cannot bind null to unsupported type '{}'",
+                        column_type.data_type.as_str()
+                    );
+                    return None;
+                }
             }
+        } else {
+            warn!("Cannot bind non nullable column '{}' to null", column_name);
+            return None;
         }
     } else {
-        match column_type.data_type.as_str() {
-            "text" => sql_expression.bind::<Text, _>(value),
-            "character varying" => sql_expression.bind::<Varchar, _>(value),
-            "boolean" => sql_expression.bind::<Bool, _>(value.parse::<bool>().unwrap()),
-            "integer" => sql_expression.bind::<Integer, _>(value.parse::<i32>().unwrap()),
-            "double precision" => sql_expression.bind::<Double, _>(value.parse::<f64>().unwrap()),
-            "date" => sql_expression.bind::<Date, _>(value.parse::<NaiveDate>().unwrap()),
-            _ => {
-                warn!(
-                    "Cannot bind to unsupported type {}",
-                    column_type.data_type.as_str()
-                );
-                return None;
+        let unwrapped_value = value.unwrap();
+
+        if column_type.is_array {
+            // Handle array types which are set to non-null values
+            let elements = unwrapped_value.split(",");
+            match column_type.data_type.as_str() {
+                "integer" => sql_expression.bind::<Array<Integer>, _>(
+                    elements
+                        .map(|element| element.parse::<i32>())
+                        .map(|element| element.unwrap())
+                        .collect::<Vec<i32>>(),
+                ),
+                _ => {
+                    warn!(
+                        "Cannot bind to unsupported array type '{}'",
+                        column_type.data_type.as_str()
+                    );
+                    return None;
+                }
+            }
+        } else {
+            // Handle types which are set to non-null values
+            match column_type.data_type.as_str() {
+                "text" => sql_expression.bind::<Text, _>(unwrapped_value),
+                "character varying" => sql_expression.bind::<Varchar, _>(unwrapped_value),
+                "boolean" => {
+                    sql_expression.bind::<Bool, _>(unwrapped_value.parse::<bool>().unwrap())
+                }
+                "integer" => {
+                    sql_expression.bind::<Integer, _>(unwrapped_value.parse::<i32>().unwrap())
+                }
+                "double precision" => {
+                    sql_expression.bind::<Double, _>(unwrapped_value.parse::<f64>().unwrap())
+                }
+                "date" => {
+                    sql_expression.bind::<Date, _>(unwrapped_value.parse::<NaiveDate>().unwrap())
+                }
+                _ => {
+                    warn!(
+                        "Cannot bind to unsupported type '{}'",
+                        column_type.data_type.as_str()
+                    );
+                    return None;
+                }
             }
         }
     };
@@ -397,22 +428,41 @@ mod test {
                 table_name, row.column_name
             ));
 
-            let sql_expression = bind_column_value(
+            let sql_expression_with_value = bind_column_value(
                 &mut diesel_connection,
                 &table_name,
                 &row.column_name,
-                value_to_bind.unwrap(),
-                base_sql_expression.into_boxed(),
+                Some(value_to_bind.unwrap()),
+                base_sql_expression.clone().into_boxed(),
             );
 
-            assert_that(&sql_expression.as_ref().map(|_| ()))
+            assert_that(&sql_expression_with_value.as_ref().map(|_| ()))
                 .named("Bind column value")
                 .is_some();
 
-            sql_expression
+            sql_expression_with_value
                 .unwrap()
                 .execute(&mut diesel_connection)
                 .expect("Could not execute query");
+
+            if row.is_nullable {
+                let sql_expression_with_null = bind_column_value(
+                    &mut diesel_connection,
+                    &table_name,
+                    &row.column_name,
+                    None,
+                    base_sql_expression.into_boxed(),
+                );
+
+                assert_that(&sql_expression_with_null.as_ref().map(|_| ()))
+                    .named("Bind column to null")
+                    .is_some();
+
+                sql_expression_with_null
+                    .unwrap()
+                    .execute(&mut diesel_connection)
+                    .expect("Could not execute query");
+            }
         }
 
         Ok(())
