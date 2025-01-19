@@ -3,7 +3,7 @@ use diesel::backend::Backend;
 use diesel::query_builder::bind_collector::RawBytesBindCollector;
 use diesel::query_builder::BoxedSqlQuery;
 use diesel::serialize::ToSql;
-use diesel::sql_types::{Array, Date, Double, HasSqlType, Integer, Text, Varchar};
+use diesel::sql_types::{Array, Bool, Date, Double, HasSqlType, Integer, Text, Varchar};
 use diesel::{Connection, PgConnection, QueryableByName, RunQueryDsl};
 use dotenv::dotenv;
 use log::warn;
@@ -118,9 +118,12 @@ pub fn bind_column_value<'a, DB, Query>(
     sql_expression: BoxedSqlQuery<'a, DB, Query>,
 ) -> Option<BoxedSqlQuery<'a, DB, Query>>
 where
-    DB: Backend<BindCollector<'a> = RawBytesBindCollector<DB>> + HasSqlType<Array<Integer>>,
+    DB: Backend<BindCollector<'a> = RawBytesBindCollector<DB>>
+        + HasSqlType<Array<Integer>>
+        + HasSqlType<Bool>,
     str: ToSql<Text, DB>,
     str: ToSql<Varchar, DB>,
+    bool: ToSql<Bool, DB>,
     i32: ToSql<Integer, DB>,
     Vec<i32>: ToSql<Array<Integer>, DB>,
     f64: ToSql<Double, DB>,
@@ -153,6 +156,7 @@ where
         match column_type.data_type.as_str() {
             "text" => sql_expression.bind::<Text, _>(value),
             "character varying" => sql_expression.bind::<Varchar, _>(value),
+            "boolean" => sql_expression.bind::<Bool, _>(value.parse::<bool>().unwrap()),
             "integer" => sql_expression.bind::<Integer, _>(value.parse::<i32>().unwrap()),
             "double precision" => sql_expression.bind::<Double, _>(value.parse::<f64>().unwrap()),
             "date" => sql_expression.bind::<Date, _>(value.parse::<NaiveDate>().unwrap()),
@@ -356,6 +360,7 @@ mod test {
             let value_to_bind: Option<&str> = match row.data_type.as_str() {
                 "text" => Some("fancyText"),
                 "character varying" => Some("fancyVarChar"),
+                "boolean" => Some("false"),
                 "integer" => Some("42"),
                 "double precision" => Some("123.123"),
                 "date" => Some("2021-01-01"),
