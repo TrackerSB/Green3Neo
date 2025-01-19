@@ -143,7 +143,7 @@ where
                     .collect::<Vec<i32>>(),
             ),
             _ => {
-                warn!("Unknown array type {}", column_type.data_type.as_str());
+                warn!("Cannot bind to unsupported array type {}", column_type.data_type.as_str());
                 return None;
             }
         }
@@ -154,7 +154,10 @@ where
             "integer" => sql_expression.bind::<Integer, _>(value.parse::<i32>().unwrap()),
             "double precision" => sql_expression.bind::<Double, _>(value.parse::<f64>().unwrap()),
             _ => {
-                warn!("Unknown type {}", column_type.data_type.as_str());
+                warn!(
+                    "Cannot bind to unsupported type {}",
+                    column_type.data_type.as_str()
+                );
                 return None;
             }
         }
