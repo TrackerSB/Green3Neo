@@ -2,7 +2,7 @@ use diesel::backend::Backend;
 use diesel::query_builder::bind_collector::RawBytesBindCollector;
 use diesel::query_builder::BoxedSqlQuery;
 use diesel::serialize::ToSql;
-use diesel::sql_types::{Array, HasSqlType, Integer, Text, Varchar};
+use diesel::sql_types::{Array, Double, HasSqlType, Integer, Text, Varchar};
 use diesel::{Connection, PgConnection, QueryableByName, RunQueryDsl};
 use dotenv::dotenv;
 use log::warn;
@@ -118,6 +118,7 @@ pub fn bind_column_value<'a, DB, Query>(
 ) -> Option<BoxedSqlQuery<'a, DB, Query>>
 where
     DB: Backend<BindCollector<'a> = RawBytesBindCollector<DB>> + HasSqlType<Array<Integer>>,
+    f64: ToSql<Double, DB>,
     i32: ToSql<Integer, DB>,
     Vec<i32>: ToSql<Array<Integer>, DB>,
     str: ToSql<Text, DB>,
@@ -151,6 +152,7 @@ where
             "text" => sql_expression.bind::<Text, _>(value),
             "character varying" => sql_expression.bind::<Varchar, _>(value),
             "integer" => sql_expression.bind::<Integer, _>(value.parse::<i32>().unwrap()),
+            "double precision" => sql_expression.bind::<Double, _>(value.parse::<f64>().unwrap()),
             _ => {
                 warn!("Unknown type {}", column_type.data_type.as_str());
                 return None;
@@ -349,6 +351,7 @@ mod test {
                 "text" => Some("fancyText"),
                 "character varying" => Some("fancyVarChar"),
                 "integer" => Some("42"),
+                "double precision" => Some("123.123"),
                 _ => {
                     error!("No testdata defined for type {}", row.data_type);
                     None
