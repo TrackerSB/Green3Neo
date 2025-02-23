@@ -6,7 +6,7 @@ use diesel::serialize::ToSql;
 use diesel::sql_types::{Array, Bool, Date, Double, HasSqlType, Integer, Nullable, Text, Varchar};
 use diesel::{Connection, PgConnection, QueryableByName, RunQueryDsl};
 use dotenv::dotenv;
-use log::{trace, warn};
+use log::{info, trace, warn};
 
 pub fn get_connection() -> Option<PgConnection> {
     dotenv().ok();
@@ -151,49 +151,76 @@ where
         return None;
     }
 
-    let bound_query =
-        if column_type.is_array {
-            // Handle array types
-            let elements = value.map(|v| v.split(","));
-            match column_type.data_type.as_str() {
-                "integer" => {
-                    sql_expression.bind::<Nullable<Array<Integer>>, _>(elements.map(|split| {
-                        split
-                            .map(|element| element.parse::<i32>())
-                            .map(|element| element.unwrap())
-                            .collect::<Vec<i32>>()
-                    }))
-                }
-                _ => {
-                    warn!(
-                        "Cannot bind to unsupported array type '{}'",
-                        column_type.data_type.as_str()
-                    );
-                    return None;
-                }
-            }
+    info!(
+        "Binding column '{}' with type '{}' to value '{:?}'",
+        column_name, column_type.data_type, value
+    );
+
+    fn parser<ResultType>(value: &str) -> Option<ResultType>
+    where
+        ResultType: std::str::FromStr,
+        <ResultType as std::str::FromStr>::Err: std::fmt::Display,
+        <ResultType as std::str::FromStr>::Err: std::fmt::Debug,
+    {
+        let parse_result = value.parse::<ResultType>();
+        if parse_result.is_err() {
+            warn!(
+                "Could not parse value '{}' (expected type: {}) due '{}'. Ignoring result.",
+                value,
+                std::any::type_name::<ResultType>(),
+                parse_result.err().unwrap()
+            );
+            None
         } else {
-            // Handle non-array types
-            match column_type.data_type.as_str() {
-                "text" => sql_expression.bind::<Nullable<Text>, _>(value),
-                "character varying" => sql_expression.bind::<Nullable<Varchar>, _>(value),
-                "boolean" => sql_expression
-                    .bind::<Nullable<Bool>, _>(value.map(|b| b.parse::<bool>().unwrap())),
-                "integer" => sql_expression
-                    .bind::<Nullable<Integer>, _>(value.map(|i| i.parse::<i32>().unwrap())),
-                "double precision" => sql_expression
-                    .bind::<Nullable<Double>, _>(value.map(|d| d.parse::<f64>().unwrap())),
-                "date" => sql_expression
-                    .bind::<Nullable<Date>, _>(value.map(|d| d.parse::<NaiveDate>().unwrap())),
-                _ => {
-                    warn!(
-                        "Cannot bind to unsupported type '{}'",
-                        column_type.data_type.as_str()
-                    );
-                    return None;
-                }
+            Some(parse_result.unwrap())
+        }
+    }
+
+    let bound_query = if column_type.is_array {
+        // Handle array types
+        let elements = value.map(|v| v.split(","));
+        match column_type.data_type.as_str() {
+            "integer" => {
+                sql_expression.bind::<Nullable<Array<Integer>>, _>(elements.map(|split| {
+                    split
+                        .map(|element| parser::<i32>(element).unwrap())
+                        .collect::<Vec<i32>>()
+                }))
             }
-        };
+            _ => {
+                warn!(
+                    "Cannot bind to unsupported array type '{}'",
+                    column_type.data_type.as_str()
+                );
+                return None;
+            }
+        }
+    } else {
+        // Handle non-array types
+        match column_type.data_type.as_str() {
+            "text" => sql_expression.bind::<Nullable<Text>, _>(value),
+            "character varying" => sql_expression.bind::<Nullable<Varchar>, _>(value),
+            "boolean" => {
+                sql_expression.bind::<Nullable<Bool>, _>(value.map(parser::<bool>).flatten())
+            }
+            "integer" => {
+                sql_expression.bind::<Nullable<Integer>, _>(value.map(parser::<i32>).flatten())
+            }
+            "double precision" => {
+                sql_expression.bind::<Nullable<Double>, _>(value.map(parser::<f64>).flatten())
+            }
+            "date" => {
+                sql_expression.bind::<Nullable<Date>, _>(value.map(parser::<NaiveDate>).flatten())
+            }
+            _ => {
+                warn!(
+                    "Cannot bind to unsupported type '{}'",
+                    column_type.data_type.as_str()
+                );
+                return None;
+            }
+        }
+    };
 
     Some(bound_query)
 }
