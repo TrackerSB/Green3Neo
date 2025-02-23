@@ -347,7 +347,9 @@ mod test {
         .fetch_all(connection)
         .await;
 
-        assert_that!(&column_info).named("Fetch column info").is_ok();
+        assert_that!(&column_info)
+            .named("Fetch column info")
+            .is_ok();
 
         column_info
             .unwrap()
