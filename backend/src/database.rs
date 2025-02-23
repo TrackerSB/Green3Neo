@@ -233,16 +233,17 @@ mod test {
     };
     use log::{error, info};
     use speculoos::{
-        assert_that, option::OptionAssertions, prelude::BooleanAssertions,
-        result::ResultAssertions, vec::VecAssertions,
+        assert_that, option::OptionAssertions, result::ResultAssertions, vec::VecAssertions,
     };
     use sqlx::{PgPool, Row};
+    use std::sync::Mutex;
     use std::sync::Once;
 
     use super::*;
 
     static INIT: Once = Once::new();
     static mut LOGGER: Option<LoggerHandle> = None;
+    static SEVERE_MESSAGES: Mutex<Vec<String>> = Mutex::new(Vec::new());
 
     struct FailingWriter {}
 
@@ -259,9 +260,9 @@ mod test {
             if ignore_severe_message {
                 info!("Ignoring severe message");
             } else {
-                assert_that(&is_severe_log_output)
-                    .named("Severe log output")
-                    .is_false();
+                if is_severe_log_output {
+                    SEVERE_MESSAGES.lock().unwrap().push(message);
+                }
             }
             Ok(())
         }
@@ -272,6 +273,8 @@ mod test {
     }
 
     fn setup_test() {
+        SEVERE_MESSAGES.lock().unwrap().clear();
+
         INIT.call_once(|| {
             unsafe {
                 LOGGER = Some(
@@ -297,6 +300,11 @@ mod test {
                 )
             };
         });
+    }
+
+    fn tear_down(expected_num_severe_messages: usize) {
+        let current_num_severe_messages = SEVERE_MESSAGES.lock().unwrap().len();
+        assert_eq!(expected_num_severe_messages, current_num_severe_messages);
     }
 
     // Create a diesel based connection to the same database
@@ -399,6 +407,7 @@ mod test {
                 });
         }
 
+        tear_down(0);
         Ok(())
     }
 
@@ -478,6 +487,7 @@ mod test {
             }
         }
 
+        tear_down(0);
         Ok(())
     }
 }
