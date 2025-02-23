@@ -312,7 +312,7 @@ mod test {
         .fetch_all(connection)
         .await;
 
-        assert_that(&column_info).named("Fetch column info").is_ok();
+        assert_that!(&column_info).named("Fetch column info").is_ok();
 
         column_info
             .unwrap()
@@ -345,7 +345,7 @@ mod test {
         let mut test_connection = pool.acquire().await?;
 
         let column_info = get_column_info(&mut test_connection, table_name).await;
-        assert_that(&column_info)
+        assert_that!(&column_info)
             .named("Gather columns to check")
             .is_not_empty();
 
@@ -359,7 +359,7 @@ mod test {
 
             let opt_actual_column_type: Option<ColumnTypeInfo> =
                 determine_column_type(&mut diesel_connection, table_name, &expected_column_name);
-            assert_that(&opt_actual_column_type)
+            assert_that!(&opt_actual_column_type)
                 .named("Determine column type")
                 .is_some()
                 .matches(|actual_column_type| {
@@ -384,7 +384,7 @@ mod test {
         let mut test_connection = pool.acquire().await?;
 
         let column_info = get_column_info(&mut test_connection, table_name).await;
-        assert_that(&column_info)
+        assert_that!(&column_info)
             .named("Gather columns to check")
             .is_not_empty();
 
@@ -422,7 +422,7 @@ mod test {
                 base_sql_expression.clone().into_boxed(),
             );
 
-            assert_that(&sql_expression_with_value.as_ref().map(|_| ()))
+            assert_that!(&sql_expression_with_value.as_ref().map(|_| ()))
                 .named("Bind column value")
                 .is_some();
 
@@ -440,7 +440,7 @@ mod test {
                     base_sql_expression.into_boxed(),
                 );
 
-                assert_that(&sql_expression_with_null.as_ref().map(|_| ()))
+                assert_that!(&sql_expression_with_null.as_ref().map(|_| ()))
                     .named("Bind column to null")
                     .is_some();
 
