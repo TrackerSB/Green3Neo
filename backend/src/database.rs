@@ -492,4 +492,48 @@ mod test {
         tear_down(0);
         Ok(())
     }
+
+    #[sqlx::test(fixtures("allsupportedtypes"))]
+    async fn test_bind_wrong_type(pool: PgPool) -> sqlx::Result<()> {
+        setup_test();
+
+        // FIXME Determine table name automatically
+        let table_name = "allsupportedtypes";
+        let mut test_connection = pool.acquire().await?;
+
+        let column_info = get_column_info(&mut test_connection, table_name).await;
+        assert_that!(&column_info)
+            .named("Gather columns to check")
+            .is_not_empty();
+
+        let mut diesel_connection = create_diesel_connection(&mut test_connection).await;
+
+        let column_name = "datecolumn";
+        let value_to_bind = "true";
+
+        let base_sql_expression = diesel::sql_query(format!(
+            "SELECT {1} FROM {0} WHERE {1} = $1",
+            table_name, column_name
+        ));
+
+        let sql_expression = bind_column_value(
+            &mut diesel_connection,
+            &table_name,
+            &column_name,
+            Some(value_to_bind),
+            base_sql_expression.into_boxed(),
+        );
+
+        assert_that!(&sql_expression.as_ref().map(|_| ()))
+            .named("Bind column value")
+            .is_some();
+
+        sql_expression
+            .unwrap()
+            .execute(&mut diesel_connection)
+            .expect("Could not execute query");
+
+        tear_down(1);
+        Ok(())
+    }
 }
