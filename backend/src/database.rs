@@ -304,7 +304,9 @@ mod test {
 
     fn tear_down(expected_num_severe_messages: usize) {
         let current_num_severe_messages = SEVERE_MESSAGES.lock().unwrap().len();
-        assert_eq!(expected_num_severe_messages, current_num_severe_messages);
+        assert_that!(current_num_severe_messages)
+            .named("Number of severe messages")
+            .is_equal_to(expected_num_severe_messages);
     }
 
     // Create a diesel based connection to the same database
