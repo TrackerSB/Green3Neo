@@ -259,7 +259,20 @@ mod test {
     }
 
     fn get_current_thread_name() -> String {
-        thread::current().name().unwrap_or("unnamed").to_owned()
+        let thread_name = thread::current().name().map(|name| name.to_owned());
+        if thread_name.is_some() {
+            return thread_name.unwrap();
+        }
+
+        let fallback_thread_name = "unnamed";
+        warn!(
+            concat!(
+                "Could not determine thread name. Using thread name '{}'. ",
+                "If there are multiple such threads distinguishing them may be inaccurate."
+            ),
+            fallback_thread_name
+        );
+        return fallback_thread_name.to_owned();
     }
 
     struct FailingWriter {}
