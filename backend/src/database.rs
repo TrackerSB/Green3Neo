@@ -245,16 +245,12 @@ mod test {
     use super::*;
 
     fn get_message_entry_lock() -> Arc<RwLock<Vec<String>>> {
-        static LOGGER: LazyLock<
-            RwLock<(
-                LoggerHandle,
-                Arc<RwLock<HashMap<String, Arc<RwLock<Vec<String>>>>>>,
-            )>,
-        > = LazyLock::new(|| RwLock::new((create_logger(), Arc::new(RwLock::new(HashMap::new())))));
+        static LOGGER: LazyLock<(
+            LoggerHandle,
+            Arc<RwLock<HashMap<String, Arc<RwLock<Vec<String>>>>>>,
+        )> = LazyLock::new(|| (create_logger(), Arc::new(RwLock::new(HashMap::new()))));
 
-        let locked_logger = LOGGER.read().unwrap();
-
-        let unlocked_messages = locked_logger.1.clone();
+        let unlocked_messages = LOGGER.1.clone();
         let mut locked_messages = unlocked_messages.write().unwrap();
         locked_messages
             .entry(get_current_thread_name())
