@@ -236,14 +236,35 @@ mod test {
         assert_that, option::OptionAssertions, result::ResultAssertions, vec::VecAssertions,
     };
     use sqlx::{PgPool, Row};
-    use std::sync::Mutex;
-    use std::sync::Once;
+    use std::{
+        collections::HashMap,
+        sync::{Arc, LazyLock, RwLock},
+        thread,
+    };
 
     use super::*;
 
-    static INIT: Once = Once::new();
-    static mut LOGGER: Option<LoggerHandle> = None;
-    static SEVERE_MESSAGES: Mutex<Vec<String>> = Mutex::new(Vec::new());
+    fn get_message_entry_lock() -> Arc<RwLock<Vec<String>>> {
+        static LOGGER: LazyLock<
+            RwLock<(
+                LoggerHandle,
+                Arc<RwLock<HashMap<String, Arc<RwLock<Vec<String>>>>>>,
+            )>,
+        > = LazyLock::new(|| RwLock::new((create_logger(), Arc::new(RwLock::new(HashMap::new())))));
+
+        let locked_logger = LOGGER.read().unwrap();
+
+        let unlocked_messages = locked_logger.1.clone();
+        let mut locked_messages = unlocked_messages.write().unwrap();
+        locked_messages
+            .entry(get_current_thread_name())
+            .or_insert(Arc::new(RwLock::new(Vec::new())))
+            .clone()
+    }
+
+    fn get_current_thread_name() -> String {
+        thread::current().name().unwrap_or("unnamed").to_owned()
+    }
 
     struct FailingWriter {}
 
@@ -261,7 +282,9 @@ mod test {
                 info!("Ignoring severe message");
             } else {
                 if is_severe_log_output {
-                    SEVERE_MESSAGES.lock().unwrap().push(message);
+                    let unlocked_message_entry = get_message_entry_lock();
+                    let mut locked_message_entry = unlocked_message_entry.write().unwrap();
+                    locked_message_entry.push(message);
                 }
             }
             Ok(())
@@ -272,41 +295,71 @@ mod test {
         }
     }
 
-    fn setup_test() {
-        SEVERE_MESSAGES.lock().unwrap().clear();
+    fn create_logger() -> LoggerHandle {
+        let logger_creation_result = Logger::try_with_env_or_str("info");
+        if logger_creation_result.is_err() {
+            panic!(
+                "Could not create logger due '{}'",
+                logger_creation_result.err().unwrap()
+            );
+        }
 
-        INIT.call_once(|| {
-            unsafe {
-                LOGGER = Some(
-                    Logger::try_with_env_or_str("info")
-                        .unwrap()
-                        .format(detailed_format)
-                        // FIXME Where to put files based on CWD, environment, installation folder etc.?
-                        .log_to_file_and_writer(
-                            FileSpec::default().directory("./logs").suppress_timestamp(),
-                            Box::new(FailingWriter {}),
-                        )
-                        .duplicate_to_stderr(Duplicate::Warn)
-                        .adaptive_format_for_stderr(AdaptiveFormat::Detailed)
-                        .write_mode(WriteMode::Async)
-                        .rotate(
-                            Criterion::Size(1024 * 1024 * 1024), // 1 GB
-                            Naming::Numbers,
-                            Cleanup::KeepLogFiles(1),
-                        )
-                        // FIXME Where to put files based on CWD, environment, installation folder etc.?
-                        .start_with_specfile("./logs/logspec.toml")
-                        .unwrap(),
-                )
-            };
-        });
+        let logger_config_result = logger_creation_result
+            .unwrap()
+            .format(detailed_format)
+            // FIXME Where to put files based on CWD, environment, installation folder etc.?
+            .log_to_file_and_writer(
+                FileSpec::default().directory("./logs").suppress_timestamp(),
+                Box::new(FailingWriter {}),
+            )
+            .duplicate_to_stderr(Duplicate::Warn)
+            .adaptive_format_for_stderr(AdaptiveFormat::Detailed)
+            .write_mode(WriteMode::Async)
+            .rotate(
+                Criterion::Size(1024 * 1024 * 1024), // 1 GB
+                Naming::Numbers,
+                Cleanup::KeepLogFiles(1),
+            )
+            // FIXME Where to put files based on CWD, environment, installation folder etc.?
+            .start_with_specfile("./logs/logspec.toml");
+
+        if logger_config_result.is_err() {
+            panic!(
+                "Could not configure logger due '{}'",
+                logger_config_result.err().unwrap()
+            );
+        }
+
+        logger_config_result.unwrap()
+    }
+
+    fn setup_test() {
+        let unlocked_message_entry = get_message_entry_lock();
+        let mut locked_message_entry = unlocked_message_entry.write().unwrap();
+        locked_message_entry.clear();
     }
 
     fn tear_down(expected_num_severe_messages: usize) {
-        let current_num_severe_messages = SEVERE_MESSAGES.lock().unwrap().len();
-        assert_that!(current_num_severe_messages)
-            .named("Number of severe messages")
-            .is_equal_to(expected_num_severe_messages);
+        let current_num_severe_messages: Option<usize>;
+
+        /* NOTE 2025-02-28 SHU: Destroy lock before checking number of severe messages (eventually throwing and
+         * poisining the lock)
+         */
+        {
+            let unlocked_message_entry = get_message_entry_lock();
+            let locked_message_entry = unlocked_message_entry.read().unwrap();
+
+            current_num_severe_messages = Some(locked_message_entry.len());
+        }
+
+        if current_num_severe_messages.is_some() {
+            let current_num_severe_messages = current_num_severe_messages.unwrap();
+            assert_that!(current_num_severe_messages)
+                .named("Number of severe messages")
+                .is_equal_to(expected_num_severe_messages);
+        } else {
+            warn!("Could not determine number of severe messages");
+        }
     }
 
     // Create a diesel based connection to the same database
