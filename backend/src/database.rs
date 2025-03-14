@@ -247,7 +247,7 @@ mod test {
             Arc<RwLock<HashMap<String, Arc<RwLock<Vec<String>>>>>>,
         )> = LazyLock::new(|| {
             (
-                create_logger(Box::new(FailingWriter {})),
+                create_logger(Some(Box::new(FailingWriter {}))),
                 Arc::new(RwLock::new(HashMap::new())),
             )
         });
