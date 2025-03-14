@@ -520,7 +520,7 @@ mod test {
                 &mut diesel_connection,
                 &table_name,
                 &row.column_name,
-                Some(value_to_bind.unwrap()),
+                value_to_bind,
                 base_sql_expression.clone().into_boxed(),
             );
 
@@ -573,7 +573,7 @@ mod test {
         let mut diesel_connection = create_diesel_connection(&mut test_connection).await;
 
         let column_name = "datecolumn";
-        let value_to_bind = "true";
+        let value_to_bind = Some("true");
 
         let base_sql_expression = diesel::sql_query(format!(
             "SELECT {1} FROM {0} WHERE {1} = $1",
@@ -584,7 +584,7 @@ mod test {
             &mut diesel_connection,
             &table_name,
             &column_name,
-            Some(value_to_bind),
+            value_to_bind,
             base_sql_expression.into_boxed(),
         );
 
