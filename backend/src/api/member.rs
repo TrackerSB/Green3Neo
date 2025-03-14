@@ -78,7 +78,7 @@ pub fn change_member(changes: Vec<ChangeRecord>) -> Vec<usize> {
             &mut connection,
             "member",
             change.column.as_str(),
-            changed_value.unwrap().as_str(),
+            changed_value.map(|s| s.as_str()),
             boxed_unbound_update_statement,
         )
         // FIXME Improve logging and error handling

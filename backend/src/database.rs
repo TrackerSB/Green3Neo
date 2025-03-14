@@ -3,10 +3,10 @@ use diesel::backend::Backend;
 use diesel::query_builder::bind_collector::RawBytesBindCollector;
 use diesel::query_builder::BoxedSqlQuery;
 use diesel::serialize::ToSql;
-use diesel::sql_types::{Array, Bool, Date, Double, HasSqlType, Integer, Text, Varchar};
+use diesel::sql_types::{Array, Bool, Date, Double, HasSqlType, Integer, Nullable, Text, Varchar};
 use diesel::{Connection, PgConnection, QueryableByName, RunQueryDsl};
 use dotenv::dotenv;
-use log::warn;
+use log::{info, trace, warn};
 
 pub fn get_connection() -> Option<PgConnection> {
     dotenv().ok();
@@ -33,12 +33,14 @@ pub fn get_connection() -> Option<PgConnection> {
 
 #[derive(QueryableByName, Debug)]
 struct ColumnTypeRequestResult {
-    #[sql_type = "Text"]
+    #[diesel(sql_type = Text)]
     pub column_name: String,
-    #[sql_type = "Text"]
+    #[diesel(sql_type = Text)]
     pub data_type: String,
-    #[sql_type = "Text"]
+    #[diesel(sql_type = Text)]
     pub udt_name: String,
+    #[diesel(sql_type = Text)]
+    pub is_nullable: String,
 }
 
 #[derive(Debug)]
@@ -61,15 +63,21 @@ fn determine_column_type(
     table_name: &str,
     column_name: &str,
 ) -> Option<ColumnTypeInfo> {
-    let derived_column_types = diesel::sql_query(
-        "SELECT column_name, data_type, udt_name FROM information_schema.columns WHERE table_name = $1 AND column_name = $2",
+    let query = diesel::sql_query(
+        "SELECT column_name, data_type, udt_name, is_nullable \
+        FROM information_schema.columns \
+        WHERE table_name = $1 AND column_name = $2",
     )
-        .bind::<Varchar, _>(table_name)
-        .bind::<Varchar, _>(column_name)
-        .load::<ColumnTypeRequestResult>(connection);
+    .bind::<Varchar, _>(table_name)
+    .bind::<Varchar, _>(column_name);
+    trace!("query: {:?}", query);
+    let derived_column_types = query.load::<ColumnTypeRequestResult>(connection);
 
     if derived_column_types.is_err() {
-        warn!("{}", derived_column_types.err().unwrap());
+        warn!(
+            "Could not determine column types due '{}'",
+            derived_column_types.err().unwrap()
+        );
         return None;
     }
 
@@ -77,7 +85,7 @@ fn determine_column_type(
 
     let num_column_types = derived_column_types.as_ref().unwrap().len();
     if num_column_types == 0 {
-        warn!("Could not determine column type");
+        warn!("Could not determine column type of '{}'", column_name);
         return None;
     }
     if num_column_types > 1 {
@@ -86,7 +94,10 @@ fn determine_column_type(
     }
 
     let column_type_result: ColumnTypeRequestResult = derived_column_types.unwrap().pop().unwrap();
-    if column_type_result.data_type == "ARRAY" {
+    let is_array = column_type_result.data_type == "ARRAY";
+    let is_nullable = column_type_result.is_nullable == "YES";
+
+    if is_array {
         let array_type = convert_array_type(column_type_result.udt_name.as_str());
         if array_type.is_none() {
             warn!("Unknown array type {}", column_type_result.udt_name);
@@ -95,18 +106,16 @@ fn determine_column_type(
         return Some(ColumnTypeInfo {
             column_name: column_type_result.column_name,
             data_type: array_type.unwrap().to_owned(),
-            is_array: true,
-            // FIXME Detect nullable
-            is_nullable: false,
+            is_array,
+            is_nullable,
         });
     }
 
     Some(ColumnTypeInfo {
         column_name: column_type_result.column_name,
         data_type: column_type_result.data_type,
-        is_array: false,
-        // FIXME Detect nullable
-        is_nullable: false,
+        is_array,
+        is_nullable,
     })
 }
 
@@ -114,7 +123,7 @@ pub fn bind_column_value<'a, DB, Query>(
     connection: &mut PgConnection,
     table_name: &'a str,
     column_name: &'a str,
-    value: &'a str,
+    value: Option<&'a str>,
     sql_expression: BoxedSqlQuery<'a, DB, Query>,
 ) -> Option<BoxedSqlQuery<'a, DB, Query>>
 where
@@ -132,40 +141,79 @@ where
     let column_type = determine_column_type(connection, table_name, column_name);
 
     if column_type.is_none() {
-        warn!("Could not determine column type");
         return None;
     }
 
     let column_type = column_type.unwrap();
+    if value.is_none() && !column_type.is_nullable {
+        warn!("Cannot bind non-nullable column '{}' to null", column_name);
+        return None;
+    }
+
+    info!(
+        "Binding column '{}' with type '{}' to value '{:?}'",
+        column_name, column_type.data_type, value
+    );
+
+    fn parser<ResultType>(value: &str) -> Option<ResultType>
+    where
+        ResultType: std::str::FromStr,
+        <ResultType as std::str::FromStr>::Err: std::fmt::Display,
+        <ResultType as std::str::FromStr>::Err: std::fmt::Debug,
+    {
+        let parse_result = value.parse::<ResultType>();
+        if parse_result.is_err() {
+            warn!(
+                "Could not parse value '{}' (expected type: {}) due '{}'. Ignoring result.",
+                value,
+                std::any::type_name::<ResultType>(),
+                parse_result.err().unwrap()
+            );
+            None
+        } else {
+            Some(parse_result.unwrap())
+        }
+    }
 
     let bound_query = if column_type.is_array {
-        let elements = value.split(",");
+        // Handle array types
+        let elements = value.map(|v| v.split(","));
         match column_type.data_type.as_str() {
-            "integer" => sql_expression.bind::<Array<Integer>, _>(
-                elements
-                    .map(|element| element.parse::<i32>())
-                    .map(|element| element.unwrap())
-                    .collect::<Vec<i32>>(),
-            ),
+            "integer" => {
+                sql_expression.bind::<Nullable<Array<Integer>>, _>(elements.map(|split| {
+                    split
+                        .map(|element| parser::<i32>(element).unwrap())
+                        .collect::<Vec<i32>>()
+                }))
+            }
             _ => {
                 warn!(
-                    "Cannot bind to unsupported array type {}",
+                    "Cannot bind to unsupported array type '{}'",
                     column_type.data_type.as_str()
                 );
                 return None;
             }
         }
     } else {
+        // Handle non-array types
         match column_type.data_type.as_str() {
-            "text" => sql_expression.bind::<Text, _>(value),
-            "character varying" => sql_expression.bind::<Varchar, _>(value),
-            "boolean" => sql_expression.bind::<Bool, _>(value.parse::<bool>().unwrap()),
-            "integer" => sql_expression.bind::<Integer, _>(value.parse::<i32>().unwrap()),
-            "double precision" => sql_expression.bind::<Double, _>(value.parse::<f64>().unwrap()),
-            "date" => sql_expression.bind::<Date, _>(value.parse::<NaiveDate>().unwrap()),
+            "text" => sql_expression.bind::<Nullable<Text>, _>(value),
+            "character varying" => sql_expression.bind::<Nullable<Varchar>, _>(value),
+            "boolean" => {
+                sql_expression.bind::<Nullable<Bool>, _>(value.map(parser::<bool>).flatten())
+            }
+            "integer" => {
+                sql_expression.bind::<Nullable<Integer>, _>(value.map(parser::<i32>).flatten())
+            }
+            "double precision" => {
+                sql_expression.bind::<Nullable<Double>, _>(value.map(parser::<f64>).flatten())
+            }
+            "date" => {
+                sql_expression.bind::<Nullable<Date>, _>(value.map(parser::<NaiveDate>).flatten())
+            }
             _ => {
                 warn!(
-                    "Cannot bind to unsupported type {}",
+                    "Cannot bind to unsupported type '{}'",
                     column_type.data_type.as_str()
                 );
                 return None;
@@ -184,16 +232,47 @@ mod test {
     };
     use log::{error, info};
     use speculoos::{
-        assert_that, option::OptionAssertions, prelude::BooleanAssertions,
-        result::ResultAssertions, vec::VecAssertions,
+        assert_that, option::OptionAssertions, result::ResultAssertions, vec::VecAssertions,
     };
     use sqlx::{PgPool, Row};
-    use std::sync::Once;
+    use std::{
+        collections::HashMap,
+        sync::{Arc, LazyLock, RwLock},
+        thread,
+    };
 
     use super::*;
 
-    static INIT: Once = Once::new();
-    static mut LOGGER: Option<LoggerHandle> = None;
+    fn get_message_entry_lock() -> Arc<RwLock<Vec<String>>> {
+        static LOGGER: LazyLock<(
+            LoggerHandle,
+            Arc<RwLock<HashMap<String, Arc<RwLock<Vec<String>>>>>>,
+        )> = LazyLock::new(|| (create_logger(), Arc::new(RwLock::new(HashMap::new()))));
+
+        let unlocked_messages = LOGGER.1.clone();
+        let mut locked_messages = unlocked_messages.write().unwrap();
+        locked_messages
+            .entry(get_current_thread_name())
+            .or_insert(Arc::new(RwLock::new(Vec::new())))
+            .clone()
+    }
+
+    fn get_current_thread_name() -> String {
+        let thread_name = thread::current().name().map(|name| name.to_owned());
+        if thread_name.is_some() {
+            return thread_name.unwrap();
+        }
+
+        let fallback_thread_name = "unnamed";
+        warn!(
+            concat!(
+                "Could not determine thread name. Using thread name '{}'. ",
+                "If there are multiple such threads distinguishing them may be inaccurate."
+            ),
+            fallback_thread_name
+        );
+        return fallback_thread_name.to_owned();
+    }
 
     struct FailingWriter {}
 
@@ -210,9 +289,11 @@ mod test {
             if ignore_severe_message {
                 info!("Ignoring severe message");
             } else {
-                assert_that(&is_severe_log_output)
-                    .named("Severe log output")
-                    .is_false();
+                if is_severe_log_output {
+                    let unlocked_message_entry = get_message_entry_lock();
+                    let mut locked_message_entry = unlocked_message_entry.write().unwrap();
+                    locked_message_entry.push(message);
+                }
             }
             Ok(())
         }
@@ -222,32 +303,71 @@ mod test {
         }
     }
 
-    fn setup_tests() {
-        INIT.call_once(|| {
-            unsafe {
-                LOGGER = Some(
-                    Logger::try_with_env_or_str("info")
-                        .unwrap()
-                        .format(detailed_format)
-                        // FIXME Where to put files based on CWD, environment, installation folder etc.?
-                        .log_to_file_and_writer(
-                            FileSpec::default().directory("./logs").suppress_timestamp(),
-                            Box::new(FailingWriter {}),
-                        )
-                        .duplicate_to_stderr(Duplicate::Warn)
-                        .adaptive_format_for_stderr(AdaptiveFormat::Detailed)
-                        .write_mode(WriteMode::Async)
-                        .rotate(
-                            Criterion::Size(1024 * 1024 * 1024), // 1 GB
-                            Naming::Numbers,
-                            Cleanup::KeepLogFiles(1),
-                        )
-                        // FIXME Where to put files based on CWD, environment, installation folder etc.?
-                        .start_with_specfile("./logs/logspec.toml")
-                        .unwrap(),
-                )
-            };
-        });
+    fn create_logger() -> LoggerHandle {
+        let logger_creation_result = Logger::try_with_env_or_str("info");
+        if logger_creation_result.is_err() {
+            panic!(
+                "Could not create logger due '{}'",
+                logger_creation_result.err().unwrap()
+            );
+        }
+
+        let logger_config_result = logger_creation_result
+            .unwrap()
+            .format(detailed_format)
+            // FIXME Where to put files based on CWD, environment, installation folder etc.?
+            .log_to_file_and_writer(
+                FileSpec::default().directory("./logs").suppress_timestamp(),
+                Box::new(FailingWriter {}),
+            )
+            .duplicate_to_stderr(Duplicate::Warn)
+            .adaptive_format_for_stderr(AdaptiveFormat::Detailed)
+            .write_mode(WriteMode::Async)
+            .rotate(
+                Criterion::Size(1024 * 1024 * 1024), // 1 GB
+                Naming::Numbers,
+                Cleanup::KeepLogFiles(1),
+            )
+            // FIXME Where to put files based on CWD, environment, installation folder etc.?
+            .start_with_specfile("./logs/logspec.toml");
+
+        if logger_config_result.is_err() {
+            panic!(
+                "Could not configure logger due '{}'",
+                logger_config_result.err().unwrap()
+            );
+        }
+
+        logger_config_result.unwrap()
+    }
+
+    fn setup_test() {
+        let unlocked_message_entry = get_message_entry_lock();
+        let mut locked_message_entry = unlocked_message_entry.write().unwrap();
+        locked_message_entry.clear();
+    }
+
+    fn tear_down(expected_num_severe_messages: usize) {
+        let current_num_severe_messages: Option<usize>;
+
+        /* NOTE 2025-02-28 SHU: Destroy lock before checking number of severe messages (eventually throwing and
+         * poisining the lock)
+         */
+        {
+            let unlocked_message_entry = get_message_entry_lock();
+            let locked_message_entry = unlocked_message_entry.read().unwrap();
+
+            current_num_severe_messages = Some(locked_message_entry.len());
+        }
+
+        if current_num_severe_messages.is_some() {
+            let current_num_severe_messages = current_num_severe_messages.unwrap();
+            assert_that!(current_num_severe_messages)
+                .named("Number of severe messages")
+                .is_equal_to(expected_num_severe_messages);
+        } else {
+            warn!("Could not determine number of severe messages");
+        }
     }
 
     // Create a diesel based connection to the same database
@@ -282,13 +402,17 @@ mod test {
         table_name: &str,
     ) -> Vec<ColumnTypeInfo> {
         let column_info = sqlx::query(
-            "SELECT column_name, data_type, udt_name FROM information_schema.columns WHERE table_name = $1",
+            "SELECT column_name, data_type, udt_name, is_nullable \
+            FROM information_schema.columns \
+            WHERE table_name = $1",
         )
         .bind(table_name)
         .fetch_all(connection)
         .await;
 
-        assert_that(&column_info).named("Fetch column info").is_ok();
+        assert_that!(&column_info)
+            .named("Fetch column info")
+            .is_ok();
 
         column_info
             .unwrap()
@@ -296,6 +420,7 @@ mod test {
             .map(|row| {
                 let data_type: String = row.get("data_type");
                 let is_array: bool = data_type == "ARRAY";
+                let is_nullable: String = row.get("is_nullable");
 
                 ColumnTypeInfo {
                     column_name: row.get("column_name"),
@@ -305,8 +430,7 @@ mod test {
                         data_type
                     },
                     is_array,
-                    // FIXME Detect nullable
-                    is_nullable: false,
+                    is_nullable: is_nullable == "YES",
                 }
             })
             .collect()
@@ -314,14 +438,14 @@ mod test {
 
     #[sqlx::test(fixtures("allsupportedtypes"))]
     async fn test_determine_column_type(pool: PgPool) -> sqlx::Result<()> {
-        setup_tests();
+        setup_test();
 
         // FIXME Determine table name automatically
         let table_name = "allsupportedtypes";
         let mut test_connection = pool.acquire().await?;
 
         let column_info = get_column_info(&mut test_connection, table_name).await;
-        assert_that(&column_info)
+        assert_that!(&column_info)
             .named("Gather columns to check")
             .is_not_empty();
 
@@ -335,7 +459,7 @@ mod test {
 
             let opt_actual_column_type: Option<ColumnTypeInfo> =
                 determine_column_type(&mut diesel_connection, table_name, &expected_column_name);
-            assert_that(&opt_actual_column_type)
+            assert_that!(&opt_actual_column_type)
                 .named("Determine column type")
                 .is_some()
                 .matches(|actual_column_type| {
@@ -348,19 +472,20 @@ mod test {
                 });
         }
 
+        tear_down(0);
         Ok(())
     }
 
     #[sqlx::test(fixtures("allsupportedtypes"))]
     async fn test_bind_column(pool: PgPool) -> sqlx::Result<()> {
-        setup_tests();
+        setup_test();
 
         // FIXME Determine table name automatically
         let table_name = "allsupportedtypes";
         let mut test_connection = pool.acquire().await?;
 
         let column_info = get_column_info(&mut test_connection, table_name).await;
-        assert_that(&column_info)
+        assert_that!(&column_info)
             .named("Gather columns to check")
             .is_not_empty();
 
@@ -390,24 +515,166 @@ mod test {
                 table_name, row.column_name
             ));
 
-            let sql_expression = bind_column_value(
+            let sql_expression_with_value = bind_column_value(
                 &mut diesel_connection,
                 &table_name,
                 &row.column_name,
-                value_to_bind.unwrap(),
-                base_sql_expression.into_boxed(),
+                value_to_bind,
+                base_sql_expression.clone().into_boxed(),
             );
 
-            assert_that(&sql_expression.as_ref().map(|_| ()))
+            assert_that!(&sql_expression_with_value.as_ref().map(|_| ()))
                 .named("Bind column value")
                 .is_some();
 
-            sql_expression
+            sql_expression_with_value
                 .unwrap()
                 .execute(&mut diesel_connection)
                 .expect("Could not execute query");
+
+            if row.is_nullable {
+                let sql_expression_with_null = bind_column_value(
+                    &mut diesel_connection,
+                    &table_name,
+                    &row.column_name,
+                    None,
+                    base_sql_expression.into_boxed(),
+                );
+
+                assert_that!(&sql_expression_with_null.as_ref().map(|_| ()))
+                    .named("Bind column to null")
+                    .is_some();
+
+                sql_expression_with_null
+                    .unwrap()
+                    .execute(&mut diesel_connection)
+                    .expect("Could not execute query");
+            }
         }
 
+        tear_down(0);
+        Ok(())
+    }
+
+    #[sqlx::test(fixtures("allsupportedtypes"))]
+    async fn test_bind_wrong_type(pool: PgPool) -> sqlx::Result<()> {
+        setup_test();
+
+        // FIXME Determine table name automatically
+        let table_name = "allsupportedtypes";
+        let mut test_connection = pool.acquire().await?;
+
+        let column_info = get_column_info(&mut test_connection, table_name).await;
+        assert_that!(&column_info)
+            .named("Gather columns to check")
+            .is_not_empty();
+
+        let mut diesel_connection = create_diesel_connection(&mut test_connection).await;
+
+        let column_name = "datecolumn";
+        let value_to_bind = Some("true");
+
+        let base_sql_expression = diesel::sql_query(format!(
+            "SELECT {1} FROM {0} WHERE {1} = $1",
+            table_name, column_name
+        ));
+
+        let sql_expression = bind_column_value(
+            &mut diesel_connection,
+            &table_name,
+            &column_name,
+            value_to_bind,
+            base_sql_expression.into_boxed(),
+        );
+
+        assert_that!(&sql_expression.as_ref().map(|_| ()))
+            .named("Bind column value")
+            .is_some();
+
+        sql_expression
+            .unwrap()
+            .execute(&mut diesel_connection)
+            .expect("Could not execute query");
+
+        tear_down(1);
+        Ok(())
+    }
+
+    #[sqlx::test(fixtures("allsupportedtypes"))]
+    async fn test_bind_null_to_nonnullable_column(pool: PgPool) -> sqlx::Result<()> {
+        setup_test();
+
+        // FIXME Determine table name automatically
+        let table_name = "allsupportedtypes";
+        let mut test_connection = pool.acquire().await?;
+
+        let column_info = get_column_info(&mut test_connection, table_name).await;
+        assert_that!(&column_info)
+            .named("Gather columns to check")
+            .is_not_empty();
+
+        let mut diesel_connection = create_diesel_connection(&mut test_connection).await;
+
+        let column_name = "doublecolumn";
+        let value_to_bind = None;
+
+        let base_sql_expression = diesel::sql_query(format!(
+            "SELECT {1} FROM {0} WHERE {1} = $1",
+            table_name, column_name
+        ));
+
+        let sql_expression = bind_column_value(
+            &mut diesel_connection,
+            &table_name,
+            &column_name,
+            value_to_bind,
+            base_sql_expression.into_boxed(),
+        );
+
+        assert_that!(&sql_expression.as_ref().map(|_| ()))
+            .named("Bind column value")
+            .is_none();
+
+        tear_down(1);
+        Ok(())
+    }
+
+    #[sqlx::test(fixtures("allsupportedtypes"))]
+    async fn test_column_case_sensitivity(pool: PgPool) -> sqlx::Result<()> {
+        setup_test();
+
+        // FIXME Determine table name automatically
+        let table_name = "allsupportedtypes";
+        let mut test_connection = pool.acquire().await?;
+
+        let column_info = get_column_info(&mut test_connection, table_name).await;
+        assert_that!(&column_info)
+            .named("Gather columns to check")
+            .is_not_empty();
+
+        let mut diesel_connection = create_diesel_connection(&mut test_connection).await;
+
+        let column_name = "doubleCOLUMN";
+        let value_to_bind = Some("42.");
+
+        let base_sql_expression = diesel::sql_query(format!(
+            "SELECT {1} FROM {0} WHERE {1} = $1",
+            table_name, column_name
+        ));
+
+        let sql_expression = bind_column_value(
+            &mut diesel_connection,
+            &table_name,
+            &column_name,
+            value_to_bind,
+            base_sql_expression.into_boxed(),
+        );
+
+        assert_that!(&sql_expression.as_ref().map(|_| ()))
+            .named("Bind column value")
+            .is_none();
+
+        tear_down(1);
         Ok(())
     }
 }
