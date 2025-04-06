@@ -3,6 +3,7 @@ use crate::{
     models::Member,
 };
 use diesel::{query_dsl::methods::SelectDsl, sql_types::Integer, RunQueryDsl, SelectableHelper};
+use log::{error, info, warn};
 
 pub fn get_all_members() -> Option<Vec<Member>> {
     use crate::schema::member::dsl::*;
@@ -11,7 +12,7 @@ pub fn get_all_members() -> Option<Vec<Member>> {
 
     if connection.is_none() {
         // FIXME Either throw exception or log warning etc.
-        println!("Could not establish connection");
+        error!("Could not establish connection");
         return None;
     }
 
@@ -41,13 +42,13 @@ pub fn change_member(changes: Vec<ChangeRecord>) -> Vec<usize> {
 
     if connection.is_none() {
         // FIXME Either throw exception or log warning etc.
-        println!("Could not establish connection");
+        error!("Could not establish connection");
         return Vec::new();
     }
 
     let mut connection = connection.unwrap();
 
-    println!("Changing {} members...", changes.len());
+    info!("Changing {} members...", changes.len());
 
     let mut succeeded_update_indices: Vec<usize> = Vec::new();
 
@@ -67,7 +68,7 @@ pub fn change_member(changes: Vec<ChangeRecord>) -> Vec<usize> {
             //     unbound_update_statement.bind::<Nullable<Integer>, _>(None);
             // let update_statement = null_update_statement.bind::<Integer, _>(change.membershipid);
             // update_result = update_statement.execute(&mut connection);
-            println!("Changing values to NULL is not supported yet");
+            warn!("Changing values to NULL is not supported yet");
             continue;
         }
 
@@ -90,15 +91,15 @@ pub fn change_member(changes: Vec<ChangeRecord>) -> Vec<usize> {
         // FIXME Improve logging and error handling
         match update_result {
             Ok(num_updated) => {
-                println!("num updated {}", num_updated);
+                info!("num updated {}", num_updated);
                 if num_updated == 1 {
                     succeeded_update_indices.push(index);
                 } else {
-                    println!("Updated {} rows instead of 1", num_updated);
+                    info!("Updated {} rows instead of 1", num_updated);
                 }
             }
             Err(error) => {
-                println!("error {}", error);
+                error!("error {}", error);
             }
         };
     }
