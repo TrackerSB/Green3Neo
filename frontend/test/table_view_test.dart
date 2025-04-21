@@ -5,6 +5,7 @@ import 'package:green3neo/table_view.dart';
 void main() {
   testWidgets("Verify common properties and behavior of table view popups",
       (tester) async {
+    // FIXME Verify all SupportedTypes
     final value = createDefaultValue<UnsupportedVariant>();
 
     await tester.pumpWidget(
