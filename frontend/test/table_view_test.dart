@@ -11,7 +11,7 @@ void main() {
     await tester.pumpWidget(
       MaterialApp(
         home: TableViewUnsupportedCellPopup(
-          initialValue: UnsupportedVariant(value),
+          initialValue: value,
           isNullable: false,
           onCellValueSubmitted: (submittedValue) {},
         ),
