@@ -9,33 +9,6 @@
             "cwd": "${workspaceFolder}/frontend",
             "flutterMode": "debug",
             "preLaunchTask": "Build application"
-        },
-        {
-            "name": "Run all tests",
-            "type": "node-terminal",
-            "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "command": "just test"
-        },
-        {
-            "name": "Backend: Debug unittests",
-            "type": "lldb",
-            "request": "launch",
-            "cargo": {
-                "args": [
-                    "test",
-                    "--no-run",
-                    "--manifest-path",
-                    "${workspaceFolder}/backend/Cargo.toml",
-                    "--",
-                    // FIXME Seems to have no effect
-                    "--nocapture"
-                ],
-                "filter": {
-                    "name": "backend"
-                }
-            },
-            "preLaunchTask": "Build backend"
         }
     ]
 }
