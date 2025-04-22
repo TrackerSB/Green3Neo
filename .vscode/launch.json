@@ -18,14 +18,6 @@
             "command": "just test"
         },
         {
-            "name": "Frontend: Debug current test file",
-            "type": "dart",
-            "request": "launch",
-            "program": "${file}",
-            "cwd": "${workspaceFolder}/frontend",
-            "preLaunchTask": "Build application"
-        },
-        {
             "name": "Backend: Debug unittests",
             "type": "lldb",
             "request": "launch",
