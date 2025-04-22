@@ -2,7 +2,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Frontend: Run app",
+            "name": "Frontend: Debug app",
             "type": "dart",
             "request": "launch",
             "program": "lib/main.dart",
@@ -11,12 +11,11 @@
             "preLaunchTask": "Build application"
         },
         {
-            "name": "Frontend: Run all tests",
-            "type": "dart",
+            "name": "Run all tests",
+            "type": "node-terminal",
             "request": "launch",
-            "program": "test",
-            "cwd": "${workspaceFolder}/frontend",
-            "preLaunchTask": "Build application"
+            "cwd": "${workspaceFolder}",
+            "command": "just test"
         },
         {
             "name": "Frontend: Debug current test file",
