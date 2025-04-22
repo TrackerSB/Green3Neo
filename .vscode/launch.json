@@ -2,7 +2,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Frontend: Run debug",
+            "name": "Frontend: Run app",
             "type": "dart",
             "request": "launch",
             "program": "lib/main.dart",
@@ -11,7 +11,23 @@
             "preLaunchTask": "Build application"
         },
         {
-            "name": "Backend: Run unittest",
+            "name": "Frontend: Run all tests",
+            "type": "dart",
+            "request": "launch",
+            "program": "test",
+            "cwd": "${workspaceFolder}/frontend",
+            "preLaunchTask": "Build application"
+        },
+        {
+            "name": "Frontend: Debug current test file",
+            "type": "dart",
+            "request": "launch",
+            "program": "${file}",
+            "cwd": "${workspaceFolder}/frontend",
+            "preLaunchTask": "Build application"
+        },
+        {
+            "name": "Backend: Debug unittests",
             "type": "lldb",
             "request": "launch",
             "cargo": {
