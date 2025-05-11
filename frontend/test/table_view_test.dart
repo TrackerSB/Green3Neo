@@ -10,10 +10,12 @@ void main() {
 
     await tester.pumpWidget(
       MaterialApp(
-        home: TableViewUnsupportedCellPopup(
-          initialValue: cellValue,
-          isNullable: false,
-          onCellValueSubmitted: (submittedValue) {},
+        home: Scaffold(
+          body: TableViewUnsupportedCellPopup(
+            initialValue: cellValue,
+            isNullable: false,
+            onCellValueSubmitted: (submittedValue) {},
+          ),
         ),
       ),
     );
