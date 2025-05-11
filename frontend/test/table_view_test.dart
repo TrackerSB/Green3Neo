@@ -6,12 +6,12 @@ void main() {
   testWidgets("Verify common properties and behavior of table view popups",
       (tester) async {
     // FIXME Verify all SupportedTypes
-    final value = createDefaultValue<UnsupportedVariant>();
+    final cellValue = createDefaultValue<UnsupportedVariant>();
 
     await tester.pumpWidget(
       MaterialApp(
         home: TableViewUnsupportedCellPopup(
-          initialValue: value,
+          initialValue: cellValue,
           isNullable: false,
           onCellValueSubmitted: (submittedValue) {},
         ),
@@ -22,7 +22,7 @@ void main() {
     // FIXME Verify nullable property
     // FIXME Verify onCellValueSubmitted property
 
-    expect(find.text(value.toString()), findsOneWidget);
+    expect(find.text(cellValue.value.toString()), findsOneWidget);
     expect(find.closeButton(), findsOneWidget);
     expect(find.text("Save"), findsOneWidget);
   });
