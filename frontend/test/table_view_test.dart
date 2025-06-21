@@ -80,8 +80,4 @@ void main() {
     verifyCellValue(initialValue);
     verifyCheckboxState(true);
   });
-
-  testWidgets("Set null to non-nullable widget", (tester) async {
-    // FIXME Implement
-  });
 }
