@@ -1,6 +1,7 @@
 {
     "version": "2.0.0",
     "tasks": [
+        // Build tasks
         {
             "label": "Build application",
             "type": "shell",
@@ -34,6 +35,7 @@
                 "panel": "shared"
             },
         },
+        // Database tasks
         {
             "label": "Create database tables if non existent",
             "type": "shell",

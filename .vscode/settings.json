@@ -2,5 +2,6 @@
     "rust-analyzer.linkedProjects": [
         "./backend/Cargo.toml"
     ],
+    "rust-analyzer.testExplorer": true,
     "cmake.ignoreCMakeListsMissing": true
 }

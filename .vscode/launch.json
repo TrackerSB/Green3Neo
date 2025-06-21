@@ -2,33 +2,13 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Frontend: Run debug",
+            "name": "Frontend: Debug app",
             "type": "dart",
             "request": "launch",
             "program": "lib/main.dart",
             "cwd": "${workspaceFolder}/frontend",
             "flutterMode": "debug",
             "preLaunchTask": "Build application"
-        },
-        {
-            "name": "Backend: Run unittest",
-            "type": "lldb",
-            "request": "launch",
-            "cargo": {
-                "args": [
-                    "test",
-                    "--no-run",
-                    "--manifest-path",
-                    "${workspaceFolder}/backend/Cargo.toml",
-                    "--",
-                    // FIXME Seems to have no effect
-                    "--nocapture"
-                ],
-                "filter": {
-                    "name": "backend"
-                }
-            },
-            "preLaunchTask": "Build backend"
         }
     ]
 }

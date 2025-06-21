@@ -73,4 +73,7 @@ rebuild: clean build
 test-backend-unittets: frb-generate
     cd {{ backend_dir }} && cargo test -- --nocapture
 
-test: test-backend-unittets
+test-frontend-widget-tests: build
+    cd {{ frontend_dir }} && flutter test
+
+test: test-backend-unittets test-frontend-widget-tests
