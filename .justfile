@@ -51,8 +51,9 @@ diesel-generate-models: diesel-generate-schema
 # Actions) correspond to each other
 frb-generate: diesel-generate-models
     mkdir -p {{ frb_dart_output_dir }}
-    flutter_rust_bridge_codegen generate --no-web --no-add-mod-to-lib --llvm-path {{ llvmIncludeDir }} --rust-input "crate::api" --rust-root {{ backend_api_dir }} --dart-output {{ frb_dart_output_dir }}
+    flutter_rust_bridge_codegen generate --no-web --no-add-mod-to-lib --llvm-path {{ llvmIncludeDir }} --rust-input "crate::api" --rust-root {{ backend_api_dir }} --dart-output {{ frb_dart_output_dir }} --stop-on-error
     git apply {{ patch_folder }}/frontend/models.dart.patch
+    git apply {{ patch_folder }}/frontend/frb_generated.dart.patch
 
 backend-build: frb-generate
     cd {{ backend_api_dir }} && cargo build --release
