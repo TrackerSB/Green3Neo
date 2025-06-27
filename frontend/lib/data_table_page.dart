@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:green3neo/backend/api/member.dart';
-import 'package:green3neo/backend/models.dart';
+import 'package:green3neo/backend_api/api/member.dart';
+import 'package:green3neo/backend_api/models.dart';
 import 'package:provider/provider.dart';
 import 'table_view.dart';
 

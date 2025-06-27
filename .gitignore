@@ -1,8 +1,8 @@
 # Flutter_rust_bridge generated files
-backend/src/frb_generated.rs
-backend/src/frb_generated.io.rs
-backend/src/frb_generated.web.rs
-frontend/lib/backend/
+backend/backend_api/src/frb_generated.rs
+backend/backend_api/src/frb_generated.io.rs
+backend/backend_api/src/frb_generated.web.rs
+frontend/lib/backend_api/
 frontend/lib/frb_generated.dart
 frontend/lib/frb_generated.io.dart
 frontend/lib/frb_generated.web.dart

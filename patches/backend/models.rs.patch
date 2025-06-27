@@ -1,5 +1,5 @@
---- a/backend/src/models.unpatched.rs
-+++ b/backend/src/models.rs
+--- a/backend/backend_api/src/models.unpatched.rs
++++ b/backend/backend_api/src/models.rs
 @@ -13,6 +13,7 @@ use crate::schema::*;
  #[derive(Queryable,Selectable, Identifiable)]
  #[diesel(primary_key(membershipid))]

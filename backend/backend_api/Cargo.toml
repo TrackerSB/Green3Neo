@@ -1,10 +1,9 @@
 [package]
-name = "backend"
+name = "backend_api"
 version = "0.1.0"
 edition = "2021"
 
 [lib]
-name = "backend"
 crate-type = ["cdylib"]
 
 [build-dependencies]
