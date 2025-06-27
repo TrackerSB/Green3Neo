@@ -12,5 +12,6 @@ jobs:
         uses: extractions/setup-just@v2
       - uses: ./.github/actions/setup-postgre
       - uses: ./.github/actions/prepare-backend-build
+      - uses: ./.github/actions/prepare-frontend-build
       - name: Execute tests
         run: just test

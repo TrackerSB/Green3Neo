@@ -301,12 +301,11 @@ abstract class TableViewCellPopupState<CellType extends SupportedType>
           onPressed: submitInternalValue,
           child: const Text("Save"),
         ),
-        ElevatedButton(
+        CloseButton(
           onPressed: () {
             setInternalValue(widget.initialValue);
             submitInternalValue();
           },
-          child: const Text("Cancel"),
         ),
       ],
     );
