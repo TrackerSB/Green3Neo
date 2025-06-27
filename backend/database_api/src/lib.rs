@@ -1,7 +1,6 @@
 pub mod api;
-pub mod database;
-pub mod member;
 
+mod database;
 mod frb_generated;
 mod models;
 mod schema;
