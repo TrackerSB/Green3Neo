@@ -7,7 +7,7 @@
         // Toml
         "tamasfe.even-better-toml",
         // PostgreSQL
-        "ms-ossdata.vscode-postgresql",
+        "ms-ossdata.vscode-pgsql",
         // SQL
         "inferrinizzard.prettier-sql-vscode",
         // Python
