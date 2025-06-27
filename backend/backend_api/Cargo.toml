@@ -4,27 +4,16 @@ version = "0.1.0"
 edition = "2021"
 
 [lib]
-name = "backend_api"
 crate-type = ["cdylib"]
 
 [build-dependencies]
-dotenv = "0.15.0"
 flutter_rust_bridge_codegen = "=2.10.0"
 
-[dev-dependencies]
-speculoos = "0.11.0"
-sqlx = { version = "0.8.2", features = ["runtime-async-std", "postgres"] }
-
 [dependencies]
-backend_macros = { path = "../backend_macros" }
-dotenv = "0.15.0"
 flexi_logger = { version = "0.29.8", features = [
     "async",
     "colors",
     "specfile",
 ] }
 flutter_rust_bridge = "=2.10.0"
-rand = "0.8.4"
-chrono = "0.4.31"
-diesel = { version = "2.2.6", features = ["chrono", "postgres"] }
 log = "0.4.25"

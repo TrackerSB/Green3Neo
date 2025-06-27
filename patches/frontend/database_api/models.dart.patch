@@ -1,5 +1,5 @@
---- a/frontend/lib/backend_api/models.dart.unpatched
-+++ b/frontend/lib/backend_api/models.dart
+--- a/frontend/lib/database_api/models.dart.unpatched
++++ b/frontend/lib/database_api/models.dart
 @@ -5,5 +5,7 @@
 
  import 'frb_generated.dart';
