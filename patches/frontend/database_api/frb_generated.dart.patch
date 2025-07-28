@@ -4,8 +4,8 @@
 
    static const kDefaultExternalLibraryLoaderConfig =
        ExternalLibraryLoaderConfig(
--    stem: 'UNKNOWN',
-+    stem: 'database_api',
-     ioDirectory: '../backend/database_api/target/release/',
-     webPrefix: 'pkg/',
-   );
+-        stem: 'UNKNOWN',
++        stem: 'database_api',
+         ioDirectory: '../backend/database_api/target/release/',
+         webPrefix: 'pkg/',
+       );

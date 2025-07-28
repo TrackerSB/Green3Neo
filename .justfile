@@ -63,7 +63,9 @@ frb-generate: diesel-generate-models
 
     mkdir -p {{ frb_database_lib_output_dir }}
     flutter_rust_bridge_codegen generate --no-web --no-add-mod-to-lib --llvm-path {{ llvmIncludeDir }} --rust-input "crate::api" --rust-root {{ database_api_dir }} --dart-output {{ frb_database_lib_output_dir }} --stop-on-error
+    dart format {{ frb_database_lib_output_dir }}/api/models.dart
     git apply {{ patch_folder }}/frontend/database_api/api/models.dart.patch
+    dart format {{ frb_database_lib_output_dir }}/frb_generated.dart
     git apply {{ patch_folder }}/frontend/database_api/frb_generated.dart.patch
 
 backend-build: frb-generate
