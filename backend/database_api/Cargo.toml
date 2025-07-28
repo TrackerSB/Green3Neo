@@ -8,7 +8,7 @@ crate-type = ["cdylib"]
 
 [build-dependencies]
 dotenv = "0.15.0"
-flutter_rust_bridge_codegen = "=2.10.0"
+flutter_rust_bridge_codegen = "=2.11.1"
 
 [dev-dependencies]
 speculoos = "0.11.0"
@@ -19,5 +19,5 @@ backend_macros = { path = "../backend_macros" }
 chrono = "0.4.31"
 diesel = { version = "2.2.6", features = ["chrono", "postgres"] }
 dotenv = "0.15.0"
-flutter_rust_bridge = "=2.10.0"
+flutter_rust_bridge = "=2.11.1"
 log = "0.4.25"
