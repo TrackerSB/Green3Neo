@@ -11,6 +11,7 @@ dotenv = "0.15.0"
 flutter_rust_bridge_codegen = "=2.11.1"
 
 [dev-dependencies]
+backend_api = { path = "../backend_api" }
 speculoos = "0.11.0"
 sqlx = { version = "0.8.2", features = ["runtime-async-std", "postgres"] }
 flexi_logger = { version = "0.29.8", features = [
@@ -18,7 +19,6 @@ flexi_logger = { version = "0.29.8", features = [
     "colors",
     "specfile",
 ] }
-log = "0.4.25"
 
 [dependencies]
 backend_macros = { path = "../backend_macros" }

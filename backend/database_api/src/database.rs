@@ -226,7 +226,7 @@ where
 
 #[cfg(test)]
 mod test {
-    use crate::logging::create_logger;
+    use backend::logging::create_logger;
     use flexi_logger::{writers::LogWriter, LoggerHandle};
     use log::{error, info};
     use speculoos::{
