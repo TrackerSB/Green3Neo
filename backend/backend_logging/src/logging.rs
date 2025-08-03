@@ -1,6 +1,8 @@
+pub use flexi_logger::writers::LogWriter;
+pub use flexi_logger::LoggerHandle;
 use flexi_logger::{
-    detailed_format, writers::LogWriter, AdaptiveFormat, Cleanup, Criterion, Duplicate, FileSpec,
-    Logger, LoggerHandle, Naming, WriteMode,
+    detailed_format, AdaptiveFormat, Cleanup, Criterion, Duplicate, FileSpec, Logger, Naming,
+    WriteMode,
 };
 
 pub fn create_logger(writer: Option<Box<dyn LogWriter>>) -> LoggerHandle {

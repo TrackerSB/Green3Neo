@@ -1,0 +1,20 @@
+[package]
+name = "backend_api"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+crate-type = ["cdylib"]
+
+[build-dependencies]
+flutter_rust_bridge_codegen = "=2.11.1"
+
+[dependencies]
+backend_logging = { path = "../../backend_logging" }
+flexi_logger = { version = "0.29.8", features = [
+    "async",
+    "colors",
+    "specfile",
+] }
+flutter_rust_bridge = "=2.11.1"
+log = "0.4.25"

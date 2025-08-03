@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:green3neo/data_table_page.dart';
-import 'package:green3neo/backend/frb_generated.dart';
+import 'package:green3neo/backend_api/frb_generated.dart' as backend_api;
+import 'package:green3neo/database_api/frb_generated.dart' as database_api;
 import 'main.reflectable.dart';
 
 void main() async {
   initializeReflectable();
 
-  await RustLib.init();
+  await backend_api.RustLib.init();
+  await database_api.RustLib.init();
 
   runApp(const MainApp());
 }

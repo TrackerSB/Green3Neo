@@ -1,7 +1,5 @@
-use crate::{
-    database::{bind_column_value, get_connection},
-    models::Member,
-};
+use crate::api::models::Member;
+use crate::database::{bind_column_value, get_connection};
 use diesel::{query_dsl::methods::SelectDsl, sql_types::Integer, RunQueryDsl, SelectableHelper};
 use log::{error, info, warn};
 

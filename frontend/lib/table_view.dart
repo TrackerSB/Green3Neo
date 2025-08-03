@@ -47,27 +47,28 @@ CellType createDefaultValue<CellType extends SupportedType>() {
 
 Widget _createCellPopup<CellType extends SupportedType>(CellType? initialValue,
     bool isNullableType, CellValueHandler<CellType?> onCellValueSubmitted) {
-  return createDefaultValue<CellType>().when(
-      int: (value) => TableViewIntCellPopup(
-          initialValue: initialValue as IntVariant?,
-          isNullable: isNullableType,
-          onCellValueSubmitted:
-              onCellValueSubmitted as CellValueHandler<IntVariant?>),
-      string: (value) => TableViewStringCellPopup(
-          initialValue: initialValue as StringVariant?,
-          isNullable: isNullableType,
-          onCellValueSubmitted:
-              onCellValueSubmitted as CellValueHandler<StringVariant?>),
-      bool: (value) => TableViewBoolCellPopup(
-          initialValue: initialValue as BoolVariant?,
-          isNullable: isNullableType,
-          onCellValueSubmitted:
-              onCellValueSubmitted as CellValueHandler<BoolVariant?>),
-      unsupported: (value) => TableViewUnsupportedCellPopup(
-          initialValue: initialValue as UnsupportedVariant?,
-          isNullable: isNullableType,
-          onCellValueSubmitted:
-              onCellValueSubmitted as CellValueHandler<UnsupportedVariant?>));
+  return switch (createDefaultValue<CellType>()) {
+    IntVariant(:final int value) => TableViewIntCellPopup(
+        initialValue: initialValue as IntVariant?,
+        isNullable: isNullableType,
+        onCellValueSubmitted:
+            onCellValueSubmitted as CellValueHandler<IntVariant?>),
+    StringVariant(:final String value) => TableViewStringCellPopup(
+        initialValue: initialValue as StringVariant?,
+        isNullable: isNullableType,
+        onCellValueSubmitted:
+            onCellValueSubmitted as CellValueHandler<StringVariant?>),
+    BoolVariant(:final bool value) => TableViewBoolCellPopup(
+        initialValue: initialValue as BoolVariant?,
+        isNullable: isNullableType,
+        onCellValueSubmitted:
+            onCellValueSubmitted as CellValueHandler<BoolVariant?>),
+    UnsupportedVariant(:final dynamic value) => TableViewUnsupportedCellPopup(
+        initialValue: initialValue as UnsupportedVariant?,
+        isNullable: isNullableType,
+        onCellValueSubmitted:
+            onCellValueSubmitted as CellValueHandler<UnsupportedVariant?>),
+  };
 }
 
 class CellValueState<CellType extends SupportedType> extends ChangeNotifier {

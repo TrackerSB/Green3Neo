@@ -1,8 +1,8 @@
---- a/frontend/lib/backend/models.dart.unpatched
-+++ b/frontend/lib/backend/models.dart
+--- a/frontend/lib/database_api/api/models.dart.unpatched
++++ b/frontend/lib/database_api/api/models.dart
 @@ -5,5 +5,7 @@
 
- import 'frb_generated.dart';
+ import '../frb_generated.dart';
  import 'package:flutter_rust_bridge/flutter_rust_bridge_for_generated.dart';
 +import 'package:green3neo/reflectable.dart';
 

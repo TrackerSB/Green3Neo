@@ -1,13 +1,13 @@
 [package]
 name = "backend_macros"
 version = "0.1.0"
-edition = "2021"
+edition = "2024"
 
 [lib]
 proc-macro = true
 
 [dependencies]
-flutter_rust_bridge = "=2.4.0"
+flutter_rust_bridge = "=2.11.1"
 proc-macro2 = "1.0.86"
 quote = "1.0.37"
 syn = "2.0.79"

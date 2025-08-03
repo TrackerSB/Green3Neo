@@ -1,8 +1,8 @@
 use std::sync::LazyLock;
 
-use crate::logging::create_logger;
 use flexi_logger::LoggerHandle;
 use flutter_rust_bridge::frb;
+use backend_logging::logging::create_logger;
 
 #[frb(init)]
 pub fn init_app() {
