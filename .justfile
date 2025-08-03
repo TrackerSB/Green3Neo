@@ -4,6 +4,7 @@ set dotenv-required := true
 workspace_folder := "."
 
 backend_dir := workspace_folder + "/backend"
+backend_logging_dir := backend_dir + "/backend_logging"
 frontend_dir := workspace_folder + "/frontend"
 frontend_output_dir := frontend_dir + "/lib"
 backend_api_dir := backend_dir + "/backend_api"
@@ -26,6 +27,7 @@ default:
 [confirm]
 clean:
     git clean -Xfd
+    cd {{ backend_logging_dir }} && cargo clean
     cd {{ backend_api_dir }} && cargo clean
     cd {{ database_api_dir }} && cargo clean
 
@@ -87,6 +89,7 @@ run: build
 rebuild: clean build
 
 test-backend-unittets: frb-generate
+    cd {{ backend_logging_dir }} && cargo test -- --nocapture
     cd {{ backend_api_dir }} && cargo test -- --nocapture
     cd {{ database_api_dir }} && cargo test -- --nocapture
 

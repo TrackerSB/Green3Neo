@@ -1,0 +1,15 @@
+[package]
+name = "backend_logging"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+crate-type = ["rlib"]
+
+[dependencies]
+flexi_logger = { version = "0.29.8", features = [
+    "async",
+    "colors",
+    "specfile",
+] }
+log = "0.4.25"
