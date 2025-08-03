@@ -26,6 +26,8 @@ default:
 [confirm]
 clean:
     git clean -Xfd
+    cd {{ backend_api_dir }} && cargo clean
+    cd {{ database_api_dir }} && cargo clean
 
 _tasks-create-venv:
     python -m venv {{ tasks_venv_folder }}
