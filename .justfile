@@ -5,11 +5,14 @@ workspace_folder := "."
 
 backend_dir := workspace_folder + "/backend"
 backend_logging_dir := backend_dir + "/backend_logging"
+
 frontend_dir := workspace_folder + "/frontend"
 frontend_output_dir := frontend_dir + "/lib"
-backend_api_dir := backend_dir + "/backend_api"
+
+backend_interface_dir := backend_dir + "/interface"
+backend_api_dir := backend_interface_dir + "/backend_api"
 frb_backend_api_output_dir := frontend_output_dir + "/backend_api"
-database_api_dir := backend_dir + "/database_api"
+database_api_dir := backend_interface_dir + "/database_api"
 frb_database_lib_output_dir := frontend_output_dir + "/database_api"
 
 llvmPath := `clang -v 2>&1 | grep 'Selected GCC installation' | rev | cut -d' ' -f1 | rev`
@@ -57,7 +60,7 @@ diesel-generate-schema: diesel-setup
 
 diesel-generate-models: diesel-generate-schema
     cd {{ database_api_dir }} && diesel_ext --model --import-types diesel::Queryable --import-types diesel::Selectable --import-types diesel::Identifiable --import-types backend_macros::make_fields_non_final --import-types flutter_rust_bridge::frb --import-types crate::schema::* --derive Queryable,Selectable --add-table-name > src/api/models.rs
-    git apply {{ patch_folder }}/backend/database_api/api/models.rs.patch
+    git apply {{ patch_folder }}/backend/interface/database_api/api/models.rs.patch
 
 # FIXME Verify that FRB versions in Cargo.toml, pubspec.yaml and the installed FRB codegen (locally and in Github
 # Actions) correspond to each other
