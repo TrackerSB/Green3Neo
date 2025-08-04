@@ -14,7 +14,7 @@ typedef ObjectValueGetter<DataObject, CellType extends SupportedType?>
 typedef ObjectValueSetter<DataObject, CellType extends SupportedType?> = void
     Function(DataObject, CellType?);
 typedef ObjectChangeHandler<DataObject> = void Function(
-    DataObject, String, SupportedType?);
+    DataObject, String, SupportedType?, SupportedType?);
 typedef DataCellGenerator<DataObject> = DataCell Function(DataObject);
 
 @Freezed()
@@ -122,12 +122,14 @@ DataCellGenerator<DataObject> _createDataCellGeneratorForColumn<
     final bool isFinal = variableMirror.isFinal;
 
     void onCellValueSubmitted(CellType? newCellValue) {
+      final previousCellValue = currentCellValue.value;
       currentCellValue.value = newCellValue;
       // FIXME Is the setter result required for anything?
       final setterResult = reflectableMarker
           .reflect(object)
           .invokeSetter(variableMirror.simpleName, newCellValue?.value);
-      onObjectValueChange(object, variableMirror.simpleName, newCellValue);
+      onObjectValueChange(
+          object, variableMirror.simpleName, previousCellValue, newCellValue);
     }
 
     return DataCell(

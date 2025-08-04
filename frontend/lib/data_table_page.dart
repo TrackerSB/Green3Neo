@@ -80,7 +80,8 @@ class DataTablePageState extends State<DataTablePage> {
             // FIXME Localize texts
             Text("Membership ID"),
             Text("Column"),
-            Text("Value"),
+            Text("Previous Value"),
+            Text("New Value"),
           ],
         ),
         for (final record in changeRecords)
@@ -88,7 +89,8 @@ class DataTablePageState extends State<DataTablePage> {
             children: [
               Text(record.membershipid.toString()),
               Text(record.column),
-              Text(record.value ?? "null"),
+              Text(record.previousValue ?? "null"),
+              Text(record.newValue ?? "null"),
             ],
           ),
       ],
@@ -124,13 +126,18 @@ class DataTablePageState extends State<DataTablePage> {
     );
   }
 
-  void onCellChange(
-      Member member, String setterName, SupportedType? newCellValue) {
-    var internalValue = newCellValue?.value;
+  void onCellChange(Member member, String setterName,
+      SupportedType? previousCellValue, SupportedType? newCellValue) {
+    var internalPreviousValue = previousCellValue?.value;
+    var internalNewValue = newCellValue?.value;
     setState(() => _changeRecords.add(ChangeRecord(
         membershipid: member.membershipid,
         column: setterName,
-        value: (internalValue != null) ? internalValue.toString() : null)));
+        previousValue: (internalPreviousValue != null)
+            ? internalPreviousValue.toString()
+            : null,
+        newValue:
+            (internalNewValue != null) ? internalNewValue.toString() : null)));
   }
 
   @override
