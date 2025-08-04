@@ -277,7 +277,9 @@ abstract class TableViewCellPopupState<CellType extends SupportedType>
   }
 
   void submitInternalValue() {
-    widget.onCellValueSubmitted(_currentValue);
+    if (widget.initialValue != currentValue) {
+      widget.onCellValueSubmitted(_currentValue);
+    }
     back();
   }
 

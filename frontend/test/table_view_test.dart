@@ -81,6 +81,46 @@ void main() {
     verifyCheckboxState(true);
   });
 
+  testWidgets("Ignore saving already set value", (tester) async {
+    final initialValue = createDefaultValue<StringVariant>();
+
+    int numSubmitted = 0;
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Scaffold(
+          body: TableViewStringCellPopup(
+            initialValue: initialValue,
+            isNullable: true,
+            onCellValueSubmitted: (submittedValue) {
+              numSubmitted++;
+            },
+          ),
+        ),
+      ),
+    );
+
+    final popupFinder = find.byType(TableViewStringCellPopup);
+    expect(popupFinder, findsOneWidget);
+
+    final TableViewStringCellPopup popup = tester.widget(popupFinder);
+    expect(popup.initialValue, initialValue);
+
+    final TableViewStringCellPopupState popupState = tester.state(popupFinder);
+    expect(popupState.widget, popup);
+    expect(popupState.currentValue, initialValue);
+
+    // Save the non-change
+    await tester.tap(find.text("Save"));
+    await tester.pumpAndSettle();
+    expect(popupState.currentValue, initialValue);
+
+    // Verify popup closed
+    expect(find.byType(TableViewStringCellPopup), findsNothing);
+
+    // Verify no change was submitted
+    expect(numSubmitted, 0);
+  });
+
   testWidgets("Cancelling a change does not result in a change to commit",
       (tester) async {
     final initialValue = createDefaultValue<StringVariant>();
