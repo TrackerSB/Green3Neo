@@ -272,9 +272,13 @@ abstract class TableViewCellPopupState<CellType extends SupportedType>
     setState(() => _currentValue = newCellValue);
   }
 
+  void back() {
+    Navigator.pop(context);
+  }
+
   void submitInternalValue() {
     widget.onCellValueSubmitted(_currentValue);
-    Navigator.pop(context);
+    back();
   }
 
   void setInternalNullState(isChecked) {
@@ -305,7 +309,7 @@ abstract class TableViewCellPopupState<CellType extends SupportedType>
         CloseButton(
           onPressed: () {
             setInternalValue(widget.initialValue);
-            submitInternalValue();
+            back();
           },
         ),
       ],
