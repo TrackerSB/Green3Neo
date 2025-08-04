@@ -80,7 +80,8 @@ class DataTablePageState extends State<DataTablePage> {
             // FIXME Localize texts
             Text("Membership ID"),
             Text("Column"),
-            Text("Value"),
+            Text("Previous Value"),
+            Text("New Value"),
           ],
         ),
         for (final record in changeRecords)
@@ -88,7 +89,8 @@ class DataTablePageState extends State<DataTablePage> {
             children: [
               Text(record.membershipid.toString()),
               Text(record.column),
-              Text(record.value ?? "null"),
+              Text(record.previousValue ?? "null"),
+              Text(record.newValue ?? "null"),
             ],
           ),
       ],
@@ -96,13 +98,44 @@ class DataTablePageState extends State<DataTablePage> {
   }
 
   void _showPersistChangesDialog() {
+    // Merge changes of same membershipid and column removing identity records
+    List<ChangeRecord> mergedChangeRecords = [];
+    for (final record in _changeRecords) {
+      final int existingRecordIndex = mergedChangeRecords.indexWhere((r) =>
+          r.membershipid == record.membershipid && r.column == record.column);
+      if (existingRecordIndex < 0) {
+        mergedChangeRecords.add(record);
+      } else {
+        final existingRecord = mergedChangeRecords[existingRecordIndex];
+        if (existingRecord.previousValue == record.newValue) {
+          // Remove identity record
+          mergedChangeRecords.removeAt(existingRecordIndex);
+        } else {
+          // Update existing record with new value
+          // FIXME Assert previous value of existing record and new record are the same
+          mergedChangeRecords[existingRecordIndex] = ChangeRecord(
+            membershipid: existingRecord.membershipid,
+            column: existingRecord.column,
+            previousValue: existingRecord.previousValue,
+            newValue: record.newValue,
+          );
+        }
+      }
+    }
+
+    if (mergedChangeRecords.isEmpty) {
+      // FIXME Provide warning
+      return;
+    }
+
+    // Show changes
     showGeneralDialog(
       context: context,
       // FIXME Localize texts
       pageBuilder: (context, animation, secondaryAnimation) => Dialog(
         child: Column(
           children: [
-            _visualizeChanges(_changeRecords),
+            _visualizeChanges(mergedChangeRecords),
             Row(
               children: [
                 TextButton(
@@ -124,13 +157,18 @@ class DataTablePageState extends State<DataTablePage> {
     );
   }
 
-  void onCellChange(
-      Member member, String setterName, SupportedType? newCellValue) {
-    var internalValue = newCellValue?.value;
+  void onCellChange(Member member, String setterName,
+      SupportedType? previousCellValue, SupportedType? newCellValue) {
+    var internalPreviousValue = previousCellValue?.value;
+    var internalNewValue = newCellValue?.value;
     setState(() => _changeRecords.add(ChangeRecord(
         membershipid: member.membershipid,
         column: setterName,
-        value: (internalValue != null) ? internalValue.toString() : null)));
+        previousValue: (internalPreviousValue != null)
+            ? internalPreviousValue.toString()
+            : null,
+        newValue:
+            (internalNewValue != null) ? internalNewValue.toString() : null)));
   }
 
   @override

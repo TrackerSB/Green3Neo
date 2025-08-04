@@ -14,7 +14,7 @@ typedef ObjectValueGetter<DataObject, CellType extends SupportedType?>
 typedef ObjectValueSetter<DataObject, CellType extends SupportedType?> = void
     Function(DataObject, CellType?);
 typedef ObjectChangeHandler<DataObject> = void Function(
-    DataObject, String, SupportedType?);
+    DataObject, String, SupportedType?, SupportedType?);
 typedef DataCellGenerator<DataObject> = DataCell Function(DataObject);
 
 @Freezed()
@@ -122,12 +122,14 @@ DataCellGenerator<DataObject> _createDataCellGeneratorForColumn<
     final bool isFinal = variableMirror.isFinal;
 
     void onCellValueSubmitted(CellType? newCellValue) {
+      final previousCellValue = currentCellValue.value;
       currentCellValue.value = newCellValue;
       // FIXME Is the setter result required for anything?
       final setterResult = reflectableMarker
           .reflect(object)
           .invokeSetter(variableMirror.simpleName, newCellValue?.value);
-      onObjectValueChange(object, variableMirror.simpleName, newCellValue);
+      onObjectValueChange(
+          object, variableMirror.simpleName, previousCellValue, newCellValue);
     }
 
     return DataCell(
@@ -268,16 +270,22 @@ abstract class TableViewCellPopupState<CellType extends SupportedType>
 
   CellType get currentValue => _currentValue!;
 
-  setInternalValue(CellType? newCellValue) {
+  void setInternalValue(CellType? newCellValue) {
     setState(() => _currentValue = newCellValue);
   }
 
-  submitInternalValue() {
-    widget.onCellValueSubmitted(_currentValue);
+  void back() {
     Navigator.pop(context);
   }
 
-  setInternalNullState(isChecked) {
+  void submitInternalValue() {
+    if (widget.initialValue != currentValue) {
+      widget.onCellValueSubmitted(_currentValue);
+    }
+    back();
+  }
+
+  void setInternalNullState(isChecked) {
     CellType? newValue;
     if (isChecked) {
       newValue = createDefaultValue<CellType>();
@@ -305,7 +313,7 @@ abstract class TableViewCellPopupState<CellType extends SupportedType>
         CloseButton(
           onPressed: () {
             setInternalValue(widget.initialValue);
-            submitInternalValue();
+            back();
           },
         ),
       ],

@@ -80,4 +80,137 @@ void main() {
     verifyCellValue(initialValue);
     verifyCheckboxState(true);
   });
+
+  testWidgets("Accept changed value on save", (tester) async {
+    final initialValue = createDefaultValue<StringVariant>();
+
+    int numSubmitted = 0;
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Scaffold(
+          body: TableViewStringCellPopup(
+            initialValue: initialValue,
+            isNullable: true,
+            onCellValueSubmitted: (submittedValue) {
+              numSubmitted++;
+            },
+          ),
+        ),
+      ),
+    );
+
+    final popupFinder = find.byType(TableViewStringCellPopup);
+    expect(popupFinder, findsOneWidget);
+
+    final TableViewStringCellPopup popup = tester.widget(popupFinder);
+    expect(popup.initialValue, initialValue);
+
+    final TableViewStringCellPopupState popupState = tester.state(popupFinder);
+    expect(popupState.widget, popup);
+    expect(popupState.currentValue, initialValue);
+
+    // Change popup content
+    final StringVariant newValue = StringVariant("New Value");
+    assert(initialValue != newValue);
+    popupState.setInternalValue(newValue);
+    expect(popupState.currentValue, newValue);
+
+    // Save the change
+    await tester.tap(find.text("Save"));
+    await tester.pumpAndSettle();
+    expect(popupState.currentValue, newValue);
+
+    // Verify popup closed
+    expect(find.byType(TableViewStringCellPopup), findsNothing);
+
+    // Verify no change was submitted
+    expect(numSubmitted, 1);
+  });
+
+  testWidgets("Ignore saving already set value", (tester) async {
+    final initialValue = createDefaultValue<StringVariant>();
+
+    int numSubmitted = 0;
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Scaffold(
+          body: TableViewStringCellPopup(
+            initialValue: initialValue,
+            isNullable: true,
+            onCellValueSubmitted: (submittedValue) {
+              numSubmitted++;
+            },
+          ),
+        ),
+      ),
+    );
+
+    final popupFinder = find.byType(TableViewStringCellPopup);
+    expect(popupFinder, findsOneWidget);
+
+    final TableViewStringCellPopup popup = tester.widget(popupFinder);
+    expect(popup.initialValue, initialValue);
+
+    final TableViewStringCellPopupState popupState = tester.state(popupFinder);
+    expect(popupState.widget, popup);
+    expect(popupState.currentValue, initialValue);
+
+    // Save the non-change
+    await tester.tap(find.text("Save"));
+    await tester.pumpAndSettle();
+    expect(popupState.currentValue, initialValue);
+
+    // Verify popup closed
+    expect(find.byType(TableViewStringCellPopup), findsNothing);
+
+    // Verify no change was submitted
+    expect(numSubmitted, 0);
+  });
+
+  testWidgets("Cancelling a change does not result in a change to commit",
+      (tester) async {
+    final initialValue = createDefaultValue<StringVariant>();
+
+    int numSubmitted = 0;
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Scaffold(
+          body: TableViewStringCellPopup(
+            initialValue: initialValue,
+            isNullable: true,
+            onCellValueSubmitted: (submittedValue) {
+              numSubmitted++;
+            },
+          ),
+        ),
+      ),
+    );
+
+    final popupFinder = find.byType(TableViewStringCellPopup);
+    expect(popupFinder, findsOneWidget);
+
+    final TableViewStringCellPopup popup = tester.widget(popupFinder);
+    expect(popup.initialValue, initialValue);
+
+    final TableViewStringCellPopupState popupState = tester.state(popupFinder);
+    expect(popupState.widget, popup);
+    expect(popupState.currentValue, initialValue);
+
+    // Change popup content
+    final StringVariant newValue = StringVariant("New Value");
+    assert(initialValue != newValue);
+    popupState.setInternalValue(newValue);
+    expect(popupState.currentValue, newValue);
+
+    // Cancel the change
+    await tester.tap(find.closeButton());
+    await tester.pumpAndSettle();
+    expect(popupState.currentValue, initialValue);
+
+    // Verify popup closed
+    expect(find.byType(TableViewStringCellPopup), findsNothing);
+
+    // Verify no change was submitted
+    expect(numSubmitted, 0);
+  });
 }

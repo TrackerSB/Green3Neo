@@ -32,7 +32,8 @@ pub struct ChangeRecord {
     // Data to change
     pub column: String,
     // FIXME How to transport type information for value or even derive it from column?
-    pub value: Option<String>,
+    pub previous_value: Option<String>,
+    pub new_value: Option<String>,
 }
 
 pub fn change_member(changes: Vec<ChangeRecord>) -> Vec<usize> {
@@ -58,10 +59,11 @@ pub fn change_member(changes: Vec<ChangeRecord>) -> Vec<usize> {
             change.column
         ));
 
-        if change.value.is_none() {
+        if change.new_value.is_none() {
             // FIXME Verify whether column is nullable
             // FIXME Either throw exception or log warning etc.
             // FIXME Implement nullable case
+            // FIXME Verify whether previous value corresponds to current value
             // let null_update_statement =
             //     unbound_update_statement.bind::<Nullable<Integer>, _>(None);
             // let update_statement = null_update_statement.bind::<Integer, _>(change.membershipid);
@@ -70,7 +72,7 @@ pub fn change_member(changes: Vec<ChangeRecord>) -> Vec<usize> {
             continue;
         }
 
-        let changed_value = change.value.as_ref();
+        let changed_value = change.new_value.as_ref();
 
         let boxed_unbound_update_statement = unbound_update_statement.into_boxed();
         let changed_value_update_statement = bind_column_value(
