@@ -98,13 +98,44 @@ class DataTablePageState extends State<DataTablePage> {
   }
 
   void _showPersistChangesDialog() {
+    // Merge changes of same membershipid and column removing identity records
+    List<ChangeRecord> mergedChangeRecords = [];
+    for (final record in _changeRecords) {
+      final int existingRecordIndex = mergedChangeRecords.indexWhere((r) =>
+          r.membershipid == record.membershipid && r.column == record.column);
+      if (existingRecordIndex < 0) {
+        mergedChangeRecords.add(record);
+      } else {
+        final existingRecord = mergedChangeRecords[existingRecordIndex];
+        if (existingRecord.previousValue == record.newValue) {
+          // Remove identity record
+          mergedChangeRecords.removeAt(existingRecordIndex);
+        } else {
+          // Update existing record with new value
+          // FIXME Assert previous value of existing record and new record are the same
+          mergedChangeRecords[existingRecordIndex] = ChangeRecord(
+            membershipid: existingRecord.membershipid,
+            column: existingRecord.column,
+            previousValue: existingRecord.previousValue,
+            newValue: record.newValue,
+          );
+        }
+      }
+    }
+
+    if (mergedChangeRecords.isEmpty) {
+      // FIXME Provide warning
+      return;
+    }
+
+    // Show changes
     showGeneralDialog(
       context: context,
       // FIXME Localize texts
       pageBuilder: (context, animation, secondaryAnimation) => Dialog(
         child: Column(
           children: [
-            _visualizeChanges(_changeRecords),
+            _visualizeChanges(mergedChangeRecords),
             Row(
               children: [
                 TextButton(
