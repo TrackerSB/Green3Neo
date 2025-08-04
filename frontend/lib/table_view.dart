@@ -268,16 +268,16 @@ abstract class TableViewCellPopupState<CellType extends SupportedType>
 
   CellType get currentValue => _currentValue!;
 
-  setInternalValue(CellType? newCellValue) {
+  void setInternalValue(CellType? newCellValue) {
     setState(() => _currentValue = newCellValue);
   }
 
-  submitInternalValue() {
+  void submitInternalValue() {
     widget.onCellValueSubmitted(_currentValue);
     Navigator.pop(context);
   }
 
-  setInternalNullState(isChecked) {
+  void setInternalNullState(isChecked) {
     CellType? newValue;
     if (isChecked) {
       newValue = createDefaultValue<CellType>();
