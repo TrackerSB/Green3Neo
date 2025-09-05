@@ -4,18 +4,18 @@ import 'package:green3neo/database_api/api/models.dart';
 import 'package:provider/provider.dart';
 import 'table_view.dart';
 
-class DataTablePage extends StatefulWidget {
-  const DataTablePage({super.key});
+class MemberManagementPage extends StatefulWidget {
+  const MemberManagementPage({super.key});
 
   @override
-  State<StatefulWidget> createState() => DataTablePageState();
+  State<StatefulWidget> createState() => MemberManagementPageState();
 }
 
-class DataTablePageState extends State<DataTablePage> {
+class MemberManagementPageState extends State<MemberManagementPage> {
   TableViewSource<Member>? _tableViewSource;
   final List<ChangeRecord> _changeRecords = [];
 
-  DataTablePageState() {
+  MemberManagementPageState() {
     _receiveDataFromDB();
   }
 
