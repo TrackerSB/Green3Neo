@@ -3,6 +3,7 @@ import 'package:green3neo/database_api/api/member.dart';
 import 'package:green3neo/database_api/api/models.dart';
 import 'package:provider/provider.dart';
 import 'table_view.dart';
+import 'change_record_utility.dart';
 
 class MemberManagementPage extends StatefulWidget {
   const MemberManagementPage({super.key});
@@ -37,23 +38,6 @@ class MemberManagementPageState extends State<MemberManagementPage> {
     );
   }
 
-  static void _commitDataChanges(List<ChangeRecord> changeRecords) {
-    // Copy list for improved thread safety
-    final List<ChangeRecord> records = changeRecords.toList();
-    changeRecords.clear();
-    changeMember(changes: records).then(
-      (succeededUpdateIndices) {
-        succeededUpdateIndices.sort();
-        for (final BigInt index in succeededUpdateIndices.reversed) {
-          records.removeAt(index.toInt());
-        }
-
-        // Add records that failed to update back to the list
-        changeRecords.addAll(records);
-      },
-    );
-  }
-
   static Widget _wrapInScrollable(Widget toWrap, Axis direction) {
     var scrollController = ScrollController();
 
@@ -67,64 +51,8 @@ class MemberManagementPageState extends State<MemberManagementPage> {
     );
   }
 
-  static Widget _visualizeChanges(List<ChangeRecord> changeRecords) {
-    return Table(
-      children: [
-        const TableRow(
-          children: [
-            // FIXME Localize texts
-            Text("Membership ID"),
-            Text("Column"),
-            Text("Previous Value"),
-            Text("New Value"),
-          ],
-        ),
-        for (final record in changeRecords)
-          TableRow(
-            children: [
-              Text(record.membershipid.toString()),
-              Text(record.column),
-              Text(record.previousValue ?? "null"),
-              Text(record.newValue ?? "null"),
-            ],
-          ),
-      ],
-    );
-  }
-
-  static List<ChangeRecord> _mergeChangeRecords(
-      List<ChangeRecord> changeRecords) {
-    // Merge changes of same membershipid and column removing identity records
-    List<ChangeRecord> mergedChangeRecords = [];
-    for (final record in changeRecords) {
-      final int existingRecordIndex = mergedChangeRecords.indexWhere((r) =>
-          r.membershipid == record.membershipid && r.column == record.column);
-      if (existingRecordIndex < 0) {
-        mergedChangeRecords.add(record);
-      } else {
-        final existingRecord = mergedChangeRecords[existingRecordIndex];
-        if (existingRecord.previousValue == record.newValue) {
-          // Remove identity record
-          mergedChangeRecords.removeAt(existingRecordIndex);
-        } else {
-          // Update existing record with new value
-          // FIXME Assert previous value of existing record and new record are the same
-          mergedChangeRecords[existingRecordIndex] = ChangeRecord(
-            membershipid: existingRecord.membershipid,
-            column: existingRecord.column,
-            previousValue: existingRecord.previousValue,
-            newValue: record.newValue,
-          );
-        }
-      }
-    }
-
-    return mergedChangeRecords;
-  }
-
   void _showPersistChangesDialog() {
-    List<ChangeRecord> mergedChangeRecords =
-        _mergeChangeRecords(_changeRecords);
+    List<ChangeRecord> mergedChangeRecords = mergeChangeRecords(_changeRecords);
 
     if (mergedChangeRecords.isEmpty) {
       // FIXME Provide warning
@@ -138,7 +66,7 @@ class MemberManagementPageState extends State<MemberManagementPage> {
       pageBuilder: (context, animation, secondaryAnimation) => Dialog(
         child: Column(
           children: [
-            _visualizeChanges(mergedChangeRecords),
+            visualizeChanges(mergedChangeRecords),
             Row(
               children: [
                 TextButton(
@@ -147,7 +75,7 @@ class MemberManagementPageState extends State<MemberManagementPage> {
                 ),
                 TextButton(
                   onPressed: () {
-                    _commitDataChanges(mergedChangeRecords);
+                    commitDataChanges(mergedChangeRecords);
                     Navigator.of(context).pop();
                   },
                   child: const Text("Commit"),
