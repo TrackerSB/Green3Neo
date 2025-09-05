@@ -37,15 +37,10 @@ class DataTablePageState extends State<DataTablePage> {
     );
   }
 
-  void _commitDataChanges() {
-    if (_tableViewSource == null) {
-      print("Cannot commit changes without table state");
-      return;
-    }
-
+  static void _commitDataChanges(List<ChangeRecord> changeRecords) {
     // Copy list for improved thread safety
-    final List<ChangeRecord> records = _changeRecords.toList();
-    _changeRecords.clear();
+    final List<ChangeRecord> records = changeRecords.toList();
+    changeRecords.clear();
     changeMember(changes: records).then(
       (succeededUpdateIndices) {
         succeededUpdateIndices.sort();
@@ -54,12 +49,12 @@ class DataTablePageState extends State<DataTablePage> {
         }
 
         // Add records that failed to update back to the list
-        _changeRecords.addAll(records);
+        changeRecords.addAll(records);
       },
     );
   }
 
-  Widget _wrapInScrollable(Widget toWrap, Axis direction) {
+  static Widget _wrapInScrollable(Widget toWrap, Axis direction) {
     var scrollController = ScrollController();
 
     return Scrollbar(
@@ -72,7 +67,7 @@ class DataTablePageState extends State<DataTablePage> {
     );
   }
 
-  Widget _visualizeChanges(List<ChangeRecord> changeRecords) {
+  static Widget _visualizeChanges(List<ChangeRecord> changeRecords) {
     return Table(
       children: [
         const TableRow(
@@ -97,10 +92,11 @@ class DataTablePageState extends State<DataTablePage> {
     );
   }
 
-  void _showPersistChangesDialog() {
+  static List<ChangeRecord> _mergeChangeRecords(
+      List<ChangeRecord> changeRecords) {
     // Merge changes of same membershipid and column removing identity records
     List<ChangeRecord> mergedChangeRecords = [];
-    for (final record in _changeRecords) {
+    for (final record in changeRecords) {
       final int existingRecordIndex = mergedChangeRecords.indexWhere((r) =>
           r.membershipid == record.membershipid && r.column == record.column);
       if (existingRecordIndex < 0) {
@@ -123,6 +119,13 @@ class DataTablePageState extends State<DataTablePage> {
       }
     }
 
+    return mergedChangeRecords;
+  }
+
+  void _showPersistChangesDialog() {
+    List<ChangeRecord> mergedChangeRecords =
+        _mergeChangeRecords(_changeRecords);
+
     if (mergedChangeRecords.isEmpty) {
       // FIXME Provide warning
       return;
@@ -144,7 +147,7 @@ class DataTablePageState extends State<DataTablePage> {
                 ),
                 TextButton(
                   onPressed: () {
-                    _commitDataChanges();
+                    _commitDataChanges(mergedChangeRecords);
                     Navigator.of(context).pop();
                   },
                   child: const Text("Commit"),
