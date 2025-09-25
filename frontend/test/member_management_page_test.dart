@@ -67,7 +67,20 @@ Map<String, MergeChangeRecordsTestCase> goodMergeTestCases = {
         previousValue: "Bliven",
         newValue: "Red"),
   ]),
-  // FIXME What about chaning primary key values?
+  "mismatch original": MergeChangeRecordsTestCase(initialRecords: [
+    ChangeRecord(
+        column: "surname",
+        membershipid: 101,
+        previousValue: "NotAdds",
+        newValue: "AnotherSurname"),
+  ], mergedRecords: [
+    ChangeRecord(
+        column: "surname",
+        membershipid: 101,
+        previousValue: "NotAdds",
+        newValue: "AnotherSurname"),
+  ]),
+  // FIXME What about changing primary key values?
 };
 
 Map<String, MergeChangeRecordsTestCase> badMergeTestCases = {
@@ -83,13 +96,6 @@ Map<String, MergeChangeRecordsTestCase> badMergeTestCases = {
         previousValue: "NotGreen",
         newValue: "Red"),
   ], mergedRecords: []),
-  "mismatch previous": MergeChangeRecordsTestCase(initialRecords: [
-    ChangeRecord(
-        column: "surname",
-        membershipid: 101,
-        previousValue: "NotAdds",
-        newValue: "AnotherSurname"),
-  ], mergedRecords: []),
 };
 
 void main() {
@@ -102,7 +108,7 @@ void main() {
       final actualMergedRecords = mergeChangeRecords(initialRecords);
 
       expect(actualMergedRecords, expectedMergedRecords,
-          reason: "Test case: $name failed");
+          reason: "Test case: '$name' failed");
     }
   });
 
@@ -115,8 +121,9 @@ void main() {
       assert(expectedMergedRecords.isEmpty);
 
       // FIXME Should a custom exception be used here?
-      expect(mergeChangeRecords(initialRecords), throwsA(Exception),
-          reason: "Test case: $name failed");
+      expect(
+          () => mergeChangeRecords(initialRecords), throwsA(isA<Exception>()),
+          reason: "Test case: '$name' failed");
     }
   });
 }

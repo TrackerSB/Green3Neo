@@ -46,23 +46,33 @@ Widget visualizeChanges(List<ChangeRecord> changeRecords) {
 List<ChangeRecord> mergeChangeRecords(List<ChangeRecord> changeRecords) {
   // Merge changes of same membershipid and column removing identity records
   List<ChangeRecord> mergedChangeRecords = [];
+
   for (final record in changeRecords) {
-    final int existingRecordIndex = mergedChangeRecords.indexWhere((r) =>
+    final int existingMergeRecordIndex = mergedChangeRecords.indexWhere((r) =>
         r.membershipid == record.membershipid && r.column == record.column);
-    if (existingRecordIndex < 0) {
+
+    if (existingMergeRecordIndex < 0) {
       mergedChangeRecords.add(record);
     } else {
-      final existingRecord = mergedChangeRecords[existingRecordIndex];
-      if (existingRecord.previousValue == record.newValue) {
+      final existingMergeRecord = mergedChangeRecords[existingMergeRecordIndex];
+      if (existingMergeRecord.previousValue == record.newValue) {
         // Remove identity record
-        mergedChangeRecords.removeAt(existingRecordIndex);
+        mergedChangeRecords.removeAt(existingMergeRecordIndex);
       } else {
         // Update existing record with new value
-        // FIXME Assert previous value of existing record and new record are the same
-        mergedChangeRecords[existingRecordIndex] = ChangeRecord(
-          membershipid: existingRecord.membershipid,
-          column: existingRecord.column,
-          previousValue: existingRecord.previousValue,
+        if (record.previousValue != existingMergeRecord.newValue) {
+          throw Exception(
+              "Record changes (membershipid: ${record.membershipid}, "
+              "column: ${record.column}) do not match. Previous changed "
+              "from '${existingMergeRecord.previousValue}' to "
+              "'${existingMergeRecord.newValue}', next is expected to change "
+              "from '${record.previousValue}' to '${record.newValue}'");
+        }
+
+        mergedChangeRecords[existingMergeRecordIndex] = ChangeRecord(
+          membershipid: existingMergeRecord.membershipid,
+          column: existingMergeRecord.column,
+          previousValue: existingMergeRecord.previousValue,
           newValue: record.newValue,
         );
       }
