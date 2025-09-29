@@ -1,0 +1,21 @@
+name: Install dependencies for running the application
+description: Install all dependencies required for running the application
+inputs:
+  virtual_display_number:
+    description: 'Virtual display number (for Xvfb)'
+    required: false
+    default: "99"
+runs:
+  using: "composite"
+  steps:
+    - uses: ./.github/actions/prepare-application-build
+    - name: Install headless GUI support
+      run: |
+        sudo apt update
+        sudo apt install --fix-missing xvfb
+      shell: bash
+    - name: Start virtual display
+      run: |
+        Xvfb :${{ inputs.virtual_display_number }} -screen 0 1024x768x16 &
+        export DISPLAY=:${{ inputs.virtual_display_number }}
+      shell: bash
