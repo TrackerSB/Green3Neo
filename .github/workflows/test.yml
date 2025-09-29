@@ -8,6 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: TrackerSB/Green3Neo-Prepare-Action@main
-      - uses: ./.github/actions/prepare-frontend-build
+      - uses: ./.github/actions/prepare-application-build
       - name: Execute tests
         run: just test
