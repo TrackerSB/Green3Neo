@@ -25,7 +25,7 @@ jobs:
         run: sudo apt-get install -y x11-utils
       - name: Wait for GTK window
         run: |
-          window_title="Green3Neo"
+          window_title="green3neo"
           timeout=30 # Maximum waiting time in seconds
           interval=1 # Check frequency in seconds
           elapsed=0 # Elapsed time in seconds
