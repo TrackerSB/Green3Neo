@@ -28,7 +28,6 @@ jobs:
           timeout=30 # Maximum waiting time in seconds
           interval=1 # Check frequency in seconds
           elapsed=0 # Elapsed time in seconds
-          xwininfo -root -tree # Debug: List current windows
           while ! xwininfo -root -tree; do # FIXME Search for specific window title
             if [ $elapsed -ge $timeout ]; then
               echo "GTK window with title $window_title did not appear within $timeout seconds"
