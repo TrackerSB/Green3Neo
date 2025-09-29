@@ -7,12 +7,12 @@ jobs:
   Run-App:
     runs-on: ubuntu-latest
     env:
-      virtual_display_number: 99
+      DISPLAY: :99
 
     steps:
       - uses: TrackerSB/Green3Neo-Prepare-Action@main
       - uses: ./.github/actions/prepare-application-run
         with:
-          virtual_display_number: ${{ env.virtual_display_number }}
+          virtual_display_number: ${{ env.DISPLAY }}
       - name: Execute application
         run: just run
