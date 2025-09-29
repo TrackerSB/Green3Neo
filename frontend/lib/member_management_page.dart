@@ -3,19 +3,20 @@ import 'package:green3neo/database_api/api/member.dart';
 import 'package:green3neo/database_api/api/models.dart';
 import 'package:provider/provider.dart';
 import 'table_view.dart';
+import 'change_record_utility.dart';
 
-class DataTablePage extends StatefulWidget {
-  const DataTablePage({super.key});
+class MemberManagementPage extends StatefulWidget {
+  const MemberManagementPage({super.key});
 
   @override
-  State<StatefulWidget> createState() => DataTablePageState();
+  State<StatefulWidget> createState() => MemberManagementPageState();
 }
 
-class DataTablePageState extends State<DataTablePage> {
+class MemberManagementPageState extends State<MemberManagementPage> {
   TableViewSource<Member>? _tableViewSource;
   final List<ChangeRecord> _changeRecords = [];
 
-  DataTablePageState() {
+  MemberManagementPageState() {
     _receiveDataFromDB();
   }
 
@@ -37,29 +38,7 @@ class DataTablePageState extends State<DataTablePage> {
     );
   }
 
-  void _commitDataChanges() {
-    if (_tableViewSource == null) {
-      print("Cannot commit changes without table state");
-      return;
-    }
-
-    // Copy list for improved thread safety
-    final List<ChangeRecord> records = _changeRecords.toList();
-    _changeRecords.clear();
-    changeMember(changes: records).then(
-      (succeededUpdateIndices) {
-        succeededUpdateIndices.sort();
-        for (final BigInt index in succeededUpdateIndices.reversed) {
-          records.removeAt(index.toInt());
-        }
-
-        // Add records that failed to update back to the list
-        _changeRecords.addAll(records);
-      },
-    );
-  }
-
-  Widget _wrapInScrollable(Widget toWrap, Axis direction) {
+  static Widget _wrapInScrollable(Widget toWrap, Axis direction) {
     var scrollController = ScrollController();
 
     return Scrollbar(
@@ -72,37 +51,22 @@ class DataTablePageState extends State<DataTablePage> {
     );
   }
 
-  Widget _visualizeChanges(List<ChangeRecord> changeRecords) {
-    return Table(
-      children: [
-        const TableRow(
-          children: [
-            // FIXME Localize texts
-            Text("Membership ID"),
-            Text("Column"),
-            Text("Value"),
-          ],
-        ),
-        for (final record in changeRecords)
-          TableRow(
-            children: [
-              Text(record.membershipid.toString()),
-              Text(record.column),
-              Text(record.value ?? "null"),
-            ],
-          ),
-      ],
-    );
-  }
-
   void _showPersistChangesDialog() {
+    List<ChangeRecord> mergedChangeRecords = mergeChangeRecords(_changeRecords);
+
+    if (mergedChangeRecords.isEmpty) {
+      // FIXME Provide warning
+      return;
+    }
+
+    // Show changes
     showGeneralDialog(
       context: context,
       // FIXME Localize texts
       pageBuilder: (context, animation, secondaryAnimation) => Dialog(
         child: Column(
           children: [
-            _visualizeChanges(_changeRecords),
+            visualizeChanges(mergedChangeRecords),
             Row(
               children: [
                 TextButton(
@@ -111,7 +75,7 @@ class DataTablePageState extends State<DataTablePage> {
                 ),
                 TextButton(
                   onPressed: () {
-                    _commitDataChanges();
+                    commitDataChanges(mergedChangeRecords);
                     Navigator.of(context).pop();
                   },
                   child: const Text("Commit"),
@@ -124,13 +88,18 @@ class DataTablePageState extends State<DataTablePage> {
     );
   }
 
-  void onCellChange(
-      Member member, String setterName, SupportedType? newCellValue) {
-    var internalValue = newCellValue?.value;
+  void onCellChange(Member member, String setterName,
+      SupportedType? previousCellValue, SupportedType? newCellValue) {
+    var internalPreviousValue = previousCellValue?.value;
+    var internalNewValue = newCellValue?.value;
     setState(() => _changeRecords.add(ChangeRecord(
         membershipid: member.membershipid,
         column: setterName,
-        value: (internalValue != null) ? internalValue.toString() : null)));
+        previousValue: (internalPreviousValue != null)
+            ? internalPreviousValue.toString()
+            : null,
+        newValue:
+            (internalNewValue != null) ? internalNewValue.toString() : null)));
   }
 
   @override
