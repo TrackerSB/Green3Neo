@@ -15,5 +15,20 @@ jobs:
       - uses: ./.github/actions/prepare-application-run
         with:
           virtual_display_number: ${{ env.DISPLAY }}
-      - name: Execute application
-        run: just run
+      - name: Execute application in the background
+        run: |
+          just run &
+          APP_PID=$!
+          echo "APP_PID=$APP_PID" >> $GITHUB_ENV
+          sleep 10  # Wait for the application to start
+      - name: Check whether application started
+        run: |
+          if ! ps -p $APP_PID > /dev/null; then
+            exit 1
+          fi
+      - name: Stop application
+        if: always()
+        run: |
+          kill $APP_PID || true # Ignore errors from kill
+          wait $APP_PID || true # Ignore errors from wait
+          echo "Application stopped"
