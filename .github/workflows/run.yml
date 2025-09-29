@@ -21,6 +21,8 @@ jobs:
           APP_PID=$!
           echo "APP_PID=$APP_PID" >> $GITHUB_ENV
           echo "Application started with PID $APP_PID"
+      - name: Install x11-utils for xwininfo
+        run: sudo apt-get install -y x11-utils
       - name: Wait for GTK window
         run: |
           window_title="Green3Neo"
