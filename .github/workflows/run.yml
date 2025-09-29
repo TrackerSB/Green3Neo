@@ -31,4 +31,3 @@ jobs:
         run: |
           kill $APP_PID || true # Ignore errors from kill
           wait $APP_PID || true # Ignore errors from wait
-          echo "Application stopped"
