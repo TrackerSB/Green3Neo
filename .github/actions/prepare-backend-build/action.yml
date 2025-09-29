@@ -3,7 +3,7 @@ description: Install all dependencies required for building the backend
 runs:
   using: "composite"
   steps:
-    # WARN It is required to setup PostgreSQL before building backend
+    - uses: ./.github/actions/setup-postgre
     - name: Install Flutter SDK
       uses: flutter-actions/setup-flutter@v4
       with:

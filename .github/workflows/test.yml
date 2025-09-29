@@ -8,7 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: TrackerSB/Green3Neo-Prepare-Action@main
-      - uses: ./.github/actions/setup-postgre
       - uses: ./.github/actions/prepare-backend-build
       - uses: ./.github/actions/prepare-frontend-build
       - name: Execute tests
