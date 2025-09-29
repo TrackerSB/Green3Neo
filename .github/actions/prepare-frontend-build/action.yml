@@ -3,7 +3,7 @@ description: Install all dependencies required for building the frontend
 runs:
   using: "composite"
   steps:
-    # WARN It is required to prepare building backend before
+    - uses: ./.github/actions/prepare-backend-build
     - name: Install Linux packages
       run: |
         sudo apt update
