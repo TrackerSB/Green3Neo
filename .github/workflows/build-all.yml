@@ -8,8 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: TrackerSB/Green3Neo-Prepare-Action@main
-      - name: Install just command runner
-        uses: extractions/setup-just@v2
       - uses: ./.github/actions/setup-postgre
       - uses: ./.github/actions/prepare-backend-build
       - uses: ./.github/actions/prepare-frontend-build
