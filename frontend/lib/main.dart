@@ -27,6 +27,8 @@ void main() async {
     windowManager.waitUntilReadyToShow(windowOptions, () async {
       await windowManager.show();
       await windowManager.focus();
+
+      windowManager.setTitle(windowTitle);
     });
   }
 
