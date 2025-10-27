@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:green3neo/l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:reflectable/mirrors.dart';
 import 'reflectable.dart';
@@ -308,7 +309,7 @@ abstract class TableViewCellPopupState<CellType extends SupportedType>
       children: [
         ElevatedButton(
           onPressed: submitInternalValue,
-          child: const Text("Save"),
+          child: Text(MaterialLocalizations.of(context).saveButtonLabel),
         ),
         CloseButton(
           onPressed: () {
@@ -327,9 +328,6 @@ abstract class TableViewCellPopupState<CellType extends SupportedType>
       );
     }
 
-    // FIXME Localize text
-    const Widget nullPopupContent = Text("Value is currently null");
-
     // WARN Non-null popup content must only be created if value is not null
     Widget createNonNullPopupContent() => Padding(
           padding: const EdgeInsets.all(10),
@@ -345,7 +343,7 @@ abstract class TableViewCellPopupState<CellType extends SupportedType>
           ),
           Expanded(
               child: createPopupContent((_currentValue == null)
-                  ? nullPopupContent
+                  ? Text(AppLocalizations.of(context).unexpectedNullValue)
                   : createNonNullPopupContent())),
         ],
       );
@@ -472,7 +470,7 @@ class TableView<DataObject extends Object> extends StatelessWidget {
     final tableViewSource = context.watch<TableViewSource<DataObject>>();
 
     if (tableViewSource._generators.isEmpty) {
-      return const Text("No data");
+      return Text(AppLocalizations.of(context).noDataAvailable);
     }
 
     final List<DataColumn> dataColumns = tableViewSource._generators

@@ -73,7 +73,7 @@ class MemberManagementPageState extends State<MemberManagementPage> {
       pageBuilder: (context, animation, secondaryAnimation) => Dialog(
         child: Column(
           children: [
-            visualizeChanges(mergedChangeRecords),
+            visualizeChanges(context, mergedChangeRecords),
             Row(
               children: [
                 TextButton(

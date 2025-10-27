@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:green3neo/database_api/api/member.dart';
+import 'package:green3neo/l10n/app_localizations.dart';
 
 void commitDataChanges(List<ChangeRecord> changeRecords) {
   // Copy list for improved thread safety
@@ -18,16 +19,17 @@ void commitDataChanges(List<ChangeRecord> changeRecords) {
   );
 }
 
-Widget visualizeChanges(List<ChangeRecord> changeRecords) {
+Widget visualizeChanges(
+    BuildContext context, List<ChangeRecord> changeRecords) {
   return Table(
     children: [
-      const TableRow(
+      TableRow(
         children: [
           // FIXME Localize texts
           Text("Membership ID"),
-          Text("Column"),
-          Text("Previous Value"),
-          Text("New Value"),
+          Text(AppLocalizations.of(context).column),
+          Text(AppLocalizations.of(context).previousValue),
+          Text(AppLocalizations.of(context).newValue),
         ],
       ),
       for (final record in changeRecords)

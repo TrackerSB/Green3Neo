@@ -10,11 +10,21 @@
         "placeholders": {
             "date": {
                 "type": "DateTime",
-                "format": "yMd",
+                "format": "yMd+jms",
                 "example": "2025-10-27 13:50"
             }
         }
     },
     "noDate": "Never",
-    "@noDate": {}
+    "@noDate": {},
+    "column": "column",
+    "@column": {},
+    "previousValue": "previous value",
+    "@previousValue": {},
+    "newValue": "new value",
+    "@newValue": {},
+    "unexpectedNullValue": "Value is currently null",
+    "@unexpectedNullValue": {},
+    "noDataAvailable": "No data available",
+    "@noDataAvailable": {}
 }
