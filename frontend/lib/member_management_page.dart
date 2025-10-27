@@ -4,6 +4,7 @@ import 'package:green3neo/database_api/api/models.dart';
 import 'package:provider/provider.dart';
 import 'table_view.dart';
 import 'change_record_utility.dart';
+import 'package:intl/intl.dart';
 
 class MemberManagementPage extends StatefulWidget {
   const MemberManagementPage({super.key});
@@ -15,12 +16,18 @@ class MemberManagementPage extends StatefulWidget {
 class MemberManagementPageState extends State<MemberManagementPage> {
   TableViewSource<Member>? _tableViewSource;
   final List<ChangeRecord> _changeRecords = [];
+  DateTime? _lastMemberSourceUpdate;
 
   MemberManagementPageState() {
     _receiveDataFromDB();
   }
 
   void _receiveDataFromDB() {
+    if (_changeRecords.isNotEmpty) {
+      // FIXME Warn about unsaved changes
+      return;
+    }
+
     getAllMembers().then(
       (members) {
         // FIXME Warn about state not being initialized yet
@@ -32,6 +39,7 @@ class MemberManagementPageState extends State<MemberManagementPage> {
         } else {
           setState(() {
             _tableViewSource?.data = members;
+            _lastMemberSourceUpdate = DateTime.now();
           });
         }
       },
@@ -102,6 +110,14 @@ class MemberManagementPageState extends State<MemberManagementPage> {
             (internalNewValue != null) ? internalNewValue.toString() : null)));
   }
 
+  String _formatDate(DateTime? date) {
+    if (date == null) {
+      return "never";
+    }
+
+    return DateFormat.yMd().add_Hms().format(date);
+  }
+
   @override
   Widget build(BuildContext context) {
     _tableViewSource ??= TableViewSource<Member>(context, onCellChange);
@@ -112,7 +128,6 @@ class MemberManagementPageState extends State<MemberManagementPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton(
-              // FIXME Ask for overriding made changes
               onPressed: _receiveDataFromDB,
               child: const Text("Update data"),
             ),
@@ -124,6 +139,7 @@ class MemberManagementPageState extends State<MemberManagementPage> {
               },
               child: const Text("Commit changes"),
             ),
+            Text("Last update: ${_formatDate(_lastMemberSourceUpdate)}"),
           ],
         ),
         Expanded(
