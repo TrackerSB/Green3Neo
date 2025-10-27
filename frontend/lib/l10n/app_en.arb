@@ -1,0 +1,20 @@
+{
+    "appTitle": "Green3Neo",
+    "@appTitle": {},
+    "updateData": "Update Data",
+    "@updateData": {},
+    "commitChanges": "Commit changes",
+    "@commitChanges": {},
+    "lastUpdate": "Last update: {date}",
+    "@lastUpdate": {
+        "placeholders": {
+            "date": {
+                "type": "DateTime",
+                "format": "yMd",
+                "example": "2025-10-27 13:50"
+            }
+        }
+    },
+    "noDate": "Never",
+    "@noDate": {}
+}

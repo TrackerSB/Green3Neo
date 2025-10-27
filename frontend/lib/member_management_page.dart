@@ -4,7 +4,7 @@ import 'package:green3neo/database_api/api/models.dart';
 import 'package:provider/provider.dart';
 import 'table_view.dart';
 import 'change_record_utility.dart';
-import 'package:intl/intl.dart';
+import 'l10n/app_localizations.dart';
 
 class MemberManagementPage extends StatefulWidget {
   const MemberManagementPage({super.key});
@@ -70,7 +70,6 @@ class MemberManagementPageState extends State<MemberManagementPage> {
     // Show changes
     showGeneralDialog(
       context: context,
-      // FIXME Localize texts
       pageBuilder: (context, animation, secondaryAnimation) => Dialog(
         child: Column(
           children: [
@@ -79,14 +78,16 @@ class MemberManagementPageState extends State<MemberManagementPage> {
               children: [
                 TextButton(
                   onPressed: Navigator.of(context).pop,
-                  child: const Text("Cancel"),
+                  child:
+                      Text(MaterialLocalizations.of(context).cancelButtonLabel),
                 ),
                 TextButton(
                   onPressed: () {
                     commitDataChanges(mergedChangeRecords);
                     Navigator.of(context).pop();
                   },
-                  child: const Text("Commit"),
+                  child:
+                      Text(MaterialLocalizations.of(context).okButtonLabel),
                 ),
               ],
             ),
@@ -110,12 +111,12 @@ class MemberManagementPageState extends State<MemberManagementPage> {
             (internalNewValue != null) ? internalNewValue.toString() : null)));
   }
 
-  String _formatDate(DateTime? date) {
+  String _formatLastDate(DateTime? date) {
     if (date == null) {
-      return "never";
+      return AppLocalizations.of(context).noDate;
     }
 
-    return DateFormat.yMd().add_Hms().format(date);
+    return AppLocalizations.of(context).lastUpdate(date: date);
   }
 
   @override
@@ -129,7 +130,7 @@ class MemberManagementPageState extends State<MemberManagementPage> {
           children: [
             ElevatedButton(
               onPressed: _receiveDataFromDB,
-              child: const Text("Update data"),
+              child: Text(AppLocalizations.of(context).updateData),
             ),
             ElevatedButton(
               onPressed: () {
@@ -137,9 +138,9 @@ class MemberManagementPageState extends State<MemberManagementPage> {
                   _showPersistChangesDialog();
                 }
               },
-              child: const Text("Commit changes"),
+              child: Text(AppLocalizations.of(context).commitChanges),
             ),
-            Text("Last update: ${_formatDate(_lastMemberSourceUpdate)}"),
+            Text(_formatLastDate(_lastMemberSourceUpdate)),
           ],
         ),
         Expanded(
