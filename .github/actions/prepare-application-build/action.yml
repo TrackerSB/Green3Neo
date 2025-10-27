@@ -1,10 +1,10 @@
-name: Install frontend dependencies
-description: Install all dependencies required for building the frontend
+name: Install application dependencies
+description: Install all dependencies required for building the application
 runs:
   using: "composite"
   steps:
-    # WARN It is required to prepare building backend before
-    - name: Install Linux packages
+    - uses: ./.github/actions/prepare-backend-build
+    - name: Install GTK
       run: |
         sudo apt update
         sudo apt install --fix-missing libgtk-3-0 libgtk-3-dev

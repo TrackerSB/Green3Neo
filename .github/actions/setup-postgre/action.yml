@@ -3,8 +3,8 @@ description: Set up and start a PostgreSQL server based on the environment varia
 runs:
   using: "composite"
   steps:
-    # WARN It is required to call TrackerSB/Green3Neo-Prepare-Action@main before
-    # WARN It is required to install "just" before
+    - name: Install just command runner
+      uses: extractions/setup-just@v2
     - name: Setup PostgreSQL server
       uses: Daniel-Marynicz/postgresql-action@master
       with:
