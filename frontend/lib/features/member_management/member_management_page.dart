@@ -1,18 +1,30 @@
 import 'package:flutter/material.dart';
 
+import 'package:get_it/get_it.dart';
 import 'package:green3neo/components/table_view.dart';
 import 'package:green3neo/database_api/api/member.dart';
 import 'package:green3neo/database_api/api/models.dart';
+import 'package:green3neo/features/feature.dart';
 import 'package:green3neo/l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
 import 'change_record_utility.dart';
 
 class MemberManagementPage extends StatefulWidget {
-  const MemberManagementPage({super.key});
+  // ignore: unused_element_parameter
+  const MemberManagementPage._create({super.key});
 
   @override
   State<StatefulWidget> createState() => MemberManagementPageState();
+}
+
+class MemberManagementPageFeature implements Feature {
+  @override
+  void register() {
+    final getIt = GetIt.instance;
+    getIt.registerLazySingleton<MemberManagementPage>(
+        () => MemberManagementPage._create());
+  }
 }
 
 class MemberManagementPageState extends State<MemberManagementPage> {

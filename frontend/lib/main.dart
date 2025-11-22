@@ -2,6 +2,7 @@ import 'dart:io' show Platform;
 
 import 'package:flutter/material.dart';
 
+import 'package:get_it/get_it.dart';
 import 'package:green3neo/backend_api/frb_generated.dart' as backend_api;
 import 'package:green3neo/database_api/frb_generated.dart' as database_api;
 import 'package:green3neo/features/member_management/member_management_page.dart';
@@ -34,6 +35,9 @@ void main() async {
     });
   }
 
+  // Register features
+  MemberManagementPageFeature().register();
+
   // Start app
   runApp(const MainApp());
 }
@@ -43,12 +47,14 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final getIt = GetIt.instance;
+
     return MaterialApp(
       title: "No title", // FIXME AppLocalizations.of(...) returns null
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       home: Scaffold(
-        body: MemberManagementPage(),
+        body: getIt<MemberManagementPage>(),
       ),
     );
   }
