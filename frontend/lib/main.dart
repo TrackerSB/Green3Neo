@@ -5,8 +5,7 @@ import 'package:green3neo/database_api/frb_generated.dart' as database_api;
 import 'main.reflectable.dart';
 import 'dart:io' show Platform;
 import 'package:window_manager/window_manager.dart';
-
-const String windowTitle = "Green3Neo"; // FIXME Localize text
+import 'l10n/app_localizations.dart';
 
 void main() async {
   initializeReflectable();
@@ -21,7 +20,7 @@ void main() async {
 
     WindowOptions windowOptions = const WindowOptions(
       center: true,
-      title: windowTitle,
+      title: "No title", // FIXME Insert app title
     );
 
     windowManager.waitUntilReadyToShow(windowOptions, () async {
@@ -38,8 +37,10 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: windowTitle,
+    return MaterialApp(
+      title: "No title", // FIXME AppLocalizations.of(...) returns null
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
       home: Scaffold(
         body: MemberManagementPage(),
       ),

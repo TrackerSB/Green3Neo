@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:green3neo/table_view.dart';
+import 'package:green3neo/l10n/app_localizations.dart';
 
 void main() {
   testWidgets("Verify common properties and behavior of table view popups",
@@ -10,6 +11,8 @@ void main() {
 
     await tester.pumpWidget(
       MaterialApp(
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
         home: Scaffold(
           body: TableViewUnsupportedCellPopup(
             initialValue: cellValue,
@@ -36,6 +39,8 @@ void main() {
 
     await tester.pumpWidget(
       MaterialApp(
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
         home: Scaffold(
           body: TableViewUnsupportedCellPopup(
             initialValue: initialValue,
@@ -87,6 +92,8 @@ void main() {
     int numSubmitted = 0;
     await tester.pumpWidget(
       MaterialApp(
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
         home: Scaffold(
           body: TableViewStringCellPopup(
             initialValue: initialValue,
@@ -133,6 +140,8 @@ void main() {
     int numSubmitted = 0;
     await tester.pumpWidget(
       MaterialApp(
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
         home: Scaffold(
           body: TableViewStringCellPopup(
             initialValue: initialValue,
@@ -174,6 +183,8 @@ void main() {
     int numSubmitted = 0;
     await tester.pumpWidget(
       MaterialApp(
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
         home: Scaffold(
           body: TableViewStringCellPopup(
             initialValue: initialValue,
