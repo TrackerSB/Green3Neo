@@ -10,11 +10,14 @@ import 'package:green3neo/main.reflectable.dart';
 import 'package:window_manager/window_manager.dart';
 
 void main() async {
+  // Initialize reflectable mechanism
   initializeReflectable();
 
+  // Prepare FFI bindings
   await backend_api.RustLib.init();
   await database_api.RustLib.init();
 
+  // Prepare desktop window manager
   bool isDesktop = Platform.isWindows || Platform.isLinux || Platform.isMacOS;
   if (isDesktop) {
     WidgetsFlutterBinding.ensureInitialized();
@@ -31,6 +34,7 @@ void main() async {
     });
   }
 
+  // Start app
   runApp(const MainApp());
 }
 
