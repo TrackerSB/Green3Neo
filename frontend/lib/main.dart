@@ -35,7 +35,7 @@ void main() async {
     });
   }
 
-  // Register features
+  // Register top level features
   MemberManagementPageFeature().register();
 
   // Start app
