@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:green3neo/l10n/app_localizations.dart';
+import 'package:green3neo/reflectable.dart';
 import 'package:provider/provider.dart';
 import 'package:reflectable/mirrors.dart';
-import 'reflectable.dart';
 
 part 'table_view.freezed.dart';
 

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+
+import 'package:green3neo/components/table_view.dart';
 import 'package:green3neo/database_api/api/member.dart';
 import 'package:green3neo/database_api/api/models.dart';
+import 'package:green3neo/l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
-import 'table_view.dart';
+
 import 'change_record_utility.dart';
-import 'l10n/app_localizations.dart';
 
 class MemberManagementPage extends StatefulWidget {
   const MemberManagementPage({super.key});
@@ -86,8 +88,7 @@ class MemberManagementPageState extends State<MemberManagementPage> {
                     commitDataChanges(mergedChangeRecords);
                     Navigator.of(context).pop();
                   },
-                  child:
-                      Text(MaterialLocalizations.of(context).okButtonLabel),
+                  child: Text(MaterialLocalizations.of(context).okButtonLabel),
                 ),
               ],
             ),

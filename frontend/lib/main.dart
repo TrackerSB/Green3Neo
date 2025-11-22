@@ -1,11 +1,13 @@
+import 'dart:io' show Platform;
+
 import 'package:flutter/material.dart';
-import 'package:green3neo/member_management_page.dart';
+
 import 'package:green3neo/backend_api/frb_generated.dart' as backend_api;
 import 'package:green3neo/database_api/frb_generated.dart' as database_api;
-import 'main.reflectable.dart';
-import 'dart:io' show Platform;
+import 'package:green3neo/features/member_management/member_management_page.dart';
+import 'package:green3neo/l10n/app_localizations.dart';
+import 'package:green3neo/main.reflectable.dart';
 import 'package:window_manager/window_manager.dart';
-import 'l10n/app_localizations.dart';
 
 void main() async {
   initializeReflectable();
