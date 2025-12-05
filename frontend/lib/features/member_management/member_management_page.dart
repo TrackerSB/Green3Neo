@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:get_it/get_it.dart';
+import 'package:listen_it/listen_it.dart';
+import 'package:watch_it/watch_it.dart';
 import 'package:green3neo/components/table_view.dart';
 import 'package:green3neo/database_api/api/member.dart';
 import 'package:green3neo/database_api/api/models.dart';
@@ -10,7 +11,7 @@ import 'package:provider/provider.dart';
 
 import 'change_record_utility.dart';
 
-class MemberManagementPage extends StatefulWidget {
+class MemberManagementPage extends WatchingStatefulWidget {
   // ignore: unused_element_parameter
   const MemberManagementPage._create({super.key});
 
@@ -29,8 +30,8 @@ class MemberManagementPageFeature implements Feature {
 
 class MemberManagementPageState extends State<MemberManagementPage> {
   TableViewSource<Member>? _tableViewSource;
-  final List<ChangeRecord> _changeRecords = [];
-  DateTime? _lastMemberSourceUpdate;
+  final _changeRecords = ListNotifier<ChangeRecord>(data: []);
+  final _lastMemberSourceUpdate = ValueNotifier<DateTime?>(null);
 
   MemberManagementPageState() {
     _receiveDataFromDB();
@@ -45,16 +46,12 @@ class MemberManagementPageState extends State<MemberManagementPage> {
     getAllMembers().then(
       (members) {
         // FIXME Warn about state not being initialized yet
+        _tableViewSource?.content.clear();
         if (members == null) {
-          setState(() {
-            // FIXME Provide error message
-            _tableViewSource?.data = List.empty();
-          });
+          // FIXME Provide error message
         } else {
-          setState(() {
-            _tableViewSource?.data = members;
-            _lastMemberSourceUpdate = DateTime.now();
-          });
+          _tableViewSource?.content.addAll(members);
+          _lastMemberSourceUpdate.value = DateTime.now();
         }
       },
     );
@@ -114,14 +111,14 @@ class MemberManagementPageState extends State<MemberManagementPage> {
       SupportedType? previousCellValue, SupportedType? newCellValue) {
     var internalPreviousValue = previousCellValue?.value;
     var internalNewValue = newCellValue?.value;
-    setState(() => _changeRecords.add(ChangeRecord(
+    _changeRecords.add(ChangeRecord(
         membershipid: member.membershipid,
         column: setterName,
         previousValue: (internalPreviousValue != null)
             ? internalPreviousValue.toString()
             : null,
         newValue:
-            (internalNewValue != null) ? internalNewValue.toString() : null)));
+            (internalNewValue != null) ? internalNewValue.toString() : null));
   }
 
   String _formatLastDate(DateTime? date) {
@@ -136,24 +133,24 @@ class MemberManagementPageState extends State<MemberManagementPage> {
   Widget build(BuildContext context) {
     _tableViewSource ??= TableViewSource<Member>(context, onCellChange);
 
+    final uncommittedChanges = watch(_changeRecords).isNotEmpty;
+    final formattedLastDate =
+        watch(_lastMemberSourceUpdate).map(_formatLastDate);
+
     return Column(
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton(
-              onPressed: _receiveDataFromDB,
+              onPressed: uncommittedChanges ? null : _receiveDataFromDB,
               child: Text(AppLocalizations.of(context).updateData),
             ),
             ElevatedButton(
-              onPressed: () {
-                if (_changeRecords.isNotEmpty) {
-                  _showPersistChangesDialog();
-                }
-              },
+              onPressed: uncommittedChanges ? _showPersistChangesDialog : null,
               child: Text(AppLocalizations.of(context).commitChanges),
             ),
-            Text(_formatLastDate(_lastMemberSourceUpdate)),
+            Text(formattedLastDate.value),
           ],
         ),
         Expanded(
