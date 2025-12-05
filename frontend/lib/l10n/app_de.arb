@@ -9,6 +9,6 @@
     "@previousValue": {},
     "newValue": "Neuer Wert",
     "@newValue": {},
-    "unexpectedNullValue": "Wert is aktuell null",
+    "unexpectedNullValue": "Wert ist aktuell null",
     "noDataAvailable": "Keine Daten verfügbar"
 }
