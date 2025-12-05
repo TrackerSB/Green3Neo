@@ -11,31 +11,13 @@ import 'package:provider/provider.dart';
 
 import 'change_record_utility.dart';
 
-class MemberManagementPage extends WatchingStatefulWidget {
-  // ignore: unused_element_parameter
-  const MemberManagementPage._create({super.key});
-
-  @override
-  State<StatefulWidget> createState() => MemberManagementPageState();
-}
-
-class MemberManagementPageFeature implements Feature {
-  @override
-  void register() {
-    final getIt = GetIt.instance;
-    getIt.registerLazySingleton<MemberManagementPage>(
-        () => MemberManagementPage._create());
-  }
-}
-
-class MemberManagementPageState extends State<MemberManagementPage> {
-  TableViewSource<Member>? _tableViewSource;
+class MemberManagementPage extends WatchingWidget {
+  final _tableViewSource = TableViewSource<Member>();
   final _changeRecords = ListNotifier<ChangeRecord>(data: []);
   final _lastMemberSourceUpdate = ValueNotifier<DateTime?>(null);
 
-  MemberManagementPageState() {
-    _receiveDataFromDB();
-  }
+  // ignore: unused_element_parameter
+  MemberManagementPage._create({super.key});
 
   void _receiveDataFromDB() {
     if (_changeRecords.isNotEmpty) {
@@ -46,11 +28,11 @@ class MemberManagementPageState extends State<MemberManagementPage> {
     getAllMembers().then(
       (members) {
         // FIXME Warn about state not being initialized yet
-        _tableViewSource?.content.clear();
+        _tableViewSource.content.clear();
         if (members == null) {
           // FIXME Provide error message
         } else {
-          _tableViewSource?.content.addAll(members);
+          _tableViewSource.content.addAll(members);
           _lastMemberSourceUpdate.value = DateTime.now();
         }
       },
@@ -70,7 +52,7 @@ class MemberManagementPageState extends State<MemberManagementPage> {
     );
   }
 
-  void _showPersistChangesDialog() {
+  void _showPersistChangesDialog(BuildContext context) {
     List<ChangeRecord> mergedChangeRecords = mergeChangeRecords(_changeRecords);
 
     if (mergedChangeRecords.isEmpty) {
@@ -107,7 +89,7 @@ class MemberManagementPageState extends State<MemberManagementPage> {
     );
   }
 
-  void onCellChange(Member member, String setterName,
+  void _onCellChange(Member member, String setterName,
       SupportedType? previousCellValue, SupportedType? newCellValue) {
     var internalPreviousValue = previousCellValue?.value;
     var internalNewValue = newCellValue?.value;
@@ -121,7 +103,7 @@ class MemberManagementPageState extends State<MemberManagementPage> {
             (internalNewValue != null) ? internalNewValue.toString() : null));
   }
 
-  String _formatLastDate(DateTime? date) {
+  String _formatLastDate(DateTime? date, BuildContext context) {
     if (date == null) {
       return AppLocalizations.of(context).noDate;
     }
@@ -131,11 +113,13 @@ class MemberManagementPageState extends State<MemberManagementPage> {
 
   @override
   Widget build(BuildContext context) {
-    _tableViewSource ??= TableViewSource<Member>(context, onCellChange);
+    _tableViewSource.initialize(context, _onCellChange);
+
+    _receiveDataFromDB();
 
     final uncommittedChanges = watch(_changeRecords).isNotEmpty;
-    final formattedLastDate =
-        watch(_lastMemberSourceUpdate).map(_formatLastDate);
+    final formattedLastDate = watch(_lastMemberSourceUpdate)
+        .map((value) => _formatLastDate(value, context));
 
     return Column(
       children: [
@@ -147,7 +131,9 @@ class MemberManagementPageState extends State<MemberManagementPage> {
               child: Text(AppLocalizations.of(context).updateData),
             ),
             ElevatedButton(
-              onPressed: uncommittedChanges ? _showPersistChangesDialog : null,
+              onPressed: uncommittedChanges
+                  ? () => _showPersistChangesDialog(context)
+                  : null,
               child: Text(AppLocalizations.of(context).commitChanges),
             ),
             Text(formattedLastDate.value),
@@ -174,5 +160,14 @@ class MemberManagementPageState extends State<MemberManagementPage> {
         ),
       ],
     );
+  }
+}
+
+class MemberManagementPageFeature implements Feature {
+  @override
+  void register() {
+    final getIt = GetIt.instance;
+    getIt.registerLazySingleton<MemberManagementPage>(
+        () => MemberManagementPage._create());
   }
 }

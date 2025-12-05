@@ -451,7 +451,9 @@ class TableViewSource<DataObject extends Object> extends DataTableSource {
   final content = ListNotifier<DataObject>(data: []);
   final Map<String, DataCellGenerator<DataObject>> _generators = {};
 
-  TableViewSource(
+  TableViewSource();
+
+  void initialize(
       BuildContext context, ObjectChangeHandler<DataObject> onCellChange) {
     _generators
         .addAll(_createColumnGenerators<DataObject>(context, onCellChange));
