@@ -309,7 +309,7 @@ abstract class TableViewCellPopup<CellType extends SupportedType>
           child: buildPopup(context),
         );
 
-    final valueIsNotNull = watch(currentValue).map((value) => value != null);
+    final valueIsNotNull = currentValue.map((value) => value != null);
 
     if (isNullable) {
       return Row(
