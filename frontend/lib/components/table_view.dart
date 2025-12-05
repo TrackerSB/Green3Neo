@@ -435,15 +435,11 @@ class TableViewBoolCellPopupState extends TableViewCellPopupState<BoolVariant> {
 
   @override
   Widget buildPopup(BuildContext context) {
-    return StatefulBuilder(
-      builder: (BuildContext context, StateSetter setState) => Checkbox(
-        value: currentValue.value?.value,
-        onChanged: (newValue) {
-          setState(() {
-            currentValue.value = BoolVariant(newValue == true);
-          });
-        },
-      ),
+    return Checkbox(
+      value: currentValue.value?.value,
+      onChanged: (newValue) {
+        currentValue.value = BoolVariant(newValue == true);
+      },
     );
   }
 }
