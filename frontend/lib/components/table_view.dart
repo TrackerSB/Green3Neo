@@ -312,19 +312,23 @@ abstract class TableViewCellPopup<CellType extends SupportedType>
     final valueIsNotNull = currentValue.map((value) => value != null);
 
     if (isNullable) {
-      return Row(
-        children: [
-          Checkbox(
-            value: valueIsNotNull.value,
-            onChanged: setInternalNullState,
-            tristate: false,
-          ),
-          Expanded(
-              child: createPopupContent(valueIsNotNull.value
-                  ? createNonNullPopupContent()
-                  : Text(AppLocalizations.of(context).unexpectedNullValue))),
-        ],
-      );
+      return StatefulBuilder(builder:
+          (BuildContext context, void Function(void Function()) setState) {
+        return Row(
+          children: [
+            Checkbox(
+              value: valueIsNotNull.value,
+              onChanged: (newValue) =>
+                  setState(() => setInternalNullState(newValue)),
+              tristate: false,
+            ),
+            Expanded(
+                child: createPopupContent(valueIsNotNull.value
+                    ? createNonNullPopupContent()
+                    : Text(AppLocalizations.of(context).unexpectedNullValue))),
+          ],
+        );
+      });
     }
 
     return createPopupContent(createNonNullPopupContent());
@@ -396,12 +400,17 @@ class TableViewBoolCellPopup extends TableViewCellPopup<BoolVariant> {
 
   @override
   Widget buildPopup(BuildContext context) {
-    return Checkbox(
-      value: currentValue.value?.value,
-      onChanged: (newValue) {
-        currentValue.value = BoolVariant(newValue == true);
-      },
-    );
+    return StatefulBuilder(builder:
+        (BuildContext context, void Function(void Function()) setState) {
+      return Checkbox(
+        value: currentValue.value?.value,
+        onChanged: (newValue) {
+          setState(() {
+            currentValue.value = BoolVariant(newValue == true);
+          });
+        },
+      );
+    });
   }
 }
 
