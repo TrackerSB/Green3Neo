@@ -114,7 +114,7 @@ DataCellGenerator<DataObject> _createDataCellGeneratorForColumn<
     final bool isFinal = variableMirror.isFinal;
 
     void onCellValueSubmitted(CellType? newCellValue) {
-      final previousCellValue = currentCellValue.value;
+      final CellType? previousCellValue = currentCellValue.value;
       currentCellValue.value = newCellValue;
       // FIXME Is the setter result required for anything?
       final setterResult = reflectableMarker
