@@ -8,14 +8,14 @@ void main() {
   testWidgets("Verify common properties and behavior of table view popups",
       (tester) async {
     // FIXME Verify all SupportedTypes
-    final cellValue = createDefaultValue<UnsupportedVariant>();
+    final cellValue = createDefaultValue<StringVariant>();
 
     await tester.pumpWidget(
       MaterialApp(
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,
         home: Scaffold(
-          body: TableViewUnsupportedCellPopup(
+          body: TableViewStringCellPopup(
             initialValue: cellValue,
             isNullable: false,
             onCellValueSubmitted: (submittedValue) {},
@@ -113,25 +113,20 @@ void main() {
     final TableViewStringCellPopup popup = tester.widget(popupFinder);
     expect(popup.initialValue, initialValue);
 
-    final TableViewStringCellPopupState popupState = tester.state(popupFinder);
-    expect(popupState.widget, popup);
-    expect(popupState.currentValue, initialValue);
-
     // Change popup content
     final StringVariant newValue = StringVariant("New Value");
     assert(initialValue != newValue);
-    popupState.setInternalValue(newValue);
-    expect(popupState.currentValue, newValue);
+    popup.currentValue.value = newValue;
+    expect(popup.currentValue.value, newValue);
 
     // Save the change
     await tester.tap(find.text("Save"));
     await tester.pumpAndSettle();
-    expect(popupState.currentValue, newValue);
 
     // Verify popup closed
     expect(find.byType(TableViewStringCellPopup), findsNothing);
 
-    // Verify no change was submitted
+    // Verify change was submitted
     expect(numSubmitted, 1);
   });
 
@@ -161,14 +156,12 @@ void main() {
     final TableViewStringCellPopup popup = tester.widget(popupFinder);
     expect(popup.initialValue, initialValue);
 
-    final TableViewStringCellPopupState popupState = tester.state(popupFinder);
-    expect(popupState.widget, popup);
-    expect(popupState.currentValue, initialValue);
+    expect(popup.currentValue.value, initialValue);
 
     // Save the non-change
     await tester.tap(find.text("Save"));
     await tester.pumpAndSettle();
-    expect(popupState.currentValue, initialValue);
+    expect(popup.currentValue.value, initialValue);
 
     // Verify popup closed
     expect(find.byType(TableViewStringCellPopup), findsNothing);
@@ -204,20 +197,18 @@ void main() {
     final TableViewStringCellPopup popup = tester.widget(popupFinder);
     expect(popup.initialValue, initialValue);
 
-    final TableViewStringCellPopupState popupState = tester.state(popupFinder);
-    expect(popupState.widget, popup);
-    expect(popupState.currentValue, initialValue);
+    expect(popup.currentValue.value, initialValue);
 
     // Change popup content
     final StringVariant newValue = StringVariant("New Value");
     assert(initialValue != newValue);
-    popupState.setInternalValue(newValue);
-    expect(popupState.currentValue, newValue);
+    popup.currentValue.value = newValue;
+    expect(popup.currentValue.value, newValue);
 
     // Cancel the change
     await tester.tap(find.closeButton());
     await tester.pumpAndSettle();
-    expect(popupState.currentValue, initialValue);
+    expect(popup.currentValue.value, initialValue);
 
     // Verify popup closed
     expect(find.byType(TableViewStringCellPopup), findsNothing);
