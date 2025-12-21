@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
+import 'package:listen_it/listen_it.dart';
+import 'package:watch_it/watch_it.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:green3neo/l10n/app_localizations.dart';
+import 'package:green3neo/reflectable.dart';
 import 'package:provider/provider.dart';
 import 'package:reflectable/mirrors.dart';
-import 'reflectable.dart';
 
 part 'table_view.freezed.dart';
 
@@ -49,38 +52,27 @@ CellType createDefaultValue<CellType extends SupportedType>() {
 Widget _createCellPopup<CellType extends SupportedType>(CellType? initialValue,
     bool isNullableType, CellValueHandler<CellType?> onCellValueSubmitted) {
   return switch (createDefaultValue<CellType>()) {
-    IntVariant(:final int value) => TableViewIntCellPopup(
+    IntVariant(value: final int _) => TableViewIntCellPopup(
         initialValue: initialValue as IntVariant?,
         isNullable: isNullableType,
         onCellValueSubmitted:
             onCellValueSubmitted as CellValueHandler<IntVariant?>),
-    StringVariant(:final String value) => TableViewStringCellPopup(
+    StringVariant(value: final String _) => TableViewStringCellPopup(
         initialValue: initialValue as StringVariant?,
         isNullable: isNullableType,
         onCellValueSubmitted:
             onCellValueSubmitted as CellValueHandler<StringVariant?>),
-    BoolVariant(:final bool value) => TableViewBoolCellPopup(
+    BoolVariant(value: final bool _) => TableViewBoolCellPopup(
         initialValue: initialValue as BoolVariant?,
         isNullable: isNullableType,
         onCellValueSubmitted:
             onCellValueSubmitted as CellValueHandler<BoolVariant?>),
-    UnsupportedVariant(:final dynamic value) => TableViewUnsupportedCellPopup(
+    UnsupportedVariant(value: final dynamic _) => TableViewUnsupportedCellPopup(
         initialValue: initialValue as UnsupportedVariant?,
         isNullable: isNullableType,
         onCellValueSubmitted:
             onCellValueSubmitted as CellValueHandler<UnsupportedVariant?>),
   };
-}
-
-class CellValueState<CellType extends SupportedType> extends ChangeNotifier {
-  CellType? _value;
-
-  CellType? get value => _value;
-
-  set value(newValue) {
-    _value = newValue;
-    notifyListeners();
-  }
 }
 
 DataCellGenerator<DataObject> _createDataCellGeneratorForColumn<
@@ -116,14 +108,13 @@ DataCellGenerator<DataObject> _createDataCellGeneratorForColumn<
   }
 
   DataCell createDataCellFromObject(DataObject object) {
-    final currentCellValue = CellValueState<CellType>();
-    currentCellValue.value = getObjectValue(object);
+    final currentCellValue = ValueNotifier<CellType?>(getObjectValue(object));
 
     final bool isNullableType = variableMirror.type.isNullable;
     final bool isFinal = variableMirror.isFinal;
 
     void onCellValueSubmitted(CellType? newCellValue) {
-      final previousCellValue = currentCellValue.value;
+      final CellType? previousCellValue = currentCellValue.value;
       currentCellValue.value = newCellValue;
       // FIXME Is the setter result required for anything?
       final setterResult = reflectableMarker
@@ -202,7 +193,7 @@ Map<String, DataCellGenerator<DataObject>>
 }
 
 class TableViewCell<CellType extends SupportedType> extends StatefulWidget {
-  final CellValueState<CellType> cellValueState;
+  final ValueNotifier<CellType?> cellValueState;
 
   const TableViewCell({super.key, required this.cellValueState});
 
@@ -251,55 +242,39 @@ class TableViewCellState<CellType extends SupportedType>
 }
 
 abstract class TableViewCellPopup<CellType extends SupportedType>
-    extends StatefulWidget {
+    extends WatchingWidget {
   final CellType? initialValue;
+  final currentValue = ValueNotifier<CellType?>(null);
   final bool isNullable;
   final CellValueHandler<CellType?> onCellValueSubmitted;
 
-  const TableViewCellPopup(
+  TableViewCellPopup(
       {super.key,
       required this.initialValue,
       required this.isNullable,
-      required this.onCellValueSubmitted});
-}
-
-abstract class TableViewCellPopupState<CellType extends SupportedType>
-    extends State<TableViewCellPopup<CellType>> {
-  CellType? _currentValue;
-
-  TableViewCellPopupState();
-
-  CellType get currentValue => _currentValue!;
-
-  void setInternalValue(CellType? newCellValue) {
-    setState(() => _currentValue = newCellValue);
+      required this.onCellValueSubmitted}) {
+    currentValue.value = initialValue;
   }
 
-  void back() {
+  void back(BuildContext context) {
     Navigator.pop(context);
   }
 
-  void submitInternalValue() {
-    if (widget.initialValue != currentValue) {
-      widget.onCellValueSubmitted(_currentValue);
+  void submitInternalValue(BuildContext context) {
+    if (initialValue != currentValue.value) {
+      onCellValueSubmitted(currentValue.value);
     }
-    back();
+    back(context);
   }
 
-  void setInternalNullState(isChecked) {
+  void setInternalNullState(bool? isNullChecked) {
     CellType? newValue;
-    if (isChecked) {
+    if (isNullChecked == null || isNullChecked) {
       newValue = createDefaultValue<CellType>();
     } else {
       newValue = null;
     }
-    setInternalValue(newValue);
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    _currentValue = widget.initialValue;
+    currentValue.value = newValue;
   }
 
   @override
@@ -308,13 +283,13 @@ abstract class TableViewCellPopupState<CellType extends SupportedType>
       mainAxisSize: MainAxisSize.min,
       children: [
         ElevatedButton(
-          onPressed: submitInternalValue,
+          onPressed: () => submitInternalValue(context),
           child: Text(MaterialLocalizations.of(context).saveButtonLabel),
         ),
         CloseButton(
           onPressed: () {
-            setInternalValue(widget.initialValue);
-            back();
+            currentValue.value = initialValue;
+            back(context);
           },
         ),
       ],
@@ -334,19 +309,26 @@ abstract class TableViewCellPopupState<CellType extends SupportedType>
           child: buildPopup(context),
         );
 
-    if (widget.isNullable) {
-      return Row(
-        children: [
-          Checkbox(
-            value: _currentValue != null,
-            onChanged: setInternalNullState,
-          ),
-          Expanded(
-              child: createPopupContent((_currentValue == null)
-                  ? Text(AppLocalizations.of(context).unexpectedNullValue)
-                  : createNonNullPopupContent())),
-        ],
-      );
+    final valueIsNotNull = currentValue.map((value) => value != null);
+
+    if (isNullable) {
+      return StatefulBuilder(builder:
+          (BuildContext context, void Function(void Function()) setState) {
+        return Row(
+          children: [
+            Checkbox(
+              value: valueIsNotNull.value,
+              onChanged: (newValue) =>
+                  setState(() => setInternalNullState(newValue)),
+              tristate: false,
+            ),
+            Expanded(
+                child: createPopupContent(valueIsNotNull.value
+                    ? createNonNullPopupContent()
+                    : Text(AppLocalizations.of(context).unexpectedNullValue))),
+          ],
+        );
+      });
     }
 
     return createPopupContent(createNonNullPopupContent());
@@ -359,19 +341,11 @@ abstract class TableViewCellPopupState<CellType extends SupportedType>
 
 class TableViewUnsupportedCellPopup
     extends TableViewCellPopup<UnsupportedVariant> {
-  const TableViewUnsupportedCellPopup(
+  TableViewUnsupportedCellPopup(
       {super.key,
       required super.initialValue,
       required super.isNullable,
       required super.onCellValueSubmitted});
-
-  @override
-  State<StatefulWidget> createState() => TableViewUnsupportedCellPopupState();
-}
-
-class TableViewUnsupportedCellPopupState
-    extends TableViewCellPopupState<UnsupportedVariant> {
-  TableViewUnsupportedCellPopupState();
 
   @override
   Widget buildPopup(BuildContext context) {
@@ -380,85 +354,63 @@ class TableViewUnsupportedCellPopupState
 }
 
 class TableViewIntCellPopup extends TableViewCellPopup<IntVariant> {
-  const TableViewIntCellPopup(
+  TableViewIntCellPopup(
       {super.key,
       required super.initialValue,
       required super.isNullable,
       required super.onCellValueSubmitted});
-
-  @override
-  State<StatefulWidget> createState() => TableViewIntCellPopupState();
-}
-
-class TableViewIntCellPopupState extends TableViewCellPopupState<IntVariant> {
-  TableViewIntCellPopupState();
 
   @override
   Widget buildPopup(BuildContext context) {
     return TextFormField(
       keyboardType:
           const TextInputType.numberWithOptions(decimal: false, signed: false),
-      initialValue: currentValue.value.toString(),
+      initialValue: currentValue.value?.value.toString(),
       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
       onChanged: (newValue) =>
-          setInternalValue(IntVariant(int.parse(newValue))),
-      onFieldSubmitted: (newValue) => submitInternalValue(),
+          currentValue.value = IntVariant(int.parse(newValue)),
+      onFieldSubmitted: (newValue) => submitInternalValue(context),
     );
   }
 }
 
 class TableViewStringCellPopup extends TableViewCellPopup<StringVariant> {
-  const TableViewStringCellPopup(
+  TableViewStringCellPopup(
       {super.key,
       required super.initialValue,
       required super.isNullable,
       required super.onCellValueSubmitted});
 
   @override
-  State<StatefulWidget> createState() => TableViewStringCellPopupState();
-}
-
-class TableViewStringCellPopupState
-    extends TableViewCellPopupState<StringVariant> {
-  TableViewStringCellPopupState();
-
-  @override
   Widget buildPopup(BuildContext context) {
     return TextFormField(
-      initialValue: currentValue.value,
-      onChanged: (newValue) => setInternalValue(StringVariant(newValue)),
-      onFieldSubmitted: (newValue) => submitInternalValue(),
+      initialValue: currentValue.value?.value,
+      onChanged: (newValue) => currentValue.value = StringVariant(newValue),
+      onFieldSubmitted: (newValue) => submitInternalValue(context),
     );
   }
 }
 
 class TableViewBoolCellPopup extends TableViewCellPopup<BoolVariant> {
-  const TableViewBoolCellPopup(
+  TableViewBoolCellPopup(
       {super.key,
       required super.initialValue,
       required super.isNullable,
       required super.onCellValueSubmitted});
 
   @override
-  State<StatefulWidget> createState() => TableViewBoolCellPopupState();
-}
-
-class TableViewBoolCellPopupState extends TableViewCellPopupState<BoolVariant> {
-  TableViewBoolCellPopupState();
-
-  @override
   Widget buildPopup(BuildContext context) {
-    bool nonNullCurrentValue = currentValue.value;
-
-    return StatefulBuilder(
-      builder: (BuildContext context, StateSetter setState) => Checkbox(
-        value: nonNullCurrentValue,
+    return StatefulBuilder(builder:
+        (BuildContext context, void Function(void Function()) setState) {
+      return Checkbox(
+        value: currentValue.value?.value,
         onChanged: (newValue) {
-          setInternalValue(BoolVariant(newValue == true));
-          setState(() => nonNullCurrentValue = !nonNullCurrentValue);
+          setState(() {
+            currentValue.value = BoolVariant(newValue == true);
+          });
         },
-      ),
-    );
+      );
+    });
   }
 }
 
@@ -496,22 +448,28 @@ class TableView<DataObject extends Object> extends StatelessWidget {
 }
 
 class TableViewSource<DataObject extends Object> extends DataTableSource {
-  List<DataObject> _content = [];
+  final content = ListNotifier<DataObject>(data: []);
   final Map<String, DataCellGenerator<DataObject>> _generators = {};
 
-  TableViewSource(
+  TableViewSource();
+
+  void initialize(
       BuildContext context, ObjectChangeHandler<DataObject> onCellChange) {
     _generators
         .addAll(_createColumnGenerators<DataObject>(context, onCellChange));
+
+    content.addListener(() {
+      notifyListeners();
+    });
   }
 
   @override
   DataRow? getRow(int rowIndex) {
-    if ((rowIndex > _content.length) || (rowIndex < 0)) {
+    if ((rowIndex > content.length) || (rowIndex < 0)) {
       return null;
     }
 
-    final DataObject object = _content[rowIndex];
+    final DataObject object = content[rowIndex];
     final List<DataCell> cells = [];
 
     for (final generator in _generators.values) {
@@ -525,13 +483,8 @@ class TableViewSource<DataObject extends Object> extends DataTableSource {
   bool get isRowCountApproximate => false;
 
   @override
-  int get rowCount => _content.length;
+  int get rowCount => content.length;
 
   @override
   int get selectedRowCount => 0;
-
-  set data(List<DataObject> data) {
-    _content = data;
-    notifyListeners();
-  }
 }

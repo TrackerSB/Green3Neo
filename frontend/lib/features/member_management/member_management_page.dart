@@ -1,26 +1,23 @@
 import 'package:flutter/material.dart';
+
+import 'package:listen_it/listen_it.dart';
+import 'package:watch_it/watch_it.dart';
+import 'package:green3neo/components/table_view.dart';
 import 'package:green3neo/database_api/api/member.dart';
 import 'package:green3neo/database_api/api/models.dart';
+import 'package:green3neo/features/feature.dart';
+import 'package:green3neo/l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
-import 'table_view.dart';
+
 import 'change_record_utility.dart';
-import 'l10n/app_localizations.dart';
 
-class MemberManagementPage extends StatefulWidget {
-  const MemberManagementPage({super.key});
+class MemberManagementPage extends WatchingWidget {
+  final _tableViewSource = TableViewSource<Member>();
+  final _changeRecords = ListNotifier<ChangeRecord>(data: []);
+  final _lastMemberSourceUpdate = ValueNotifier<DateTime?>(null);
 
-  @override
-  State<StatefulWidget> createState() => MemberManagementPageState();
-}
-
-class MemberManagementPageState extends State<MemberManagementPage> {
-  TableViewSource<Member>? _tableViewSource;
-  final List<ChangeRecord> _changeRecords = [];
-  DateTime? _lastMemberSourceUpdate;
-
-  MemberManagementPageState() {
-    _receiveDataFromDB();
-  }
+  // ignore: unused_element_parameter
+  MemberManagementPage._create({super.key});
 
   void _receiveDataFromDB() {
     if (_changeRecords.isNotEmpty) {
@@ -31,16 +28,12 @@ class MemberManagementPageState extends State<MemberManagementPage> {
     getAllMembers().then(
       (members) {
         // FIXME Warn about state not being initialized yet
+        _tableViewSource.content.clear();
         if (members == null) {
-          setState(() {
-            // FIXME Provide error message
-            _tableViewSource?.data = List.empty();
-          });
+          // FIXME Provide error message
         } else {
-          setState(() {
-            _tableViewSource?.data = members;
-            _lastMemberSourceUpdate = DateTime.now();
-          });
+          _tableViewSource.content.addAll(members);
+          _lastMemberSourceUpdate.value = DateTime.now();
         }
       },
     );
@@ -59,7 +52,7 @@ class MemberManagementPageState extends State<MemberManagementPage> {
     );
   }
 
-  void _showPersistChangesDialog() {
+  void _showPersistChangesDialog(BuildContext context) {
     List<ChangeRecord> mergedChangeRecords = mergeChangeRecords(_changeRecords);
 
     if (mergedChangeRecords.isEmpty) {
@@ -86,8 +79,7 @@ class MemberManagementPageState extends State<MemberManagementPage> {
                     commitDataChanges(mergedChangeRecords);
                     Navigator.of(context).pop();
                   },
-                  child:
-                      Text(MaterialLocalizations.of(context).okButtonLabel),
+                  child: Text(MaterialLocalizations.of(context).okButtonLabel),
                 ),
               ],
             ),
@@ -97,21 +89,21 @@ class MemberManagementPageState extends State<MemberManagementPage> {
     );
   }
 
-  void onCellChange(Member member, String setterName,
+  void _onCellChange(Member member, String setterName,
       SupportedType? previousCellValue, SupportedType? newCellValue) {
     var internalPreviousValue = previousCellValue?.value;
     var internalNewValue = newCellValue?.value;
-    setState(() => _changeRecords.add(ChangeRecord(
+    _changeRecords.add(ChangeRecord(
         membershipid: member.membershipid,
         column: setterName,
         previousValue: (internalPreviousValue != null)
             ? internalPreviousValue.toString()
             : null,
         newValue:
-            (internalNewValue != null) ? internalNewValue.toString() : null)));
+            (internalNewValue != null) ? internalNewValue.toString() : null));
   }
 
-  String _formatLastDate(DateTime? date) {
+  String _formatLastDate(DateTime? date, BuildContext context) {
     if (date == null) {
       return AppLocalizations.of(context).noDate;
     }
@@ -121,7 +113,13 @@ class MemberManagementPageState extends State<MemberManagementPage> {
 
   @override
   Widget build(BuildContext context) {
-    _tableViewSource ??= TableViewSource<Member>(context, onCellChange);
+    _tableViewSource.initialize(context, _onCellChange);
+
+    _receiveDataFromDB();
+
+    final uncommittedChanges = watch(_changeRecords).isNotEmpty;
+    final formattedLastDate = watch(_lastMemberSourceUpdate)
+        .map((value) => _formatLastDate(value, context));
 
     return Column(
       children: [
@@ -129,18 +127,16 @@ class MemberManagementPageState extends State<MemberManagementPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton(
-              onPressed: _receiveDataFromDB,
+              onPressed: uncommittedChanges ? null : _receiveDataFromDB,
               child: Text(AppLocalizations.of(context).updateData),
             ),
             ElevatedButton(
-              onPressed: () {
-                if (_changeRecords.isNotEmpty) {
-                  _showPersistChangesDialog();
-                }
-              },
+              onPressed: uncommittedChanges
+                  ? () => _showPersistChangesDialog(context)
+                  : null,
               child: Text(AppLocalizations.of(context).commitChanges),
             ),
-            Text(_formatLastDate(_lastMemberSourceUpdate)),
+            Text(formattedLastDate.value),
           ],
         ),
         Expanded(
@@ -164,5 +160,14 @@ class MemberManagementPageState extends State<MemberManagementPage> {
         ),
       ],
     );
+  }
+}
+
+class MemberManagementPageFeature implements Feature {
+  @override
+  void register() {
+    final getIt = GetIt.instance;
+    getIt.registerLazySingleton<MemberManagementPage>(
+        () => MemberManagementPage._create());
   }
 }
