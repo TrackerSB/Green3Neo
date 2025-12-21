@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:green3neo/features/feature.dart';
+import 'package:green3neo/features/management_mode/management_mode.dart';
 import 'package:green3neo/features/management_mode/member_view.dart';
 import 'package:green3neo/localizer.dart';
 import 'package:listen_it/listen_it.dart';
 import 'package:watch_it/watch_it.dart';
 
-class ViewManagementMode extends WatchingWidget {
+class ViewManagementPage extends WatchingWidget {
   final _lastMemberSourceUpdate = ValueNotifier<DateTime?>(null);
 
-  ViewManagementMode._create({super.key});
+  ViewManagementPage._create({super.key});
 
   void _receiveDataFromDB(MemberView memberView) {
     memberView.forceReloadDataFromDB().then((reloadSucceeded) {
@@ -57,11 +57,21 @@ class ViewManagementMode extends WatchingWidget {
   }
 }
 
-class ViewManagementModeFeature implements Feature {
+class ViewManagementMode implements ManagementMode {
+  static ViewManagementPage? instance;
+
   @override
   void register() {
     final getIt = GetIt.instance;
-    getIt.registerLazySingleton<ViewManagementMode>(
-        () => ViewManagementMode._create());
+    getIt.registerLazySingleton<ViewManagementMode>(() => ViewManagementMode());
+  }
+
+  @override
+  String get modeName => "ViewManagementMode"; // FIXME Localize
+
+  @override
+  WatchingWidget get widget {
+    instance ??= ViewManagementPage._create();
+    return instance!;
   }
 }

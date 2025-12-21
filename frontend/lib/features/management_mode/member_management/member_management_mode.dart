@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:green3neo/features/management_mode/management_mode.dart';
 import 'package:green3neo/features/management_mode/member_view.dart';
 import 'package:green3neo/localizer.dart';
 
 import 'package:watch_it/watch_it.dart';
 import 'package:green3neo/database_api/api/member.dart';
-import 'package:green3neo/features/feature.dart';
 
 import 'change_record_utility.dart';
 
-class MemberManagementMode extends WatchingWidget {
+class MemberManagementPage extends WatchingWidget {
   // ignore: unused_element_parameter
-  const MemberManagementMode._create({super.key});
+  const MemberManagementPage._create({super.key});
 
   void _showPersistChangesDialog(
       BuildContext context, List<ChangeRecord> changeRecords) {
@@ -76,11 +76,22 @@ class MemberManagementMode extends WatchingWidget {
   }
 }
 
-class MemberManagementModeFeature implements Feature {
+class MemberManagementMode implements ManagementMode {
+  static MemberManagementPage? instance;
+
   @override
   void register() {
     final getIt = GetIt.instance;
     getIt.registerLazySingleton<MemberManagementMode>(
-        () => MemberManagementMode._create());
+        () => MemberManagementMode());
+  }
+
+  @override
+  String get modeName => "MemberManagementMode"; // FIXME Localize
+
+  @override
+  WatchingWidget get widget {
+    instance ??= MemberManagementPage._create();
+    return instance!;
   }
 }

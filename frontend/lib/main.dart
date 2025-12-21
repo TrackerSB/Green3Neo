@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'package:green3neo/backend_api/frb_generated.dart' as backend_api;
 import 'package:green3neo/database_api/frb_generated.dart' as database_api;
+import 'package:green3neo/features/management_mode/management_mode.dart';
 import 'package:green3neo/features/management_mode/member_management/member_management_mode.dart';
 import 'package:green3neo/features/management_mode/member_view.dart';
 import 'package:green3neo/features/management_mode/view_management/view_management_mode.dart';
@@ -40,8 +41,8 @@ void main() async {
 
   // Register top level features
   MemberViewFeature().register();
-  MemberManagementModeFeature().register();
-  ViewManagementModeFeature().register();
+  MemberManagementMode().register();
+  ViewManagementMode().register();
 
   // Start app
   runApp(const MainApp());
@@ -54,38 +55,35 @@ class MainApp extends WatchingWidget {
   Widget build(BuildContext context) {
     final getIt = GetIt.instance;
 
-    final viewManagementMode = getIt<ViewManagementMode>();
-    final memberManagementMode = getIt<MemberManagementMode>();
+    final managementModes = [
+      getIt<ViewManagementMode>(),
+      getIt<MemberManagementMode>(),
+    ];
 
-    WatchingWidget selectedMode = viewManagementMode;
+    WatchingWidget selectedModeWidget = managementModes.first.widget;
 
     return MaterialApp(
       title: "No title", // FIXME AppLocalizations.of(...) returns null
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       home: StatefulBuilder(
-        builder: (BuildContext context, StateSetter _) {
+        builder: (final BuildContext context, final StateSetter _) {
           Localizer.instance.init(context);
 
           return Scaffold(
             body: StatefulBuilder(
-              builder: (context, setState) {
+              builder:
+                  (final BuildContext context, final StateSetter setState) {
                 return Column(
                   children: [
                     SegmentedButton<WatchingWidget>(
-                      segments: [
-                        ButtonSegment(
-                          value: viewManagementMode,
-                          // FIXME Localize by associating with feature name
-                          label: const Text("ViewManagement"),
-                        ),
-                        ButtonSegment(
-                          value: memberManagementMode,
-                          // FIXME Localize by associating with feature name
-                          label: const Text("MemberManagement"),
-                        ),
-                      ],
-                      selected: {selectedMode},
+                      segments: managementModes.map((mode) {
+                        return ButtonSegment(
+                          value: mode.widget,
+                          label: Text(mode.modeName),
+                        );
+                      }).toList(),
+                      selected: {selectedModeWidget},
                       emptySelectionAllowed: false,
                       multiSelectionEnabled: false,
                       onSelectionChanged: (Set<WatchingWidget>? selectedModes) {
@@ -93,50 +91,13 @@ class MainApp extends WatchingWidget {
                             selectedModes != null && selectedModes.isNotEmpty);
 
                         setState(() {
-                          selectedMode = selectedModes!.first;
+                          selectedModeWidget = selectedModes!.first;
                         });
                       },
                     ),
                     Expanded(
-                      child: selectedMode,
+                      child: selectedModeWidget,
                     ),
-                  ],
-                );
-              },
-            ),
-          );
-
-          return Scaffold(
-            body: StatefulBuilder(
-              builder: (BuildContext context, StateSetter setState) {
-                return Column(
-                  children: [
-                    SegmentedButton<WatchingWidget>(
-                      segments: [
-                        ButtonSegment(
-                          value: viewManagementMode,
-                          // FIXME Localize by associating with feature name
-                          label: const Text("ViewManagement"),
-                        ),
-                        ButtonSegment(
-                          value: memberManagementMode,
-                          // FIXME Localize by associating with feature name
-                          label: const Text("MemberManagement"),
-                        ),
-                      ],
-                      selected: {selectedMode},
-                      emptySelectionAllowed: false,
-                      multiSelectionEnabled: false,
-                      onSelectionChanged: (Set<WatchingWidget>? selectedModes) {
-                        assert(
-                            selectedModes != null && selectedModes.isNotEmpty);
-
-                        setState(() {
-                          selectedMode = selectedModes!.first;
-                        });
-                      },
-                    ),
-                    selectedMode
                   ],
                 );
               },
