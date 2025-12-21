@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:green3neo/features/management_mode/member_view.dart';
 
 import 'package:listen_it/listen_it.dart';
 import 'package:watch_it/watch_it.dart';
@@ -7,7 +8,6 @@ import 'package:green3neo/database_api/api/member.dart';
 import 'package:green3neo/database_api/api/models.dart';
 import 'package:green3neo/features/feature.dart';
 import 'package:green3neo/l10n/app_localizations.dart';
-import 'package:provider/provider.dart';
 
 import 'change_record_utility.dart';
 
@@ -19,37 +19,17 @@ class MemberManagementPage extends WatchingWidget {
   // ignore: unused_element_parameter
   MemberManagementPage._create({super.key});
 
-  void _receiveDataFromDB() {
+  void _receiveDataFromDB(MemberView memberView) {
     if (_changeRecords.isNotEmpty) {
       // FIXME Warn about unsaved changes
       return;
     }
 
-    getAllMembers().then(
-      (members) {
-        // FIXME Warn about state not being initialized yet
-        _tableViewSource.content.clear();
-        if (members == null) {
-          // FIXME Provide error message
-        } else {
-          _tableViewSource.content.addAll(members);
-          _lastMemberSourceUpdate.value = DateTime.now();
-        }
-      },
-    );
-  }
-
-  static Widget _wrapInScrollable(Widget toWrap, Axis direction) {
-    var scrollController = ScrollController();
-
-    return Scrollbar(
-      controller: scrollController,
-      child: SingleChildScrollView(
-        controller: scrollController,
-        scrollDirection: direction,
-        child: toWrap,
-      ),
-    );
+    memberView.forceReloadDataFromDB().then((reloadSucceeded) {
+      if (reloadSucceeded) {
+        _lastMemberSourceUpdate.value = DateTime.now();
+      }
+    });
   }
 
   void _showPersistChangesDialog(BuildContext context) {
@@ -113,9 +93,13 @@ class MemberManagementPage extends WatchingWidget {
 
   @override
   Widget build(BuildContext context) {
+    final getIt = GetIt.instance;
+
     _tableViewSource.initialize(context, _onCellChange);
 
-    _receiveDataFromDB();
+    final MemberView memberView = getIt<MemberView>(param1: _tableViewSource);
+
+    _receiveDataFromDB(memberView);
 
     final uncommittedChanges = watch(_changeRecords).isNotEmpty;
     final formattedLastDate = watch(_lastMemberSourceUpdate)
@@ -127,7 +111,9 @@ class MemberManagementPage extends WatchingWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton(
-              onPressed: uncommittedChanges ? null : _receiveDataFromDB,
+              onPressed: uncommittedChanges
+                  ? null
+                  : () => _receiveDataFromDB(memberView),
               child: Text(AppLocalizations.of(context).updateData),
             ),
             ElevatedButton(
@@ -139,25 +125,7 @@ class MemberManagementPage extends WatchingWidget {
             Text(formattedLastDate.value),
           ],
         ),
-        Expanded(
-          child: ScrollConfiguration(
-            behavior:
-                ScrollConfiguration.of(context).copyWith(scrollbars: true),
-            child: _wrapInScrollable(
-              _wrapInScrollable(
-                SizedBox(
-                  width: 2000, // FIXME Determine required width for table
-                  child: ChangeNotifierProvider(
-                    create: (_) => _tableViewSource,
-                    child: const TableView<Member>(),
-                  ),
-                ),
-                Axis.horizontal,
-              ),
-              Axis.vertical,
-            ),
-          ),
-        ),
+        memberView
       ],
     );
   }

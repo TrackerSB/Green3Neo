@@ -450,6 +450,7 @@ class TableView<DataObject extends Object> extends StatelessWidget {
 class TableViewSource<DataObject extends Object> extends DataTableSource {
   final content = ListNotifier<DataObject>(data: []);
   final Map<String, DataCellGenerator<DataObject>> _generators = {};
+  bool isInitialized = false;
 
   TableViewSource();
 
@@ -461,10 +462,14 @@ class TableViewSource<DataObject extends Object> extends DataTableSource {
     content.addListener(() {
       notifyListeners();
     });
+
+    isInitialized = true;
   }
 
   @override
   DataRow? getRow(int rowIndex) {
+    assert(isInitialized, "Do not use table source before initializing it");
+
     if ((rowIndex > content.length) || (rowIndex < 0)) {
       return null;
     }
