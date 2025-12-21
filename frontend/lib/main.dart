@@ -3,6 +3,7 @@ import 'dart:io' show Platform;
 import 'package:flutter/material.dart';
 
 import 'package:green3neo/backend_api/frb_generated.dart' as backend_api;
+import 'package:green3neo/components/expanded_scrollpane.dart';
 import 'package:green3neo/database_api/frb_generated.dart' as database_api;
 import 'package:green3neo/features/management_mode/member_management/member_management_mode.dart';
 import 'package:green3neo/features/management_mode/member_view.dart';
@@ -50,19 +51,6 @@ void main() async {
 class MainApp extends WatchingWidget {
   const MainApp({super.key});
 
-  static Widget _wrapInScrollable(Widget toWrap, Axis direction) {
-    var scrollController = ScrollController();
-
-    return Scrollbar(
-      controller: scrollController,
-      child: SingleChildScrollView(
-        controller: scrollController,
-        scrollDirection: direction,
-        child: toWrap,
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     final getIt = GetIt.instance;
@@ -81,56 +69,78 @@ class MainApp extends WatchingWidget {
           Localizer.instance.init(context);
 
           return Scaffold(
-            body: Expanded(
-              child: ScrollConfiguration(
-                behavior:
-                    ScrollConfiguration.of(context).copyWith(scrollbars: true),
-                child: _wrapInScrollable(
-                  _wrapInScrollable(
-                    SizedBox(
-                      width: 2000, // FIXME Determine required width for window
-                      // FIXME Can the stateful builder be replaced by getIt/watchIt?
-                      child: StatefulBuilder(
-                        builder: (BuildContext context, StateSetter setState) {
-                          return Column(
-                            children: [
-                              SegmentedButton<WatchingWidget>(
-                                segments: [
-                                  ButtonSegment(
-                                    value: viewManagementMode,
-                                    // FIXME Localize by associating with feature name
-                                    label: const Text("ViewManagement"),
-                                  ),
-                                  ButtonSegment(
-                                    value: memberManagementMode,
-                                    // FIXME Localize by associating with feature name
-                                    label: const Text("MemberManagement"),
-                                  ),
-                                ],
-                                selected: {selectedMode},
-                                emptySelectionAllowed: false,
-                                multiSelectionEnabled: false,
-                                onSelectionChanged:
-                                    (Set<WatchingWidget>? selectedModes) {
-                                  assert(selectedModes != null &&
-                                      selectedModes.isNotEmpty);
+            body: StatefulBuilder(
+              builder: (context, setState) {
+                return Column(
+                  children: [
+                    SegmentedButton<WatchingWidget>(
+                      segments: [
+                        ButtonSegment(
+                          value: viewManagementMode,
+                          // FIXME Localize by associating with feature name
+                          label: const Text("ViewManagement"),
+                        ),
+                        ButtonSegment(
+                          value: memberManagementMode,
+                          // FIXME Localize by associating with feature name
+                          label: const Text("MemberManagement"),
+                        ),
+                      ],
+                      selected: {selectedMode},
+                      emptySelectionAllowed: false,
+                      multiSelectionEnabled: false,
+                      onSelectionChanged: (Set<WatchingWidget>? selectedModes) {
+                        assert(
+                            selectedModes != null && selectedModes.isNotEmpty);
 
-                                  setState(() {
-                                    selectedMode = selectedModes!.first;
-                                  });
-                                },
-                              ),
-                              selectedMode
-                            ],
-                          );
-                        },
-                      ),
+                        setState(() {
+                          selectedMode = selectedModes!.first;
+                        });
+                      },
                     ),
-                    Axis.horizontal,
-                  ),
-                  Axis.vertical,
-                ),
-              ),
+                    Expanded(
+                      child: selectedMode,
+                    ),
+                  ],
+                );
+              },
+            ),
+          );
+
+          return Scaffold(
+            body: StatefulBuilder(
+              builder: (BuildContext context, StateSetter setState) {
+                return Column(
+                  children: [
+                    SegmentedButton<WatchingWidget>(
+                      segments: [
+                        ButtonSegment(
+                          value: viewManagementMode,
+                          // FIXME Localize by associating with feature name
+                          label: const Text("ViewManagement"),
+                        ),
+                        ButtonSegment(
+                          value: memberManagementMode,
+                          // FIXME Localize by associating with feature name
+                          label: const Text("MemberManagement"),
+                        ),
+                      ],
+                      selected: {selectedMode},
+                      emptySelectionAllowed: false,
+                      multiSelectionEnabled: false,
+                      onSelectionChanged: (Set<WatchingWidget>? selectedModes) {
+                        assert(
+                            selectedModes != null && selectedModes.isNotEmpty);
+
+                        setState(() {
+                          selectedMode = selectedModes!.first;
+                        });
+                      },
+                    ),
+                    selectedMode
+                  ],
+                );
+              },
             ),
           );
         },

@@ -68,7 +68,9 @@ class MemberManagementMode extends WatchingWidget {
               : null,
           child: Text(Localizer.instance.text((l) => l.commitChanges)),
         ),
-        memberView
+        Expanded(
+          child: memberView,
+        ),
       ],
     );
   }

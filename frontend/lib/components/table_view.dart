@@ -1,12 +1,13 @@
+import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:green3neo/components/expanded_scrollpane.dart';
 import 'package:green3neo/localizer.dart';
 
 import 'package:listen_it/listen_it.dart';
 import 'package:watch_it/watch_it.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:green3neo/reflectable.dart';
-import 'package:provider/provider.dart';
 import 'package:reflectable/mirrors.dart';
 
 part 'table_view.freezed.dart';
@@ -439,12 +440,13 @@ class TableView<DataObject extends Object> extends StatelessWidget {
         .values
         .toList();
 
-    return PaginatedDataTable(
+    return PaginatedDataTable2(
       columns: dataColumns,
       source: tableViewSource,
       rowsPerPage: 20,
       showFirstLastButtons: true,
       showCheckboxColumn: true, // FIXME Has it any effect?
+      minWidth: 5000,
     );
   }
 }
