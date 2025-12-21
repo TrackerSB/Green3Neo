@@ -52,22 +52,22 @@ CellType createDefaultValue<CellType extends SupportedType>() {
 Widget _createCellPopup<CellType extends SupportedType>(CellType? initialValue,
     bool isNullableType, CellValueHandler<CellType?> onCellValueSubmitted) {
   return switch (createDefaultValue<CellType>()) {
-    IntVariant(:final int value) => TableViewIntCellPopup(
+    IntVariant(value: final int _) => TableViewIntCellPopup(
         initialValue: initialValue as IntVariant?,
         isNullable: isNullableType,
         onCellValueSubmitted:
             onCellValueSubmitted as CellValueHandler<IntVariant?>),
-    StringVariant(:final String value) => TableViewStringCellPopup(
+    StringVariant(value: final String _) => TableViewStringCellPopup(
         initialValue: initialValue as StringVariant?,
         isNullable: isNullableType,
         onCellValueSubmitted:
             onCellValueSubmitted as CellValueHandler<StringVariant?>),
-    BoolVariant(:final bool value) => TableViewBoolCellPopup(
+    BoolVariant(value: final bool _) => TableViewBoolCellPopup(
         initialValue: initialValue as BoolVariant?,
         isNullable: isNullableType,
         onCellValueSubmitted:
             onCellValueSubmitted as CellValueHandler<BoolVariant?>),
-    UnsupportedVariant(:final dynamic value) => TableViewUnsupportedCellPopup(
+    UnsupportedVariant(value: final dynamic _) => TableViewUnsupportedCellPopup(
         initialValue: initialValue as UnsupportedVariant?,
         isNullable: isNullableType,
         onCellValueSubmitted:
