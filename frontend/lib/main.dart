@@ -59,7 +59,7 @@ class MainApp extends WatchingWidget {
       getIt<MemberManagementMode>(),
     ];
 
-    WatchingWidget selectedModeWidget = managementModes.first.widget;
+    Widget selectedModeWidget = managementModes.first.widget;
 
     return MaterialApp(
       title: "No title", // FIXME AppLocalizations.of(...) returns null
@@ -75,7 +75,7 @@ class MainApp extends WatchingWidget {
                   (final BuildContext context, final StateSetter setState) {
                 return Column(
                   children: [
-                    SegmentedButton<WatchingWidget>(
+                    SegmentedButton<Widget>(
                       segments: managementModes.map((mode) {
                         return ButtonSegment(
                           value: mode.widget,
@@ -85,7 +85,7 @@ class MainApp extends WatchingWidget {
                       selected: {selectedModeWidget},
                       emptySelectionAllowed: false,
                       multiSelectionEnabled: false,
-                      onSelectionChanged: (Set<WatchingWidget>? selectedModes) {
+                      onSelectionChanged: (Set<Widget>? selectedModes) {
                         assert(
                             selectedModes != null && selectedModes.isNotEmpty);
 

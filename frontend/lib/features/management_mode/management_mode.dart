@@ -1,7 +1,5 @@
-import 'package:green3neo/features/feature.dart';
-import 'package:watch_it/watch_it.dart';
+import 'package:green3neo/features/widget_feature.dart';
 
-abstract interface class ManagementMode implements Feature {
+abstract interface class ManagementMode implements WidgetFeature {
   String get modeName;
-  WatchingWidget get widget;
 }
