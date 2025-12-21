@@ -1,7 +1,6 @@
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:green3neo/components/expanded_scrollpane.dart';
 import 'package:green3neo/localizer.dart';
 
 import 'package:listen_it/listen_it.dart';

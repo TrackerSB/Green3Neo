@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:green3neo/components/expanded_scrollpane.dart';
 import 'package:green3neo/features/feature.dart';
 import 'package:green3neo/features/management_mode/member_view.dart';
 import 'package:green3neo/localizer.dart';
