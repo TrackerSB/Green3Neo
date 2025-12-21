@@ -11,13 +11,13 @@ import 'package:green3neo/l10n/app_localizations.dart';
 
 import 'change_record_utility.dart';
 
-class MemberManagementPage extends WatchingWidget {
+class MemberManagementMode extends WatchingWidget {
   final _tableViewSource = TableViewSource<Member>();
   final _changeRecords = ListNotifier<ChangeRecord>(data: []);
   final _lastMemberSourceUpdate = ValueNotifier<DateTime?>(null);
 
   // ignore: unused_element_parameter
-  MemberManagementPage._create({super.key});
+  MemberManagementMode._create({super.key});
 
   void _receiveDataFromDB(MemberView memberView) {
     if (_changeRecords.isNotEmpty) {
@@ -131,11 +131,11 @@ class MemberManagementPage extends WatchingWidget {
   }
 }
 
-class MemberManagementPageFeature implements Feature {
+class MemberManagementModeFeature implements Feature {
   @override
   void register() {
     final getIt = GetIt.instance;
-    getIt.registerLazySingleton<MemberManagementPage>(
-        () => MemberManagementPage._create());
+    getIt.registerLazySingleton<MemberManagementMode>(
+        () => MemberManagementMode._create());
   }
 }
