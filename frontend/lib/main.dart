@@ -7,6 +7,7 @@ import 'package:green3neo/backend_api/frb_generated.dart' as backend_api;
 import 'package:green3neo/database_api/frb_generated.dart' as database_api;
 import 'package:green3neo/features/management_mode/member_management/member_management_mode.dart';
 import 'package:green3neo/features/management_mode/member_view.dart';
+import 'package:green3neo/features/management_mode/view_management/view_management_mode.dart';
 import 'package:green3neo/l10n/app_localizations.dart';
 import 'package:green3neo/main.reflectable.dart';
 import 'package:window_manager/window_manager.dart';
@@ -37,8 +38,9 @@ void main() async {
   }
 
   // Register top level features
-  MemberManagementModeFeature().register();
   MemberViewFeature().register();
+  MemberManagementModeFeature().register();
+  ViewManagementModeFeature().register();
 
   // Start app
   runApp(const MainApp());
@@ -56,7 +58,7 @@ class MainApp extends StatelessWidget {
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       home: Scaffold(
-        body: getIt<MemberManagementMode>(),
+        body: getIt<ViewManagementMode>(),
       ),
     );
   }

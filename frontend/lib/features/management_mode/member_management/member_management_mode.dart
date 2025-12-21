@@ -14,23 +14,9 @@ import 'change_record_utility.dart';
 class MemberManagementMode extends WatchingWidget {
   final _tableViewSource = TableViewSource<Member>();
   final _changeRecords = ListNotifier<ChangeRecord>(data: []);
-  final _lastMemberSourceUpdate = ValueNotifier<DateTime?>(null);
 
   // ignore: unused_element_parameter
   MemberManagementMode._create({super.key});
-
-  void _receiveDataFromDB(MemberView memberView) {
-    if (_changeRecords.isNotEmpty) {
-      // FIXME Warn about unsaved changes
-      return;
-    }
-
-    memberView.forceReloadDataFromDB().then((reloadSucceeded) {
-      if (reloadSucceeded) {
-        _lastMemberSourceUpdate.value = DateTime.now();
-      }
-    });
-  }
 
   void _showPersistChangesDialog(BuildContext context) {
     List<ChangeRecord> mergedChangeRecords = mergeChangeRecords(_changeRecords);
@@ -83,14 +69,6 @@ class MemberManagementMode extends WatchingWidget {
             (internalNewValue != null) ? internalNewValue.toString() : null));
   }
 
-  String _formatLastDate(DateTime? date, BuildContext context) {
-    if (date == null) {
-      return AppLocalizations.of(context).noDate;
-    }
-
-    return AppLocalizations.of(context).lastUpdate(date: date);
-  }
-
   @override
   Widget build(BuildContext context) {
     final getIt = GetIt.instance;
@@ -99,31 +77,15 @@ class MemberManagementMode extends WatchingWidget {
 
     final MemberView memberView = getIt<MemberView>(param1: _tableViewSource);
 
-    _receiveDataFromDB(memberView);
-
     final uncommittedChanges = watch(_changeRecords).isNotEmpty;
-    final formattedLastDate = watch(_lastMemberSourceUpdate)
-        .map((value) => _formatLastDate(value, context));
 
     return Column(
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ElevatedButton(
-              onPressed: uncommittedChanges
-                  ? null
-                  : () => _receiveDataFromDB(memberView),
-              child: Text(AppLocalizations.of(context).updateData),
-            ),
-            ElevatedButton(
-              onPressed: uncommittedChanges
-                  ? () => _showPersistChangesDialog(context)
-                  : null,
-              child: Text(AppLocalizations.of(context).commitChanges),
-            ),
-            Text(formattedLastDate.value),
-          ],
+        ElevatedButton(
+          onPressed: uncommittedChanges
+              ? () => _showPersistChangesDialog(context)
+              : null,
+          child: Text(AppLocalizations.of(context).commitChanges),
         ),
         memberView
       ],
