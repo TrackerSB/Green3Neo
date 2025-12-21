@@ -5,7 +5,6 @@ import 'package:green3neo/localizer.dart';
 import 'package:listen_it/listen_it.dart';
 import 'package:watch_it/watch_it.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:green3neo/l10n/app_localizations.dart';
 import 'package:green3neo/reflectable.dart';
 import 'package:provider/provider.dart';
 import 'package:reflectable/mirrors.dart';

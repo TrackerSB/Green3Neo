@@ -2,7 +2,6 @@ import 'dart:io' show Platform;
 
 import 'package:flutter/material.dart';
 
-import 'package:get_it/get_it.dart';
 import 'package:green3neo/backend_api/frb_generated.dart' as backend_api;
 import 'package:green3neo/database_api/frb_generated.dart' as database_api;
 import 'package:green3neo/features/management_mode/member_management/member_management_mode.dart';
