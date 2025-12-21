@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:green3neo/database_api/api/member.dart';
-import 'package:green3neo/features/member_management/change_record_utility.dart';
+import 'package:green3neo/features/management_mode/member_management_mode/change_record_utility.dart';
 
 class MergeChangeRecordsTestCase {
   final List<ChangeRecord> initialRecords;
