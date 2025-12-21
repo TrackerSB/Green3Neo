@@ -40,11 +40,15 @@ class ViewManagementMode extends WatchingWidget {
 
     return Column(
       children: [
-        ElevatedButton(
-          onPressed: () => _receiveDataFromDB(memberView),
-          child: Text(Localizer.instance.text((l) => l.updateData)),
+        Row(
+          children: [
+            ElevatedButton(
+              onPressed: () => _receiveDataFromDB(memberView),
+              child: Text(Localizer.instance.text((l) => l.updateData)),
+            ),
+            Text(formattedLastDate.value),
+          ],
         ),
-        Text(formattedLastDate.value),
         memberView
       ],
     );
