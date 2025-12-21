@@ -4,65 +4,71 @@ import 'package:green3neo/components/table_view.dart';
 import 'package:green3neo/database_api/api/member.dart';
 import 'package:green3neo/database_api/api/models.dart';
 import 'package:green3neo/features/feature.dart';
+import 'package:listen_it/listen_it.dart';
 import 'package:provider/provider.dart';
 
 class MemberView extends StatelessWidget {
-  final TableViewSource<Member> tableViewSource;
+  final _tableViewSource = TableViewSource<Member>();
+  final _changeRecords = ListNotifier<ChangeRecord>(data: []);
+  final _editable = ValueNotifier<bool>(false);
 
   // ignore: unused_element_parameter
-  const MemberView._create({super.key, required this.tableViewSource});
+  MemberView._create({super.key});
 
   Future<bool> forceReloadDataFromDB() {
     return getAllMembers().then(
       (members) {
         // FIXME Warn about state not being initialized yet
-        tableViewSource.content.clear();
+        _tableViewSource.content.clear();
         if (members == null) {
           // FIXME Provide error message
           return false;
         }
 
-        tableViewSource.content.addAll(members);
+        _tableViewSource.content.addAll(members);
         return true;
       },
     );
   }
 
-  static Widget _wrapInScrollable(Widget toWrap, Axis direction) {
-    var scrollController = ScrollController();
+  ListNotifier<ChangeRecord> get changeRecords {
+    return _changeRecords;
+  }
 
-    return Scrollbar(
-      controller: scrollController,
-      child: SingleChildScrollView(
-        controller: scrollController,
-        scrollDirection: direction,
-        child: toWrap,
-      ),
-    );
+  set editable(bool editable) {
+    _editable.value = editable;
+  }
+
+  void _onCellChange(Member member, String setterName,
+      SupportedType? previousCellValue, SupportedType? newCellValue) {
+    var internalPreviousValue = previousCellValue?.value;
+    var internalNewValue = newCellValue?.value;
+    _changeRecords.add(ChangeRecord(
+        membershipid: member.membershipid,
+        column: setterName,
+        previousValue: (internalPreviousValue != null)
+            ? internalPreviousValue.toString()
+            : null,
+        newValue:
+            (internalNewValue != null) ? internalNewValue.toString() : null));
+  }
+
+  void _reinitTableSource(BuildContext context) {
+    _tableViewSource.initialize(
+        context, _editable.value ? _onCellChange : null);
   }
 
   @override
   Widget build(BuildContext context) {
+    _editable.addListener(() => _reinitTableSource(context));
+    _reinitTableSource(context);
+
     // FIXME Visualize failed reload
     forceReloadDataFromDB();
 
-    return Expanded(
-      child: ScrollConfiguration(
-        behavior: ScrollConfiguration.of(context).copyWith(scrollbars: true),
-        child: _wrapInScrollable(
-          _wrapInScrollable(
-            SizedBox(
-              width: 2000, // FIXME Determine required width for table
-              child: ChangeNotifierProvider(
-                create: (_) => tableViewSource,
-                child: const TableView<Member>(),
-              ),
-            ),
-            Axis.horizontal,
-          ),
-          Axis.vertical,
-        ),
-      ),
+    return ChangeNotifierProvider(
+      create: (_) => _tableViewSource,
+      child: TableView<Member>(tableViewSource: _tableViewSource),
     );
   }
 }
@@ -71,8 +77,6 @@ class MemberViewFeature implements Feature {
   @override
   void register() {
     final getIt = GetIt.instance;
-    getIt.registerCachedFactoryParam<MemberView, TableViewSource<Member>, void>(
-        (tableViewSource, _) =>
-            MemberView._create(tableViewSource: tableViewSource));
+    getIt.registerLazySingleton<MemberView>(() => MemberView._create());
   }
 }

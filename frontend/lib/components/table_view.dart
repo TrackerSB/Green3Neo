@@ -418,12 +418,12 @@ class TableViewBoolCellPopup extends TableViewCellPopup<BoolVariant> {
 }
 
 class TableView<DataObject extends Object> extends StatelessWidget {
-  const TableView({super.key});
+  final TableViewSource<DataObject> tableViewSource;
+
+  const TableView({super.key, required this.tableViewSource});
 
   @override
   Widget build(BuildContext context) {
-    final tableViewSource = context.watch<TableViewSource<DataObject>>();
-
     if (tableViewSource._generators.isEmpty) {
       return Text(Localizer.instance.text((l) => l.noDataAvailable));
     }
@@ -459,14 +459,20 @@ class TableViewSource<DataObject extends Object> extends DataTableSource {
 
   void initialize(
       BuildContext context, ObjectChangeHandler<DataObject>? onCellChange) {
+    if (isInitialized) {
+      _generators.clear();
+    }
+
     _generators
         .addAll(_createColumnGenerators<DataObject>(context, onCellChange));
 
-    content.addListener(() {
-      notifyListeners();
-    });
+    if (!isInitialized) {
+      content.addListener(() {
+        notifyListeners();
+      });
 
-    isInitialized = true;
+      isInitialized = true;
+    }
   }
 
   @override

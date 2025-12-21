@@ -11,6 +11,7 @@ import 'package:green3neo/features/management_mode/view_management/view_manageme
 import 'package:green3neo/l10n/app_localizations.dart';
 import 'package:green3neo/localizer.dart';
 import 'package:green3neo/main.reflectable.dart';
+import 'package:watch_it/watch_it.dart';
 import 'package:window_manager/window_manager.dart';
 
 void main() async {
@@ -50,9 +51,27 @@ void main() async {
 class MainApp extends WatchingWidget {
   const MainApp({super.key});
 
+  static Widget _wrapInScrollable(Widget toWrap, Axis direction) {
+    var scrollController = ScrollController();
+
+    return Scrollbar(
+      controller: scrollController,
+      child: SingleChildScrollView(
+        controller: scrollController,
+        scrollDirection: direction,
+        child: toWrap,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final getIt = GetIt.instance;
+
+    final viewManagementMode = getIt<ViewManagementMode>();
+    final memberManagementMode = getIt<MemberManagementMode>();
+
+    WatchingWidget selectedMode = viewManagementMode;
 
     return MaterialApp(
       title: "No title", // FIXME AppLocalizations.of(...) returns null
@@ -62,7 +81,59 @@ class MainApp extends WatchingWidget {
         builder: (BuildContext context, StateSetter _) {
           Localizer.instance.init(context);
 
-          return getIt<ViewManagementMode>();
+          return Scaffold(
+            body: Expanded(
+              child: ScrollConfiguration(
+                behavior:
+                    ScrollConfiguration.of(context).copyWith(scrollbars: true),
+                child: _wrapInScrollable(
+                  _wrapInScrollable(
+                    SizedBox(
+                      width: 2000, // FIXME Determine required width for window
+                      // FIXME Can the stateful builder be replaced by getIt/watchIt?
+                      child: StatefulBuilder(
+                        builder: (BuildContext context, StateSetter setState) {
+                          return Column(
+                            children: [
+                              SegmentedButton<WatchingWidget>(
+                                segments: [
+                                  ButtonSegment(
+                                    value: viewManagementMode,
+                                    // FIXME Localize by associating with feature name
+                                    label: const Text("ViewManagement"),
+                                  ),
+                                  ButtonSegment(
+                                    value: memberManagementMode,
+                                    // FIXME Localize by associating with feature name
+                                    label: const Text("MemberManagement"),
+                                  ),
+                                ],
+                                selected: {selectedMode},
+                                emptySelectionAllowed: false,
+                                multiSelectionEnabled: false,
+                                onSelectionChanged:
+                                    (Set<WatchingWidget>? selectedModes) {
+                                  assert(selectedModes != null &&
+                                      selectedModes.isNotEmpty);
+
+                                  setState(() {
+                                    selectedMode = selectedModes!.first;
+                                  });
+                                },
+                              ),
+                              selectedMode
+                            ],
+                          );
+                        },
+                      ),
+                    ),
+                    Axis.horizontal,
+                  ),
+                  Axis.vertical,
+                ),
+              ),
+            ),
+          );
         },
       ),
     );

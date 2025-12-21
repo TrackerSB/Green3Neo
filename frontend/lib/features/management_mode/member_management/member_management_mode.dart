@@ -13,14 +13,12 @@ import 'package:green3neo/l10n/app_localizations.dart';
 import 'change_record_utility.dart';
 
 class MemberManagementMode extends WatchingWidget {
-  final _tableViewSource = TableViewSource<Member>();
-  final _changeRecords = ListNotifier<ChangeRecord>(data: []);
-
   // ignore: unused_element_parameter
-  MemberManagementMode._create({super.key});
+  const MemberManagementMode._create({super.key});
 
-  void _showPersistChangesDialog(BuildContext context) {
-    List<ChangeRecord> mergedChangeRecords = mergeChangeRecords(_changeRecords);
+  void _showPersistChangesDialog(
+      BuildContext context, List<ChangeRecord> changeRecords) {
+    List<ChangeRecord> mergedChangeRecords = mergeChangeRecords(changeRecords);
 
     if (mergedChangeRecords.isEmpty) {
       // FIXME Provide warning
@@ -56,35 +54,21 @@ class MemberManagementMode extends WatchingWidget {
     );
   }
 
-  void _onCellChange(Member member, String setterName,
-      SupportedType? previousCellValue, SupportedType? newCellValue) {
-    var internalPreviousValue = previousCellValue?.value;
-    var internalNewValue = newCellValue?.value;
-    _changeRecords.add(ChangeRecord(
-        membershipid: member.membershipid,
-        column: setterName,
-        previousValue: (internalPreviousValue != null)
-            ? internalPreviousValue.toString()
-            : null,
-        newValue:
-            (internalNewValue != null) ? internalNewValue.toString() : null));
-  }
-
   @override
   Widget build(BuildContext context) {
     final getIt = GetIt.instance;
 
-    _tableViewSource.initialize(context, _onCellChange);
+    final MemberView memberView = getIt<MemberView>();
+    memberView.editable = true;
 
-    final MemberView memberView = getIt<MemberView>(param1: _tableViewSource);
-
-    final uncommittedChanges = watch(_changeRecords).isNotEmpty;
+    final uncommittedChanges = watch(memberView.changeRecords).isNotEmpty;
 
     return Column(
       children: [
         ElevatedButton(
           onPressed: uncommittedChanges
-              ? () => _showPersistChangesDialog(context)
+              ? () =>
+                  _showPersistChangesDialog(context, memberView.changeRecords)
               : null,
           child: Text(Localizer.instance.text((l) => l.commitChanges)),
         ),

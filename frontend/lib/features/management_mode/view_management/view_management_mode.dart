@@ -9,7 +9,6 @@ import 'package:listen_it/listen_it.dart';
 import 'package:watch_it/watch_it.dart';
 
 class ViewManagementMode extends WatchingWidget {
-  final _tableViewSource = TableViewSource<Member>();
   final _lastMemberSourceUpdate = ValueNotifier<DateTime?>(null);
 
   ViewManagementMode._create({super.key});
@@ -34,10 +33,10 @@ class ViewManagementMode extends WatchingWidget {
   Widget build(BuildContext context) {
     final getIt = GetIt.instance;
 
-    _tableViewSource.initialize(context, null);
     _lastMemberSourceUpdate.value = DateTime.now();
 
-    final MemberView memberView = getIt<MemberView>(param1: _tableViewSource);
+    final MemberView memberView = getIt<MemberView>();
+    memberView.editable = false;
 
     final formattedLastDate = watch(_lastMemberSourceUpdate)
         .map((value) => _formatLastDate(value, context));
