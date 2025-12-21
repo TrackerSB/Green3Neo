@@ -79,7 +79,7 @@ DataCellGenerator<DataObject> _createDataCellGeneratorForColumn<
         DataObject extends Object, CellType extends SupportedType>(
     BuildContext context,
     VariableMirror variableMirror,
-    ObjectChangeHandler<DataObject> onObjectValueChange) {
+    ObjectChangeHandler<DataObject>? onObjectValueChange) {
   dynamic constructor;
   switch (variableMirror.type.reflectedType) {
     case String:
@@ -120,24 +120,24 @@ DataCellGenerator<DataObject> _createDataCellGeneratorForColumn<
       final setterResult = reflectableMarker
           .reflect(object)
           .invokeSetter(variableMirror.simpleName, newCellValue?.value);
-      onObjectValueChange(
+      onObjectValueChange!(
           object, variableMirror.simpleName, previousCellValue, newCellValue);
     }
 
     return DataCell(
       TableViewCell<CellType>(cellValueState: currentCellValue),
-      onTap: () {
-        if (!isFinal) {
-          showGeneralDialog(
-            context: context,
-            pageBuilder: (context, animation, secondaryAnimation) {
-              return Dialog(
-                  child: _createCellPopup<CellType>(currentCellValue.value,
-                      isNullableType, onCellValueSubmitted));
+      onTap: isFinal || (onObjectValueChange == null)
+          ? null
+          : () {
+              showGeneralDialog(
+                context: context,
+                pageBuilder: (context, animation, secondaryAnimation) {
+                  return Dialog(
+                      child: _createCellPopup<CellType>(currentCellValue.value,
+                          isNullableType, onCellValueSubmitted));
+                },
+              );
             },
-          );
-        }
-      },
     );
   }
 
@@ -146,7 +146,7 @@ DataCellGenerator<DataObject> _createDataCellGeneratorForColumn<
 
 Map<String, DataCellGenerator<DataObject>>
     _createColumnGenerators<DataObject extends Object>(BuildContext context,
-        ObjectChangeHandler<DataObject> onObjectValueChange) {
+        ObjectChangeHandler<DataObject>? onObjectValueChange) {
   if (!reflectableMarker.canReflectType(DataObject)) {
     // FIXME Provide either logging or error handling
     print(
@@ -454,7 +454,7 @@ class TableViewSource<DataObject extends Object> extends DataTableSource {
   TableViewSource();
 
   void initialize(
-      BuildContext context, ObjectChangeHandler<DataObject> onCellChange) {
+      BuildContext context, ObjectChangeHandler<DataObject>? onCellChange) {
     _generators
         .addAll(_createColumnGenerators<DataObject>(context, onCellChange));
 
