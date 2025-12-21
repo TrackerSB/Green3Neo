@@ -9,6 +9,7 @@ import 'package:green3neo/features/management_mode/member_management/member_mana
 import 'package:green3neo/features/management_mode/member_view.dart';
 import 'package:green3neo/features/management_mode/view_management/view_management_mode.dart';
 import 'package:green3neo/l10n/app_localizations.dart';
+import 'package:green3neo/localizer.dart';
 import 'package:green3neo/main.reflectable.dart';
 import 'package:window_manager/window_manager.dart';
 
@@ -46,7 +47,7 @@ void main() async {
   runApp(const MainApp());
 }
 
-class MainApp extends StatelessWidget {
+class MainApp extends WatchingWidget {
   const MainApp({super.key});
 
   @override
@@ -57,8 +58,12 @@ class MainApp extends StatelessWidget {
       title: "No title", // FIXME AppLocalizations.of(...) returns null
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      home: Scaffold(
-        body: getIt<ViewManagementMode>(),
+      home: StatefulBuilder(
+        builder: (BuildContext context, StateSetter _) {
+          Localizer.instance.init(context);
+
+          return getIt<ViewManagementMode>();
+        },
       ),
     );
   }

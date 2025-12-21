@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:green3neo/features/management_mode/member_view.dart';
+import 'package:green3neo/localizer.dart';
 
 import 'package:listen_it/listen_it.dart';
 import 'package:watch_it/watch_it.dart';
@@ -85,7 +86,7 @@ class MemberManagementMode extends WatchingWidget {
           onPressed: uncommittedChanges
               ? () => _showPersistChangesDialog(context)
               : null,
-          child: Text(AppLocalizations.of(context).commitChanges),
+          child: Text(Localizer.instance.text((l) => l.commitChanges)),
         ),
         memberView
       ],

@@ -4,6 +4,7 @@ import 'package:green3neo/database_api/api/models.dart';
 import 'package:green3neo/features/feature.dart';
 import 'package:green3neo/features/management_mode/member_view.dart';
 import 'package:green3neo/l10n/app_localizations.dart';
+import 'package:green3neo/localizer.dart';
 import 'package:listen_it/listen_it.dart';
 import 'package:watch_it/watch_it.dart';
 
@@ -23,10 +24,10 @@ class ViewManagementMode extends WatchingWidget {
 
   static String _formatLastDate(DateTime? date, BuildContext context) {
     if (date == null) {
-      return AppLocalizations.of(context).noDate;
+      return Localizer.instance.text((l) => l.noDate);
     }
 
-    return AppLocalizations.of(context).lastUpdate(date: date);
+    return Localizer.instance.text((l) => l.lastUpdate(date: date));
   }
 
   @override
@@ -43,16 +44,11 @@ class ViewManagementMode extends WatchingWidget {
 
     return Column(
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ElevatedButton(
-              onPressed: () => _receiveDataFromDB(memberView),
-              child: Text(AppLocalizations.of(context).updateData),
-            ),
-            Text(formattedLastDate.value),
-          ],
+        ElevatedButton(
+          onPressed: () => _receiveDataFromDB(memberView),
+          child: Text(Localizer.instance.text((l) => l.updateData)),
         ),
+        Text(formattedLastDate.value),
         memberView
       ],
     );

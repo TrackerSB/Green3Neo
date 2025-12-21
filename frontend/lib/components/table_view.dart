@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:green3neo/localizer.dart';
 
 import 'package:listen_it/listen_it.dart';
 import 'package:watch_it/watch_it.dart';
@@ -323,9 +324,11 @@ abstract class TableViewCellPopup<CellType extends SupportedType>
               tristate: false,
             ),
             Expanded(
-                child: createPopupContent(valueIsNotNull.value
-                    ? createNonNullPopupContent()
-                    : Text(AppLocalizations.of(context).unexpectedNullValue))),
+              child: createPopupContent(valueIsNotNull.value
+                  ? createNonNullPopupContent()
+                  : Text(
+                      Localizer.instance.text((l) => l.unexpectedNullValue))),
+            ),
           ],
         );
       });
@@ -422,7 +425,7 @@ class TableView<DataObject extends Object> extends StatelessWidget {
     final tableViewSource = context.watch<TableViewSource<DataObject>>();
 
     if (tableViewSource._generators.isEmpty) {
-      return Text(AppLocalizations.of(context).noDataAvailable);
+      return Text(Localizer.instance.text((l) => l.noDataAvailable));
     }
 
     final List<DataColumn> dataColumns = tableViewSource._generators
