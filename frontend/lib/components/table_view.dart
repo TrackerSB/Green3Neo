@@ -526,7 +526,7 @@ class TableViewSource<DataObject extends Object> extends DataTableSource {
               final bool isActuallySelected = selected == true;
               entry.selected = isActuallySelected;
               _onSelectChanged!(object, isActuallySelected);
-              notifyListeners();
+              content.notifyListeners();
             },
     );
   }

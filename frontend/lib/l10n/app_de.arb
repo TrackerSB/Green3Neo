@@ -8,5 +8,6 @@
     "previousValue": "Vorheriger Wert",
     "newValue": "Neuer Wert",
     "unexpectedNullValue": "Wert ist aktuell null",
-    "noDataAvailable": "Keine Daten verfügbar"
+    "noDataAvailable": "Keine Daten verfügbar",
+    "selectedOf": "{selected} von {totalNum} ausgewählt"
 }

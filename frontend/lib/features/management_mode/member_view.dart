@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:green3neo/components/table_view.dart';
@@ -6,6 +7,7 @@ import 'package:green3neo/database_api/api/models.dart';
 import 'package:green3neo/features/feature.dart';
 import 'package:listen_it/listen_it.dart';
 import 'package:provider/provider.dart';
+import 'package:watch_it/watch_it.dart';
 
 enum ViewMode {
   readOnly,
@@ -41,13 +43,20 @@ class MemberView extends StatelessWidget {
     );
   }
 
-  ListNotifier<ChangeRecord> get changeRecords {
-    return _changeRecords;
+  ListNotifier<ChangeRecord> get changeRecords => _changeRecords;
+
+  ValueListenable<int> get numEntries =>
+      _tableViewSource.content.select((c) => c.length);
+
+  ValueListenable<int> get numSelected {
+    return _tableViewSource.content.select((c) {
+      return c.fold(0, (final int currentNumSelected, final entry) {
+        return currentNumSelected + (entry.selected ? 1 : 0);
+      });
+    });
   }
 
-  set viewMode(final ViewMode viewMode) {
-    _viewMode.value = viewMode;
-  }
+  set viewMode(final ViewMode viewMode) => _viewMode.value = viewMode;
 
   set onSelectedChanged(final void Function(Member, bool)? onSelectedChanged) {
     _onSelectChangedUserDefined.value = onSelectedChanged;
