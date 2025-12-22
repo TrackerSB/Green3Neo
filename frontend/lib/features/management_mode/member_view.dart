@@ -11,6 +11,7 @@ class MemberView extends StatelessWidget {
   final _tableViewSource = TableViewSource<Member>();
   final _changeRecords = ListNotifier<ChangeRecord>(data: []);
   final _editable = ValueNotifier<bool>(false);
+  final _propertyFilter = ValueNotifier<bool Function(String)?>(null);
 
   // ignore: unused_element_parameter
   MemberView._create({super.key});
@@ -39,6 +40,10 @@ class MemberView extends StatelessWidget {
     _editable.value = editable;
   }
 
+  set propertyFilter(bool Function(String)? propertyFilter) {
+    _propertyFilter.value = propertyFilter;
+  }
+
   void _onCellChange(Member member, String setterName,
       SupportedType? previousCellValue, SupportedType? newCellValue) {
     var internalPreviousValue = previousCellValue?.value;
@@ -55,12 +60,16 @@ class MemberView extends StatelessWidget {
 
   void _reinitTableSource(BuildContext context) {
     _tableViewSource.initialize(
-        context, _editable.value ? _onCellChange : null);
+      context,
+      _editable.value ? _onCellChange : null,
+      _propertyFilter.value,
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     _editable.addListener(() => _reinitTableSource(context));
+    _propertyFilter.addListener(() => _reinitTableSource(context));
     _reinitTableSource(context);
 
     // FIXME Visualize failed reload

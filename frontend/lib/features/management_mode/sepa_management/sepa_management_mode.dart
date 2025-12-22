@@ -12,6 +12,19 @@ class SepaManagementPage extends WatchingWidget {
 
     final MemberView memberView = getIt<MemberView>();
     memberView.editable = false;
+    memberView.propertyFilter = (final String propertyName) {
+      return [
+        "membershipid",
+        "prename",
+        "surname",
+        "title",
+        "accountholderprename",
+        "accountholdersurname",
+        "iban",
+        "bic",
+        "iscontributionfree"
+      ].map((p) => p.toLowerCase()).contains(propertyName.toLowerCase());
+    };
 
     return Column(
       children: [
