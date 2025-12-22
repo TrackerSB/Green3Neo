@@ -128,6 +128,10 @@ class MemberView extends WatchingWidget {
       ),
     );
 
+    /* NOTE 2025-12-22: Embedding the table view in Expanded and Column or Row
+     * mitigates sizing problems. This pattern should be reused by any other
+     * component including this widget
+     */
     return (watch(_viewMode).value == ViewMode.selectable)
         ? Column(
             children: [
