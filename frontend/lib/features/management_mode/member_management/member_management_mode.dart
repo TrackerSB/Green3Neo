@@ -2,15 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:green3neo/features/management_mode/management_mode.dart';
 import 'package:green3neo/features/management_mode/member_view.dart';
 import 'package:green3neo/localizer.dart';
+import 'package:listen_it/listen_it.dart';
 
 import 'package:watch_it/watch_it.dart';
 import 'package:green3neo/database_api/api/member.dart';
 
 import 'change_record_utility.dart';
 
-class MemberManagementPage extends WatchingWidget {
-  // ignore: unused_element_parameter
-  const MemberManagementPage._create({super.key});
+class _ApplyChangeRecordsButton extends WatchingWidget {
+  final ListNotifier<ChangeRecord> changeRecords;
+
+  _ApplyChangeRecordsButton({super.key, required this.changeRecords});
 
   void _showPersistChangesDialog(
       BuildContext context, List<ChangeRecord> changeRecords) {
@@ -52,23 +54,30 @@ class MemberManagementPage extends WatchingWidget {
 
   @override
   Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: watch(changeRecords).isNotEmpty
+          ? () => _showPersistChangesDialog(context, changeRecords)
+          : null,
+      child: Text(Localizer.instance.text((l) => l.commitChanges)),
+    );
+  }
+}
+
+class MemberManagementPage extends StatelessWidget {
+  // ignore: unused_element_parameter
+  const MemberManagementPage._create({super.key});
+
+  @override
+  Widget build(BuildContext context) {
     final getIt = GetIt.instance;
 
     final MemberView memberView = getIt<MemberView>();
     memberView.viewMode = ViewMode.editable;
     memberView.propertyFilter = null;
 
-    final uncommittedChanges = watch(memberView.changeRecords).isNotEmpty;
-
     return Column(
       children: [
-        ElevatedButton(
-          onPressed: uncommittedChanges
-              ? () =>
-                  _showPersistChangesDialog(context, memberView.changeRecords)
-              : null,
-          child: Text(Localizer.instance.text((l) => l.commitChanges)),
-        ),
+        _ApplyChangeRecordsButton(changeRecords: memberView.changeRecords),
         Expanded(
           child: memberView,
         ),
