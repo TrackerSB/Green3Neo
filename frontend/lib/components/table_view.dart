@@ -79,7 +79,7 @@ DataCellGenerator<DataObject> _createDataCellGeneratorForColumn<
         DataObject extends Object, CellType extends SupportedType>(
     BuildContext context,
     VariableMirror variableMirror,
-    ObjectChangeHandler<DataObject>? onObjectValueChange) {
+    ObjectChangeHandler<DataObject>? onObjectValueChanged) {
   dynamic constructor;
   switch (variableMirror.type.reflectedType) {
     case String:
@@ -120,13 +120,13 @@ DataCellGenerator<DataObject> _createDataCellGeneratorForColumn<
       final setterResult = reflectableMarker
           .reflect(object)
           .invokeSetter(variableMirror.simpleName, newCellValue?.value);
-      onObjectValueChange!(
+      onObjectValueChanged!(
           object, variableMirror.simpleName, previousCellValue, newCellValue);
     }
 
     return DataCell(
       TableViewCell<CellType>(cellValueState: currentCellValue),
-      onTap: isFinal || (onObjectValueChange == null)
+      onTap: isFinal || (onObjectValueChanged == null)
           ? null
           : () {
               showGeneralDialog(
@@ -147,7 +147,7 @@ DataCellGenerator<DataObject> _createDataCellGeneratorForColumn<
 Map<String, DataCellGenerator<DataObject>>
     _createColumnGenerators<DataObject extends Object>(
         BuildContext context,
-        ObjectChangeHandler<DataObject>? onObjectValueChange,
+        ObjectChangeHandler<DataObject>? onObjectValueChanged,
         bool Function(String)? propertyFilter) {
   if (!reflectableMarker.canReflectType(DataObject)) {
     // FIXME Provide either logging or error handling
@@ -175,22 +175,22 @@ Map<String, DataCellGenerator<DataObject>>
         case String:
           columnInfos[propertyName] =
               _createDataCellGeneratorForColumn<DataObject, StringVariant>(
-                  context, declarationMirror, onObjectValueChange);
+                  context, declarationMirror, onObjectValueChanged);
           break;
         case bool:
           columnInfos[propertyName] =
               _createDataCellGeneratorForColumn<DataObject, BoolVariant>(
-                  context, declarationMirror, onObjectValueChange);
+                  context, declarationMirror, onObjectValueChanged);
           break;
         case int:
           columnInfos[propertyName] =
               _createDataCellGeneratorForColumn<DataObject, IntVariant>(
-                  context, declarationMirror, onObjectValueChange);
+                  context, declarationMirror, onObjectValueChanged);
           break;
         default:
           columnInfos[propertyName] =
               _createDataCellGeneratorForColumn<DataObject, UnsupportedVariant>(
-                  context, declarationMirror, onObjectValueChange);
+                  context, declarationMirror, onObjectValueChanged);
           break;
       }
     },
@@ -465,14 +465,14 @@ class TableViewSource<DataObject extends Object> extends DataTableSource {
 
   void initialize(
       BuildContext context,
-      ObjectChangeHandler<DataObject>? onCellChange,
+      ObjectChangeHandler<DataObject>? onCellChanged,
       bool Function(String)? propertyFilter) {
     if (isInitialized) {
       _generators.clear();
     }
 
     _generators.addAll(_createColumnGenerators<DataObject>(
-        context, onCellChange, propertyFilter));
+        context, onCellChanged, propertyFilter));
 
     if (!isInitialized) {
       content.addListener(() {

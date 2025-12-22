@@ -49,7 +49,7 @@ class MemberView extends StatelessWidget {
     _propertyFilter.value = propertyFilter;
   }
 
-  void _onCellChange(Member member, String setterName,
+  void _onCellChanged(Member member, String setterName,
       SupportedType? previousCellValue, SupportedType? newCellValue) {
     var internalPreviousValue = previousCellValue?.value;
     var internalNewValue = newCellValue?.value;
@@ -66,7 +66,7 @@ class MemberView extends StatelessWidget {
   void _reinitTableSource(BuildContext context) {
     _tableViewSource.initialize(
       context,
-      (_viewMode.value == ViewMode.editable) ? _onCellChange : null,
+      (_viewMode.value == ViewMode.editable) ? _onCellChanged : null,
       _propertyFilter.value,
     );
   }
