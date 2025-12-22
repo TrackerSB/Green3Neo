@@ -40,6 +40,8 @@ class MemberView extends WatchingWidget {
       (members) {
         // FIXME Warn about state not being initialized yet
         _tableViewSource.content.clear();
+        _changeRecords.clear();
+
         if (members == null) {
           // FIXME Provide error message
           return false;
