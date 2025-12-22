@@ -1,12 +1,12 @@
+import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:green3neo/localizer.dart';
 
 import 'package:listen_it/listen_it.dart';
 import 'package:watch_it/watch_it.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:green3neo/l10n/app_localizations.dart';
 import 'package:green3neo/reflectable.dart';
-import 'package:provider/provider.dart';
 import 'package:reflectable/mirrors.dart';
 
 part 'table_view.freezed.dart';
@@ -79,7 +79,7 @@ DataCellGenerator<DataObject> _createDataCellGeneratorForColumn<
         DataObject extends Object, CellType extends SupportedType>(
     BuildContext context,
     VariableMirror variableMirror,
-    ObjectChangeHandler<DataObject> onObjectValueChange) {
+    ObjectChangeHandler<DataObject>? onObjectValueChange) {
   dynamic constructor;
   switch (variableMirror.type.reflectedType) {
     case String:
@@ -120,24 +120,24 @@ DataCellGenerator<DataObject> _createDataCellGeneratorForColumn<
       final setterResult = reflectableMarker
           .reflect(object)
           .invokeSetter(variableMirror.simpleName, newCellValue?.value);
-      onObjectValueChange(
+      onObjectValueChange!(
           object, variableMirror.simpleName, previousCellValue, newCellValue);
     }
 
     return DataCell(
       TableViewCell<CellType>(cellValueState: currentCellValue),
-      onTap: () {
-        if (!isFinal) {
-          showGeneralDialog(
-            context: context,
-            pageBuilder: (context, animation, secondaryAnimation) {
-              return Dialog(
-                  child: _createCellPopup<CellType>(currentCellValue.value,
-                      isNullableType, onCellValueSubmitted));
+      onTap: isFinal || (onObjectValueChange == null)
+          ? null
+          : () {
+              showGeneralDialog(
+                context: context,
+                pageBuilder: (context, animation, secondaryAnimation) {
+                  return Dialog(
+                      child: _createCellPopup<CellType>(currentCellValue.value,
+                          isNullableType, onCellValueSubmitted));
+                },
+              );
             },
-          );
-        }
-      },
     );
   }
 
@@ -146,7 +146,7 @@ DataCellGenerator<DataObject> _createDataCellGeneratorForColumn<
 
 Map<String, DataCellGenerator<DataObject>>
     _createColumnGenerators<DataObject extends Object>(BuildContext context,
-        ObjectChangeHandler<DataObject> onObjectValueChange) {
+        ObjectChangeHandler<DataObject>? onObjectValueChange) {
   if (!reflectableMarker.canReflectType(DataObject)) {
     // FIXME Provide either logging or error handling
     print(
@@ -323,9 +323,11 @@ abstract class TableViewCellPopup<CellType extends SupportedType>
               tristate: false,
             ),
             Expanded(
-                child: createPopupContent(valueIsNotNull.value
-                    ? createNonNullPopupContent()
-                    : Text(AppLocalizations.of(context).unexpectedNullValue))),
+              child: createPopupContent(valueIsNotNull.value
+                  ? createNonNullPopupContent()
+                  : Text(
+                      Localizer.instance.text((l) => l.unexpectedNullValue))),
+            ),
           ],
         );
       });
@@ -415,14 +417,14 @@ class TableViewBoolCellPopup extends TableViewCellPopup<BoolVariant> {
 }
 
 class TableView<DataObject extends Object> extends StatelessWidget {
-  const TableView({super.key});
+  final TableViewSource<DataObject> tableViewSource;
+
+  const TableView({super.key, required this.tableViewSource});
 
   @override
   Widget build(BuildContext context) {
-    final tableViewSource = context.watch<TableViewSource<DataObject>>();
-
     if (tableViewSource._generators.isEmpty) {
-      return Text(AppLocalizations.of(context).noDataAvailable);
+      return Text(Localizer.instance.text((l) => l.noDataAvailable));
     }
 
     final List<DataColumn> dataColumns = tableViewSource._generators
@@ -437,12 +439,13 @@ class TableView<DataObject extends Object> extends StatelessWidget {
         .values
         .toList();
 
-    return PaginatedDataTable(
+    return PaginatedDataTable2(
       columns: dataColumns,
       source: tableViewSource,
       rowsPerPage: 20,
       showFirstLastButtons: true,
       showCheckboxColumn: true, // FIXME Has it any effect?
+      minWidth: 5000,
     );
   }
 }
@@ -450,21 +453,32 @@ class TableView<DataObject extends Object> extends StatelessWidget {
 class TableViewSource<DataObject extends Object> extends DataTableSource {
   final content = ListNotifier<DataObject>(data: []);
   final Map<String, DataCellGenerator<DataObject>> _generators = {};
+  bool isInitialized = false;
 
   TableViewSource();
 
   void initialize(
-      BuildContext context, ObjectChangeHandler<DataObject> onCellChange) {
+      BuildContext context, ObjectChangeHandler<DataObject>? onCellChange) {
+    if (isInitialized) {
+      _generators.clear();
+    }
+
     _generators
         .addAll(_createColumnGenerators<DataObject>(context, onCellChange));
 
-    content.addListener(() {
-      notifyListeners();
-    });
+    if (!isInitialized) {
+      content.addListener(() {
+        notifyListeners();
+      });
+
+      isInitialized = true;
+    }
   }
 
   @override
   DataRow? getRow(int rowIndex) {
+    assert(isInitialized, "Do not use table source before initializing it");
+
     if ((rowIndex > content.length) || (rowIndex < 0)) {
       return null;
     }
