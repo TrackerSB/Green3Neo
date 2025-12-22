@@ -11,7 +11,7 @@ class SepaManagementPage extends WatchingWidget {
     final getIt = GetIt.instance;
 
     final MemberView memberView = getIt<MemberView>();
-    memberView.editable = false;
+    memberView.viewMode = ViewMode.readOnly;
     memberView.propertyFilter = (final String propertyName) {
       return [
         "membershipid",

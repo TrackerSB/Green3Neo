@@ -55,7 +55,7 @@ class MemberManagementPage extends WatchingWidget {
     final getIt = GetIt.instance;
 
     final MemberView memberView = getIt<MemberView>();
-    memberView.editable = true;
+    memberView.viewMode = ViewMode.editable;
     memberView.propertyFilter = null;
 
     final uncommittedChanges = watch(memberView.changeRecords).isNotEmpty;

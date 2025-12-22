@@ -7,10 +7,15 @@ import 'package:green3neo/features/feature.dart';
 import 'package:listen_it/listen_it.dart';
 import 'package:provider/provider.dart';
 
+enum ViewMode {
+  readOnly,
+  editable,
+}
+
 class MemberView extends StatelessWidget {
   final _tableViewSource = TableViewSource<Member>();
   final _changeRecords = ListNotifier<ChangeRecord>(data: []);
-  final _editable = ValueNotifier<bool>(false);
+  final _viewMode = ValueNotifier<ViewMode>(ViewMode.readOnly);
   final _propertyFilter = ValueNotifier<bool Function(String)?>(null);
 
   // ignore: unused_element_parameter
@@ -36,8 +41,8 @@ class MemberView extends StatelessWidget {
     return _changeRecords;
   }
 
-  set editable(bool editable) {
-    _editable.value = editable;
+  set viewMode(ViewMode viewMode) {
+    _viewMode.value = viewMode;
   }
 
   set propertyFilter(bool Function(String)? propertyFilter) {
@@ -61,14 +66,14 @@ class MemberView extends StatelessWidget {
   void _reinitTableSource(BuildContext context) {
     _tableViewSource.initialize(
       context,
-      _editable.value ? _onCellChange : null,
+      (_viewMode.value == ViewMode.editable) ? _onCellChange : null,
       _propertyFilter.value,
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    _editable.addListener(() => _reinitTableSource(context));
+    _viewMode.addListener(() => _reinitTableSource(context));
     _propertyFilter.addListener(() => _reinitTableSource(context));
     _reinitTableSource(context);
 

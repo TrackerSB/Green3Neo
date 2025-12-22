@@ -33,7 +33,7 @@ class ViewManagementPage extends WatchingWidget {
     _lastMemberSourceUpdate.value = DateTime.now();
 
     final MemberView memberView = getIt<MemberView>();
-    memberView.editable = false;
+    memberView.viewMode = ViewMode.readOnly;
     memberView.propertyFilter = null;
 
     final formattedLastDate = watch(_lastMemberSourceUpdate)
