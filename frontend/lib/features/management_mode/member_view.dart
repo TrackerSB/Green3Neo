@@ -30,8 +30,6 @@ class MemberView extends WatchingWidget {
   final _tableViewSource = TableViewSource<Member>();
   final _changeRecords = ListNotifier<ChangeRecord>(data: []);
   final _viewMode = ValueNotifier<ViewMode>(ViewMode.readOnly);
-  final _onSelectChangedUserDefined =
-      ValueNotifier<void Function(Member, bool)?>(null);
   final _propertyFilter = ValueNotifier<bool Function(String)?>(null);
 
   // ignore: unused_element_parameter
@@ -58,10 +56,6 @@ class MemberView extends WatchingWidget {
 
   set viewMode(final ViewMode viewMode) => _viewMode.value = viewMode;
 
-  set onSelectedChanged(final void Function(Member, bool)? onSelectedChanged) {
-    _onSelectChangedUserDefined.value = onSelectedChanged;
-  }
-
   set propertyFilter(final bool Function(String)? propertyFilter) {
     _propertyFilter.value = propertyFilter;
   }
@@ -80,22 +74,14 @@ class MemberView extends WatchingWidget {
             (internalNewValue != null) ? internalNewValue.toString() : null));
   }
 
-  void _onSelectChanged(final Member member, final bool selected) {
-    print("Internal called");
-    _onSelectChangedUserDefined.value?.call(member, selected);
-  }
-
   void _reinitTableSource(final BuildContext context) {
     final onCellChanged =
         (_viewMode.value == ViewMode.editable) ? _onCellChanged : null;
 
-    final onSelectChanged =
-        (_viewMode.value == ViewMode.selectable) ? _onSelectChanged : null;
-
     _tableViewSource.initialize(
       context: context,
       onCellChanged: onCellChanged,
-      onSelectChanged: onSelectChanged,
+      rowsSelectable: (_viewMode.value == ViewMode.selectable),
       propertyFilter: _propertyFilter.value,
     );
   }
@@ -103,7 +89,6 @@ class MemberView extends WatchingWidget {
   @override
   Widget build(BuildContext context) {
     _viewMode.addListener(() => _reinitTableSource(context));
-    _onSelectChangedUserDefined.addListener(() => _reinitTableSource(context));
     _propertyFilter.addListener(() => _reinitTableSource(context));
     _reinitTableSource(context);
 

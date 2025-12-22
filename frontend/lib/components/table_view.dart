@@ -469,7 +469,7 @@ class TableViewSourceEntry<DataObject extends Object> {
 class TableViewSource<DataObject extends Object> extends DataTableSource {
   final content = ListNotifier<TableViewSourceEntry<DataObject>>(data: []);
   final Map<String, DataCellGenerator<DataObject>> _generators = {};
-  void Function(DataObject, bool)? _onSelectChanged;
+  bool rowsSelectable = false;
   bool _isInitialized = false;
 
   TableViewSource();
@@ -477,10 +477,10 @@ class TableViewSource<DataObject extends Object> extends DataTableSource {
   void initialize({
     required BuildContext context,
     ObjectChangeHandler<DataObject>? onCellChanged,
-    void Function(DataObject, bool)? onSelectChanged,
+    bool rowsSelectable = false,
     bool Function(String)? propertyFilter,
   }) {
-    _onSelectChanged = onSelectChanged;
+    this.rowsSelectable = rowsSelectable;
 
     if (_isInitialized) {
       _generators.clear();
@@ -517,17 +517,16 @@ class TableViewSource<DataObject extends Object> extends DataTableSource {
     return DataRow(
       cells: cells,
       selected: entry.selected,
-      onSelectChanged: (_onSelectChanged == null)
-          ? null
-          : (final bool? selected) {
+      onSelectChanged: rowsSelectable
+          ? (final bool? selected) {
               /* NOTE 2025-23-22: The selection state may be null at least
                * in situations where the row is disabled
                */
               final bool isActuallySelected = selected == true;
               entry.selected = isActuallySelected;
-              _onSelectChanged!(object, isActuallySelected);
               content.notifyListeners();
-            },
+            }
+          : null,
     );
   }
 
