@@ -450,7 +450,7 @@ class TableView<DataObject extends Object> extends StatelessWidget {
       source: tableViewSource,
       rowsPerPage: 20,
       showFirstLastButtons: true,
-      /* NOTE 2025-12-22:  Even if true checkboxes are only visible if data
+      /* NOTE 2025-12-22: Even if true checkboxes are only visible if data
        * rows have onSelectChanged set
        */
       showCheckboxColumn: true,
