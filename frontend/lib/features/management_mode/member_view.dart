@@ -10,12 +10,15 @@ import 'package:provider/provider.dart';
 enum ViewMode {
   readOnly,
   editable,
+  selectable,
 }
 
 class MemberView extends StatelessWidget {
   final _tableViewSource = TableViewSource<Member>();
   final _changeRecords = ListNotifier<ChangeRecord>(data: []);
   final _viewMode = ValueNotifier<ViewMode>(ViewMode.readOnly);
+  final _onSelectChangedUserDefined =
+      ValueNotifier<void Function(Member, bool)?>(null);
   final _propertyFilter = ValueNotifier<bool Function(String)?>(null);
 
   // ignore: unused_element_parameter
@@ -31,7 +34,8 @@ class MemberView extends StatelessWidget {
           return false;
         }
 
-        _tableViewSource.content.addAll(members);
+        _tableViewSource.content.addAll(members
+            .map((m) => TableViewSourceEntry(value: m, selected: false)));
         return true;
       },
     );
@@ -45,7 +49,11 @@ class MemberView extends StatelessWidget {
     _viewMode.value = viewMode;
   }
 
-  set propertyFilter(bool Function(String)? propertyFilter) {
+  set onSelectedChanged(final void Function(Member, bool)? onSelectedChanged) {
+    _onSelectChangedUserDefined.value = onSelectedChanged;
+  }
+
+  set propertyFilter(final bool Function(String)? propertyFilter) {
     _propertyFilter.value = propertyFilter;
   }
 
@@ -63,17 +71,30 @@ class MemberView extends StatelessWidget {
             (internalNewValue != null) ? internalNewValue.toString() : null));
   }
 
-  void _reinitTableSource(BuildContext context) {
+  void _onSelectChanged(final Member member, final bool selected) {
+    print("Internal called");
+    _onSelectChangedUserDefined.value?.call(member, selected);
+  }
+
+  void _reinitTableSource(final BuildContext context) {
+    final onCellChanged =
+        (_viewMode.value == ViewMode.editable) ? _onCellChanged : null;
+
+    final onSelectChanged =
+        (_viewMode.value == ViewMode.selectable) ? _onSelectChanged : null;
+
     _tableViewSource.initialize(
-      context,
-      (_viewMode.value == ViewMode.editable) ? _onCellChanged : null,
-      _propertyFilter.value,
+      context: context,
+      onCellChanged: onCellChanged,
+      onSelectChanged: onSelectChanged,
+      propertyFilter: _propertyFilter.value,
     );
   }
 
   @override
   Widget build(BuildContext context) {
     _viewMode.addListener(() => _reinitTableSource(context));
+    _onSelectChangedUserDefined.addListener(() => _reinitTableSource(context));
     _propertyFilter.addListener(() => _reinitTableSource(context));
     _reinitTableSource(context);
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:green3neo/database_api/api/models.dart';
 import 'package:green3neo/features/management_mode/management_mode.dart';
 import 'package:green3neo/features/management_mode/member_view.dart';
 import 'package:watch_it/watch_it.dart';
@@ -11,7 +12,12 @@ class SepaManagementPage extends WatchingWidget {
     final getIt = GetIt.instance;
 
     final MemberView memberView = getIt<MemberView>();
-    memberView.viewMode = ViewMode.readOnly;
+    memberView.viewMode = ViewMode.selectable;
+    memberView.onSelectedChanged = (final Member member, final bool? selected) {
+      print("Selection changed");
+      print(member.prename);
+      print(selected);
+    };
     memberView.propertyFilter = (final String propertyName) {
       return [
         "membershipid",

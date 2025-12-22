@@ -459,49 +459,76 @@ class TableView<DataObject extends Object> extends StatelessWidget {
   }
 }
 
+class TableViewSourceEntry<DataObject extends Object> {
+  DataObject value;
+  bool selected;
+
+  TableViewSourceEntry({required this.value, required this.selected});
+}
+
 class TableViewSource<DataObject extends Object> extends DataTableSource {
-  final content = ListNotifier<DataObject>(data: []);
+  final content = ListNotifier<TableViewSourceEntry<DataObject>>(data: []);
   final Map<String, DataCellGenerator<DataObject>> _generators = {};
-  bool isInitialized = false;
+  void Function(DataObject, bool)? _onSelectChanged;
+  bool _isInitialized = false;
 
   TableViewSource();
 
-  void initialize(
-      BuildContext context,
-      ObjectChangeHandler<DataObject>? onCellChanged,
-      bool Function(String)? propertyFilter) {
-    if (isInitialized) {
+  void initialize({
+    required BuildContext context,
+    ObjectChangeHandler<DataObject>? onCellChanged,
+    void Function(DataObject, bool)? onSelectChanged,
+    bool Function(String)? propertyFilter,
+  }) {
+    _onSelectChanged = onSelectChanged;
+
+    if (_isInitialized) {
       _generators.clear();
     }
 
     _generators.addAll(_createColumnGenerators<DataObject>(
         context, onCellChanged, propertyFilter));
 
-    if (!isInitialized) {
+    if (!_isInitialized) {
       content.addListener(() {
         notifyListeners();
       });
 
-      isInitialized = true;
+      _isInitialized = true;
     }
   }
 
   @override
   DataRow? getRow(int rowIndex) {
-    assert(isInitialized, "Do not use table source before initializing it");
+    assert(_isInitialized, "Do not use table source before initializing it");
 
     if ((rowIndex > content.length) || (rowIndex < 0)) {
       return null;
     }
 
-    final DataObject object = content[rowIndex];
+    final TableViewSourceEntry<DataObject> entry = content[rowIndex];
+    final DataObject object = entry.value;
     final List<DataCell> cells = [];
 
     for (final generator in _generators.values) {
       cells.add(generator(object));
     }
 
-    return DataRow(cells: cells);
+    return DataRow(
+      cells: cells,
+      selected: entry.selected,
+      onSelectChanged: (_onSelectChanged == null)
+          ? null
+          : (final bool? selected) {
+              /* NOTE 2025-23-22: The selection state may be null at least
+               * in situations where the row is disabled
+               */
+              final bool isActuallySelected = selected == true;
+              entry.selected = isActuallySelected;
+              _onSelectChanged!(object, isActuallySelected);
+              notifyListeners();
+            },
+    );
   }
 
   @override
