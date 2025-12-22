@@ -91,7 +91,7 @@ class MemberManagementMode implements ManagementMode {
   String get modeName => "MemberManagementMode"; // FIXME Localize
 
   @override
-  WatchingWidget get widget {
+  Widget get widget {
     instance ??= MemberManagementPage._create();
     return instance!;
   }

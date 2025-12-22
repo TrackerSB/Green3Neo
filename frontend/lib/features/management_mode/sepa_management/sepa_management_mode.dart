@@ -43,7 +43,7 @@ class SepaManagementMode implements ManagementMode {
   String get modeName => "SepaManagementMode"; // FIXME Localize
 
   @override
-  WatchingWidget get widget {
+  Widget get widget {
     instance ??= SepaManagementPage._create();
     return instance!;
   }
