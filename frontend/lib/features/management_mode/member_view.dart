@@ -56,17 +56,6 @@ class MemberView extends WatchingWidget {
 
   ListNotifier<ChangeRecord> get changeRecords => _changeRecords;
 
-  ValueListenable<int> get numEntries =>
-      _tableViewSource.content.select((c) => c.length);
-
-  ValueListenable<int> get numSelected {
-    return _tableViewSource.content.select((c) {
-      return c.fold(0, (final int currentNumSelected, final entry) {
-        return currentNumSelected + (entry.selected ? 1 : 0);
-      });
-    });
-  }
-
   set viewMode(final ViewMode viewMode) => _viewMode.value = viewMode;
 
   set onSelectedChanged(final void Function(Member, bool)? onSelectedChanged) {
@@ -121,27 +110,32 @@ class MemberView extends WatchingWidget {
     // FIXME Visualize failed reload
     forceReloadDataFromDB();
 
-    final Widget tableView = Expanded(
+    final selectionText = _tableViewSource.content.select((c) {
+      final numSelected = c.fold(
+          0,
+          (final int currentNumSelected, final entry) =>
+              currentNumSelected + (entry.selected ? 1 : 0));
+      final numEntries = c.length;
+
+      return Localizer.instance.text(
+          (l) => l.selectedOf(selected: numSelected, totalNum: numEntries));
+    });
+
+    final Widget expandedTableView = Expanded(
       child: ChangeNotifierProvider(
         create: (_) => _tableViewSource,
         child: TableView<Member>(tableViewSource: _tableViewSource),
       ),
     );
 
-    final selectionText =
-        numSelected.combineLatest(numEntries, (selected, totalNum) {
-      return Localizer.instance
-          .text((l) => l.selectedOf(selected: selected, totalNum: totalNum));
-    });
-
     return (watch(_viewMode).value == ViewMode.selectable)
         ? Column(
             children: [
               _SelfUpdatingText(listenableText: selectionText),
-              tableView,
+              expandedTableView,
             ],
           )
-        : tableView;
+        : expandedTableView;
   }
 }
 
