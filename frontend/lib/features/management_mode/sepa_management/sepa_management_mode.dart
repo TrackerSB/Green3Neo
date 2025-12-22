@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:green3neo/database_api/api/models.dart';
 import 'package:green3neo/features/management_mode/management_mode.dart';
 import 'package:green3neo/features/management_mode/member_view.dart';
-import 'package:green3neo/localizer.dart';
 import 'package:watch_it/watch_it.dart';
 
 class SepaManagementPage extends WatchingWidget {
@@ -33,16 +32,7 @@ class SepaManagementPage extends WatchingWidget {
       ].map((p) => p.toLowerCase()).contains(propertyName.toLowerCase());
     };
 
-    return Column(
-      children: [
-        Text(Localizer.instance.text((l) => l.selectedOf(
-            selected: watch(memberView.numSelected).value,
-            totalNum: watch(memberView.numEntries).value))),
-        Expanded(
-          child: memberView,
-        ),
-      ],
-    );
+    return memberView;
   }
 }
 

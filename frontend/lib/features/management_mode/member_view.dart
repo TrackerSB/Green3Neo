@@ -1,10 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
 import 'package:green3neo/components/table_view.dart';
 import 'package:green3neo/database_api/api/member.dart';
 import 'package:green3neo/database_api/api/models.dart';
 import 'package:green3neo/features/feature.dart';
+import 'package:green3neo/localizer.dart';
 import 'package:listen_it/listen_it.dart';
 import 'package:provider/provider.dart';
 import 'package:watch_it/watch_it.dart';
@@ -15,7 +15,18 @@ enum ViewMode {
   selectable,
 }
 
-class MemberView extends StatelessWidget {
+class _SelfUpdatingText extends WatchingWidget {
+  final ValueListenable<String> listenableText;
+
+  const _SelfUpdatingText({super.key, required this.listenableText});
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(watch(listenableText).value);
+  }
+}
+
+class MemberView extends WatchingWidget {
   final _tableViewSource = TableViewSource<Member>();
   final _changeRecords = ListNotifier<ChangeRecord>(data: []);
   final _viewMode = ValueNotifier<ViewMode>(ViewMode.readOnly);
@@ -110,10 +121,27 @@ class MemberView extends StatelessWidget {
     // FIXME Visualize failed reload
     forceReloadDataFromDB();
 
-    return ChangeNotifierProvider(
-      create: (_) => _tableViewSource,
-      child: TableView<Member>(tableViewSource: _tableViewSource),
+    final Widget tableView = Expanded(
+      child: ChangeNotifierProvider(
+        create: (_) => _tableViewSource,
+        child: TableView<Member>(tableViewSource: _tableViewSource),
+      ),
     );
+
+    final selectionText =
+        numSelected.combineLatest(numEntries, (selected, totalNum) {
+      return Localizer.instance
+          .text((l) => l.selectedOf(selected: selected, totalNum: totalNum));
+    });
+
+    return (watch(_viewMode).value == ViewMode.selectable)
+        ? Column(
+            children: [
+              _SelfUpdatingText(listenableText: selectionText),
+              tableView,
+            ],
+          )
+        : tableView;
   }
 }
 
