@@ -450,7 +450,10 @@ class TableView<DataObject extends Object> extends StatelessWidget {
       source: tableViewSource,
       rowsPerPage: 20,
       showFirstLastButtons: true,
-      showCheckboxColumn: true, // FIXME Has it any effect?
+      /* NOTE 2025-12-22:  Even if true checkboxes are only visible if data
+       * rows have onSelectChanged set
+       */
+      showCheckboxColumn: true,
       minWidth: 5000,
     );
   }
