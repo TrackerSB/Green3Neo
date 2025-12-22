@@ -41,7 +41,7 @@ class MemberView extends StatelessWidget {
     return _changeRecords;
   }
 
-  set viewMode(ViewMode viewMode) {
+  set viewMode(final ViewMode viewMode) {
     _viewMode.value = viewMode;
   }
 
@@ -49,7 +49,7 @@ class MemberView extends StatelessWidget {
     _propertyFilter.value = propertyFilter;
   }
 
-  void _onCellChanged(Member member, String setterName,
+  void _onCellChanged(final Member member, final String setterName,
       SupportedType? previousCellValue, SupportedType? newCellValue) {
     var internalPreviousValue = previousCellValue?.value;
     var internalNewValue = newCellValue?.value;
