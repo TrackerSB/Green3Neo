@@ -6,8 +6,12 @@ import 'package:green3neo/database_api/api/models.dart';
 import 'package:green3neo/features/feature.dart';
 import 'package:green3neo/localizer.dart';
 import 'package:listen_it/listen_it.dart';
+import 'package:logging/logging.dart';
 import 'package:provider/provider.dart';
 import 'package:watch_it/watch_it.dart';
+
+// FIXME Determine DART file name automatically
+final _logger = Logger("member_view");
 
 enum ViewMode {
   readOnly,
@@ -38,12 +42,11 @@ class MemberView extends WatchingWidget {
   Future<bool> forceReloadDataFromDB() {
     return getAllMembers().then(
       (members) {
-        // FIXME Warn about state not being initialized yet
         _tableViewSource.content.clear();
         _changeRecords.clear();
 
         if (members == null) {
-          // FIXME Provide error message
+          _logger.severe("Could not load members");
           return false;
         }
 

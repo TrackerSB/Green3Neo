@@ -5,7 +5,7 @@ use flexi_logger::{
     WriteMode,
 };
 
-pub fn create_logger(writer: Option<Box<dyn LogWriter>>) -> LoggerHandle {
+pub fn create_logger(additional_writer: Option<Box<dyn LogWriter>>) -> LoggerHandle {
     let logger_creation_result = Logger::try_with_env_or_str("info");
     if logger_creation_result.is_err() {
         panic!(
@@ -18,8 +18,8 @@ pub fn create_logger(writer: Option<Box<dyn LogWriter>>) -> LoggerHandle {
 
     // FIXME Where to put files based on CWD, environment, installation folder etc.?
     let file_spec = FileSpec::default().directory("./logs").suppress_timestamp();
-    if writer.is_some() {
-        logger = logger.log_to_file_and_writer(file_spec, writer.unwrap());
+    if additional_writer.is_some() {
+        logger = logger.log_to_file_and_writer(file_spec, additional_writer.unwrap());
     } else {
         logger = logger.log_to_file(file_spec);
     }

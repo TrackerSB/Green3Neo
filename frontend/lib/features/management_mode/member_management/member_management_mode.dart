@@ -3,23 +3,27 @@ import 'package:green3neo/features/management_mode/management_mode.dart';
 import 'package:green3neo/features/management_mode/member_view.dart';
 import 'package:green3neo/localizer.dart';
 import 'package:listen_it/listen_it.dart';
+import 'package:logging/logging.dart';
 
 import 'package:watch_it/watch_it.dart';
 import 'package:green3neo/database_api/api/member.dart';
 
 import 'change_record_utility.dart';
 
+// FIXME Determine DART file name automatically
+final _logger = Logger("member_management_mode");
+
 class _ApplyChangeRecordsButton extends WatchingWidget {
   final ListNotifier<ChangeRecord> changeRecords;
 
-  _ApplyChangeRecordsButton({super.key, required this.changeRecords});
+  const _ApplyChangeRecordsButton({super.key, required this.changeRecords});
 
   void _showPersistChangesDialog(
       BuildContext context, List<ChangeRecord> changeRecords) {
     List<ChangeRecord> mergedChangeRecords = mergeChangeRecords(changeRecords);
 
     if (mergedChangeRecords.isEmpty) {
-      // FIXME Provide warning
+      _logger.warning("Not changes to apply left after merging");
       return;
     }
 
