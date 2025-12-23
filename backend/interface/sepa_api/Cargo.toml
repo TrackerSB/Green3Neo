@@ -1,0 +1,13 @@
+[package]
+name = "sepa_api"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+crate-type = ["cdylib"]
+
+[build-dependencies]
+flutter_rust_bridge_codegen = "=2.11.1"
+
+[dependencies]
+flutter_rust_bridge = "=2.11.1"

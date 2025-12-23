@@ -13,7 +13,9 @@ backend_interface_dir := backend_dir + "/interface"
 backend_api_dir := backend_interface_dir + "/backend_api"
 frb_backend_api_output_dir := frontend_output_dir + "/backend_api"
 database_api_dir := backend_interface_dir + "/database_api"
-frb_database_lib_output_dir := frontend_output_dir + "/database_api"
+frb_database_api_output_dir := frontend_output_dir + "/database_api"
+sepa_api_dir := backend_interface_dir + "/sepa_api"
+frb_sepa_api_output_dir := frontend_output_dir + "/sepa_api"
 
 llvmPath := `clang -v 2>&1 | grep 'Selected GCC installation' | rev | cut -d' ' -f1 | rev`
 llvmIncludeDir := llvmPath + "/include"
@@ -33,6 +35,7 @@ clean:
     cd {{ backend_logging_dir }} && cargo clean
     cd {{ backend_api_dir }} && cargo clean
     cd {{ database_api_dir }} && cargo clean
+    cd {{ sepa_api_dir }} && cargo clean
 
 _tasks-create-venv:
     python -m venv {{ tasks_venv_folder }}
@@ -68,15 +71,19 @@ frb-generate: diesel-generate-models
     mkdir -p {{ frb_backend_api_output_dir }}
     flutter_rust_bridge_codegen generate --no-web --no-add-mod-to-lib --llvm-path {{ llvmIncludeDir }} --rust-input "crate::api" --rust-root {{ backend_api_dir }} --dart-output {{ frb_backend_api_output_dir }} --stop-on-error
 
-    mkdir -p {{ frb_database_lib_output_dir }}
-    flutter_rust_bridge_codegen generate --no-web --no-add-mod-to-lib --llvm-path {{ llvmIncludeDir }} --rust-input "crate::api" --rust-root {{ database_api_dir }} --dart-output {{ frb_database_lib_output_dir }} --stop-on-error
+    mkdir -p {{ frb_database_api_output_dir }}
+    flutter_rust_bridge_codegen generate --no-web --no-add-mod-to-lib --llvm-path {{ llvmIncludeDir }} --rust-input "crate::api" --rust-root {{ database_api_dir }} --dart-output {{ frb_database_api_output_dir }} --stop-on-error
     git apply {{ patch_folder }}/frontend/database_api/api/models.dart.patch
     - git apply {{ patch_folder }}/frontend/database_api/frb_generated.dart.patch
     - git apply {{ patch_folder }}/frontend/database_api/frb_generated.dart.alternative.patch
 
+    mkdir -p {{ frb_sepa_api_output_dir }}
+    flutter_rust_bridge_codegen generate --no-web --no-add-mod-to-lib --llvm-path {{ llvmIncludeDir }} --rust-input "crate::api" --rust-root {{ sepa_api_dir }} --dart-output {{ frb_sepa_api_output_dir }} --stop-on-error
+
 backend-build: frb-generate
     cd {{ backend_api_dir }} && cargo build --release
     cd {{ database_api_dir }} && cargo build --release
+    cd {{ sepa_api_dir }} && cargo build --release
 
 frontend-generate-reflectable: frb-generate
     cd {{ frontend_dir }} && dart run build_runner build --delete-conflicting-outputs
@@ -95,6 +102,7 @@ test-backend-unittets: frb-generate
     cd {{ backend_logging_dir }} && cargo test -- --nocapture
     cd {{ backend_api_dir }} && cargo test -- --nocapture
     cd {{ database_api_dir }} && cargo test -- --nocapture
+    cd {{ sepa_api_dir }} && cargo test -- --nocapture
 
 test-frontend-widget-tests: build
     cd {{ frontend_dir }} && flutter test
