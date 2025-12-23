@@ -33,7 +33,8 @@ class ViewManagementPage extends WatchingWidget {
     _lastMemberSourceUpdate.value = DateTime.now();
 
     final MemberView memberView = getIt<MemberView>();
-    memberView.editable = false;
+    memberView.viewMode = ViewMode.readOnly;
+    memberView.propertyFilter = null;
 
     final formattedLastDate = watch(_lastMemberSourceUpdate)
         .map((value) => _formatLastDate(value, context));
@@ -70,7 +71,7 @@ class ViewManagementMode implements ManagementMode {
   String get modeName => "ViewManagementMode"; // FIXME Localize
 
   @override
-  WatchingWidget get widget {
+  Widget get widget {
     instance ??= ViewManagementPage._create();
     return instance!;
   }

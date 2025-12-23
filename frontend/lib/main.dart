@@ -6,6 +6,7 @@ import 'package:green3neo/backend_api/frb_generated.dart' as backend_api;
 import 'package:green3neo/database_api/frb_generated.dart' as database_api;
 import 'package:green3neo/features/management_mode/member_management/member_management_mode.dart';
 import 'package:green3neo/features/management_mode/member_view.dart';
+import 'package:green3neo/features/management_mode/sepa_management/sepa_management_mode.dart';
 import 'package:green3neo/features/management_mode/view_management/view_management_mode.dart';
 import 'package:green3neo/l10n/app_localizations.dart';
 import 'package:green3neo/localizer.dart';
@@ -42,6 +43,7 @@ void main() async {
   MemberViewFeature().register();
   MemberManagementMode().register();
   ViewManagementMode().register();
+  SepaManagementMode().register();
 
   // Start app
   runApp(const MainApp());
@@ -57,6 +59,7 @@ class MainApp extends WatchingWidget {
     final managementModes = [
       getIt<ViewManagementMode>(),
       getIt<MemberManagementMode>(),
+      getIt<SepaManagementMode>(),
     ];
 
     Widget selectedModeWidget = managementModes.first.widget;

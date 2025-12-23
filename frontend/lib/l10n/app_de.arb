@@ -6,9 +6,8 @@
     "noDate": "Noch nie",
     "column": "Spalte",
     "previousValue": "Vorheriger Wert",
-    "@previousValue": {},
     "newValue": "Neuer Wert",
-    "@newValue": {},
     "unexpectedNullValue": "Wert ist aktuell null",
-    "noDataAvailable": "Keine Daten verfügbar"
+    "noDataAvailable": "Keine Daten verfügbar",
+    "selectedOf": "{selected} von {totalNum} ausgewählt"
 }

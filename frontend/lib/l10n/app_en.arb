@@ -26,5 +26,16 @@
     "unexpectedNullValue": "Value is currently null",
     "@unexpectedNullValue": {},
     "noDataAvailable": "No data available",
-    "@noDataAvailable": {}
+    "@noDataAvailable": {},
+    "selectedOf": "{selected} of {totalNum} selected",
+    "@selectedOf": {
+        "placeholders": {
+            "selected":{
+                "type": "int"
+            },
+            "totalNum":{
+                "type": "int"
+            }
+        }
+    }
 }

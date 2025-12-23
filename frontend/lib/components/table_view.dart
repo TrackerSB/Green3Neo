@@ -79,7 +79,7 @@ DataCellGenerator<DataObject> _createDataCellGeneratorForColumn<
         DataObject extends Object, CellType extends SupportedType>(
     BuildContext context,
     VariableMirror variableMirror,
-    ObjectChangeHandler<DataObject>? onObjectValueChange) {
+    ObjectChangeHandler<DataObject>? onObjectValueChanged) {
   dynamic constructor;
   switch (variableMirror.type.reflectedType) {
     case String:
@@ -120,13 +120,13 @@ DataCellGenerator<DataObject> _createDataCellGeneratorForColumn<
       final setterResult = reflectableMarker
           .reflect(object)
           .invokeSetter(variableMirror.simpleName, newCellValue?.value);
-      onObjectValueChange!(
+      onObjectValueChanged!(
           object, variableMirror.simpleName, previousCellValue, newCellValue);
     }
 
     return DataCell(
       TableViewCell<CellType>(cellValueState: currentCellValue),
-      onTap: isFinal || (onObjectValueChange == null)
+      onTap: isFinal || (onObjectValueChanged == null)
           ? null
           : () {
               showGeneralDialog(
@@ -145,8 +145,10 @@ DataCellGenerator<DataObject> _createDataCellGeneratorForColumn<
 }
 
 Map<String, DataCellGenerator<DataObject>>
-    _createColumnGenerators<DataObject extends Object>(BuildContext context,
-        ObjectChangeHandler<DataObject>? onObjectValueChange) {
+    _createColumnGenerators<DataObject extends Object>(
+        BuildContext context,
+        ObjectChangeHandler<DataObject>? onObjectValueChanged,
+        bool Function(String)? propertyFilter) {
   if (!reflectableMarker.canReflectType(DataObject)) {
     // FIXME Provide either logging or error handling
     print(
@@ -160,31 +162,35 @@ Map<String, DataCellGenerator<DataObject>>
   Map<String, DeclarationMirror> classDeclarations = classMirror.declarations;
 
   classDeclarations.forEach(
-    (columnName, declarationMirror) {
+    (propertyName, declarationMirror) {
       if (declarationMirror is! VariableMirror) {
+        return;
+      }
+
+      if ((propertyFilter != null) && !propertyFilter(propertyName)) {
         return;
       }
 
       switch (declarationMirror.type.reflectedType) {
         case String:
-          columnInfos[columnName] =
+          columnInfos[propertyName] =
               _createDataCellGeneratorForColumn<DataObject, StringVariant>(
-                  context, declarationMirror, onObjectValueChange);
+                  context, declarationMirror, onObjectValueChanged);
           break;
         case bool:
-          columnInfos[columnName] =
+          columnInfos[propertyName] =
               _createDataCellGeneratorForColumn<DataObject, BoolVariant>(
-                  context, declarationMirror, onObjectValueChange);
+                  context, declarationMirror, onObjectValueChanged);
           break;
         case int:
-          columnInfos[columnName] =
+          columnInfos[propertyName] =
               _createDataCellGeneratorForColumn<DataObject, IntVariant>(
-                  context, declarationMirror, onObjectValueChange);
+                  context, declarationMirror, onObjectValueChanged);
           break;
         default:
-          columnInfos[columnName] =
+          columnInfos[propertyName] =
               _createDataCellGeneratorForColumn<DataObject, UnsupportedVariant>(
-                  context, declarationMirror, onObjectValueChange);
+                  context, declarationMirror, onObjectValueChanged);
           break;
       }
     },
@@ -444,53 +450,84 @@ class TableView<DataObject extends Object> extends StatelessWidget {
       source: tableViewSource,
       rowsPerPage: 20,
       showFirstLastButtons: true,
-      showCheckboxColumn: true, // FIXME Has it any effect?
+      /* NOTE 2025-12-22: Even if true checkboxes are only visible if data
+       * rows have onSelectChanged set
+       */
+      showCheckboxColumn: true,
       minWidth: 5000,
     );
   }
 }
 
+class TableViewSourceEntry<DataObject extends Object> {
+  DataObject value;
+  bool selected;
+
+  TableViewSourceEntry({required this.value, required this.selected});
+}
+
 class TableViewSource<DataObject extends Object> extends DataTableSource {
-  final content = ListNotifier<DataObject>(data: []);
+  final content = ListNotifier<TableViewSourceEntry<DataObject>>(data: []);
   final Map<String, DataCellGenerator<DataObject>> _generators = {};
-  bool isInitialized = false;
+  bool rowsSelectable = false;
+  bool _isInitialized = false;
 
   TableViewSource();
 
-  void initialize(
-      BuildContext context, ObjectChangeHandler<DataObject>? onCellChange) {
-    if (isInitialized) {
+  void initialize({
+    required BuildContext context,
+    ObjectChangeHandler<DataObject>? onCellChanged,
+    bool rowsSelectable = false,
+    bool Function(String)? propertyFilter,
+  }) {
+    this.rowsSelectable = rowsSelectable;
+
+    if (_isInitialized) {
       _generators.clear();
     }
 
-    _generators
-        .addAll(_createColumnGenerators<DataObject>(context, onCellChange));
+    _generators.addAll(_createColumnGenerators<DataObject>(
+        context, onCellChanged, propertyFilter));
 
-    if (!isInitialized) {
+    if (!_isInitialized) {
       content.addListener(() {
         notifyListeners();
       });
 
-      isInitialized = true;
+      _isInitialized = true;
     }
   }
 
   @override
   DataRow? getRow(int rowIndex) {
-    assert(isInitialized, "Do not use table source before initializing it");
+    assert(_isInitialized, "Do not use table source before initializing it");
 
     if ((rowIndex > content.length) || (rowIndex < 0)) {
       return null;
     }
 
-    final DataObject object = content[rowIndex];
+    final TableViewSourceEntry<DataObject> entry = content[rowIndex];
+    final DataObject object = entry.value;
     final List<DataCell> cells = [];
 
     for (final generator in _generators.values) {
       cells.add(generator(object));
     }
 
-    return DataRow(cells: cells);
+    return DataRow(
+      cells: cells,
+      selected: entry.selected,
+      onSelectChanged: rowsSelectable
+          ? (final bool? selected) {
+              /* NOTE 2025-23-22: The selection state may be null at least
+               * in situations where the row is disabled
+               */
+              final bool isActuallySelected = selected == true;
+              entry.selected = isActuallySelected;
+              content.notifyListeners();
+            }
+          : null,
+    );
   }
 
   @override
