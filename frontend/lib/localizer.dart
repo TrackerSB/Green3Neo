@@ -22,8 +22,9 @@ class Localizer {
 
   String text(String Function(AppLocalizations) function) {
     if (_localizations == null) {
-      _logger.warning("No localizations found");
-      return "no localization available";
+      const String message = "No localization available";
+      _logger.warning(message);
+      return message;
     }
 
     return function(_localizations!);
