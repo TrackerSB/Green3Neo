@@ -6,6 +6,7 @@ workspace_folder := "."
 # Backend library paths
 backend_dir := workspace_folder + "/backend"
 backend_logging_dir := backend_dir + "/backend_logging"
+sepa_xsd_to_rust_generator_dir := backend_dir + "/sepa_xsd_to_rust_generator"
 
 # Backend interface library paths
 backend_interface_dir := backend_dir + "/interface"
@@ -15,6 +16,7 @@ database_api_dir := backend_interface_dir + "/database_api"
 frb_database_api_output_dir := frontend_output_dir + "/database_api"
 sepa_api_dir := backend_interface_dir + "/sepa_api"
 frb_sepa_api_output_dir := frontend_output_dir + "/sepa_api"
+rust_sepa_api_output_dir := sepa_api_dir + "/src/api/schemas"
 
 # Frontend library paths
 frontend_dir := workspace_folder + "/frontend"
@@ -89,6 +91,9 @@ frb-generate: diesel-generate-models
 backend-build: frb-generate
     cd {{ backend_api_dir }} && cargo build --release
     cd {{ database_api_dir }} && cargo build --release
+
+    mkdir -p {{ rust_sepa_api_output_dir }}
+    cd {{ sepa_xsd_to_rust_generator_dir }} && cargo run --release -- --output-folder ../../{{ rust_sepa_api_output_dir }}
     cd {{ sepa_api_dir }} && cargo build --release
 
 frontend-generate-reflectable: frb-generate

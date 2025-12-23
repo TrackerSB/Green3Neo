@@ -1,0 +1,8 @@
+[package]
+name = "sepa_xsd_to_rust_generator"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+clap = { version = "^4.5.53", features = ["derive"] }
+xsd-parser = "^1.4.0"
