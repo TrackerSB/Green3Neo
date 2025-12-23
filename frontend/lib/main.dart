@@ -27,7 +27,31 @@ void main() async {
   hierarchicalLoggingEnabled = false;
   Logger.root.level = Level.INFO;
   Logger.root.onRecord.listen((record) {
-    final message = "'${record.loggerName}': ${record.message}";
+    /* FIXME Due to performance considerations make stack trace resolving
+     * optional
+     */
+
+    final String? callingFrame;
+
+    if (record.stackTrace == null) {
+      final StackTrace stackTrace = StackTrace.current;
+      final List<String> frames = stackTrace.toString().split("\n");
+
+      final int lastFrameInLoggingModuleIndex =
+          frames.lastIndexWhere((final String frame) {
+        return frame.contains("package:logging/");
+      });
+      callingFrame = frames.elementAtOrNull(lastFrameInLoggingModuleIndex + 1);
+    } else {
+      final StackTrace stackTrace = record.stackTrace!;
+      final List<String> frames = stackTrace.toString().split("\n");
+      callingFrame = frames.elementAtOrNull(0);
+    }
+
+    final String? logLocation =
+        callingFrame?.replaceFirst(RegExp(r"^#\d+\s*"), "").trim();
+    final String message =
+        "${(logLocation ?? "")} '${record.loggerName}': ${record.message}";
 
     switch (record.level) {
       case Level.SHOUT:
