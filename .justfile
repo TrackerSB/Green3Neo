@@ -3,12 +3,11 @@ set dotenv-required := true
 
 workspace_folder := "."
 
+# Backend library paths
 backend_dir := workspace_folder + "/backend"
 backend_logging_dir := backend_dir + "/backend_logging"
 
-frontend_dir := workspace_folder + "/frontend"
-frontend_output_dir := frontend_dir + "/lib"
-
+# Backend interface library paths
 backend_interface_dir := backend_dir + "/interface"
 backend_api_dir := backend_interface_dir + "/backend_api"
 frb_backend_api_output_dir := frontend_output_dir + "/backend_api"
@@ -17,13 +16,20 @@ frb_database_api_output_dir := frontend_output_dir + "/database_api"
 sepa_api_dir := backend_interface_dir + "/sepa_api"
 frb_sepa_api_output_dir := frontend_output_dir + "/sepa_api"
 
+# Frontend library paths
+frontend_dir := workspace_folder + "/frontend"
+frontend_output_dir := frontend_dir + "/lib"
+
+# LLVM related paths
 llvmPath := `clang -v 2>&1 | grep 'Selected GCC installation' | rev | cut -d' ' -f1 | rev`
 llvmIncludeDir := llvmPath + "/include"
 
+# Task paths
 tasks_folder := workspace_folder + "/tasks"
 tasks_venv_folder := tasks_folder + "/.venv"
 venv_python := tasks_venv_folder + "/bin/python"
 
+# Path to patches
 patch_folder := workspace_folder + "/patches"
 
 default:
