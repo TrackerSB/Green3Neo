@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:green3neo/l10n/app_localizations.dart';
+import 'package:logging/logging.dart';
+
+// FIXME Determine DART file name automatically
+final _logger = Logger("localizer");
 
 class Localizer {
   static Localizer? _instance;
@@ -18,7 +22,7 @@ class Localizer {
 
   String text(String Function(AppLocalizations) function) {
     if (_localizations == null) {
-      // FIXME Log warning about not finding localization
+      _logger.warning("No localizations found");
       return "no localization available";
     }
 

@@ -4,12 +4,16 @@ import 'package:flutter/services.dart';
 import 'package:green3neo/localizer.dart';
 
 import 'package:listen_it/listen_it.dart';
+import 'package:logging/logging.dart';
 import 'package:watch_it/watch_it.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:green3neo/reflectable.dart';
 import 'package:reflectable/mirrors.dart';
 
 part 'table_view.freezed.dart';
+
+// FIXME Determine DART file name automatically
+final _logger = Logger("table_view");
 
 typedef CellValueHandler<CellType extends SupportedType?> = void Function(
     CellType?);
@@ -45,7 +49,7 @@ CellType createDefaultValue<CellType extends SupportedType>() {
     return const SupportedType.unsupported(null) as CellType;
   }
 
-  // FIXME Throw exception or add warning
+  _logger.warning("Unsupported cell type $CellType");
   return const SupportedType.unsupported(null) as CellType;
 }
 
@@ -150,8 +154,7 @@ Map<String, DataCellGenerator<DataObject>>
         ObjectChangeHandler<DataObject>? onObjectValueChanged,
         bool Function(String)? propertyFilter) {
   if (!reflectableMarker.canReflectType(DataObject)) {
-    // FIXME Provide either logging or error handling
-    print(
+    _logger.warning(
         "Cannot generate table view for type '$DataObject' since it's not reflectable.");
     return <String, DataCellGenerator<DataObject>>{};
   }

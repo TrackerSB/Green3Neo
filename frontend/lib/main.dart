@@ -1,7 +1,7 @@
 import 'dart:io' show Platform;
 
 import 'package:flutter/material.dart';
-
+import 'package:green3neo/backend_api/api/logging.dart' as logging;
 import 'package:green3neo/backend_api/frb_generated.dart' as backend_api;
 import 'package:green3neo/database_api/frb_generated.dart' as database_api;
 import 'package:green3neo/features/management_mode/member_management/member_management_mode.dart';
@@ -11,6 +11,7 @@ import 'package:green3neo/features/management_mode/view_management/view_manageme
 import 'package:green3neo/l10n/app_localizations.dart';
 import 'package:green3neo/localizer.dart';
 import 'package:green3neo/main.reflectable.dart';
+import 'package:logging/logging.dart';
 import 'package:watch_it/watch_it.dart';
 import 'package:window_manager/window_manager.dart';
 
@@ -21,6 +22,31 @@ void main() async {
   // Prepare FFI bindings
   await backend_api.RustLib.init();
   await database_api.RustLib.init();
+
+  // Set up logging
+  hierarchicalLoggingEnabled = false;
+  Logger.root.level = Level.INFO;
+  Logger.root.onRecord.listen((record) {
+    final message = "'${record.loggerName}': ${record.message}";
+
+    switch (record.level) {
+      case Level.SHOUT:
+      case Level.SEVERE:
+        logging.error(message: message);
+        break;
+      case Level.WARNING:
+        logging.warn(message: message);
+        break;
+      case Level.INFO:
+        logging.info(message: message);
+        break;
+      default:
+        logging.warn(
+            message: "Log level ${record.level.name} is unsupported. "
+                "Message was $message");
+        break;
+    }
+  });
 
   // Prepare desktop window manager
   bool isDesktop = Platform.isWindows || Platform.isLinux || Platform.isMacOS;
