@@ -6,6 +6,7 @@ workspace_folder := "."
 # Backend library paths
 backend_dir := workspace_folder + "/backend"
 backend_logging_dir := backend_dir + "/backend_logging"
+backend_testing_dir := backend_dir + "/backend_testing"
 sepa_xsd_to_rust_generator_dir := backend_dir + "/sepa_xsd_to_rust_generator"
 
 # Backend interface library paths
@@ -112,6 +113,7 @@ rebuild: clean build
 
 test-backend-unittets: frb-generate
     cd {{ backend_logging_dir }} && cargo test -- --nocapture
+    cd {{ backend_testing_dir }} && cargo test -- --nocapture
     cd {{ backend_api_dir }} && cargo test -- --nocapture
     cd {{ database_api_dir }} && cargo test -- --nocapture
     cd {{ sepa_api_dir }} && cargo test -- --nocapture
