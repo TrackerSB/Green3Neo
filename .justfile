@@ -73,9 +73,13 @@ diesel-generate-models: diesel-generate-schema
     cd {{ database_api_dir }} && diesel_ext --model --import-types diesel::Queryable --import-types diesel::Selectable --import-types diesel::Identifiable --import-types backend_macros::make_fields_non_final --import-types flutter_rust_bridge::frb --import-types crate::schema::* --derive Queryable,Selectable --add-table-name > src/api/models.rs
     git apply {{ patch_folder }}/backend/interface/database_api/api/models.rs.patch
 
+sepa-generate-schemas:
+    mkdir -p {{ rust_sepa_api_output_dir }}
+    cd {{ sepa_xsd_to_rust_generator_dir }} && cargo run --release -- --output-folder ../../{{ rust_sepa_api_output_dir }}
+
 # FIXME Verify that FRB versions in Cargo.toml, pubspec.yaml and the installed FRB codegen (locally and in Github
 # Actions) correspond to each other
-frb-generate: diesel-generate-models
+frb-generate: diesel-generate-models sepa-generate-schemas
     mkdir -p {{ frb_backend_api_output_dir }}
     flutter_rust_bridge_codegen generate --no-web --no-add-mod-to-lib --llvm-path {{ llvmIncludeDir }} --rust-input "crate::api" --rust-root {{ backend_api_dir }} --dart-output {{ frb_backend_api_output_dir }} --stop-on-error
 
@@ -91,9 +95,6 @@ frb-generate: diesel-generate-models
 backend-build: frb-generate
     cd {{ backend_api_dir }} && cargo build --release
     cd {{ database_api_dir }} && cargo build --release
-
-    mkdir -p {{ rust_sepa_api_output_dir }}
-    cd {{ sepa_xsd_to_rust_generator_dir }} && cargo run --release -- --output-folder ../../{{ rust_sepa_api_output_dir }}
     cd {{ sepa_api_dir }} && cargo build --release
 
 frontend-generate-reflectable: frb-generate
