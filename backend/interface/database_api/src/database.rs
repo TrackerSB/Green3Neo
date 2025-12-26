@@ -1,7 +1,7 @@
 use chrono::NaiveDate;
 use diesel::backend::Backend;
-use diesel::query_builder::bind_collector::RawBytesBindCollector;
 use diesel::query_builder::BoxedSqlQuery;
+use diesel::query_builder::bind_collector::RawBytesBindCollector;
 use diesel::serialize::ToSql;
 use diesel::sql_types::{Array, Bool, Date, Double, HasSqlType, Integer, Nullable, Text, Varchar};
 use diesel::{Connection, PgConnection, QueryableByName, RunQueryDsl};
