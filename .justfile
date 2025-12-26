@@ -93,6 +93,7 @@ frb-generate: diesel-generate-models sepa-generate-schemas
     flutter_rust_bridge_codegen generate --no-web --no-add-mod-to-lib --llvm-path {{ llvmIncludeDir }} --rust-input "crate::api" --rust-root {{ sepa_api_dir }} --dart-output {{ frb_sepa_api_output_dir }} --stop-on-error
 
 backend-build: frb-generate
+    cd {{ backend_logging_dir }} && cargo build -- --release
     cd {{ backend_api_dir }} && cargo build --release
     cd {{ database_api_dir }} && cargo build --release
     cd {{ sepa_api_dir }} && cargo build --release
