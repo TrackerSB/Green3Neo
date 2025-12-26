@@ -2,7 +2,6 @@ use std::{
     ffi::OsStr,
     io::Write,
     path::{Path, PathBuf},
-    thread::current,
 };
 
 use clap::Parser;
