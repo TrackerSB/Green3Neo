@@ -2,6 +2,7 @@ use std::{
     ffi::OsStr,
     io::Write,
     path::{Path, PathBuf},
+    process::{Command, Stdio},
 };
 
 use clap::Parser;
@@ -35,6 +36,34 @@ fn write_to_file(path: PathBuf, content: String) -> bool {
     }
 }
 
+fn format_rust(content: String) -> String {
+    let mut format_command = Command::new("rustfmt")
+        .arg("--emit")
+        .arg("stdout")
+        .stdin(Stdio::piped())
+        .stdout(Stdio::piped())
+        .stderr(Stdio::piped())
+        .spawn()
+        .unwrap(); // FIXME Handle error
+
+    let stdin = format_command
+        .stdin
+        .as_mut()
+        .ok_or("failed to open stdin")
+        .unwrap(); // FIXME Handle error
+    stdin.write_all(content.as_bytes()).unwrap(); // FIXME Handle error
+
+    let formatted_output = format_command.wait_with_output().unwrap(); // FIXME Handle error
+
+    assert!(
+        formatted_output.status.success(),
+        "Formatting command failed with '{}'",
+        String::from_utf8_lossy(&formatted_output.stderr)
+    );
+
+    String::from_utf8(formatted_output.stdout).unwrap() // FIXME Handle error
+}
+
 fn main() {
     let args = Args::parse();
 
@@ -61,7 +90,8 @@ fn main() {
 
             let token_stream =
                 generate(parser_config.clone()).expect("Failed to generate Rust code");
-            // FIXME Apply formatting to generated tokens
+            let content = token_stream.to_string();
+            let formatted_content = format_rust(content);
 
             let path_with_rs_extension = path.with_extension("rs");
             let output_file_name_with_dots = path_with_rs_extension
@@ -71,11 +101,10 @@ fn main() {
                 .unwrap();
             let num_dots = output_file_name_with_dots.matches(".").count();
             let output_file_name = output_file_name_with_dots.replacen(".", "_", num_dots - 1);
-
             let output_file_path = output_folder.join(&output_file_name);
-            if write_to_file(output_file_path, token_stream.to_string()) {
-                generated_files.push(output_file_name);
-            }
+
+            assert!(write_to_file(output_file_path, formatted_content));
+            generated_files.push(output_file_name);
         }
 
         let output_file_path = output_folder.join("mod.rs");
@@ -86,6 +115,6 @@ fn main() {
                 format!("{}\n{}", current_content, next_content)
             });
 
-        assert!(write_to_file(output_file_path, content));
+        assert!(write_to_file(output_file_path, format_rust(content)));
     }
 }
