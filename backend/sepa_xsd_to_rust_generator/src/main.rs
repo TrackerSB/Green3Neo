@@ -6,7 +6,11 @@ use std::{
 };
 
 use clap::Parser;
-use xsd_parser::{Config, config::Schema, generate};
+use xsd_parser::{
+    Config,
+    config::{OptimizerFlags, Schema},
+    generate,
+};
 
 #[derive(clap::Parser)]
 #[command(version, about, long_about=None)]
@@ -81,7 +85,11 @@ fn main() {
             .filter(|path| path.extension() == Some(OsStr::new("xsd")))
             .collect();
 
-        let mut parser_config = Config::default();
+        let mut parser_config = Config::default()
+            .with_derive(vec!["Debug", "serde::Serialize"])
+            .with_optimizer_flags(OptimizerFlags::SERDE)
+            .with_quick_xml_serialize();
+
         let output_folder = Path::new(&args.output_folder);
         let mut generated_files: Vec<String> = vec![];
 

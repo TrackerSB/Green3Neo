@@ -11,3 +11,6 @@ flutter_rust_bridge_codegen = "=2.11.1"
 
 [dependencies]
 flutter_rust_bridge = "=2.11.1"
+quick-xml = { version = "0.38.4", features = ["serialize"] }
+serde = { version = "1.0.228", features = ["derive"] }
+xsd-parser-types = { version = "^0.1.2", features = ["quick-xml"] }
