@@ -8,7 +8,7 @@ use std::{
 use clap::Parser;
 use xsd_parser::{
     Config,
-    config::{OptimizerFlags, Schema},
+    config::{GeneratorFlags, OptimizerFlags, Schema},
     generate,
 };
 
@@ -86,8 +86,11 @@ fn main() {
             .collect();
 
         let mut parser_config = Config::default()
-            .with_derive(vec!["Debug", "serde::Serialize"])
-            .with_optimizer_flags(OptimizerFlags::SERDE)
+            .with_derive(vec!["Debug"])
+            .with_optimizer_flags(
+                OptimizerFlags::SERDE | OptimizerFlags::MERGE_CHOICE_CARDINALITIES,
+            )
+            .with_generator_flags(GeneratorFlags::FLATTEN_CONTENT)
             .with_quick_xml_serialize();
 
         let output_folder = Path::new(&args.output_folder);
