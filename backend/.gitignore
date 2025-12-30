@@ -25,4 +25,4 @@ interface/database_api/src/schema.rs
 migrations/
 
 # Generated from XSD
-interface/sepa_api/src/api/schemas/
+interface/sepa_api/src/schemas/

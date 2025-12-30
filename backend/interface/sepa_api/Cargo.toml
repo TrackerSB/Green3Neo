@@ -16,4 +16,5 @@ speculoos = "0.11.0"
 [dependencies]
 chrono = { version = "^0.4.42", features = ["alloc", "unstable-locales"] }
 flutter_rust_bridge = "=2.11.1"
+log = "0.4.25"
 xsd-parser-types = { version = "^0.1.2", features = ["quick-xml"] }
