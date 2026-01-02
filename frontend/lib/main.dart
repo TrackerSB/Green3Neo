@@ -1,6 +1,7 @@
 import 'dart:io' show Platform;
 
 import 'package:flutter/material.dart';
+import 'package:flutter_rust_bridge/flutter_rust_bridge_for_generated.dart';
 import 'package:green3neo/backend_api/api/logging.dart' as logging;
 import 'package:green3neo/backend_api/frb_generated.dart' as backend_api;
 import 'package:green3neo/database_api/frb_generated.dart' as database_api;
@@ -16,14 +17,33 @@ import 'package:logging/logging.dart';
 import 'package:watch_it/watch_it.dart';
 import 'package:window_manager/window_manager.dart';
 
+Future<ExternalLibrary> loadLibWithModifiedConfig(
+    ExternalLibraryLoaderConfig config) async {
+  return await loadExternalLibrary(
+    ExternalLibraryLoaderConfig(
+        stem: config.stem,
+        ioDirectory: "../backend/target/release/",
+        webPrefix: config.webPrefix),
+  );
+}
+
 void main() async {
   // Initialize reflectable mechanism
   initializeReflectable();
 
   // Prepare FFI bindings
-  await backend_api.RustLib.init();
-  await database_api.RustLib.init();
-  await sepa_api.RustLib.init();
+  /* NOTE 2026-01-02: Due to usage of Cargo Workspaces the default generated
+   * paths for loading the external libraries do not work
+   */
+  await backend_api.RustLib.init(
+      externalLibrary: await loadLibWithModifiedConfig(
+          backend_api.RustLib.kDefaultExternalLibraryLoaderConfig));
+  await database_api.RustLib.init(
+      externalLibrary: await loadLibWithModifiedConfig(
+          database_api.RustLib.kDefaultExternalLibraryLoaderConfig));
+  await sepa_api.RustLib.init(
+      externalLibrary: await loadLibWithModifiedConfig(
+          sepa_api.RustLib.kDefaultExternalLibraryLoaderConfig));
 
   // Set up logging
   hierarchicalLoggingEnabled = false;
