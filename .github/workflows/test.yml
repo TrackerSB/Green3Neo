@@ -16,3 +16,10 @@ jobs:
         shell: bash
       - name: Execute tests
         run: just test
+      - name: Publish test results
+        uses: EnricoMi/publish-unit-test-result-action@v2
+        if: (!cancelled())
+        with:
+          files: |
+            backend/target/nextest/default/junit.xml
+            frontend/build/junit.xml
