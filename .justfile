@@ -11,12 +11,16 @@ sepa_xsd_to_rust_generator_dir := backend_dir + "/sepa_xsd_to_rust_generator"
 
 # Backend interface library paths
 backend_interface_dir := backend_dir + "/interface"
+
 backend_api_dir := backend_interface_dir + "/backend_api"
 frb_backend_api_output_dir := frontend_output_dir + "/backend_api"
+
 database_api_dir := backend_interface_dir + "/database_api"
 frb_database_api_output_dir := frontend_output_dir + "/database_api"
+
 sepa_api_dir := backend_interface_dir + "/sepa_api"
 frb_sepa_api_output_dir := frontend_output_dir + "/sepa_api"
+
 rust_sepa_api_output_dir := sepa_api_dir + "/src/schemas"
 
 # Frontend library paths
