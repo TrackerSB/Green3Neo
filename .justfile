@@ -110,10 +110,10 @@ run: build
 
 rebuild: clean build
 
-test-backend-unittets: frb-generate
+backend-test: frb-generate
     cd {{ backend_dir }} && cargo test -- --nocapture
 
-test-frontend-widget-tests: build
+frontend-test: build
     cd {{ frontend_dir }} && flutter test
 
-test: test-backend-unittets test-frontend-widget-tests
+test: backend-test frontend-test
