@@ -6,8 +6,27 @@ on:
 jobs:
   Test-All:
     runs-on: ubuntu-latest
+    permissions:
+      checks: write
+      pull-requests: write
     steps:
       - uses: TrackerSB/Green3Neo-Prepare-Action@main
       - uses: ./.github/actions/prepare-application-build
+      - name: Install command line for executing tests and combining results
+        run: |
+          cargo install cargo-nextest
+          dart pub global activate junitreport
+        shell: bash
       - name: Execute tests
         run: just test
+      - name: Publish test results
+        uses: EnricoMi/publish-unit-test-result-action@v2
+        if: (!cancelled())
+        with:
+          files: |
+            backend/target/nextest/default/junit.xml
+            frontend/build/junit.xml
+          comment_mode: off
+          check_run: true
+          ignore_runs: true
+          job_summary: true

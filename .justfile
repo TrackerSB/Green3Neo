@@ -1,26 +1,31 @@
 set dotenv-load := true
 set dotenv-required := true
 
-workspace_folder := "."
+# FIXME Make workspace folder absolute (maybe using git to find git root?)
+workspace_dir := "."
 
 # Backend library paths
-backend_dir := workspace_folder + "/backend"
+backend_dir := workspace_dir + "/backend"
 backend_logging_dir := backend_dir + "/backend_logging"
 backend_testing_dir := backend_dir + "/backend_testing"
 sepa_xsd_to_rust_generator_dir := backend_dir + "/sepa_xsd_to_rust_generator"
 
 # Backend interface library paths
 backend_interface_dir := backend_dir + "/interface"
+
 backend_api_dir := backend_interface_dir + "/backend_api"
 frb_backend_api_output_dir := frontend_output_dir + "/backend_api"
+
 database_api_dir := backend_interface_dir + "/database_api"
 frb_database_api_output_dir := frontend_output_dir + "/database_api"
+
 sepa_api_dir := backend_interface_dir + "/sepa_api"
 frb_sepa_api_output_dir := frontend_output_dir + "/sepa_api"
+
 rust_sepa_api_output_dir := sepa_api_dir + "/src/schemas"
 
 # Frontend library paths
-frontend_dir := workspace_folder + "/frontend"
+frontend_dir := workspace_dir + "/frontend"
 frontend_output_dir := frontend_dir + "/lib"
 
 # LLVM related paths
@@ -28,12 +33,12 @@ llvmPath := `clang -v 2>&1 | grep 'Selected GCC installation' | rev | cut -d' ' 
 llvmIncludeDir := llvmPath + "/include"
 
 # Task paths
-tasks_folder := workspace_folder + "/tasks"
+tasks_folder := workspace_dir + "/tasks"
 tasks_venv_folder := tasks_folder + "/.venv"
 venv_python := tasks_venv_folder + "/bin/python"
 
 # Path to patches
-patch_folder := workspace_folder + "/patches"
+patch_folder := workspace_dir + "/patches"
 
 default:
     @just --list
@@ -41,10 +46,7 @@ default:
 [confirm]
 clean:
     git clean -Xfd
-    cd {{ backend_logging_dir }} && cargo clean
-    cd {{ backend_api_dir }} && cargo clean
-    cd {{ database_api_dir }} && cargo clean
-    cd {{ sepa_api_dir }} && cargo clean
+    cd {{ backend_dir }} && cargo clean
 
 _tasks-create-venv:
     python -m venv {{ tasks_venv_folder }}
@@ -94,9 +96,7 @@ frb-generate: diesel-generate-models sepa-generate-schemas
     flutter_rust_bridge_codegen generate --no-web --no-add-mod-to-lib --llvm-path {{ llvmIncludeDir }} --rust-input "crate::api" --rust-root {{ sepa_api_dir }} --dart-output {{ frb_sepa_api_output_dir }} --stop-on-error --rust-preamble " use chrono::NaiveDate;"
 
 backend-api-build: frb-generate
-    cd {{ backend_api_dir }} && cargo build --release
-    cd {{ database_api_dir }} && cargo build --release
-    cd {{ sepa_api_dir }} && cargo build --release
+    cd {{ backend_dir }} && cargo build --release -p backend_api -p database_api -p sepa_api
 
 frontend-generate-reflectable: frb-generate
     cd {{ frontend_dir }} && dart run build_runner build --delete-conflicting-outputs
@@ -111,14 +111,10 @@ run: build
 
 rebuild: clean build
 
-test-backend-unittets: frb-generate
-    cd {{ backend_logging_dir }} && cargo test -- --nocapture
-    cd {{ backend_testing_dir }} && cargo test -- --nocapture
-    cd {{ backend_api_dir }} && cargo test -- --nocapture
-    cd {{ database_api_dir }} && cargo test -- --nocapture
-    cd {{ sepa_api_dir }} && cargo test -- --nocapture
+backend-test: frb-generate
+    cd {{ backend_dir }} && cargo nextest run --config-file .nextest.toml
 
-test-frontend-widget-tests: build
-    cd {{ frontend_dir }} && flutter test
+frontend-test: build
+    cd {{ frontend_dir }} && flutter test --machine | tojunit > build/junit.xml
 
-test: test-backend-unittets test-frontend-widget-tests
+test: backend-test frontend-test
