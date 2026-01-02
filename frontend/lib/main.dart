@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:green3neo/backend_api/api/logging.dart' as logging;
 import 'package:green3neo/backend_api/frb_generated.dart' as backend_api;
 import 'package:green3neo/database_api/frb_generated.dart' as database_api;
+import 'package:green3neo/sepa_api/frb_generated.dart' as sepa_api;
 import 'package:green3neo/features/management_mode/member_management/member_management_mode.dart';
 import 'package:green3neo/features/management_mode/member_view.dart';
 import 'package:green3neo/features/management_mode/sepa_management/sepa_management_mode.dart';
@@ -22,6 +23,7 @@ void main() async {
   // Prepare FFI bindings
   await backend_api.RustLib.init();
   await database_api.RustLib.init();
+  await sepa_api.RustLib.init();
 
   // Set up logging
   hierarchicalLoggingEnabled = false;

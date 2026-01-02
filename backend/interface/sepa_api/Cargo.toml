@@ -1,5 +1,5 @@
 [package]
-name = "database_api"
+name = "sepa_api"
 version = "0.1.0"
 edition = "2024"
 
@@ -7,18 +7,14 @@ edition = "2024"
 crate-type = ["cdylib"]
 
 [build-dependencies]
-dotenv = "0.15.0"
 flutter_rust_bridge_codegen = "=2.11.1"
 
 [dev-dependencies]
 backend_testing = { path = "../../backend_testing" }
 speculoos = "0.11.0"
-sqlx = { version = "0.8.2", features = ["runtime-async-std", "postgres"] }
 
 [dependencies]
-backend_macros = { path = "../../backend_macros" }
-chrono = "0.4.31"
-diesel = { version = "2.2.6", features = ["chrono", "postgres"] }
-dotenv = "0.15.0"
+chrono = { version = "^0.4.42", features = ["alloc", "unstable-locales"] }
 flutter_rust_bridge = "=2.11.1"
 log = "0.4.25"
+xsd-parser-types = { version = "^0.1.2", features = ["quick-xml"] }

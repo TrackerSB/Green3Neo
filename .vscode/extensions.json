@@ -17,6 +17,8 @@
         "vadimcn.vscode-lldb",
         // Just
         "kokakiwi.vscode-just",
-        "TobiasHochguertel.just-formatter"
+        "TobiasHochguertel.just-formatter",
+        // XML
+        "redhat.vscode-xml"
     ]
 }

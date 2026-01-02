@@ -2,8 +2,11 @@
     "rust-analyzer.linkedProjects": [
         "./backend/backend_logging/Cargo.toml",
         "./backend/backend_macros/Cargo.toml",
+        "./backend/backend_testing/Cargo.toml",
         "./backend/interface/backend_api/Cargo.toml",
-        "./backend/interface/database_api/Cargo.toml"
+        "./backend/interface/database_api/Cargo.toml",
+        "./backend/interface/sepa_api/Cargo.toml",
+        "./backend/sepa_xsd_to_rust_generator/Cargo.toml"
     ],
     "rust-analyzer.testExplorer": true,
     "cmake.ignoreCMakeListsMissing": true
