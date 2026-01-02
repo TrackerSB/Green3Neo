@@ -115,6 +115,6 @@ backend-test: frb-generate
     cd {{ backend_dir }} && cargo nextest run --config-file .nextest.toml
 
 frontend-test: build
-    cd {{ frontend_dir }} && flutter test
+    cd {{ frontend_dir }} && flutter test --machine | tojunit > build/junit.xml
 
 test: backend-test frontend-test
