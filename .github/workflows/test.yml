@@ -6,6 +6,9 @@ on:
 jobs:
   Test-All:
     runs-on: ubuntu-latest
+    permissions:
+      checks: write
+      pull-requests: write
     steps:
       - uses: TrackerSB/Green3Neo-Prepare-Action@main
       - uses: ./.github/actions/prepare-application-build
