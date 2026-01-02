@@ -9,5 +9,9 @@ jobs:
     steps:
       - uses: TrackerSB/Green3Neo-Prepare-Action@main
       - uses: ./.github/actions/prepare-application-build
+      - name: Install command line for executing tests and combining results
+        run: |
+          cargo install cargo-nextest
+        shell: bash
       - name: Execute tests
         run: just test
