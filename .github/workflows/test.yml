@@ -23,3 +23,7 @@ jobs:
           files: |
             backend/target/nextest/default/junit.xml
             frontend/build/junit.xml
+          comment_mode: off
+          check_run: true
+          ignore_runs: true
+          job_summary: true
