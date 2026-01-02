@@ -9,9 +9,10 @@ runs:
       with:
         channel: stable
         version: latest
-    - name: Install Rust command line tools
+    - name: Install Rust command line tools (for building and testing)
       run: |
         cargo install diesel_cli --no-default-features --features "postgres"
         cargo install diesel_cli_ext
         cargo install flutter_rust_bridge_codegen@2.11.1
+        cargo install cargo-nextest
       shell: bash

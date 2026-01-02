@@ -111,7 +111,7 @@ run: build
 rebuild: clean build
 
 backend-test: frb-generate
-    cd {{ backend_dir }} && cargo test -- --nocapture
+    cd {{ backend_dir }} && cargo nextest run
 
 frontend-test: build
     cd {{ frontend_dir }} && flutter test
