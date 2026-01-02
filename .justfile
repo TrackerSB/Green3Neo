@@ -45,10 +45,7 @@ default:
 [confirm]
 clean:
     git clean -Xfd
-    cd {{ backend_logging_dir }} && cargo clean
-    cd {{ backend_api_dir }} && cargo clean
-    cd {{ database_api_dir }} && cargo clean
-    cd {{ sepa_api_dir }} && cargo clean
+    cd {{ backend_dir }} && cargo clean
 
 _tasks-create-venv:
     python -m venv {{ tasks_venv_folder }}
@@ -98,9 +95,7 @@ frb-generate: diesel-generate-models sepa-generate-schemas
     flutter_rust_bridge_codegen generate --no-web --no-add-mod-to-lib --llvm-path {{ llvmIncludeDir }} --rust-input "crate::api" --rust-root {{ sepa_api_dir }} --dart-output {{ frb_sepa_api_output_dir }} --stop-on-error --rust-preamble " use chrono::NaiveDate;"
 
 backend-api-build: frb-generate
-    cd {{ backend_api_dir }} && cargo build --release
-    cd {{ database_api_dir }} && cargo build --release
-    cd {{ sepa_api_dir }} && cargo build --release
+    cd {{ backend_dir }} && cargo build --release -p backend_api -p database_api -p sepa_api
 
 frontend-generate-reflectable: frb-generate
     cd {{ frontend_dir }} && dart run build_runner build --delete-conflicting-outputs
@@ -116,11 +111,7 @@ run: build
 rebuild: clean build
 
 test-backend-unittets: frb-generate
-    cd {{ backend_logging_dir }} && cargo test -- --nocapture
-    cd {{ backend_testing_dir }} && cargo test -- --nocapture
-    cd {{ backend_api_dir }} && cargo test -- --nocapture
-    cd {{ database_api_dir }} && cargo test -- --nocapture
-    cd {{ sepa_api_dir }} && cargo test -- --nocapture
+    cd {{ backend_dir }} && cargo test -- --nocapture
 
 test-frontend-widget-tests: build
     cd {{ frontend_dir }} && flutter test

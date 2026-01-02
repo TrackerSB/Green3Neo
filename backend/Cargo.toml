@@ -1,0 +1,11 @@
+[workspace]
+resolver = "3"
+members = [
+    "backend_logging",
+    "backend_macros",
+    "backend_testing",
+    "interface/backend_api",
+    "interface/database_api",
+    "interface/sepa_api",
+    "sepa_xsd_to_rust_generator",
+]
