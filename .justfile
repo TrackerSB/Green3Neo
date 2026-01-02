@@ -1,10 +1,11 @@
 set dotenv-load := true
 set dotenv-required := true
 
-workspace_folder := "."
+# FIXME Make workspace folder absolute (maybe using git to find git root?)
+workspace_dir := "."
 
 # Backend library paths
-backend_dir := workspace_folder + "/backend"
+backend_dir := workspace_dir + "/backend"
 backend_logging_dir := backend_dir + "/backend_logging"
 backend_testing_dir := backend_dir + "/backend_testing"
 sepa_xsd_to_rust_generator_dir := backend_dir + "/sepa_xsd_to_rust_generator"
@@ -24,7 +25,7 @@ frb_sepa_api_output_dir := frontend_output_dir + "/sepa_api"
 rust_sepa_api_output_dir := sepa_api_dir + "/src/schemas"
 
 # Frontend library paths
-frontend_dir := workspace_folder + "/frontend"
+frontend_dir := workspace_dir + "/frontend"
 frontend_output_dir := frontend_dir + "/lib"
 
 # LLVM related paths
@@ -32,12 +33,12 @@ llvmPath := `clang -v 2>&1 | grep 'Selected GCC installation' | rev | cut -d' ' 
 llvmIncludeDir := llvmPath + "/include"
 
 # Task paths
-tasks_folder := workspace_folder + "/tasks"
+tasks_folder := workspace_dir + "/tasks"
 tasks_venv_folder := tasks_folder + "/.venv"
 venv_python := tasks_venv_folder + "/bin/python"
 
 # Path to patches
-patch_folder := workspace_folder + "/patches"
+patch_folder := workspace_dir + "/patches"
 
 default:
     @just --list
