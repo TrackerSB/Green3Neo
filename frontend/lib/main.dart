@@ -1,8 +1,9 @@
+import 'dart:async';
 import 'dart:io' show Platform;
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:green3neo/backend_api/api/logging.dart' as logging;
+import 'package:green3neo/backend_api/api/logging.dart' as backend_logging;
 import 'package:green3neo/backend_api/frb_generated.dart' as backend_api;
 import 'package:green3neo/database_api/frb_generated.dart' as database_api;
 import 'package:green3neo/sepa_api/frb_generated.dart' as sepa_api;
@@ -26,6 +27,9 @@ Future<ExternalLibrary> loadLibWithModifiedConfig(
         webPrefix: config.webPrefix),
   );
 }
+
+// FIXME Determine DART file name automatically
+final _logger = Logger("main");
 
 void setupLogging() {
   // Reroute Dart logging output
@@ -58,23 +62,30 @@ void setupLogging() {
     final String message =
         "${(logLocation ?? "")} '${record.loggerName}': ${record.message}";
 
-    switch (record.level) {
-      case Level.SHOUT:
-      case Level.SEVERE:
-        logging.error(message: message);
-        break;
-      case Level.WARNING:
-        logging.warn(message: message);
-        break;
-      case Level.INFO:
-        logging.info(message: message);
-        break;
-      default:
-        logging.warn(
-            message: "Log level ${record.level.name} is unsupported. "
-                "Message was $message");
-        break;
-    }
+    runZonedGuarded(() {
+      switch (record.level) {
+        case Level.SHOUT:
+        case Level.SEVERE:
+          backend_logging.error(message: message);
+          break;
+        case Level.WARNING:
+          backend_logging.warn(message: message);
+          break;
+        case Level.INFO:
+          backend_logging.info(message: message);
+          break;
+        default:
+          backend_logging.warn(
+              message: "Log level ${record.level.name} is unsupported. "
+                  "Message was $message");
+          break;
+      }
+    }, (Object error, StackTrace stackTrace) {
+      FlutterError.presentError(FlutterErrorDetails(
+          exception: "Could not log to backend. Presenting to user"));
+      FlutterError.presentError(
+          FlutterErrorDetails(exception: error, stack: stackTrace));
+    });
   });
 
   // Duplicate errors and exceptions caught by Flutter to logger
