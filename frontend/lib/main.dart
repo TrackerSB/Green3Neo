@@ -19,16 +19,6 @@ import 'package:logging/logging.dart';
 import 'package:watch_it/watch_it.dart';
 import 'package:window_manager/window_manager.dart';
 
-Future<ExternalLibrary> loadLibWithModifiedConfig(
-    ExternalLibraryLoaderConfig config) async {
-  return await loadExternalLibrary(
-    ExternalLibraryLoaderConfig(
-        stem: config.stem,
-        ioDirectory: "../backend/target/release/",
-        webPrefix: config.webPrefix),
-  );
-}
-
 // FIXME Determine DART file name automatically
 final _logger = Logger("main");
 
@@ -112,17 +102,13 @@ void main() async {
 
   // Prepare FFI bindings
   /* NOTE 2026-01-02: Due to usage of Cargo Workspaces the default generated
-   * paths for loading the external libraries do not work
+   * paths for loading the external libraries do not work. However, since the
+   * the resulting SO files are expected to be within the folder bundle/lib
+   * (for linux copied by CMake) these are found anyways.
    */
-  await backend_api.RustLib.init(
-      externalLibrary: await loadLibWithModifiedConfig(
-          backend_api.RustLib.kDefaultExternalLibraryLoaderConfig));
-  await database_api.RustLib.init(
-      externalLibrary: await loadLibWithModifiedConfig(
-          database_api.RustLib.kDefaultExternalLibraryLoaderConfig));
-  await sepa_api.RustLib.init(
-      externalLibrary: await loadLibWithModifiedConfig(
-          sepa_api.RustLib.kDefaultExternalLibraryLoaderConfig));
+  await backend_api.RustLib.init();
+  await database_api.RustLib.init();
+  await sepa_api.RustLib.init();
 
   // Prepare desktop window manager
   bool isDesktop = Platform.isWindows || Platform.isLinux || Platform.isMacOS;
