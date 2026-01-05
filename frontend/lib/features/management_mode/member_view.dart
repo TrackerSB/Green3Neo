@@ -32,9 +32,11 @@ class _SelfUpdatingText extends WatchingWidget {
 
 class MemberView extends WatchingWidget {
   final _tableViewSource = TableViewSource<Member>();
-  final _changeRecords = ListNotifier<ChangeRecord>(data: []);
   final _viewMode = ValueNotifier<ViewMode>(ViewMode.readOnly);
   final _propertyFilter = ValueNotifier<bool Function(String)?>(null);
+
+  final _changeRecords = ListNotifier<ChangeRecord>(data: []);
+  final _selectedRecords = ListNotifier<Member>(data: []);
 
   // ignore: unused_element_parameter
   MemberView._create({super.key});
@@ -57,13 +59,15 @@ class MemberView extends WatchingWidget {
     );
   }
 
-  ListNotifier<ChangeRecord> get changeRecords => _changeRecords;
-
   set viewMode(final ViewMode viewMode) => _viewMode.value = viewMode;
 
   set propertyFilter(final bool Function(String)? propertyFilter) {
     _propertyFilter.value = propertyFilter;
   }
+
+  ListNotifier<ChangeRecord> get changeRecords => _changeRecords;
+
+  ListNotifier<Member> get selectedRecords => _selectedRecords;
 
   void _onCellChanged(final Member member, final String setterName,
       SupportedType? previousCellValue, SupportedType? newCellValue) {
@@ -79,14 +83,26 @@ class MemberView extends WatchingWidget {
             (internalNewValue != null) ? internalNewValue.toString() : null));
   }
 
+  void _onSelectedChanged(final Member member, final bool selected) {
+    if (selected) {
+      _selectedRecords.add(member);
+    } else {
+      if (!_selectedRecords.remove(member)) {
+        _logger.warning("Could not remove element from selected member");
+      }
+    }
+  }
+
   void _reinitTableSource(final BuildContext context) {
     final onCellChanged =
         (_viewMode.value == ViewMode.editable) ? _onCellChanged : null;
+    final onSelectedChanged =
+        (_viewMode.value == ViewMode.selectable) ? _onSelectedChanged : null;
 
     _tableViewSource.initialize(
       context: context,
       onCellChanged: onCellChanged,
-      rowsSelectable: (_viewMode.value == ViewMode.selectable),
+      onSelectedChanged: onSelectedChanged,
       propertyFilter: _propertyFilter.value,
     );
   }
