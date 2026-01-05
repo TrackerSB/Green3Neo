@@ -114,6 +114,11 @@ install(
   COMPONENT Runtime)
 
 install(
+  FILES "${CMAKE_CURRENT_SOURCE_DIR}/../backend/target/release/*.so"
+  DESTINATION "${INSTALL_BUNDLE_DATA_DIR}"
+  COMPONENT Runtime)
+
+install(
   FILES "${FLUTTER_ICU_DATA_FILE}"
   DESTINATION "${INSTALL_BUNDLE_DATA_DIR}"
   COMPONENT Runtime)
