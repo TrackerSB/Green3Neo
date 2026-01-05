@@ -1,7 +1,9 @@
-import 'dart:io' show Platform;
+import 'dart:async';
+import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:green3neo/backend_api/api/logging.dart' as logging;
+import 'package:green3neo/backend_api/api/logging.dart' as backend_logging;
 import 'package:green3neo/backend_api/frb_generated.dart' as backend_api;
 import 'package:green3neo/database_api/frb_generated.dart' as database_api;
 import 'package:green3neo/sepa_api/frb_generated.dart' as sepa_api;
@@ -16,16 +18,11 @@ import 'package:logging/logging.dart';
 import 'package:watch_it/watch_it.dart';
 import 'package:window_manager/window_manager.dart';
 
-void main() async {
-  // Initialize reflectable mechanism
-  initializeReflectable();
+// FIXME Determine DART file name automatically
+final _logger = Logger("main");
 
-  // Prepare FFI bindings
-  await backend_api.RustLib.init();
-  await database_api.RustLib.init();
-  await sepa_api.RustLib.init();
-
-  // Set up logging
+void setupLogging() {
+  // Reroute Dart logging output
   hierarchicalLoggingEnabled = false;
   Logger.root.level = Level.INFO;
   Logger.root.onRecord.listen((record) {
@@ -55,24 +52,62 @@ void main() async {
     final String message =
         "${(logLocation ?? "")} '${record.loggerName}': ${record.message}";
 
-    switch (record.level) {
-      case Level.SHOUT:
-      case Level.SEVERE:
-        logging.error(message: message);
-        break;
-      case Level.WARNING:
-        logging.warn(message: message);
-        break;
-      case Level.INFO:
-        logging.info(message: message);
-        break;
-      default:
-        logging.warn(
-            message: "Log level ${record.level.name} is unsupported. "
-                "Message was $message");
-        break;
-    }
+    runZonedGuarded(() {
+      switch (record.level) {
+        case Level.SHOUT:
+        case Level.SEVERE:
+          backend_logging.error(message: message);
+          break;
+        case Level.WARNING:
+          backend_logging.warn(message: message);
+          break;
+        case Level.INFO:
+          backend_logging.info(message: message);
+          break;
+        default:
+          backend_logging.warn(
+              message: "Log level ${record.level.name} is unsupported. "
+                  "Message was $message");
+          break;
+      }
+    }, (Object error, StackTrace stackTrace) {
+      FlutterError.presentError(FlutterErrorDetails(
+          exception: "Could not log to backend. Presenting to user"));
+      FlutterError.presentError(
+          FlutterErrorDetails(exception: error, stack: stackTrace));
+    });
   });
+
+  // Duplicate errors and exceptions caught by Flutter to logger
+  FlutterError.onError = (FlutterErrorDetails details) {
+    FlutterError.presentError(details);
+    _logger.shout(details);
+  };
+
+  /* Print errors and exceptions not caught by Flutter to logger before
+   * exiting application
+   */
+  PlatformDispatcher.instance.onError = (Object error, StackTrace stackTrace) {
+    _logger.shout("Encountered error not caught by Flutter", error, stackTrace);
+    // FIXME When to consider an error "recoverable" or "not too bad"?
+    return true;
+  };
+}
+
+void main() async {
+  setupLogging();
+
+  initializeReflectable();
+
+  // Prepare FFI bindings
+  /* NOTE 2026-01-02: Due to usage of Cargo Workspaces the default generated
+   * paths for loading the external libraries do not work. However, since the
+   * the resulting SO files are expected to be within the folder bundle/lib
+   * (for linux copied by CMake) these are found anyways.
+   */
+  await backend_api.RustLib.init();
+  await database_api.RustLib.init();
+  await sepa_api.RustLib.init();
 
   // Prepare desktop window manager
   bool isDesktop = Platform.isWindows || Platform.isLinux || Platform.isMacOS;
