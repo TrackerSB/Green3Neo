@@ -100,7 +100,7 @@ void setupLogging() {
   PlatformDispatcher.instance.onError = (Object error, StackTrace stackTrace) {
     _logger.shout("Encountered error not caught by Flutter", error, stackTrace);
     // FIXME When to consider an error "recoverable" or "not too bad"?
-    return false;
+    return true;
   };
 }
 
