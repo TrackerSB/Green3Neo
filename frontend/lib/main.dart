@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:green3neo/backend_api/api/logging.dart' as backend_logging;
 import 'package:green3neo/backend_api/frb_generated.dart' as backend_api;
 import 'package:green3neo/database_api/frb_generated.dart' as database_api;
+import 'package:green3neo/features/management_mode/management_mode.dart';
 import 'package:green3neo/sepa_api/frb_generated.dart' as sepa_api;
 import 'package:green3neo/features/management_mode/member_management/member_management_mode.dart';
 import 'package:green3neo/features/management_mode/member_view.dart';
@@ -143,7 +144,7 @@ class MainApp extends WatchingWidget {
   Widget build(BuildContext context) {
     final getIt = GetIt.instance;
 
-    final managementModes = [
+    final List<ManagementMode<Widget>> managementModes = [
       getIt<ViewManagementMode>(),
       getIt<MemberManagementMode>(),
       getIt<SepaManagementMode>(),

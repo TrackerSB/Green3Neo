@@ -75,7 +75,7 @@ class MemberManagementPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final getIt = GetIt.instance;
 
-    final MemberView memberView = getIt<MemberView>();
+    final MemberView memberView = getIt<MemberViewFeature>().widget;
     memberView.viewMode = ViewMode.editable;
     memberView.propertyFilter = null;
 
@@ -90,7 +90,7 @@ class MemberManagementPage extends StatelessWidget {
   }
 }
 
-class MemberManagementMode implements ManagementMode {
+class MemberManagementMode implements ManagementMode<MemberManagementPage> {
   static MemberManagementPage? instance;
 
   @override
@@ -104,7 +104,7 @@ class MemberManagementMode implements ManagementMode {
   String get modeName => "MemberManagementMode"; // FIXME Localize
 
   @override
-  Widget get widget {
+  MemberManagementPage get widget {
     instance ??= MemberManagementPage._create();
     return instance!;
   }

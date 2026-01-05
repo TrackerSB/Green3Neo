@@ -32,7 +32,7 @@ class ViewManagementPage extends WatchingWidget {
 
     _lastMemberSourceUpdate.value = DateTime.now();
 
-    final MemberView memberView = getIt<MemberView>();
+    final MemberView memberView = getIt<MemberViewFeature>().widget;
     memberView.viewMode = ViewMode.readOnly;
     memberView.propertyFilter = null;
 
@@ -58,7 +58,7 @@ class ViewManagementPage extends WatchingWidget {
   }
 }
 
-class ViewManagementMode implements ManagementMode {
+class ViewManagementMode implements ManagementMode<ViewManagementPage> {
   static ViewManagementPage? instance;
 
   @override
@@ -71,7 +71,7 @@ class ViewManagementMode implements ManagementMode {
   String get modeName => "ViewManagementMode"; // FIXME Localize
 
   @override
-  Widget get widget {
+  ViewManagementPage get widget {
     instance ??= ViewManagementPage._create();
     return instance!;
   }

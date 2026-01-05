@@ -10,7 +10,7 @@ class SepaManagementPage extends WatchingWidget {
   Widget build(BuildContext context) {
     final getIt = GetIt.instance;
 
-    final MemberView memberView = getIt<MemberView>();
+    final MemberView memberView = getIt<MemberViewFeature>().widget;
     memberView.viewMode = ViewMode.selectable;
     memberView.propertyFilter = (final String propertyName) {
       return [
@@ -30,7 +30,7 @@ class SepaManagementPage extends WatchingWidget {
   }
 }
 
-class SepaManagementMode implements ManagementMode {
+class SepaManagementMode implements ManagementMode<SepaManagementPage> {
   static SepaManagementPage? instance;
 
   @override
@@ -43,7 +43,7 @@ class SepaManagementMode implements ManagementMode {
   String get modeName => "SepaManagementMode"; // FIXME Localize
 
   @override
-  Widget get widget {
+  SepaManagementPage get widget {
     instance ??= SepaManagementPage._create();
     return instance!;
   }
