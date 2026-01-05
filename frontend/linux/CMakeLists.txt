@@ -114,14 +114,15 @@ install(
   COMPONENT Runtime)
 
 install(
-  FILES "${CMAKE_CURRENT_SOURCE_DIR}/../backend/target/release/*.so"
+  FILES "${FLUTTER_ICU_DATA_FILE}"
   DESTINATION "${INSTALL_BUNDLE_DATA_DIR}"
   COMPONENT Runtime)
 
 install(
-  FILES "${FLUTTER_ICU_DATA_FILE}"
-  DESTINATION "${INSTALL_BUNDLE_DATA_DIR}"
-  COMPONENT Runtime)
+  DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/../../backend/target/release/"
+  DESTINATION "${INSTALL_BUNDLE_LIB_DIR}"
+  FILES_MATCHING
+  PATTERN "*.so*")
 
 install(
   FILES "${FLUTTER_LIBRARY}"
