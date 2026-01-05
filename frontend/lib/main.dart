@@ -1,5 +1,6 @@
 import 'dart:io' show Platform;
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:green3neo/backend_api/api/logging.dart' as logging;
 import 'package:green3neo/backend_api/frb_generated.dart' as backend_api;
@@ -76,6 +77,20 @@ void setupLogging() {
     }
   });
 
+  // Duplicate errors and exceptions caught by Flutter to logger
+  FlutterError.onError = (FlutterErrorDetails details) {
+    FlutterError.presentError(details);
+    _logger.shout(details);
+  };
+
+  /* Print errors and exceptions not caught by Flutter to logger before
+   * exiting application
+   */
+  PlatformDispatcher.instance.onError = (Object error, StackTrace stackTrace) {
+    _logger.shout("Encountered error not caught by Flutter", error, stackTrace);
+    // FIXME When to consider an error "recoverable" or "not too bad"?
+    return false;
+  };
 }
 
 void main() async {
