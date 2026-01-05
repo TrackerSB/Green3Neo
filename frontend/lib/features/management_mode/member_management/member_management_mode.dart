@@ -75,7 +75,7 @@ class MemberManagementPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final getIt = GetIt.instance;
 
-    final MemberView memberView = getIt<MemberView>();
+    final MemberView memberView = getIt<MemberViewFeature>().widget;
     memberView.viewMode = ViewMode.editable;
     memberView.propertyFilter = null;
 

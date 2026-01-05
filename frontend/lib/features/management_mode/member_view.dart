@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:green3neo/components/table_view.dart';
 import 'package:green3neo/database_api/api/member.dart';
 import 'package:green3neo/database_api/api/models.dart';
-import 'package:green3neo/features/feature.dart';
+import 'package:green3neo/features/widget_feature.dart';
 import 'package:green3neo/localizer.dart';
 import 'package:listen_it/listen_it.dart';
 import 'package:logging/logging.dart';
@@ -133,10 +133,13 @@ class MemberView extends WatchingWidget {
   }
 }
 
-class MemberViewFeature implements Feature {
+class MemberViewFeature implements WidgetFeature<MemberView> {
   @override
   void register() {
     final getIt = GetIt.instance;
-    getIt.registerLazySingleton<MemberView>(() => MemberView._create());
+    getIt.registerLazySingleton<MemberViewFeature>(() => MemberViewFeature());
   }
+
+  @override
+  MemberView get widget => MemberView._create();
 }
