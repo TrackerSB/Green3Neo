@@ -540,5 +540,6 @@ class TableViewSource<DataObject extends Object> extends DataTableSource {
   int get rowCount => content.length;
 
   @override
-  int get selectedRowCount => 0;
+  int get selectedRowCount =>
+      content.where((entry) => entry.selected == true).length;
 }

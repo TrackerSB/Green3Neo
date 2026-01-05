@@ -100,15 +100,14 @@ class MemberView extends WatchingWidget {
     // FIXME Visualize failed reload
     forceReloadDataFromDB();
 
-    final selectionText = _tableViewSource.content.select((c) {
-      final numSelected = c.fold(
-          0,
-          (final int currentNumSelected, final entry) =>
-              currentNumSelected + (entry.selected ? 1 : 0));
-      final numEntries = c.length;
-
-      return Localizer.instance.text(
-          (l) => l.selectedOf(selected: numSelected, totalNum: numEntries));
+    final selectionText = ValueNotifier<String>("");
+    _tableViewSource.addListener(() {
+      selectionText.value = Localizer.instance.text(
+        (l) => l.selectedOf(
+          selected: _tableViewSource.selectedRowCount,
+          totalNum: _tableViewSource.rowCount,
+        ),
+      );
     });
 
     final Widget expandedTableView = Expanded(
