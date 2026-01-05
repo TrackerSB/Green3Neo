@@ -90,7 +90,7 @@ class MemberManagementPage extends StatelessWidget {
   }
 }
 
-class MemberManagementMode implements ManagementMode {
+class MemberManagementMode implements ManagementMode<MemberManagementPage> {
   static MemberManagementPage? instance;
 
   @override
@@ -104,7 +104,7 @@ class MemberManagementMode implements ManagementMode {
   String get modeName => "MemberManagementMode"; // FIXME Localize
 
   @override
-  Widget get widget {
+  MemberManagementPage get widget {
     instance ??= MemberManagementPage._create();
     return instance!;
   }

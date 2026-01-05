@@ -58,7 +58,7 @@ class ViewManagementPage extends WatchingWidget {
   }
 }
 
-class ViewManagementMode implements ManagementMode {
+class ViewManagementMode implements ManagementMode<ViewManagementPage> {
   static ViewManagementPage? instance;
 
   @override
@@ -71,7 +71,7 @@ class ViewManagementMode implements ManagementMode {
   String get modeName => "ViewManagementMode"; // FIXME Localize
 
   @override
-  Widget get widget {
+  ViewManagementPage get widget {
     instance ??= ViewManagementPage._create();
     return instance!;
   }
