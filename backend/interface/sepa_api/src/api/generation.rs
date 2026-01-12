@@ -1,7 +1,7 @@
 use std::io::Cursor;
 
 use chrono::format::StrftimeItems;
-use chrono::{Local, SecondsFormat};
+use chrono::{Local, NaiveDateTime, SecondsFormat};
 use chrono::{Locale, NaiveDate};
 use xsd_parser_types::quick_xml::{SerializeSync, Writer};
 
@@ -226,11 +226,12 @@ fn generate_sepa_document_type(
 
 pub fn generate_sepa_document(
     message_id: MessageID,
-    collection_date: NaiveDate,
+    collection_date: NaiveDateTime, // FIXME Should be NaiveDate
     creditor: Creditor,
     transactions: Vec<Transaction>,
 ) -> String {
-    let document = generate_sepa_document_type(message_id, collection_date, creditor, transactions);
+    let document =
+        generate_sepa_document_type(message_id, collection_date.date(), creditor, transactions);
 
     let output_storage = Cursor::new(Vec::<u8>::new());
     let mut writer = Writer::new_with_indent(output_storage, b' ', 4);

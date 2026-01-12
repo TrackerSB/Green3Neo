@@ -1,4 +1,4 @@
-use chrono::NaiveDate;
+use chrono::NaiveDateTime;
 
 use super::iban::IBAN;
 use super::name::Name;
@@ -10,7 +10,7 @@ pub type MandateID = String;
 #[derive(Debug, Clone)]
 pub struct Mandate {
     pub id: MandateID,
-    pub date_of_signature: NaiveDate,
+    pub date_of_signature: NaiveDateTime, // FIXME Should be NaiveDate
 }
 
 // FIXME Can deriving from Clone be avoided?
