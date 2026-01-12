@@ -93,7 +93,7 @@ frb-generate: diesel-generate-models sepa-generate-schemas
     - git apply {{ patch_folder }}/frontend/database_api/frb_generated.dart.alternative.patch
 
     mkdir -p {{ frb_sepa_api_output_dir }}
-    flutter_rust_bridge_codegen generate --no-web --no-add-mod-to-lib --llvm-path {{ llvmIncludeDir }} --rust-input "crate::api" --rust-root {{ sepa_api_dir }} --dart-output {{ frb_sepa_api_output_dir }} --stop-on-error --rust-preamble " use chrono::NaiveDate;"
+    flutter_rust_bridge_codegen generate --no-web --no-add-mod-to-lib --llvm-path {{ llvmIncludeDir }} --rust-input "crate::api" --rust-root {{ sepa_api_dir }} --dart-output {{ frb_sepa_api_output_dir }} --stop-on-error --rust-preamble "use chrono::NaiveDate;use chrono::NaiveDateTime;"
 
 backend-api-build: frb-generate
     cd {{ backend_dir }} && cargo build --release -p backend_api -p database_api -p sepa_api

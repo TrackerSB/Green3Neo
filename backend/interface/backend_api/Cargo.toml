@@ -16,5 +16,5 @@ flexi_logger = { version = "0.29.8", features = [
     "colors",
     "specfile",
 ] }
-flutter_rust_bridge = "=2.11.1"
+flutter_rust_bridge = { version = "=2.11.1", features = ["chrono"] }
 log = "0.4.25"
