@@ -120,8 +120,8 @@ class MemberView extends WatchingWidget {
     _tableViewSource.addListener(() {
       selectionText.value = Localizer.instance.text(
         (l) => l.selectedOf(
-          selected: _tableViewSource.selectedRowCount,
-          totalNum: _tableViewSource.rowCount,
+          numSelected: _tableViewSource.selectedRowCount,
+          numTotal: _tableViewSource.rowCount,
         ),
       );
     });

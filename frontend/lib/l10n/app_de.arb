@@ -9,7 +9,7 @@
     "newValue": "Neuer Wert",
     "unexpectedNullValue": "Wert ist aktuell null",
     "noDataAvailable": "Keine Daten verfügbar",
-    "selectedOf": "{selected} von {totalNum} ausgewählt",
+    "selectedOf": "{numSelected} von {numTotal} ausgewählt",
     "createDirectDebit": "Erstelle Lastschrift",
     "amount": "Betrag [{unit}]",
     "invalidAmount": "Ungültiger Betrag [{unit}]"

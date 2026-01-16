@@ -27,13 +27,13 @@
     "@unexpectedNullValue": {},
     "noDataAvailable": "No data available",
     "@noDataAvailable": {},
-    "selectedOf": "{selected} of {totalNum} selected",
+    "selectedOf": "{numSelected} of {numTotal} selected",
     "@selectedOf": {
         "placeholders": {
-            "selected": {
+            "numSelected": {
                 "type": "int"
             },
-            "totalNum": {
+            "numTotal": {
                 "type": "int"
             }
         }
