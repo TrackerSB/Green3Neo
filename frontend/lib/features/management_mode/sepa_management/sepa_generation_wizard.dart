@@ -17,9 +17,9 @@ import 'package:path_provider/path_provider.dart';
 final _logger = Logger("sepa_generation_wizard");
 
 class _AmountField extends StatelessWidget {
-  double? _amount;
+  final _amount = ValueNotifier<double?>(null);
 
-  double? get amount => _amount;
+  ValueNotifier<double?> get amount => _amount;
 
   @override
   Widget build(BuildContext context) {
@@ -44,15 +44,15 @@ class _AmountField extends StatelessWidget {
         return null;
       },
       onSaved: (final String? value) =>
-          _amount = value == null ? null : double.tryParse(value),
+          _amount.value = value == null ? null : double.tryParse(value),
     );
   }
 }
 
 class _PurposeField extends StatelessWidget {
-  String _purpose = "";
+  final _purpose = ValueNotifier<String>("");
 
-  String get purpose => _purpose;
+  ValueNotifier<String> get purpose => _purpose;
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +74,7 @@ class _PurposeField extends StatelessWidget {
         }
         return null;
       },
-      onSaved: (final String? value) => _purpose = value ?? "",
+      onSaved: (final String? value) => _purpose.value = value ?? "",
     );
   }
 }
@@ -194,13 +194,14 @@ class SepaGenerationWizard extends StatelessWidget {
 
                   formState.save();
 
-                  if (amountField.amount == null) {
+                  final double? amount = amountField.amount.value;
+                  if (amount == null) {
                     _logger.severe(
                         "The form should not be valid if there is no amount");
                     return;
                   }
 
-                  _onOkButtonPressed(amountField.amount!, purposeField.purpose);
+                  _onOkButtonPressed(amount, purposeField.purpose.value);
                   Navigator.pop(context);
                 },
                 child: Text(MaterialLocalizations.of(context).okButtonLabel),
