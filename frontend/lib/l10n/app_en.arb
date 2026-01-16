@@ -37,5 +37,23 @@
                 "type": "int"
             }
         }
+    },
+    "createDirectDebit": "Create direct debit",
+    "@createDirectDebit": {},
+    "amount": "Amount [{unit}]",
+    "@amount": {
+        "placeholders": {
+            "unit": {
+                "type": "String"
+            }
+        }
+    },
+    "invalidAmount": "Invalid amount [{unit}]",
+    "@invalidAmount": {
+        "placeholders": {
+            "unit": {
+                "type": "String"
+            }
+        }
     }
 }

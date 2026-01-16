@@ -7,6 +7,7 @@ import 'package:green3neo/backend_api/api/logging.dart' as backend_logging;
 import 'package:green3neo/backend_api/frb_generated.dart' as backend_api;
 import 'package:green3neo/database_api/frb_generated.dart' as database_api;
 import 'package:green3neo/features/management_mode/management_mode.dart';
+import 'package:green3neo/features/management_mode/sepa_management/sepa_generation_wizard.dart';
 import 'package:green3neo/sepa_api/frb_generated.dart' as sepa_api;
 import 'package:green3neo/features/management_mode/member_management/member_management_mode.dart';
 import 'package:green3neo/features/management_mode/member_view.dart';
@@ -129,11 +130,12 @@ void main() async {
     });
   }
 
-  // Register top level features
+  // Register all features ignoring any potential dependencies between them
   MemberViewFeature().register();
   MemberManagementMode().register();
   ViewManagementMode().register();
   SepaManagementMode().register();
+  SepaGenerationWizardFactory().register();
 
   // Start app
   runApp(const MainApp());
