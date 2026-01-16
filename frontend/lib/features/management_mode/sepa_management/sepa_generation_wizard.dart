@@ -151,15 +151,30 @@ class SepaGenerationWizard extends StatelessWidget {
 
   SepaGenerationWizard._create({super.key, required this.member});
 
-  void _onOkButtonPressed(final double amount, final String purpose) async {
+  void _onOkButtonPressed(final _AmountField amountField,
+      final _PurposeField purposeField, final BuildContext context) async {
+    final FormState formState = _formKey.currentState!;
+
+    if (!formState.validate()) {
+      return;
+    }
+
+    formState.save();
+
+    final double? amount = amountField.amount.value;
+    if (amount == null) {
+      _logger.severe("The form should not be valid if there is no amount");
+      return;
+    }
+
     final Future<String> sepaContent =
-        _generateSepaContent(member, amount, purpose);
+        _generateSepaContent(member, amount, purposeField.purpose.value);
     final Future<String?> outputPath = _askUserForOutputPath();
 
-    final Future<void> generationResult =
-        _writeContentToPath(sepaContent, outputPath);
 
-    await generationResult;
+    if (context.mounted) {
+      Navigator.pop(context);
+    }
   }
 
   @override
@@ -185,25 +200,8 @@ class SepaGenerationWizard extends StatelessWidget {
           Row(
             children: [
               ElevatedButton(
-                onPressed: () {
-                  final FormState formState = _formKey.currentState!;
-
-                  if (!formState.validate()) {
-                    return;
-                  }
-
-                  formState.save();
-
-                  final double? amount = amountField.amount.value;
-                  if (amount == null) {
-                    _logger.severe(
-                        "The form should not be valid if there is no amount");
-                    return;
-                  }
-
-                  _onOkButtonPressed(amount, purposeField.purpose.value);
-                  Navigator.pop(context);
-                },
+                onPressed: () =>
+                    _onOkButtonPressed(amountField, purposeField, context),
                 child: Text(MaterialLocalizations.of(context).okButtonLabel),
               ),
               CloseButton(
