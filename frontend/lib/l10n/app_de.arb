@@ -13,5 +13,7 @@
     "numMembersSelected": "{numSelected, plural, =1{1 Mitglied ist} other{{numSelected} Mitglieder sind}} ausgewählt",
     "createDirectDebit": "Erstelle Lastschrift",
     "amount": "Betrag [{unit}]",
-    "invalidAmount": "Ungültiger Betrag [{unit}]"
+    "invalidAmount": "Ungültiger Betrag [{unit}]",
+    "purpose": "Verwendungszweck",
+    "invalidPurpose": "Ungültiger Verwendungszweck"
 }

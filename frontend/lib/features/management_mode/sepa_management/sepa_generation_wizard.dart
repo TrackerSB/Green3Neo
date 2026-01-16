@@ -17,6 +17,10 @@ import 'package:path_provider/path_provider.dart';
 final _logger = Logger("sepa_generation_wizard");
 
 class _AmountField extends StatelessWidget {
+  double? _amount;
+
+  double? get amount => _amount;
+
   @override
   Widget build(BuildContext context) {
     final requiredDoubleFormat =
@@ -39,31 +43,71 @@ class _AmountField extends StatelessWidget {
         }
         return null;
       },
+      onSaved: (final String? value) =>
+          _amount = value == null ? null : double.tryParse(value),
     );
   }
 }
 
-Future<String> _generateSepaContent() {
-  // FIXME Make fields configurable
+class _PurposeField extends StatelessWidget {
+  String _purpose = "";
+
+  String get purpose => _purpose;
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      decoration: InputDecoration(
+        labelText: Localizer.instance.text((l) => l.purpose),
+        border: OutlineInputBorder(),
+        errorBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Colors.red,
+          ),
+        ),
+      ),
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      validator: (final String? value) {
+        // FIXME Introduce regex in backend and call match function in frontend
+        if ((value == null) || (value == "")) {
+          return Localizer.instance.text((l) => l.invalidPurpose);
+        }
+        return null;
+      },
+      onSaved: (final String? value) => _purpose = value ?? "",
+    );
+  }
+}
+
+Future<String> _generateSepaContent(
+    final List<Member> member, final double value, final String purpose) {
+  // FIXME Make creditor configurable
   const creditor = Creditor(
       name: "Collecting collective",
       id: "DE98ZZZ09999999999",
       iban: "DE07123412341234123412");
-  final transactions = [
-    Transaction(
-      debitor: Debitor(
-        name: "Paying Paula",
-        iban: "DE89370400440532013000",
-        mandate: Mandate(
-          id: "42",
-          dateOfSignature: DateTime.utc(2023, 5, 1),
-        ),
-      ),
-      purpose: "contribution",
-      value: 42.0,
-    ),
-  ];
+  final transactions = member.map(
+    (final Member m) {
+      final mandate = Mandate(
+        id: m.membershipid.toString(),
+        // FIXME Use correct date of signature
+        dateOfSignature: DateTime.utc(2023, 5, 1),
+      );
+      final debitor = Debitor(
+        name:
+            "${m.accountholderprename ?? m.prename} ${m.accountholdersurname ?? m.surname}",
+        iban: m.iban,
+        mandate: mandate,
+      );
+      return Transaction(
+        debitor: debitor,
+        value: value,
+        purpose: purpose,
+      );
+    },
+  ).toList();
   return generateSepaDocument(
+      // FIXME Make message ID configurable
       messageId: "2026-01-09_FancyMessageID",
       collectionDate: DateTime.now(),
       creditor: creditor,
@@ -71,8 +115,8 @@ Future<String> _generateSepaContent() {
 }
 
 Future<String?> _askUserForOutputPath() {
-  final Future<String?> downloadDir =
-      getDownloadsDirectory().then((dir) => dir?.absolute.path);
+  final Future<String?> downloadDir = getDownloadsDirectory()
+      .then((final Directory? dir) => dir?.absolute.path);
 
   return downloadDir.then(
     (final String? dir) => FilePicker.platform.saveFile(
@@ -107,8 +151,9 @@ class SepaGenerationWizard extends StatelessWidget {
 
   SepaGenerationWizard._create({super.key, required this.member});
 
-  void _onOkButtonPressed() async {
-    final Future<String> sepaContent = _generateSepaContent();
+  void _onOkButtonPressed(final double amount, final String purpose) async {
+    final Future<String> sepaContent =
+        _generateSepaContent(member, amount, purpose);
     final Future<String?> outputPath = _askUserForOutputPath();
 
     final Future<void> generationResult =
@@ -119,6 +164,9 @@ class SepaGenerationWizard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final amountField = _AmountField();
+    final purposeField = _PurposeField();
+
     return Scaffold(
       body: Column(
         children: [
@@ -129,7 +177,8 @@ class SepaGenerationWizard extends StatelessWidget {
               children: [
                 Text(Localizer.instance.text(
                     (l) => l.numMembersSelected(numSelected: member.length))),
-                _AmountField(),
+                purposeField,
+                amountField,
               ],
             ),
           ),
@@ -137,11 +186,21 @@ class SepaGenerationWizard extends StatelessWidget {
             children: [
               ElevatedButton(
                 onPressed: () {
-                  if (!_formKey.currentState!.validate()) {
+                  final FormState formState = _formKey.currentState!;
+
+                  if (!formState.validate()) {
                     return;
                   }
 
-                  _onOkButtonPressed();
+                  formState.save();
+
+                  if (amountField.amount == null) {
+                    _logger.severe(
+                        "The form should not be valid if there is no amount");
+                    return;
+                  }
+
+                  _onOkButtonPressed(amountField.amount!, purposeField.purpose);
                   Navigator.pop(context);
                 },
                 child: Text(MaterialLocalizations.of(context).okButtonLabel),

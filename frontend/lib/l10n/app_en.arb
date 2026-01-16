@@ -64,5 +64,9 @@
                 "type": "String"
             }
         }
-    }
+    },
+    "purpose": "Purpose",
+    "@purpose": {},
+    "invalidPurpose": "Invalid Purpose",
+    "@invalidPurpose": {}
 }
