@@ -127,7 +127,8 @@ class SepaGenerationWizard extends StatelessWidget {
             autovalidateMode: AutovalidateMode.onUserInteraction,
             child: Column(
               children: [
-                Text(member.length.toString()),
+                Text(Localizer.instance.text(
+                    (l) => l.numMembersSelected(numSelected: member.length))),
                 _AmountField(),
               ],
             ),

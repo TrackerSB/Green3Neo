@@ -10,6 +10,7 @@
     "unexpectedNullValue": "Wert ist aktuell null",
     "noDataAvailable": "Keine Daten verfügbar",
     "selectedOf": "{numSelected} von {numTotal} ausgewählt",
+    "numMembersSelected": "{numSelected, plural, =1{1 Mitglied ist} other{{numSelected} Mitglieder sind}} ausgewählt",
     "createDirectDebit": "Erstelle Lastschrift",
     "amount": "Betrag [{unit}]",
     "invalidAmount": "Ungültiger Betrag [{unit}]"

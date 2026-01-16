@@ -38,6 +38,15 @@
             }
         }
     },
+    "numMembersSelected": "{numSelected, plural, =1{1 member was} other{{numSelected} members were}} selected",
+    "@numMembersSelected": {
+        "placeholders": {
+            "numSelected": {
+                "type": "num",
+                "format": "compact"
+            }
+        }
+    },
     "createDirectDebit": "Create direct debit",
     "@createDirectDebit": {},
     "amount": "Amount [{unit}]",
