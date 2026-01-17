@@ -22,10 +22,6 @@ fn _format_date_time<Tz: TimeZone>(date_time: DateTime<Tz>) -> String {
     date_time.to_rfc3339_opts(SecondsFormat::Secs, true)
 }
 
-fn _format_naive_date_time(date_time: NaiveDateTime) -> String {
-    _format_date_time(date_time.and_utc())
-}
-
 fn generate_group_header(
     message_id: MessageID,
     num_transactions: usize,
@@ -92,7 +88,7 @@ fn generate_creditor_scheme_id(creditor_id: CreditorID) -> PartyIdentification27
 fn generate_mandate_info(mandate: &Mandate) -> MandateRelatedInformation16Type {
     MandateRelatedInformation16Type {
         mndt_id: Some(mandate.id.to_owned()),
-        dt_of_sgntr: Some(_format_naive_date_time(mandate.date_of_signature_utc)),
+        dt_of_sgntr: Some(_format_date(mandate.date_of_signature_utc.date())),
         amdmnt_ind: None,
         amdmnt_inf_dtls: None,
         elctrnc_sgntr: None,
