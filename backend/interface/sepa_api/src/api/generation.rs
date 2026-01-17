@@ -92,7 +92,7 @@ fn generate_creditor_scheme_id(creditor_id: CreditorID) -> PartyIdentification27
 fn generate_mandate_info(mandate: &Mandate) -> MandateRelatedInformation16Type {
     MandateRelatedInformation16Type {
         mndt_id: Some(mandate.id.to_owned()),
-        dt_of_sgntr: Some(_format_naive_date_time(mandate.date_of_signature)),
+        dt_of_sgntr: Some(_format_naive_date_time(mandate.date_of_signature_utc)),
         amdmnt_ind: None,
         amdmnt_inf_dtls: None,
         elctrnc_sgntr: None,
@@ -234,13 +234,13 @@ fn generate_sepa_document_type(
 
 pub fn generate_sepa_document(
     message_id: MessageID,
-    collection_date: NaiveDateTime, // FIXME Should be NaiveDate
+    collection_date_utc: NaiveDateTime, // FIXME Should be NaiveDate
     creditor: Creditor,
     transactions: Vec<Transaction>,
 ) -> String {
     let document = generate_sepa_document_type(
         message_id,
-        collection_date.date(),
+        collection_date_utc.date(),
         creditor,
         transactions,
     );

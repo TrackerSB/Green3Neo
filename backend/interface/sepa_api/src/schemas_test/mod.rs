@@ -45,7 +45,7 @@ mod test {
                 iban: IBAN::from("DE89370400440532013000"),
                 mandate: Mandate {
                     id: MandateID::from("fancyMandateID"),
-                    date_of_signature: NaiveDate::from_ymd_opt(2024, 12, 12)
+                    date_of_signature_utc: NaiveDate::from_ymd_opt(2024, 12, 12)
                         .unwrap()
                         .and_hms_opt(0, 0, 0)
                         .unwrap(), // FIXME Handle error

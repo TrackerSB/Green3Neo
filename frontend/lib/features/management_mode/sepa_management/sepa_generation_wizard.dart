@@ -92,7 +92,7 @@ Future<String> _generateSepaContent(
       final mandate = Mandate(
         id: m.membershipid.toString(),
         // FIXME Use correct date of signature
-        dateOfSignature: DateTime.utc(2023, 5, 1),
+        dateOfSignatureUtc: DateTime.utc(2023, 5, 1),
       );
       final debitor = Debitor(
         name:
@@ -110,7 +110,7 @@ Future<String> _generateSepaContent(
   return generateSepaDocument(
       // FIXME Make message ID configurable
       messageId: "2026-01-09_FancyMessageID",
-      collectionDate: DateTime.now(),
+      collectionDateUtc: DateTime.now().toUtc(),
       creditor: creditor,
       transactions: transactions);
 }
