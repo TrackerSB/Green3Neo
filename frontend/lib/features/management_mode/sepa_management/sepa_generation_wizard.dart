@@ -171,6 +171,7 @@ class SepaGenerationWizard extends StatelessWidget {
         _generateSepaContent(member, amount, purposeField.purpose.value);
     final Future<String?> outputPath = _askUserForOutputPath();
 
+    await _writeContentToPath(sepaContent, outputPath);
 
     if (context.mounted) {
       Navigator.pop(context);
