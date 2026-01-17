@@ -16,19 +16,27 @@ import 'package:path_provider/path_provider.dart';
 // FIXME Determine DART file name automatically
 final _logger = Logger("sepa_generation_wizard");
 
-class _AmountField extends StatelessWidget {
-  final _amount = ValueNotifier<double?>(null);
+class _FormTextField<ResultType> extends StatelessWidget {
+  final value = ValueNotifier<ResultType?>(null);
+  final ResultType? Function(String) convert;
+  final String labelText;
+  final String invalidText;
+  final TextInputType? keyboardType;
+  final bool Function(String)? validate;
 
-  ValueNotifier<double?> get amount => _amount;
+  _FormTextField({
+    required this.convert,
+    required this.labelText,
+    required this.invalidText,
+    this.keyboardType,
+    this.validate,
+  });
 
   @override
   Widget build(BuildContext context) {
-    final requiredDoubleFormat =
-        RegExp(r"^[1-9][0-9]*([,|\.][0-9]+)?$", caseSensitive: false);
-
     return TextFormField(
       decoration: InputDecoration(
-        labelText: Localizer.instance.text((l) => l.amount(unit: "€")),
+        labelText: labelText,
         border: OutlineInputBorder(),
         errorBorder: OutlineInputBorder(
           borderSide: BorderSide(
@@ -37,56 +45,87 @@ class _AmountField extends StatelessWidget {
         ),
       ),
       autovalidateMode: AutovalidateMode.onUserInteraction,
-      keyboardType: TextInputType.numberWithOptions(decimal: true),
+      keyboardType: keyboardType,
       validator: (value) {
-        if ((value == null) || !requiredDoubleFormat.hasMatch(value)) {
-          return Localizer.instance.text((l) => l.invalidAmount(unit: "€"));
+        if ((value == null) || (validate != null) && !validate!(value)) {
+          return invalidText;
         }
+
         return null;
       },
-      onSaved: (final String? value) =>
-          _amount.value = value == null ? null : double.tryParse(value),
+      onSaved: (final String? textValue) {
+        value.value = (textValue == null) ? null : convert(textValue);
+      },
     );
   }
 }
 
-class _PurposeField extends StatelessWidget {
-  final _purpose = ValueNotifier<String>("");
+class _AmountField extends _FormTextField<double> {
+  static final requiredDoubleFormat =
+      RegExp(r"^[1-9][0-9]*([,|\.][0-9]+)?$", caseSensitive: false);
 
-  ValueNotifier<String> get purpose => _purpose;
-
-  @override
-  Widget build(BuildContext context) {
-    return TextFormField(
-      decoration: InputDecoration(
-        labelText: Localizer.instance.text((l) => l.purpose),
-        border: OutlineInputBorder(),
-        errorBorder: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: Colors.red,
-          ),
-        ),
-      ),
-      autovalidateMode: AutovalidateMode.onUserInteraction,
-      validator: (final String? value) {
-        // FIXME Introduce regex in backend and call match function in frontend
-        if ((value == null) || (value == "")) {
-          return Localizer.instance.text((l) => l.invalidPurpose);
-        }
-        return null;
-      },
-      onSaved: (final String? value) => _purpose.value = value ?? "",
-    );
-  }
+  _AmountField()
+      : super(
+          convert: (final String value) => double.tryParse(value),
+          labelText: Localizer.instance.text((l) => l.amount(unit: "€")),
+          invalidText:
+              Localizer.instance.text((l) => l.invalidAmount(unit: "€")),
+          keyboardType: TextInputType.numberWithOptions(decimal: true),
+          validate: (final String value) =>
+              requiredDoubleFormat.hasMatch(value),
+        );
 }
 
-Future<String> _generateSepaContent(
+class _PurposeField extends _FormTextField<String> {
+  _PurposeField()
+      : super(
+          convert: (final String value) => value,
+          labelText: Localizer.instance.text((l) => l.purpose),
+          invalidText: Localizer.instance.text((l) => l.invalidPurpose),
+          keyboardType: TextInputType.text,
+          // FIXME Introduce regex in backend and call match function in frontend
+          validate: (final String value) => value.isNotEmpty,
+        );
+}
+
+class _CreditorNameField extends _FormTextField<String> {
+  _CreditorNameField()
+      : super(
+          convert: (final String value) => value,
+          labelText: Localizer.instance.text((l) => l.creditorName),
+          invalidText: Localizer.instance.text((l) => l.invalidCreditorName),
+          keyboardType: TextInputType.text,
+          // FIXME Introduce regex in backend and call match function in frontend
+          validate: (final String value) => value.isNotEmpty,
+        );
+}
+
+class _CreditorIbanField extends _FormTextField<String> {
+  _CreditorIbanField()
+      : super(
+          convert: (final String value) => value,
+          labelText: Localizer.instance.text((l) => l.creditorIban),
+          invalidText: Localizer.instance.text((l) => l.invalidCreditorIban),
+          keyboardType: TextInputType.text,
+          // FIXME Introduce regex in backend and call match function in frontend
+          validate: (final String value) => value.isNotEmpty,
+        );
+}
+
+class _CreditorIdField extends _FormTextField<String> {
+  _CreditorIdField()
+      : super(
+          convert: (final String value) => value,
+          labelText: Localizer.instance.text((l) => l.creditorId),
+          invalidText: Localizer.instance.text((l) => l.invalidCreditorId),
+          keyboardType: TextInputType.text,
+          // FIXME Introduce regex in backend and call match function in frontend
+          validate: (final String value) => value.isNotEmpty,
+        );
+}
+
+Future<String> _generateSepaContent(final Creditor creditor,
     final List<Member> member, final double value, final String purpose) {
-  // FIXME Make creditor configurable
-  const creditor = Creditor(
-      name: "Collecting collective",
-      id: "DE98ZZZ09999999999",
-      iban: "DE07123412341234123412");
   final transactions = member.map(
     (final Member m) {
       final mandate = Mandate(
@@ -152,8 +191,13 @@ class SepaGenerationWizard extends StatelessWidget {
 
   SepaGenerationWizard._create({super.key, required this.member});
 
-  void _onOkButtonPressed(final _AmountField amountField,
-      final _PurposeField purposeField, final BuildContext context) async {
+  void _onOkButtonPressed(
+      final _CreditorNameField creditorNameField,
+      final _CreditorIbanField creditorIbanField,
+      final _CreditorIdField creditorIdField,
+      final _AmountField amountField,
+      final _PurposeField purposeField,
+      final BuildContext context) async {
     final FormState formState = _formKey.currentState!;
 
     if (!formState.validate()) {
@@ -162,14 +206,26 @@ class SepaGenerationWizard extends StatelessWidget {
 
     formState.save();
 
-    final double? amount = amountField.amount.value;
-    if (amount == null) {
-      _logger.severe("The form should not be valid if there is no amount");
+    final double? amount = amountField.value.value;
+    final String? creditorName = creditorNameField.value.value;
+    final String? creditorIban = creditorIbanField.value.value;
+    final String? creditorId = creditorIdField.value.value;
+    final String? purpose = purposeField.value.value;
+    if ((amount == null) ||
+        (creditorName == null) ||
+        (creditorIban == null) ||
+        (creditorId == null) ||
+        (purpose == null)) {
+      _logger.severe(
+          "The form should not be valid since there are not set form fields");
       return;
     }
 
+    final creditor =
+        Creditor(name: creditorName, id: creditorId, iban: creditorIban);
+
     final Future<String> sepaContent =
-        _generateSepaContent(member, amount, purposeField.purpose.value);
+        _generateSepaContent(creditor, member, amount, purpose);
     final Future<String?> outputPath = _askUserForOutputPath();
 
     await _writeContentToPath(sepaContent, outputPath);
@@ -183,6 +239,9 @@ class SepaGenerationWizard extends StatelessWidget {
   Widget build(BuildContext context) {
     final amountField = _AmountField();
     final purposeField = _PurposeField();
+    final creditorNameField = _CreditorNameField();
+    final creditorIbanField = _CreditorIbanField();
+    final creditorIdField = _CreditorIdField();
 
     return Scaffold(
       body: Column(
@@ -194,6 +253,9 @@ class SepaGenerationWizard extends StatelessWidget {
               children: [
                 Text(Localizer.instance.text(
                     (l) => l.numMembersSelected(numSelected: member.length))),
+                creditorNameField,
+                creditorIbanField,
+                creditorIdField,
                 purposeField,
                 amountField,
               ],
@@ -202,8 +264,13 @@ class SepaGenerationWizard extends StatelessWidget {
           Row(
             children: [
               ElevatedButton(
-                onPressed: () =>
-                    _onOkButtonPressed(amountField, purposeField, context),
+                onPressed: () => _onOkButtonPressed(
+                    creditorNameField,
+                    creditorIbanField,
+                    creditorIdField,
+                    amountField,
+                    purposeField,
+                    context),
                 child: Text(MaterialLocalizations.of(context).okButtonLabel),
               ),
               CloseButton(

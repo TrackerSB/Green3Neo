@@ -57,7 +57,7 @@
             }
         }
     },
-    "invalidAmount": "Invalid amount [{unit}]",
+    "invalidAmount": "Invalid Amount [{unit}]",
     "@invalidAmount": {
         "placeholders": {
             "unit": {
@@ -68,5 +68,17 @@
     "purpose": "Purpose",
     "@purpose": {},
     "invalidPurpose": "Invalid Purpose",
-    "@invalidPurpose": {}
+    "@invalidPurpose": {},
+    "creditorName": "Creditor Name",
+    "@creditorName": {},
+    "invalidCreditorName": "Invalid Creditor Name",
+    "@invalidCreditorName": {},
+    "creditorIban": "Creditor IBAN",
+    "@creditorIban": {},
+    "invalidCreditorIban": "Invalid Creditor IBAN",
+    "@invalidCreditorIban": {},
+    "creditorId": "Creditor ID",
+    "@creditorId": {},
+    "invalidCreditorId": "Invalid Creditor ID",
+    "@invalidCreditorId": {}
 }
