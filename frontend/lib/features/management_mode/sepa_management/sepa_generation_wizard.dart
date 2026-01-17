@@ -37,6 +37,7 @@ class _AmountField extends StatelessWidget {
         ),
       ),
       autovalidateMode: AutovalidateMode.onUserInteraction,
+      keyboardType: TextInputType.numberWithOptions(decimal: true),
       validator: (value) {
         if ((value == null) || !requiredDoubleFormat.hasMatch(value)) {
           return Localizer.instance.text((l) => l.invalidAmount(unit: "€"));
