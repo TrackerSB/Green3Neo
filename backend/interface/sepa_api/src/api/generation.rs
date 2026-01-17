@@ -1,8 +1,6 @@
 use std::io::Cursor;
 
-use chrono::format::StrftimeItems;
-use chrono::{Local, NaiveDateTime, SecondsFormat};
-use chrono::{Locale, NaiveDate};
+use chrono::{DateTime, NaiveDate, NaiveDateTime, SecondsFormat, TimeZone, Utc};
 use xsd_parser_types::quick_xml::{SerializeSync, Writer};
 
 use super::creditor::Creditor;
@@ -16,16 +14,28 @@ use crate::schemas::pain_008_001_11::*;
 // FIXME Check restrictions on message ID
 pub type MessageID = String;
 
+fn _format_date(date: NaiveDate) -> String {
+    date.format("%Y-%m-%d").to_string()
+}
+
+fn _format_date_time<Tz: TimeZone>(date_time: DateTime<Tz>) -> String {
+    date_time.to_rfc3339_opts(SecondsFormat::Secs, true)
+}
+
+fn _format_naive_date_time(date_time: NaiveDateTime) -> String {
+    _format_date_time(date_time.and_utc())
+}
+
 fn generate_group_header(
     message_id: MessageID,
     num_transactions: usize,
     control_sum: f64,
 ) -> GroupHeader118Type {
-    let creation_time = Local::now();
+    let creation_time_utc = Utc::now();
 
     GroupHeader118Type {
         msg_id: message_id,
-        cre_dt_tm: creation_time.to_rfc3339_opts(SecondsFormat::Secs, true),
+        cre_dt_tm: _format_date_time(creation_time_utc),
         authstn: vec![],
         nb_of_txs: num_transactions.to_string(),
         ctrl_sum: Some(control_sum),
@@ -82,7 +92,7 @@ fn generate_creditor_scheme_id(creditor_id: CreditorID) -> PartyIdentification27
 fn generate_mandate_info(mandate: &Mandate) -> MandateRelatedInformation16Type {
     MandateRelatedInformation16Type {
         mndt_id: Some(mandate.id.to_owned()),
-        dt_of_sgntr: Some(mandate.date_of_signature.to_string()),
+        dt_of_sgntr: Some(_format_naive_date_time(mandate.date_of_signature)),
         amdmnt_ind: None,
         amdmnt_inf_dtls: None,
         elctrnc_sgntr: None,
@@ -188,9 +198,7 @@ fn generate_sepa_document_type(
                     seq_tp: Some(SequenceType3CodeType::Rcur),
                     ctgy_purp: None,
                 }),
-                reqd_colltn_dt: collection_date
-                    .format_with_items(StrftimeItems::new_with_locale("%x", Locale::POSIX))
-                    .to_string(),
+                reqd_colltn_dt: _format_date(collection_date),
                 cdtr: generate_creditor_info(&creditor.name),
                 cdtr_acct: generate_creditor_account(creditor.iban),
                 cdtr_agt: BranchAndFinancialInstitutionIdentification8Type {
@@ -230,8 +238,12 @@ pub fn generate_sepa_document(
     creditor: Creditor,
     transactions: Vec<Transaction>,
 ) -> String {
-    let document =
-        generate_sepa_document_type(message_id, collection_date.date(), creditor, transactions);
+    let document = generate_sepa_document_type(
+        message_id,
+        collection_date.date(),
+        creditor,
+        transactions,
+    );
 
     let output_storage = Cursor::new(Vec::<u8>::new());
     let mut writer = Writer::new_with_indent(output_storage, b' ', 4);
