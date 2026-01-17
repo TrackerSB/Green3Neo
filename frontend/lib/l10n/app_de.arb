@@ -21,5 +21,7 @@
     "creditorIban": "Kreditor/Gläubiger IBAN",
     "invalidCreditorIban": "Ungültige Kreditor/Gläubiger IBAN",
     "creditorId": "Kreditor/Gläubiger ID",
-    "invalidCreditorId": "Ungültige Kreditor/Gläubiger ID"
+    "invalidCreditorId": "Ungültige Kreditor/Gläubiger ID",
+    "messageId": "ID für generierte Datei",
+    "invalidMessageId": "Ungültige ID für generierte Datei"
 }

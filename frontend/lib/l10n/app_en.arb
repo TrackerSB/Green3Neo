@@ -80,5 +80,9 @@
     "creditorId": "Creditor ID",
     "@creditorId": {},
     "invalidCreditorId": "Invalid Creditor ID",
-    "@invalidCreditorId": {}
+    "@invalidCreditorId": {},
+    "messageId": "Message ID",
+    "@messageId": {},
+    "invalidMessageId": "Invalid Message ID",
+    "@invalidMessageId": {}
 }
