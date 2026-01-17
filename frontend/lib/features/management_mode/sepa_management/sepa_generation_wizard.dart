@@ -3,6 +3,11 @@ import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
+import 'package:green3neo/components/form_fields/creditor_iban_field.dart';
+import 'package:green3neo/components/form_fields/creditor_id_field.dart';
+import 'package:green3neo/components/form_fields/creditor_name_field.dart';
+import 'package:green3neo/components/form_fields/currency_field.dart';
+import 'package:green3neo/components/form_fields/purpose_field.dart';
 import 'package:green3neo/database_api/api/models.dart';
 import 'package:green3neo/features/feature.dart';
 import 'package:green3neo/localizer.dart';
@@ -15,114 +20,6 @@ import 'package:path_provider/path_provider.dart';
 
 // FIXME Determine DART file name automatically
 final _logger = Logger("sepa_generation_wizard");
-
-class _FormTextField<ResultType> extends StatelessWidget {
-  final value = ValueNotifier<ResultType?>(null);
-  final ResultType? Function(String) convert;
-  final String labelText;
-  final String invalidText;
-  final TextInputType? keyboardType;
-  final bool Function(String)? validate;
-
-  _FormTextField({
-    required this.convert,
-    required this.labelText,
-    required this.invalidText,
-    this.keyboardType,
-    this.validate,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return TextFormField(
-      decoration: InputDecoration(
-        labelText: labelText,
-        border: OutlineInputBorder(),
-        errorBorder: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: Colors.red,
-          ),
-        ),
-      ),
-      autovalidateMode: AutovalidateMode.onUserInteraction,
-      keyboardType: keyboardType,
-      validator: (value) {
-        if ((value == null) || (validate != null) && !validate!(value)) {
-          return invalidText;
-        }
-
-        return null;
-      },
-      onSaved: (final String? textValue) {
-        value.value = (textValue == null) ? null : convert(textValue);
-      },
-    );
-  }
-}
-
-class _CurrencyField extends _FormTextField<double> {
-  static final requiredDoubleFormat =
-      RegExp(r"^[1-9][0-9]*([,|\.][0-9]+)?$", caseSensitive: false);
-
-  _CurrencyField()
-      : super(
-          convert: (final String value) => double.tryParse(value),
-          labelText: Localizer.instance.text((l) => l.amount(unit: "€")),
-          invalidText:
-              Localizer.instance.text((l) => l.invalidAmount(unit: "€")),
-          keyboardType: TextInputType.numberWithOptions(decimal: true),
-          validate: (final String value) =>
-              requiredDoubleFormat.hasMatch(value),
-        );
-}
-
-class _PurposeField extends _FormTextField<String> {
-  _PurposeField()
-      : super(
-          convert: (final String value) => value,
-          labelText: Localizer.instance.text((l) => l.purpose),
-          invalidText: Localizer.instance.text((l) => l.invalidPurpose),
-          keyboardType: TextInputType.text,
-          // FIXME Introduce regex in backend and call match function in frontend
-          validate: (final String value) => value.isNotEmpty,
-        );
-}
-
-class _CreditorNameField extends _FormTextField<String> {
-  _CreditorNameField()
-      : super(
-          convert: (final String value) => value,
-          labelText: Localizer.instance.text((l) => l.creditorName),
-          invalidText: Localizer.instance.text((l) => l.invalidCreditorName),
-          keyboardType: TextInputType.text,
-          // FIXME Introduce regex in backend and call match function in frontend
-          validate: (final String value) => value.isNotEmpty,
-        );
-}
-
-class _CreditorIbanField extends _FormTextField<String> {
-  _CreditorIbanField()
-      : super(
-          convert: (final String value) => value,
-          labelText: Localizer.instance.text((l) => l.creditorIban),
-          invalidText: Localizer.instance.text((l) => l.invalidCreditorIban),
-          keyboardType: TextInputType.text,
-          // FIXME Introduce regex in backend and call match function in frontend
-          validate: (final String value) => value.isNotEmpty,
-        );
-}
-
-class _CreditorIdField extends _FormTextField<String> {
-  _CreditorIdField()
-      : super(
-          convert: (final String value) => value,
-          labelText: Localizer.instance.text((l) => l.creditorId),
-          invalidText: Localizer.instance.text((l) => l.invalidCreditorId),
-          keyboardType: TextInputType.text,
-          // FIXME Introduce regex in backend and call match function in frontend
-          validate: (final String value) => value.isNotEmpty,
-        );
-}
 
 Future<String> _generateSepaContent(final Creditor creditor,
     final List<Member> member, final double value, final String purpose) {
@@ -192,11 +89,11 @@ class SepaGenerationWizard extends StatelessWidget {
   SepaGenerationWizard._create({super.key, required this.member});
 
   void _onOkButtonPressed(
-      final _CreditorNameField creditorNameField,
-      final _CreditorIbanField creditorIbanField,
-      final _CreditorIdField creditorIdField,
-      final _CurrencyField currencyField,
-      final _PurposeField purposeField,
+      final CreditorNameField creditorNameField,
+      final CreditorIbanField creditorIbanField,
+      final CreditorIdField creditorIdField,
+      final CurrencyField currencyField,
+      final PurposeField purposeField,
       final BuildContext context) async {
     final FormState formState = _formKey.currentState!;
 
@@ -237,11 +134,11 @@ class SepaGenerationWizard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final currencyField = _CurrencyField();
-    final purposeField = _PurposeField();
-    final creditorNameField = _CreditorNameField();
-    final creditorIbanField = _CreditorIbanField();
-    final creditorIdField = _CreditorIdField();
+    final currencyField = CurrencyField();
+    final purposeField = PurposeField();
+    final creditorNameField = CreditorNameField();
+    final creditorIbanField = CreditorIbanField();
+    final creditorIdField = CreditorIdField();
 
     return Scaffold(
       body: Column(
