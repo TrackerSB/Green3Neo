@@ -60,11 +60,11 @@ class _FormTextField<ResultType> extends StatelessWidget {
   }
 }
 
-class _AmountField extends _FormTextField<double> {
+class _CurrencyField extends _FormTextField<double> {
   static final requiredDoubleFormat =
       RegExp(r"^[1-9][0-9]*([,|\.][0-9]+)?$", caseSensitive: false);
 
-  _AmountField()
+  _CurrencyField()
       : super(
           convert: (final String value) => double.tryParse(value),
           labelText: Localizer.instance.text((l) => l.amount(unit: "€")),
@@ -195,7 +195,7 @@ class SepaGenerationWizard extends StatelessWidget {
       final _CreditorNameField creditorNameField,
       final _CreditorIbanField creditorIbanField,
       final _CreditorIdField creditorIdField,
-      final _AmountField amountField,
+      final _CurrencyField currencyField,
       final _PurposeField purposeField,
       final BuildContext context) async {
     final FormState formState = _formKey.currentState!;
@@ -206,7 +206,7 @@ class SepaGenerationWizard extends StatelessWidget {
 
     formState.save();
 
-    final double? amount = amountField.value.value;
+    final double? amount = currencyField.value.value;
     final String? creditorName = creditorNameField.value.value;
     final String? creditorIban = creditorIbanField.value.value;
     final String? creditorId = creditorIdField.value.value;
@@ -237,7 +237,7 @@ class SepaGenerationWizard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final amountField = _AmountField();
+    final currencyField = _CurrencyField();
     final purposeField = _PurposeField();
     final creditorNameField = _CreditorNameField();
     final creditorIbanField = _CreditorIbanField();
@@ -257,7 +257,7 @@ class SepaGenerationWizard extends StatelessWidget {
                 creditorIbanField,
                 creditorIdField,
                 purposeField,
-                amountField,
+                currencyField,
               ],
             ),
           ),
@@ -268,7 +268,7 @@ class SepaGenerationWizard extends StatelessWidget {
                     creditorNameField,
                     creditorIbanField,
                     creditorIdField,
-                    amountField,
+                    currencyField,
                     purposeField,
                     context),
                 child: Text(MaterialLocalizations.of(context).okButtonLabel),
