@@ -3,6 +3,7 @@
         // Dart
         "Dart-Code.dart-code",
         // Flutter
+        "google.arb-editor",
         "Dart-Code.flutter",
         // Toml
         "tamasfe.even-better-toml",

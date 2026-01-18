@@ -28,7 +28,10 @@ mod test {
 
         let message_id = MessageID::from("demo_msg_id");
 
-        let collection_date = NaiveDate::from_ymd_opt(2026, 3, 15).unwrap(); // FIXME Handle error
+        let collection_date = NaiveDate::from_ymd_opt(2026, 3, 15)
+            .unwrap()
+            .and_hms_opt(0, 0, 0)
+            .unwrap(); // FIXME Handle error
 
         let creditor = Creditor {
             id: String::from("DE98ZZZ09999999999"),
@@ -42,7 +45,10 @@ mod test {
                 iban: IBAN::from("DE89370400440532013000"),
                 mandate: Mandate {
                     id: MandateID::from("fancyMandateID"),
-                    date_of_signature: NaiveDate::from_ymd_opt(2024, 12, 12).unwrap(), // FIXME Handle error
+                    date_of_signature_utc: NaiveDate::from_ymd_opt(2024, 12, 12)
+                        .unwrap()
+                        .and_hms_opt(0, 0, 0)
+                        .unwrap(), // FIXME Handle error
                 },
             },
             value: 42f64,

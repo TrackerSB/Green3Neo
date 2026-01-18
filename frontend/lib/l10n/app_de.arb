@@ -9,5 +9,19 @@
     "newValue": "Neuer Wert",
     "unexpectedNullValue": "Wert ist aktuell null",
     "noDataAvailable": "Keine Daten verfügbar",
-    "selectedOf": "{selected} von {totalNum} ausgewählt"
+    "selectedOf": "{numSelected} von {numTotal} ausgewählt",
+    "numMembersSelected": "{numSelected, plural, =1{1 Mitglied ist} other{{numSelected} Mitglieder sind}} ausgewählt",
+    "createDirectDebit": "Erstelle Lastschrift",
+    "amount": "Betrag [{unit}]",
+    "invalidAmount": "Ungültiger Betrag [{unit}]",
+    "purpose": "Verwendungszweck",
+    "invalidPurpose": "Ungültiger Verwendungszweck",
+    "creditorName": "Kreditor/Gläubiger Name",
+    "invalidCreditorName": "Ungültiger Kreditor/Gläubiger Name",
+    "creditorIban": "Kreditor/Gläubiger IBAN",
+    "invalidCreditorIban": "Ungültige Kreditor/Gläubiger IBAN",
+    "creditorId": "Kreditor/Gläubiger ID",
+    "invalidCreditorId": "Ungültige Kreditor/Gläubiger ID",
+    "messageId": "ID für generierte Datei",
+    "invalidMessageId": "Ungültige ID für generierte Datei"
 }

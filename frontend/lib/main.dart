@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:green3neo/backend_api/api/logging.dart' as backend_logging;
 import 'package:green3neo/backend_api/frb_generated.dart' as backend_api;
 import 'package:green3neo/database_api/frb_generated.dart' as database_api;
+import 'package:green3neo/features/management_mode/management_mode.dart';
+import 'package:green3neo/features/management_mode/sepa_management/sepa_generation_wizard.dart';
 import 'package:green3neo/sepa_api/frb_generated.dart' as sepa_api;
 import 'package:green3neo/features/management_mode/member_management/member_management_mode.dart';
 import 'package:green3neo/features/management_mode/member_view.dart';
@@ -25,7 +27,7 @@ void setupLogging() {
   // Reroute Dart logging output
   hierarchicalLoggingEnabled = false;
   Logger.root.level = Level.INFO;
-  Logger.root.onRecord.listen((record) {
+  Logger.root.onRecord.listen((final LogRecord record) {
     /* FIXME Due to performance considerations make stack trace resolving
      * optional
      */
@@ -70,7 +72,7 @@ void setupLogging() {
                   "Message was $message");
           break;
       }
-    }, (Object error, StackTrace stackTrace) {
+    }, (final Object error, final StackTrace stackTrace) {
       FlutterError.presentError(FlutterErrorDetails(
           exception: "Could not log to backend. Presenting to user"));
       FlutterError.presentError(
@@ -87,7 +89,8 @@ void setupLogging() {
   /* Print errors and exceptions not caught by Flutter to logger before
    * exiting application
    */
-  PlatformDispatcher.instance.onError = (Object error, StackTrace stackTrace) {
+  PlatformDispatcher.instance.onError =
+      (final Object error, final StackTrace stackTrace) {
     _logger.shout("Encountered error not caught by Flutter", error, stackTrace);
     // FIXME When to consider an error "recoverable" or "not too bad"?
     return true;
@@ -110,7 +113,8 @@ void main() async {
   await sepa_api.RustLib.init();
 
   // Prepare desktop window manager
-  bool isDesktop = Platform.isWindows || Platform.isLinux || Platform.isMacOS;
+  final bool isDesktop =
+      Platform.isWindows || Platform.isLinux || Platform.isMacOS;
   if (isDesktop) {
     WidgetsFlutterBinding.ensureInitialized();
     await windowManager.ensureInitialized();
@@ -126,11 +130,12 @@ void main() async {
     });
   }
 
-  // Register top level features
+  // Register all features ignoring any potential dependencies between them
   MemberViewFeature().register();
   MemberManagementMode().register();
   ViewManagementMode().register();
   SepaManagementMode().register();
+  SepaGenerationWizardFactory().register();
 
   // Start app
   runApp(const MainApp());
@@ -143,7 +148,7 @@ class MainApp extends WatchingWidget {
   Widget build(BuildContext context) {
     final getIt = GetIt.instance;
 
-    final managementModes = [
+    final List<ManagementMode<Widget>> managementModes = [
       getIt<ViewManagementMode>(),
       getIt<MemberManagementMode>(),
       getIt<SepaManagementMode>(),

@@ -7,7 +7,7 @@ edition = "2024"
 proc-macro = true
 
 [dependencies]
-flutter_rust_bridge = "=2.11.1"
+flutter_rust_bridge = { version = "=2.11.1", features = ["chrono"] }
 proc-macro2 = "1.0.86"
 quote = "1.0.37"
 syn = "2.0.79"
