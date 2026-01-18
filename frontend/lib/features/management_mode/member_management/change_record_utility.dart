@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:green3neo/database_api/api/member.dart';
+import 'package:green3neo/interface/database_api/api/member.dart';
 import 'package:green3neo/localizer.dart';
 
 void commitDataChanges(List<ChangeRecord> changeRecords) {

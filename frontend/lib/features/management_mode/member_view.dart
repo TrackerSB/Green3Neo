@@ -1,9 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+
 import 'package:green3neo/components/table_view.dart';
-import 'package:green3neo/database_api/api/member.dart';
-import 'package:green3neo/database_api/api/models.dart';
 import 'package:green3neo/features/widget_feature.dart';
+import 'package:green3neo/interface/database_api/api/member.dart';
+import 'package:green3neo/interface/database_api/api/models.dart';
 import 'package:green3neo/localizer.dart';
 import 'package:listen_it/listen_it.dart';
 import 'package:logging/logging.dart';

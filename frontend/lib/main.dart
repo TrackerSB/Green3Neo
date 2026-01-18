@@ -3,16 +3,20 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:green3neo/backend_api/api/logging.dart' as backend_logging;
-import 'package:green3neo/backend_api/frb_generated.dart' as backend_api;
-import 'package:green3neo/database_api/frb_generated.dart' as database_api;
+
 import 'package:green3neo/features/management_mode/management_mode.dart';
-import 'package:green3neo/features/management_mode/sepa_management/sepa_generation_wizard.dart';
-import 'package:green3neo/sepa_api/frb_generated.dart' as sepa_api;
 import 'package:green3neo/features/management_mode/member_management/member_management_mode.dart';
 import 'package:green3neo/features/management_mode/member_view.dart';
+import 'package:green3neo/features/management_mode/sepa_management/sepa_generation_wizard.dart';
 import 'package:green3neo/features/management_mode/sepa_management/sepa_management_mode.dart';
 import 'package:green3neo/features/management_mode/view_management/view_management_mode.dart';
+import 'package:green3neo/interface/backend_api/api/logging.dart'
+    as backend_logging;
+import 'package:green3neo/interface/backend_api/frb_generated.dart'
+    as backend_api;
+import 'package:green3neo/interface/database_api/frb_generated.dart'
+    as database_api;
+import 'package:green3neo/interface/sepa_api/frb_generated.dart' as sepa_api;
 import 'package:green3neo/l10n/app_localizations.dart';
 import 'package:green3neo/localizer.dart';
 import 'package:green3neo/main.reflectable.dart';
@@ -38,8 +42,9 @@ void setupLogging() {
       final StackTrace stackTrace = StackTrace.current;
       final List<String> frames = stackTrace.toString().split("\n");
 
-      final int lastFrameInLoggingModuleIndex =
-          frames.lastIndexWhere((final String frame) {
+      final int lastFrameInLoggingModuleIndex = frames.lastIndexWhere((
+        final String frame,
+      ) {
         return frame.contains("package:logging/");
       });
       callingFrame = frames.elementAtOrNull(lastFrameInLoggingModuleIndex + 1);
@@ -49,35 +54,45 @@ void setupLogging() {
       callingFrame = frames.elementAtOrNull(0);
     }
 
-    final String? logLocation =
-        callingFrame?.replaceFirst(RegExp(r"^#\d+\s*"), "").trim();
+    final String? logLocation = callingFrame
+        ?.replaceFirst(RegExp(r"^#\d+\s*"), "")
+        .trim();
     final String message =
         "${(logLocation ?? "")} '${record.loggerName}': ${record.message}";
 
-    runZonedGuarded(() {
-      switch (record.level) {
-        case Level.SHOUT:
-        case Level.SEVERE:
-          backend_logging.error(message: message);
-          break;
-        case Level.WARNING:
-          backend_logging.warn(message: message);
-          break;
-        case Level.INFO:
-          backend_logging.info(message: message);
-          break;
-        default:
-          backend_logging.warn(
-              message: "Log level ${record.level.name} is unsupported. "
-                  "Message was $message");
-          break;
-      }
-    }, (final Object error, final StackTrace stackTrace) {
-      FlutterError.presentError(FlutterErrorDetails(
-          exception: "Could not log to backend. Presenting to user"));
-      FlutterError.presentError(
-          FlutterErrorDetails(exception: error, stack: stackTrace));
-    });
+    runZonedGuarded(
+      () {
+        switch (record.level) {
+          case Level.SHOUT:
+          case Level.SEVERE:
+            backend_logging.error(message: message);
+            break;
+          case Level.WARNING:
+            backend_logging.warn(message: message);
+            break;
+          case Level.INFO:
+            backend_logging.info(message: message);
+            break;
+          default:
+            backend_logging.warn(
+              message:
+                  "Log level ${record.level.name} is unsupported. "
+                  "Message was $message",
+            );
+            break;
+        }
+      },
+      (final Object error, final StackTrace stackTrace) {
+        FlutterError.presentError(
+          FlutterErrorDetails(
+            exception: "Could not log to backend. Presenting to user",
+          ),
+        );
+        FlutterError.presentError(
+          FlutterErrorDetails(exception: error, stack: stackTrace),
+        );
+      },
+    );
   });
 
   // Duplicate errors and exceptions caught by Flutter to logger
@@ -89,8 +104,9 @@ void setupLogging() {
   /* Print errors and exceptions not caught by Flutter to logger before
    * exiting application
    */
-  PlatformDispatcher.instance.onError =
-      (final Object error, final StackTrace stackTrace) {
+  PlatformDispatcher
+      .instance
+      .onError = (final Object error, final StackTrace stackTrace) {
     _logger.shout("Encountered error not caught by Flutter", error, stackTrace);
     // FIXME When to consider an error "recoverable" or "not too bad"?
     return true;
@@ -168,33 +184,32 @@ class MainApp extends WatchingWidget {
             body: StatefulBuilder(
               builder:
                   (final BuildContext context, final StateSetter setState) {
-                return Column(
-                  children: [
-                    SegmentedButton<Widget>(
-                      segments: managementModes.map((mode) {
-                        return ButtonSegment(
-                          value: mode.widget,
-                          label: Text(mode.modeName),
-                        );
-                      }).toList(),
-                      selected: {selectedModeWidget},
-                      emptySelectionAllowed: false,
-                      multiSelectionEnabled: false,
-                      onSelectionChanged: (Set<Widget>? selectedModes) {
-                        assert(
-                            selectedModes != null && selectedModes.isNotEmpty);
+                    return Column(
+                      children: [
+                        SegmentedButton<Widget>(
+                          segments: managementModes.map((mode) {
+                            return ButtonSegment(
+                              value: mode.widget,
+                              label: Text(mode.modeName),
+                            );
+                          }).toList(),
+                          selected: {selectedModeWidget},
+                          emptySelectionAllowed: false,
+                          multiSelectionEnabled: false,
+                          onSelectionChanged: (Set<Widget>? selectedModes) {
+                            assert(
+                              selectedModes != null && selectedModes.isNotEmpty,
+                            );
 
-                        setState(() {
-                          selectedModeWidget = selectedModes!.first;
-                        });
-                      },
-                    ),
-                    Expanded(
-                      child: selectedModeWidget,
-                    ),
-                  ],
-                );
-              },
+                            setState(() {
+                              selectedModeWidget = selectedModes!.first;
+                            });
+                          },
+                        ),
+                        Expanded(child: selectedModeWidget),
+                      ],
+                    );
+                  },
             ),
           );
         },
