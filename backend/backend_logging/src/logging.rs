@@ -1,4 +1,6 @@
-use backend_paths::paths::get_user_data_dir;
+use std::env::current_dir;
+
+use backend_paths::paths::{canonicalize_path, get_user_data_dir};
 pub use flexi_logger::LoggerHandle;
 pub use flexi_logger::writers::LogWriter;
 use flexi_logger::{
@@ -18,7 +20,9 @@ pub fn create_logger(additional_writer: Option<Box<dyn LogWriter>>) -> LoggerHan
     let mut logger = logger_creation_result.unwrap().format(detailed_format);
 
     let user_project_dir = get_user_data_dir();
-    let log_directory = user_project_dir.join("logs");
+    let log_directory_path = user_project_dir.join("logs");
+    let log_directory =
+        canonicalize_path(log_directory_path).unwrap_or_else(|| current_dir().unwrap());
 
     let file_spec = FileSpec::default()
         .directory(&log_directory)
