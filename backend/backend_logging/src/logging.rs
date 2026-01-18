@@ -1,4 +1,4 @@
-use backend_paths::paths::get_user_project_dir;
+use backend_paths::paths::get_user_data_dir;
 pub use flexi_logger::LoggerHandle;
 pub use flexi_logger::writers::LogWriter;
 use flexi_logger::{
@@ -17,7 +17,7 @@ pub fn create_logger(additional_writer: Option<Box<dyn LogWriter>>) -> LoggerHan
 
     let mut logger = logger_creation_result.unwrap().format(detailed_format);
 
-    let user_project_dir = get_user_project_dir();
+    let user_project_dir = get_user_data_dir();
     let log_directory = user_project_dir.join("logs");
 
     let file_spec = FileSpec::default()

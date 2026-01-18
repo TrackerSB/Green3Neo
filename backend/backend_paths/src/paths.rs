@@ -34,7 +34,7 @@ fn canonicalize_path(path: &&Path) -> bool {
     return false;
 }
 
-pub fn get_user_project_dir() -> PathBuf {
+pub fn get_user_data_dir() -> PathBuf {
     // FIXME Take qualifier and application name from rust (maybe Cargo.toml?)
     let project_dirs = ProjectDirs::from("de.steinbrecher-bayern", "", "Green3Neo");
 
