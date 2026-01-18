@@ -1,7 +1,8 @@
 import 'dart:io';
 
-import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+
+import 'package:file_picker/file_picker.dart';
 import 'package:get_it/get_it.dart';
 import 'package:green3neo/components/form_fields/creditor_iban_field.dart';
 import 'package:green3neo/components/form_fields/creditor_id_field.dart';
@@ -9,13 +10,13 @@ import 'package:green3neo/components/form_fields/creditor_name_field.dart';
 import 'package:green3neo/components/form_fields/currency_field.dart';
 import 'package:green3neo/components/form_fields/message_id_field.dart';
 import 'package:green3neo/components/form_fields/purpose_field.dart';
-import 'package:green3neo/database_api/api/models.dart';
 import 'package:green3neo/features/feature.dart';
+import 'package:green3neo/interface/database_api/api/models.dart';
+import 'package:green3neo/interface/sepa_api/api/creditor.dart';
+import 'package:green3neo/interface/sepa_api/api/debitor.dart';
+import 'package:green3neo/interface/sepa_api/api/generation.dart';
+import 'package:green3neo/interface/sepa_api/api/transaction.dart';
 import 'package:green3neo/localizer.dart';
-import 'package:green3neo/sepa_api/api/creditor.dart';
-import 'package:green3neo/sepa_api/api/debitor.dart';
-import 'package:green3neo/sepa_api/api/generation.dart';
-import 'package:green3neo/sepa_api/api/transaction.dart';
 import 'package:logging/logging.dart';
 import 'package:path_provider/path_provider.dart';
 
