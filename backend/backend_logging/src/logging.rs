@@ -101,7 +101,8 @@ pub fn create_logger(additional_writer: Option<Box<dyn LogWriter>>) -> LoggerHan
 
     if logger_config_result.is_err() {
         panic!(
-            "Could not configure logger due '{}'",
+            "Could not configure logger in directory '{}' due '{}'",
+            log_directory.display(),
             logger_config_result.err().unwrap()
         );
     }
