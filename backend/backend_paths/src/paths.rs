@@ -42,12 +42,14 @@ pub fn get_user_project_dir() -> PathBuf {
 
     let user_project_dir: PathBuf;
     if project_dirs.is_some() {
-        user_project_dir = project_dirs
-            .unwrap()
-            .state_dir()
-            .filter(create_dir_hierarchy)
-            .filter(canonicalize_path)
-            .map_or(fallback_project_dir, Path::to_owned);
+        let unwrapped_project_dirs = project_dirs.unwrap();
+        let data_dir = unwrapped_project_dirs.data_dir();
+
+        if create_dir_hierarchy(&data_dir) && canonicalize_path(&data_dir) {
+            user_project_dir = data_dir.to_owned();
+        } else {
+            user_project_dir = fallback_project_dir;
+        }
     } else {
         error!(
             "Could not determine user project directories. Therefore defaulting to the current CWD"
