@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
+
 import 'package:green3neo/features/management_mode/management_mode.dart';
 import 'package:green3neo/features/management_mode/member_view.dart';
+import 'package:green3neo/interface/database_api/api/member.dart';
 import 'package:green3neo/localizer.dart';
 import 'package:listen_it/listen_it.dart';
 import 'package:logging/logging.dart';
-
 import 'package:watch_it/watch_it.dart';
-import 'package:green3neo/database_api/api/member.dart';
 
 import 'change_record_utility.dart';
 

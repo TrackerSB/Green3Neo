@@ -3,5 +3,6 @@
         "./backend/Cargo.toml",
     ],
     "rust-analyzer.testExplorer": true,
-    "cmake.ignoreCMakeListsMissing": true
+    "cmake.ignoreCMakeListsMissing": true,
+    "dartimportsorter.sortOnSave": true
 }

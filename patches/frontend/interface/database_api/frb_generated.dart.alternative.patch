@@ -1,5 +1,5 @@
---- a/frontend/lib/database_api/frb_generated.dart.unpatched
-+++ b/frontend/lib/database_api/frb_generated.dart
+--- a/frontend/lib/interface/database_api/frb_generated.dart.unpatched
++++ b/frontend/lib/interface/database_api/frb_generated.dart
 @@ -71,7 +71,7 @@ class RustLib extends BaseEntrypoint<RustLibApi, RustLibApiImpl, RustLibWire> {
 
    static const kDefaultExternalLibraryLoaderConfig =

@@ -14,19 +14,19 @@ sepa_xsd_to_rust_generator_dir := backend_dir + "/sepa_xsd_to_rust_generator"
 backend_interface_dir := backend_dir + "/interface"
 
 backend_api_dir := backend_interface_dir + "/backend_api"
-frb_backend_api_output_dir := frontend_output_dir + "/backend_api"
+frb_backend_api_output_dir := frontend_interface_dir + "/backend_api"
 
 database_api_dir := backend_interface_dir + "/database_api"
-frb_database_api_output_dir := frontend_output_dir + "/database_api"
+frb_database_api_output_dir := frontend_interface_dir + "/database_api"
 
 sepa_api_dir := backend_interface_dir + "/sepa_api"
-frb_sepa_api_output_dir := frontend_output_dir + "/sepa_api"
+frb_sepa_api_output_dir := frontend_interface_dir + "/sepa_api"
 
 rust_sepa_api_output_dir := sepa_api_dir + "/src/schemas"
 
 # Frontend library paths
 frontend_dir := workspace_dir + "/frontend"
-frontend_output_dir := frontend_dir + "/lib"
+frontend_interface_dir := frontend_dir + "/lib/interface"
 
 # LLVM related paths
 llvmPath := `clang -v 2>&1 | grep 'Selected GCC installation' | rev | cut -d' ' -f1 | rev`
@@ -88,9 +88,9 @@ frb-generate: diesel-generate-models sepa-generate-schemas
 
     mkdir -p {{ frb_database_api_output_dir }}
     flutter_rust_bridge_codegen generate --no-web --no-add-mod-to-lib --llvm-path {{ llvmIncludeDir }} --rust-input "crate::api" --rust-root {{ database_api_dir }} --dart-output {{ frb_database_api_output_dir }} --stop-on-error
-    git apply {{ patch_folder }}/frontend/database_api/api/models.dart.patch
-    - git apply {{ patch_folder }}/frontend/database_api/frb_generated.dart.patch
-    - git apply {{ patch_folder }}/frontend/database_api/frb_generated.dart.alternative.patch
+    git apply {{ patch_folder }}/frontend/interface/database_api/api/models.dart.patch
+    - git apply {{ patch_folder }}/frontend/interface/database_api/frb_generated.dart.patch
+    - git apply {{ patch_folder }}/frontend/interface/database_api/frb_generated.dart.alternative.patch
 
     mkdir -p {{ frb_sepa_api_output_dir }}
     flutter_rust_bridge_codegen generate --no-web --no-add-mod-to-lib --llvm-path {{ llvmIncludeDir }} --rust-input "crate::api" --rust-root {{ sepa_api_dir }} --dart-output {{ frb_sepa_api_output_dir }} --stop-on-error --rust-preamble "use chrono::NaiveDate;use chrono::NaiveDateTime;"

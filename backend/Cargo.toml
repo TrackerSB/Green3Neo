@@ -3,6 +3,7 @@ resolver = "3"
 members = [
     "backend_logging",
     "backend_macros",
+    "backend_paths",
     "backend_testing",
     "interface/backend_api",
     "interface/database_api",
