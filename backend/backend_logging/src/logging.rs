@@ -8,7 +8,10 @@ use flexi_logger::{
     detailed_format,
 };
 
-pub fn create_logger(additional_writer: Option<Box<dyn LogWriter>>) -> LoggerHandle {
+pub fn create_logger(
+    additional_writer: Option<Box<dyn LogWriter>>,
+    log_directory_name: &str,
+) -> LoggerHandle {
     let logger_creation_result = Logger::try_with_env_or_str("info");
     if logger_creation_result.is_err() {
         panic!(
@@ -20,7 +23,7 @@ pub fn create_logger(additional_writer: Option<Box<dyn LogWriter>>) -> LoggerHan
     let mut logger = logger_creation_result.unwrap().format(detailed_format);
 
     let user_project_dir = get_user_data_dir();
-    let log_directory_path = user_project_dir.join("logs");
+    let log_directory_path = user_project_dir.join(log_directory_name);
     let log_directory =
         canonicalize_path(log_directory_path).unwrap_or_else(|| current_dir().unwrap());
 

@@ -6,6 +6,6 @@ use flutter_rust_bridge::frb;
 
 #[frb(init)]
 pub fn init_app() {
-    static LOGGER: LazyLock<LoggerHandle> = LazyLock::new(|| create_logger(None));
+    static LOGGER: LazyLock<LoggerHandle> = LazyLock::new(|| create_logger(None, "logs"));
     LOGGER.flush(); // Trigger creation of logger
 }
