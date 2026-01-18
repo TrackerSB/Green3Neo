@@ -11,6 +11,7 @@ import 'package:green3neo/components/form_fields/currency_field.dart';
 import 'package:green3neo/components/form_fields/message_id_field.dart';
 import 'package:green3neo/components/form_fields/purpose_field.dart';
 import 'package:green3neo/features/feature.dart';
+import 'package:green3neo/interface/backend_api/api/paths.dart';
 import 'package:green3neo/interface/database_api/api/models.dart';
 import 'package:green3neo/interface/sepa_api/api/creditor.dart';
 import 'package:green3neo/interface/sepa_api/api/debitor.dart';
@@ -18,7 +19,6 @@ import 'package:green3neo/interface/sepa_api/api/generation.dart';
 import 'package:green3neo/interface/sepa_api/api/transaction.dart';
 import 'package:green3neo/localizer.dart';
 import 'package:logging/logging.dart';
-import 'package:path_provider/path_provider.dart';
 
 // FIXME Determine DART file name automatically
 final _logger = Logger("sepa_generation_wizard");
@@ -57,8 +57,7 @@ Future<String> _generateSepaContent(
 }
 
 Future<String?> _askUserForOutputPath() {
-  final Future<String?> downloadDir = getDownloadsDirectory()
-      .then((final Directory? dir) => dir?.absolute.path);
+  final Future<String> downloadDir = getUserDownloadDir();
 
   return downloadDir.then(
     (final String? dir) => FilePicker.platform.saveFile(

@@ -3,7 +3,7 @@ use std::{
     path::{Path, PathBuf},
 };
 
-use directories::ProjectDirs;
+use directories::{ProjectDirs, UserDirs};
 use log::error;
 
 fn create_dir_hierarchy(path: &&Path) -> bool {
@@ -58,4 +58,18 @@ pub fn get_user_data_dir() -> PathBuf {
     }
 
     return user_project_dir;
+}
+
+pub fn get_user_download_dir() -> PathBuf {
+    let user_dirs = UserDirs::new();
+    if user_dirs.is_some() {
+        let unwrapped_users_dir = user_dirs.unwrap();
+        let download_dir = unwrapped_users_dir.download_dir();
+        if download_dir.is_some() {
+            return download_dir.unwrap().to_owned();
+        }
+    }
+
+    error!("Could not determine users download dir. Therefore defaulting to the current CWD");
+    current_dir().unwrap()
 }
