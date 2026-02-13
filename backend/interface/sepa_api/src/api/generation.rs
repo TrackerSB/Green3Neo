@@ -139,7 +139,7 @@ fn generate_direct_debit_transaction(
         },
         dbtr_agt_acct: None,
         dbtr: PartyIdentification272Type {
-            nm: Some(transaction.debitor.name.clone()),
+            nm: Some(transaction.debitor.name.value.clone()),
             pstl_adr: None,
             id: None,
             ctry_of_res: None,
@@ -195,7 +195,7 @@ fn generate_sepa_document_type(
                     ctgy_purp: None,
                 }),
                 reqd_colltn_dt: _format_date(collection_date),
-                cdtr: generate_creditor_info(&creditor.name),
+                cdtr: generate_creditor_info(&creditor.name.value),
                 cdtr_acct: generate_creditor_account(creditor.iban),
                 cdtr_agt: BranchAndFinancialInstitutionIdentification8Type {
                     fin_instn_id: FinancialInstitutionIdentification23Type {

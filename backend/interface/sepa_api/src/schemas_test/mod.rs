@@ -35,7 +35,9 @@ mod test {
 
         let creditor = Creditor {
             id: String::from("DE98ZZZ09999999999"),
-            name: Name::from("Gary Gathering"),
+            name: Name {
+                value: String::from("Gary Gathering"),
+            },
             iban: IBAN {
                 value: String::from("DE07123412341234123412"),
             },
@@ -43,7 +45,9 @@ mod test {
 
         let transactions = vec![Transaction {
             debitor: Debitor {
-                name: Name::from("Paying, Paula"),
+                name: Name {
+                    value: String::from("Paying, Paula"),
+                },
                 iban: IBAN {
                     value: String::from("DE89370400440532013000"),
                 },

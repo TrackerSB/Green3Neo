@@ -18,6 +18,7 @@ import 'package:green3neo/interface/sepa_api/api.dart';
 import 'package:green3neo/interface/sepa_api/api/creditor.dart';
 import 'package:green3neo/interface/sepa_api/api/debitor.dart';
 import 'package:green3neo/interface/sepa_api/api/generation.dart';
+import 'package:green3neo/interface/sepa_api/api/name.dart';
 import 'package:green3neo/interface/sepa_api/api/transaction.dart';
 import 'package:green3neo/localizer.dart';
 import 'package:logging/logging.dart';
@@ -39,8 +40,9 @@ Future<String> _generateSepaContent(
         dateOfSignatureUtc: DateTime.utc(2023, 5, 1),
       );
       final debitor = Debitor(
-        name:
-            "${m.accountholderprename ?? m.prename} ${m.accountholdersurname ?? m.surname}",
+        name: Name(
+            value:
+                "${m.accountholderprename ?? m.prename} ${m.accountholdersurname ?? m.surname}"),
         iban: IBAN(value: m.iban),
         mandate: mandate,
       );
@@ -133,7 +135,9 @@ class SepaGenerationWizard extends StatelessWidget {
     }
 
     final creditor = Creditor(
-        name: creditorName, id: creditorId, iban: IBAN(value: creditorIban));
+        name: Name(value: creditorName),
+        id: creditorId,
+        iban: IBAN(value: creditorIban));
 
     final Future<String> sepaContent =
         _generateSepaContent(messageId, creditor, member, amount, purpose);
@@ -146,10 +150,12 @@ class SepaGenerationWizard extends StatelessWidget {
       }
 
       await setConfiguredCreditor(
-          creditor: Creditor(
-              name: creditorName,
-              id: creditorId,
-              iban: IBAN(value: creditorIban)));
+        creditor: Creditor(
+          name: Name(value: creditorName),
+          id: creditorId,
+          iban: IBAN(value: creditorIban),
+        ),
+      );
       return true;
     });
   }
