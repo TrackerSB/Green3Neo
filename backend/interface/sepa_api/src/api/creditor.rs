@@ -47,7 +47,7 @@ pub fn get_configured_creditor() -> Option<Creditor> {
         return None;
     }
 
-    deserialized_creditor.unwrap()
+    Some(deserialized_creditor.unwrap())
 }
 
 pub fn set_configured_creditor(creditor: Creditor) {
