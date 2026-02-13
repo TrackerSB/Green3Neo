@@ -174,7 +174,7 @@ class SepaGenerationWizard extends StatelessWidget {
       }
 
       final FormBuilderState formState = _formKey.currentState!;
-      formState.fields[creditorNameField.name]?.didChange(creditor.name);
+      formState.fields[creditorNameField.name]?.didChange(creditor.name.value);
       formState.fields[creditorIbanField.name]?.didChange(creditor.iban.value);
       formState.fields[creditorIdField.name]?.didChange(creditor.id);
     });
