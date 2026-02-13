@@ -1,4 +1,4 @@
-use sepa_types::{debitor::Debitor, purpose::Purpose};
+use crate::{debitor::Debitor, purpose::Purpose};
 
 pub struct Transaction {
     pub debitor: Debitor,

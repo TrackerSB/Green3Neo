@@ -11,11 +11,9 @@ mod test {
     use sepa_types::mandate_id::MandateID;
     use sepa_types::name::Name;
     use sepa_types::purpose::Purpose;
+    use sepa_types::transaction::Transaction;
 
-    use crate::api::{
-        generation::{MessageID, generate_sepa_document},
-        transaction::Transaction,
-    };
+    use crate::api::generation::{MessageID, generate_sepa_document};
 
     fn setup_test() {
         testing::setup_test();

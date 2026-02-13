@@ -1,7 +1,6 @@
 pub mod creditor;
 pub mod generation;
 pub mod init;
-pub mod transaction;
 
 use chrono::NaiveDateTime;
 use flutter_rust_bridge::frb;
@@ -13,6 +12,7 @@ pub use sepa_types::mandate::Mandate;
 pub use sepa_types::mandate_id::MandateID;
 pub use sepa_types::name::Name;
 pub use sepa_types::purpose::Purpose;
+pub use sepa_types::transaction::Transaction;
 
 #[frb(mirror(Creditor))]
 pub struct _Creditor {
@@ -57,4 +57,11 @@ struct _Name {
 #[frb(mirror(Purpose))]
 struct _Purpose {
     pub value: String,
+}
+
+#[frb(mirror(Transaction))]
+pub struct _Transaction {
+    pub debitor: Debitor,
+    pub value: f64,
+    pub purpose: Purpose,
 }

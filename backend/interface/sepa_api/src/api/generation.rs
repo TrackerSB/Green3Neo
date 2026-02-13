@@ -5,9 +5,8 @@ use sepa_types::creditor::Creditor;
 use sepa_types::creditor_id::CreditorID;
 use sepa_types::iban::IBAN;
 use sepa_types::mandate::Mandate;
+use sepa_types::transaction::Transaction;
 use xsd_parser_types::quick_xml::{SerializeSync, Writer};
-
-use super::transaction::Transaction;
 
 use crate::schemas::pain_008_001_11::*;
 
