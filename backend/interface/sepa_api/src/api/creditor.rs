@@ -56,21 +56,22 @@ pub fn set_configured_creditor(creditor: Creditor) {
         .with_extension(CREDITOR_CONFIG_FILE_FORMAT.file_extensions()[0]);
     let serialized_creditor = toml::to_string_pretty(&creditor);
 
-    if serialized_creditor.is_ok() {
-        let write_result = std::fs::write(&config_save_path, serialized_creditor.as_ref().unwrap());
-
-        if write_result.is_err() {
-            warn!(
-                "Could not write serialized creditor '{}' to file '{}'",
-                serialized_creditor.unwrap(),
-                config_save_path.display()
-            );
-        }
-    } else {
+    if serialized_creditor.is_err() {
         warn!(
             "Could not serialize creditor '{:?}' due to '{}'",
             creditor,
             serialized_creditor.err().unwrap()
+        );
+        return;
+    }
+
+    let write_result = std::fs::write(&config_save_path, serialized_creditor.as_ref().unwrap());
+
+    if write_result.is_err() {
+        warn!(
+            "Could not write serialized creditor '{}' to file '{}'",
+            serialized_creditor.unwrap(),
+            config_save_path.display()
         );
     }
 }
