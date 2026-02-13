@@ -1,8 +1,7 @@
 use chrono::NaiveDateTime;
 
 use sepa_types::iban::IBAN;
-
-use super::name::Name;
+use sepa_types::name::Name;
 
 // FIXME Add checks for valid ID
 pub type MandateID = String;

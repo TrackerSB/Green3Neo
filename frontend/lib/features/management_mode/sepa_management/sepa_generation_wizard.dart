@@ -18,7 +18,6 @@ import 'package:green3neo/interface/sepa_api/api.dart';
 import 'package:green3neo/interface/sepa_api/api/creditor.dart';
 import 'package:green3neo/interface/sepa_api/api/debitor.dart';
 import 'package:green3neo/interface/sepa_api/api/generation.dart';
-import 'package:green3neo/interface/sepa_api/api/name.dart';
 import 'package:green3neo/interface/sepa_api/api/transaction.dart';
 import 'package:green3neo/localizer.dart';
 import 'package:logging/logging.dart';

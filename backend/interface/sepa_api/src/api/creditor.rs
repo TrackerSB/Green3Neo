@@ -4,9 +4,8 @@ use backend_paths::paths::get_user_config_dir;
 use config::{FileFormat, FileStoredFormat};
 use log::warn;
 use sepa_types::iban::IBAN;
+use sepa_types::name::Name;
 use serde::{Deserialize, Serialize};
-
-use super::name::Name;
 
 // FIXME Add checks for valid creditor IDs
 pub type CreditorID = String;
