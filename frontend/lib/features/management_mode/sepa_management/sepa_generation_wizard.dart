@@ -25,11 +25,11 @@ import 'package:logging/logging.dart';
 final _logger = Logger("sepa_generation_wizard");
 
 Future<String> _generateSepaContent(
-    final String messageId,
+    final MessageID messageId,
     final Creditor creditor,
     final List<Member> member,
     final double value,
-    final String purpose) {
+    final Purpose purpose) {
   final transactions = member.map(
     (final Member m) {
       final mandate = Mandate(
@@ -47,12 +47,12 @@ Future<String> _generateSepaContent(
       return Transaction(
         debitor: debitor,
         value: value,
-        purpose: Purpose(value: purpose),
+        purpose: purpose,
       );
     },
   ).toList();
   return generateSepaDocument(
-      messageId: MessageID(value: messageId),
+      messageId: messageId,
       collectionDateUtc: DateTime.now().toUtc(),
       creditor: creditor,
       transactions: transactions);
@@ -108,17 +108,17 @@ class SepaGenerationWizard extends StatelessWidget {
       return false;
     }
 
-    final String? messageId =
+    final MessageID? messageId =
         formState.getTransformedValue(messageIdField.name, fromSaved: true);
     final double? amount =
         formState.getTransformedValue(currencyField.name, fromSaved: true);
-    final String? creditorName =
+    final Name? creditorName =
         formState.getTransformedValue(creditorNameField.name, fromSaved: true);
-    final String? creditorIban =
+    final IBAN? creditorIban =
         formState.getTransformedValue(creditorIbanField.name, fromSaved: true);
-    final String? creditorId =
+    final CreditorID? creditorId =
         formState.getTransformedValue(creditorIdField.name, fromSaved: true);
-    final String? purpose =
+    final Purpose? purpose =
         formState.getTransformedValue(purposeField.name, fromSaved: true);
 
     if ((messageId == null) ||
@@ -132,10 +132,8 @@ class SepaGenerationWizard extends StatelessWidget {
       return false;
     }
 
-    final creditor = Creditor(
-        name: Name(value: creditorName),
-        id: CreditorID(value: creditorId),
-        iban: IBAN(value: creditorIban));
+    final creditor =
+        Creditor(name: creditorName, id: creditorId, iban: creditorIban);
 
     final Future<String> sepaContent =
         _generateSepaContent(messageId, creditor, member, amount, purpose);
@@ -150,9 +148,9 @@ class SepaGenerationWizard extends StatelessWidget {
       await saveProfile(
         profile: Profile(
           creditor: backend_api.Creditor(
-            name: backend_api.Name(value: creditorName),
-            id: backend_api.CreditorID(value: creditorId),
-            iban: backend_api.IBAN(value: creditorIban),
+            name: backend_api.Name(value: creditorName.value),
+            id: backend_api.CreditorID(value: creditorId.value),
+            iban: backend_api.IBAN(value: creditorIban.value),
           ),
         ),
       );
