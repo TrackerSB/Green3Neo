@@ -3,9 +3,9 @@ use std::fs;
 use backend_paths::paths::get_user_config_dir;
 use config::{FileFormat, FileStoredFormat};
 use log::warn;
+use sepa_types::iban::IBAN;
 use serde::{Deserialize, Serialize};
 
-use super::iban::IBAN;
 use super::name::Name;
 
 // FIXME Add checks for valid creditor IDs

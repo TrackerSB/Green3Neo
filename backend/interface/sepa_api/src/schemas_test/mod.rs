@@ -3,13 +3,13 @@ mod test {
     use backend_testing::testing;
     use chrono::NaiveDate;
     use log::info;
+    use sepa_types::iban::IBAN;
 
     use crate::api::{
         creditor::Creditor,
         debitor::{Debitor, Mandate, MandateID},
         generation::MessageID,
         generation::generate_sepa_document,
-        iban::IBAN,
         name::Name,
         transaction::{Purpose, Transaction},
     };

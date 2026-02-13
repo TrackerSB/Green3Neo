@@ -1,6 +1,7 @@
 use chrono::NaiveDateTime;
 
-use super::iban::IBAN;
+use sepa_types::iban::IBAN;
+
 use super::name::Name;
 
 // FIXME Add checks for valid ID
