@@ -3,15 +3,10 @@ use std::fs;
 use backend_paths::paths::get_user_config_dir;
 use config::{FileFormat, FileStoredFormat};
 use log::warn;
+use sepa_types::creditor_id::CreditorID;
 use sepa_types::iban::IBAN;
 use sepa_types::name::Name;
 use serde::{Deserialize, Serialize};
-
-// FIXME Add checks for valid creditor IDs
-#[derive(Debug, Serialize, Deserialize)]
-pub struct CreditorID {
-    pub value: String,
-}
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Creditor {
