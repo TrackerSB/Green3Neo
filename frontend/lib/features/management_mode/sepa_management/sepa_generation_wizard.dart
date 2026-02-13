@@ -72,17 +72,18 @@ Future<String?> _askUserForOutputPath() {
   );
 }
 
-Future<void> _writeContentToPath(
+Future<bool> _writeContentToPath(
     final Future<String> contentFuture, final Future<String?> pathFuture) {
   return (contentFuture, pathFuture).wait.then(
     (final (String, String?) resultRecord) {
       final (content, path) = resultRecord;
       if (path == null) {
-        return;
+        return false;
       }
 
       final outputFile = File(path);
       outputFile.writeAsStringSync(content);
+      return true;
     },
   );
 }
@@ -138,15 +139,20 @@ class SepaGenerationWizard extends StatelessWidget {
         _generateSepaContent(messageId, creditor, member, amount, purpose);
     final Future<String?> outputPath = _askUserForOutputPath();
 
-    await _writeContentToPath(sepaContent, outputPath);
+    _writeContentToPath(sepaContent, outputPath)
+        .then((final bool wasWritten) async {
+      if (!wasWritten) {
+        return;
+      }
 
-    final _ = setConfiguredCreditor(
-        creditor:
-            Creditor(name: creditorName, id: creditorId, iban: creditorIban));
+      await setConfiguredCreditor(
+          creditor:
+              Creditor(name: creditorName, id: creditorId, iban: creditorIban));
 
-    if (context.mounted) {
-      Navigator.pop(context);
-    }
+      if (context.mounted) {
+        Navigator.pop(context);
+      }
+    });
   }
 
   @override
