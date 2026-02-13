@@ -87,7 +87,7 @@ fn generate_creditor_scheme_id(creditor_id: CreditorID) -> PartyIdentification27
 
 fn generate_mandate_info(mandate: &Mandate) -> MandateRelatedInformation16Type {
     MandateRelatedInformation16Type {
-        mndt_id: Some(mandate.id.to_owned()),
+        mndt_id: Some(mandate.id.value.clone()),
         dt_of_sgntr: Some(_format_date(mandate.date_of_signature_utc.date())),
         amdmnt_ind: None,
         amdmnt_inf_dtls: None,

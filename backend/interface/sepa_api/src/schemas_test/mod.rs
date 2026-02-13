@@ -52,7 +52,9 @@ mod test {
                     value: String::from("DE89370400440532013000"),
                 },
                 mandate: Mandate {
-                    id: MandateID::from("fancyMandateID"),
+                    id: MandateID {
+                        value: String::from("fancyMandateID"),
+                    },
                     date_of_signature_utc: NaiveDate::from_ymd_opt(2024, 12, 12)
                         .unwrap()
                         .and_hms_opt(0, 0, 0)

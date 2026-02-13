@@ -34,7 +34,7 @@ Future<String> _generateSepaContent(
   final transactions = member.map(
     (final Member m) {
       final mandate = Mandate(
-        id: m.membershipid.toString(),
+        id: MandateID(value: m.membershipid.toString()),
         // FIXME Use correct date of signature
         dateOfSignatureUtc: DateTime.utc(2023, 5, 1),
       );

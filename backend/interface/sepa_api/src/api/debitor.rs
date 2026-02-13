@@ -4,7 +4,11 @@ use sepa_types::iban::IBAN;
 use sepa_types::name::Name;
 
 // FIXME Add checks for valid ID
-pub type MandateID = String;
+// FIXME Can deriving from Clone be avoided?
+#[derive(Debug, Clone)]
+pub struct MandateID {
+    pub value: String,
+}
 
 // FIXME Can deriving from Clone be avoided?
 #[derive(Debug, Clone)]
