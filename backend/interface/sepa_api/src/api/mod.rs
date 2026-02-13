@@ -1,4 +1,3 @@
-pub mod creditor;
 pub mod generation;
 pub mod init;
 

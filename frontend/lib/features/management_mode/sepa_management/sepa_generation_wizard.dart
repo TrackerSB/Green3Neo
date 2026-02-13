@@ -12,10 +12,11 @@ import 'package:green3neo/components/form_fields/currency_field.dart';
 import 'package:green3neo/components/form_fields/message_id_field.dart';
 import 'package:green3neo/components/form_fields/purpose_field.dart';
 import 'package:green3neo/features/feature.dart';
+import 'package:green3neo/interface/backend_api/api.dart' as backend_api;
 import 'package:green3neo/interface/backend_api/api/paths.dart';
+import 'package:green3neo/interface/backend_api/api/profile.dart';
 import 'package:green3neo/interface/database_api/api/models.dart';
 import 'package:green3neo/interface/sepa_api/api.dart';
-import 'package:green3neo/interface/sepa_api/api/creditor.dart';
 import 'package:green3neo/interface/sepa_api/api/generation.dart';
 import 'package:green3neo/localizer.dart';
 import 'package:logging/logging.dart';
@@ -146,11 +147,13 @@ class SepaGenerationWizard extends StatelessWidget {
         return false;
       }
 
-      await setConfiguredCreditor(
-        creditor: Creditor(
-          name: Name(value: creditorName),
-          id: CreditorID(value: creditorId),
-          iban: IBAN(value: creditorIban),
+      await saveProfile(
+        profile: Profile(
+          creditor: backend_api.Creditor(
+            name: backend_api.Name(value: creditorName),
+            id: backend_api.CreditorID(value: creditorId),
+            iban: backend_api.IBAN(value: creditorIban),
+          ),
         ),
       );
       return true;
@@ -166,17 +169,21 @@ class SepaGenerationWizard extends StatelessWidget {
     final creditorIbanField = CreditorIbanField();
     final creditorIdField = CreditorIdField();
 
-    final Future<Creditor?> configuredCreditor = getConfiguredCreditor();
-    configuredCreditor.then((final Creditor? creditor) {
-      if (creditor == null) {
-        return;
-      }
+    loadProfile().then(
+      (final Profile? profile) {
+        if (profile == null) {
+          return;
+        }
 
-      final FormBuilderState formState = _formKey.currentState!;
-      formState.fields[creditorNameField.name]?.didChange(creditor.name.value);
-      formState.fields[creditorIbanField.name]?.didChange(creditor.iban.value);
-      formState.fields[creditorIdField.name]?.didChange(creditor.id.value);
-    });
+        final FormBuilderState formState = _formKey.currentState!;
+        formState.fields[creditorNameField.name]
+            ?.didChange(profile.creditor.name.value);
+        formState.fields[creditorIbanField.name]
+            ?.didChange(profile.creditor.iban.value);
+        formState.fields[creditorIdField.name]
+            ?.didChange(profile.creditor.id.value);
+      },
+    );
 
     return Scaffold(
       body: Column(
