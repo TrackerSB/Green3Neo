@@ -17,6 +17,7 @@ import 'package:green3neo/interface/database_api/api/models.dart';
 import 'package:green3neo/interface/sepa_api/api/creditor.dart';
 import 'package:green3neo/interface/sepa_api/api/debitor.dart';
 import 'package:green3neo/interface/sepa_api/api/generation.dart';
+import 'package:green3neo/interface/sepa_api/api/iban.dart';
 import 'package:green3neo/interface/sepa_api/api/transaction.dart';
 import 'package:green3neo/localizer.dart';
 import 'package:logging/logging.dart';
@@ -40,7 +41,7 @@ Future<String> _generateSepaContent(
       final debitor = Debitor(
         name:
             "${m.accountholderprename ?? m.prename} ${m.accountholdersurname ?? m.surname}",
-        iban: m.iban,
+        iban: IBAN(iban: m.iban),
         mandate: mandate,
       );
       return Transaction(
@@ -131,8 +132,8 @@ class SepaGenerationWizard extends StatelessWidget {
       return false;
     }
 
-    final creditor =
-        Creditor(name: creditorName, id: creditorId, iban: creditorIban);
+    final creditor = Creditor(
+        name: creditorName, id: creditorId, iban: IBAN(iban: creditorIban));
 
     final Future<String> sepaContent =
         _generateSepaContent(messageId, creditor, member, amount, purpose);
@@ -145,8 +146,10 @@ class SepaGenerationWizard extends StatelessWidget {
       }
 
       await setConfiguredCreditor(
-          creditor:
-              Creditor(name: creditorName, id: creditorId, iban: creditorIban));
+          creditor: Creditor(
+              name: creditorName,
+              id: creditorId,
+              iban: IBAN(iban: creditorIban)));
       return true;
     });
   }
@@ -168,7 +171,7 @@ class SepaGenerationWizard extends StatelessWidget {
 
       final FormBuilderState formState = _formKey.currentState!;
       formState.fields[creditorNameField.name]?.didChange(creditor.name);
-      formState.fields[creditorIbanField.name]?.didChange(creditor.iban);
+      formState.fields[creditorIbanField.name]?.didChange(creditor.iban.iban);
       formState.fields[creditorIdField.name]?.didChange(creditor.id);
     });
 

@@ -36,13 +36,17 @@ mod test {
         let creditor = Creditor {
             id: String::from("DE98ZZZ09999999999"),
             name: Name::from("Gary Gathering"),
-            iban: IBAN::from("DE07123412341234123412"),
+            iban: IBAN {
+                iban: String::from("DE07123412341234123412"),
+            },
         };
 
         let transactions = vec![Transaction {
             debitor: Debitor {
                 name: Name::from("Paying, Paula"),
-                iban: IBAN::from("DE89370400440532013000"),
+                iban: IBAN {
+                    iban: String::from("DE89370400440532013000"),
+                },
                 mandate: Mandate {
                     id: MandateID::from("fancyMandateID"),
                     date_of_signature_utc: NaiveDate::from_ymd_opt(2024, 12, 12)

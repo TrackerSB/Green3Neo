@@ -58,7 +58,7 @@ fn generate_creditor_info(name: &str) -> PartyIdentification272Type {
 
 fn generate_creditor_account(creditor_iban: IBAN) -> CashAccount40Type {
     CashAccount40Type {
-        id: Some(AccountIdentification4ChoiceType::Iban(creditor_iban)),
+        id: Some(AccountIdentification4ChoiceType::Iban(creditor_iban.iban)),
         tp: None,
         ccy: None,
         nm: None,
@@ -147,7 +147,7 @@ fn generate_direct_debit_transaction(
         },
         dbtr_acct: CashAccount40Type {
             id: Some(AccountIdentification4ChoiceType::Iban(
-                transaction.debitor.iban.to_owned(),
+                transaction.debitor.iban.iban.clone(),
             )),
             tp: None,
             ccy: None,
