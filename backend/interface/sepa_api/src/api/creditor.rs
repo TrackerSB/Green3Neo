@@ -3,17 +3,7 @@ use std::fs;
 use backend_paths::paths::get_user_config_dir;
 use config::{FileFormat, FileStoredFormat};
 use log::warn;
-use sepa_types::creditor_id::CreditorID;
-use sepa_types::iban::IBAN;
-use sepa_types::name::Name;
-use serde::{Deserialize, Serialize};
-
-#[derive(Debug, Serialize, Deserialize)]
-pub struct Creditor {
-    pub name: Name,
-    pub id: CreditorID,
-    pub iban: IBAN,
-}
+use sepa_types::creditor::Creditor;
 
 static CREDITOR_CONFIG_FILE_STEM: &str = "creditor";
 static CREDITOR_CONFIG_FILE_FORMAT: FileFormat = FileFormat::Toml;
