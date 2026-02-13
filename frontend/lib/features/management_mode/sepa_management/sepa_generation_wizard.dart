@@ -94,18 +94,17 @@ class SepaGenerationWizard extends StatelessWidget {
 
   SepaGenerationWizard._create({super.key, required this.member});
 
-  void _onOkButtonPressed(
+  Future<bool> _onOkButtonPressed(
       final MessageIdField messageIdField,
       final CreditorNameField creditorNameField,
       final CreditorIbanField creditorIbanField,
       final CreditorIdField creditorIdField,
       final CurrencyField currencyField,
-      final PurposeField purposeField,
-      final BuildContext context) async {
+      final PurposeField purposeField) async {
     final FormBuilderState formState = _formKey.currentState!;
 
     if (!formState.saveAndValidate()) {
-      return;
+      return false;
     }
 
     final String? messageId =
@@ -129,7 +128,7 @@ class SepaGenerationWizard extends StatelessWidget {
         (purpose == null)) {
       _logger.severe(
           "The form should not be valid since there are not set form fields");
-      return;
+      return false;
     }
 
     final creditor =
@@ -139,19 +138,16 @@ class SepaGenerationWizard extends StatelessWidget {
         _generateSepaContent(messageId, creditor, member, amount, purpose);
     final Future<String?> outputPath = _askUserForOutputPath();
 
-    _writeContentToPath(sepaContent, outputPath)
+    return _writeContentToPath(sepaContent, outputPath)
         .then((final bool wasWritten) async {
       if (!wasWritten) {
-        return;
+        return false;
       }
 
       await setConfiguredCreditor(
           creditor:
               Creditor(name: creditorName, id: creditorId, iban: creditorIban));
-
-      if (context.mounted) {
-        Navigator.pop(context);
-      }
+      return true;
     });
   }
 
@@ -199,13 +195,19 @@ class SepaGenerationWizard extends StatelessWidget {
             children: [
               ElevatedButton(
                 onPressed: () => _onOkButtonPressed(
-                    messageIdField,
-                    creditorNameField,
-                    creditorIbanField,
-                    creditorIdField,
-                    currencyField,
-                    purposeField,
-                    context),
+                        messageIdField,
+                        creditorNameField,
+                        creditorIbanField,
+                        creditorIdField,
+                        currencyField,
+                        purposeField)
+                    .then(
+                  (final bool submitted) {
+                    if (submitted && context.mounted) {
+                      Navigator.pop(context);
+                    }
+                  },
+                ),
                 child: Text(MaterialLocalizations.of(context).okButtonLabel),
               ),
               CloseButton(
