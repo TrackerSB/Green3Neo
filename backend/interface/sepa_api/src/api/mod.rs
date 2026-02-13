@@ -1,6 +1,7 @@
 pub mod creditor;
 pub mod debitor;
 pub mod generation;
+pub mod init;
 pub mod name;
 pub mod transaction;
 
