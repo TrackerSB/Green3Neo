@@ -12,6 +12,7 @@ pub use sepa_types::iban::IBAN;
 pub use sepa_types::mandate::Mandate;
 pub use sepa_types::mandate_id::MandateID;
 pub use sepa_types::name::Name;
+pub use sepa_types::purpose::Purpose;
 
 #[frb(mirror(Creditor))]
 pub struct _Creditor {
@@ -50,5 +51,10 @@ struct _MandateID {
 
 #[frb(mirror(Name))]
 struct _Name {
+    pub value: String,
+}
+
+#[frb(mirror(Purpose))]
+struct _Purpose {
     pub value: String,
 }

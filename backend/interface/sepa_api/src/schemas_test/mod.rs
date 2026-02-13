@@ -10,10 +10,11 @@ mod test {
     use sepa_types::mandate::Mandate;
     use sepa_types::mandate_id::MandateID;
     use sepa_types::name::Name;
+    use sepa_types::purpose::Purpose;
 
     use crate::api::{
         generation::{MessageID, generate_sepa_document},
-        transaction::{Purpose, Transaction},
+        transaction::Transaction,
     };
 
     fn setup_test() {

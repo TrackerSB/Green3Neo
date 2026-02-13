@@ -1,9 +1,4 @@
-use sepa_types::debitor::Debitor;
-
-// FIXME Add checks for valid purposes
-pub struct Purpose {
-    pub value: String,
-}
+use sepa_types::{debitor::Debitor, purpose::Purpose};
 
 pub struct Transaction {
     pub debitor: Debitor,
