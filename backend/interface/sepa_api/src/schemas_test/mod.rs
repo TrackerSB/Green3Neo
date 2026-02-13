@@ -3,6 +3,7 @@ mod test {
     use backend_testing::testing;
     use chrono::NaiveDate;
     use log::info;
+    use sepa_types::debitor::Debitor;
     use sepa_types::iban::IBAN;
     use sepa_types::mandate::Mandate;
     use sepa_types::mandate_id::MandateID;
@@ -10,7 +11,6 @@ mod test {
 
     use crate::api::{
         creditor::Creditor,
-        debitor::Debitor,
         generation::MessageID,
         generation::generate_sepa_document,
         transaction::{Purpose, Transaction},

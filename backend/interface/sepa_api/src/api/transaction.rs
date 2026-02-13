@@ -1,4 +1,4 @@
-use super::debitor::Debitor;
+use sepa_types::debitor::Debitor;
 
 // FIXME Add checks for valid purposes
 pub type Purpose = String;

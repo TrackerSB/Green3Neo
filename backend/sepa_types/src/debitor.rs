@@ -1,6 +1,6 @@
-use sepa_types::iban::IBAN;
-use sepa_types::mandate::Mandate;
-use sepa_types::name::Name;
+use crate::iban::IBAN;
+use crate::mandate::Mandate;
+use crate::name::Name;
 
 // FIXME Can deriving from Clone be avoided?
 #[derive(Debug, Clone)]
