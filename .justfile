@@ -1,8 +1,6 @@
 set dotenv-load := true
 set dotenv-required := true
 
-database_url := env("BUILD_DATABASE_URL")
-
 # FIXME Make workspace folder absolute (maybe using git to find git root?)
 workspace_dir := "."
 
@@ -69,10 +67,10 @@ database-drop-tables: _tasks-create-venv
 database-recreate-tables: database-drop-tables database-create-tables
 
 diesel-setup:
-    cd {{ database_api_dir }} && diesel setup --database-url "{{ database_url }}"
+    cd {{ database_api_dir }} && diesel setup
 
 diesel-generate-schema: diesel-setup
-    cd {{ database_api_dir }} && diesel print-schema --database-url "{{ database_url }}" > src/schema.rs
+    cd {{ database_api_dir }} && diesel print-schema > src/schema.rs
 
 diesel-generate-models: diesel-generate-schema
     cd {{ database_api_dir }} && diesel_ext --model --import-types diesel::Queryable --import-types diesel::Selectable --import-types diesel::Identifiable --import-types backend_macros::make_fields_non_final --import-types flutter_rust_bridge::frb --import-types crate::schema::* --derive Queryable,Selectable --add-table-name > src/api/models.rs
