@@ -11,7 +11,9 @@ use xsd_parser_types::quick_xml::{SerializeSync, Writer};
 use crate::schemas::pain_008_001_11::*;
 
 // FIXME Check restrictions on message ID
-pub type MessageID = String;
+pub struct MessageID {
+    pub value: String,
+}
 
 fn _format_date(date: NaiveDate) -> String {
     date.format("%Y-%m-%d").to_string()
@@ -29,7 +31,7 @@ fn generate_group_header(
     let creation_time_utc = Utc::now();
 
     GroupHeader118Type {
-        msg_id: message_id,
+        msg_id: message_id.value,
         cre_dt_tm: _format_date_time(creation_time_utc),
         authstn: vec![],
         nb_of_txs: num_transactions.to_string(),

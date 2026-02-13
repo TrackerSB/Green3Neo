@@ -27,7 +27,9 @@ mod test {
     fn test_generate_sepa_xml() {
         setup_test();
 
-        let message_id = MessageID::from("demo_msg_id");
+        let message_id = MessageID {
+            value: String::from("demo_msg_id"),
+        };
 
         let collection_date = NaiveDate::from_ymd_opt(2026, 3, 15)
             .unwrap()

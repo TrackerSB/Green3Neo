@@ -52,7 +52,7 @@ Future<String> _generateSepaContent(
     },
   ).toList();
   return generateSepaDocument(
-      messageId: messageId,
+      messageId: MessageID(value: messageId),
       collectionDateUtc: DateTime.now().toUtc(),
       creditor: creditor,
       transactions: transactions);
