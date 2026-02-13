@@ -11,7 +11,7 @@ use log::{info, trace, warn};
 pub fn get_connection() -> Option<PgConnection> {
     dotenv().ok();
 
-    let url = std::env::var("DATABASE_URL");
+    let url = std::env::var("BUILD_DATABASE_URL");
 
     if url.is_err() {
         warn!("Could not determine database URL");
@@ -254,7 +254,7 @@ mod test {
             .expect("Result database name is empty");
 
         let configured_url =
-            std::env::var("DATABASE_URL").expect("Could not determine database URL");
+            std::env::var("BUILD_DATABASE_URL").expect("Could not determine database URL");
 
         let test_db_url = configured_url
             .split_at(

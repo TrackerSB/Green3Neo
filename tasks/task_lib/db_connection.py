@@ -10,11 +10,11 @@ def read_credentials() -> Dict[str, str]:
     load_dotenv()
 
     return {
-        "host": getenv("DB_HOST"),
-        "port": getenv("DB_PORT"),
-        "database": getenv("DB_NAME"),
-        "user": getenv("DB_USER"),
-        "password": getenv("DB_PASSWORD"),
+        "host": getenv("BUILD_DB_HOST"),
+        "port": getenv("BUILD_DB_PORT"),
+        "database": getenv("BUILD_DB_NAME"),
+        "user": getenv("BUILD_DB_USER"),
+        "password": getenv("BUILD_DB_PASSWORD"),
     }
 
 
