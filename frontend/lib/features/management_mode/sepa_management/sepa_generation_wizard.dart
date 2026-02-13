@@ -41,7 +41,7 @@ Future<String> _generateSepaContent(
       final debitor = Debitor(
         name:
             "${m.accountholderprename ?? m.prename} ${m.accountholdersurname ?? m.surname}",
-        iban: IBAN(iban: m.iban),
+        iban: IBAN(value: m.iban),
         mandate: mandate,
       );
       return Transaction(
@@ -133,7 +133,7 @@ class SepaGenerationWizard extends StatelessWidget {
     }
 
     final creditor = Creditor(
-        name: creditorName, id: creditorId, iban: IBAN(iban: creditorIban));
+        name: creditorName, id: creditorId, iban: IBAN(value: creditorIban));
 
     final Future<String> sepaContent =
         _generateSepaContent(messageId, creditor, member, amount, purpose);
@@ -149,7 +149,7 @@ class SepaGenerationWizard extends StatelessWidget {
           creditor: Creditor(
               name: creditorName,
               id: creditorId,
-              iban: IBAN(iban: creditorIban)));
+              iban: IBAN(value: creditorIban)));
       return true;
     });
   }
@@ -171,7 +171,7 @@ class SepaGenerationWizard extends StatelessWidget {
 
       final FormBuilderState formState = _formKey.currentState!;
       formState.fields[creditorNameField.name]?.didChange(creditor.name);
-      formState.fields[creditorIbanField.name]?.didChange(creditor.iban.iban);
+      formState.fields[creditorIbanField.name]?.didChange(creditor.iban.value);
       formState.fields[creditorIdField.name]?.didChange(creditor.id);
     });
 

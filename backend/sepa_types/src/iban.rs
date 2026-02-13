@@ -4,5 +4,5 @@ use serde::{Deserialize, Serialize};
 // FIXME Can deriving from Clone be avoided?
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct IBAN {
-    pub iban: String,
+    pub value: String,
 }

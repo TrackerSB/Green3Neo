@@ -37,7 +37,7 @@ mod test {
             id: String::from("DE98ZZZ09999999999"),
             name: Name::from("Gary Gathering"),
             iban: IBAN {
-                iban: String::from("DE07123412341234123412"),
+                value: String::from("DE07123412341234123412"),
             },
         };
 
@@ -45,7 +45,7 @@ mod test {
             debitor: Debitor {
                 name: Name::from("Paying, Paula"),
                 iban: IBAN {
-                    iban: String::from("DE89370400440532013000"),
+                    value: String::from("DE89370400440532013000"),
                 },
                 mandate: Mandate {
                     id: MandateID::from("fancyMandateID"),

@@ -9,5 +9,5 @@ pub use sepa_types::iban::IBAN;
 
 #[frb(mirror(IBAN))]
 struct _IBAN {
-    pub iban: String,
+    pub value: String,
 }
