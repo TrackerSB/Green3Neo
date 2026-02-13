@@ -161,7 +161,7 @@ fn generate_direct_debit_transaction(
         tax: None,
         rltd_rmt_inf: vec![],
         rmt_inf: Some(RemittanceInformation22Type {
-            ustrd: vec![transaction.purpose.to_owned()],
+            ustrd: vec![transaction.purpose.value.clone()],
             strd: vec![],
         }),
         splmtry_data: vec![],

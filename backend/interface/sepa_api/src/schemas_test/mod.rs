@@ -66,7 +66,9 @@ mod test {
                 },
             },
             value: 42f64,
-            purpose: Purpose::from("Some unknown reason for collecting money"),
+            purpose: Purpose {
+                value: String::from("Some unknown reason for collecting money"),
+            },
         }];
 
         let xml_content =

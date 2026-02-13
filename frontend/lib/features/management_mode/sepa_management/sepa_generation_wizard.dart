@@ -47,7 +47,7 @@ Future<String> _generateSepaContent(
       return Transaction(
         debitor: debitor,
         value: value,
-        purpose: purpose,
+        purpose: Purpose(value: purpose),
       );
     },
   ).toList();
