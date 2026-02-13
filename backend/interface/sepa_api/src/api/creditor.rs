@@ -8,7 +8,10 @@ use sepa_types::name::Name;
 use serde::{Deserialize, Serialize};
 
 // FIXME Add checks for valid creditor IDs
-pub type CreditorID = String;
+#[derive(Debug, Serialize, Deserialize)]
+pub struct CreditorID {
+    pub value: String,
+}
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Creditor {

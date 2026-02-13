@@ -10,9 +10,8 @@ mod test {
     use sepa_types::name::Name;
 
     use crate::api::{
-        creditor::Creditor,
-        generation::MessageID,
-        generation::generate_sepa_document,
+        creditor::{Creditor, CreditorID},
+        generation::{MessageID, generate_sepa_document},
         transaction::{Purpose, Transaction},
     };
 
@@ -36,7 +35,9 @@ mod test {
             .unwrap(); // FIXME Handle error
 
         let creditor = Creditor {
-            id: String::from("DE98ZZZ09999999999"),
+            id: CreditorID {
+                value: String::from("DE98ZZZ09999999999"),
+            },
             name: Name {
                 value: String::from("Gary Gathering"),
             },

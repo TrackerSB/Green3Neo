@@ -73,7 +73,7 @@ fn generate_creditor_scheme_id(creditor_id: CreditorID) -> PartyIdentification27
         id: Some(Party52ChoiceType::PrvtId(PersonIdentification18Type {
             dt_and_plc_of_birth: None,
             othr: vec![GenericPersonIdentification2Type {
-                id: creditor_id,
+                id: creditor_id.value,
                 issr: None,
                 schme_nm: Some(PersonIdentificationSchemeName1ChoiceType::Prtry(
                     String::from("SEPA"),

@@ -134,7 +134,7 @@ class SepaGenerationWizard extends StatelessWidget {
 
     final creditor = Creditor(
         name: Name(value: creditorName),
-        id: creditorId,
+        id: CreditorID(value: creditorId),
         iban: IBAN(value: creditorIban));
 
     final Future<String> sepaContent =
@@ -150,7 +150,7 @@ class SepaGenerationWizard extends StatelessWidget {
       await setConfiguredCreditor(
         creditor: Creditor(
           name: Name(value: creditorName),
-          id: creditorId,
+          id: CreditorID(value: creditorId),
           iban: IBAN(value: creditorIban),
         ),
       );
@@ -176,7 +176,7 @@ class SepaGenerationWizard extends StatelessWidget {
       final FormBuilderState formState = _formKey.currentState!;
       formState.fields[creditorNameField.name]?.didChange(creditor.name.value);
       formState.fields[creditorIbanField.name]?.didChange(creditor.iban.value);
-      formState.fields[creditorIdField.name]?.didChange(creditor.id);
+      formState.fields[creditorIdField.name]?.didChange(creditor.id.value);
     });
 
     return Scaffold(
