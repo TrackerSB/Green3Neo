@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
 
-import 'package:green3neo/components/form_fields/form_text_field.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:green3neo/localizer.dart';
 
-class PurposeField extends FormTextField<String> {
+class PurposeField extends FormBuilderTextField {
   PurposeField({super.key})
       : super(
-          convert: (final String value) => value,
-          labelText: Localizer.instance.text((l) => l.purpose),
-          invalidText: Localizer.instance.text((l) => l.invalidPurpose),
+          name: "purpose",
+          decoration: InputDecoration(
+              labelText: Localizer.instance.text((l) => l.purpose)),
           keyboardType: TextInputType.text,
-          // FIXME Introduce regex in backend and call match function in frontend
-          validate: (final String value) => value.isNotEmpty,
+          validator: FormBuilderValidators.compose([
+            FormBuilderValidators.required(
+                errorText: Localizer.instance.text((l) => l.invalidPurpose))
+            // FIXME Introduce regex in backend and call match function in frontend
+          ]),
         );
 }

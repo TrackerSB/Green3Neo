@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 
 import 'package:file_picker/file_picker.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:get_it/get_it.dart';
 import 'package:green3neo/components/form_fields/creditor_iban_field.dart';
 import 'package:green3neo/components/form_fields/creditor_id_field.dart';
@@ -87,7 +88,7 @@ Future<void> _writeContentToPath(
 }
 
 class SepaGenerationWizard extends StatelessWidget {
-  final _formKey = GlobalKey<FormState>();
+  final _formKey = GlobalKey<FormBuilderState>();
   final List<Member> member;
 
   SepaGenerationWizard._create({super.key, required this.member});
@@ -100,20 +101,25 @@ class SepaGenerationWizard extends StatelessWidget {
       final CurrencyField currencyField,
       final PurposeField purposeField,
       final BuildContext context) async {
-    final FormState formState = _formKey.currentState!;
+    final FormBuilderState formState = _formKey.currentState!;
 
-    if (!formState.validate()) {
+    if (!formState.saveAndValidate()) {
       return;
     }
 
-    formState.save();
+    final String? messageId =
+        formState.getTransformedValue(messageIdField.name, fromSaved: true);
+    final double? amount =
+        formState.getTransformedValue(currencyField.name, fromSaved: true);
+    final String? creditorName =
+        formState.getTransformedValue(creditorNameField.name, fromSaved: true);
+    final String? creditorIban =
+        formState.getTransformedValue(creditorIbanField.name, fromSaved: true);
+    final String? creditorId =
+        formState.getTransformedValue(creditorIdField.name, fromSaved: true);
+    final String? purpose =
+        formState.getTransformedValue(purposeField.name, fromSaved: true);
 
-    final String? messageId = messageIdField.value.value;
-    final double? amount = currencyField.value.value;
-    final String? creditorName = creditorNameField.value.value;
-    final String? creditorIban = creditorIbanField.value.value;
-    final String? creditorId = creditorIdField.value.value;
-    final String? purpose = purposeField.value.value;
     if ((messageId == null) ||
         (amount == null) ||
         (creditorName == null) ||
@@ -134,6 +140,10 @@ class SepaGenerationWizard extends StatelessWidget {
 
     await _writeContentToPath(sepaContent, outputPath);
 
+    final _ = setConfiguredCreditor(
+        creditor:
+            Creditor(name: creditorName, id: creditorId, iban: creditorIban));
+
     if (context.mounted) {
       Navigator.pop(context);
     }
@@ -148,12 +158,24 @@ class SepaGenerationWizard extends StatelessWidget {
     final creditorIbanField = CreditorIbanField();
     final creditorIdField = CreditorIdField();
 
+    final Future<Creditor?> configuredCreditor = getConfiguredCreditor();
+    configuredCreditor.then((final Creditor? creditor) {
+      if (creditor == null) {
+        return;
+      }
+
+      final FormBuilderState formState = _formKey.currentState!;
+      formState.fields[creditorNameField.name]?.didChange(creditor.name);
+      formState.fields[creditorIbanField.name]?.didChange(creditor.iban);
+      formState.fields[creditorIdField.name]?.didChange(creditor.id);
+    });
+
     return Scaffold(
       body: Column(
         children: [
-          Form(
+          FormBuilder(
             key: _formKey,
-            autovalidateMode: AutovalidateMode.onUserInteraction,
+            autovalidateMode: AutovalidateMode.onUnfocus,
             child: Column(
               children: [
                 Text(Localizer.instance.text(

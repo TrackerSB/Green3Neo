@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
 
-import 'package:green3neo/components/form_fields/form_text_field.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:green3neo/localizer.dart';
 
-class CreditorIbanField extends FormTextField<String> {
+class CreditorIbanField extends FormBuilderTextField {
   CreditorIbanField({super.key})
       : super(
-          convert: (final String value) => value,
-          labelText: Localizer.instance.text((l) => l.creditorIban),
-          invalidText: Localizer.instance.text((l) => l.invalidCreditorIban),
+          name: "creditorIban",
+          decoration: InputDecoration(
+              labelText: Localizer.instance.text((l) => l.creditorIban)),
           keyboardType: TextInputType.text,
-          // FIXME Introduce regex in backend and call match function in frontend
-          validate: (final String value) => value.isNotEmpty,
+          validator: FormBuilderValidators.compose([
+            FormBuilderValidators.required(
+                errorText:
+                    Localizer.instance.text((l) => l.invalidCreditorIban))
+            // FIXME Introduce regex in backend and call match function in frontend
+          ]),
         );
 }
