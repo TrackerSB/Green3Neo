@@ -4,14 +4,22 @@ pub mod generation;
 pub mod init;
 pub mod transaction;
 
+use chrono::NaiveDateTime;
 use flutter_rust_bridge::frb;
 pub use sepa_types::iban::IBAN;
+pub use sepa_types::mandate::Mandate;
 pub use sepa_types::mandate_id::MandateID;
 pub use sepa_types::name::Name;
 
 #[frb(mirror(IBAN))]
 struct _IBAN {
     pub value: String,
+}
+
+#[frb(mirror(Mandate))]
+struct _Mandate {
+    pub id: MandateID,
+    pub date_of_signature_utc: NaiveDateTime,
 }
 
 #[frb(mirror(MandateID))]

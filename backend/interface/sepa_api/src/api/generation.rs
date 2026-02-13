@@ -2,11 +2,11 @@ use std::io::Cursor;
 
 use chrono::{DateTime, NaiveDate, NaiveDateTime, SecondsFormat, TimeZone, Utc};
 use sepa_types::iban::IBAN;
+use sepa_types::mandate::Mandate;
 use xsd_parser_types::quick_xml::{SerializeSync, Writer};
 
 use super::creditor::Creditor;
 use super::creditor::CreditorID;
-use super::debitor::Mandate;
 use super::transaction::Transaction;
 
 use crate::schemas::pain_008_001_11::*;
