@@ -84,7 +84,7 @@ sepa-generate-schemas:
 # Actions) correspond to each other
 frb-generate: diesel-generate-models sepa-generate-schemas
     mkdir -p {{ frb_backend_api_output_dir }}
-    flutter_rust_bridge_codegen generate --no-web --no-add-mod-to-lib --llvm-path {{ llvmIncludeDir }} --rust-input "crate::api" --rust-root {{ backend_api_dir }} --dart-output {{ frb_backend_api_output_dir }} --stop-on-error --rust-preamble "use sepa_types::creditor::Creditor;"
+    flutter_rust_bridge_codegen generate --no-web --no-add-mod-to-lib --llvm-path {{ llvmIncludeDir }} --rust-input "crate::api" --rust-root {{ backend_api_dir }} --dart-output {{ frb_backend_api_output_dir }} --stop-on-error
 
     mkdir -p {{ frb_database_api_output_dir }}
     flutter_rust_bridge_codegen generate --no-web --no-add-mod-to-lib --llvm-path {{ llvmIncludeDir }} --rust-input "crate::api" --rust-root {{ database_api_dir }} --dart-output {{ frb_database_api_output_dir }} --stop-on-error
