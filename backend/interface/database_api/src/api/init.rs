@@ -7,6 +7,6 @@ use flutter_rust_bridge::frb;
 #[frb(init)]
 pub fn init_app() {
     // FIXME Determine library name automatically
-    static LOGGER: LazyLock<LoggerHandle> = LazyLock::new(|| create_logger(None, "backend_api"));
+    static LOGGER: LazyLock<LoggerHandle> = LazyLock::new(|| create_logger(None, "database_api"));
     LOGGER.flush(); // Trigger creation of logger
 }

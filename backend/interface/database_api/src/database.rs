@@ -1,4 +1,5 @@
 use chrono::NaiveDate;
+use database_types::connection_description::ConnectionDescription;
 use diesel::backend::Backend;
 use diesel::query_builder::BoxedSqlQuery;
 use diesel::query_builder::bind_collector::RawBytesBindCollector;
@@ -8,17 +9,19 @@ use diesel::{Connection, PgConnection, QueryableByName, RunQueryDsl};
 use dotenv::dotenv;
 use log::{info, trace, warn};
 
-pub fn get_connection() -> Option<PgConnection> {
+pub fn get_connection(connection: ConnectionDescription) -> Option<PgConnection> {
     dotenv().ok();
 
-    let url = std::env::var("DATABASE_URL");
+    let database_url = format!(
+        "postgres://{user}:{password}@{host}:{port}/{name}",
+        user = connection.user,
+        password = connection.password,
+        host = connection.host,
+        port = connection.port,
+        name = connection.name
+    );
 
-    if url.is_err() {
-        warn!("Could not determine database URL");
-        return None;
-    }
-
-    let connection = PgConnection::establish(&url.unwrap());
+    let connection = PgConnection::establish(&database_url);
 
     if connection.is_err() {
         warn!(

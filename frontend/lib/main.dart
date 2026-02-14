@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import 'package:green3neo/features/loaded_profile.dart';
 import 'package:green3neo/features/management_mode/management_mode.dart';
 import 'package:green3neo/features/management_mode/member_management/member_management_mode.dart';
 import 'package:green3neo/features/management_mode/member_view.dart';
@@ -54,9 +55,8 @@ void setupLogging() {
       callingFrame = frames.elementAtOrNull(0);
     }
 
-    final String? logLocation = callingFrame
-        ?.replaceFirst(RegExp(r"^#\d+\s*"), "")
-        .trim();
+    final String? logLocation =
+        callingFrame?.replaceFirst(RegExp(r"^#\d+\s*"), "").trim();
     final String message =
         "${(logLocation ?? "")} '${record.loggerName}': ${record.message}";
 
@@ -75,8 +75,7 @@ void setupLogging() {
             break;
           default:
             backend_logging.warn(
-              message:
-                  "Log level ${record.level.name} is unsupported. "
+              message: "Log level ${record.level.name} is unsupported. "
                   "Message was $message",
             );
             break;
@@ -104,9 +103,8 @@ void setupLogging() {
   /* Print errors and exceptions not caught by Flutter to logger before
    * exiting application
    */
-  PlatformDispatcher
-      .instance
-      .onError = (final Object error, final StackTrace stackTrace) {
+  PlatformDispatcher.instance.onError =
+      (final Object error, final StackTrace stackTrace) {
     _logger.shout("Encountered error not caught by Flutter", error, stackTrace);
     // FIXME When to consider an error "recoverable" or "not too bad"?
     return true;
@@ -152,6 +150,7 @@ void main() async {
   ViewManagementMode().register();
   SepaManagementMode().register();
   SepaGenerationWizardFactory().register();
+  LoadedProfileFeature().register();
 
   // Start app
   runApp(const MainApp());
@@ -184,32 +183,32 @@ class MainApp extends WatchingWidget {
             body: StatefulBuilder(
               builder:
                   (final BuildContext context, final StateSetter setState) {
-                    return Column(
-                      children: [
-                        SegmentedButton<Widget>(
-                          segments: managementModes.map((mode) {
-                            return ButtonSegment(
-                              value: mode.widget,
-                              label: Text(mode.modeName),
-                            );
-                          }).toList(),
-                          selected: {selectedModeWidget},
-                          emptySelectionAllowed: false,
-                          multiSelectionEnabled: false,
-                          onSelectionChanged: (Set<Widget>? selectedModes) {
-                            assert(
-                              selectedModes != null && selectedModes.isNotEmpty,
-                            );
+                return Column(
+                  children: [
+                    SegmentedButton<Widget>(
+                      segments: managementModes.map((mode) {
+                        return ButtonSegment(
+                          value: mode.widget,
+                          label: Text(mode.modeName),
+                        );
+                      }).toList(),
+                      selected: {selectedModeWidget},
+                      emptySelectionAllowed: false,
+                      multiSelectionEnabled: false,
+                      onSelectionChanged: (Set<Widget>? selectedModes) {
+                        assert(
+                          selectedModes != null && selectedModes.isNotEmpty,
+                        );
 
-                            setState(() {
-                              selectedModeWidget = selectedModes!.first;
-                            });
-                          },
-                        ),
-                        Expanded(child: selectedModeWidget),
-                      ],
-                    );
-                  },
+                        setState(() {
+                          selectedModeWidget = selectedModes!.first;
+                        });
+                      },
+                    ),
+                    Expanded(child: selectedModeWidget),
+                  ],
+                );
+              },
             ),
           );
         },

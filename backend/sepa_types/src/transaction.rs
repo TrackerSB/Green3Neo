@@ -1,7 +1,4 @@
-use super::debitor::Debitor;
-
-// FIXME Add checks for valid purposes
-pub type Purpose = String;
+use crate::{debitor::Debitor, purpose::Purpose};
 
 pub struct Transaction {
     pub debitor: Debitor,

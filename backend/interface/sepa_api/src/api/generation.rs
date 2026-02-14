@@ -1,18 +1,19 @@
 use std::io::Cursor;
 
 use chrono::{DateTime, NaiveDate, NaiveDateTime, SecondsFormat, TimeZone, Utc};
+use sepa_types::creditor::Creditor;
+use sepa_types::creditor_id::CreditorID;
+use sepa_types::iban::IBAN;
+use sepa_types::mandate::Mandate;
+use sepa_types::transaction::Transaction;
 use xsd_parser_types::quick_xml::{SerializeSync, Writer};
-
-use super::creditor::Creditor;
-use super::creditor::CreditorID;
-use super::debitor::Mandate;
-use super::iban::IBAN;
-use super::transaction::Transaction;
 
 use crate::schemas::pain_008_001_11::*;
 
 // FIXME Check restrictions on message ID
-pub type MessageID = String;
+pub struct MessageID {
+    pub value: String,
+}
 
 fn _format_date(date: NaiveDate) -> String {
     date.format("%Y-%m-%d").to_string()
@@ -30,7 +31,7 @@ fn generate_group_header(
     let creation_time_utc = Utc::now();
 
     GroupHeader118Type {
-        msg_id: message_id,
+        msg_id: message_id.value,
         cre_dt_tm: _format_date_time(creation_time_utc),
         authstn: vec![],
         nb_of_txs: num_transactions.to_string(),
@@ -58,7 +59,7 @@ fn generate_creditor_info(name: &str) -> PartyIdentification272Type {
 
 fn generate_creditor_account(creditor_iban: IBAN) -> CashAccount40Type {
     CashAccount40Type {
-        id: Some(AccountIdentification4ChoiceType::Iban(creditor_iban)),
+        id: Some(AccountIdentification4ChoiceType::Iban(creditor_iban.value)),
         tp: None,
         ccy: None,
         nm: None,
@@ -73,7 +74,7 @@ fn generate_creditor_scheme_id(creditor_id: CreditorID) -> PartyIdentification27
         id: Some(Party52ChoiceType::PrvtId(PersonIdentification18Type {
             dt_and_plc_of_birth: None,
             othr: vec![GenericPersonIdentification2Type {
-                id: creditor_id,
+                id: creditor_id.value,
                 issr: None,
                 schme_nm: Some(PersonIdentificationSchemeName1ChoiceType::Prtry(
                     String::from("SEPA"),
@@ -87,7 +88,7 @@ fn generate_creditor_scheme_id(creditor_id: CreditorID) -> PartyIdentification27
 
 fn generate_mandate_info(mandate: &Mandate) -> MandateRelatedInformation16Type {
     MandateRelatedInformation16Type {
-        mndt_id: Some(mandate.id.to_owned()),
+        mndt_id: Some(mandate.id.value.clone()),
         dt_of_sgntr: Some(_format_date(mandate.date_of_signature_utc.date())),
         amdmnt_ind: None,
         amdmnt_inf_dtls: None,
@@ -139,7 +140,7 @@ fn generate_direct_debit_transaction(
         },
         dbtr_agt_acct: None,
         dbtr: PartyIdentification272Type {
-            nm: Some(transaction.debitor.name.clone()),
+            nm: Some(transaction.debitor.name.value.clone()),
             pstl_adr: None,
             id: None,
             ctry_of_res: None,
@@ -147,7 +148,7 @@ fn generate_direct_debit_transaction(
         },
         dbtr_acct: CashAccount40Type {
             id: Some(AccountIdentification4ChoiceType::Iban(
-                transaction.debitor.iban.to_owned(),
+                transaction.debitor.iban.value.clone(),
             )),
             tp: None,
             ccy: None,
@@ -161,7 +162,7 @@ fn generate_direct_debit_transaction(
         tax: None,
         rltd_rmt_inf: vec![],
         rmt_inf: Some(RemittanceInformation22Type {
-            ustrd: vec![transaction.purpose.to_owned()],
+            ustrd: vec![transaction.purpose.value.clone()],
             strd: vec![],
         }),
         splmtry_data: vec![],
@@ -195,7 +196,7 @@ fn generate_sepa_document_type(
                     ctgy_purp: None,
                 }),
                 reqd_colltn_dt: _format_date(collection_date),
-                cdtr: generate_creditor_info(&creditor.name),
+                cdtr: generate_creditor_info(&creditor.name.value),
                 cdtr_acct: generate_creditor_account(creditor.iban),
                 cdtr_agt: BranchAndFinancialInstitutionIdentification8Type {
                     fin_instn_id: FinancialInstitutionIdentification23Type {

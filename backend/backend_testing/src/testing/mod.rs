@@ -32,10 +32,10 @@ fn get_message_entry_lock() -> Arc<RwLock<Vec<String>>> {
         Arc<RwLock<HashMap<String, Arc<RwLock<Vec<String>>>>>>,
     )> = LazyLock::new(|| {
         let test_case_name = std::env::var("NEXTEST_TEST_NAME").unwrap();
-        let log_directory_name = format!("log_{}", test_case_name.replace("::", "_"));
+        let log_basename = format!("log_{}", test_case_name.replace("::", "_"));
 
         (
-            create_logger(Some(Box::new(FailingWriter {})), &log_directory_name),
+            create_logger(Some(Box::new(FailingWriter {})), &log_basename),
             Arc::new(RwLock::new(HashMap::new())),
         )
     });

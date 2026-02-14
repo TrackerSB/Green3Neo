@@ -29,7 +29,10 @@
                 // When calling justfile via VSCode tasks .env seems not to be loaded automatically
                 "source .env && just backend-build"
             ],
-            "group": "build",
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
             "presentation": {
                 "reveal": "always",
                 "panel": "shared"
@@ -43,7 +46,10 @@
             "args": [
                 "database-create-tables"
             ],
-            "group": "build",
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
             "presentation": {
                 "reveal": "always",
                 "panel": "shared"
@@ -56,7 +62,10 @@
             "args": [
                 "database-drop-tables"
             ],
-            "group": "build",
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
             "presentation": {
                 "reveal": "always",
                 "panel": "shared"
@@ -69,7 +78,10 @@
             "args": [
                 "database-recreate-tables"
             ],
-            "group": "build",
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
             "presentation": {
                 "reveal": "always",
                 "panel": "shared"
@@ -82,7 +94,10 @@
             "args": [
                 "database-populate-tables"
             ],
-            "group": "build",
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
             "presentation": {
                 "reveal": "always",
                 "panel": "shared"

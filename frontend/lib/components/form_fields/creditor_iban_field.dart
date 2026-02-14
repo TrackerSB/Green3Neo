@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
+import 'package:green3neo/interface/sepa_api/api.dart';
 import 'package:green3neo/localizer.dart';
 
 class CreditorIbanField extends FormBuilderTextField {
@@ -17,5 +18,8 @@ class CreditorIbanField extends FormBuilderTextField {
                     Localizer.instance.text((l) => l.invalidCreditorIban))
             // FIXME Introduce regex in backend and call match function in frontend
           ]),
+          valueTransformer: (final String? value) {
+            return (value == null) ? null : IBAN(value: value);
+          },
         );
 }

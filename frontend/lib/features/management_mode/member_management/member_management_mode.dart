@@ -43,6 +43,7 @@ class _ApplyChangeRecordsButton extends WatchingWidget {
                 ),
                 TextButton(
                   onPressed: () {
+                    // FIXME Visualize failed commmit
                     commitDataChanges(mergedChangeRecords);
                     Navigator.of(context).pop();
                   },

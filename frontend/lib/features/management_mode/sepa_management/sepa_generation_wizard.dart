@@ -12,12 +12,11 @@ import 'package:green3neo/components/form_fields/currency_field.dart';
 import 'package:green3neo/components/form_fields/message_id_field.dart';
 import 'package:green3neo/components/form_fields/purpose_field.dart';
 import 'package:green3neo/features/feature.dart';
+import 'package:green3neo/features/loaded_profile.dart';
 import 'package:green3neo/interface/backend_api/api/paths.dart';
 import 'package:green3neo/interface/database_api/api/models.dart';
-import 'package:green3neo/interface/sepa_api/api/creditor.dart';
-import 'package:green3neo/interface/sepa_api/api/debitor.dart';
+import 'package:green3neo/interface/sepa_api/api.dart';
 import 'package:green3neo/interface/sepa_api/api/generation.dart';
-import 'package:green3neo/interface/sepa_api/api/transaction.dart';
 import 'package:green3neo/localizer.dart';
 import 'package:logging/logging.dart';
 
@@ -25,22 +24,23 @@ import 'package:logging/logging.dart';
 final _logger = Logger("sepa_generation_wizard");
 
 Future<String> _generateSepaContent(
-    final String messageId,
+    final MessageID messageId,
     final Creditor creditor,
     final List<Member> member,
     final double value,
-    final String purpose) {
+    final Purpose purpose) {
   final transactions = member.map(
     (final Member m) {
       final mandate = Mandate(
-        id: m.membershipid.toString(),
+        id: MandateID(value: m.membershipid.toString()),
         // FIXME Use correct date of signature
         dateOfSignatureUtc: DateTime.utc(2023, 5, 1),
       );
       final debitor = Debitor(
-        name:
-            "${m.accountholderprename ?? m.prename} ${m.accountholdersurname ?? m.surname}",
-        iban: m.iban,
+        name: Name(
+            value:
+                "${m.accountholderprename ?? m.prename} ${m.accountholdersurname ?? m.surname}"),
+        iban: IBAN(value: m.iban),
         mandate: mandate,
       );
       return Transaction(
@@ -107,17 +107,17 @@ class SepaGenerationWizard extends StatelessWidget {
       return false;
     }
 
-    final String? messageId =
+    final MessageID? messageId =
         formState.getTransformedValue(messageIdField.name, fromSaved: true);
     final double? amount =
         formState.getTransformedValue(currencyField.name, fromSaved: true);
-    final String? creditorName =
+    final Name? creditorName =
         formState.getTransformedValue(creditorNameField.name, fromSaved: true);
-    final String? creditorIban =
+    final IBAN? creditorIban =
         formState.getTransformedValue(creditorIbanField.name, fromSaved: true);
-    final String? creditorId =
+    final CreditorID? creditorId =
         formState.getTransformedValue(creditorIdField.name, fromSaved: true);
-    final String? purpose =
+    final Purpose? purpose =
         formState.getTransformedValue(purposeField.name, fromSaved: true);
 
     if ((messageId == null) ||
@@ -144,9 +144,19 @@ class SepaGenerationWizard extends StatelessWidget {
         return false;
       }
 
-      await setConfiguredCreditor(
-          creditor:
-              Creditor(name: creditorName, id: creditorId, iban: creditorIban));
+      final getIt = GetIt.instance;
+      LoadedProfile profile = await getIt.getAsync<LoadedProfile>();
+
+      profile = profile.copyWith(
+        creditor: Creditor(
+          name: creditorName,
+          id: creditorId,
+          iban: creditorIban,
+        ),
+      );
+
+      await profile.save();
+
       return true;
     });
   }
@@ -160,17 +170,18 @@ class SepaGenerationWizard extends StatelessWidget {
     final creditorIbanField = CreditorIbanField();
     final creditorIdField = CreditorIdField();
 
-    final Future<Creditor?> configuredCreditor = getConfiguredCreditor();
-    configuredCreditor.then((final Creditor? creditor) {
-      if (creditor == null) {
-        return;
-      }
-
-      final FormBuilderState formState = _formKey.currentState!;
-      formState.fields[creditorNameField.name]?.didChange(creditor.name);
-      formState.fields[creditorIbanField.name]?.didChange(creditor.iban);
-      formState.fields[creditorIdField.name]?.didChange(creditor.id);
-    });
+    final getIt = GetIt.instance;
+    getIt.getAsync<LoadedProfile>().then(
+      (final LoadedProfile profile) {
+        final FormBuilderState formState = _formKey.currentState!;
+        formState.fields[creditorNameField.name]
+            ?.didChange(profile.creditor?.name.value);
+        formState.fields[creditorIbanField.name]
+            ?.didChange(profile.creditor?.iban.value);
+        formState.fields[creditorIdField.name]
+            ?.didChange(profile.creditor?.id.value);
+      },
+    );
 
     return Scaffold(
       body: Column(
