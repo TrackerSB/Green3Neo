@@ -2,13 +2,16 @@ use std::fs;
 
 use backend_paths::paths::get_user_config_dir;
 use config::{FileFormat, FileStoredFormat};
+use flutter_rust_bridge::frb;
 use log::warn;
 use sepa_types::creditor::Creditor;
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Serialize, Deserialize)]
+#[frb(dart_metadata=("freezed"))]
 pub struct Profile {
-    pub creditor: Creditor,
+    #[frb(default = "null")]
+    pub creditor: Option<Creditor>,
 }
 
 static PROFILE_CONFIG_FILE_STEM: &str = "profile";

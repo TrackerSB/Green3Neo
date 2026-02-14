@@ -145,15 +145,18 @@ class SepaGenerationWizard extends StatelessWidget {
         return false;
       }
 
+      Profile? currentProfile = await loadProfile();
+
+      currentProfile ??= Profile();
+
+      final newCreditor = backend_api.Creditor(
+          name: backend_api.Name(value: creditorName.value),
+          id: backend_api.CreditorID(value: creditorId.value),
+          iban: backend_api.IBAN(value: creditorIban.value));
+
       await saveProfile(
-        profile: Profile(
-          creditor: backend_api.Creditor(
-            name: backend_api.Name(value: creditorName.value),
-            id: backend_api.CreditorID(value: creditorId.value),
-            iban: backend_api.IBAN(value: creditorIban.value),
-          ),
-        ),
-      );
+          profile: currentProfile.copyWith(creditor: newCreditor));
+
       return true;
     });
   }
@@ -175,11 +178,11 @@ class SepaGenerationWizard extends StatelessWidget {
 
         final FormBuilderState formState = _formKey.currentState!;
         formState.fields[creditorNameField.name]
-            ?.didChange(profile.creditor.name.value);
+            ?.didChange(profile.creditor?.name.value);
         formState.fields[creditorIbanField.name]
-            ?.didChange(profile.creditor.iban.value);
+            ?.didChange(profile.creditor?.iban.value);
         formState.fields[creditorIdField.name]
-            ?.didChange(profile.creditor.id.value);
+            ?.didChange(profile.creditor?.id.value);
       },
     );
 
