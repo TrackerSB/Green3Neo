@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_rust_bridge/flutter_rust_bridge_for_generated.dart';
+import 'package:get_it/get_it.dart';
+import 'package:green3neo/features/loaded_profile.dart';
 import 'package:green3neo/interface/database_api/api/member.dart';
-import 'package:green3neo/loaded_profile.dart';
 import 'package:green3neo/localizer.dart';
 
 Future<bool> commitDataChanges(List<ChangeRecord> changeRecords) async {
@@ -10,7 +11,8 @@ Future<bool> commitDataChanges(List<ChangeRecord> changeRecords) async {
   final List<ChangeRecord> records = changeRecords.toList();
   changeRecords.clear();
 
-  final LoadedProfile profile = await LoadedProfile.load();
+  final getIt = GetIt.instance;
+  final LoadedProfile profile = await getIt.getAsync<LoadedProfile>();
 
   if (profile.connection == null) {
     return false;

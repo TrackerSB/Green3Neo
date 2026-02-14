@@ -11,8 +11,8 @@ import 'package:green3neo/components/form_fields/creditor_name_field.dart';
 import 'package:green3neo/components/form_fields/currency_field.dart';
 import 'package:green3neo/components/form_fields/message_id_field.dart';
 import 'package:green3neo/components/form_fields/purpose_field.dart';
-import 'package:green3neo/loaded_profile.dart';
 import 'package:green3neo/features/feature.dart';
+import 'package:green3neo/features/loaded_profile.dart';
 import 'package:green3neo/interface/backend_api/api/paths.dart';
 import 'package:green3neo/interface/database_api/api/models.dart';
 import 'package:green3neo/interface/sepa_api/api.dart';
@@ -144,7 +144,8 @@ class SepaGenerationWizard extends StatelessWidget {
         return false;
       }
 
-      LoadedProfile profile = await LoadedProfile.load();
+      final getIt = GetIt.instance;
+      LoadedProfile profile = await getIt.getAsync<LoadedProfile>();
 
       profile = profile.copyWith(
         creditor: Creditor(
@@ -169,7 +170,8 @@ class SepaGenerationWizard extends StatelessWidget {
     final creditorIbanField = CreditorIbanField();
     final creditorIdField = CreditorIdField();
 
-    LoadedProfile.load().then(
+    final getIt = GetIt.instance;
+    getIt.getAsync<LoadedProfile>().then(
       (final LoadedProfile profile) {
         final FormBuilderState formState = _formKey.currentState!;
         formState.fields[creditorNameField.name]

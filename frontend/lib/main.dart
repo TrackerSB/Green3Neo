@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import 'package:green3neo/features/loaded_profile.dart';
 import 'package:green3neo/features/management_mode/management_mode.dart';
 import 'package:green3neo/features/management_mode/member_management/member_management_mode.dart';
 import 'package:green3neo/features/management_mode/member_view.dart';
@@ -149,6 +150,7 @@ void main() async {
   ViewManagementMode().register();
   SepaManagementMode().register();
   SepaGenerationWizardFactory().register();
+  LoadedProfileFeature().register();
 
   // Start app
   runApp(const MainApp());

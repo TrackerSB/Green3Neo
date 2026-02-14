@@ -2,10 +2,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:green3neo/components/table_view.dart';
+import 'package:green3neo/features/loaded_profile.dart';
 import 'package:green3neo/features/widget_feature.dart';
 import 'package:green3neo/interface/database_api/api/member.dart';
 import 'package:green3neo/interface/database_api/api/models.dart';
-import 'package:green3neo/loaded_profile.dart';
 import 'package:green3neo/localizer.dart';
 import 'package:listen_it/listen_it.dart';
 import 'package:logging/logging.dart';
@@ -44,7 +44,8 @@ class MemberView extends WatchingWidget {
   MemberView._create({super.key});
 
   Future<bool> forceReloadDataFromDB() {
-    return LoadedProfile.load().then((final LoadedProfile profile) {
+    final getIt = GetIt.instance;
+    return getIt.getAsync<LoadedProfile>().then((final LoadedProfile profile) {
       if (profile.connection == null) {
         _logger.severe("Cannot reload data without configured connection");
         return false;
