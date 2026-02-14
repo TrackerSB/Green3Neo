@@ -45,7 +45,7 @@ class LoadedProfile with _$LoadedProfile {
 
     await saveProfile(
       profile: Profile(
-        creditor: mirroredCreditor asdf,
+        creditor: mirroredCreditor,
         connection: mirroredConnection,
       ),
     );
