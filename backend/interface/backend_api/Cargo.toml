@@ -12,6 +12,7 @@ flutter_rust_bridge_codegen = "=2.11.1"
 [dependencies]
 backend_logging = { path = "../../backend_logging" }
 backend_paths = { path = "../../backend_paths" }
+database_types = { path = "../../database_types" }
 sepa_types = { path = "../../sepa_types" }
 config = "0.15.19"
 flexi_logger = { version = "0.29.8", features = [

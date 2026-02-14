@@ -18,6 +18,7 @@ sqlx = { version = "0.8.2", features = ["runtime-async-std", "postgres"] }
 [dependencies]
 backend_logging = { path = "../../backend_logging" }
 backend_macros = { path = "../../backend_macros" }
+database_types = { path = "../../database_types" }
 chrono = "0.4.31"
 diesel = { version = "2.2.6", features = ["chrono", "postgres"] }
 dotenv = "0.15.0"

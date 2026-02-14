@@ -5,6 +5,7 @@ import 'package:green3neo/components/table_view.dart';
 import 'package:green3neo/features/widget_feature.dart';
 import 'package:green3neo/interface/database_api/api/member.dart';
 import 'package:green3neo/interface/database_api/api/models.dart';
+import 'package:green3neo/loaded_profile.dart';
 import 'package:green3neo/localizer.dart';
 import 'package:listen_it/listen_it.dart';
 import 'package:logging/logging.dart';
@@ -43,21 +44,28 @@ class MemberView extends WatchingWidget {
   MemberView._create({super.key});
 
   Future<bool> forceReloadDataFromDB() {
-    return getAllMembers().then(
-      (members) {
-        _tableViewSource.content.clear();
-        _changeRecords.clear();
+    return LoadedProfile.load().then((final LoadedProfile profile) {
+      if (profile.connection == null) {
+        _logger.severe("Cannot reload data without configured connection");
+        return false;
+      }
 
-        if (members == null) {
-          _logger.severe("Could not load members");
-          return false;
-        }
+      return getAllMembers(connection: profile.connection!).then(
+        (members) {
+          _tableViewSource.content.clear();
+          _changeRecords.clear();
 
-        _tableViewSource.content.addAll(members
-            .map((m) => TableViewSourceEntry(value: m, selected: false)));
-        return true;
-      },
-    );
+          if (members == null) {
+            _logger.severe("Loading members returned null result");
+            return false;
+          }
+
+          _tableViewSource.content.addAll(members
+              .map((m) => TableViewSourceEntry(value: m, selected: false)));
+          return true;
+        },
+      );
+    });
   }
 
   set viewMode(final ViewMode viewMode) => _viewMode.value = viewMode;

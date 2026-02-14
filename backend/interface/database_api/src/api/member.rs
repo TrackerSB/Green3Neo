@@ -1,12 +1,13 @@
 use crate::api::models::Member;
 use crate::database::{bind_column_value, get_connection};
-use diesel::{query_dsl::methods::SelectDsl, sql_types::Integer, RunQueryDsl, SelectableHelper};
+use database_types::connection_description::ConnectionDescription;
+use diesel::{RunQueryDsl, SelectableHelper, query_dsl::methods::SelectDsl, sql_types::Integer};
 use log::{error, info, warn};
 
-pub fn get_all_members() -> Option<Vec<Member>> {
+pub fn get_all_members(connection: ConnectionDescription) -> Option<Vec<Member>> {
     use crate::schema::member::dsl::*;
 
-    let connection = get_connection();
+    let connection = get_connection(connection);
 
     if connection.is_none() {
         // FIXME Either throw exception or log warning etc.
@@ -36,8 +37,8 @@ pub struct ChangeRecord {
     pub new_value: Option<String>,
 }
 
-pub fn change_member(changes: Vec<ChangeRecord>) -> Vec<usize> {
-    let connection = get_connection();
+pub fn change_member(connection: ConnectionDescription, changes: Vec<ChangeRecord>) -> Vec<usize> {
+    let connection = get_connection(connection);
 
     if connection.is_none() {
         // FIXME Either throw exception or log warning etc.

@@ -11,10 +11,9 @@ import 'package:green3neo/components/form_fields/creditor_name_field.dart';
 import 'package:green3neo/components/form_fields/currency_field.dart';
 import 'package:green3neo/components/form_fields/message_id_field.dart';
 import 'package:green3neo/components/form_fields/purpose_field.dart';
+import 'package:green3neo/loaded_profile.dart';
 import 'package:green3neo/features/feature.dart';
-import 'package:green3neo/interface/backend_api/api.dart' as backend_api;
 import 'package:green3neo/interface/backend_api/api/paths.dart';
-import 'package:green3neo/interface/backend_api/api/profile.dart';
 import 'package:green3neo/interface/database_api/api/models.dart';
 import 'package:green3neo/interface/sepa_api/api.dart';
 import 'package:green3neo/interface/sepa_api/api/generation.dart';
@@ -145,17 +144,17 @@ class SepaGenerationWizard extends StatelessWidget {
         return false;
       }
 
-      Profile? currentProfile = await loadProfile();
+      LoadedProfile profile = await LoadedProfile.load();
 
-      currentProfile ??= Profile();
+      profile = profile.copyWith(
+        creditor: Creditor(
+          name: creditorName,
+          id: creditorId,
+          iban: creditorIban,
+        ),
+      );
 
-      final newCreditor = backend_api.Creditor(
-          name: backend_api.Name(value: creditorName.value),
-          id: backend_api.CreditorID(value: creditorId.value),
-          iban: backend_api.IBAN(value: creditorIban.value));
-
-      await saveProfile(
-          profile: currentProfile.copyWith(creditor: newCreditor));
+      await profile.save();
 
       return true;
     });
@@ -170,12 +169,8 @@ class SepaGenerationWizard extends StatelessWidget {
     final creditorIbanField = CreditorIbanField();
     final creditorIdField = CreditorIdField();
 
-    loadProfile().then(
-      (final Profile? profile) {
-        if (profile == null) {
-          return;
-        }
-
+    LoadedProfile.load().then(
+      (final LoadedProfile profile) {
         final FormBuilderState formState = _formKey.currentState!;
         formState.fields[creditorNameField.name]
             ?.didChange(profile.creditor?.name.value);

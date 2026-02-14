@@ -1,23 +1,33 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_rust_bridge/flutter_rust_bridge_for_generated.dart';
 import 'package:green3neo/interface/database_api/api/member.dart';
+import 'package:green3neo/loaded_profile.dart';
 import 'package:green3neo/localizer.dart';
 
-void commitDataChanges(List<ChangeRecord> changeRecords) {
+Future<bool> commitDataChanges(List<ChangeRecord> changeRecords) async {
   // Copy list for improved thread safety
   final List<ChangeRecord> records = changeRecords.toList();
   changeRecords.clear();
-  changeMember(changes: records).then(
-    (succeededUpdateIndices) {
-      succeededUpdateIndices.sort();
-      for (final BigInt index in succeededUpdateIndices.reversed) {
-        records.removeAt(index.toInt());
-      }
 
-      // Add records that failed to update back to the list
-      changeRecords.addAll(records);
-    },
-  );
+  final LoadedProfile profile = await LoadedProfile.load();
+
+  if (profile.connection == null) {
+    return false;
+  }
+
+  final Uint64List succeededUpdateIndices =
+      await changeMember(connection: profile.connection!, changes: records);
+
+  succeededUpdateIndices.sort();
+  for (final BigInt index in succeededUpdateIndices.reversed) {
+    records.removeAt(index.toInt());
+  }
+
+  // Add records that failed to update back to the list
+  changeRecords.addAll(records);
+
+  return true;
 }
 
 Widget visualizeChanges(

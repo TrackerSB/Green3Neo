@@ -5,6 +5,7 @@ members = [
     "backend_macros",
     "backend_paths",
     "backend_testing",
+    "database_types",
     "interface/backend_api",
     "interface/database_api",
     "interface/sepa_api",
