@@ -8,5 +8,6 @@ members = [
     "interface/backend_api",
     "interface/database_api",
     "interface/sepa_api",
+    "sepa_types",
     "sepa_xsd_to_rust_generator",
 ]
