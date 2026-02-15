@@ -6,12 +6,9 @@ use diesel::query_builder::bind_collector::RawBytesBindCollector;
 use diesel::serialize::ToSql;
 use diesel::sql_types::{Array, Bool, Date, Double, HasSqlType, Integer, Nullable, Text, Varchar};
 use diesel::{Connection, PgConnection, QueryableByName, RunQueryDsl};
-use dotenv::dotenv;
 use log::{info, trace, warn};
 
 pub fn get_connection(connection: ConnectionDescription) -> Option<PgConnection> {
-    dotenv().ok();
-
     let database_url = format!(
         "postgres://{user}:{password}@{host}:{port}/{name}",
         user = connection.user,
