@@ -1,24 +1,32 @@
 use chrono::NaiveDate;
-use database_types::connection_description::ConnectionDescription;
+use database_types::connection_description::{ConnectionDescription, DatabaseBackend};
 use diesel::backend::Backend;
 use diesel::query_builder::BoxedSqlQuery;
 use diesel::query_builder::bind_collector::RawBytesBindCollector;
 use diesel::serialize::ToSql;
 use diesel::sql_types::{Array, Bool, Date, Double, HasSqlType, Integer, Nullable, Text, Varchar};
 use diesel::{Connection, PgConnection, QueryableByName, RunQueryDsl};
-use log::{info, trace, warn};
+use log::{error, info, trace, warn};
 
 pub fn get_connection(connection: ConnectionDescription) -> Option<PgConnection> {
-    let database_url = format!(
-        "postgres://{user}:{password}@{host}:{port}/{name}",
-        user = connection.user,
-        password = connection.password,
-        host = connection.host,
-        port = connection.port,
-        name = connection.name
-    );
+    let database_url: Option<String> = match connection.backend {
+        DatabaseBackend::PostgreSql => Some(format!(
+            "postgres://{user}:{password}@{host}:{port}/{name}",
+            user = connection.user,
+            password = connection.password,
+            host = connection.host,
+            port = connection.port,
+            name = connection.name
+        )),
+        _ => None,
+    };
 
-    let connection = PgConnection::establish(&database_url);
+    if database_url.is_none() {
+        error!("Database backend '{:?}' is unsupported", connection.backend);
+        return None;
+    }
+
+    let connection = PgConnection::establish(&database_url.unwrap());
 
     if connection.is_err() {
         warn!(

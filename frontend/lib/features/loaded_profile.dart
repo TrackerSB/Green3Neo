@@ -36,6 +36,8 @@ class LoadedProfile with _$LoadedProfile {
         (connection == null)
             ? null
             : backend_api.ConnectionDescription(
+                backend: backend_api
+                    .DatabaseBackend.values[connection!.backend.index],
                 host: connection!.host,
                 port: connection!.port,
                 user: connection!.user,
@@ -81,6 +83,8 @@ class LoadedProfileFeature implements Feature {
         final ConnectionDescription? connection = (mirroredConnection == null)
             ? null
             : ConnectionDescription(
+                backend:
+                    DatabaseBackend.values[mirroredConnection.backend.index],
                 host: mirroredConnection.host,
                 port: mirroredConnection.port,
                 user: mirroredConnection.user,
