@@ -26,11 +26,12 @@ pub fn get_connection(connection: ConnectionDescription) -> Option<PgConnection>
         return None;
     }
 
-    let connection = PgConnection::establish(&database_url.unwrap());
+    let connection = PgConnection::establish(&database_url.as_ref().unwrap());
 
     if connection.is_err() {
         warn!(
-            "Connecting to database failed due '{}'",
+            "Connecting to database '{}' failed due '{}'",
+            database_url.unwrap(),
             connection.err().unwrap()
         );
         return None;
