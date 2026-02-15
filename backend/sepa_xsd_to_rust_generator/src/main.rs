@@ -122,9 +122,10 @@ fn main() {
         let content = generated_files
             .iter()
             .map(|file_name| format!("pub mod {};", file_name.strip_suffix(".rs").unwrap()))
-            .fold("".to_owned(), |current_content, next_content| {
-                format!("{}\n{}", current_content, next_content)
-            });
+            .fold(
+                "#![allow(warnings)]".to_owned(),
+                |current_content, next_content| format!("{}\n{}", current_content, next_content),
+            );
 
         assert!(write_to_file(output_file_path, format_rust(content)));
     }
