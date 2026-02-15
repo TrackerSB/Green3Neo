@@ -19,11 +19,11 @@ pub fn get_all_members(connection: ConnectionDescription) -> Option<Vec<Member>>
         .select(Member::as_select())
         .load(&mut connection.unwrap());
 
-    if member_entries.is_err() {
-        return None; // FIXME Improve error message
+    if member_entries.is_ok() {
+        return Some(member_entries.unwrap());
     }
 
-    Some(member_entries.unwrap())
+    return None;
 }
 
 pub struct ChangeRecord {
