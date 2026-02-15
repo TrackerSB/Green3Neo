@@ -35,8 +35,6 @@ def _create_tables(connection: connection) -> None:
             iban varchar(255) NOT NULL,
             bic varchar(255) NOT NULL,
             -- mandateSince date NOT NULL DEFAULT CURRENT_DATE,
-            honoraryYears integer[] DEFAULT '{}' check (array_position(honoraryYears, NULL) IS NULL),
-            contributionHonoraryYears integer[] DEFAULT '{}' check (array_position(contributionHonoraryYears, NULL) IS NULL),
             hasGauEhrenzeichen boolean NOT NULL DEFAULT FALSE,
             isEhrenschriftführer boolean NOT NULL DEFAULT FALSE,
             isEhrenvorstand boolean NOT NULL DEFAULT FALSE,
