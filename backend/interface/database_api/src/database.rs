@@ -1,135 +1,16 @@
 use chrono::NaiveDate;
-use database_types::connection_description::{ConnectionDescription, DatabaseBackend};
 use diesel::backend::Backend;
 use diesel::query_builder::BoxedSqlQuery;
 use diesel::query_builder::bind_collector::RawBytesBindCollector;
 use diesel::serialize::ToSql;
 use diesel::sql_types::{Array, Bool, Date, Double, HasSqlType, Integer, Nullable, Text, Varchar};
-use diesel::{Connection, PgConnection, QueryableByName, RunQueryDsl};
-use log::{error, info, trace, warn};
+use log::{info, warn};
 
-pub fn get_connection(connection: ConnectionDescription) -> Option<PgConnection> {
-    let database_url: Option<String> = match connection.backend {
-        DatabaseBackend::PostgreSql => Some(format!(
-            "postgres://{user}:{password}@{host}:{port}/{name}",
-            user = connection.user,
-            password = connection.password,
-            host = connection.host,
-            port = connection.port,
-            name = connection.name
-        )),
-        _ => None,
-    };
-
-    if database_url.is_none() {
-        error!("Database backend '{:?}' is unsupported", connection.backend);
-        return None;
-    }
-
-    let connection = PgConnection::establish(&database_url.as_ref().unwrap());
-
-    if connection.is_err() {
-        warn!(
-            "Connecting to database '{}' failed due '{}'",
-            database_url.unwrap(),
-            connection.err().unwrap()
-        );
-        return None;
-    }
-
-    Some(connection.unwrap())
-}
-
-#[derive(QueryableByName, Debug)]
-struct ColumnTypeRequestResult {
-    #[diesel(sql_type = Text)]
-    pub column_name: String,
-    #[diesel(sql_type = Text)]
-    pub data_type: String,
-    #[diesel(sql_type = Text)]
-    pub udt_name: String,
-    #[diesel(sql_type = Text)]
-    pub is_nullable: String,
-}
-
-#[derive(Debug)]
-struct ColumnTypeInfo {
-    pub column_name: String,
-    pub data_type: String,
-    pub is_array: bool,
-    pub is_nullable: bool,
-}
-
-fn convert_array_type(array_type: &str) -> Option<&str> {
-    match array_type {
-        "_int4" => Some("integer"),
-        _ => None,
-    }
-}
-
-fn determine_column_type(
-    connection: &mut PgConnection,
-    table_name: &str,
-    column_name: &str,
-) -> Option<ColumnTypeInfo> {
-    let query = diesel::sql_query(
-        "SELECT column_name, data_type, udt_name, is_nullable \
-        FROM information_schema.columns \
-        WHERE table_name = $1 AND column_name = $2",
-    )
-    .bind::<Varchar, _>(table_name)
-    .bind::<Varchar, _>(column_name);
-    trace!("query: {:?}", query);
-    let derived_column_types = query.load::<ColumnTypeRequestResult>(connection);
-
-    if derived_column_types.is_err() {
-        warn!(
-            "Could not determine column types due '{}'",
-            derived_column_types.err().unwrap()
-        );
-        return None;
-    }
-
-    assert!(derived_column_types.is_ok());
-
-    let num_column_types = derived_column_types.as_ref().unwrap().len();
-    if num_column_types == 0 {
-        warn!("Could not determine column type of '{}'", column_name);
-        return None;
-    }
-    if num_column_types > 1 {
-        warn!("Column type is ambiguous");
-        return None;
-    }
-
-    let column_type_result: ColumnTypeRequestResult = derived_column_types.unwrap().pop().unwrap();
-    let is_array = column_type_result.data_type == "ARRAY";
-    let is_nullable = column_type_result.is_nullable == "YES";
-
-    if is_array {
-        let array_type = convert_array_type(column_type_result.udt_name.as_str());
-        if array_type.is_none() {
-            warn!("Unknown array type {}", column_type_result.udt_name);
-            return None;
-        }
-        return Some(ColumnTypeInfo {
-            column_name: column_type_result.column_name,
-            data_type: array_type.unwrap().to_owned(),
-            is_array,
-            is_nullable,
-        });
-    }
-
-    Some(ColumnTypeInfo {
-        column_name: column_type_result.column_name,
-        data_type: column_type_result.data_type,
-        is_array,
-        is_nullable,
-    })
-}
+use crate::column_type_info::get_column_info;
+use crate::connection::DbConnection;
 
 pub fn bind_column_value<'a, DB, Query>(
-    connection: &mut PgConnection,
+    connection: &mut DbConnection,
     table_name: &'a str,
     column_name: &'a str,
     value: Option<&'a str>,
@@ -147,7 +28,7 @@ where
     f64: ToSql<Double, DB>,
     NaiveDate: ToSql<Date, DB>,
 {
-    let column_type = determine_column_type(connection, table_name, column_name);
+    let column_type = get_column_info(connection, table_name, column_name);
 
     if column_type.is_none() {
         return None;
@@ -236,11 +117,12 @@ where
 #[cfg(test)]
 mod test {
     use backend_testing::testing;
+    use diesel::RunQueryDsl;
     use log::error;
-    use speculoos::{
-        assert_that, option::OptionAssertions, result::ResultAssertions, vec::VecAssertions,
-    };
-    use sqlx::{PgPool, Row};
+    use speculoos::{assert_that, option::OptionAssertions, vec::VecAssertions};
+    use sqlx::PgPool;
+
+    use crate::test_database_common::{get_all_column_info, to_diesel_connection};
 
     use super::*;
 
@@ -252,112 +134,6 @@ mod test {
         testing::tear_down(expected_num_severe_messages);
     }
 
-    // Create a diesel based connection to the same database
-    async fn create_diesel_connection(
-        sqlx_connection: &mut sqlx::PgConnection,
-    ) -> diesel::PgConnection {
-        let test_db_name: String = sqlx::query_scalar!("SELECT current_database()")
-            .fetch_one(sqlx_connection)
-            .await
-            .expect("Querying current database name failed")
-            .expect("Result database name is empty");
-
-        let configured_url =
-            std::env::var("DATABASE_URL").expect("Could not determine database URL");
-
-        let test_db_url = configured_url
-            .split_at(
-                configured_url
-                    .rfind("/")
-                    .expect("Could not find slash separating DB address from DB name")
-                    + 1,
-            )
-            .0
-            .to_owned()
-            + &test_db_name;
-
-        PgConnection::establish(&test_db_url).expect("Could not establish connection")
-    }
-
-    async fn get_column_info(
-        connection: &mut sqlx::PgConnection,
-        table_name: &str,
-    ) -> Vec<ColumnTypeInfo> {
-        let column_info = sqlx::query(
-            "SELECT column_name, data_type, udt_name, is_nullable \
-            FROM information_schema.columns \
-            WHERE table_name = $1",
-        )
-        .bind(table_name)
-        .fetch_all(connection)
-        .await;
-
-        assert_that!(&column_info)
-            .named("Fetch column info")
-            .is_ok();
-
-        column_info
-            .unwrap()
-            .iter()
-            .map(|row| {
-                let data_type: String = row.get("data_type");
-                let is_array: bool = data_type == "ARRAY";
-                let is_nullable: String = row.get("is_nullable");
-
-                ColumnTypeInfo {
-                    column_name: row.get("column_name"),
-                    data_type: if is_array {
-                        convert_array_type(row.get("udt_name")).unwrap().to_owned()
-                    } else {
-                        data_type
-                    },
-                    is_array,
-                    is_nullable: is_nullable == "YES",
-                }
-            })
-            .collect()
-    }
-
-    #[sqlx::test(fixtures("allsupportedtypes"))]
-    async fn test_determine_column_type(pool: PgPool) -> sqlx::Result<()> {
-        setup_test();
-
-        // FIXME Determine table name automatically
-        let table_name = "allsupportedtypes";
-        let mut test_connection = pool.acquire().await?;
-
-        let column_info = get_column_info(&mut test_connection, table_name).await;
-        assert_that!(&column_info)
-            .named("Gather columns to check")
-            .is_not_empty();
-
-        let mut diesel_connection = create_diesel_connection(&mut test_connection).await;
-
-        for row in column_info.iter() {
-            let expected_column_name = &row.column_name;
-            let expected_data_type = &row.data_type;
-            let expected_is_array = &row.is_array;
-            let expected_is_nullable = &row.is_nullable;
-
-            let opt_actual_column_type: Option<ColumnTypeInfo> =
-                determine_column_type(&mut diesel_connection, table_name, &expected_column_name);
-            assert_that!(&opt_actual_column_type)
-                .named("Determine column type")
-                .is_some()
-                .matches(|actual_column_type| {
-                    &actual_column_type.column_name == expected_column_name
-                })
-                .matches(|actual_column_type| &actual_column_type.data_type == expected_data_type)
-                .matches(|actual_column_type| &actual_column_type.is_array == expected_is_array)
-                .matches(|actual_column_type| {
-                    &actual_column_type.is_nullable == expected_is_nullable
-                });
-        }
-
-        tear_down(0);
-        Ok(())
-    }
-
     #[sqlx::test(fixtures("allsupportedtypes"))]
     async fn test_bind_column(pool: PgPool) -> sqlx::Result<()> {
         setup_test();
@@ -366,12 +142,12 @@ mod test {
         let table_name = "allsupportedtypes";
         let mut test_connection = pool.acquire().await?;
 
-        let column_info = get_column_info(&mut test_connection, table_name).await;
+        let column_info = get_all_column_info(&mut test_connection, table_name).await;
         assert_that!(&column_info)
             .named("Gather columns to check")
             .is_not_empty();
 
-        let mut diesel_connection = create_diesel_connection(&mut test_connection).await;
+        let mut diesel_connection = to_diesel_connection(&mut test_connection).await;
 
         for row in column_info.iter() {
             let value_to_bind: Option<&str> = match row.data_type.as_str() {
@@ -411,7 +187,7 @@ mod test {
 
             sql_expression_with_value
                 .unwrap()
-                .execute(&mut diesel_connection)
+                .load(&mut diesel_connection)
                 .expect("Could not execute query");
 
             if row.is_nullable {
@@ -446,12 +222,12 @@ mod test {
         let table_name = "allsupportedtypes";
         let mut test_connection = pool.acquire().await?;
 
-        let column_info = get_column_info(&mut test_connection, table_name).await;
+        let column_info = get_all_column_info(&mut test_connection, table_name).await;
         assert_that!(&column_info)
             .named("Gather columns to check")
             .is_not_empty();
 
-        let mut diesel_connection = create_diesel_connection(&mut test_connection).await;
+        let mut diesel_connection = to_diesel_connection(&mut test_connection).await;
 
         let column_name = "datecolumn";
         let value_to_bind = Some("true");
@@ -490,12 +266,12 @@ mod test {
         let table_name = "allsupportedtypes";
         let mut test_connection = pool.acquire().await?;
 
-        let column_info = get_column_info(&mut test_connection, table_name).await;
+        let column_info = get_all_column_info(&mut test_connection, table_name).await;
         assert_that!(&column_info)
             .named("Gather columns to check")
             .is_not_empty();
 
-        let mut diesel_connection = create_diesel_connection(&mut test_connection).await;
+        let mut diesel_connection = to_diesel_connection(&mut test_connection).await;
 
         let column_name = "doublecolumn";
         let value_to_bind = None;
@@ -529,12 +305,12 @@ mod test {
         let table_name = "allsupportedtypes";
         let mut test_connection = pool.acquire().await?;
 
-        let column_info = get_column_info(&mut test_connection, table_name).await;
+        let column_info = get_all_column_info(&mut test_connection, table_name).await;
         assert_that!(&column_info)
             .named("Gather columns to check")
             .is_not_empty();
 
-        let mut diesel_connection = create_diesel_connection(&mut test_connection).await;
+        let mut diesel_connection = to_diesel_connection(&mut test_connection).await;
 
         let column_name = "doubleCOLUMN";
         let value_to_bind = Some("42.");
