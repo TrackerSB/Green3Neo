@@ -23,7 +23,7 @@ def _delete_tables(connection: db_connection.DbConnection) -> None:
     for table_name in existing_tables:
         print(f"Drop table {table_name}")
         db_connection.execute_query(
-            connection, f"DROP TABLE IF EXISTS {table_name} CASCADE;"
+            connection, f"DROP TABLE IF EXISTS \"{table_name}\" CASCADE;"
         )
 
 
