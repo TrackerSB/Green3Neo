@@ -76,10 +76,13 @@ diesel-setup:
 diesel-generate-schema: diesel-setup
     cd {{ database_api_dir }} && diesel print-schema > src/schema.rs
 
+# FIXME Verify whether exactly one of the alternative patches was applied
+# FIXME Apply formatting stabilizing which patch works
 diesel-generate-models: diesel-generate-schema
     cd {{ database_api_dir }} && diesel_ext --model --import-types diesel::Queryable --import-types diesel::Selectable --import-types diesel::Identifiable --import-types backend_macros::make_fields_non_final --import-types flutter_rust_bridge::frb --import-types crate::schema::* --derive Queryable,Selectable --add-table-name > src/api/models.rs
     cat {{ database_api_dir }}/src/api/models.rs
-    git apply {{ patch_folder }}/backend/interface/database_api/api/models.rs.patch
+    - git apply {{ patch_folder }}/backend/interface/database_api/api/models.rs.patch
+    - git apply {{ patch_folder }}/backend/interface/database_api/api/models.rs.alternative.patch
 
 sepa-generate-schemas:
     mkdir -p {{ rust_sepa_api_output_dir }}
@@ -87,6 +90,8 @@ sepa-generate-schemas:
 
 # FIXME Verify that FRB versions in Cargo.toml, pubspec.yaml and the installed FRB codegen (locally and in Github
 # Actions) correspond to each other
+# FIXME Verify whether exactly one of the alternative patches was applied
+# FIXME Apply formatting stabilizing which patch works
 frb-generate: diesel-generate-models sepa-generate-schemas
     mkdir -p {{ frb_backend_api_output_dir }}
     flutter_rust_bridge_codegen generate --no-web --no-add-mod-to-lib --llvm-path {{ llvmIncludeDir }} --rust-input "crate::api" --rust-root {{ backend_api_dir }} --dart-output {{ frb_backend_api_output_dir }} --stop-on-error

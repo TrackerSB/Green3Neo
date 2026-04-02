@@ -1,0 +1,10 @@
+--- a/backend/interface/database_api/src/api/models.unpatched.rs
++++ b/backend/interface/database_api/src/api/models.rs
+@@ -11,6 +11,7 @@ use crate::schema::*;
+ #[derive(Queryable,Selectable, Identifiable)]
+ #[diesel(primary_key(membershipid))]
+ #[diesel(table_name = member)]
++#[make_fields_non_final]
+ pub struct Member {
+     pub membershipid: i32,
+     pub prename: String,
