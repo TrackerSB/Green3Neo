@@ -37,10 +37,10 @@ values
         '27393',
         '85103',
         'La Banda',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2006,
         null,
         null,
@@ -49,10 +49,10 @@ values
         null,
         'MC64 8474 1779 59ET 9FH3 DQXS I18',
         'VIOPVIPQUZT',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -94,10 +94,10 @@ values
         '6',
         '03223',
         'Pasirputih',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2012,
         null,
         null,
@@ -106,10 +106,10 @@ values
         null,
         'GT08 LEHH 2G4B KRQL 8491 F2HN X0JT',
         'TKYIOJGBBED',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -151,10 +151,10 @@ values
         '644',
         '86636',
         'Centre de Flacq',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1993,
         null,
         null,
@@ -163,10 +163,10 @@ values
         null,
         'HU46 0182 5095 6936 9913 3316 3996',
         'QYOWLPLNTSS',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -208,10 +208,10 @@ values
         '87',
         '11233',
         'Újezd',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2011,
         null,
         null,
@@ -220,10 +220,10 @@ values
         null,
         'IS61 6067 0810 8216 1519 1632 36',
         'IXAMKCKTNSO',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -265,10 +265,10 @@ values
         '92066',
         '10709',
         'Oliveirinha',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2012,
         null,
         null,
@@ -277,10 +277,10 @@ values
         null,
         'MU18 SGPA 1142 5186 3343 6987 122O RW',
         'NPVFIYMDJWX',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -322,10 +322,10 @@ values
         '2178',
         '73066',
         'Koton Karifi',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2006,
         null,
         null,
@@ -334,10 +334,10 @@ values
         null,
         'LB16 0252 D76M EE1Z WOUZ LOW7 LG0Z',
         'WJVHTNXVHKV',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -379,10 +379,10 @@ values
         '1451',
         '10770',
         'Xiashitai',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1984,
         null,
         null,
@@ -391,10 +391,10 @@ values
         null,
         'FR38 6718 9897 22GQ FBOV LBKD J43',
         'OWGXVALEXPE',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -436,10 +436,10 @@ values
         '94',
         '85059',
         'Zator',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2009,
         null,
         null,
@@ -448,10 +448,10 @@ values
         null,
         'IE42 LUCL 7401 7087 4659 63',
         'OITVECMNELU',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -493,10 +493,10 @@ values
         '1',
         '38371',
         'Sulitair',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2006,
         null,
         null,
@@ -505,10 +505,10 @@ values
         null,
         'CR06 5829 8371 1756 8615 2',
         'XCXFIBSEIMU',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -550,10 +550,10 @@ values
         '9',
         '78170',
         'Meylan',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1998,
         null,
         null,
@@ -562,10 +562,10 @@ values
         null,
         'PS39 WIZV 9BCF FVI1 ADOA PBBC WND7 O',
         'BQWXKVZYQUO',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -607,10 +607,10 @@ values
         '6',
         '97936',
         'Hasuda',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1988,
         null,
         null,
@@ -619,10 +619,10 @@ values
         null,
         'FR50 5358 0123 72DC 4EXM XMFL K00',
         'IDRYSZMCFRV',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -664,10 +664,10 @@ values
         '14',
         '29435',
         'Pô',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2000,
         null,
         null,
@@ -676,10 +676,10 @@ values
         null,
         'FR79 9003 2292 71MG XAYZ XKO3 D19',
         'GKTGWCAYVZL',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -721,10 +721,10 @@ values
         '8',
         '37956',
         'Pingling',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1995,
         null,
         null,
@@ -733,10 +733,10 @@ values
         null,
         'CH02 0208 6UWT R3M8 IXV8 A',
         'KYXNDKVWBVS',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -778,10 +778,10 @@ values
         '2417',
         '72335',
         'Windusakti Hilir',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2009,
         null,
         null,
@@ -790,10 +790,10 @@ values
         null,
         'AD82 7457 8164 ZGJB SLBQ DHTF',
         'RLQJAIQDBPR',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -835,10 +835,10 @@ values
         '91794',
         '71260',
         'Rasshevatskaya',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2005,
         null,
         null,
@@ -847,10 +847,10 @@ values
         null,
         'KW84 ETSU KMIQ WZQI V2LF YND2 0UEW Q4',
         'RPFKGGSYPCE',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -892,10 +892,10 @@ values
         '3',
         '65793',
         'Dīvāndarreh',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2010,
         '+98 756 557 8085',
         null,
@@ -904,10 +904,10 @@ values
         null,
         'MD12 FZHS HWAQ 00WH VVIB F9JI',
         'WLOFHTZFPZC',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -949,10 +949,10 @@ values
         '7813',
         '37879',
         'Balkh',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2006,
         null,
         null,
@@ -961,10 +961,10 @@ values
         null,
         'RS63 9292 8595 8967 5422 27',
         'LQBUFISNSKX',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -1006,10 +1006,10 @@ values
         '2',
         '98327',
         'Golubac',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1998,
         null,
         null,
@@ -1018,10 +1018,10 @@ values
         null,
         'CR20 8704 7311 9824 1879 4',
         'FTEBPJDQZMO',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -1063,10 +1063,10 @@ values
         '747',
         '97887',
         'Despotovac',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1994,
         '+381 101 768 4766',
         null,
@@ -1075,10 +1075,10 @@ values
         null,
         'FR29 8191 4211 47T6 SJ7L Z9PA J20',
         'SGNPINSYQGV',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -1120,10 +1120,10 @@ values
         '4949',
         '87085',
         'Ocuviri',
-        'false',
-        'false',
-        'true',
-        'false',
+        false,
+        false,
+        true,
+        false,
         1983,
         null,
         null,
@@ -1132,10 +1132,10 @@ values
         null,
         'BE23 0724 9848 7124',
         'MFARYHWGTJS',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -1177,10 +1177,10 @@ values
         '405',
         '62312',
         'Stockholm',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2001,
         null,
         null,
@@ -1189,10 +1189,10 @@ values
         null,
         'CZ59 1952 6580 6660 2320 1512',
         'FQJFWISENSO',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -1234,10 +1234,10 @@ values
         '69656',
         '36660',
         'Batal',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2005,
         null,
         null,
@@ -1246,10 +1246,10 @@ values
         null,
         'PL24 8346 3380 9026 3043 5407 5873',
         'KYHWPGFYBRF',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -1291,10 +1291,10 @@ values
         '272',
         '39735',
         'Laoxingchang',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1976,
         null,
         null,
@@ -1303,10 +1303,10 @@ values
         null,
         'SI49 9159 6565 5563 773',
         'YZVXTEEMXUM',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -1348,10 +1348,10 @@ values
         '160',
         '32708',
         'Bouça',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2012,
         null,
         null,
@@ -1360,10 +1360,10 @@ values
         null,
         'RS26 3281 6001 8815 8294 35',
         'OZPQZDEXGCF',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -1405,10 +1405,10 @@ values
         '303',
         '10130',
         'Tatsuno',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2012,
         null,
         null,
@@ -1417,10 +1417,10 @@ values
         null,
         'FR31 1899 1255 47QZ QRCB 1FYE P19',
         'PFFBKZGBKCV',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -1462,10 +1462,10 @@ values
         '43',
         '20959',
         'Sonzacate',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2006,
         null,
         null,
@@ -1474,10 +1474,10 @@ values
         null,
         'MK83 986E WHYN 1KTE R74',
         'TMEXMPBMYSF',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -1519,10 +1519,10 @@ values
         '4',
         '40338',
         'Muyi',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2009,
         null,
         null,
@@ -1531,10 +1531,10 @@ values
         null,
         'HR76 1962 5210 4519 2038 8',
         'YCVIQXLFPET',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -1576,10 +1576,10 @@ values
         '14462',
         '92336',
         'Tambakmerak',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1991,
         null,
         null,
@@ -1588,10 +1588,10 @@ values
         null,
         'LV90 CYXC FBL4 MOTE N2BZ N',
         'FISQWVJPVNJ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -1633,10 +1633,10 @@ values
         '7',
         '05002',
         'Tumbagaan',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2011,
         null,
         null,
@@ -1645,10 +1645,10 @@ values
         null,
         'BR45 0766 8108 2363 3935 3966 009Q C',
         'RJMGUCHHBRM',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -1690,10 +1690,10 @@ values
         '9174',
         '85440',
         'Palpalá',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2000,
         null,
         null,
@@ -1702,10 +1702,10 @@ values
         null,
         'PL79 3800 5209 2343 5540 7206 4977',
         'RWZTBXZJFUM',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -1747,10 +1747,10 @@ values
         '9520',
         '12939',
         'Cigadog Hilir',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2009,
         null,
         null,
@@ -1759,10 +1759,10 @@ values
         null,
         'BE50 9420 6256 4181',
         'FCLHRURLESV',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -1804,10 +1804,10 @@ values
         '9462',
         '79241',
         'Vodnyy',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1990,
         null,
         null,
@@ -1816,10 +1816,10 @@ values
         null,
         'AD45 0769 5845 E8KY CFAX SNAN',
         'NITLCXDHDYJ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -1861,10 +1861,10 @@ values
         '4932',
         '48454',
         'Kot Sultan',
-        'true',
-        'false',
-        'true',
-        'false',
+        true,
+        false,
+        true,
+        false,
         2007,
         '+92 487 955 1411',
         null,
@@ -1873,10 +1873,10 @@ values
         null,
         'LV70 ZZXH XOWO W28M Z9DN T',
         'PZDQVMGWZZD',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -1918,10 +1918,10 @@ values
         '120',
         '02473',
         'Jugantang',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1991,
         null,
         null,
@@ -1930,10 +1930,10 @@ values
         null,
         'BE57 6933 2287 3961',
         'CQGQDKWDFMO',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -1975,10 +1975,10 @@ values
         '438',
         '53807',
         'Taixi',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2003,
         null,
         null,
@@ -1987,10 +1987,10 @@ values
         null,
         'AT27 8269 4377 2234 1519',
         'OOZUQVMBHCE',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -2032,10 +2032,10 @@ values
         '11',
         '21360',
         'Bakar',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1994,
         null,
         '+1 480 260 3534',
@@ -2044,10 +2044,10 @@ values
         null,
         'CY32 9775 9594 2XJO YJQY JDTZ UJL3',
         'AKYBVGJMJGY',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -2089,10 +2089,10 @@ values
         '171',
         '96341',
         'Luoqi',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2000,
         null,
         null,
@@ -2101,10 +2101,10 @@ values
         null,
         'BE87 6119 6671 8462',
         'ZIVPGEBKWOF',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -2146,10 +2146,10 @@ values
         '18',
         '45847',
         'Dampit',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2006,
         null,
         null,
@@ -2158,10 +2158,10 @@ values
         null,
         'CZ22 4141 7213 3908 2218 7327',
         'GTYKOZCWCJQ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -2203,10 +2203,10 @@ values
         '2',
         '91273',
         'Bogorejo',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1997,
         null,
         null,
@@ -2215,10 +2215,10 @@ values
         null,
         'ES78 2469 1726 3781 1437 0802',
         'JVEJRSLYBTA',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -2260,10 +2260,10 @@ values
         '5',
         '70705',
         'Baru',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2004,
         null,
         null,
@@ -2272,10 +2272,10 @@ values
         null,
         'BH02 GWRY FP5H G4KI 4YON ZL',
         'EKHHIYIWLPO',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -2317,10 +2317,10 @@ values
         '026',
         '51101',
         'Tīkāpur',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1992,
         null,
         null,
@@ -2329,10 +2329,10 @@ values
         'Last',
         'FO09 2484 3312 7346 20',
         'OFGIJJKPPWS',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -2374,10 +2374,10 @@ values
         '6',
         '89793',
         'Veřovice',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2003,
         null,
         null,
@@ -2386,10 +2386,10 @@ values
         null,
         'HR86 2509 8639 5967 7297 5',
         'AGZCOBVZXVY',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -2431,10 +2431,10 @@ values
         '59426',
         '22503',
         'Świecie',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2009,
         null,
         null,
@@ -2443,10 +2443,10 @@ values
         null,
         'TN52 9658 4815 8286 2875 7585',
         'YQLGEDWKLBU',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -2488,10 +2488,10 @@ values
         '59',
         '87699',
         'Heping',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1997,
         null,
         null,
@@ -2500,10 +2500,10 @@ values
         null,
         'GT31 JQNQ YNWC AU1D DZSX OA2T MT5U',
         'LFWHUNBHKFQ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -2545,10 +2545,10 @@ values
         '01000',
         '92767',
         'Pensacola',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1997,
         '+1 850 892 4707',
         null,
@@ -2557,10 +2557,10 @@ values
         null,
         'GL70 9176 6143 3836 91',
         'UXKWQROVSCA',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -2602,10 +2602,10 @@ values
         '54126',
         '87198',
         'Kebonagung',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2006,
         null,
         null,
@@ -2614,10 +2614,10 @@ values
         null,
         'NL66 ACXJ 1047 3984 61',
         'QDWYRNJDPQM',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -2659,10 +2659,10 @@ values
         '224',
         '22296',
         'Trawniki',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2011,
         null,
         null,
@@ -2671,10 +2671,10 @@ values
         null,
         'CZ03 8959 7383 8883 1521 9232',
         'HLOJYVANBHK',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -2716,10 +2716,10 @@ values
         '6534',
         '88546',
         'Ostankinskiy',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1984,
         null,
         null,
@@ -2728,10 +2728,10 @@ values
         null,
         'IT51 E882 4652 914B RSPV GRPA XOK',
         'IKASROLNDYA',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -2773,10 +2773,10 @@ values
         '3',
         '79940',
         'Viñales',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2011,
         '+53 285 959 6864',
         null,
@@ -2785,10 +2785,10 @@ values
         'Creamen',
         'FR61 8992 8974 00F6 M6O2 LMUA L94',
         'QETUJYZRKLM',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -2830,10 +2830,10 @@ values
         '2480',
         '28217',
         'Apiaí',
-        'true',
-        'false',
-        'true',
-        'false',
+        true,
+        false,
+        true,
+        false,
         2010,
         null,
         null,
@@ -2842,10 +2842,10 @@ values
         null,
         'VG30 AAYC 3539 6546 8017 5786',
         'IYGLNPYJPDG',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -2887,10 +2887,10 @@ values
         '1486',
         '54857',
         'Bone South',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2012,
         null,
         null,
@@ -2899,10 +2899,10 @@ values
         null,
         'MR43 4205 5303 1133 5228 1413 848',
         'MFQHSNMZMCE',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -2944,10 +2944,10 @@ values
         '9596',
         '35918',
         'Oytal',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1993,
         null,
         null,
@@ -2956,10 +2956,10 @@ values
         null,
         'CR83 9400 9640 2753 3170 0',
         'WDKTFPWIZJX',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -3001,10 +3001,10 @@ values
         '6334',
         '07546',
         'Wang Yang',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1985,
         null,
         null,
@@ -3013,10 +3013,10 @@ values
         null,
         'MC73 1562 4136 7949 PKXC UDZF F88',
         'FNWCDCCWUQO',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -3058,10 +3058,10 @@ values
         '14',
         '08777',
         'Sandefjord',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2009,
         null,
         null,
@@ -3070,10 +3070,10 @@ values
         null,
         'AL34 3053 3589 QPIH MDQE HLAU W7IX',
         'OVKWLFCGRAN',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -3115,10 +3115,10 @@ values
         '4',
         '58521',
         'Andalucía',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2012,
         '+57 984 921 7159',
         null,
@@ -3127,10 +3127,10 @@ values
         null,
         'LT03 0481 3749 8951 7892',
         'KWOFIQQVYER',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -3172,10 +3172,10 @@ values
         '44',
         '35818',
         'Zhangxiang',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2008,
         null,
         null,
@@ -3184,10 +3184,10 @@ values
         null,
         'IE43 DSCJ 8285 4235 7680 27',
         'KSEVTMBLUCQ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -3229,10 +3229,10 @@ values
         '058',
         '30368',
         'Dongtou',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2006,
         null,
         null,
@@ -3241,10 +3241,10 @@ values
         null,
         'IE76 SBTS 2941 4049 9142 76',
         'QYGIXORYXHF',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -3286,10 +3286,10 @@ values
         '40',
         '60381',
         'Soly',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1988,
         null,
         null,
@@ -3298,10 +3298,10 @@ values
         null,
         'GL31 4110 8141 0080 30',
         'IFOZHKPNPPO',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -3343,10 +3343,10 @@ values
         '49',
         '74345',
         'Wotan',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2004,
         '+62 584 710 2187',
         null,
@@ -3355,10 +3355,10 @@ values
         null,
         'FR11 5934 0570 61DF Z1OK GFQC R59',
         'OGTNQIHQRRP',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -3400,10 +3400,10 @@ values
         '54575',
         '40550',
         'San Bernardo',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2010,
         null,
         null,
@@ -3412,10 +3412,10 @@ values
         null,
         'MU68 IMYY 1591 9580 6046 2113 958D NP',
         'VVZTRVWZIMM',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -3457,10 +3457,10 @@ values
         '95754',
         '00051',
         'Kampungmasjid',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1993,
         null,
         null,
@@ -3469,10 +3469,10 @@ values
         null,
         'EE45 4179 4657 9988 5430',
         'XACSQZNQQFO',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -3514,10 +3514,10 @@ values
         '61599',
         '81498',
         'Namie',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2006,
         null,
         null,
@@ -3526,10 +3526,10 @@ values
         null,
         'PK94 ULUS 6SCT FHTK ACEV 0RWE',
         'GRTKDXKLXEX',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -3571,10 +3571,10 @@ values
         '125',
         '16428',
         'Fristad',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2003,
         null,
         null,
@@ -3583,10 +3583,10 @@ values
         null,
         'DO94 W5BT 9186 4983 2506 3310 1062',
         'ACWMFUKBDEI',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -3628,10 +3628,10 @@ values
         '061',
         '91233',
         'Rayong',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2011,
         null,
         null,
@@ -3640,10 +3640,10 @@ values
         null,
         'NO08 0447 7603 510',
         'CBSMBBJNIPP',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -3685,10 +3685,10 @@ values
         '43',
         '49936',
         'Quận Năm',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2008,
         '+84 760 686 8760',
         null,
@@ -3697,10 +3697,10 @@ values
         null,
         'SK79 3590 5091 3415 1988 2581',
         'JJNGKEBMNPM',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -3742,10 +3742,10 @@ values
         '58545',
         '58171',
         'Radā‘',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2012,
         null,
         null,
@@ -3754,10 +3754,10 @@ values
         null,
         'FO07 0842 6113 8864 42',
         'MQLQBBKXSXR',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -3799,10 +3799,10 @@ values
         '2',
         '47738',
         'Cibogo',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2010,
         '+62 751 392 0813',
         null,
@@ -3811,10 +3811,10 @@ values
         null,
         'MC14 0601 4239 890U PLAQ B2NW A53',
         'JLMJPSSTGYI',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -3856,10 +3856,10 @@ values
         '55',
         '02249',
         'Mangge',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1999,
         null,
         null,
@@ -3868,10 +3868,10 @@ values
         null,
         'FR42 9446 3846 01S2 R41G 3MVF V45',
         'JHNGBWLGWHO',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -3913,10 +3913,10 @@ values
         '9451',
         '01835',
         'Ożarów',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2013,
         null,
         null,
@@ -3925,10 +3925,10 @@ values
         null,
         'SA53 96SQ HLM0 HABP 6BID TDFP',
         'LQPJOIESAXF',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -3970,10 +3970,10 @@ values
         '0838',
         '14525',
         'Mtwango',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2001,
         null,
         null,
@@ -3982,10 +3982,10 @@ values
         null,
         'FR76 4828 6884 10BK VWGI CQP4 U58',
         'WPTREHULHOK',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -4027,10 +4027,10 @@ values
         '25643',
         '36581',
         'Qiaoshi',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2005,
         null,
         null,
@@ -4039,10 +4039,10 @@ values
         null,
         'FR77 5989 7845 13EA 1T0D BHO0 E39',
         'MOARRQNZNNM',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -4084,10 +4084,10 @@ values
         '885',
         '68998',
         'Venustiano Carranza',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1994,
         null,
         null,
@@ -4096,10 +4096,10 @@ values
         null,
         'FR72 2661 8801 86TE USUW 0BKC 267',
         'GTDGCHFSAUD',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -4141,10 +4141,10 @@ values
         '3323',
         '48003',
         'Loo',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2003,
         null,
         null,
@@ -4153,10 +4153,10 @@ values
         null,
         'NO33 6185 9006 965',
         'PYGYMHVQZBR',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -4198,10 +4198,10 @@ values
         '60425',
         '02102',
         'Bicurga',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2006,
         null,
         null,
@@ -4210,10 +4210,10 @@ values
         null,
         'FO20 0097 7010 6966 37',
         'JTCHWSJJJEK',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -4255,10 +4255,10 @@ values
         '6326',
         '67894',
         'Kengkou',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2002,
         '+86 883 148 4233',
         null,
@@ -4267,10 +4267,10 @@ values
         null,
         'BR02 8904 4356 8163 8568 2040 563O 3',
         'KBGVZNFSZPF',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -4312,10 +4312,10 @@ values
         '717',
         '39398',
         'Bauan',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2004,
         null,
         null,
@@ -4324,10 +4324,10 @@ values
         null,
         'AE83 9788 4129 9772 7617 431',
         'PUNMZXHXAZY',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -4369,10 +4369,10 @@ values
         '4023',
         '44207',
         'Chikola',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1993,
         null,
         null,
@@ -4381,10 +4381,10 @@ values
         null,
         'GL82 4235 4931 8936 30',
         'ACBWIGGCXGX',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -4426,10 +4426,10 @@ values
         '2178',
         '42193',
         'Lennec',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1985,
         null,
         null,
@@ -4438,10 +4438,10 @@ values
         null,
         'AL53 9825 2514 V3UK MVTQ VWIO W4D5',
         'NIZPYRBELMQ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -4483,10 +4483,10 @@ values
         '1975',
         '58119',
         'Olbramovice',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2005,
         null,
         null,
@@ -4495,10 +4495,10 @@ values
         null,
         'FR22 5208 7709 62BC BQTI 9WQ1 I65',
         'MMGIJMNJGHW',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -4540,10 +4540,10 @@ values
         '262',
         '45748',
         'Al ‘Āqir',
-        'true',
-        'false',
-        'true',
-        'false',
+        true,
+        false,
+        true,
+        false,
         2002,
         null,
         null,
@@ -4552,10 +4552,10 @@ values
         null,
         'FR04 6128 2983 66GC EXVI OLUE C11',
         'IZKIMFSRHME',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -4597,10 +4597,10 @@ values
         '2399',
         '11500',
         'Petrodvorets',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2009,
         null,
         '+690 510 132 3834',
@@ -4609,10 +4609,10 @@ values
         null,
         'MK86 025T VEDJ DB0L G85',
         'CSDIWISCDLQ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -4654,10 +4654,10 @@ values
         '44782',
         '65831',
         'Daqin Tal',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1992,
         null,
         null,
@@ -4666,10 +4666,10 @@ values
         null,
         'FO97 4452 1199 8029 74',
         'HAHXGODIKPZ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -4711,10 +4711,10 @@ values
         '6659',
         '79589',
         'Jawf al Maqbābah',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1994,
         null,
         null,
@@ -4723,10 +4723,10 @@ values
         null,
         'FO08 9915 1070 9540 77',
         'MKIZEAFGZSK',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -4768,10 +4768,10 @@ values
         '67515',
         '52751',
         'Sridadi',
-        'false',
-        'false',
-        'true',
-        'false',
+        false,
+        false,
+        true,
+        false,
         2009,
         null,
         null,
@@ -4780,10 +4780,10 @@ values
         null,
         'HR70 2827 7482 1573 0965 8',
         'MENNLXXEWIT',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -4825,10 +4825,10 @@ values
         '3',
         '10865',
         'Karanganyar',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1989,
         '+62 716 750 4583',
         null,
@@ -4837,10 +4837,10 @@ values
         null,
         'FR70 2572 4819 12YR O8VW C5LL Q21',
         'ZZOYOIYGOES',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -4882,10 +4882,10 @@ values
         '7',
         '10412',
         'Xinpu',
-        'false',
-        'false',
-        'true',
-        'false',
+        false,
+        false,
+        true,
+        false,
         1995,
         null,
         null,
@@ -4894,10 +4894,10 @@ values
         null,
         'NL70 TXJA 0693 3858 45',
         'JCTFAXYPYMA',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -4939,10 +4939,10 @@ values
         '0462',
         '40647',
         'Jiangkou',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1996,
         '+86 266 331 6471',
         null,
@@ -4951,10 +4951,10 @@ values
         null,
         'ES43 2110 3382 2104 6379 3828',
         'MVPMMDHAJOG',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -4996,10 +4996,10 @@ values
         '38135',
         '06801',
         'Sukmoilang',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1992,
         '+62 225 682 7095',
         null,
@@ -5008,10 +5008,10 @@ values
         null,
         'LI76 2543 41L0 I6JC UWAO X',
         'PEEZPPUKSDG',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -5053,10 +5053,10 @@ values
         '39',
         '78343',
         'Neiafu',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1991,
         '+676 270 984 7129',
         null,
@@ -5065,10 +5065,10 @@ values
         null,
         'DO57 7GBH 8216 2208 9805 5913 0716',
         'RJATGKBYCLK',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -5110,10 +5110,10 @@ values
         '5',
         '88447',
         'Hushan',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1999,
         null,
         null,
@@ -5122,10 +5122,10 @@ values
         null,
         'BE80 3963 8795 1633',
         'FHAIQDWWYEC',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -5167,10 +5167,10 @@ values
         '0013',
         '63933',
         'Quintã',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2008,
         null,
         null,
@@ -5179,10 +5179,10 @@ values
         null,
         'FR15 7358 7073 09SD U4BT JTWU 003',
         'MODHQKVZMKR',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -5224,10 +5224,10 @@ values
         '679',
         '36128',
         'Paris 02',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2001,
         null,
         null,
@@ -5236,10 +5236,10 @@ values
         null,
         'MU92 SMND 3461 5616 0389 9904 496Z CN',
         'KVSZRBEETJX',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -5281,10 +5281,10 @@ values
         '916',
         '89763',
         'Hengli',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2007,
         '+86 765 107 1569',
         null,
@@ -5293,10 +5293,10 @@ values
         null,
         'BE27 1810 8629 2613',
         'FJGQFSRJNWU',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -5338,10 +5338,10 @@ values
         '7',
         '74468',
         'Báguanos',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2006,
         '+53 216 353 3913',
         null,
@@ -5350,10 +5350,10 @@ values
         null,
         'FR24 4638 5436 96YC AVOJ QC8K Q49',
         'BRIWSARABBW',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -5395,10 +5395,10 @@ values
         '8878',
         '78083',
         'Karangnunggal',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1994,
         null,
         null,
@@ -5407,10 +5407,10 @@ values
         null,
         'LB56 9332 FZ6G HIIB GBRB DCXW DCJ8',
         'OXSUWUUIYWP',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -5452,10 +5452,10 @@ values
         '41',
         '90831',
         'Gunungtua',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2007,
         null,
         null,
@@ -5464,10 +5464,10 @@ values
         null,
         'FR65 4047 9572 8642 TQA0 N59K J50',
         'CFQBRDSZMJS',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -5509,10 +5509,10 @@ values
         '24701',
         '40878',
         'Gīvī',
-        'true',
-        'false',
-        'true',
-        'false',
+        true,
+        false,
+        true,
+        false,
         1995,
         null,
         null,
@@ -5521,10 +5521,10 @@ values
         null,
         'IS76 5380 3983 4379 8748 9908 34',
         'CIVSFZAFPTF',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -5566,10 +5566,10 @@ values
         '78541',
         '33339',
         'Wanli',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2011,
         null,
         null,
@@ -5578,10 +5578,10 @@ values
         null,
         'FR47 2855 5561 876I TXBO WSUI A00',
         'NJKYNEXJLTN',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -5623,10 +5623,10 @@ values
         '518',
         '86445',
         'Balgatay',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2011,
         null,
         null,
@@ -5635,10 +5635,10 @@ values
         null,
         'FR96 7952 7720 76C2 VWW9 CPDO G30',
         'JUCAWJXBCYG',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -5680,10 +5680,10 @@ values
         '22',
         '84711',
         'Boljoon',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1987,
         null,
         null,
@@ -5692,10 +5692,10 @@ values
         null,
         'MC91 6892 2354 13SZ BJG3 MR3X I30',
         'RVTAOMGJMZI',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -5737,10 +5737,10 @@ values
         '215',
         '81663',
         'Lizhuangzi',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2011,
         null,
         null,
@@ -5749,10 +5749,10 @@ values
         null,
         'HR43 8416 8198 2695 8480 7',
         'ZJZFPHDRIHT',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -5794,10 +5794,10 @@ values
         '1516',
         '93634',
         'Pingdingshan',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1997,
         null,
         '+1 694 161 3224',
@@ -5806,10 +5806,10 @@ values
         null,
         'FR42 1195 2512 464X JWUE 7KBM Z49',
         'EBDYSJRXRMV',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -5851,10 +5851,10 @@ values
         '4',
         '79687',
         'Maoyang',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2004,
         null,
         null,
@@ -5863,10 +5863,10 @@ values
         null,
         'GR30 2114 034E OESW SNF6 7DZM 636',
         'ZSBVBLOLLXP',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -5908,10 +5908,10 @@ values
         '4',
         '09402',
         'Sumaré',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2001,
         null,
         null,
@@ -5920,10 +5920,10 @@ values
         null,
         'MK72 049K 0PMP OVR1 K94',
         'MKPTXTJCZMB',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -5965,10 +5965,10 @@ values
         '90',
         '30649',
         'Quebracho',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2008,
         null,
         null,
@@ -5977,10 +5977,10 @@ values
         null,
         'GE69 UI67 8118 8422 0746 04',
         'FYVWLZMIYQT',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -6022,10 +6022,10 @@ values
         '4606',
         '56527',
         'Vazhiny',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2007,
         null,
         null,
@@ -6034,10 +6034,10 @@ values
         null,
         'MK82 336B XSYB PM7Y O89',
         'FQWLDLVKYSA',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -6079,10 +6079,10 @@ values
         '47342',
         '17117',
         'Samajie Ewenkeminzu',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2002,
         null,
         null,
@@ -6091,10 +6091,10 @@ values
         null,
         'FR12 2605 0261 72P0 Z2DR M3EL C55',
         'KVCMRDTOPCV',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -6136,10 +6136,10 @@ values
         '5700',
         '06674',
         'Pavlovka',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1998,
         null,
         null,
@@ -6148,10 +6148,10 @@ values
         null,
         'HU06 8526 8985 8803 4760 5167 8888',
         'YUGEYUWAIGF',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -6193,10 +6193,10 @@ values
         '055',
         '29070',
         'Saguing',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2011,
         null,
         '+86 487 478 2662',
@@ -6205,10 +6205,10 @@ values
         null,
         'FI34 2759 2088 2636 35',
         'AUVRMKAYVAZ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -6250,10 +6250,10 @@ values
         '41',
         '15311',
         'Lijie',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2011,
         null,
         null,
@@ -6262,10 +6262,10 @@ values
         null,
         'GB88 OFQM 3453 2237 4293 78',
         'IAVZQGFZQFD',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -6307,10 +6307,10 @@ values
         '77',
         '63860',
         'Kampungbaru',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2009,
         null,
         null,
@@ -6319,10 +6319,10 @@ values
         null,
         'SE95 0935 5361 6634 6217 3240',
         'WIHFUTUOHXE',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -6364,10 +6364,10 @@ values
         '17',
         '88229',
         'Yuyangguan',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2002,
         null,
         null,
@@ -6376,10 +6376,10 @@ values
         'Hagston',
         'TR49 3308 4533 D58N AZBE VTGT QQ',
         'YRLXLJRINNM',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -6421,10 +6421,10 @@ values
         '575',
         '16905',
         'Orsay',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2004,
         null,
         null,
@@ -6433,10 +6433,10 @@ values
         null,
         'GE60 EW32 6451 0347 0471 82',
         'VXZUBMRGHPQ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -6478,10 +6478,10 @@ values
         '625',
         '65160',
         'Rumboci',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1987,
         null,
         null,
@@ -6490,10 +6490,10 @@ values
         null,
         'ES03 2362 6711 5218 7377 2026',
         'JOZYHFKIIXK',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -6535,10 +6535,10 @@ values
         '8402',
         '71740',
         'Peuhaq',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1999,
         null,
         null,
@@ -6547,10 +6547,10 @@ values
         null,
         'IE07 QQAS 8198 8568 6113 67',
         'ZDVKBOOCOXZ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -6592,10 +6592,10 @@ values
         '119',
         '49255',
         'Várzea da Serra',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2004,
         null,
         null,
@@ -6604,10 +6604,10 @@ values
         null,
         'TR45 5284 6DWF IO0H IGSO WMRH WX',
         'XMYUZUZISLO',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -6649,10 +6649,10 @@ values
         '08611',
         '18805',
         'Íasmos',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2012,
         null,
         null,
@@ -6661,10 +6661,10 @@ values
         null,
         'FR03 6495 1248 43VZ XL0X WLY9 X55',
         'RULJSCILVGA',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -6706,10 +6706,10 @@ values
         '30460',
         '51309',
         'Merefa',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1990,
         null,
         null,
@@ -6718,10 +6718,10 @@ values
         null,
         'FR88 4332 8304 54UR IUEO HWOP D59',
         'XTNSMFEAHWX',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -6763,10 +6763,10 @@ values
         '6571',
         '50794',
         'Śródmieście',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2001,
         '+48 940 846 5221',
         null,
@@ -6775,10 +6775,10 @@ values
         null,
         'HU28 7379 0956 8106 6723 9727 9377',
         'VYFIBSDOISA',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -6820,10 +6820,10 @@ values
         '4',
         '69268',
         'Al Qābil',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2006,
         null,
         null,
@@ -6832,10 +6832,10 @@ values
         null,
         'SI66 3519 9715 1147 802',
         'USSKRSZDNGI',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -6877,10 +6877,10 @@ values
         '99',
         '79139',
         'Austin',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2000,
         '+1 512 874 7969',
         null,
@@ -6889,10 +6889,10 @@ values
         null,
         'SE09 5014 3214 3823 1855 0380',
         'IRLNCJOAWGB',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -6934,10 +6934,10 @@ values
         '9514',
         '82352',
         'Balboa',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1992,
         null,
         null,
@@ -6946,10 +6946,10 @@ values
         null,
         'LT35 8655 6565 8822 6934',
         'LPEFUGKIHJR',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -6991,10 +6991,10 @@ values
         '87981',
         '26831',
         'Verbivka',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1992,
         null,
         null,
@@ -7003,10 +7003,10 @@ values
         null,
         'GI33 LKUN IBKT 351W 4T0O W1K',
         'AJEDOUZULZS',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -7048,10 +7048,10 @@ values
         '68',
         '80669',
         'Krajan Satu',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2003,
         null,
         null,
@@ -7060,10 +7060,10 @@ values
         null,
         'FR85 4056 1175 81BZ NCQV WEV7 T47',
         'ZKLXNDXLKPO',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -7105,10 +7105,10 @@ values
         '5',
         '30176',
         'Mozzozzin Sur',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1995,
         null,
         null,
@@ -7117,10 +7117,10 @@ values
         null,
         'PL39 9588 3739 8196 2598 1825 0037',
         'DPVYADIVBIT',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -7162,10 +7162,10 @@ values
         '15',
         '50496',
         'Bayt ‘Awwā',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1991,
         '+970 223 655 0198',
         null,
@@ -7174,10 +7174,10 @@ values
         null,
         'AZ81 LKJW WNTY A4NU I839 D6SS 4U8F',
         'RLJZBERKSKY',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -7219,10 +7219,10 @@ values
         '65817',
         '73833',
         'Chokwé',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2006,
         null,
         null,
@@ -7231,10 +7231,10 @@ values
         null,
         'FR56 8195 5808 77OT FOBV UKQ5 466',
         'ZBONWCIWRKI',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -7276,10 +7276,10 @@ values
         '3571',
         '26733',
         'Patenongan',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2000,
         null,
         null,
@@ -7288,10 +7288,10 @@ values
         null,
         'LU51 629Q EBNW KYND SZE5',
         'BNBUBOKQCEL',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -7333,10 +7333,10 @@ values
         '69672',
         '69758',
         'Duas Igrejas',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1993,
         null,
         null,
@@ -7345,10 +7345,10 @@ values
         null,
         'ES02 2070 7307 4201 1769 7864',
         'CKYZTSYGQQE',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -7390,10 +7390,10 @@ values
         '6',
         '38391',
         'Balice',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2012,
         null,
         '+355 625 705 6000',
@@ -7402,10 +7402,10 @@ values
         null,
         'TN26 7686 4025 2497 2994 9095',
         'YLNLGSVWMRF',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -7447,10 +7447,10 @@ values
         '12993',
         '11736',
         'Yaqian',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2011,
         null,
         null,
@@ -7459,10 +7459,10 @@ values
         null,
         'TR77 9200 6LGK VTWX ZW4Q V58K 9D',
         'LUVFMYPESQN',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -7504,10 +7504,10 @@ values
         '1',
         '89430',
         'San Ignacio de Velasco',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1998,
         null,
         null,
@@ -7516,10 +7516,10 @@ values
         null,
         'FR23 3704 4389 64IQ TATS ZSNR E99',
         'YTZXNOSKDZR',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -7561,10 +7561,10 @@ values
         '81675',
         '14240',
         'Zaraysk',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2003,
         null,
         null,
@@ -7573,10 +7573,10 @@ values
         null,
         'ME19 6641 0831 2517 0492 90',
         'KYZJTYBWWXQ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -7618,10 +7618,10 @@ values
         '6',
         '39944',
         'Dungon',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2005,
         null,
         null,
@@ -7630,10 +7630,10 @@ values
         null,
         'FR66 3687 7091 67R2 OBCN UAYD S06',
         'TMBZEUGPUBQ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -7675,10 +7675,10 @@ values
         '21',
         '74484',
         'Metsovo',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1999,
         null,
         null,
@@ -7687,10 +7687,10 @@ values
         null,
         'PT65 5892 6589 8051 2954 8596 9',
         'GHTTLBQQMON',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -7732,10 +7732,10 @@ values
         '40133',
         '16280',
         'Nunleu',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1995,
         null,
         null,
@@ -7744,10 +7744,10 @@ values
         null,
         'IE26 DPBV 1043 8181 4029 14',
         'MYMTUULLMQP',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -7789,10 +7789,10 @@ values
         '34624',
         '89390',
         'Novoshakhtinskiy',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2001,
         '+7 668 949 4971',
         null,
@@ -7801,10 +7801,10 @@ values
         null,
         'FR55 4083 5533 580O TOSL SBRZ 563',
         'LGYIFUDDDLK',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -7846,10 +7846,10 @@ values
         '332',
         '74971',
         'Benghazi',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2012,
         null,
         null,
@@ -7858,10 +7858,10 @@ values
         'Kuzemka',
         'FO46 9339 8939 7389 87',
         'KRWNGCNDYMQ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -7903,10 +7903,10 @@ values
         '8',
         '13040',
         'Rybnoye',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2000,
         null,
         null,
@@ -7915,10 +7915,10 @@ values
         null,
         'HR59 0953 3755 5766 9228 2',
         'KUSSLHHOPDG',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -7960,10 +7960,10 @@ values
         '4',
         '40626',
         'Nanxi',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1976,
         null,
         null,
@@ -7972,10 +7972,10 @@ values
         null,
         'RO36 HFPM KJDQ 2CWV 8AEL 0CKO',
         'ELHGHWGWHSM',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -8017,10 +8017,10 @@ values
         '61438',
         '61702',
         'Belyye Stolby',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2008,
         null,
         null,
@@ -8029,10 +8029,10 @@ values
         null,
         'VG88 AEBN 7278 8000 0423 9512',
         'URGCJIBGNPM',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -8074,10 +8074,10 @@ values
         '882',
         '29732',
         'Radiměř',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2003,
         '+420 718 261 6829',
         null,
@@ -8086,10 +8086,10 @@ values
         null,
         'FR61 9560 4936 93X4 FQDP YCYQ M90',
         'VKZOMBCPNZT',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -8131,10 +8131,10 @@ values
         '68361',
         '55847',
         'Sidem',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1994,
         null,
         '+33 733 767 0764',
@@ -8143,10 +8143,10 @@ values
         null,
         'CR77 6156 4467 4202 7239 6',
         'GORQAXFJBVU',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -8188,10 +8188,10 @@ values
         '6933',
         '81211',
         'Margahayu',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2012,
         null,
         null,
@@ -8200,10 +8200,10 @@ values
         null,
         'AD53 7938 3015 CNNG IESA KVJP',
         'KLDZBEAIWEZ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -8245,10 +8245,10 @@ values
         '22202',
         '50097',
         'El Refugio',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2006,
         null,
         null,
@@ -8257,10 +8257,10 @@ values
         'Benjefield',
         'ME20 5820 6672 2903 9009 84',
         'LALBUHOWJOR',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -8302,10 +8302,10 @@ values
         '0067',
         '48830',
         'Magallanes',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1992,
         null,
         null,
@@ -8314,10 +8314,10 @@ values
         null,
         'SK39 3462 1650 4564 3350 2009',
         'MOFMNTXWINE',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -8359,10 +8359,10 @@ values
         '4',
         '68787',
         'Medenychi',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2003,
         null,
         null,
@@ -8371,10 +8371,10 @@ values
         'Lintot',
         'MC59 4208 8308 39CS UDID EPHM I28',
         'NDBMMSORLRJ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -8416,10 +8416,10 @@ values
         '2417',
         '39948',
         'Wahang Dua',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2002,
         null,
         null,
@@ -8428,10 +8428,10 @@ values
         null,
         'BG20 BAVZ 6152 86FG ZCCU CN',
         'UAJYVFSGTHC',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -8473,10 +8473,10 @@ values
         '552',
         '05732',
         'Ostrowite',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1990,
         null,
         null,
@@ -8485,10 +8485,10 @@ values
         null,
         'FR90 7968 4988 74IQ HQSJ QIC1 J35',
         'MOOLDCTICOE',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -8530,10 +8530,10 @@ values
         '6221',
         '06297',
         'Primorskiy',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2011,
         null,
         null,
@@ -8542,10 +8542,10 @@ values
         null,
         'GT69 UNLU M2YL DKVR VJMG 6QRR OELV',
         'OELFSGIZVQZ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -8587,10 +8587,10 @@ values
         '43',
         '41754',
         'Wangkung',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2006,
         null,
         '+30 637 215 4806',
@@ -8599,10 +8599,10 @@ values
         null,
         'GR55 4715 782B RMGH SMIK 5P3S 5B1',
         'MECUBRBDOCD',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -8644,10 +8644,10 @@ values
         '36',
         '51678',
         'Nageswari',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2008,
         '+880 242 258 0919',
         null,
@@ -8656,10 +8656,10 @@ values
         null,
         'IT69 N798 9333 778W 6I7D PR70 RZO',
         'CPRCDOBJEWX',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -8701,10 +8701,10 @@ values
         '3',
         '70366',
         'Safonovo',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2011,
         null,
         null,
@@ -8713,10 +8713,10 @@ values
         null,
         'SM39 L579 9192 676S SLXE G1ER W3M',
         'FZGYGVWCTEM',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -8758,10 +8758,10 @@ values
         '8920',
         '67924',
         'Delgado',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2001,
         null,
         null,
@@ -8770,10 +8770,10 @@ values
         null,
         'CH40 6009 9HPT 6TNB 629K 9',
         'IBLGOHHSROU',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -8815,10 +8815,10 @@ values
         '4287',
         '36267',
         'Shawnee Mission',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2000,
         null,
         null,
@@ -8827,10 +8827,10 @@ values
         null,
         'IT24 F222 2521 438Q U0K4 TXUU DDT',
         'YGELBVICAGQ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -8872,10 +8872,10 @@ values
         '52460',
         '11607',
         'Ballisodare',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2013,
         '+353 531 920 2317',
         null,
@@ -8884,10 +8884,10 @@ values
         null,
         'NL36 HXMP 8197 6178 80',
         'KUMPSHWXCSH',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -8929,10 +8929,10 @@ values
         '4645',
         '90240',
         'Proletar',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2008,
         null,
         null,
@@ -8941,10 +8941,10 @@ values
         null,
         'GR17 3536 162C YGOA TDQY MLJQ P2Y',
         'CDQJSSUDJSZ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -8986,10 +8986,10 @@ values
         '2741',
         '67102',
         'Topdac',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1983,
         null,
         null,
@@ -8998,10 +8998,10 @@ values
         null,
         'FR18 0658 9975 07HD 53DN 0NHA F24',
         'XXDPQKOSYMF',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -9043,10 +9043,10 @@ values
         '74971',
         '57237',
         'Kukawa',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2006,
         '+234 335 291 0453',
         null,
@@ -9055,10 +9055,10 @@ values
         null,
         'CR96 0587 6681 5424 4473 2',
         'ISIFBIPNPKP',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -9100,10 +9100,10 @@ values
         '3165',
         '61968',
         'Karangbaru',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1996,
         null,
         '+55 616 261 7905',
@@ -9112,10 +9112,10 @@ values
         'Worster',
         'MC67 5487 9193 86L0 XW7T 6VZK C31',
         'VVBLSZLUAOI',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -9157,10 +9157,10 @@ values
         '18',
         '68897',
         'Fucheng',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2006,
         null,
         '+51 759 227 2317',
@@ -9169,10 +9169,10 @@ values
         null,
         'DK56 1757 5751 3543 99',
         'GXMHSVZWKVE',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -9214,10 +9214,10 @@ values
         '27566',
         '60506',
         'Xinmatou',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2001,
         null,
         null,
@@ -9226,10 +9226,10 @@ values
         null,
         'PK49 SQPW WPMI U2QY WMY3 SIEU',
         'UCSAKBNBAFM',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -9271,10 +9271,10 @@ values
         '2',
         '44815',
         'Zhongdeng',
-        'false',
-        'false',
-        'true',
-        'false',
+        false,
+        false,
+        true,
+        false,
         1992,
         '+86 453 855 5258',
         null,
@@ -9283,10 +9283,10 @@ values
         null,
         'BH43 VUJI T634 P8U5 YCNN YW',
         'RVSUQTCLKYW',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -9328,10 +9328,10 @@ values
         '297',
         '30746',
         'Komletinci',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2009,
         null,
         null,
@@ -9340,10 +9340,10 @@ values
         null,
         'MC06 8832 5497 38WP JBHG K8WQ 202',
         'WYQNXEENBRY',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -9385,10 +9385,10 @@ values
         '936',
         '33134',
         'Vargem Grande do Sul',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2001,
         null,
         null,
@@ -9397,10 +9397,10 @@ values
         null,
         'DK45 7143 7579 3749 10',
         'TKVFXTRXFNR',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -9442,10 +9442,10 @@ values
         '1738',
         '30147',
         'Budapest',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2005,
         '+36 840 640 8199',
         null,
@@ -9454,10 +9454,10 @@ values
         null,
         'LB62 7575 CKT5 UBG7 PW5U KE2X VOKA',
         'XJEHEZHWSQU',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -9499,10 +9499,10 @@ values
         '3',
         '97996',
         'Dobropillya',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2010,
         null,
         null,
@@ -9511,10 +9511,10 @@ values
         null,
         'HU91 3866 1664 4048 4465 8515 9312',
         'BTVWCKFKDMU',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -9556,10 +9556,10 @@ values
         '336',
         '46180',
         'Jinping',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2010,
         '+86 716 965 0714',
         null,
@@ -9568,10 +9568,10 @@ values
         null,
         'FR38 5347 1653 99UD GMOO 5VCM K03',
         'SUOURGPEOON',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -9613,10 +9613,10 @@ values
         '869',
         '57417',
         'Sewon',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2003,
         null,
         null,
@@ -9625,10 +9625,10 @@ values
         null,
         'FR19 8727 1610 74P9 WUSQ X6G0 V64',
         'DDXLBORPXLD',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -9670,10 +9670,10 @@ values
         '5',
         '79485',
         'Voznesenskaya',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1992,
         null,
         null,
@@ -9682,10 +9682,10 @@ values
         null,
         'FR02 1256 5899 84CC J7E6 YHFH 345',
         'BAKEHPIRFBO',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -9727,10 +9727,10 @@ values
         '808',
         '25730',
         'Kotuń',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1987,
         '+48 555 818 6630',
         null,
@@ -9739,10 +9739,10 @@ values
         'Wederell',
         'SA40 28RB YRP0 JW8Z NNZB ILPA',
         'ZWHLDWCVPHU',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -9784,10 +9784,10 @@ values
         '16',
         '93771',
         'Orsk',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1993,
         null,
         null,
@@ -9796,10 +9796,10 @@ values
         null,
         'LV52 NIWS O401 3ZTW AHRB K',
         'RFQPIJWELCE',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -9841,10 +9841,10 @@ values
         '416',
         '16539',
         'Pacaycasa',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2006,
         null,
         null,
@@ -9853,10 +9853,10 @@ values
         null,
         'DO62 15HM 1804 2215 5836 8321 8132',
         'BCRJEYBBSEM',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -9898,10 +9898,10 @@ values
         '93',
         '88293',
         'Kilifi',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2013,
         null,
         null,
@@ -9910,10 +9910,10 @@ values
         null,
         'LV92 TEMJ IDZ1 UKDU JCSS U',
         'OFCAGZVWGLY',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -9955,10 +9955,10 @@ values
         '523',
         '68654',
         'Paranho',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1995,
         '+351 927 779 9509',
         null,
@@ -9967,10 +9967,10 @@ values
         null,
         'LT84 9424 8797 3697 0066',
         'NLNAIACTXCM',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -10012,10 +10012,10 @@ values
         '3517',
         '05682',
         'Dorp Antriol',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2000,
         null,
         null,
@@ -10024,10 +10024,10 @@ values
         null,
         'BH89 NNFI YEQP ICH5 PPWR AN',
         'LXMFOVLQCHI',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -10069,10 +10069,10 @@ values
         '4899',
         '60291',
         'San Fernando de Monte Cristi',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1970,
         null,
         null,
@@ -10081,10 +10081,10 @@ values
         null,
         'BH27 TTTK BBO0 DSVY VS0B Z6',
         'VGCXWOJKPVR',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -10126,10 +10126,10 @@ values
         '98',
         '12719',
         'Lodhrān',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2012,
         '+92 708 145 1748',
         null,
@@ -10138,10 +10138,10 @@ values
         null,
         'IS79 2251 4848 4522 1281 7815 04',
         'ZRWEPGPFWKR',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -10183,10 +10183,10 @@ values
         '79135',
         '35703',
         'Anda',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1997,
         null,
         null,
@@ -10195,10 +10195,10 @@ values
         null,
         'DO22 BSAB 7990 6562 0764 7768 4831',
         'EUEBPCXOJND',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -10240,10 +10240,10 @@ values
         '7',
         '71116',
         'Skarżysko-Kamienna',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1989,
         null,
         null,
@@ -10252,10 +10252,10 @@ values
         'Medd',
         'NO92 2240 9802 557',
         'LUEXKQRKZKB',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -10297,10 +10297,10 @@ values
         '6896',
         '84751',
         'Tebluru',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1996,
         null,
         null,
@@ -10309,10 +10309,10 @@ values
         null,
         'FR88 6425 4278 29KM XFRS TCJP U03',
         'PRYZDRMTZTB',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -10354,10 +10354,10 @@ values
         '3300',
         '26912',
         'Laiya',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2007,
         null,
         null,
@@ -10366,10 +10366,10 @@ values
         null,
         'AZ07 UASP 3CF6 MXLG TGNV AQN8 PAT2',
         'XAQJGMXIRNZ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -10411,10 +10411,10 @@ values
         '4',
         '65975',
         'Angers',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2006,
         '+33 851 918 2792',
         null,
@@ -10423,10 +10423,10 @@ values
         null,
         'NO70 6578 0555 376',
         'DTYZJZJIVZP',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -10468,10 +10468,10 @@ values
         '2782',
         '40512',
         'Kambar',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2012,
         null,
         null,
@@ -10480,10 +10480,10 @@ values
         null,
         'IT60 N847 5103 211Z PS2M WQVS LOQ',
         'WAGZDQPGLSZ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -10525,10 +10525,10 @@ values
         '0031',
         '55405',
         'Samparna',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2006,
         null,
         null,
@@ -10537,10 +10537,10 @@ values
         null,
         'FR97 1217 1694 087N 83K0 LFFQ V03',
         'HAVOXNKXZQL',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -10582,10 +10582,10 @@ values
         '66699',
         '67319',
         'Al Jafr',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1995,
         null,
         null,
@@ -10594,10 +10594,10 @@ values
         null,
         'NO12 0899 0691 592',
         'PSZRCDSJQZB',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -10639,10 +10639,10 @@ values
         '709',
         '95899',
         'Lucapa',
-        'true',
-        'false',
-        'true',
-        'false',
+        true,
+        false,
+        true,
+        false,
         1994,
         null,
         null,
@@ -10651,10 +10651,10 @@ values
         null,
         'CY20 0883 4806 2GJE 2ZQH 5UFE JN0F',
         'GJPHWCIYGYL',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -10696,10 +10696,10 @@ values
         '7814',
         '56989',
         'Babo-Pangulo',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1999,
         null,
         null,
@@ -10708,10 +10708,10 @@ values
         null,
         'NL94 REYJ 1726 8083 18',
         'HLEEBDVFDBU',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -10753,10 +10753,10 @@ values
         '37176',
         '15022',
         'Nam Kliang',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1996,
         null,
         null,
@@ -10765,10 +10765,10 @@ values
         null,
         'LU37 742J M8BV 8KLP ZIER',
         'SJOEJLZLWKR',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -10810,10 +10810,10 @@ values
         '7485',
         '93068',
         'Huikou',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1994,
         null,
         null,
@@ -10822,10 +10822,10 @@ values
         null,
         'FR90 8336 4088 25PF NYYY 9CRG Q30',
         'HAFUQLTWMWK',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -10867,10 +10867,10 @@ values
         '90169',
         '05050',
         'Sargatskoye',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2007,
         null,
         null,
@@ -10879,10 +10879,10 @@ values
         null,
         'MT36 MMCA 1205 7YK4 7CXS IA1U ZA0C HXK',
         'BGOQZCGWYYV',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -10924,10 +10924,10 @@ values
         '1',
         '22397',
         'Taoling',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1998,
         '+86 490 334 1382',
         null,
@@ -10936,10 +10936,10 @@ values
         null,
         'PK24 UBIC LORS WUGX 1OZW 5ZR1',
         'JUIXIZYGTQO',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -10981,10 +10981,10 @@ values
         '857',
         '44339',
         'Capulaan',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2002,
         '+63 887 835 2156',
         null,
@@ -10993,10 +10993,10 @@ values
         'Mintram',
         'PL64 3142 8653 0131 9758 7848 7504',
         'EPHRHTSKEKB',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -11038,10 +11038,10 @@ values
         '23',
         '10366',
         'Ambat',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1960,
         null,
         null,
@@ -11050,10 +11050,10 @@ values
         'Hamlen',
         'BG84 AGTO 2063 36JA OZIM VO',
         'NFKLJSEGZPZ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -11095,10 +11095,10 @@ values
         '62',
         '63630',
         'Caluya',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2001,
         null,
         null,
@@ -11107,10 +11107,10 @@ values
         null,
         'IT60 N314 8282 294D PH5N UZXO 6QO',
         'NCQQPKZSPXR',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -11152,10 +11152,10 @@ values
         '64876',
         '15925',
         'Al Qarārah',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2001,
         null,
         null,
@@ -11164,10 +11164,10 @@ values
         null,
         'FR65 5913 8403 52Z0 SZ1O FDJW H61',
         'BPOWPHRBFPF',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -11209,10 +11209,10 @@ values
         '0',
         '64891',
         'Beixin',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1998,
         '+86 326 414 3555',
         null,
@@ -11221,10 +11221,10 @@ values
         null,
         'MC70 6809 5648 42T0 YWOP WOHQ E56',
         'QOFMDZBDXLN',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -11266,10 +11266,10 @@ values
         '976',
         '50313',
         'Uppsala',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2003,
         null,
         null,
@@ -11278,10 +11278,10 @@ values
         'Scargle',
         'FR14 2510 2646 452E XN00 IK4R M52',
         'HNQDKYOGSJG',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -11323,10 +11323,10 @@ values
         '5480',
         '35040',
         'San Francisco',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2009,
         null,
         null,
@@ -11335,10 +11335,10 @@ values
         null,
         'VG69 FRSS 6919 0560 4161 2593',
         'INUCCJVKXBG',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -11380,10 +11380,10 @@ values
         '35383',
         '01537',
         'Cerenti',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1993,
         null,
         null,
@@ -11392,10 +11392,10 @@ values
         null,
         'BH43 TQOZ KEXP D9SE 068L AV',
         'PMWZEJRHXEJ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -11437,10 +11437,10 @@ values
         '608',
         '14452',
         'Farshūţ',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1993,
         null,
         null,
@@ -11449,10 +11449,10 @@ values
         null,
         'PT26 1759 7996 3989 1940 2334 5',
         'OIWPLADIYUF',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -11494,10 +11494,10 @@ values
         '1',
         '07300',
         'Mora',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1998,
         null,
         null,
@@ -11506,10 +11506,10 @@ values
         null,
         'FI88 0736 3800 7937 76',
         'AZWBZMDZAOE',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -11551,10 +11551,10 @@ values
         '26907',
         '52779',
         'Varadero',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2011,
         null,
         null,
@@ -11563,10 +11563,10 @@ values
         null,
         'GB68 BGKE 2535 0940 3602 69',
         'GRVMZMIHXCX',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -11608,10 +11608,10 @@ values
         '484',
         '70793',
         'Niimi',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2005,
         null,
         '+994 287 672 3108',
@@ -11620,10 +11620,10 @@ values
         null,
         'GT80 TXSA R5HJ IRLX MMWO OAW6 JMKY',
         'LAFNXLNOOOT',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -11665,10 +11665,10 @@ values
         '1',
         '44031',
         'Ouagadougou',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1999,
         null,
         null,
@@ -11677,10 +11677,10 @@ values
         null,
         'CY93 7696 9318 LZRB FJMW XB6X KNMH',
         'KUBBWWNQWVN',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -11722,10 +11722,10 @@ values
         '5',
         '24396',
         'Nong Khaem',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2010,
         '+66 997 868 0223',
         null,
@@ -11734,10 +11734,10 @@ values
         null,
         'CY71 4081 6927 DRTI IUSC OOFD XU8C',
         'WEMIECMPOGR',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -11779,10 +11779,10 @@ values
         '825',
         '96543',
         'Åkersberga',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2010,
         null,
         null,
@@ -11791,10 +11791,10 @@ values
         null,
         'FR83 0699 1685 72CH QMMI 9SAV V46',
         'EBCGMJQLDDT',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -11836,10 +11836,10 @@ values
         '1',
         '28719',
         'Rejoso',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1998,
         null,
         null,
@@ -11848,10 +11848,10 @@ values
         'Huske',
         'FR80 9370 5331 61IO IZ86 8MPO 971',
         'HVDFZMMHTTF',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -11893,10 +11893,10 @@ values
         '6885',
         '62026',
         'Wuyang',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1986,
         null,
         null,
@@ -11905,10 +11905,10 @@ values
         null,
         'DE68 6862 4598 1099 0628 67',
         'ZCZTNUSIVWN',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -11950,10 +11950,10 @@ values
         '06800',
         '62607',
         'Lluchubamba',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2006,
         '+51 728 899 5684',
         null,
@@ -11962,10 +11962,10 @@ values
         null,
         'EE70 5047 7033 2835 5579',
         'MQBZCTRLSBD',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -12007,10 +12007,10 @@ values
         '1',
         '71893',
         'Santo André',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2008,
         null,
         null,
@@ -12019,10 +12019,10 @@ values
         null,
         'SA73 61QE T3QH RNIG F1N1 2DJE',
         'ARYOHQHVKHY',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -12064,10 +12064,10 @@ values
         '44834',
         '58274',
         'Agidel’',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1993,
         '+7 407 400 6674',
         '+86 122 183 0301',
@@ -12076,10 +12076,10 @@ values
         null,
         'SK66 9000 3064 2081 8319 9843',
         'FENTXEKNGDU',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -12121,10 +12121,10 @@ values
         '2167',
         '58904',
         'Huangli',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1994,
         '+86 620 688 1901',
         null,
@@ -12133,10 +12133,10 @@ values
         null,
         'MC79 4642 5246 378U WPQS PUUD M56',
         'RMIOXXVRLNL',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -12178,10 +12178,10 @@ values
         '653',
         '78914',
         'Dahu Satu',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1995,
         null,
         null,
@@ -12190,10 +12190,10 @@ values
         null,
         'CZ06 7662 1495 8254 7375 4246',
         'XRDFLCKEWBA',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -12235,10 +12235,10 @@ values
         '90069',
         '37328',
         'La Loma',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2010,
         null,
         null,
@@ -12247,10 +12247,10 @@ values
         null,
         'BE29 7597 1051 7977',
         'ZRBNFJZUGEP',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -12292,10 +12292,10 @@ values
         '19827',
         '95161',
         'Arapongas',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1993,
         null,
         null,
@@ -12304,10 +12304,10 @@ values
         null,
         'KW17 WFJP SIEE 7DC2 AKOX HFLT 2JMW NV',
         'TGPXMFNKNEO',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -12349,10 +12349,10 @@ values
         '9248',
         '28350',
         'Joroinen',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1994,
         null,
         null,
@@ -12361,10 +12361,10 @@ values
         null,
         'DO73 9ZEG 2711 0987 1068 4602 3937',
         'HQPTFSYOXPZ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -12406,10 +12406,10 @@ values
         '1338',
         '03329',
         'Texíguat',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1999,
         null,
         null,
@@ -12418,10 +12418,10 @@ values
         null,
         'MU55 JJRV 7611 5983 4087 7658 165X VH',
         'PSPBCGHSJLQ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -12463,10 +12463,10 @@ values
         '757',
         '83708',
         'Biyan',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2011,
         null,
         null,
@@ -12475,10 +12475,10 @@ values
         null,
         'CZ12 2744 3898 0846 1295 4234',
         'YOAOOPNVPJI',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -12520,10 +12520,10 @@ values
         '409',
         '26378',
         'Artsvaberd',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2012,
         null,
         null,
@@ -12532,10 +12532,10 @@ values
         null,
         'PK09 ONZF EFCR C2DH GYRX VRUE',
         'MDXRYBQYWGJ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -12577,10 +12577,10 @@ values
         '307',
         '30129',
         'Slobodnica',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1992,
         null,
         null,
@@ -12589,10 +12589,10 @@ values
         'Rappport',
         'BA68 5744 7999 2443 3934',
         'XWCNMATSHDF',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -12634,10 +12634,10 @@ values
         '3',
         '19422',
         'Mozhong',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2010,
         null,
         null,
@@ -12646,10 +12646,10 @@ values
         null,
         'FR96 1971 2817 03EX OM0O 9QLF E35',
         'AAFVSMIOXJO',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -12691,10 +12691,10 @@ values
         '9',
         '76948',
         'Garawati',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1989,
         null,
         '+1 383 399 9580',
@@ -12703,10 +12703,10 @@ values
         null,
         'FR82 3132 0635 668J TUA0 OPNE U06',
         'CTGHIAMVCKD',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -12748,10 +12748,10 @@ values
         '87',
         '76654',
         'Tegalalang',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1993,
         '+62 908 405 7408',
         null,
@@ -12760,10 +12760,10 @@ values
         null,
         'BH11 QSHD K6ZG RZR0 QNVC FT',
         'DUFSTNVWCHH',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -12805,10 +12805,10 @@ values
         '893',
         '60453',
         'Cabungan',
-        'true',
-        'false',
-        'true',
-        'false',
+        true,
+        false,
+        true,
+        false,
         2011,
         '+63 526 834 1730',
         null,
@@ -12817,10 +12817,10 @@ values
         null,
         'AT22 1780 3818 7030 6619',
         'RXWMZQAZAHW',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -12862,10 +12862,10 @@ values
         '4489',
         '03441',
         'Bellavista',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2007,
         null,
         null,
@@ -12874,10 +12874,10 @@ values
         null,
         'KW75 OKHV VHJM JPHE LV0E RCCM ATV0 DU',
         'NPVLIRKRYVD',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -12919,10 +12919,10 @@ values
         '1691',
         '27548',
         'Belfast',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1996,
         '+27 787 962 0532',
         null,
@@ -12931,10 +12931,10 @@ values
         null,
         'BR65 1266 6672 4892 4993 0682 319I F',
         'WORADCHWOHE',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -12976,10 +12976,10 @@ values
         '52',
         '86409',
         'Yaroslavskaya',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2007,
         null,
         null,
@@ -12988,10 +12988,10 @@ values
         null,
         'IS86 6622 7557 4761 9868 7236 04',
         'SRWENDAISZH',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -13033,10 +13033,10 @@ values
         '9',
         '62749',
         'Kampinos',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1995,
         null,
         null,
@@ -13045,10 +13045,10 @@ values
         null,
         'DE29 3427 7094 9286 9149 51',
         'WUQELPUWPAU',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -13090,10 +13090,10 @@ values
         '52488',
         '90788',
         'Mariefred',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2007,
         null,
         null,
@@ -13102,10 +13102,10 @@ values
         null,
         'AZ62 XUIA 3GJG WCAG PI2C AHTD RBF6',
         'KNXDFHCGXSL',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -13147,10 +13147,10 @@ values
         '5568',
         '41062',
         'Fanrong',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2007,
         null,
         null,
@@ -13159,10 +13159,10 @@ values
         null,
         'BE50 6282 0721 5728',
         'GOVKIXADTBI',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -13204,10 +13204,10 @@ values
         '7',
         '58464',
         'Krajan Tekung',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2004,
         null,
         null,
@@ -13216,10 +13216,10 @@ values
         'Lyddyard',
         'MK16 5621 LQWX WG7D L70',
         'ICWBQXEXKCH',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -13261,10 +13261,10 @@ values
         '70',
         '01700',
         'Candoni',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2008,
         null,
         null,
@@ -13273,10 +13273,10 @@ values
         'Rodliff',
         'LU42 8973 CYKY YVAL 3SP0',
         'YBWLZQFCQFC',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -13318,10 +13318,10 @@ values
         '4',
         '17441',
         'Manika',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1991,
         null,
         null,
@@ -13330,10 +13330,10 @@ values
         null,
         'AD93 6596 3483 R6KN 3XL0 9DYS',
         'VUCRNNDRAUD',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -13375,10 +13375,10 @@ values
         '569',
         '03511',
         'Coyah',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1999,
         '+224 298 832 4313',
         '+420 118 599 6919',
@@ -13387,10 +13387,10 @@ values
         null,
         'CZ64 2764 2254 3941 9474 6332',
         'QCHYEFCPXGS',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -13432,10 +13432,10 @@ values
         '4',
         '94583',
         'Helmas',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2009,
         null,
         null,
@@ -13444,10 +13444,10 @@ values
         null,
         'FR65 6342 3150 50WC GNXI BHS8 E52',
         'XTVGPLBVOOK',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -13489,10 +13489,10 @@ values
         '6438',
         '94366',
         'Huacachi',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1991,
         null,
         null,
@@ -13501,10 +13501,10 @@ values
         null,
         'BE15 4901 5130 6467',
         'ZZKCHJZLMLT',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -13546,10 +13546,10 @@ values
         '382',
         '80409',
         'Kveda Chkhorots’q’u',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1995,
         '+995 857 654 8487',
         null,
@@ -13558,10 +13558,10 @@ values
         null,
         'TN88 7339 0607 8428 1362 0547',
         'STDNNGNIXTZ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -13603,10 +13603,10 @@ values
         '94',
         '55564',
         'Kansas City',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1993,
         null,
         null,
@@ -13615,10 +13615,10 @@ values
         null,
         'AL38 6388 6840 PREF DFNQ WUVU RNMV',
         'BJABQDLDMTJ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -13660,10 +13660,10 @@ values
         '64725',
         '21510',
         'Ntaur Satu',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1990,
         null,
         '+420 218 535 6175',
@@ -13672,10 +13672,10 @@ values
         null,
         'PS32 JHUG GU8M 8YB1 LQHW UW9Z 6YD8 G',
         'RGUIEBHBYEM',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -13717,10 +13717,10 @@ values
         '36507',
         '80696',
         'Uwelini',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1967,
         null,
         '+420 937 920 4345',
@@ -13729,10 +13729,10 @@ values
         null,
         'FR91 0110 2088 33TT QMUX 5BJN O25',
         'WXHPGKCLZPC',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -13774,10 +13774,10 @@ values
         '174',
         '46530',
         'Korenovsk',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2006,
         '+7 624 101 0566',
         null,
@@ -13786,10 +13786,10 @@ values
         null,
         'MU63 PLVF 4873 1859 0380 1468 067I FC',
         'QBYYFPPNOVO',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -13831,10 +13831,10 @@ values
         '3688',
         '89699',
         'Châteauroux',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1984,
         null,
         null,
@@ -13843,10 +13843,10 @@ values
         null,
         'FO11 6524 1638 5222 64',
         'IOGGEGKVZEG',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -13888,10 +13888,10 @@ values
         '407',
         '95644',
         'Zunilito',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1993,
         null,
         null,
@@ -13900,10 +13900,10 @@ values
         null,
         'FR08 7628 5543 17TJ AXVL GGCS F02',
         'ZJHNBAYUFGV',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -13945,10 +13945,10 @@ values
         '75203',
         '01119',
         'Altıağac',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2004,
         null,
         null,
@@ -13957,10 +13957,10 @@ values
         null,
         'RS94 0885 6276 6014 4688 16',
         'AVURDUTNBRD',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -14002,10 +14002,10 @@ values
         '30709',
         '89632',
         'Changhe',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2002,
         '+86 131 585 3745',
         null,
@@ -14014,10 +14014,10 @@ values
         null,
         'HU88 9852 4339 9184 4516 9917 6765',
         'MFGCYRQQEZV',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -14059,10 +14059,10 @@ values
         '97',
         '52242',
         'Miharu',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2004,
         null,
         null,
@@ -14071,10 +14071,10 @@ values
         null,
         'BG23 YAQA 1601 55SG OOAQ TO',
         'KZGLTOVEFPD',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -14116,10 +14116,10 @@ values
         '5210',
         '71321',
         'Jāti',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2009,
         null,
         null,
@@ -14128,10 +14128,10 @@ values
         null,
         'BR16 7067 4646 6641 7935 5586 486R G',
         'GZAEEWLTUCF',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -14173,10 +14173,10 @@ values
         '08355',
         '19681',
         'Návsí u Jablunkova',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1994,
         null,
         null,
@@ -14185,10 +14185,10 @@ values
         null,
         'AD51 0823 2761 VS9T Q8IG Y0CE',
         'NNYUYUNFZXZ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -14230,10 +14230,10 @@ values
         '9678',
         '30792',
         'Altamira',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1993,
         null,
         null,
@@ -14242,10 +14242,10 @@ values
         null,
         'FR61 4440 4505 92LW ICAD SCWC C76',
         'PYLAITZCHUV',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -14287,10 +14287,10 @@ values
         '7',
         '28565',
         'Lamas',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1997,
         null,
         null,
@@ -14299,10 +14299,10 @@ values
         null,
         'FR37 7632 5357 63T0 YDCJ 4FTI T50',
         'YHGJZEKNKNF',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -14344,10 +14344,10 @@ values
         '46',
         '29490',
         'Pompéia',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2001,
         null,
         null,
@@ -14356,10 +14356,10 @@ values
         'Trudgion',
         'TR48 4267 0LYO 68WS Z5S0 9CWW W0',
         'ROVMLRWBZFC',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -14401,10 +14401,10 @@ values
         '5',
         '94312',
         'Lunenburg',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1997,
         null,
         null,
@@ -14413,10 +14413,10 @@ values
         null,
         'AT96 1797 6115 0592 7854',
         'RAITRFTRTWO',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -14458,10 +14458,10 @@ values
         '29',
         '49531',
         'Kumbo',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2011,
         '+237 403 402 0033',
         null,
@@ -14470,10 +14470,10 @@ values
         null,
         'HU22 4744 4329 9657 5542 1339 2897',
         'YYYYYEMXTIE',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -14515,10 +14515,10 @@ values
         '767',
         '53766',
         'Atlanta',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1995,
         null,
         null,
@@ -14527,10 +14527,10 @@ values
         null,
         'CY47 4968 6197 FK4J LW9X H1KE I0FV',
         'MSHQPLHMAWB',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -14572,10 +14572,10 @@ values
         '0614',
         '46197',
         'Mocupe',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1997,
         null,
         null,
@@ -14584,10 +14584,10 @@ values
         null,
         'DO46 48PY 5793 7282 4309 2743 9054',
         'NKKNMBVQBET',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -14629,10 +14629,10 @@ values
         '031',
         '55918',
         'Idah',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1998,
         null,
         null,
@@ -14641,10 +14641,10 @@ values
         null,
         'FR21 0299 1233 26QH DN3J ASJF T13',
         'GLYGQSTOFHT',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -14686,10 +14686,10 @@ values
         '56',
         '88411',
         'Tangzhuang',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2002,
         '+86 996 349 3374',
         null,
@@ -14698,10 +14698,10 @@ values
         null,
         'BH69 IFND SWPR C6JX CBA5 KB',
         'HSZYZELJLBD',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -14743,10 +14743,10 @@ values
         '653',
         '37692',
         'Miðvágur',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2003,
         '+298 415 926 9823',
         null,
@@ -14755,10 +14755,10 @@ values
         null,
         'LT76 9289 5510 4569 1422',
         'NREFEWEUPBP',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -14800,10 +14800,10 @@ values
         '2',
         '31011',
         'Açu',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2004,
         null,
         null,
@@ -14812,10 +14812,10 @@ values
         null,
         'IT44 X398 0714 1983 I7T9 IZ9B 5V2',
         'UZUGRRNYUGD',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -14857,10 +14857,10 @@ values
         '78',
         '28182',
         'Tân Châu',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2000,
         null,
         null,
@@ -14869,10 +14869,10 @@ values
         null,
         'SM26 D011 7261 653M ZVSS EMMO YPV',
         'IKUCDWPVYUG',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -14914,10 +14914,10 @@ values
         '651',
         '77347',
         'Dul’durga',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2004,
         null,
         null,
@@ -14926,10 +14926,10 @@ values
         null,
         'TR72 7476 3TMS 4M7W CIAU 0IGX D9',
         'IQRYQAIOGLA',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -14971,10 +14971,10 @@ values
         '83',
         '30449',
         'Kathu',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1992,
         null,
         null,
@@ -14983,10 +14983,10 @@ values
         'Frances',
         'FR49 1610 1384 40IA 26EM K2JK M65',
         'LNIZITEOSUJ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -15028,10 +15028,10 @@ values
         '7',
         '76655',
         'Raškovice',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1978,
         null,
         null,
@@ -15040,10 +15040,10 @@ values
         null,
         'PK33 CDDC RX5K MZDK 4J6I YQQY',
         'WJIUKJTGHBO',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -15085,10 +15085,10 @@ values
         '35384',
         '56654',
         'Gaza',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1990,
         null,
         null,
@@ -15097,10 +15097,10 @@ values
         null,
         'IL59 7690 6590 3268 1102 383',
         'HZMIUIBCFMJ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -15142,10 +15142,10 @@ values
         '8',
         '24623',
         'Ban Na Muang',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1997,
         null,
         null,
@@ -15154,10 +15154,10 @@ values
         null,
         'PL29 7338 0763 5019 2269 4262 9697',
         'VZVQRSFWRTC',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -15199,10 +15199,10 @@ values
         '12375',
         '04478',
         'Dawwār Tīnjah',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1989,
         null,
         null,
@@ -15211,10 +15211,10 @@ values
         null,
         'LI76 4084 85CZ NU2Q 4XIF F',
         'ZCSEHAMDTWH',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -15256,10 +15256,10 @@ values
         '605',
         '17123',
         'Zongzhai',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1994,
         null,
         null,
@@ -15268,10 +15268,10 @@ values
         null,
         'VG82 HOTL 7592 5006 5257 5275',
         'CECZYHJUYMY',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -15313,10 +15313,10 @@ values
         '615',
         '39712',
         'Agago',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1998,
         null,
         null,
@@ -15325,10 +15325,10 @@ values
         null,
         'SA51 43LO PEAC FSFF DB6V JQYM',
         'ZKAFFAXUFSN',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -15370,10 +15370,10 @@ values
         '304',
         '77211',
         'Babakanloa',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2007,
         '+62 409 784 6568',
         null,
@@ -15382,10 +15382,10 @@ values
         null,
         'AZ83 BQTL QK5I MQWY UDUH T1JL B7BC',
         'BDWCNOZDMJH',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -15427,10 +15427,10 @@ values
         '98',
         '16307',
         'Divnoye',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1995,
         '+7 901 659 1739',
         null,
@@ -15439,10 +15439,10 @@ values
         null,
         'PT55 1591 3740 3818 8219 2224 3',
         'MGZXRFAONDV',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -15484,10 +15484,10 @@ values
         '407',
         '47858',
         'Holma',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2010,
         '+234 484 234 8151',
         null,
@@ -15496,10 +15496,10 @@ values
         null,
         'MK28 715K 5CQS D6A3 U61',
         'DCHRZGCJJSM',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -15541,10 +15541,10 @@ values
         '1468',
         '47441',
         'Yidu',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2012,
         null,
         null,
@@ -15553,10 +15553,10 @@ values
         null,
         'AE74 3739 5912 9362 6685 769',
         'IYWRNQYBGGD',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -15598,10 +15598,10 @@ values
         '1',
         '01837',
         'Tangub',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2013,
         null,
         null,
@@ -15610,10 +15610,10 @@ values
         null,
         'CY93 4671 3112 HRRZ VA6B RIRM BZFL',
         'NVURTBZBRNL',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -15655,10 +15655,10 @@ values
         '609',
         '13081',
         'Liushutun',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2008,
         null,
         null,
@@ -15667,10 +15667,10 @@ values
         null,
         'GT21 YA4E DX23 XPG2 PDPR TPQG RLLG',
         'FVXPUDQUNTY',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -15712,10 +15712,10 @@ values
         '15233',
         '09041',
         'Pyshchug',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2006,
         '+7 842 487 9419',
         null,
@@ -15724,10 +15724,10 @@ values
         null,
         'FI29 7822 8482 6140 53',
         'RMFGTLIKFEV',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -15769,10 +15769,10 @@ values
         '2329',
         '92760',
         'Amarillo',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1989,
         null,
         null,
@@ -15781,10 +15781,10 @@ values
         null,
         'GB83 AIZF 1556 3766 4224 39',
         'ZECCFUUXHSV',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -15826,10 +15826,10 @@ values
         '7',
         '96867',
         'Kraslice',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1992,
         null,
         null,
@@ -15838,10 +15838,10 @@ values
         null,
         'AD57 0497 3239 EAII 5OBQ H0PK',
         'FLNUBLMNMBX',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -15883,10 +15883,10 @@ values
         '34633',
         '41767',
         'Bintawan',
-        'false',
-        'false',
-        'true',
-        'false',
+        false,
+        false,
+        true,
+        false,
         2009,
         null,
         '+381 261 795 8918',
@@ -15895,10 +15895,10 @@ values
         null,
         'DK20 6555 0471 8497 43',
         'EHFYFZHKGMF',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -15940,10 +15940,10 @@ values
         '4',
         '10207',
         'Ath',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2003,
         '+32 561 105 1542',
         null,
@@ -15952,10 +15952,10 @@ values
         null,
         'LU48 329W XZV3 O1NV XAJS',
         'ISKMQFDUMFS',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -15997,10 +15997,10 @@ values
         '6675',
         '78627',
         'Rietavas',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1993,
         null,
         null,
@@ -16009,10 +16009,10 @@ values
         null,
         'CZ87 8442 5133 0886 0345 1344',
         'PZCYCARRGLE',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -16054,10 +16054,10 @@ values
         '1958',
         '25670',
         'Sandovo',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2009,
         null,
         null,
@@ -16066,10 +16066,10 @@ values
         null,
         'IS93 4039 1587 1025 4861 1892 88',
         'PAIIPKWZBBN',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -16111,10 +16111,10 @@ values
         '22',
         '87949',
         'Al Kiswah',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1967,
         null,
         '+64 296 142 8282',
@@ -16123,10 +16123,10 @@ values
         null,
         'GI55 FFGO OQOJ IXKE FCTM IWC',
         'BVLFITNOWKD',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -16168,10 +16168,10 @@ values
         '81',
         '97155',
         'Ängelholm',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1993,
         null,
         null,
@@ -16180,10 +16180,10 @@ values
         null,
         'BG76 SFWB 4929 57QM PLUX AN',
         'LFNZWDOXILI',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -16225,10 +16225,10 @@ values
         '34772',
         '28046',
         'El Carril',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1993,
         null,
         null,
@@ -16237,10 +16237,10 @@ values
         null,
         'ME10 5842 1158 8781 7646 13',
         'CTKAUTXDGYR',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -16282,10 +16282,10 @@ values
         '4',
         '20065',
         'San Bartolomé Milpas Altas',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1999,
         null,
         null,
@@ -16294,10 +16294,10 @@ values
         null,
         'GB90 GCQB 8270 2209 5765 15',
         'UMRYSZTIFGR',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -16339,10 +16339,10 @@ values
         '4',
         '82155',
         'Hovtashen',
-        'false',
-        'false',
-        'true',
-        'false',
+        false,
+        false,
+        true,
+        false,
         1995,
         null,
         null,
@@ -16351,10 +16351,10 @@ values
         null,
         'VG63 PQDV 0428 1233 5053 2812',
         'HOPNRGXIXKB',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -16396,10 +16396,10 @@ values
         '342',
         '97725',
         'Volokolamsk',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2004,
         null,
         null,
@@ -16408,10 +16408,10 @@ values
         null,
         'MC53 7253 3010 36B2 OCRH ZMJG I97',
         'ROZJENZVGUJ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -16453,10 +16453,10 @@ values
         '5138',
         '38398',
         'Jarigue',
-        'false',
-        'false',
-        'true',
-        'false',
+        false,
+        false,
+        true,
+        false,
         2002,
         null,
         null,
@@ -16465,10 +16465,10 @@ values
         null,
         'DO59 G6PT 4301 2279 8823 4332 1660',
         'PGVYOPKXSNB',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -16510,10 +16510,10 @@ values
         '3',
         '86276',
         'Río Ceballos',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2007,
         null,
         null,
@@ -16522,10 +16522,10 @@ values
         null,
         'BG52 YHFN 2767 47CA UIBO T1',
         'LXZBEDLPYAX',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -16567,10 +16567,10 @@ values
         '40',
         '58521',
         'Skrzyszów',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2003,
         null,
         null,
@@ -16579,10 +16579,10 @@ values
         null,
         'FO63 5244 2043 6275 30',
         'TQZOFZWCCXX',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -16624,10 +16624,10 @@ values
         '5981',
         '25767',
         'Tuburan',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2012,
         null,
         null,
@@ -16636,10 +16636,10 @@ values
         'Sattin',
         'HU36 0580 4600 8632 1231 2285 9047',
         'MVJWMMIUEKZ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -16681,10 +16681,10 @@ values
         '84',
         '92112',
         'Gulbene',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2010,
         null,
         null,
@@ -16693,10 +16693,10 @@ values
         null,
         'TR20 1487 7VKJ V7CS FU7G XCMM QK',
         'KVMNKJMCCCW',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -16738,10 +16738,10 @@ values
         '84',
         '33723',
         'Marhanets’',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2009,
         null,
         null,
@@ -16750,10 +16750,10 @@ values
         null,
         'LI25 4039 2C55 UFCZ K24Q H',
         'YOPHZSAEVJA',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -16795,10 +16795,10 @@ values
         '523',
         '30604',
         'Kowingir',
-        'false',
-        'false',
-        'true',
-        'false',
+        false,
+        false,
+        true,
+        false,
         1997,
         '+62 635 542 9651',
         null,
@@ -16807,10 +16807,10 @@ values
         null,
         'ME70 1972 6222 7661 6063 14',
         'TFIYWTXPZVJ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -16852,10 +16852,10 @@ values
         '3',
         '85116',
         'Bộc Bố',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2003,
         null,
         null,
@@ -16864,10 +16864,10 @@ values
         null,
         'FR95 8967 1489 63DR 6VBW FTUX N62',
         'XXAENLOVLOW',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -16909,10 +16909,10 @@ values
         '03',
         '97948',
         'Jaworzyna Śląska',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2001,
         '+48 113 832 7212',
         null,
@@ -16921,10 +16921,10 @@ values
         null,
         'PS59 ASFW 4V9D W9IV VEQV VBJR GORZ 6',
         'PQNUGMOITYQ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -16966,10 +16966,10 @@ values
         '251',
         '43382',
         'Pederneiras',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1972,
         null,
         null,
@@ -16978,10 +16978,10 @@ values
         null,
         'FR52 9268 2499 30BG EMRQ QYRZ B58',
         'EFWVFBREXJU',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -17023,10 +17023,10 @@ values
         '2',
         '37613',
         'Ulricehamn',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2007,
         null,
         '+86 884 577 7329',
@@ -17035,10 +17035,10 @@ values
         null,
         'GL89 4825 3351 2875 21',
         'DTPEDNLAHKO',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -17080,10 +17080,10 @@ values
         '41841',
         '57756',
         'Ketovo',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2000,
         null,
         null,
@@ -17092,10 +17092,10 @@ values
         null,
         'VG57 VWUI 1570 1730 2408 2763',
         'LNZFNZVGTRQ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -17137,10 +17137,10 @@ values
         '735',
         '59884',
         'Dayou',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1987,
         null,
         null,
@@ -17149,10 +17149,10 @@ values
         'Jordan',
         'DO53 KACY 2372 3918 8417 4275 8874',
         'PLZJPQLCTXZ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -17194,10 +17194,10 @@ values
         '269',
         '07345',
         'Pangushan',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1992,
         null,
         null,
@@ -17206,10 +17206,10 @@ values
         'Korba',
         'DO68 4GHB 1365 8005 4812 7301 7444',
         'MHURQDODVOU',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -17251,10 +17251,10 @@ values
         '21169',
         '36262',
         'Lusambo',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2001,
         null,
         null,
@@ -17263,10 +17263,10 @@ values
         null,
         'DE51 3993 8959 9417 8656 83',
         'HIDDMAPERYF',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -17308,10 +17308,10 @@ values
         '40',
         '21741',
         'Novo Hamburgo',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1994,
         '+55 312 637 8961',
         null,
@@ -17320,10 +17320,10 @@ values
         null,
         'BG10 UQZU 0324 68XY NQHT PZ',
         'KZAVXMUOYGB',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -17365,10 +17365,10 @@ values
         '7',
         '32337',
         'Knivsta',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2006,
         null,
         null,
@@ -17377,10 +17377,10 @@ values
         null,
         'MC91 9954 5939 51EN H4TZ SDJU Q68',
         'GGWRDGMALYI',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -17422,10 +17422,10 @@ values
         '9',
         '41689',
         'Nový Bydžov',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2005,
         '+420 384 208 9558',
         '+84 904 991 1549',
@@ -17434,10 +17434,10 @@ values
         null,
         'FI75 3487 7176 1582 34',
         'IHYNMHVEBFH',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -17479,10 +17479,10 @@ values
         '16',
         '57842',
         'Preiļi',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1986,
         null,
         null,
@@ -17491,10 +17491,10 @@ values
         null,
         'GR94 6877 966D QMKT 5IS8 KSIG JFG',
         'RIOXYIYGUUC',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -17536,10 +17536,10 @@ values
         '52293',
         '02084',
         'La Reforma',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1999,
         null,
         null,
@@ -17548,10 +17548,10 @@ values
         null,
         'AE61 1549 6270 0037 0655 097',
         'SDJUZXOUETK',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -17593,10 +17593,10 @@ values
         '3788',
         '87897',
         'Hengli',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2010,
         null,
         null,
@@ -17605,10 +17605,10 @@ values
         null,
         'SM89 W159 0720 229X 34T0 R4UP HEH',
         'ASKRFWXRTQB',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -17650,10 +17650,10 @@ values
         '023',
         '10758',
         'Rivière-du-Loup',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1997,
         null,
         '+55 900 862 4094',
@@ -17662,10 +17662,10 @@ values
         null,
         'DE55 1762 5941 4559 6771 19',
         'WROYBAFLWMP',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -17707,10 +17707,10 @@ values
         '98352',
         '37675',
         'Tuwiri Wetan',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2003,
         null,
         null,
@@ -17719,10 +17719,10 @@ values
         null,
         'MK94 676K 6AWK UHWW Z91',
         'AEEDIGLWDHI',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -17764,10 +17764,10 @@ values
         '9',
         '63526',
         'Algeciras',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2001,
         null,
         null,
@@ -17776,10 +17776,10 @@ values
         null,
         'BE49 7115 0834 6417',
         'YULRGLNTSDQ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -17821,10 +17821,10 @@ values
         '4111',
         '19512',
         'Lezhu',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2009,
         null,
         null,
@@ -17833,10 +17833,10 @@ values
         null,
         'FR84 8895 7155 65FU PJYQ WNTG A27',
         'KEKANIRGOUM',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -17878,10 +17878,10 @@ values
         '9',
         '70333',
         'Itum-Kali',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1990,
         null,
         null,
@@ -17890,10 +17890,10 @@ values
         null,
         'MD18 CBMJ KM62 MVWO NW6E DRD2',
         'OGBZEYJOFZD',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -17935,10 +17935,10 @@ values
         '39',
         '86532',
         'Gobernador Ingeniero Valentín Virasoro',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1998,
         '+54 658 201 2224',
         null,
@@ -17947,10 +17947,10 @@ values
         null,
         'EE84 8455 2246 9937 2392',
         'KUWMTWBXLGA',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -17992,10 +17992,10 @@ values
         '0',
         '02823',
         'Tarīm',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2006,
         '+967 835 552 8863',
         '+52 229 308 0820',
@@ -18004,10 +18004,10 @@ values
         null,
         'DE32 4839 3731 7562 7414 81',
         'JYDPFPWTXEI',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -18049,10 +18049,10 @@ values
         '25',
         '70996',
         'Rukem',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2008,
         null,
         null,
@@ -18061,10 +18061,10 @@ values
         null,
         'FR74 7681 8849 01YX LRXE WFLB F39',
         'DYJAUAUUUDJ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -18106,10 +18106,10 @@ values
         '504',
         '19229',
         'Renyi',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2008,
         null,
         null,
@@ -18118,10 +18118,10 @@ values
         null,
         'FR13 3551 2432 43YT 0VR7 SJHV H12',
         'ESFRWVLMIUS',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -18163,10 +18163,10 @@ values
         '5384',
         '98739',
         'Castelo',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1993,
         null,
         null,
@@ -18175,10 +18175,10 @@ values
         null,
         'ME83 4140 8390 8570 1572 83',
         'JSODEPYTBXH',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -18220,10 +18220,10 @@ values
         '3364',
         '09406',
         'Kamloops',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2004,
         null,
         null,
@@ -18232,10 +18232,10 @@ values
         null,
         'PT07 3815 4843 1075 9492 7922 2',
         'IPPLHIEWYNF',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -18277,10 +18277,10 @@ values
         '5',
         '98847',
         'Rabah',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1996,
         null,
         null,
@@ -18289,10 +18289,10 @@ values
         null,
         'DO96 FOEH 1490 5398 3228 5113 0849',
         'MOTVUJNNBUR',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -18334,10 +18334,10 @@ values
         '45',
         '43765',
         'Xinrong',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2001,
         null,
         null,
@@ -18346,10 +18346,10 @@ values
         null,
         'DK43 3969 3993 1759 53',
         'UNQZILAOKUU',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -18391,10 +18391,10 @@ values
         '857',
         '60775',
         'San Ramón',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2009,
         '+598 117 935 3982',
         null,
@@ -18403,10 +18403,10 @@ values
         'Wharmby',
         'FR77 0252 4189 38TF NCYK 9CEK 513',
         'JHCJVONPFRJ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -18448,10 +18448,10 @@ values
         '85330',
         '02680',
         'Seixezelo',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1992,
         null,
         null,
@@ -18460,10 +18460,10 @@ values
         null,
         'AD40 2183 4935 D5HX 98PD KUYA',
         'LUPACLQUVFM',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -18505,10 +18505,10 @@ values
         '79',
         '99570',
         'Shangying',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2002,
         null,
         null,
@@ -18517,10 +18517,10 @@ values
         null,
         'DK74 2633 8275 2058 52',
         'OGVOGPQBEHV',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -18562,10 +18562,10 @@ values
         '587',
         '10476',
         'Kampinos',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2004,
         '+48 727 859 3319',
         null,
@@ -18574,10 +18574,10 @@ values
         null,
         'FR29 1248 8374 77ST V5ST PQMC Y45',
         'QQLXMJZHZMP',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -18619,10 +18619,10 @@ values
         '1703',
         '48139',
         'Maubara',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1967,
         null,
         null,
@@ -18631,10 +18631,10 @@ values
         null,
         'HR68 0063 1203 6432 1036 9',
         'WYAMOUONSWQ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -18676,10 +18676,10 @@ values
         '19',
         '02375',
         'Looc',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2005,
         '+63 381 744 2499',
         null,
@@ -18688,10 +18688,10 @@ values
         null,
         'FR72 4240 4071 92YO SPVA BEXA 173',
         'ZPYKCAIGOUL',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -18733,10 +18733,10 @@ values
         '5134',
         '23120',
         'Lavia',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2013,
         '+358 614 655 9460',
         null,
@@ -18745,10 +18745,10 @@ values
         null,
         'PK29 AOYQ NVMP RW8G QTHD VL5F',
         'NRXMNXLTWQS',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -18790,10 +18790,10 @@ values
         '15555',
         '94325',
         'Longtan',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1990,
         null,
         null,
@@ -18802,10 +18802,10 @@ values
         null,
         'MC97 9528 1555 20DQ 7NCO CWRD T24',
         'WAZSQJDBXMQ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -18847,10 +18847,10 @@ values
         '0163',
         '59689',
         'Sengeti',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2006,
         null,
         null,
@@ -18859,10 +18859,10 @@ values
         null,
         'BR71 5411 7977 2525 8193 6735 596F V',
         'TWEMOUBZAHX',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -18904,10 +18904,10 @@ values
         '3994',
         '47160',
         'Alegrete',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1996,
         '+55 859 637 8870',
         null,
@@ -18916,10 +18916,10 @@ values
         null,
         'RS93 8372 0980 3217 0166 21',
         'YULNMLLXVON',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -18961,10 +18961,10 @@ values
         '651',
         '27862',
         'Działdowo',
-        'false',
-        'false',
-        'true',
-        'false',
+        false,
+        false,
+        true,
+        false,
         2001,
         null,
         null,
@@ -18973,10 +18973,10 @@ values
         null,
         'SE05 4654 6758 6987 7241 3795',
         'RGNGVJAMHAM',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -19018,10 +19018,10 @@ values
         '85139',
         '59720',
         'Duszniki-Zdrój',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1990,
         null,
         null,
@@ -19030,10 +19030,10 @@ values
         null,
         'PT41 2154 1881 8443 8114 2949 9',
         'WMFHFXGRPKV',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -19075,10 +19075,10 @@ values
         '5225',
         '30150',
         'Dahe',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2001,
         null,
         null,
@@ -19087,10 +19087,10 @@ values
         null,
         'FR15 0449 2765 346N ENIK XUJX L69',
         'XJPQMKZELTI',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -19132,10 +19132,10 @@ values
         '0',
         '12678',
         'Ushumun',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1987,
         null,
         null,
@@ -19144,10 +19144,10 @@ values
         null,
         'FI10 9886 6527 1050 03',
         'NGRBPMHMPPK',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -19189,10 +19189,10 @@ values
         '7',
         '60659',
         'Paiisa',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1999,
         null,
         null,
@@ -19201,10 +19201,10 @@ values
         null,
         'NL97 TAXO 5412 0497 14',
         'JRTBPNNTQQM',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -19246,10 +19246,10 @@ values
         '9869',
         '55397',
         'Poděbrady',
-        'false',
-        'false',
-        'true',
-        'false',
+        false,
+        false,
+        true,
+        false,
         2006,
         null,
         null,
@@ -19258,10 +19258,10 @@ values
         null,
         'NO67 3205 3201 179',
         'RZWJWZTVCNE',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -19303,10 +19303,10 @@ values
         '995',
         '49580',
         'Shimabara',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2011,
         null,
         null,
@@ -19315,10 +19315,10 @@ values
         null,
         'CR27 5580 2488 1863 8890 8',
         'GRKQEXOCAXN',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -19360,10 +19360,10 @@ values
         '880',
         '31141',
         'Seogeom-ri',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2000,
         null,
         '+56 434 342 6034',
@@ -19372,10 +19372,10 @@ values
         null,
         'BA68 0568 7512 1103 9176',
         'VUFHGZIIDEW',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -19417,10 +19417,10 @@ values
         '6820',
         '25751',
         'Nakhabino',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2011,
         null,
         null,
@@ -19429,10 +19429,10 @@ values
         null,
         'LU89 700M 4OBG TMK7 RMC6',
         'GHZPWCEJKYX',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -19474,10 +19474,10 @@ values
         '92376',
         '31569',
         'Norrahammar',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2011,
         null,
         null,
@@ -19486,10 +19486,10 @@ values
         null,
         'ES31 0059 5178 7333 3871 8641',
         'XHCYZHKROSG',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -19531,10 +19531,10 @@ values
         '1',
         '27055',
         'Dalun',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1999,
         '+86 176 894 4228',
         null,
@@ -19543,10 +19543,10 @@ values
         null,
         'FR61 8607 3089 71AC BUKX WCT2 J36',
         'VIFHPXKPGAH',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -19588,10 +19588,10 @@ values
         '2',
         '63251',
         'Yinzhu',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1986,
         null,
         null,
@@ -19600,10 +19600,10 @@ values
         null,
         'FR92 4288 7927 41VH Q06V BBDM F48',
         'MHKUBGXNFJS',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -19645,10 +19645,10 @@ values
         '40270',
         '12306',
         'Panggunguni',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2004,
         null,
         null,
@@ -19657,10 +19657,10 @@ values
         null,
         'BA68 8350 7086 0143 6796',
         'UJFFUFNNBUZ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -19702,10 +19702,10 @@ values
         '8',
         '34560',
         'Zhangcaizhuang',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2010,
         null,
         null,
@@ -19714,10 +19714,10 @@ values
         null,
         'MK40 900B GRHI 6LOT F98',
         'YJSCDVTIAJT',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -19759,10 +19759,10 @@ values
         '0',
         '26981',
         'Shediac',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1987,
         null,
         null,
@@ -19771,10 +19771,10 @@ values
         null,
         'TN57 3987 3782 7866 2237 6540',
         'CJEQWPFZYNY',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -19816,10 +19816,10 @@ values
         '2155',
         '38258',
         'Sztum',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1996,
         null,
         null,
@@ -19828,10 +19828,10 @@ values
         null,
         'EE41 8920 6289 1382 8982',
         'QHVLOFGUZUZ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -19873,10 +19873,10 @@ values
         '3024',
         '21602',
         'Castelo',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1996,
         null,
         null,
@@ -19885,10 +19885,10 @@ values
         null,
         'FR60 6022 5386 04YI 39EH KDLR G57',
         'BBYJUUUGLEA',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -19930,10 +19930,10 @@ values
         '4197',
         '61303',
         'Chơn Thành',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1997,
         null,
         null,
@@ -19942,10 +19942,10 @@ values
         null,
         'PS27 AKMP 7CWV 3O9O A3JV Z8FZ ZMJS R',
         'DNFOGWPJGRT',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -19987,10 +19987,10 @@ values
         '5',
         '98491',
         'Turki',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2010,
         null,
         null,
@@ -19999,10 +19999,10 @@ values
         null,
         'AT12 0896 7725 8165 6684',
         'GVKWDJYCQNL',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -20044,10 +20044,10 @@ values
         '27',
         '44430',
         'San Ramón',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1973,
         null,
         null,
@@ -20056,10 +20056,10 @@ values
         null,
         'AL24 9803 9243 2DTF G2PY WZ6A IM1X',
         'IFHXXOXQRQW',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -20101,10 +20101,10 @@ values
         '413',
         '01426',
         'Tsowkêy',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1996,
         null,
         null,
@@ -20113,10 +20113,10 @@ values
         null,
         'GI13 JZYK 1JHE 0Z9J NP9Z OYZ',
         'GQIRKJRBCXY',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -20158,10 +20158,10 @@ values
         '56201',
         '57739',
         'Weepanapi',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2011,
         null,
         null,
@@ -20170,10 +20170,10 @@ values
         null,
         'MU88 FTUA 7074 4778 0715 4351 250J FE',
         'ATGGPLTRAUX',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -20215,10 +20215,10 @@ values
         '100',
         '12746',
         'São José do Egito',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2011,
         null,
         null,
@@ -20227,10 +20227,10 @@ values
         null,
         'AL53 7830 6042 G9YR TFSD 1CN0 ZTD4',
         'KPINWWLGYQQ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -20272,10 +20272,10 @@ values
         '541',
         '74783',
         'Laranganglintong',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1994,
         null,
         null,
@@ -20284,10 +20284,10 @@ values
         null,
         'AE13 2814 0527 3160 3785 306',
         'PSXCABDKQSC',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -20329,10 +20329,10 @@ values
         '32',
         '29942',
         'Dīla',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1997,
         null,
         null,
@@ -20341,10 +20341,10 @@ values
         null,
         'PL50 0019 0384 3315 1476 1079 2261',
         'LGJPTSDWMSS',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -20386,10 +20386,10 @@ values
         '8',
         '21411',
         'Sendang',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2003,
         null,
         null,
@@ -20398,10 +20398,10 @@ values
         null,
         'KW17 DDIZ LNR6 C7EE GOL5 CJNN RR1P LU',
         'AZTOEPBXXDP',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -20443,10 +20443,10 @@ values
         '40134',
         '09090',
         'Xinan',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2009,
         null,
         null,
@@ -20455,10 +20455,10 @@ values
         null,
         'BR79 4178 8705 7642 6223 1356 140N T',
         'CWOLXHYKRCU',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -20500,10 +20500,10 @@ values
         '0',
         '53987',
         'Picoto',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2009,
         null,
         null,
@@ -20512,10 +20512,10 @@ values
         null,
         'FR70 2614 2100 02KV 0FUG AZUX X87',
         'ODFKCIPMLZJ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -20557,10 +20557,10 @@ values
         '799',
         '21056',
         'Nueva Esperanza',
-        'false',
-        'false',
-        'true',
-        'false',
+        false,
+        false,
+        true,
+        false,
         2000,
         null,
         '+62 673 597 6588',
@@ -20569,10 +20569,10 @@ values
         null,
         'LV83 VQHG YZHN 18LD 6CDS R',
         'DYBELXXUCEQ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -20614,10 +20614,10 @@ values
         '56950',
         '79541',
         'Esmoriz',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2005,
         null,
         null,
@@ -20626,10 +20626,10 @@ values
         null,
         'CY75 8196 8303 9VUC ZAR2 RZVM WF6N',
         'ITKHLPVSASE',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -20671,10 +20671,10 @@ values
         '6624',
         '88094',
         'Gagarawa',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1992,
         '+234 635 260 0571',
         '+374 173 735 5556',
@@ -20683,10 +20683,10 @@ values
         null,
         'VG55 IOJH 4237 2078 7136 2613',
         'JQOGIMZPZVP',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -20728,10 +20728,10 @@ values
         '11783',
         '77584',
         'Madīnat ‘Īsá',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1994,
         '+973 417 666 1627',
         null,
@@ -20740,10 +20740,10 @@ values
         null,
         'EE58 5559 2851 1104 1612',
         'SZOVRQUAIZT',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -20785,10 +20785,10 @@ values
         '9',
         '93059',
         'Minusinsk',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1990,
         null,
         null,
@@ -20797,10 +20797,10 @@ values
         null,
         'PS42 OPKA LS4E 1EHD PP54 UNJI OCOT P',
         'LTXYBVPBTSC',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -20842,10 +20842,10 @@ values
         '9',
         '02445',
         'Ágios Vasíleios',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1992,
         null,
         null,
@@ -20854,10 +20854,10 @@ values
         null,
         'FR12 8309 0874 44SA FEIS PK10 R28',
         'MLHFLCMFXCG',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -20899,10 +20899,10 @@ values
         '465',
         '95412',
         'Tynne',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1977,
         null,
         null,
@@ -20911,10 +20911,10 @@ values
         null,
         'TR37 1272 0QXH Q1YY 5DEM GRYN UQ',
         'GQTXVZTHTEV',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -20956,10 +20956,10 @@ values
         '8764',
         '19197',
         'Owase',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2005,
         null,
         null,
@@ -20968,10 +20968,10 @@ values
         null,
         'PL77 1285 0899 7406 1167 5233 5452',
         'PRPPFEWGLJK',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -21013,10 +21013,10 @@ values
         '619',
         '46673',
         'Diaoling',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2010,
         null,
         null,
@@ -21025,10 +21025,10 @@ values
         null,
         'BE95 5544 2450 2090',
         'QIRCQCFBLEN',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -21070,10 +21070,10 @@ values
         '6',
         '36508',
         'Dugongan',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1994,
         null,
         null,
@@ -21082,10 +21082,10 @@ values
         null,
         'FR28 9940 5733 44KF XRVB ML9X 559',
         'VUJOXHENPDT',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -21127,10 +21127,10 @@ values
         '8359',
         '01924',
         'Cacocum',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2007,
         null,
         null,
@@ -21139,10 +21139,10 @@ values
         null,
         'PS08 JLCH AVGX UGJG ARG8 FOBX 5Y8V S',
         'HEUEBTJJYIC',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -21184,10 +21184,10 @@ values
         '8',
         '88960',
         'Wuluo',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2003,
         '+86 866 679 4802',
         null,
@@ -21196,10 +21196,10 @@ values
         null,
         'MU80 XRMB 5127 1145 1176 7136 643P HX',
         'CYICQTHJXWS',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -21241,10 +21241,10 @@ values
         '475',
         '62840',
         'Baguinge',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1994,
         null,
         null,
@@ -21253,10 +21253,10 @@ values
         null,
         'MC52 7865 5533 24FJ 10DE PLG8 A06',
         'SCFGTLZQIWL',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -21298,10 +21298,10 @@ values
         '8',
         '68130',
         'Sutton',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2010,
         '+44 457 151 1164',
         null,
@@ -21310,10 +21310,10 @@ values
         null,
         'GE30 WI76 3634 7360 4535 06',
         'MGLVSKNYPPY',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -21355,10 +21355,10 @@ values
         '2285',
         '74663',
         'Lillooet',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1993,
         null,
         null,
@@ -21367,10 +21367,10 @@ values
         null,
         'KZ27 149T 1YDH CZRQ KV9M',
         'PHNZETWLYKD',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -21412,10 +21412,10 @@ values
         '2671',
         '11577',
         'Panambi',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1992,
         null,
         null,
@@ -21424,10 +21424,10 @@ values
         null,
         'ME82 2744 8058 0281 0943 21',
         'HWCFNTGWTIT',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -21469,10 +21469,10 @@ values
         '71',
         '52784',
         'Santa Lucía',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1992,
         null,
         null,
@@ -21481,10 +21481,10 @@ values
         'Abden',
         'GI61 IBHL TFRR JYTQ 2GPI TLE',
         'ASXRNYUDWLN',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -21526,10 +21526,10 @@ values
         '4454',
         '97892',
         'Mene de Mauroa',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1996,
         null,
         null,
@@ -21538,10 +21538,10 @@ values
         null,
         'DO66 K7N6 5467 6870 3706 8681 5916',
         'GYEKBBKXEVT',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -21583,10 +21583,10 @@ values
         '823',
         '22519',
         'Sunduk',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2012,
         null,
         null,
@@ -21595,10 +21595,10 @@ values
         null,
         'CY13 0137 4882 4NU2 MLSG RLEZ JYVQ',
         'YNAAUVBSYWQ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -21640,10 +21640,10 @@ values
         '9233',
         '91488',
         'Ichuña',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2008,
         null,
         null,
@@ -21652,10 +21652,10 @@ values
         'Dunwoody',
         'FR77 6442 5199 55NS ZVKF OUOE W94',
         'DVODOKKAYQG',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -21697,10 +21697,10 @@ values
         '651',
         '60338',
         'Hesheng',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2012,
         null,
         null,
@@ -21709,10 +21709,10 @@ values
         null,
         'PS86 YOJY O4FK DTJU J8I3 ZCN3 5QD4 E',
         'EWLNMWYCLRG',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -21754,10 +21754,10 @@ values
         '5074',
         '64399',
         'Warungbanten',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2010,
         '+62 637 869 6131',
         null,
@@ -21766,10 +21766,10 @@ values
         null,
         'FR17 7008 8077 355T LQPC FXKT 940',
         'JQQEQASVKHM',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -21811,10 +21811,10 @@ values
         '20',
         '58203',
         'Houmt Souk',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2000,
         null,
         null,
@@ -21823,10 +21823,10 @@ values
         null,
         'VG10 NQLT 3667 6199 9845 1378',
         'AJZQLVIPUFO',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -21868,10 +21868,10 @@ values
         '721',
         '08482',
         'Mirkovci',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2003,
         null,
         null,
@@ -21880,10 +21880,10 @@ values
         null,
         'FR68 3961 7745 26RV MUZU YPAI I87',
         'IIJAUJOYAEC',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -21925,10 +21925,10 @@ values
         '15636',
         '31607',
         'Yuxin',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2003,
         null,
         null,
@@ -21937,10 +21937,10 @@ values
         null,
         'MC40 9249 3405 68MY WIMX Q7KP 480',
         'FQEIHUAQRNB',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -21982,10 +21982,10 @@ values
         '16636',
         '94040',
         'Conroe',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2005,
         null,
         null,
@@ -21994,10 +21994,10 @@ values
         'Robey',
         'GR97 0179 799T LLPJ 2AVO SBIR QIC',
         'PISTXBOFZAK',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -22039,10 +22039,10 @@ values
         '159',
         '82866',
         'Alcoy',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1998,
         null,
         null,
@@ -22051,10 +22051,10 @@ values
         null,
         'PT54 0545 1202 9917 1059 3475 0',
         'UIYBFSINCUS',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -22096,10 +22096,10 @@ values
         '5',
         '76674',
         'Gorna Oryakhovitsa',
-        'true',
-        'false',
-        'true',
-        'false',
+        true,
+        false,
+        true,
+        false,
         1999,
         null,
         null,
@@ -22108,10 +22108,10 @@ values
         null,
         'KW31 AXYD UNFV 5OFD KHEY SFCV DV2Y 6T',
         'ZDDQFKWJVMJ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -22153,10 +22153,10 @@ values
         '789',
         '56662',
         'Kibiti',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1954,
         null,
         null,
@@ -22165,10 +22165,10 @@ values
         null,
         'CY33 1291 6904 CHPT DO8V ECMS 1SWN',
         'BKVGVNEETDU',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -22210,10 +22210,10 @@ values
         '0911',
         '26475',
         'Sekararum',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1996,
         null,
         null,
@@ -22222,10 +22222,10 @@ values
         null,
         'FR38 1088 1516 099T 0TNA ZDLD Q94',
         'GZJAZKQIELV',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -22267,10 +22267,10 @@ values
         '3',
         '66674',
         'Bagok',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1988,
         null,
         null,
@@ -22279,10 +22279,10 @@ values
         null,
         'AZ18 XBIB EX2A ZJ5L KRKR A7MD C4H1',
         'WLDXOANBUFO',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -22324,10 +22324,10 @@ values
         '3',
         '96102',
         'Hamamatsu',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1995,
         null,
         null,
@@ -22336,10 +22336,10 @@ values
         null,
         'GT48 JMSI JN3U XW73 PSCO V3UK EQV1',
         'GGHEVBKVZWX',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -22381,10 +22381,10 @@ values
         '54213',
         '35323',
         'Parada de Pinhão',
-        'false',
-        'false',
-        'true',
-        'false',
+        false,
+        false,
+        true,
+        false,
         2012,
         '+351 895 843 8707',
         null,
@@ -22393,10 +22393,10 @@ values
         null,
         'LV87 NCII FNLQ 4EMN J2HP U',
         'OGHAHYUJWZK',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -22438,10 +22438,10 @@ values
         '528',
         '23782',
         'Ricardo Palma',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1998,
         null,
         null,
@@ -22450,10 +22450,10 @@ values
         null,
         'FO76 7161 0149 3070 81',
         'LVEPWWYSPGT',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -22495,10 +22495,10 @@ values
         '648',
         '04067',
         'Lijiapu',
-        'false',
-        'false',
-        'true',
-        'false',
+        false,
+        false,
+        true,
+        false,
         1993,
         null,
         null,
@@ -22507,10 +22507,10 @@ values
         null,
         'AD02 8916 4067 WDB2 YXET QLGN',
         'ECSUFYROVHA',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -22552,10 +22552,10 @@ values
         '5581',
         '76339',
         'Jiangbei',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1991,
         null,
         null,
@@ -22564,10 +22564,10 @@ values
         null,
         'GT27 BUSS TGCM CV1A RWCF HQL6 WWFA',
         'OUMGDHIIYTC',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -22609,10 +22609,10 @@ values
         '58235',
         '01907',
         'Tân Phú',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2002,
         null,
         null,
@@ -22621,10 +22621,10 @@ values
         null,
         'BH86 JQQA T6C6 SR5Y FJHD EQ',
         'MJDKDLTCSPW',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -22666,10 +22666,10 @@ values
         '5',
         '08499',
         'Baisha',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1963,
         null,
         null,
@@ -22678,10 +22678,10 @@ values
         null,
         'IE68 BWEF 0784 5961 7307 63',
         'UTFFVUKRJFZ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -22723,10 +22723,10 @@ values
         '43696',
         '09244',
         'Mourelos',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2001,
         null,
         null,
@@ -22735,10 +22735,10 @@ values
         null,
         'CR92 2550 7260 1276 7799 3',
         'BMIHGOCYPWD',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -22780,10 +22780,10 @@ values
         '228',
         '19378',
         'Dniprovka',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1989,
         null,
         null,
@@ -22792,10 +22792,10 @@ values
         null,
         'PS48 CSWK AVCL URJX MOI9 WPIX K0YQ R',
         'BBKJXUIRRXA',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -22837,10 +22837,10 @@ values
         '0',
         '61555',
         'Changning',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1990,
         null,
         null,
@@ -22849,10 +22849,10 @@ values
         null,
         'FR12 4953 6603 93XG PRFW XVJS U65',
         'NHIMMCJAMLN',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -22894,10 +22894,10 @@ values
         '5',
         '76930',
         'Lidzbark',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2001,
         null,
         '+86 764 898 6002',
@@ -22906,10 +22906,10 @@ values
         null,
         'AD30 0990 7811 0JTI FCUQ FG4S',
         'YFCZUFSZYRS',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -22951,10 +22951,10 @@ values
         '95',
         '03285',
         'Strančice',
-        'false',
-        'false',
-        'true',
-        'false',
+        false,
+        false,
+        true,
+        false,
         2007,
         null,
         null,
@@ -22963,10 +22963,10 @@ values
         null,
         'GI28 GLSC T9HT GG3D C3NQ G1J',
         'OKGUXUDLQQF',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -23008,10 +23008,10 @@ values
         '284',
         '85638',
         'Tournai',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1990,
         null,
         null,
@@ -23020,10 +23020,10 @@ values
         null,
         'FR69 0610 7804 58PB D9YZ JUXS F70',
         'NJJHOPXNREP',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -23065,10 +23065,10 @@ values
         '589',
         '08629',
         'Wulingyuan',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2003,
         null,
         null,
@@ -23077,10 +23077,10 @@ values
         null,
         'SI36 2429 7432 3614 269',
         'FRTNJUGFLEW',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -23122,10 +23122,10 @@ values
         '03624',
         '42622',
         'Falun',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2008,
         null,
         null,
@@ -23134,10 +23134,10 @@ values
         null,
         'AZ71 JYNY 4OHA DVQI KZGP 3MRR UMQB',
         'PNXFYSWUTRZ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -23179,10 +23179,10 @@ values
         '281',
         '23050',
         'Magallon Cadre',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2000,
         null,
         null,
@@ -23191,10 +23191,10 @@ values
         null,
         'BA67 0956 8795 9695 9624',
         'SUVLMWONBFS',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -23236,10 +23236,10 @@ values
         '49335',
         '04381',
         'Annaka',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2008,
         null,
         null,
@@ -23248,10 +23248,10 @@ values
         null,
         'AD62 4458 3124 DRKY 18V9 XH3E',
         'DRIYCZXVKQN',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -23293,10 +23293,10 @@ values
         '15',
         '20407',
         'Kalávryta',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2008,
         null,
         '+46 585 652 8017',
@@ -23305,10 +23305,10 @@ values
         null,
         'FR17 4198 9551 47PZ SNVM ZYE9 V46',
         'IALJEMYFSDE',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -23350,10 +23350,10 @@ values
         '0071',
         '16594',
         'Lüjiabao',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1995,
         null,
         null,
@@ -23362,10 +23362,10 @@ values
         'Handrock',
         'DE95 2812 6250 4767 2761 09',
         'MIYWQDGVBSO',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -23407,10 +23407,10 @@ values
         '81',
         '31673',
         'Panadtaban',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2012,
         '+63 805 777 3462',
         null,
@@ -23419,10 +23419,10 @@ values
         null,
         'GI35 XZNH OXO0 S82C MHSE S6I',
         'EZFEMKINNPU',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -23464,10 +23464,10 @@ values
         '31',
         '32802',
         'Puerto Berrío',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1996,
         null,
         null,
@@ -23476,10 +23476,10 @@ values
         null,
         'FI85 3557 7701 8282 76',
         'KOCFWHFGKWE',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -23521,10 +23521,10 @@ values
         '41123',
         '78709',
         'Nida',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1990,
         null,
         null,
@@ -23533,10 +23533,10 @@ values
         null,
         'AE98 7175 9261 0673 5405 541',
         'WXNXZVSBYXY',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -23578,10 +23578,10 @@ values
         '9506',
         '46837',
         'Pshada',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1999,
         null,
         null,
@@ -23590,10 +23590,10 @@ values
         null,
         'BR85 0301 9275 1318 2702 3623 611C T',
         'DVUTZTVDNCV',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -23635,10 +23635,10 @@ values
         '8',
         '85519',
         'Valence',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1997,
         '+33 736 490 9319',
         null,
@@ -23647,10 +23647,10 @@ values
         null,
         'DO05 DJ5M 2370 3144 8182 0300 2150',
         'VFTILUUONGC',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -23692,10 +23692,10 @@ values
         '1',
         '71616',
         'Alikalia',
-        'false',
-        'false',
-        'true',
-        'false',
+        false,
+        false,
+        true,
+        false,
         1997,
         null,
         null,
@@ -23704,10 +23704,10 @@ values
         null,
         'FI22 9537 1610 0266 97',
         'UOZCDINUJNB',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -23749,10 +23749,10 @@ values
         '7559',
         '63550',
         'San Marcelino',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2007,
         null,
         null,
@@ -23761,10 +23761,10 @@ values
         null,
         'FR83 1474 1609 75AC PCA2 IWYQ P73',
         'XBZJVEXEGZO',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -23806,10 +23806,10 @@ values
         '582',
         '81052',
         'Myasnikyan',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2009,
         null,
         null,
@@ -23818,10 +23818,10 @@ values
         null,
         'GI56 CRPG QH66 PFBV 6MJX 6PN',
         'OMWBBPKCNGI',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -23863,10 +23863,10 @@ values
         '487',
         '73289',
         'Baltimore',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2012,
         null,
         null,
@@ -23875,10 +23875,10 @@ values
         null,
         'EE44 0601 9179 7396 9883',
         'EDTTPADAAQS',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -23920,10 +23920,10 @@ values
         '0401',
         '73807',
         'Zhangcun',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1996,
         null,
         null,
@@ -23932,10 +23932,10 @@ values
         null,
         'LI73 2533 9MOH YIFX SCSQ B',
         'JNBULHRFWBU',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -23977,10 +23977,10 @@ values
         '38',
         '83983',
         'Şūrān',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2006,
         null,
         null,
@@ -23989,10 +23989,10 @@ values
         null,
         'BH97 JAIP Z344 FVGH C9ZU 4R',
         'LTXMQZRAJOI',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -24034,10 +24034,10 @@ values
         '2643',
         '70308',
         'Santa Anita',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2000,
         null,
         null,
@@ -24046,10 +24046,10 @@ values
         null,
         'CR30 1270 7422 9111 4550 5',
         'UDWZRXPJYHV',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -24091,10 +24091,10 @@ values
         '75015',
         '84983',
         'Postoloprty',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2004,
         null,
         null,
@@ -24103,10 +24103,10 @@ values
         null,
         'GI63 SQNR RDQI HA1U 8SYE 6TV',
         'NTTGLIZEVTI',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -24148,10 +24148,10 @@ values
         '15',
         '55402',
         'Umeå',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1991,
         null,
         null,
@@ -24160,10 +24160,10 @@ values
         null,
         'IT78 Q432 7211 640I LAPF MNKN XEM',
         'BUHNJOXLWYP',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -24205,10 +24205,10 @@ values
         '1',
         '41064',
         'Plewiska',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2000,
         '+48 459 223 3878',
         null,
@@ -24217,10 +24217,10 @@ values
         null,
         'NL79 SXOL 7314 7546 27',
         'MDBDTQLOFGT',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -24262,10 +24262,10 @@ values
         '37',
         '71650',
         'Peuara',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1999,
         null,
         '+52 890 739 4239',
@@ -24274,10 +24274,10 @@ values
         null,
         'LV25 GNAH WSHO EOVV MAJF C',
         'PFHBVQSFOHU',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -24319,10 +24319,10 @@ values
         '6',
         '75203',
         'Minas de Marcona',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1992,
         null,
         null,
@@ -24331,10 +24331,10 @@ values
         null,
         'IE25 HXQT 0465 8536 9174 51',
         'TUTLDGAHYEW',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -24376,10 +24376,10 @@ values
         '210',
         '86385',
         'Stockholm',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1999,
         null,
         null,
@@ -24388,10 +24388,10 @@ values
         null,
         'BA80 0789 4757 8943 7915',
         'YONPZFIFKAC',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -24433,10 +24433,10 @@ values
         '6',
         '54203',
         'Pingba',
-        'true',
-        'false',
-        'true',
-        'false',
+        true,
+        false,
+        true,
+        false,
         1994,
         null,
         null,
@@ -24445,10 +24445,10 @@ values
         null,
         'TR60 2573 0TI4 Y7FI P2NH YEDK 8N',
         'PUNDIKQPQOR',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -24490,10 +24490,10 @@ values
         '1',
         '70141',
         'As Sayyānī',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1996,
         null,
         null,
@@ -24502,10 +24502,10 @@ values
         null,
         'FR72 3970 4733 10FS XUOJ QTJS U07',
         'QQIZHWXBVRZ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -24547,10 +24547,10 @@ values
         '74257',
         '79096',
         'Bessonovka',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1978,
         null,
         null,
@@ -24559,10 +24559,10 @@ values
         null,
         'CR24 0996 0689 0526 7964 6',
         'YHNJFPMAJMO',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -24604,10 +24604,10 @@ values
         '23',
         '44713',
         'Inhambane',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2011,
         null,
         null,
@@ -24616,10 +24616,10 @@ values
         null,
         'LU33 800I YZC5 CEGE KQG0',
         'GWIKRBLHYVD',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -24661,10 +24661,10 @@ values
         '224',
         '99903',
         'Ocongate',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2006,
         null,
         null,
@@ -24673,10 +24673,10 @@ values
         null,
         'CY33 5290 4838 TAGL QZXM BJ1M AOMJ',
         'QPTXRFEALOW',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -24718,10 +24718,10 @@ values
         '72',
         '51812',
         'Ashton',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2006,
         null,
         null,
@@ -24730,10 +24730,10 @@ values
         null,
         'LT63 7352 6252 8875 3045',
         'UILAAURNNOA',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -24775,10 +24775,10 @@ values
         '8783',
         '08976',
         'Iparia',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1993,
         null,
         null,
@@ -24787,10 +24787,10 @@ values
         null,
         'AZ89 KWJQ RGXQ 6XIW BBDQ J0O4 MI9V',
         'QVNVFOKUKMN',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -24832,10 +24832,10 @@ values
         '6',
         '19220',
         'Baculongan',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2012,
         null,
         null,
@@ -24844,10 +24844,10 @@ values
         null,
         'FR36 5613 4406 96H3 IR6E NYX8 C73',
         'JHNSCARRFFA',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -24889,10 +24889,10 @@ values
         '24470',
         '28373',
         'La Loma',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2004,
         null,
         null,
@@ -24901,10 +24901,10 @@ values
         null,
         'FR90 7933 9934 61CP WWZD C6L9 O57',
         'UXEOXSCIWIB',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -24946,10 +24946,10 @@ values
         '5',
         '73253',
         'Shaozhai',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1997,
         null,
         null,
@@ -24958,10 +24958,10 @@ values
         'Yarham',
         'MK20 798S YWFA 9WHG K99',
         'VWXNRFLQHKD',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -25003,10 +25003,10 @@ values
         '38',
         '00013',
         'Huating',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2011,
         null,
         null,
@@ -25015,10 +25015,10 @@ values
         null,
         'FR49 4255 6828 0969 TOOV DSYX 266',
         'DNYDPJWLXHR',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -25060,10 +25060,10 @@ values
         '3',
         '83539',
         'Kungshamn',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1962,
         null,
         null,
@@ -25072,10 +25072,10 @@ values
         null,
         'LT92 9370 1139 1150 1181',
         'WAFJXZMFUMZ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -25117,10 +25117,10 @@ values
         '8',
         '50778',
         'Dankunku',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1993,
         null,
         null,
@@ -25129,10 +25129,10 @@ values
         null,
         'PT68 9098 7030 2105 8733 6011 8',
         'GPVJZZVBRPG',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -25174,10 +25174,10 @@ values
         '02',
         '35780',
         'Kosmach',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2001,
         null,
         null,
@@ -25186,10 +25186,10 @@ values
         null,
         'GI69 WYRA ONKE 4KDR JCK3 YKS',
         'VKVYVGCJZBJ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -25231,10 +25231,10 @@ values
         '8818',
         '01305',
         'Shebekino',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2006,
         '+7 566 454 5170',
         '+46 595 388 4195',
@@ -25243,10 +25243,10 @@ values
         null,
         'MD96 DR0J UMTE GQ0N L7GR UGKZ',
         'XQDERARYRGU',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -25288,10 +25288,10 @@ values
         '537',
         '29731',
         'Ōami',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2002,
         null,
         null,
@@ -25300,10 +25300,10 @@ values
         null,
         'SM45 X237 4509 9040 KHFI SQWS F2J',
         'NMFEKBIMQIX',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -25345,10 +25345,10 @@ values
         '998',
         '07712',
         'Langensari',
-        'true',
-        'false',
-        'true',
-        'false',
+        true,
+        false,
+        true,
+        false,
         1994,
         null,
         null,
@@ -25357,10 +25357,10 @@ values
         null,
         'KW19 JEHU DEWQ 34NM KA2N GKWU 9WD7 TS',
         'XCHGEKRJGJK',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -25402,10 +25402,10 @@ values
         '464',
         '60459',
         'Tessaoua',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2009,
         '+227 464 280 4048',
         null,
@@ -25414,10 +25414,10 @@ values
         null,
         'TN87 9276 8842 6742 0981 3409',
         'NLFMZXDHTWE',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -25459,10 +25459,10 @@ values
         '75114',
         '03897',
         'Ryazhsk',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1996,
         '+7 192 170 7569',
         null,
@@ -25471,10 +25471,10 @@ values
         null,
         'CY16 3428 1505 GARZ S8HQ MOCM 8CPY',
         'FGNSFYCFVFF',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -25516,10 +25516,10 @@ values
         '6038',
         '03879',
         'Kolambugan',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1994,
         '+63 675 219 0484',
         null,
@@ -25528,10 +25528,10 @@ values
         null,
         'FR11 4604 2850 07WN HMT4 PKTI A82',
         'BFXDINEVXBT',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -25573,10 +25573,10 @@ values
         '0',
         '02326',
         'Gala',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2011,
         null,
         null,
@@ -25585,10 +25585,10 @@ values
         null,
         'GL85 4931 2381 1165 29',
         'JCBRGYOBKQN',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -25630,10 +25630,10 @@ values
         '499',
         '70025',
         'Taman',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2004,
         '+62 363 437 6331',
         '+216 869 331 3250',
@@ -25642,10 +25642,10 @@ values
         null,
         'FI51 9737 9896 2974 41',
         'EEBKAXCQZUP',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -25687,10 +25687,10 @@ values
         '892',
         '63184',
         'Boyeros',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1996,
         null,
         null,
@@ -25699,10 +25699,10 @@ values
         null,
         'FR40 2617 0321 00PE 5BMH NRBB L00',
         'GZFXLOMFFTG',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -25744,10 +25744,10 @@ values
         '604',
         '85361',
         'Ralevka',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2010,
         null,
         null,
@@ -25756,10 +25756,10 @@ values
         null,
         'LT84 1114 9434 2567 7867',
         'JAWYJHHGQKC',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -25801,10 +25801,10 @@ values
         '9225',
         '85577',
         'Sekararum',
-        'true',
-        'false',
-        'true',
-        'false',
+        true,
+        false,
+        true,
+        false,
         2006,
         null,
         '+63 760 370 1677',
@@ -25813,10 +25813,10 @@ values
         null,
         'RS67 4762 7335 6456 9117 82',
         'OIGOLRIUCBM',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -25858,10 +25858,10 @@ values
         '3706',
         '04950',
         'San Juan',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1961,
         null,
         null,
@@ -25870,10 +25870,10 @@ values
         null,
         'DE66 4233 3560 9041 4301 60',
         'ZCYBCXTTNRC',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -25915,10 +25915,10 @@ values
         '1',
         '27259',
         'Echarate',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1986,
         null,
         null,
@@ -25927,10 +25927,10 @@ values
         null,
         'CH67 9386 41JH 8W6H XNSV G',
         'JNXBNNNINDE',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -25972,10 +25972,10 @@ values
         '87',
         '00411',
         'Parachinar',
-        'false',
-        'false',
-        'true',
-        'false',
+        false,
+        false,
+        true,
+        false,
         2004,
         null,
         null,
@@ -25984,10 +25984,10 @@ values
         null,
         'MD25 MTX3 GKDD 6AYE QUVM WWV3',
         'YKQMKXRYJRU',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -26029,10 +26029,10 @@ values
         '2',
         '85324',
         'Yidian',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2009,
         '+86 653 357 3559',
         null,
@@ -26041,10 +26041,10 @@ values
         null,
         'FR88 6098 7763 57BC 0ZNH PZZU V37',
         'APFTAKUREMT',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -26086,10 +26086,10 @@ values
         '2337',
         '71116',
         'Shuiting',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2007,
         '+86 592 303 7258',
         null,
@@ -26098,10 +26098,10 @@ values
         null,
         'FR92 1846 1327 28O8 ZYBV VHBJ M93',
         'QSRPOCBDNOK',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -26143,10 +26143,10 @@ values
         '04860',
         '23081',
         'Baon',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2001,
         null,
         null,
@@ -26155,10 +26155,10 @@ values
         null,
         'IL52 1561 3928 9808 4586 792',
         'BKAMBGVNJVX',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -26200,10 +26200,10 @@ values
         '5551',
         '10022',
         'Huertas',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2012,
         null,
         null,
@@ -26212,10 +26212,10 @@ values
         'Saward',
         'FR73 5798 8671 90TF FOU7 D4RI S01',
         'WZZWEASKLCF',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -26257,10 +26257,10 @@ values
         '96',
         '15678',
         'Liuche',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1987,
         '+86 640 341 9436',
         null,
@@ -26269,10 +26269,10 @@ values
         null,
         'SA93 41MO S2R3 P7JY UTN4 MHYK',
         'HZVUDJOVXTB',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -26314,10 +26314,10 @@ values
         '7915',
         '20777',
         'Stockton',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1996,
         null,
         null,
@@ -26326,10 +26326,10 @@ values
         null,
         'AD17 5244 8654 WBAY 3JRJ FYW9',
         'EHNFPGHLEMY',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -26371,10 +26371,10 @@ values
         '56',
         '62780',
         'Tandaltī',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1972,
         null,
         null,
@@ -26383,10 +26383,10 @@ values
         null,
         'GL36 6136 9721 8271 79',
         'DLTFMKZOGUL',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -26428,10 +26428,10 @@ values
         '65',
         '36129',
         'Colca',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2011,
         '+51 582 512 3693',
         null,
@@ -26440,10 +26440,10 @@ values
         null,
         'TN88 2413 6534 7026 6810 3814',
         'BNSOMZUMVYO',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -26485,10 +26485,10 @@ values
         '3004',
         '16942',
         'Noormarkku',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2009,
         '+358 670 315 7623',
         null,
@@ -26497,10 +26497,10 @@ values
         null,
         'GL78 7767 9960 5278 15',
         'QIXYRFKDTWK',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -26542,10 +26542,10 @@ values
         '55',
         '06103',
         'Yima',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2006,
         null,
         '+66 658 359 1426',
@@ -26554,10 +26554,10 @@ values
         null,
         'PK69 FUAS MNYM BRZL P1JP DTTO',
         'ZQWWIIDUVDL',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -26599,10 +26599,10 @@ values
         '74902',
         '38119',
         'Młynary',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2002,
         null,
         null,
@@ -26611,10 +26611,10 @@ values
         null,
         'HU68 6850 3498 7087 7519 0495 7926',
         'GZMNLBGQJMD',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -26656,10 +26656,10 @@ values
         '3',
         '70171',
         'Dalmeny',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2009,
         null,
         '+1 394 484 9716',
@@ -26668,10 +26668,10 @@ values
         null,
         'GL42 0718 9943 4364 65',
         'TEVXORCUNVO',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -26713,10 +26713,10 @@ values
         '23149',
         '69903',
         'Bantilan',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1990,
         '+62 145 845 4233',
         null,
@@ -26725,10 +26725,10 @@ values
         null,
         'ES40 5847 8225 9644 3137 8589',
         'TJFTHAXVTGE',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -26770,10 +26770,10 @@ values
         '2800',
         '63155',
         'Guadalupe',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2003,
         null,
         null,
@@ -26782,10 +26782,10 @@ values
         null,
         'AD67 0686 4479 4WCE EILS 2RL5',
         'RHQDBMQCQTW',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -26827,10 +26827,10 @@ values
         '766',
         '65052',
         'Kokshetau',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1990,
         '+7 512 485 1658',
         null,
@@ -26839,10 +26839,10 @@ values
         'Shawl',
         'KZ41 663V EWGD FFNU LKIT',
         'FAKYZHUVVHX',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -26884,10 +26884,10 @@ values
         '434',
         '43632',
         'Maguilling',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2006,
         '+63 488 517 7227',
         null,
@@ -26896,10 +26896,10 @@ values
         null,
         'FR50 6658 5625 07ZL WCAA MNQC B89',
         'JSDJUVJGRGQ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -26941,10 +26941,10 @@ values
         '5235',
         '05433',
         'Paraíso',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2001,
         null,
         '+255 785 903 0740',
@@ -26953,10 +26953,10 @@ values
         null,
         'GL88 5797 2893 6506 56',
         'KNEUTWYJCQI',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -26998,10 +26998,10 @@ values
         '0280',
         '45207',
         'Neklyudovo',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2010,
         null,
         null,
@@ -27010,10 +27010,10 @@ values
         null,
         'TR32 8773 4H35 ODGK F8SN 7U1V ON',
         'VXHRGRCRXGY',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -27055,10 +27055,10 @@ values
         '9647',
         '42745',
         'Zuobude',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2011,
         null,
         null,
@@ -27067,10 +27067,10 @@ values
         null,
         'FR18 3645 0957 55HZ DZV0 BDZA S46',
         'JTTCUESLDIH',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -27112,10 +27112,10 @@ values
         '13',
         '28884',
         'Rättvik',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         1992,
         null,
         null,
@@ -27124,10 +27124,10 @@ values
         null,
         'DO59 DERT 7618 5941 3852 4468 4910',
         'CENXVDGTLTA',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -27169,10 +27169,10 @@ values
         '46158',
         '14937',
         'Bollstabruk',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2010,
         null,
         null,
@@ -27181,10 +27181,10 @@ values
         null,
         'MU83 CMPL 9153 9438 1509 3257 551A QE',
         'CCQSRUEIPQE',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -27226,10 +27226,10 @@ values
         '025',
         '45871',
         'Vom',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1994,
         null,
         null,
@@ -27238,10 +27238,10 @@ values
         null,
         'PS22 DPQF ZIFE MFIA YPON 26DY KSLJ W',
         'IGTGPPJLJQM',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -27283,10 +27283,10 @@ values
         '06011',
         '51968',
         'Tolbazy',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1962,
         null,
         null,
@@ -27295,10 +27295,10 @@ values
         null,
         'ME50 7488 6220 0317 4962 22',
         'ITZUEGFBUZJ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -27340,10 +27340,10 @@ values
         '74065',
         '91183',
         'Naples',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1987,
         null,
         null,
@@ -27352,10 +27352,10 @@ values
         null,
         'MK29 9956 ABYL WLAT M78',
         'JYRGFODKDKC',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -27397,10 +27397,10 @@ values
         '013',
         '27940',
         'Tangjiakou',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2000,
         null,
         null,
@@ -27409,10 +27409,10 @@ values
         null,
         'IL88 9698 0824 0490 1427 514',
         'NPGNLQCJNMU',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -27454,10 +27454,10 @@ values
         '8',
         '19679',
         'Nikol’sk',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2009,
         null,
         null,
@@ -27466,10 +27466,10 @@ values
         null,
         'DE07 6088 3015 6029 4130 00',
         'RZSNXYHUIWO',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -27511,10 +27511,10 @@ values
         '87914',
         '14269',
         'Malibong East',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2007,
         null,
         null,
@@ -27523,10 +27523,10 @@ values
         null,
         'CR60 5495 7699 4615 4439 3',
         'BSVEEURQNKC',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -27568,10 +27568,10 @@ values
         '07',
         '70678',
         'Svislach',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2005,
         null,
         null,
@@ -27580,10 +27580,10 @@ values
         null,
         'FR55 6540 6426 39O8 UBXU 0ULO R05',
         'UJZKYBGTSLX',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -27625,10 +27625,10 @@ values
         '0',
         '27503',
         'Ludwigshafen am Rhein',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2008,
         '+49 121 183 6984',
         null,
@@ -27637,10 +27637,10 @@ values
         null,
         'CR77 9108 3302 3746 4678 3',
         'ROQTHFITMWX',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -27682,10 +27682,10 @@ values
         '202',
         '76778',
         'Saray',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2004,
         '+994 756 753 9553',
         null,
@@ -27694,10 +27694,10 @@ values
         null,
         'DO31 GNUG 9488 9155 3694 5227 2664',
         'JULRZLTFIAA',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -27739,10 +27739,10 @@ values
         '92',
         '85084',
         'Yuecheng',
-        'false',
-        'false',
-        'true',
-        'false',
+        false,
+        false,
+        true,
+        false,
         2006,
         null,
         null,
@@ -27751,10 +27751,10 @@ values
         null,
         'MD94 HNIJ NCVV FMVQ ILEW 8WAN',
         'JYPMHKZCQDD',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -27796,10 +27796,10 @@ values
         '8',
         '41552',
         'Ocote Paulino',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1992,
         '+504 719 980 4766',
         null,
@@ -27808,10 +27808,10 @@ values
         null,
         'GI37 CWOZ YOJ1 2PYG NDAW ZDD',
         'ZHSJLOGVILJ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -27853,10 +27853,10 @@ values
         '1160',
         '26680',
         'Krasna',
-        'false',
-        'false',
-        'true',
-        'false',
+        false,
+        false,
+        true,
+        false,
         2000,
         null,
         null,
@@ -27865,10 +27865,10 @@ values
         null,
         'IL55 1932 3873 9287 3147 445',
         'OOWEMAQCNUV',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -27910,10 +27910,10 @@ values
         '95151',
         '43191',
         'Jovellar',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2005,
         null,
         null,
@@ -27922,10 +27922,10 @@ values
         null,
         'FO46 0484 7931 0311 51',
         'NKQVNBQPHTD',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -27967,10 +27967,10 @@ values
         '52',
         '33829',
         'Harrison Brook',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1998,
         null,
         null,
@@ -27979,10 +27979,10 @@ values
         null,
         'FR97 1840 5714 54NH VA6X 95VQ P94',
         'GNQVFXRDXGL',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -28024,10 +28024,10 @@ values
         '4155',
         '06565',
         'Rautjärvi',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2005,
         null,
         null,
@@ -28036,10 +28036,10 @@ values
         null,
         'GT36 WDEZ E249 FAS4 164O OFX1 OD1K',
         'TPZNGHIGSNX',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -28081,10 +28081,10 @@ values
         '82',
         '80035',
         'Kamo',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1998,
         null,
         null,
@@ -28093,10 +28093,10 @@ values
         null,
         'BH46 SPAA 1HUG DAOS LU9W YB',
         'EUWVHQNPTXH',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -28138,10 +28138,10 @@ values
         '75',
         '82323',
         'Áno Kopanákion',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2003,
         '+30 342 942 5910',
         null,
@@ -28150,10 +28150,10 @@ values
         null,
         'CH37 1130 7GXG 2PNM G9V2 V',
         'QVLYAHZQEXD',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -28195,10 +28195,10 @@ values
         '2468',
         '16125',
         'Colonia Neuland',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2000,
         null,
         null,
@@ -28207,10 +28207,10 @@ values
         null,
         'GT32 FIDL KHXK PGX9 ZOOZ CD5Y AU80',
         'GBLGJLYMIMW',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -28252,10 +28252,10 @@ values
         '26',
         '34174',
         'Mizoch',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1999,
         null,
         null,
@@ -28264,10 +28264,10 @@ values
         null,
         'FR73 3757 4214 42XE ULQC 8SOB S18',
         'GZRBACUSABG',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -28309,10 +28309,10 @@ values
         '1283',
         '77246',
         'São Luís de Montes Belos',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1991,
         null,
         null,
@@ -28321,10 +28321,10 @@ values
         null,
         'BG58 ZIHQ 6753 15NY Y2MM TK',
         'ZFMNAKIVYSG',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -28366,10 +28366,10 @@ values
         '5698',
         '71606',
         'Artimet',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         2005,
         null,
         null,
@@ -28378,10 +28378,10 @@ values
         null,
         'BR69 0448 4983 0506 6896 3276 871W P',
         'FGXICPFTKFC',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -28423,10 +28423,10 @@ values
         '5',
         '67067',
         'Masoyila',
-        'true',
-        'false',
-        'false',
-        'false',
+        true,
+        false,
+        false,
+        false,
         2006,
         null,
         null,
@@ -28435,10 +28435,10 @@ values
         null,
         'AD36 6352 2262 5IPS WZG2 C4HH',
         'WZRRDITLWGN',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
 
 insert into
@@ -28480,10 +28480,10 @@ values
         '3',
         '30665',
         'Nanchoc',
-        'false',
-        'false',
-        'false',
-        'false',
+        false,
+        false,
+        false,
+        false,
         1998,
         null,
         null,
@@ -28492,8 +28492,8 @@ values
         null,
         'KW96 CSMD 915E RMUH 6WYX JVEW WK4X 23',
         'BMXJRVSZEJQ',
-        'false',
-        'false',
-        'false',
-        'false'
+        false,
+        false,
+        false,
+        false
     );
