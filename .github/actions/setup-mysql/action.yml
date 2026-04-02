@@ -15,13 +15,20 @@ runs:
     - name: Wait for MySQL
       run: |
         for i in {1..20}; do
-          mysqladmin ping \
+          if mysqladmin ping \ \
+            --protocol=TCP \
             -h ${{ env.BUILD_DB_HOST }} \
             -P ${{ env.BUILD_DB_PORT }} \
             -u ${{ env.BUILD_DB_USER }} \
-            -p${{ env.BUILD_DB_PASSWORD }} && break
-          sleep 2
+            -p${{ env.BUILD_DB_PASSWORD }}; then
+            success=true
+            break
+          fi
+          sleep 1
         done
+        if [ "$success" != "true" ]; then
+          exit 1
+        fi
       shell: bash
     - name: Create empty DB tables
       run: just database-create-tables
