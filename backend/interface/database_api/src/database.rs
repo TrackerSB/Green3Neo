@@ -119,8 +119,10 @@ mod test {
         let table_name = "allsupportedtypes";
         let mut test_connection = pool.acquire().await?;
 
-        let column_info =
-            get_all_column_info(&mut to_diesel_connection(&mut test_connection).await, table_name);
+        let column_info = get_all_column_info(
+            &mut to_diesel_connection(&mut test_connection).await,
+            table_name,
+        );
         assert_that!(&column_info)
             .named("Gather columns to check")
             .is_not_empty();
