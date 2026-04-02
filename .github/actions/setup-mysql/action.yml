@@ -14,8 +14,9 @@ runs:
         mysql password: ${{ env.BUILD_DB_PASSWORD }}
     - name: Wait for MySQL
       run: |
+        success=false
         for i in {1..20}; do
-          if mysqladmin ping \ \
+          if mysqladmin ping \
             --protocol=TCP \
             -h ${{ env.BUILD_DB_HOST }} \
             -P ${{ env.BUILD_DB_PORT }} \
