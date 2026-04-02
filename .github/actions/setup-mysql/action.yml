@@ -16,6 +16,7 @@ runs:
       run: |
         success=false
         for i in {1..20}; do
+          # NOTE 2026-04-02 Unix sockets are not supported due to Docker container
           if mysqladmin ping \
             --protocol=TCP \
             -h ${{ env.BUILD_DB_HOST }} \
