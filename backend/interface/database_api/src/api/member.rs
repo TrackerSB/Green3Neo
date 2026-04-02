@@ -1,7 +1,6 @@
 use crate::database::bind_column_value;
 use crate::{api::models::Member, connection::get_connection};
 use database_types::connection_description::ConnectionDescription;
-use diesel::mysql::Mysql;
 use diesel::{RunQueryDsl, SelectableHelper, query_dsl::methods::SelectDsl, sql_types::Integer};
 use log::{error, info, warn};
 
