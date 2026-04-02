@@ -12,6 +12,8 @@ jobs:
     steps:
       - uses: TrackerSB/Green3Neo-Prepare-Action@main
       - uses: ./.github/actions/prepare-application-build
+        with:
+          db-backend: 'PostgreSQL'
       - name: Install command line for executing tests and combining results
         run: |
           cargo install --locked cargo-nextest

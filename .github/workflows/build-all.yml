@@ -9,5 +9,7 @@ jobs:
     steps:
       - uses: TrackerSB/Green3Neo-Prepare-Action@main
       - uses: ./.github/actions/prepare-application-build
+        with:
+          db-backend: 'PostgreSQL'
       - name: Execute full build
         run: just build

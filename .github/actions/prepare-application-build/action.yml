@@ -1,9 +1,15 @@
 name: Install application dependencies
 description: Install all dependencies required for building the application
+inputs:
+  db-backend:
+    description: "Choose DB backend (Either PostgreSQL or MySQL)"
+    required: true
 runs:
   using: "composite"
   steps:
     - uses: ./.github/actions/prepare-backend-build
+      with:
+        db-backend: ${{ inputs.db-backend }}
     - name: Install GTK
       run: |
         sudo apt update

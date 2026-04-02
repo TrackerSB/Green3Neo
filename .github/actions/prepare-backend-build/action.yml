@@ -1,9 +1,18 @@
 name: Install backend dependencies
 description: Install all dependencies required for building the backend
+inputs:
+  db-backend:
+    description: "Choose DB backend (Either PostgreSQL or MySQL)"
+    required: true
 runs:
   using: "composite"
   steps:
     - uses: ./.github/actions/setup-postgre
+      if: inputs.db-backend == 'PostgreSQL'
+    - name: Fail if unsupported SQL DB
+      if: inputs.db-backend != 'PostgreSQL'
+      run: exit 1
+      shell: bash
     - name: Install Flutter SDK
       uses: flutter-actions/setup-flutter@v4
       with:

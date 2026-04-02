@@ -5,10 +5,15 @@ inputs:
     description: 'Virtual display number (for Xvfb)'
     required: true
     default: ":99"
+  db-backend:
+    description: "Choose DB backend (Either PostgreSQL or MySQL)"
+    required: true
 runs:
   using: "composite"
   steps:
     - uses: ./.github/actions/prepare-application-build
+      with:
+        db-backend: 'PostgreSQL'
     - name: Install headless GUI support
       run: |
         sudo apt update
