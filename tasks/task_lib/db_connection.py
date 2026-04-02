@@ -1,4 +1,5 @@
 import psycopg2
+import re
 from psycopg2._psycopg import connection as PgConnection
 from os import getenv
 from typing import Dict, List, Tuple, Any, Optional, Union
@@ -49,6 +50,12 @@ def create_connection() -> DbConnection:
 def execute_query(
     connection: DbConnection, query: str
 ) -> Optional[List[Tuple[Any, ...]]]:
+    if len(query) < 1:
+        return None
+
+    if not query.endswith(";"):
+        query = query + ";"
+
     if isinstance(connection, PgConnection):
         try:
             cursor = connection.cursor()
@@ -90,4 +97,6 @@ def execute_query(
 def execute_script(connection: DbConnection, script: Path):
     with script.open() as file:
         script_content = file.read()
-        execute_query(connection, script_content)
+        script_queries = re.sub(r"\s{2,}", " ", script_content).strip().split(";")
+        for query in script_queries:
+            execute_query(connection, query)
