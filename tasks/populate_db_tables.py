@@ -2,6 +2,7 @@ from task_lib import db_connection
 from pathlib import Path
 
 from os import path
+import sys
 
 
 def _create_tables(connection: db_connection.DbConnection) -> None:
@@ -18,6 +19,7 @@ def _main() -> None:
         _create_tables(connection)
     except Exception as ex:
         print(f"Creation of database tables failed: {ex}")
+        sys.exit(1)
     finally:
         connection.close()
 

@@ -1,5 +1,6 @@
 from task_lib import db_connection
 from typing import List
+import sys
 
 
 def _get_existing_tables(connection: db_connection.DbConnection) -> List[str]:
@@ -33,6 +34,7 @@ def _main() -> None:
         _delete_tables(connection)
     except Exception as ex:
         print(f"Deletion of database tables failed: {ex}")
+        sys.exit(1)
     finally:
         connection.close()
 
