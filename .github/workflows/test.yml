@@ -10,6 +10,7 @@ jobs:
       checks: write
       pull-requests: write
     strategy:
+      fail-fast: false
       matrix:
         db-protocol: ['postgres', 'mysql']
     steps:
