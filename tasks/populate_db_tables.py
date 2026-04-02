@@ -6,7 +6,9 @@ from os import path
 
 def _create_tables(connection: db_connection.DbConnection) -> None:
     script_folder = path.dirname(path.realpath(__file__))
-    db_connection.execute_script(connection, Path(script_folder + "/resources/dummyData.sql"))
+    db_connection.execute_script(
+        connection, Path(script_folder + "/resources/dummyData.sql")
+    )
 
 
 def _main() -> None:
