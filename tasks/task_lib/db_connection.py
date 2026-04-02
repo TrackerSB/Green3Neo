@@ -9,12 +9,12 @@ type DbConnection = Union[PgConnection, MySQLConnection]
 
 
 def read_env_config() -> Dict[str, str]:
-    backend = getenv("BUILD_DB_BACKEND")
+    protocol = getenv("BUILD_DB_PROTOCOL")
 
-    assert backend is not None
+    assert protocol is not None
 
     return {
-        "backend": backend,
+        "protocol": protocol,
         "host": getenv("BUILD_DB_HOST"),
         "port": getenv("BUILD_DB_PORT"),
         "database": getenv("BUILD_DB_NAME"),
@@ -25,7 +25,7 @@ def read_env_config() -> Dict[str, str]:
 
 def create_connection() -> DbConnection:
     env_config = read_env_config()
-    if env_config["backend"] == "PostgreSQL":
+    if env_config["protocol"] == "postgres":
         return psycopg2.connect(
             host=env_config["host"],
             port=env_config["port"],
@@ -33,7 +33,7 @@ def create_connection() -> DbConnection:
             user=env_config["user"],
             password=env_config["password"],
         )
-    else:
+    elif env_config["protocol"] == "mysql":
         return connect(
             host=env_config["host"],
             port=env_config["port"],
@@ -41,6 +41,8 @@ def create_connection() -> DbConnection:
             user=env_config["user"],
             password=env_config["password"],
         )
+    else:
+        raise RuntimeError(f"Unsupported DB protocol {env_config['protocol']}")
 
 
 def execute_query(

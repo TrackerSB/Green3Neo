@@ -4,11 +4,11 @@ runs:
   using: "composite"
   steps:
     - uses: ./.github/actions/setup-postgre
-      if: env.BUILD_DB_BACKEND == 'PostgreSQL'
+      if: env.BUILD_DB_PROTOCOL == 'postgres'
     - uses: ./.github/actions/setup-mysql
-      if: env.BUILD_DB_BACKEND == 'MySQL'
+      if: env.BUILD_DB_PROTOCOL == 'mysql'
     - name: Fail if unsupported SQL DB
-      if: env.BUILD_DB_BACKEND != 'PostgreSQL' && env.BUILD_DB_BACKEND != 'MySQL'
+      if: env.BUILD_DB_PROTOCOL != 'postgres' && env.BUILD_DB_PROTOCOL != 'mysql'
       run: exit 1
       shell: bash
     - name: Install Flutter SDK
@@ -18,12 +18,12 @@ runs:
         version: latest
     - name: Install Rust command line tools for building
       run: |
-        if [ "${{ env.BUILD_DB_BACKEND }}" = "PostgreSQL" ]; then
+        if [ "${{ env.BUILD_DB_PROTOCOL }}" = "postgres" ]; then
           cargo install diesel_cli --no-default-features --features "postgres"
-        elif [ "${{ env.BUILD_DB_BACKEND }}" = "MySQL" ]; then
+        elif [ "${{ env.BUILD_DB_PROTOCOL }}" = "mysql" ]; then
           cargo install diesel_cli --no-default-features --features "mysql"
         else
-          echo "Unsupported DB backend ${{ env.BUILD_DB_BACKEND }}"
+          echo "Unsupported DB backend ${{ env.BUILD_DB_PROTOCOL }}"
           exit 1
         fi
         cargo install diesel_cli_ext

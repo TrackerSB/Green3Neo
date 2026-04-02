@@ -11,11 +11,14 @@ jobs:
       pull-requests: write
     strategy:
       matrix:
-        db-backend: ['PostgreSQL', 'MySQL']
-    env:
-      BUILD_DB_BACKEND: ${{ matrix.db-backend }}
+        db-protocol: ['postgres', 'mysql']
     steps:
       - uses: TrackerSB/Green3Neo-Prepare-Action@main
+      - name: Override environment variables
+        run: |
+          echo "BUILD_DB_PROTOCOL=${{ matrix.db-protocol }}" >> $GITHUB_ENV
+          echo "DATABASE_URL=$BUILD_DB_PROTOCOL://$BUILD_DB_USER:$BUILD_DB_PASSWORD@$BUILD_DB_HOST:$BUILD_DB_PORT/$BUILD_DB_NAME" >> $GITHUB_ENV
+        shell: bash
       - uses: ./.github/actions/prepare-application-build
       - name: Install command line for executing tests and combining results
         run: |
