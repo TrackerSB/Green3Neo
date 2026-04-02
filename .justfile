@@ -71,7 +71,6 @@ database-drop-tables: _tasks-create-venv
 database-recreate-tables: database-drop-tables database-create-tables
 
 diesel-setup:
-    IFS=":" read -ra PARTS <<< "$DATABASE_URL"; for part in "${PARTS[@]}"; do echo $part; done
     cd {{ database_api_dir }} && diesel setup
 
 diesel-generate-schema: diesel-setup
