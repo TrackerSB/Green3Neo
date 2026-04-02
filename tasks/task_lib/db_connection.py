@@ -3,9 +3,10 @@ from psycopg2._psycopg import connection as PgConnection
 from os import getenv
 from typing import Dict, List, Tuple, Any, Optional, Union
 from pathlib import Path
-from mysql.connector import MySQLConnection, connect
+from mysql.connector import CMySQLConnection, MySQLConnection, connect
 
-type DbConnection = Union[PgConnection, MySQLConnection]
+# FIXME 2026-04-02: For some reason MySQLConnectionAbstract cannot be used
+type DbConnection = Union[PgConnection, MySQLConnection, CMySQLConnection]
 
 
 def read_env_config() -> Dict[str, str]:
@@ -64,7 +65,9 @@ def execute_query(
             return query_result
         finally:
             cursor.close()
-    elif isinstance(connection, MySQLConnection):
+    elif isinstance(connection, MySQLConnection) or isinstance(
+        connection, CMySQLConnection
+    ):
         try:
             cursor = connection.cursor()
 
