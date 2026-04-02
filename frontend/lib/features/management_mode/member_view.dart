@@ -84,7 +84,7 @@ class MemberView extends WatchingWidget {
     var internalPreviousValue = previousCellValue?.value;
     var internalNewValue = newCellValue?.value;
     _changeRecords.add(ChangeRecord(
-        membershipid: member.membershipid,
+        membershipid: member.membershipId,
         column: setterName,
         previousValue: (internalPreviousValue != null)
             ? internalPreviousValue.toString()

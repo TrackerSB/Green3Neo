@@ -1,12 +1,12 @@
+use crate::api::models;
+use crate::connection::get_connection;
 use crate::database::bind_column_value;
-use crate::{api::models::Member, connection::get_connection};
+use crate::schema::member::dsl as member_schema;
 use database_types::connection_description::ConnectionDescription;
 use diesel::{RunQueryDsl, SelectableHelper, query_dsl::methods::SelectDsl, sql_types::Integer};
 use log::{error, info, warn};
 
-pub fn get_all_members(connection: ConnectionDescription) -> Option<Vec<Member>> {
-    use crate::schema::member::dsl::*;
-
+pub fn get_all_members(connection: ConnectionDescription) -> Option<Vec<models::Member>> {
     let connection = get_connection(connection);
 
     if connection.is_none() {
@@ -15,8 +15,8 @@ pub fn get_all_members(connection: ConnectionDescription) -> Option<Vec<Member>>
         return None;
     }
 
-    let member_entries = member
-        .select(Member::as_select())
+    let member_entries = member_schema::member
+        .select(models::Member::as_select())
         .load(&mut connection.unwrap());
 
     if member_entries.is_ok() {

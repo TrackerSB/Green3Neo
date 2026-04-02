@@ -1,30 +1,30 @@
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -56,32 +56,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -113,32 +113,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -170,32 +170,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -227,32 +227,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -284,32 +284,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -341,32 +341,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -398,32 +398,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -455,32 +455,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -512,32 +512,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -569,32 +569,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -626,32 +626,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -683,32 +683,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -740,32 +740,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -797,32 +797,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -854,32 +854,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -911,32 +911,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -968,32 +968,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -1025,32 +1025,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -1082,32 +1082,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -1139,32 +1139,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -1196,32 +1196,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -1253,32 +1253,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -1310,32 +1310,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -1367,32 +1367,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -1424,32 +1424,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -1481,32 +1481,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -1538,32 +1538,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -1595,32 +1595,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -1652,32 +1652,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -1709,32 +1709,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -1766,32 +1766,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -1823,32 +1823,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -1880,32 +1880,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -1937,32 +1937,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -1994,32 +1994,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -2051,32 +2051,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -2108,32 +2108,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -2165,32 +2165,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -2222,32 +2222,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -2279,32 +2279,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -2336,32 +2336,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -2393,32 +2393,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -2450,32 +2450,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -2507,32 +2507,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -2564,32 +2564,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -2621,32 +2621,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -2678,32 +2678,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -2735,32 +2735,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -2792,32 +2792,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -2849,32 +2849,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -2906,32 +2906,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -2963,32 +2963,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -3020,32 +3020,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -3077,32 +3077,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -3134,32 +3134,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -3191,32 +3191,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -3248,32 +3248,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -3305,32 +3305,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -3362,32 +3362,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -3419,32 +3419,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -3476,32 +3476,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -3533,32 +3533,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -3590,32 +3590,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -3647,32 +3647,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -3704,32 +3704,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -3761,32 +3761,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -3818,32 +3818,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -3875,32 +3875,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -3932,32 +3932,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -3989,32 +3989,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -4046,32 +4046,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -4103,32 +4103,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -4160,32 +4160,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -4217,32 +4217,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -4274,32 +4274,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -4331,32 +4331,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -4388,32 +4388,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -4445,32 +4445,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -4502,32 +4502,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -4559,32 +4559,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -4616,32 +4616,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -4673,32 +4673,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -4730,32 +4730,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -4787,32 +4787,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -4844,32 +4844,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -4901,32 +4901,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -4958,32 +4958,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -5015,32 +5015,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -5072,32 +5072,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -5129,32 +5129,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -5186,32 +5186,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -5243,32 +5243,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -5300,32 +5300,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -5357,32 +5357,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -5414,32 +5414,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -5471,32 +5471,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -5528,32 +5528,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -5585,32 +5585,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -5642,32 +5642,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -5699,32 +5699,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -5756,32 +5756,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -5813,32 +5813,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -5870,32 +5870,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -5927,32 +5927,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -5984,32 +5984,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -6041,32 +6041,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -6098,32 +6098,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -6155,32 +6155,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -6212,32 +6212,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -6269,32 +6269,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -6326,32 +6326,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -6383,32 +6383,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -6440,32 +6440,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -6497,32 +6497,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -6554,32 +6554,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -6611,32 +6611,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -6668,32 +6668,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -6725,32 +6725,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -6782,32 +6782,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -6839,32 +6839,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -6896,32 +6896,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -6953,32 +6953,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -7010,32 +7010,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -7067,32 +7067,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -7124,32 +7124,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -7181,32 +7181,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -7238,32 +7238,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -7295,32 +7295,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -7352,32 +7352,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -7409,32 +7409,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -7466,32 +7466,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -7523,32 +7523,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -7580,32 +7580,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -7637,32 +7637,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -7694,32 +7694,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -7751,32 +7751,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -7808,32 +7808,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -7865,32 +7865,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -7922,32 +7922,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -7979,32 +7979,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -8036,32 +8036,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -8093,32 +8093,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -8150,32 +8150,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -8207,32 +8207,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -8264,32 +8264,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -8321,32 +8321,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -8378,32 +8378,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -8435,32 +8435,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -8492,32 +8492,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -8549,32 +8549,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -8606,32 +8606,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -8663,32 +8663,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -8720,32 +8720,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -8777,32 +8777,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -8834,32 +8834,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -8891,32 +8891,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -8948,32 +8948,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -9005,32 +9005,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -9062,32 +9062,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -9119,32 +9119,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -9176,32 +9176,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -9233,32 +9233,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -9290,32 +9290,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -9347,32 +9347,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -9404,32 +9404,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -9461,32 +9461,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -9518,32 +9518,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -9575,32 +9575,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -9632,32 +9632,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -9689,32 +9689,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -9746,32 +9746,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -9803,32 +9803,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -9860,32 +9860,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -9917,32 +9917,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -9974,32 +9974,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -10031,32 +10031,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -10088,32 +10088,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -10145,32 +10145,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -10202,32 +10202,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -10259,32 +10259,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -10316,32 +10316,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -10373,32 +10373,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -10430,32 +10430,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -10487,32 +10487,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -10544,32 +10544,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -10601,32 +10601,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -10658,32 +10658,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -10715,32 +10715,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -10772,32 +10772,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -10829,32 +10829,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -10886,32 +10886,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -10943,32 +10943,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -11000,32 +11000,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -11057,32 +11057,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -11114,32 +11114,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -11171,32 +11171,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -11228,32 +11228,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -11285,32 +11285,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -11342,32 +11342,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -11399,32 +11399,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -11456,32 +11456,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -11513,32 +11513,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -11570,32 +11570,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -11627,32 +11627,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -11684,32 +11684,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -11741,32 +11741,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -11798,32 +11798,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -11855,32 +11855,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -11912,32 +11912,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -11969,32 +11969,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -12026,32 +12026,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -12083,32 +12083,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -12140,32 +12140,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -12197,32 +12197,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -12254,32 +12254,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -12311,32 +12311,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -12368,32 +12368,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -12425,32 +12425,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -12482,32 +12482,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -12539,32 +12539,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -12596,32 +12596,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -12653,32 +12653,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -12710,32 +12710,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -12767,32 +12767,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -12824,32 +12824,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -12881,32 +12881,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -12938,32 +12938,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -12995,32 +12995,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -13052,32 +13052,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -13109,32 +13109,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -13166,32 +13166,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -13223,32 +13223,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -13280,32 +13280,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -13337,32 +13337,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -13394,32 +13394,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -13451,32 +13451,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -13508,32 +13508,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -13565,32 +13565,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -13622,32 +13622,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -13679,32 +13679,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -13736,32 +13736,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -13793,32 +13793,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -13850,32 +13850,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -13907,32 +13907,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -13964,32 +13964,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -14021,32 +14021,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -14078,32 +14078,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -14135,32 +14135,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -14192,32 +14192,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -14249,32 +14249,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -14306,32 +14306,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -14363,32 +14363,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -14420,32 +14420,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -14477,32 +14477,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -14534,32 +14534,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -14591,32 +14591,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -14648,32 +14648,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -14705,32 +14705,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -14762,32 +14762,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -14819,32 +14819,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -14876,32 +14876,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -14933,32 +14933,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -14990,32 +14990,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -15047,32 +15047,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -15104,32 +15104,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -15161,32 +15161,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -15218,32 +15218,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -15275,32 +15275,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -15332,32 +15332,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -15389,32 +15389,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -15446,32 +15446,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -15503,32 +15503,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -15560,32 +15560,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -15617,32 +15617,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -15674,32 +15674,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -15731,32 +15731,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -15788,32 +15788,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -15845,32 +15845,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -15902,32 +15902,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -15959,32 +15959,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -16016,32 +16016,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -16073,32 +16073,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -16130,32 +16130,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -16187,32 +16187,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -16244,32 +16244,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -16301,32 +16301,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -16358,32 +16358,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -16415,32 +16415,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -16472,32 +16472,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -16529,32 +16529,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -16586,32 +16586,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -16643,32 +16643,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -16700,32 +16700,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -16757,32 +16757,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -16814,32 +16814,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -16871,32 +16871,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -16928,32 +16928,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -16985,32 +16985,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -17042,32 +17042,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -17099,32 +17099,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -17156,32 +17156,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -17213,32 +17213,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -17270,32 +17270,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -17327,32 +17327,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -17384,32 +17384,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -17441,32 +17441,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -17498,32 +17498,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -17555,32 +17555,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -17612,32 +17612,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -17669,32 +17669,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -17726,32 +17726,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -17783,32 +17783,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -17840,32 +17840,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -17897,32 +17897,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -17954,32 +17954,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -18011,32 +18011,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -18068,32 +18068,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -18125,32 +18125,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -18182,32 +18182,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -18239,32 +18239,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -18296,32 +18296,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -18353,32 +18353,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -18410,32 +18410,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -18467,32 +18467,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -18524,32 +18524,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -18581,32 +18581,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -18638,32 +18638,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -18695,32 +18695,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -18752,32 +18752,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -18809,32 +18809,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -18866,32 +18866,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -18923,32 +18923,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -18980,32 +18980,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -19037,32 +19037,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -19094,32 +19094,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -19151,32 +19151,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -19208,32 +19208,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -19265,32 +19265,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -19322,32 +19322,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -19379,32 +19379,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -19436,32 +19436,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -19493,32 +19493,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -19550,32 +19550,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -19607,32 +19607,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -19664,32 +19664,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -19721,32 +19721,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -19778,32 +19778,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -19835,32 +19835,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -19892,32 +19892,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -19949,32 +19949,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -20006,32 +20006,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -20063,32 +20063,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -20120,32 +20120,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -20177,32 +20177,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -20234,32 +20234,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -20291,32 +20291,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -20348,32 +20348,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -20405,32 +20405,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -20462,32 +20462,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -20519,32 +20519,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -20576,32 +20576,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -20633,32 +20633,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -20690,32 +20690,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -20747,32 +20747,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -20804,32 +20804,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -20861,32 +20861,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -20918,32 +20918,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -20975,32 +20975,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -21032,32 +21032,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -21089,32 +21089,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -21146,32 +21146,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -21203,32 +21203,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -21260,32 +21260,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -21317,32 +21317,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -21374,32 +21374,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -21431,32 +21431,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -21488,32 +21488,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -21545,32 +21545,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -21602,32 +21602,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -21659,32 +21659,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -21716,32 +21716,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -21773,32 +21773,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -21830,32 +21830,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -21887,32 +21887,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -21944,32 +21944,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -22001,32 +22001,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -22058,32 +22058,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -22115,32 +22115,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -22172,32 +22172,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -22229,32 +22229,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -22286,32 +22286,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -22343,32 +22343,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -22400,32 +22400,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -22457,32 +22457,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -22514,32 +22514,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -22571,32 +22571,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -22628,32 +22628,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -22685,32 +22685,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -22742,32 +22742,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -22799,32 +22799,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -22856,32 +22856,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -22913,32 +22913,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -22970,32 +22970,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -23027,32 +23027,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -23084,32 +23084,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -23141,32 +23141,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -23198,32 +23198,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -23255,32 +23255,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -23312,32 +23312,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -23369,32 +23369,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -23426,32 +23426,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -23483,32 +23483,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -23540,32 +23540,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -23597,32 +23597,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -23654,32 +23654,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -23711,32 +23711,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -23768,32 +23768,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -23825,32 +23825,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -23882,32 +23882,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -23939,32 +23939,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -23996,32 +23996,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -24053,32 +24053,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -24110,32 +24110,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -24167,32 +24167,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -24224,32 +24224,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -24281,32 +24281,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -24338,32 +24338,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -24395,32 +24395,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -24452,32 +24452,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -24509,32 +24509,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -24566,32 +24566,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -24623,32 +24623,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -24680,32 +24680,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -24737,32 +24737,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -24794,32 +24794,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -24851,32 +24851,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -24908,32 +24908,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -24965,32 +24965,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -25022,32 +25022,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -25079,32 +25079,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -25136,32 +25136,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -25193,32 +25193,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -25250,32 +25250,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -25307,32 +25307,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -25364,32 +25364,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -25421,32 +25421,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -25478,32 +25478,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -25535,32 +25535,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -25592,32 +25592,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -25649,32 +25649,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -25706,32 +25706,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -25763,32 +25763,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -25820,32 +25820,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -25877,32 +25877,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -25934,32 +25934,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -25991,32 +25991,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -26048,32 +26048,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -26105,32 +26105,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -26162,32 +26162,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -26219,32 +26219,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -26276,32 +26276,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -26333,32 +26333,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -26390,32 +26390,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -26447,32 +26447,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -26504,32 +26504,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -26561,32 +26561,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -26618,32 +26618,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -26675,32 +26675,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -26732,32 +26732,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -26789,32 +26789,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -26846,32 +26846,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -26903,32 +26903,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -26960,32 +26960,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -27017,32 +27017,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -27074,32 +27074,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -27131,32 +27131,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -27188,32 +27188,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -27245,32 +27245,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -27302,32 +27302,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -27359,32 +27359,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -27416,32 +27416,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -27473,32 +27473,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -27530,32 +27530,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -27587,32 +27587,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -27644,32 +27644,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -27701,32 +27701,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -27758,32 +27758,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -27815,32 +27815,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -27872,32 +27872,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -27929,32 +27929,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -27986,32 +27986,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -28043,32 +28043,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -28100,32 +28100,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -28157,32 +28157,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -28214,32 +28214,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -28271,32 +28271,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -28328,32 +28328,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -28385,32 +28385,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
@@ -28442,32 +28442,32 @@ values
     );
 
 insert into
-    "Member" (
-        "membershipId",
+    "member" (
+        "membership_id",
         "prename",
         "surname",
         "title",
-        "isMale",
+        "is_male",
         "street",
-        "houseNumber",
-        "zipCode",
+        "house_number",
+        "zip_code",
         "city",
-        "isActive",
-        "isFoundingMember",
-        "isHonoraryMember",
-        "isContributionfree",
-        "contributorSinceYear",
-        "phoneNumber",
-        "mobileNumber",
+        "is_active",
+        "is_founding_member",
+        "is_honorary_member",
+        "is_contributionfree",
+        "contributor_since_year",
+        "phone_number",
+        "mobile_number",
         "email",
-        "accountHolderPrename",
-        "accountHolderSurname",
+        "accountholder_prename",
+        "accountholder_surname",
         "iban",
         "bic",
-        "hasGauEhrenzeichen",
-        "isEhrenschriftführer",
-        "isEhrenvorstand",
-        "isMemberOfBoard"
+        "has_gau_ehrenzeichen",
+        "is_ehrenschriftführer",
+        "is_ehrenvorstand",
+        "is_member_of_board"
     )
 values
     (
