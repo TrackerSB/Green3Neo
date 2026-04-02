@@ -48,22 +48,41 @@ def create_connection() -> DbConnection:
 def execute_query(
     connection: DbConnection, query: str
 ) -> Optional[List[Tuple[Any, ...]]]:
-    # NOTE 2026-04-02: It seems that mysql-connector and psycopg2 use the same methods and interfaces
-    try:
-        cursor = connection.cursor()
+    if isinstance(connection, PgConnection):
+        try:
+            cursor = connection.cursor()
 
-        cursor.execute(query)
+            cursor.execute(query)
 
-        if cursor.description is None:
-            query_result = None
-        else:
-            query_result = cursor.fetchall()
+            if cursor.description is None:
+                query_result = None
+            else:
+                query_result = cursor.fetchall()
 
-        connection.commit()
+            connection.commit()
 
-        return query_result
-    finally:
-        cursor.close()
+            return query_result
+        finally:
+            cursor.close()
+    elif isinstance(connection, MySQLConnection):
+        try:
+            cursor = connection.cursor()
+
+            cursor.execute(query)
+
+            print(f"MySQL: Cursor description {cursor.description}")
+            if cursor.description is None:
+                query_result = None
+            else:
+                query_result = cursor.fetchall()
+
+            connection.commit()
+
+            return query_result
+        finally:
+            cursor.close()
+    else:
+        raise RuntimeError("Unsupported DB backend")
 
 
 def execute_script(connection: DbConnection, script: Path):
