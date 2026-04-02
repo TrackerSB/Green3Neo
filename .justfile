@@ -79,6 +79,7 @@ diesel-generate-schema: diesel-setup
 
 diesel-generate-models: diesel-generate-schema
     cd {{ database_api_dir }} && diesel_ext --model --import-types diesel::Queryable --import-types diesel::Selectable --import-types diesel::Identifiable --import-types backend_macros::make_fields_non_final --import-types flutter_rust_bridge::frb --import-types crate::schema::* --derive Queryable,Selectable --add-table-name > src/api/models.rs
+    cat {{ database_api_dir }}/src/api/models.rs
     git apply {{ patch_folder }}/backend/interface/database_api/api/models.rs.patch
 
 sepa-generate-schemas:
