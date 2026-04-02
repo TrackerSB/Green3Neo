@@ -1,8 +1,7 @@
-from psycopg2._psycopg import connection
 from task_lib import db_connection
 
 
-def _create_tables(connection: connection) -> None:
+def _create_tables(connection: db_connection.DbConnection) -> None:
     db_connection.execute_query(
         connection,
         # NOTE 2024-06-23 SHU: "date" is converted to "NaiveDate". FRB does not explicitly support NaiveDate hence

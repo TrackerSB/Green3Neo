@@ -1,11 +1,10 @@
-from psycopg2._psycopg import connection
 from task_lib import db_connection
 from pathlib import Path
 
 from os import path
 
 
-def _create_tables(connection: connection) -> None:
+def _create_tables(connection: db_connection.DbConnection) -> None:
     script_folder = path.dirname(path.realpath(__file__))
     db_connection.execute_script(connection, Path(script_folder + "/resources/dummyData.sql"))
 

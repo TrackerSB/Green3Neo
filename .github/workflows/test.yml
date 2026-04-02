@@ -12,11 +12,11 @@ jobs:
     strategy:
       matrix:
         db-backend: ['PostgreSQL', 'MySQL']
+    env:
+      BUILD_DB_BACKEND: ${{ matrix.db-backend }}
     steps:
       - uses: TrackerSB/Green3Neo-Prepare-Action@main
       - uses: ./.github/actions/prepare-application-build
-        with:
-          db-backend: ${{ matrix.db-backend }}
       - name: Install command line for executing tests and combining results
         run: |
           cargo install --locked cargo-nextest

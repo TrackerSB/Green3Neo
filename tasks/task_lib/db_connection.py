@@ -1,15 +1,20 @@
 import psycopg2
-from psycopg2._psycopg import connection
-from dotenv import load_dotenv
+from psycopg2._psycopg import connection as PgConnection
 from os import getenv
-from typing import Dict, List, Tuple, Any, Optional
+from typing import Dict, List, Tuple, Any, Optional, Union
 from pathlib import Path
+from mysql.connector import MySQLConnection, connect
+
+type DbConnection = Union[PgConnection, MySQLConnection]
 
 
-def read_credentials() -> Dict[str, str]:
-    load_dotenv()
+def read_env_config() -> Dict[str, str]:
+    backend = getenv("BUILD_DB_BACKEND")
+
+    assert backend is not None
 
     return {
+        "backend": backend,
         "host": getenv("BUILD_DB_HOST"),
         "port": getenv("BUILD_DB_PORT"),
         "database": getenv("BUILD_DB_NAME"),
@@ -18,13 +23,30 @@ def read_credentials() -> Dict[str, str]:
     }
 
 
-def create_connection() -> connection:
-    return psycopg2.connect(**read_credentials())
+def create_connection() -> DbConnection:
+    env_config = read_env_config()
+    if env_config["backend"] == "PostgreSQL":
+        return psycopg2.connect(
+            host=env_config["host"],
+            port=env_config["port"],
+            database=env_config["database"],
+            user=env_config["user"],
+            password=env_config["password"],
+        )
+    else:
+        return connect(
+            host=env_config["host"],
+            port=env_config["port"],
+            database=env_config["database"],
+            user=env_config["user"],
+            password=env_config["password"],
+        )
 
 
 def execute_query(
-    connection: connection, query: str
+    connection: DbConnection, query: str
 ) -> Optional[List[Tuple[Any, ...]]]:
+    # NOTE 2026-04-02: It seems that mysql-connector and psycopg2 use the same methods and interfaces
     try:
         cursor = connection.cursor()
 
@@ -42,7 +64,7 @@ def execute_query(
         cursor.close()
 
 
-def execute_script(connection: connection, script: Path):
+def execute_script(connection: DbConnection, script: Path):
     with script.open() as file:
         script_content = file.read()
         execute_query(connection, script_content)

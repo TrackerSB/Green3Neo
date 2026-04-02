@@ -9,12 +9,12 @@ jobs:
     timeout-minutes: 15
     env:
       DISPLAY: :99
+      BUILD_DB_BACKEND: 'PostgreSQL'
 
     steps:
       - uses: TrackerSB/Green3Neo-Prepare-Action@main
       - uses: ./.github/actions/prepare-application-run
         with:
-          db-backend: 'PostgreSQL'
           virtual_display_number: ${{ env.DISPLAY }}
       - name: Execute application in the background
         run: |
