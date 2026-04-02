@@ -12,6 +12,17 @@ runs:
         host port: ${{ env.BUILD_DB_PORT }}
         mysql user: ${{ env.BUILD_DB_USER }}
         mysql password: ${{ env.BUILD_DB_PASSWORD }}
+    - name: Wait for MySQL
+      run: |
+        for i in {1..20}; do
+          mysqladmin ping \
+            -h ${{ env.BUILD_DB_HOST }} \
+            -P ${{ env.BUILD_DB_PORT }} \
+            -u ${{ env.BUILD_DB_USER }} \
+            -p${{ env.BUILD_DB_PASSWORD }} && break
+          sleep 2
+        done
+      shell: bash
     - name: Create empty DB tables
       run: just database-create-tables
       shell: bash
