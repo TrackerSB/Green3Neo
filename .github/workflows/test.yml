@@ -9,11 +9,14 @@ jobs:
     permissions:
       checks: write
       pull-requests: write
+    strategy:
+      matrix:
+        db-backend: ['PostgreSQL', 'MySQL']
     steps:
       - uses: TrackerSB/Green3Neo-Prepare-Action@main
       - uses: ./.github/actions/prepare-application-build
         with:
-          db-backend: 'PostgreSQL'
+          db-backend: ${{ matrix.db-backend }}
       - name: Install command line for executing tests and combining results
         run: |
           cargo install --locked cargo-nextest

@@ -9,8 +9,10 @@ runs:
   steps:
     - uses: ./.github/actions/setup-postgre
       if: inputs.db-backend == 'PostgreSQL'
+    - uses: ./.github/actions/setup-mysql
+      if: inputs.db-backend == 'MySQL'
     - name: Fail if unsupported SQL DB
-      if: inputs.db-backend != 'PostgreSQL'
+      if: inputs.db-backend != 'PostgreSQL' && inputs.db-backend != 'MySQL'
       run: exit 1
       shell: bash
     - name: Install Flutter SDK

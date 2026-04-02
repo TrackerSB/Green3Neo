@@ -1,0 +1,18 @@
+name: Setup MySQL
+description: Set up and start a MySQL server based on the environment variables given in the repository
+runs:
+  using: "composite"
+  steps:
+    - name: Install just command runner
+      uses: extractions/setup-just@v2
+    - name: Setup MySQL server
+      uses: mirromutth/mysql-action@v1.1
+      with:
+        mysql database:  ${{ env.BUILD_DB_NAME }}
+        host port: ${{ env.BUILD_DB_PORT }}
+        container port: ${{ env.BUILD_DB_PORT }}
+        mysql user: ${{ env.BUILD_DB_USER }}
+        mysql password: ${{ env.BUILD_DB_PASSWORD }}
+    - name: Create empty DB tables
+      run: just database-create-tables
+      shell: bash
