@@ -1,11 +1,6 @@
 use diesel::Connection;
-use speculoos::{assert_that, result::ResultAssertions};
-use sqlx::Row;
 
-use crate::{
-    column_type_info::{ColumnTypeInfo, get_type_of_array},
-    connection::DbConnection,
-};
+use crate::connection::DbConnection;
 
 // Create a diesel based connection from a test database connection
 pub async fn to_diesel_connection(sqlx_connection: &mut sqlx::PgConnection) -> DbConnection {
