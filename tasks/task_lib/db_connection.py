@@ -73,7 +73,6 @@ def execute_query(
 
             cursor.execute(query)
 
-            print(f"MySQL: Cursor description {cursor.description}")
             if cursor.description is None:
                 query_result = None
             else:
