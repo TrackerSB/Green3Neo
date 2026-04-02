@@ -1,5 +1,7 @@
 set dotenv-load := true
 set dotenv-required := true
+# Load environment variables if none loaded but do not override variables e.g. set by Github actions
+set dotenv-override := false
 
 # FIXME Make workspace folder absolute (maybe using git to find git root?)
 workspace_dir := "."
