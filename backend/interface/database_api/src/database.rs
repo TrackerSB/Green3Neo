@@ -1,9 +1,8 @@
 use chrono::NaiveDate;
 use diesel::backend::Backend;
 use diesel::query_builder::BoxedSqlQuery;
-use diesel::query_builder::bind_collector::RawBytesBindCollector;
 use diesel::serialize::ToSql;
-use diesel::sql_types::{Array, Bool, Date, Double, HasSqlType, Integer, Nullable, Text, Varchar};
+use diesel::sql_types::{Bool, Date, Double, HasSqlType, Integer, Nullable, Text, Varchar};
 use log::{info, warn};
 
 use crate::column_type_info::get_column_info;
@@ -17,14 +16,11 @@ pub fn bind_column_value<'a, DB, Query>(
     sql_expression: BoxedSqlQuery<'a, DB, Query>,
 ) -> Option<BoxedSqlQuery<'a, DB, Query>>
 where
-    DB: Backend<BindCollector<'a> = RawBytesBindCollector<DB>>
-        + HasSqlType<Array<Integer>>
-        + HasSqlType<Bool>,
+    DB: Backend + HasSqlType<Bool>,
     str: ToSql<Text, DB>,
     str: ToSql<Varchar, DB>,
     bool: ToSql<Bool, DB>,
     i32: ToSql<Integer, DB>,
-    Vec<i32>: ToSql<Array<Integer>, DB>,
     f64: ToSql<Double, DB>,
     NaiveDate: ToSql<Date, DB>,
 {
@@ -65,27 +61,7 @@ where
         }
     }
 
-    let bound_query = if column_type.is_array {
-        // Handle array types
-        let elements = value.map(|v| v.split(","));
-        match column_type.data_type.as_str() {
-            "integer" => {
-                sql_expression.bind::<Nullable<Array<Integer>>, _>(elements.map(|split| {
-                    split
-                        .map(|element| parser::<i32>(element).unwrap())
-                        .collect::<Vec<i32>>()
-                }))
-            }
-            _ => {
-                warn!(
-                    "Cannot bind to unsupported array type '{}'",
-                    column_type.data_type.as_str()
-                );
-                return None;
-            }
-        }
-    } else {
-        // Handle non-array types
+    let bound_query =         // Handle non-array types
         match column_type.data_type.as_str() {
             "text" => sql_expression.bind::<Nullable<Text>, _>(value),
             "character varying" => sql_expression.bind::<Nullable<Varchar>, _>(value),
@@ -108,7 +84,6 @@ where
                 );
                 return None;
             }
-        }
     };
 
     Some(bound_query)
@@ -117,12 +92,14 @@ where
 #[cfg(test)]
 mod test {
     use backend_testing::testing;
-    use diesel::RunQueryDsl;
+    use diesel::{RunQueryDsl, pg::Pg};
     use log::error;
     use speculoos::{assert_that, option::OptionAssertions, vec::VecAssertions};
     use sqlx::PgPool;
 
-    use crate::test_database_common::{get_all_column_info, to_diesel_connection};
+    use crate::{
+        column_type_info::get_all_column_info, test_database_common::to_diesel_connection,
+    };
 
     use super::*;
 
@@ -142,7 +119,8 @@ mod test {
         let table_name = "allsupportedtypes";
         let mut test_connection = pool.acquire().await?;
 
-        let column_info = get_all_column_info(&mut test_connection, table_name).await;
+        let column_info =
+            get_all_column_info(&mut to_diesel_connection(&mut test_connection).await, table_name);
         assert_that!(&column_info)
             .named("Gather columns to check")
             .is_not_empty();
@@ -187,7 +165,7 @@ mod test {
 
             sql_expression_with_value
                 .unwrap()
-                .load(&mut diesel_connection)
+                .execute(&mut diesel_connection)
                 .expect("Could not execute query");
 
             if row.is_nullable {
@@ -221,13 +199,12 @@ mod test {
         // FIXME Determine table name automatically
         let table_name = "allsupportedtypes";
         let mut test_connection = pool.acquire().await?;
+        let mut diesel_connection = to_diesel_connection(&mut test_connection).await;
 
-        let column_info = get_all_column_info(&mut test_connection, table_name).await;
+        let column_info = get_all_column_info(&mut diesel_connection, table_name);
         assert_that!(&column_info)
             .named("Gather columns to check")
             .is_not_empty();
-
-        let mut diesel_connection = to_diesel_connection(&mut test_connection).await;
 
         let column_name = "datecolumn";
         let value_to_bind = Some("true");
@@ -265,13 +242,12 @@ mod test {
         // FIXME Determine table name automatically
         let table_name = "allsupportedtypes";
         let mut test_connection = pool.acquire().await?;
+        let mut diesel_connection = to_diesel_connection(&mut test_connection).await;
 
-        let column_info = get_all_column_info(&mut test_connection, table_name).await;
+        let column_info = get_all_column_info(&mut diesel_connection, table_name);
         assert_that!(&column_info)
             .named("Gather columns to check")
             .is_not_empty();
-
-        let mut diesel_connection = to_diesel_connection(&mut test_connection).await;
 
         let column_name = "doublecolumn";
         let value_to_bind = None;
@@ -286,7 +262,7 @@ mod test {
             &table_name,
             &column_name,
             value_to_bind,
-            base_sql_expression.into_boxed(),
+            base_sql_expression.into_boxed::<Pg>(),
         );
 
         assert_that!(&sql_expression.as_ref().map(|_| ()))
@@ -304,13 +280,12 @@ mod test {
         // FIXME Determine table name automatically
         let table_name = "allsupportedtypes";
         let mut test_connection = pool.acquire().await?;
+        let mut diesel_connection = to_diesel_connection(&mut test_connection).await;
 
-        let column_info = get_all_column_info(&mut test_connection, table_name).await;
+        let column_info = get_all_column_info(&mut diesel_connection, table_name);
         assert_that!(&column_info)
             .named("Gather columns to check")
             .is_not_empty();
-
-        let mut diesel_connection = to_diesel_connection(&mut test_connection).await;
 
         let column_name = "doubleCOLUMN";
         let value_to_bind = Some("42.");
@@ -325,7 +300,7 @@ mod test {
             &table_name,
             &column_name,
             value_to_bind,
-            base_sql_expression.into_boxed(),
+            base_sql_expression.into_boxed::<Pg>(),
         );
 
         assert_that!(&sql_expression.as_ref().map(|_| ()))
