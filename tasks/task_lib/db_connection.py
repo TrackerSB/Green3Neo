@@ -82,7 +82,7 @@ def execute_query(
         finally:
             cursor.close()
     else:
-        raise RuntimeError("Unsupported DB backend")
+        raise RuntimeError(f"Unsupported DB connection of type {type(connection)}")
 
 
 def execute_script(connection: DbConnection, script: Path):
