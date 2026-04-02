@@ -22,7 +22,14 @@ runs:
         version: latest
     - name: Install Rust command line tools for building
       run: |
-        cargo install diesel_cli --no-default-features --features "postgres"
+        if [ "${{ inputs.db-backend }}" = "PostgreSQL" ]; then
+          cargo install diesel_cli --no-default-features --features "postgres"
+        elif [ "${{ inputs.db-backend }}" = "MySQL" ]; then
+          cargo install diesel_cli --no-default-features --features "mysql"
+        else
+          echo "Unsupported DB backend ${{ inputs.db-backend }}"
+          exit 1
+        fi
         cargo install diesel_cli_ext
         cargo install flutter_rust_bridge_codegen@2.11.1
       shell: bash
