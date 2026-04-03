@@ -82,39 +82,53 @@ pub fn get_all_column_info(connection: &mut DbConnection, table_name: &str) -> V
 
 #[cfg(test)]
 mod test {
+    use std::fs;
+
     use backend_testing::testing;
     use speculoos::{assert_that, option::OptionAssertions, vec::VecAssertions};
-    use sqlx::PgPool;
+    use sqlx::pool::PoolConnection;
+    use sqlx::{Any, AnyConnection, AnyPool};
 
     use crate::test_database_common::to_diesel_connection;
 
     use super::*;
 
-    fn setup_test() {
+    async fn setup_test() -> PoolConnection<Any> {
         testing::setup_test();
+
+        let database_url = std::env::var("DATABASE_URL").expect("Database URL is not available");
+        let mut connection = AnyPool::connect(&database_url)
+            .await
+            .unwrap()
+            .acquire()
+            .await
+            .unwrap();
+
+        let fixture_sql_content = fs::read_to_string("src/fixtures/allsupportedtypes.sql").unwrap();
+        sqlx::query(&fixture_sql_content)
+            .execute::<&mut AnyConnection>(&mut connection)
+            .await
+            .unwrap();
+
+        connection
     }
 
     fn tear_down(expected_num_severe_messages: usize) {
         testing::tear_down(expected_num_severe_messages);
     }
 
-    #[sqlx::test(fixtures("allsupportedtypes"))]
-    async fn test_determine_column_type(pool: PgPool) -> sqlx::Result<()> {
-        setup_test();
+    #[sqlx::test]
+    async fn test_determine_column_type() -> sqlx::Result<()> {
+        let mut test_connection = setup_test().await;
 
         // FIXME Determine table name automatically
         let table_name = "allsupportedtypes";
-        let mut test_connection = pool.acquire().await?;
+        let mut diesel_connection = to_diesel_connection(&mut test_connection).await.unwrap();
 
-        let column_info = get_all_column_info(
-            &mut to_diesel_connection(&mut test_connection).await,
-            table_name,
-        );
+        let column_info = get_all_column_info(&mut diesel_connection, table_name);
         assert_that!(&column_info)
             .named("Gather columns to check")
             .is_not_empty();
-
-        let mut diesel_connection = to_diesel_connection(&mut test_connection).await;
 
         for row in column_info.iter() {
             let expected_column_name = &row.column_name;
