@@ -97,44 +97,46 @@ mod test {
     use diesel::{RunQueryDsl, pg::Pg};
     use log::error;
     use speculoos::{assert_that, option::OptionAssertions, vec::VecAssertions};
-    use sqlx::{Any, AnyConnection, AnyPool, pool::PoolConnection};
+    use sqlx::{Database, PgPool, Pool, any::install_default_drivers, pool::PoolConnection};
 
     use crate::{
-        column_type_info::get_all_column_info, test_database_common::to_diesel_connection,
+        column_type_info::get_all_column_info, test_database_common::IntoDieselConnection,
     };
 
     use super::*;
 
-    async fn setup_test() -> PoolConnection<Any> {
+    async fn setup_test<DB>(sqlx_pool: Pool<DB>) -> DbConnection
+    where
+        DB: Database,
+        PoolConnection<DB>: IntoDieselConnection,
+    {
         testing::setup_test();
 
-        let database_url = std::env::var("DATABASE_URL").expect("Database URL is not available");
-        let mut connection = AnyPool::connect(&database_url)
-            .await
-            .unwrap()
-            .acquire()
-            .await
-            .unwrap();
+        install_default_drivers(); // FIXME Required?
+
+        let sqlx_connection = sqlx_pool.acquire().await.unwrap();
+        let mut diesel_connection = sqlx_connection.into_diesel_connection().await;
 
         let fixture_sql_content = fs::read_to_string("src/fixtures/allsupportedtypes.sql").unwrap();
-        sqlx::query(&fixture_sql_content)
-            .execute::<&mut AnyConnection>(&mut connection)
-            .await
+        diesel::sql_query(fixture_sql_content)
+            .execute(&mut diesel_connection)
             .unwrap();
 
-        connection
+        diesel_connection
     }
 
     fn tear_down(expected_num_severe_messages: usize) {
         testing::tear_down(expected_num_severe_messages);
     }
 
-    #[sqlx::test]
-    async fn test_bind_column() -> sqlx::Result<()> {
+    async fn test_bind_column<DB>(pool: Pool<DB>) -> sqlx::Result<()>
+    where
+        DB: Database,
+        PoolConnection<DB>: IntoDieselConnection,
+    {
         // FIXME Determine table name automatically
         let table_name = "allsupportedtypes";
-        let mut test_connection = setup_test().await;
-        let mut diesel_connection = to_diesel_connection(&mut test_connection).await.unwrap();
+        let mut diesel_connection = setup_test(pool).await;
 
         let column_info = get_all_column_info(&mut diesel_connection, table_name);
         assert_that!(&column_info)
@@ -207,11 +209,18 @@ mod test {
     }
 
     #[sqlx::test]
-    async fn test_bind_wrong_type() -> sqlx::Result<()> {
+    async fn test_bind_column_pg(pool: PgPool) -> sqlx::Result<()> {
+        test_bind_column(pool).await
+    }
+
+    async fn test_bind_wrong_type<DB>(pool: Pool<DB>) -> sqlx::Result<()>
+    where
+        DB: Database,
+        PoolConnection<DB>: IntoDieselConnection,
+    {
         // FIXME Determine table name automatically
         let table_name = "allsupportedtypes";
-        let mut test_connection = setup_test().await;
-        let mut diesel_connection = to_diesel_connection(&mut test_connection).await.unwrap();
+        let mut diesel_connection = setup_test(pool).await;
 
         let column_info = get_all_column_info(&mut diesel_connection, table_name);
         assert_that!(&column_info)
@@ -248,11 +257,18 @@ mod test {
     }
 
     #[sqlx::test]
-    async fn test_bind_null_to_nonnullable_column() -> sqlx::Result<()> {
+    async fn test_bind_wrong_type_pg(pool: PgPool) -> sqlx::Result<()> {
+        test_bind_wrong_type(pool).await
+    }
+
+    async fn test_bind_null_to_nonnullable_column<DB>(pool: Pool<DB>) -> sqlx::Result<()>
+    where
+        DB: Database,
+        PoolConnection<DB>: IntoDieselConnection,
+    {
         // FIXME Determine table name automatically
         let table_name = "allsupportedtypes";
-        let mut test_connection = setup_test().await;
-        let mut diesel_connection = to_diesel_connection(&mut test_connection).await.unwrap();
+        let mut diesel_connection = setup_test(pool).await;
 
         let column_info = get_all_column_info(&mut diesel_connection, table_name);
         assert_that!(&column_info)
@@ -281,5 +297,10 @@ mod test {
 
         tear_down(1);
         Ok(())
+    }
+
+    #[sqlx::test]
+    async fn test_bind_null_to_nonnullable_column_pg(pool: PgPool) -> sqlx::Result<()> {
+        test_bind_null_to_nonnullable_column(pool).await
     }
 }

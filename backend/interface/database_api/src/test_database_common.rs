@@ -1,38 +1,66 @@
-use diesel::Connection;
-use sqlx::AnyConnection;
-
 use crate::connection::DbConnection;
 
-// Create a diesel based connection from a test database connection
-pub async fn to_diesel_connection(sqlx_connection: &mut AnyConnection) -> Option<DbConnection> {
-    let backend_name = sqlx_connection.backend_name().to_owned();
+trait GetCurrentDBName {
+    async fn get_current_db_name(&mut self) -> Option<String>
+    where
+        Self: sqlx::Connection;
+}
 
-    let test_db_name: String = sqlx::query_scalar("SELECT current_database()")
-        .fetch_one(sqlx_connection)
-        .await
-        .expect("Querying current database name failed");
+impl GetCurrentDBName for sqlx::PgConnection {
+    async fn get_current_db_name(&mut self) -> Option<String> {
+        Some(
+            sqlx::query_scalar("SELECT current_database()")
+                .fetch_one(self)
+                .await
+                .expect("Querying current database name failed"),
+        )
+    }
+}
 
-    let configured_url = std::env::var("DATABASE_URL").expect("Could not determine database URL");
+impl GetCurrentDBName for sqlx::MySqlConnection {
+    async fn get_current_db_name(&mut self) -> Option<String> {
+        todo!("Not implemented")
+    }
+}
 
-    let test_db_url = configured_url
+fn create_db_url(db_name: &str) -> String {
+    let template_db_url = std::env::var("DATABASE_URL").expect("Could not determine database URL");
+    template_db_url
         .split_at(
-            configured_url
+            template_db_url
                 .rfind("/")
                 .expect("Could not find slash separating DB address from DB name")
                 + 1,
         )
         .0
         .to_owned()
-        + &test_db_name;
+        + db_name
+}
 
-    match backend_name.as_str() {
-        "PostgreSQL" => Some(DbConnection::PostgreSql(
-            diesel::PgConnection::establish(&test_db_url).expect("Could not establish connection"),
-        )),
-        "MySQL" => Some(DbConnection::MySql(
-            diesel::MysqlConnection::establish(&test_db_url)
-                .expect("Could not establish connection"),
-        )),
-        _ => None,
+pub trait IntoDieselConnection {
+    async fn into_diesel_connection(self) -> DbConnection;
+}
+
+impl IntoDieselConnection for sqlx::pool::PoolConnection<sqlx::Postgres> {
+    async fn into_diesel_connection(mut self) -> DbConnection {
+        use diesel::Connection;
+
+        let db_name = self.get_current_db_name().await.unwrap();
+        let db_url = create_db_url(&db_name);
+        DbConnection::PostgreSql(
+            diesel::PgConnection::establish(&db_url).expect("Could not establish connection"),
+        )
+    }
+}
+
+impl IntoDieselConnection for sqlx::pool::PoolConnection<sqlx::MySql> {
+    async fn into_diesel_connection(mut self) -> DbConnection {
+        use diesel::Connection;
+
+        let db_name = self.get_current_db_name().await.unwrap();
+        let db_url = create_db_url(&db_name);
+        DbConnection::MySql(
+            diesel::MysqlConnection::establish(&db_url).expect("Could not establish connection"),
+        )
     }
 }
