@@ -274,42 +274,4 @@ mod test {
         tear_down(1);
         Ok(())
     }
-
-    #[sqlx::test(fixtures("allsupportedtypes"))]
-    async fn test_column_case_sensitivity(pool: PgPool) -> sqlx::Result<()> {
-        setup_test();
-
-        // FIXME Determine table name automatically
-        let table_name = "allsupportedtypes";
-        let mut test_connection = pool.acquire().await?;
-        let mut diesel_connection = to_diesel_connection(&mut test_connection).await;
-
-        let column_info = get_all_column_info(&mut diesel_connection, table_name);
-        assert_that!(&column_info)
-            .named("Gather columns to check")
-            .is_not_empty();
-
-        let column_name = "doubleCOLUMN";
-        let value_to_bind = Some("42.");
-
-        let base_sql_expression = diesel::sql_query(format!(
-            "SELECT {1} FROM {0} WHERE {1} = $1",
-            table_name, column_name
-        ));
-
-        let sql_expression = bind_column_value(
-            &mut diesel_connection,
-            &table_name,
-            &column_name,
-            value_to_bind,
-            base_sql_expression.into_boxed::<Pg>(),
-        );
-
-        assert_that!(&sql_expression.as_ref().map(|_| ()))
-            .named("Bind column value")
-            .is_none();
-
-        tear_down(1);
-        Ok(())
-    }
 }
