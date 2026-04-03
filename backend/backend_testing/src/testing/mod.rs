@@ -5,6 +5,7 @@ use std::{
 };
 
 use backend_logging::logging::create_logger;
+use dotenvy::dotenv;
 use flexi_logger::{LoggerHandle, writers::LogWriter};
 use log::{info, warn};
 use speculoos::assert_that;
@@ -57,6 +58,9 @@ fn get_message_entry_lock() -> Arc<RwLock<Vec<String>>> {
 }
 
 pub fn setup_test() {
+    // Load environment variables of .env file without overriding already set variables (e.g. set by Github actions)
+    dotenv().expect("Could not load environment variables");
+
     let unlocked_message_entry = get_message_entry_lock();
     let mut locked_message_entry = unlocked_message_entry.write().unwrap();
     locked_message_entry.clear();
