@@ -12,7 +12,12 @@ flutter_rust_bridge_codegen = "=2.11.1"
 [dev-dependencies]
 backend_testing = { path = "../../backend_testing" }
 speculoos = "0.11.0"
-sqlx = { version = "0.8.2", features = ["runtime-async-std", "postgres", "mysql", "any"] }
+sqlx = { version = "0.8.2", features = [
+    "runtime-async-std",
+    "postgres",
+    "mysql",
+    "any",
+] }
 
 [dependencies]
 backend_logging = { path = "../../backend_logging" }
