@@ -31,7 +31,15 @@ fn get_message_entry_lock() -> Arc<RwLock<Vec<String>>> {
         LoggerHandle,
         Arc<RwLock<HashMap<String, Arc<RwLock<Vec<String>>>>>>,
     )> = LazyLock::new(|| {
-        let test_case_name = std::env::var("NEXTEST_TEST_NAME").unwrap();
+        let default_test_name = String::from("no_nextest_test_name");
+        let test_case_name = std::env::var("NEXTEST_TEST_NAME")
+            .inspect_err(|err| {
+                warn!(
+                    "Could not determine nextest test name due '{}'. Defaulting to {}",
+                    err, default_test_name
+                )
+            })
+            .unwrap_or(default_test_name);
         let log_basename = format!("log_{}", test_case_name.replace("::", "_"));
 
         (
