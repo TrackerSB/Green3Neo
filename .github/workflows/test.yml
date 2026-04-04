@@ -29,7 +29,7 @@ jobs:
         if: (!cancelled())
         uses: actions/upload-artifact@v7.0.0
         with:
-          name: testResults_${{ matrix.db-protocol }}
+          name: testResultsArtifact_${{ matrix.db-protocol }}
           path: |
             backend/target/nextest/default/junit.xml
             frontend/build/junit.xml
@@ -44,15 +44,14 @@ jobs:
       - name: Download test results
         uses: actions/download-artifact@v8.0.1
         with:
-          path: testResults
-          pattern: "**/junit.xml"
+          pattern: "testResultsArtifact_*"
       - name: Display all downloaded files
         run: ls -R
       - name: Publish test results
         uses: EnricoMi/publish-unit-test-result-action@v2.23.0
         if: (!cancelled())
         with:
-          files: "testResults/**/junit.xml"
+          files: "testResultsArtifact_*/**/junit.xml"
           comment_mode: off
           check_run: true
           ignore_runs: true
