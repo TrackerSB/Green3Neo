@@ -4,7 +4,7 @@ on:
     branches:
       - main
 jobs:
-  Test-All:
+  Test-Backend:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -17,6 +17,24 @@ jobs:
           echo "BUILD_DB_PROTOCOL=${{ matrix.db-protocol }}" >> $GITHUB_ENV
           echo "DATABASE_URL=${{ matrix.db-protocol }}://$BUILD_DB_USER:$BUILD_DB_PASSWORD@$BUILD_DB_HOST:$BUILD_DB_PORT/$BUILD_DB_NAME" >> $GITHUB_ENV
         shell: bash
+      - uses: ./.github/actions/prepare-backend-build
+      - name: Install command line for executing tests and combining results
+        run: |
+          cargo install --locked cargo-nextest
+          dart pub global activate junitreport
+        shell: bash
+      - name: Execute tests
+        run: just backend-test
+      - name: Upload test results
+        if: (!cancelled())
+        uses: actions/upload-artifact@v7.0.0
+        with:
+          name: testResultsArtifact_backend_${{ matrix.db-protocol }}
+          path: backend/target/nextest/default/junit.xml
+  Test-Frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: TrackerSB/Green3Neo-Prepare-Action@b324414b5aa90b924f2c456a56510a5eeb0c97d2
       - uses: ./.github/actions/prepare-application-build
       - name: Install command line for executing tests and combining results
         run: |
@@ -24,18 +42,16 @@ jobs:
           dart pub global activate junitreport
         shell: bash
       - name: Execute tests
-        run: just test
+        run: just frontend-test
       - name: Upload test results
         if: (!cancelled())
         uses: actions/upload-artifact@v7.0.0
         with:
-          name: testResultsArtifact_${{ matrix.db-protocol }}
-          path: |
-            backend/target/nextest/default/junit.xml
-            frontend/build/junit.xml
+          name: testResultsArtifact_frontend
+          path: frontend/build/junit.xml
   Publish-Test-Results:
     runs-on: ubuntu-latest
-    needs: Test-All
+    needs: [Test-Backend, Test-Frontend]
     permissions:
       checks: write
       pull-requests: write
