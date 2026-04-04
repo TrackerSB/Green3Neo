@@ -11,7 +11,7 @@ jobs:
       matrix:
         db-protocol: ['postgres', 'mysql']
     steps:
-      - uses: TrackerSB/Green3Neo-Prepare-Action@main
+      - uses: TrackerSB/Green3Neo-Prepare-Action@769938d22a3c8a299fd53d55d810c81cd14f942a
       - name: Override environment variables and update dependent ones
         run: |
           echo "BUILD_DB_PROTOCOL=${{ matrix.db-protocol }}" >> $GITHUB_ENV
