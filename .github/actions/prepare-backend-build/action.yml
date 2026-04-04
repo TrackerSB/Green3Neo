@@ -12,7 +12,7 @@ runs:
       run: exit 1
       shell: bash
     - name: Install Flutter SDK
-      uses: flutter-actions/setup-flutter@v4
+      uses: flutter-actions/setup-flutter@v4.2
       with:
         channel: stable
         version: latest

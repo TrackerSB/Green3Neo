@@ -4,7 +4,7 @@ runs:
   using: "composite"
   steps:
     - name: Install just command runner
-      uses: extractions/setup-just@v2
+      uses: extractions/setup-just@v3.1.0
     - name: Setup MySQL server
       uses: mirromutth/mysql-action@v1.1
       with:
