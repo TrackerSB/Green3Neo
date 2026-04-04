@@ -101,8 +101,6 @@ frb-generate backendApiFeatures databaseApiFeatures: diesel-generate-models sepa
     mkdir -p {{ frb_database_api_output_dir }}
     flutter_rust_bridge_codegen generate --no-web --no-add-mod-to-lib --rust-features "{{ databaseApiFeatures }}" --llvm-path {{ llvmIncludeDir }} --rust-input "crate::api" --rust-root {{ database_api_dir }} --dart-output {{ frb_database_api_output_dir }} --stop-on-error
     git apply {{ patch_folder }}/frontend/interface/database_api/api/models.dart.patch
-    - git apply {{ patch_folder }}/frontend/interface/database_api/frb_generated.dart.patch
-    - git apply {{ patch_folder }}/frontend/interface/database_api/frb_generated.dart.alternative.patch
 
     mkdir -p {{ frb_sepa_api_output_dir }}
     flutter_rust_bridge_codegen generate --no-web --no-add-mod-to-lib --llvm-path {{ llvmIncludeDir }} --rust-input "crate::api" --rust-root {{ sepa_api_dir }} --dart-output {{ frb_sepa_api_output_dir }} --stop-on-error --rust-preamble "use chrono::NaiveDate;use chrono::NaiveDateTime;"
