@@ -1,15 +1,23 @@
-use database_types::connection_description::{ConnectionDescription, DatabaseBackend};
-use diesel::{Connection, MultiConnection, MysqlConnection, PgConnection};
+use database_types::connection_description::ConnectionDescription;
+use database_types::connection_description::DatabaseBackend;
+#[cfg(feature = "mysql")]
+use diesel::MysqlConnection;
+#[cfg(feature = "postgres")]
+use diesel::PgConnection;
+use diesel::{Connection, MultiConnection};
 use log::warn;
 
 #[derive(MultiConnection)]
 pub enum DbConnection {
+    #[cfg(feature = "mysql")]
     MySql(MysqlConnection),
+    #[cfg(feature = "postgres")]
     PostgreSql(PgConnection),
 }
 
 pub fn get_connection(connection: ConnectionDescription) -> Option<DbConnection> {
     match connection.backend {
+        #[cfg(feature = "postgres")]
         DatabaseBackend::PostgreSql => {
             let database_url: String = format!(
                 "postgres://{user}:{password}@{host}:{port}/{name}",
@@ -31,6 +39,7 @@ pub fn get_connection(connection: ConnectionDescription) -> Option<DbConnection>
             );
             return None;
         }
+        #[cfg(feature = "mysql")]
         DatabaseBackend::MySql => {
             let database_url: String = format!(
                 "mysql://{user}:{password}@{host}:{port}/{name}",

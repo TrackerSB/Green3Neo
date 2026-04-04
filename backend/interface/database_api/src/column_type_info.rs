@@ -87,9 +87,11 @@ mod test {
     use crate::test_database_common::IntoDieselConnection;
     use backend_testing::testing;
     use speculoos::{assert_that, option::OptionAssertions, vec::VecAssertions};
+    #[cfg(feature = "postgres")]
+    use sqlx::PgPool;
     use sqlx::any::install_default_drivers;
     use sqlx::pool::PoolConnection;
-    use sqlx::{Database, PgPool, Pool};
+    use sqlx::{Database, Pool};
 
     use super::*;
 
@@ -155,6 +157,7 @@ mod test {
         Ok(())
     }
 
+    #[cfg(feature = "postgres")]
     #[sqlx::test]
     async fn test_determine_column_type_pg(pool: PgPool) -> sqlx::Result<()> {
         test_determine_column_type(pool).await

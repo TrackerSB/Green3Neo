@@ -8,7 +8,9 @@ use flutter_rust_bridge::frb;
 
 #[frb(mirror(DatabaseBackend))]
 pub enum _DatabaseBackend {
+    #[cfg(feature="mysql")]
     MySql,
+    #[cfg(feature="postgres")]
     PostgreSql,
 }
 

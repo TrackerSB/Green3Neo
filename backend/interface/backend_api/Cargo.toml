@@ -24,3 +24,8 @@ flutter_rust_bridge = { version = "=2.11.1", features = ["chrono"] }
 log = "0.4.25"
 serde = { version = "1.0.228", features = ["derive"] }
 toml = "0.9.11"
+
+[features]
+default = []
+mysql = []
+postgres = []

@@ -94,13 +94,16 @@ mod test {
     use std::fs;
 
     use backend_testing::testing;
-    use diesel::{RunQueryDsl, pg::Pg};
+    use diesel::RunQueryDsl;
     use log::error;
     use speculoos::{assert_that, option::OptionAssertions, vec::VecAssertions};
-    use sqlx::{Database, PgPool, Pool, any::install_default_drivers, pool::PoolConnection};
+    #[cfg(feature = "postgres")]
+    use sqlx::PgPool;
+    use sqlx::{Database, Pool, any::install_default_drivers, pool::PoolConnection};
 
     use crate::{
-        column_type_info::get_all_column_info, test_database_common::IntoDieselConnection,
+        column_type_info::get_all_column_info, connection::MultiBackend,
+        test_database_common::IntoDieselConnection,
     };
 
     use super::*;
@@ -208,6 +211,7 @@ mod test {
         Ok(())
     }
 
+    #[cfg(feature = "postgres")]
     #[sqlx::test]
     async fn test_bind_column_pg(pool: PgPool) -> sqlx::Result<()> {
         test_bind_column(pool).await
@@ -256,6 +260,7 @@ mod test {
         Ok(())
     }
 
+    #[cfg(feature = "postgres")]
     #[sqlx::test]
     async fn test_bind_wrong_type_pg(pool: PgPool) -> sqlx::Result<()> {
         test_bind_wrong_type(pool).await
@@ -283,12 +288,12 @@ mod test {
             table_name, column_name
         ));
 
-        let sql_expression = bind_column_value(
+        let sql_expression: Option<BoxedSqlQuery<'_, MultiBackend, _>> = bind_column_value(
             &mut diesel_connection,
             &table_name,
             &column_name,
             value_to_bind,
-            base_sql_expression.into_boxed::<Pg>(),
+            base_sql_expression.into_boxed(),
         );
 
         assert_that!(&sql_expression.as_ref().map(|_| ()))
@@ -299,6 +304,7 @@ mod test {
         Ok(())
     }
 
+    #[cfg(feature = "postgres")]
     #[sqlx::test]
     async fn test_bind_null_to_nonnullable_column_pg(pool: PgPool) -> sqlx::Result<()> {
         test_bind_null_to_nonnullable_column(pool).await

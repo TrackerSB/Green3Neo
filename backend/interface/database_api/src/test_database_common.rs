@@ -6,6 +6,7 @@ trait GetCurrentDBName {
         Self: sqlx::Connection;
 }
 
+#[cfg(feature = "postgres")]
 impl GetCurrentDBName for sqlx::PgConnection {
     async fn get_current_db_name(&mut self) -> Option<String> {
         Some(
@@ -17,6 +18,7 @@ impl GetCurrentDBName for sqlx::PgConnection {
     }
 }
 
+#[cfg(feature = "mysql")]
 impl GetCurrentDBName for sqlx::MySqlConnection {
     async fn get_current_db_name(&mut self) -> Option<String> {
         todo!("Not implemented")
@@ -41,6 +43,7 @@ pub trait IntoDieselConnection {
     async fn into_diesel_connection(self) -> DbConnection;
 }
 
+#[cfg(feature = "postgres")]
 impl IntoDieselConnection for sqlx::pool::PoolConnection<sqlx::Postgres> {
     async fn into_diesel_connection(mut self) -> DbConnection {
         use diesel::Connection;
@@ -53,6 +56,7 @@ impl IntoDieselConnection for sqlx::pool::PoolConnection<sqlx::Postgres> {
     }
 }
 
+#[cfg(feature = "mysql")]
 impl IntoDieselConnection for sqlx::pool::PoolConnection<sqlx::MySql> {
     async fn into_diesel_connection(mut self) -> DbConnection {
         use diesel::Connection;

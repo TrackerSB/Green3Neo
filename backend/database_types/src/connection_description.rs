@@ -2,7 +2,9 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Serialize, Deserialize)]
 pub enum DatabaseBackend {
+    #[cfg(feature = "mysql")]
     MySql,
+    #[cfg(feature = "postgres")]
     PostgreSql,
 }
 

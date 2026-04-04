@@ -14,7 +14,9 @@ pub use sepa_types::name::Name;
 // FIXME These definitions are duplicates and collide with the definitions in database_api and sepa_api
 #[frb(mirror(DatabaseBackend))]
 pub enum _DatabaseBackend {
+    #[cfg(feature = "mysql")]
     MySql,
+    #[cfg(feature = "postgres")]
     PostgreSql,
 }
 
