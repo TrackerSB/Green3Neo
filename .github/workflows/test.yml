@@ -72,3 +72,4 @@ jobs:
           check_run: true
           ignore_runs: true
           job_summary: true
+          check_run_annotations: all tests, skipped tests
