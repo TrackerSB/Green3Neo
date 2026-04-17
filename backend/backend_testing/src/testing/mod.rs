@@ -5,6 +5,7 @@ use std::{
 };
 
 use backend_logging::logging::create_logger;
+use dotenvy::dotenv;
 use flexi_logger::{LoggerHandle, writers::LogWriter};
 use log::{info, warn};
 use speculoos::assert_that;
@@ -31,7 +32,15 @@ fn get_message_entry_lock() -> Arc<RwLock<Vec<String>>> {
         LoggerHandle,
         Arc<RwLock<HashMap<String, Arc<RwLock<Vec<String>>>>>>,
     )> = LazyLock::new(|| {
-        let test_case_name = std::env::var("NEXTEST_TEST_NAME").unwrap();
+        let default_test_name = String::from("no_nextest_test_name");
+        let test_case_name = std::env::var("NEXTEST_TEST_NAME")
+            .inspect_err(|err| {
+                warn!(
+                    "Could not determine nextest test name due '{}'. Defaulting to {}",
+                    err, default_test_name
+                )
+            })
+            .unwrap_or(default_test_name);
         let log_basename = format!("log_{}", test_case_name.replace("::", "_"));
 
         (
@@ -49,6 +58,9 @@ fn get_message_entry_lock() -> Arc<RwLock<Vec<String>>> {
 }
 
 pub fn setup_test() {
+    // Load environment variables of .env file without overriding already set variables (e.g. set by Github actions)
+    dotenv().expect("Could not load environment variables");
+
     let unlocked_message_entry = get_message_entry_lock();
     let mut locked_message_entry = unlocked_message_entry.write().unwrap();
     locked_message_entry.clear();

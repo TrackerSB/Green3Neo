@@ -6,8 +6,17 @@ on:
 jobs:
   Build-All:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        db-protocol: ['postgres', 'mysql']
     steps:
-      - uses: TrackerSB/Green3Neo-Prepare-Action@main
+      - uses: TrackerSB/Green3Neo-Prepare-Action@b324414b5aa90b924f2c456a56510a5eeb0c97d2
+      - name: Override environment variables and update dependent ones
+        run: |
+          echo "BUILD_DB_PROTOCOL=${{ matrix.db-protocol }}" >> $GITHUB_ENV
+          echo "DATABASE_URL=${{ matrix.db-protocol }}://$BUILD_DB_USER:$BUILD_DB_PASSWORD@$BUILD_DB_HOST:$BUILD_DB_PORT/$BUILD_DB_NAME" >> $GITHUB_ENV
+        shell: bash
       - uses: ./.github/actions/prepare-application-build
       - name: Execute full build
         run: just build

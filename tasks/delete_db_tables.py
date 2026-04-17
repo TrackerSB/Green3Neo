@@ -1,9 +1,9 @@
-from psycopg2._psycopg import connection
 from task_lib import db_connection
 from typing import List
+import sys
 
 
-def _get_existing_tables(connection: connection) -> List[str]:
+def _get_existing_tables(connection: db_connection.DbConnection) -> List[str]:
     existing_tables = db_connection.execute_query(
         connection,
         """
@@ -17,7 +17,7 @@ def _get_existing_tables(connection: connection) -> List[str]:
     return [record[0] for record in existing_tables]
 
 
-def _delete_tables(connection: connection) -> None:
+def _delete_tables(connection: db_connection.DbConnection) -> None:
     existing_tables = _get_existing_tables(connection)
 
     for table_name in existing_tables:
@@ -34,6 +34,7 @@ def _main() -> None:
         _delete_tables(connection)
     except Exception as ex:
         print(f"Deletion of database tables failed: {ex}")
+        sys.exit(1)
     finally:
         connection.close()
 

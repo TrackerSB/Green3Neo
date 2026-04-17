@@ -1,5 +1,9 @@
 set dotenv-load := true
 set dotenv-required := true
+# Load environment variables if none loaded but do not override variables e.g. set by Github actions
+set dotenv-override := false
+
+set shell := ["bash", "-euo", "pipefail", "-c"]
 
 # FIXME Make workspace folder absolute (maybe using git to find git root?)
 workspace_dir := "."
@@ -40,6 +44,10 @@ venv_python := tasks_venv_folder + "/bin/python"
 # Path to patches
 patch_folder := workspace_dir + "/patches"
 
+# All API features
+all_backend_api_features := "mysql, postgres"
+all_database_api_features := "mysql, postgres"
+
 default:
     @just --list
 
@@ -72,6 +80,8 @@ diesel-setup:
 diesel-generate-schema: diesel-setup
     cd {{ database_api_dir }} && diesel print-schema > src/schema.rs
 
+# FIXME Verify whether exactly one of the alternative patches was applied
+# FIXME Apply formatting stabilizing which patch works
 diesel-generate-models: diesel-generate-schema
     cd {{ database_api_dir }} && diesel_ext --model --import-types diesel::Queryable --import-types diesel::Selectable --import-types diesel::Identifiable --import-types backend_macros::make_fields_non_final --import-types flutter_rust_bridge::frb --import-types crate::schema::* --derive Queryable,Selectable --add-table-name > src/api/models.rs
     git apply {{ patch_folder }}/backend/interface/database_api/api/models.rs.patch
@@ -82,37 +92,42 @@ sepa-generate-schemas:
 
 # FIXME Verify that FRB versions in Cargo.toml, pubspec.yaml and the installed FRB codegen (locally and in Github
 # Actions) correspond to each other
-frb-generate: diesel-generate-models sepa-generate-schemas
+# FIXME Verify whether exactly one of the alternative patches was applied
+# FIXME Apply formatting stabilizing which patch works
+frb-generate backendApiFeatures databaseApiFeatures: diesel-generate-models sepa-generate-schemas
     mkdir -p {{ frb_backend_api_output_dir }}
-    flutter_rust_bridge_codegen generate --no-web --no-add-mod-to-lib --llvm-path {{ llvmIncludeDir }} --rust-input "crate::api" --rust-root {{ backend_api_dir }} --dart-output {{ frb_backend_api_output_dir }} --stop-on-error
+    flutter_rust_bridge_codegen generate --no-web --no-add-mod-to-lib --rust-features "{{ backendApiFeatures }}" --llvm-path {{ llvmIncludeDir }} --rust-input "crate::api" --rust-root {{ backend_api_dir }} --dart-output {{ frb_backend_api_output_dir }} --stop-on-error
 
     mkdir -p {{ frb_database_api_output_dir }}
-    flutter_rust_bridge_codegen generate --no-web --no-add-mod-to-lib --llvm-path {{ llvmIncludeDir }} --rust-input "crate::api" --rust-root {{ database_api_dir }} --dart-output {{ frb_database_api_output_dir }} --stop-on-error
+    flutter_rust_bridge_codegen generate --no-web --no-add-mod-to-lib --rust-features "{{ databaseApiFeatures }}" --llvm-path {{ llvmIncludeDir }} --rust-input "crate::api" --rust-root {{ database_api_dir }} --dart-output {{ frb_database_api_output_dir }} --stop-on-error
     git apply {{ patch_folder }}/frontend/interface/database_api/api/models.dart.patch
-    - git apply {{ patch_folder }}/frontend/interface/database_api/frb_generated.dart.patch
-    - git apply {{ patch_folder }}/frontend/interface/database_api/frb_generated.dart.alternative.patch
 
     mkdir -p {{ frb_sepa_api_output_dir }}
     flutter_rust_bridge_codegen generate --no-web --no-add-mod-to-lib --llvm-path {{ llvmIncludeDir }} --rust-input "crate::api" --rust-root {{ sepa_api_dir }} --dart-output {{ frb_sepa_api_output_dir }} --stop-on-error --rust-preamble "use chrono::NaiveDate;use chrono::NaiveDateTime;"
 
-backend-api-build: frb-generate
-    cd {{ backend_dir }} && cargo build --release -p backend_api -p database_api -p sepa_api
+backend-api-build backendApiFeatures databaseApiFeatures:
+    just frb-generate "{{ backendApiFeatures }}" "{{ databaseApiFeatures }}"
+    cd {{ backend_dir }} && cargo build --release -p backend_api -p database_api -p sepa_api --features "{{ backendApiFeatures }} {{ databaseApiFeatures }}"
 
-frontend-generate-reflectable: frb-generate
+backend-build:
+    just backend-api-build "{{ all_backend_api_features }}" "{{ all_database_api_features }}"
+
+frontend-generate-reflectable: backend-build
     cd {{ frontend_dir }} && dart run build_runner build --delete-conflicting-outputs
 
 frontend-build: frontend-generate-reflectable
     cd {{ frontend_dir }} && flutter build linux
 
-build: backend-api-build frontend-build
+build: backend-build frontend-build
 
 run: build
     cd {{ frontend_dir }} && flutter run
 
 rebuild: clean build
 
-backend-test: frb-generate
-    cd {{ backend_dir }} && cargo nextest run --config-file .nextest.toml
+backend-test:
+    just backend-api-build "$BUILD_DB_PROTOCOL" "$BUILD_DB_PROTOCOL"
+    cd {{ backend_dir }} && cargo nextest run --config-file .nextest.toml --no-default-features --features "$BUILD_DB_PROTOCOL"
 
 frontend-test: build
     cd {{ frontend_dir }} && flutter test --machine | tojunit > build/junit.xml

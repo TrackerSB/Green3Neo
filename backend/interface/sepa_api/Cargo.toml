@@ -24,4 +24,4 @@ flexi_logger = { version = "0.29.8", features = [
     "specfile",
 ] }
 flutter_rust_bridge = { version = "=2.11.1", features = ["chrono"] }
-xsd-parser-types = { version = "^0.1.2", features = ["quick-xml"] }
+xsd-parser-types = { version = "=0.1.2", features = ["quick-xml"] }

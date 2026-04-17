@@ -32,14 +32,14 @@ Future<String> _generateSepaContent(
   final transactions = member.map(
     (final Member m) {
       final mandate = Mandate(
-        id: MandateID(value: m.membershipid.toString()),
+        id: MandateID(value: m.membershipId.toString()),
         // FIXME Use correct date of signature
         dateOfSignatureUtc: DateTime.utc(2023, 5, 1),
       );
       final debitor = Debitor(
         name: Name(
             value:
-                "${m.accountholderprename ?? m.prename} ${m.accountholdersurname ?? m.surname}"),
+                "${m.accountholderPrename ?? m.prename} ${m.accountholderSurname ?? m.surname}"),
         iban: IBAN(value: m.iban),
         mandate: mandate,
       );

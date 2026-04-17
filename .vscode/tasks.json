@@ -27,7 +27,7 @@
             "args": [
                 "-c",
                 // When calling justfile via VSCode tasks .env seems not to be loaded automatically
-                "source .env && just backend-build"
+                "source .env && just frb-generate"
             ],
             "group": {
                 "kind": "build",

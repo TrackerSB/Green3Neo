@@ -4,11 +4,12 @@ runs:
   using: "composite"
   steps:
     - name: Install just command runner
-      uses: extractions/setup-just@v2
+      uses: extractions/setup-just@v3.1.0
     - name: Setup PostgreSQL server
-      uses: Daniel-Marynicz/postgresql-action@master
+      uses: Daniel-Marynicz/postgresql-action@2.0.0
       with:
         postgres_db:  ${{ env.BUILD_DB_NAME }}
+        # There seems no way of specifying a port
         postgres_user: ${{ env.BUILD_DB_USER }}
         postgres_password: ${{ env.BUILD_DB_PASSWORD }}
     - name: Create empty DB tables

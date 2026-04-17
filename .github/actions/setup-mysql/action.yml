@@ -1,0 +1,37 @@
+name: Setup MySQL
+description: Set up and start a MySQL server based on the environment variables given in the repository
+runs:
+  using: "composite"
+  steps:
+    - name: Install just command runner
+      uses: extractions/setup-just@v3.1.0
+    - name: Setup MySQL server
+      uses: mirromutth/mysql-action@v1.1
+      with:
+        mysql database:  ${{ env.BUILD_DB_NAME }}
+        host port: ${{ env.BUILD_DB_PORT }}
+        mysql user: ${{ env.BUILD_DB_USER }}
+        mysql password: ${{ env.BUILD_DB_PASSWORD }}
+    - name: Wait for MySQL
+      run: |
+        success=false
+        for i in {1..20}; do
+          # NOTE 2026-04-02 Unix sockets are not supported due to Docker container
+          if mysqladmin ping \
+            --protocol=TCP \
+            -h ${{ env.BUILD_DB_HOST }} \
+            -P ${{ env.BUILD_DB_PORT }} \
+            -u ${{ env.BUILD_DB_USER }} \
+            -p${{ env.BUILD_DB_PASSWORD }}; then
+            success=true
+            break
+          fi
+          sleep 1
+        done
+        if [ "$success" != "true" ]; then
+          exit 1
+        fi
+      shell: bash
+    - name: Create empty DB tables
+      run: just database-create-tables
+      shell: bash
