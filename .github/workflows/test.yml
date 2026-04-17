@@ -105,5 +105,5 @@ jobs:
         uses: andymckay/append-gist-action@0.3
         with:
           token: ${{ secrets.GIST_TOKEN }}
-          gistURL: https://gist.githubusercontent.com/{user}/{id}
+          gistURL: https://gist.githubusercontent.com/TrackerSB/4efe24e16b30d0132bbb1f3fb618f86c
           file: testResultsBadge.svg
