@@ -75,3 +75,34 @@ jobs:
           check_run_annotations: all tests, skipped tests
           action_fail: true
           action_fail_on_inconclusive: true
+      - name: Set test results badge color
+        shell: bash
+        run: |
+          case ${{ fromJSON( steps.test-results.outputs.json ).conclusion }} in
+            success)
+              echo "TESTRESULT_BADGE_COLOR=31c653" >> $GITHUB_ENV
+              ;;
+            failure)
+              echo "TESTRESULT_BADGE_COLOR=800000" >> $GITHUB_ENV
+              ;;
+            neutral)
+              echo "TESTRESULT_BADGE_COLOR=696969" >> $GITHUB_ENV
+              ;;
+          esac
+      - name: Create test results badge
+        uses: emibcn/badge-action@v2.0.4
+        with:
+          label: tests
+          status: '${{ fromJSON( steps.test-results.outputs.json ).formatted.stats.tests }} tests, ${{ fromJSON( steps.test-results.outputs.json ).formatted.stats.runs }} runs: ${{ fromJSON( steps.test-results.outputs.json ).conclusion }}'
+          color: ${{ env.TESTRESULT_BADGE_COLOR }}
+          path: testResultsBadge.svg
+      - name: Upload test results badge to Gist
+        # Upload only for master branch
+        if: >
+          github.event_name == 'workflow_run' && github.event.workflow_run.head_branch == 'master' ||
+          github.event_name != 'workflow_run' && github.ref == 'refs/heads/master'
+        uses: andymckay/append-gist-action@0.3
+        with:
+          token: ${{ secrets.GIST_TOKEN }}
+          gistURL: https://gist.githubusercontent.com/{user}/{id}
+          file: testResultsBadge.svg
