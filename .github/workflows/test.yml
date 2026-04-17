@@ -71,5 +71,7 @@ jobs:
           comment_mode: off
           check_run: true
           ignore_runs: true
-          job_summary: true
+          job_summary: false
           check_run_annotations: all tests, skipped tests
+          action_fail: true
+          action_fail_on_inconclusive: true
