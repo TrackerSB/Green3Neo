@@ -22,6 +22,8 @@
         // Just
         "kokakiwi.vscode-just",
         "TobiasHochguertel.just-formatter",
+        // Testing
+        "hbenl.vscode-test-explorer",
         // XML
         "redhat.vscode-xml"
     ]
