@@ -15,6 +15,7 @@
         "inferrinizzard.prettier-sql-vscode",
         // Python
         "ms-python.python",
+        "ms-python.black-formatter",
         // Rust
         "rust-lang.rust-analyzer",
         "vadimcn.vscode-lldb",
