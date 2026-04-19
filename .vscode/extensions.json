@@ -25,6 +25,8 @@
         // Testing
         "hbenl.vscode-test-explorer",
         // XML
-        "redhat.vscode-xml"
+        "redhat.vscode-xml",
+        // YAML
+        "redhat.vscode-yaml"
     ]
 }
