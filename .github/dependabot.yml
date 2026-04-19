@@ -1,0 +1,12 @@
+version: 2
+multi-ecosystem-groups:
+  infrastructure:
+    schedule:
+      interval: "monthly"
+updates:
+  - package-ecosystem: "cargo"
+    directory: "/backend"
+    multi-ecosystem-group: "infrastructure"
+  - package-ecosystem: "pub"
+    directory: "/frontend"
+    multi-ecosystem-group: "infrastructure"
