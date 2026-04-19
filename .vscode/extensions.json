@@ -10,9 +10,8 @@
         "github.vscode-github-actions",
         // Toml
         "tamasfe.even-better-toml",
-        // PostgreSQL
-        "ms-ossdata.vscode-pgsql",
         // SQL
+        "cweijan.vscode-mysql-client2",
         "inferrinizzard.prettier-sql-vscode",
         // Python
         "ms-python.python",
