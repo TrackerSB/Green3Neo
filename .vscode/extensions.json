@@ -6,6 +6,8 @@
         "Dart-Code.dart-code",
         // Flutter
         "Dart-Code.flutter",
+        // GitHub Actions
+        "github.vscode-github-actions",
         // Toml
         "tamasfe.even-better-toml",
         // PostgreSQL
