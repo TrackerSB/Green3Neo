@@ -9,6 +9,13 @@ pub enum DatabaseBackend {
 }
 
 #[derive(Debug, Serialize, Deserialize)]
+pub struct SshTunnelDescription {
+    pub username: String,
+    pub password: String,
+    pub local_port: u16,
+}
+
+#[derive(Debug, Serialize, Deserialize)]
 pub struct ConnectionDescription {
     pub backend: DatabaseBackend,
     pub host: String,
@@ -16,4 +23,5 @@ pub struct ConnectionDescription {
     pub user: String,
     pub password: String,
     pub name: String,
+    pub ssh_tunnel: Option<SshTunnelDescription>,
 }
