@@ -29,7 +29,7 @@ impl client::Handler for SshClient {
 
 pub enum DbConnection {
     OrmBased(OrmConnection),
-    SshBased(Channel<Msg>),
+    SshBased(SshConnection),
 }
 
 #[derive(MultiConnection)]
@@ -38,6 +38,49 @@ pub enum OrmConnection {
     MySql(MysqlConnection),
     #[cfg(feature = "postgres")]
     PostgreSql(PgConnection),
+}
+
+pub struct SshConnection {
+    pub channel: Channel<Msg>,
+    // FIXME Type of shell required?
+    pub base_sql_command: String,
+}
+
+impl SshConnection {
+    pub fn execute_sql(self, _sql_query: String) {
+        todo!();
+
+        // match command_result {
+        //     Ok(_) => info!("Succeeded"),
+        //     Err(error) => error!("{}", error),
+        // }
+        // let mut code = None;
+        // let mut stdout_reader = stdout();
+        // loop {
+        //     let Some(message) = channel.wait().await else {
+        //         break;
+        //     };
+        //     match message {
+        //         ChannelMsg::Data { data } => {
+        //             let write_result = stdout_reader.write_all(&data);
+        //             match write_result {
+        //                 Ok(_) => {}
+        //                 Err(error) => error!("Could not collect stdout of command due '{}'", error),
+        //             }
+        //         }
+        //         ChannelMsg::ExitStatus { exit_status } => {
+        //             code = Some(exit_status);
+        //         }
+        //         _ => {}
+        //     }
+        // }
+        // info!("exitCode: '{:?}'", code);
+        // let close_result = channel.close().await;
+        // match close_result {
+        //     Ok(_) => info!("Closed"),
+        //     Err(error) => error!("{}", error),
+        // }
+    }
 }
 
 async fn create_ssh_client(host: &str, port: u16) -> Option<client::Handle<SshClient>> {
@@ -115,8 +158,23 @@ pub async fn get_connection(connection: ConnectionDescription) -> Option<DbConne
         let ssh_client = opt_ssh_client.unwrap();
         let opt_channel = ssh_client.channel_open_session().await;
 
+        let base_sql_command = match connection.backend {
+            DatabaseBackend::PostgreSql => todo!(),
+            // FIXME What about mariadb?
+            DatabaseBackend::MySql => format!(
+                "mysql -h {host} -P {port}, -u {user}, -p={password}",
+                host = db_host,
+                port = db_port,
+                user = connection.user,
+                password = connection.password
+            ),
+        };
+
         return match opt_channel {
-            Ok(channel) => Some(DbConnection::SshBased(channel)),
+            Ok(channel) => Some(DbConnection::SshBased(SshConnection {
+                channel,
+                base_sql_command,
+            })),
             Err(error) => {
                 error!("Could not create SSH session due '{}'", error);
                 return None;
