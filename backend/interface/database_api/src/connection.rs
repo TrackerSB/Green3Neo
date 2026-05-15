@@ -198,8 +198,10 @@ pub async fn get_connection(connection: ConnectionDescription) -> Option<DbConne
         let opt_channel = ssh_client.channel_open_session().await;
 
         let sql_login_command = match connection.backend {
+            #[cfg(feature = "postgres")]
             DatabaseBackend::PostgreSql => todo!(),
             // FIXME What about mariadb?
+            #[cfg(feature = "mysql")]
             DatabaseBackend::MySql => format!(
                 "mysql -N -B {database} -h {host} -P {port} -u {user} -p",
                 host = db_host,
