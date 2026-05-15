@@ -86,7 +86,6 @@ async fn start_ssh_session(
     }
 
     let mut ssh_session = ssh_session_result.unwrap();
-    assert!(!ssh_session.is_closed());
 
     if !authenticate_ssh_session(
         &mut ssh_session,
@@ -115,7 +114,6 @@ pub async fn get_connection(connection: ConnectionDescription) -> Option<DbConne
         }
 
         let ssh_session = opt_ssh_session.unwrap();
-        assert!(!ssh_session.is_closed());
 
         return Some(DbConnection::SshBased(ssh_session));
     }
