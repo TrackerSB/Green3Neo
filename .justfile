@@ -44,7 +44,7 @@ venv_python := tasks_venv_folder + "/bin/python"
 # Path to patches
 patch_folder := workspace_dir + "/patches"
 
-# All API features
+# All API features (build variants)
 all_backend_api_features := "mysql, postgres"
 all_database_api_features := "mysql, postgres"
 
