@@ -1,3 +1,7 @@
+use database_types::connection_description::SshTunnelDescription;
+use russh::client::Handle;
+use std::sync::Arc;
+
 use database_types::connection_description::ConnectionDescription;
 use database_types::connection_description::DatabaseBackend;
 #[cfg(feature = "mysql")]
@@ -6,6 +10,26 @@ use diesel::MysqlConnection;
 use diesel::PgConnection;
 use diesel::{Connection, MultiConnection};
 use log::error;
+use russh::client;
+
+pub struct SshClient {}
+
+impl client::Handler for SshClient {
+    type Error = russh::Error;
+
+    async fn check_server_key(
+        &mut self,
+        _server_public_key: &russh::keys::ssh_key::PublicKey,
+    ) -> Result<bool, Self::Error> {
+        // FIXME Do not accept all SSH servers
+        Ok(true)
+    }
+}
+
+pub enum DbConnection {
+    OrmBased(OrmConnection),
+    SshBased(Handle<SshClient>),
+}
 
 #[derive(MultiConnection)]
 pub enum OrmConnection {
@@ -15,7 +39,87 @@ pub enum OrmConnection {
     PostgreSql(PgConnection),
 }
 
-pub fn get_connection(connection: ConnectionDescription) -> Option<OrmConnection> {
+async fn create_ssh_session(host: &str, port: u16) -> Option<client::Handle<SshClient>> {
+    let config = client::Config {
+        nodelay: true,
+        ..Default::default()
+    };
+
+    let arc_config = Arc::new(config);
+
+    let ssh_client = SshClient {};
+
+    let connection_result = client::connect(arc_config, (host, port), ssh_client).await;
+
+    match connection_result {
+        Ok(ssh_session) => Some(ssh_session),
+        Err(error) => {
+            error!("Could not create SSH session due '{}'", error);
+            None
+        }
+    }
+}
+
+async fn authenticate_ssh_session(
+    ssh_session: &mut client::Handle<SshClient>,
+    username: &str,
+    password: &str,
+) -> bool {
+    let authentication_result = ssh_session.authenticate_password(username, password).await;
+
+    match authentication_result {
+        Ok(authentication) => authentication.success(),
+        Err(error) => {
+            error!("SSH authentication failed due '{}'", error);
+            false
+        }
+    }
+}
+
+async fn start_ssh_session(
+    description: &SshTunnelDescription,
+) -> Option<client::Handle<SshClient>> {
+    let ssh_session_result = create_ssh_session(&description.host, description.port).await;
+
+    if ssh_session_result.is_none() {
+        return None;
+    }
+
+    let mut ssh_session = ssh_session_result.unwrap();
+    assert!(!ssh_session.is_closed());
+
+    if !authenticate_ssh_session(
+        &mut ssh_session,
+        &description.username,
+        &description.password,
+    )
+    .await
+    {
+        return None;
+    }
+
+    return Some(ssh_session);
+}
+
+pub async fn get_connection(connection: ConnectionDescription) -> Option<DbConnection> {
+    let db_host = connection.host;
+    let db_port = connection.port;
+
+    if connection.ssh_tunnel.is_some() {
+        let ssh_tunnel_description = connection.ssh_tunnel.unwrap();
+
+        let opt_ssh_session = start_ssh_session(&ssh_tunnel_description).await;
+
+        if opt_ssh_session.is_none() {
+            return None;
+        }
+
+        let ssh_session = opt_ssh_session.unwrap();
+        assert!(!ssh_session.is_closed());
+
+        return Some(DbConnection::SshBased(ssh_session));
+    }
+
     match connection.backend {
         #[cfg(feature = "postgres")]
         DatabaseBackend::PostgreSql => {
@@ -23,14 +127,16 @@ pub fn get_connection(connection: ConnectionDescription) -> Option<OrmConnection
                 "postgres://{user}:{password}@{host}:{port}/{name}",
                 user = connection.user,
                 password = connection.password,
-                host = connection.host,
-                port = connection.port,
+                host = db_host,
+                port = db_port,
                 name = connection.name
             );
             let connection = PgConnection::establish(&database_url);
 
             if connection.is_ok() {
-                return Some(OrmConnection::PostgreSql(connection.unwrap()));
+                return Some(DbConnection::OrmBased(OrmConnection::PostgreSql(
+                    connection.unwrap(),
+                )));
             }
 
             error!(
@@ -46,14 +152,16 @@ pub fn get_connection(connection: ConnectionDescription) -> Option<OrmConnection
                 "mysql://{user}:{password}@{host}:{port}/{name}",
                 user = connection.user,
                 password = connection.password,
-                host = connection.host,
-                port = connection.port,
+                host = db_host,
+                port = db_port,
                 name = connection.name
             );
             let connection = MysqlConnection::establish(&database_url);
 
             if connection.is_ok() {
-                return Some(OrmConnection::MySql(connection.unwrap()));
+                return Some(DbConnection::OrmBased(OrmConnection::MySql(
+                    connection.unwrap(),
+                )));
             }
 
             error!(

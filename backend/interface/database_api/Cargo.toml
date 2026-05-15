@@ -27,6 +27,8 @@ flexi_logger = { version = "0.29.8", features = [
 ] }
 flutter_rust_bridge = { version = "=2.11.1", features = ["chrono"] }
 log = "0.4.25"
+russh = "0.60.2"
+tokio = "1.52.1"
 
 [features]
 default = []
