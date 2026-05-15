@@ -1,5 +1,6 @@
 use database_types::connection_description::SshTunnelDescription;
-use russh::client::Handle;
+use russh::Channel;
+use russh::client::Msg;
 use std::sync::Arc;
 
 use database_types::connection_description::ConnectionDescription;
@@ -12,7 +13,7 @@ use diesel::{Connection, MultiConnection};
 use log::error;
 use russh::client;
 
-pub struct SshClient {}
+struct SshClient {}
 
 impl client::Handler for SshClient {
     type Error = russh::Error;
@@ -28,7 +29,7 @@ impl client::Handler for SshClient {
 
 pub enum DbConnection {
     OrmBased(OrmConnection),
-    SshBased(Handle<SshClient>),
+    SshBased(Channel<Msg>),
 }
 
 #[derive(MultiConnection)]
@@ -76,9 +77,7 @@ async fn authenticate_ssh_client(
     }
 }
 
-async fn setup_ssh_client(
-    description: &SshTunnelDescription,
-) -> Option<client::Handle<SshClient>> {
+async fn setup_ssh_client(description: &SshTunnelDescription) -> Option<client::Handle<SshClient>> {
     let ssh_session_result = create_ssh_client(&description.host, description.port).await;
 
     if ssh_session_result.is_none() {
@@ -114,8 +113,15 @@ pub async fn get_connection(connection: ConnectionDescription) -> Option<DbConne
         }
 
         let ssh_client = opt_ssh_client.unwrap();
+        let opt_channel = ssh_client.channel_open_session().await;
 
-        return Some(DbConnection::SshBased(ssh_client));
+        return match opt_channel {
+            Ok(channel) => Some(DbConnection::SshBased(channel)),
+            Err(error) => {
+                error!("Could not create SSH session due '{}'", error);
+                return None;
+            }
+        };
     }
 
     match connection.backend {
