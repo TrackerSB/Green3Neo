@@ -39,7 +39,7 @@ pub enum OrmConnection {
     PostgreSql(PgConnection),
 }
 
-async fn create_ssh_session(host: &str, port: u16) -> Option<client::Handle<SshClient>> {
+async fn create_ssh_client(host: &str, port: u16) -> Option<client::Handle<SshClient>> {
     let config = client::Config {
         nodelay: true,
         ..Default::default()
@@ -60,7 +60,7 @@ async fn create_ssh_session(host: &str, port: u16) -> Option<client::Handle<SshC
     }
 }
 
-async fn authenticate_ssh_session(
+async fn authenticate_ssh_client(
     ssh_session: &mut client::Handle<SshClient>,
     username: &str,
     password: &str,
@@ -76,10 +76,10 @@ async fn authenticate_ssh_session(
     }
 }
 
-async fn start_ssh_session(
+async fn setup_ssh_client(
     description: &SshTunnelDescription,
 ) -> Option<client::Handle<SshClient>> {
-    let ssh_session_result = create_ssh_session(&description.host, description.port).await;
+    let ssh_session_result = create_ssh_client(&description.host, description.port).await;
 
     if ssh_session_result.is_none() {
         return None;
@@ -87,7 +87,7 @@ async fn start_ssh_session(
 
     let mut ssh_session = ssh_session_result.unwrap();
 
-    if !authenticate_ssh_session(
+    if !authenticate_ssh_client(
         &mut ssh_session,
         &description.username,
         &description.password,
@@ -107,15 +107,15 @@ pub async fn get_connection(connection: ConnectionDescription) -> Option<DbConne
     if connection.ssh_tunnel.is_some() {
         let ssh_tunnel_description = connection.ssh_tunnel.unwrap();
 
-        let opt_ssh_session = start_ssh_session(&ssh_tunnel_description).await;
+        let opt_ssh_client = setup_ssh_client(&ssh_tunnel_description).await;
 
-        if opt_ssh_session.is_none() {
+        if opt_ssh_client.is_none() {
             return None;
         }
 
-        let ssh_session = opt_ssh_session.unwrap();
+        let ssh_client = opt_ssh_client.unwrap();
 
-        return Some(DbConnection::SshBased(ssh_session));
+        return Some(DbConnection::SshBased(ssh_client));
     }
 
     match connection.backend {
