@@ -80,6 +80,17 @@ class LoadedProfileFeature implements Feature {
         final backend_api.ConnectionDescription? mirroredConnection =
             profile.connection;
 
+        final backend_api.SshTunnelDescription? mirroredSshTunnel =
+            (mirroredConnection == null) ? null : mirroredConnection.sshTunnel;
+
+        final SshTunnelDescription? sshTunnel = (mirroredSshTunnel == null)
+            ? null
+            : SshTunnelDescription(
+                username: mirroredSshTunnel.username,
+                password: mirroredSshTunnel.password,
+                host: mirroredSshTunnel.host,
+                port: mirroredSshTunnel.port);
+
         final ConnectionDescription? connection = (mirroredConnection == null)
             ? null
             : ConnectionDescription(
@@ -90,7 +101,7 @@ class LoadedProfileFeature implements Feature {
                 user: mirroredConnection.user,
                 password: mirroredConnection.password,
                 name: mirroredConnection.name,
-              );
+                sshTunnel: sshTunnel);
 
         return LoadedProfile._create(
           creditor: creditor,
