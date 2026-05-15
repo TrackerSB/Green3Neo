@@ -5,7 +5,7 @@ use diesel::MysqlConnection;
 #[cfg(feature = "postgres")]
 use diesel::PgConnection;
 use diesel::{Connection, MultiConnection};
-use log::warn;
+use log::error;
 
 #[derive(MultiConnection)]
 pub enum OrmConnection {
@@ -33,8 +33,9 @@ pub fn get_connection(connection: ConnectionDescription) -> Option<OrmConnection
                 return Some(OrmConnection::PostgreSql(connection.unwrap()));
             }
 
-            warn!(
-                "Connecting to database failed due '{}'",
+            error!(
+                "Connecting to database via '{}' failed due '{}'",
+                database_url,
                 connection.err().unwrap()
             );
             return None;
@@ -55,8 +56,9 @@ pub fn get_connection(connection: ConnectionDescription) -> Option<OrmConnection
                 return Some(OrmConnection::MySql(connection.unwrap()));
             }
 
-            warn!(
-                "Connecting to database failed due '{}'",
+            error!(
+                "Connecting to database via '{}' failed due '{}'",
+                database_url,
                 connection.err().unwrap()
             );
             return None;
