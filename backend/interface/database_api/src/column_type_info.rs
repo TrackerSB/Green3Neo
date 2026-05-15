@@ -6,7 +6,7 @@ use diesel::{
     sql_types::{Text, Varchar},
 };
 
-use crate::connection::DbConnection;
+use crate::connection::OrmConnection;
 
 #[derive(Clone, Debug)]
 pub struct ColumnTypeInfo {
@@ -50,7 +50,7 @@ fn convert_to_column_info(
 }
 
 pub fn get_column_info(
-    connection: &mut DbConnection,
+    connection: &mut OrmConnection,
     table_name: &str,
     column_name: &str,
 ) -> Option<ColumnTypeInfo> {
@@ -68,7 +68,7 @@ pub fn get_column_info(
         .cloned()
 }
 
-pub fn get_all_column_info(connection: &mut DbConnection, table_name: &str) -> Vec<ColumnTypeInfo> {
+pub fn get_all_column_info(connection: &mut OrmConnection, table_name: &str) -> Vec<ColumnTypeInfo> {
     let column_info_result = diesel::sql_query(
         "SELECT column_name, data_type, udt_name, is_nullable \
             FROM information_schema.columns \
@@ -95,7 +95,7 @@ mod test {
 
     use super::*;
 
-    async fn setup_test<DB>(sqlx_pool: Pool<DB>) -> DbConnection
+    async fn setup_test<DB>(sqlx_pool: Pool<DB>) -> OrmConnection
     where
         DB: Database,
         PoolConnection<DB>: IntoDieselConnection,

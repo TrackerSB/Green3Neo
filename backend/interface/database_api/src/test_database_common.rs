@@ -1,4 +1,4 @@
-use crate::connection::DbConnection;
+use crate::connection::OrmConnection;
 
 trait GetCurrentDBName {
     async fn get_current_db_name(&mut self) -> Option<String>
@@ -40,17 +40,17 @@ fn create_db_url(db_name: &str) -> String {
 }
 
 pub trait IntoDieselConnection {
-    async fn into_diesel_connection(self) -> DbConnection;
+    async fn into_diesel_connection(self) -> OrmConnection;
 }
 
 #[cfg(feature = "postgres")]
 impl IntoDieselConnection for sqlx::pool::PoolConnection<sqlx::Postgres> {
-    async fn into_diesel_connection(mut self) -> DbConnection {
+    async fn into_diesel_connection(mut self) -> OrmConnection {
         use diesel::Connection;
 
         let db_name = self.get_current_db_name().await.unwrap();
         let db_url = create_db_url(&db_name);
-        DbConnection::PostgreSql(
+        OrmConnection::PostgreSql(
             diesel::PgConnection::establish(&db_url).expect("Could not establish connection"),
         )
     }
@@ -58,12 +58,12 @@ impl IntoDieselConnection for sqlx::pool::PoolConnection<sqlx::Postgres> {
 
 #[cfg(feature = "mysql")]
 impl IntoDieselConnection for sqlx::pool::PoolConnection<sqlx::MySql> {
-    async fn into_diesel_connection(mut self) -> DbConnection {
+    async fn into_diesel_connection(mut self) -> OrmConnection {
         use diesel::Connection;
 
         let db_name = self.get_current_db_name().await.unwrap();
         let db_url = create_db_url(&db_name);
-        DbConnection::MySql(
+        OrmConnection::MySql(
             diesel::MysqlConnection::establish(&db_url).expect("Could not establish connection"),
         )
     }

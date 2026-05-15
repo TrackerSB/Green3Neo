@@ -8,14 +8,14 @@ use diesel::{Connection, MultiConnection};
 use log::warn;
 
 #[derive(MultiConnection)]
-pub enum DbConnection {
+pub enum OrmConnection {
     #[cfg(feature = "mysql")]
     MySql(MysqlConnection),
     #[cfg(feature = "postgres")]
     PostgreSql(PgConnection),
 }
 
-pub fn get_connection(connection: ConnectionDescription) -> Option<DbConnection> {
+pub fn get_connection(connection: ConnectionDescription) -> Option<OrmConnection> {
     match connection.backend {
         #[cfg(feature = "postgres")]
         DatabaseBackend::PostgreSql => {
@@ -30,7 +30,7 @@ pub fn get_connection(connection: ConnectionDescription) -> Option<DbConnection>
             let connection = PgConnection::establish(&database_url);
 
             if connection.is_ok() {
-                return Some(DbConnection::PostgreSql(connection.unwrap()));
+                return Some(OrmConnection::PostgreSql(connection.unwrap()));
             }
 
             warn!(
@@ -52,7 +52,7 @@ pub fn get_connection(connection: ConnectionDescription) -> Option<DbConnection>
             let connection = MysqlConnection::establish(&database_url);
 
             if connection.is_ok() {
-                return Some(DbConnection::MySql(connection.unwrap()));
+                return Some(OrmConnection::MySql(connection.unwrap()));
             }
 
             warn!(

@@ -6,10 +6,10 @@ use diesel::sql_types::{Bool, Date, Double, HasSqlType, Integer, Nullable, Text,
 use log::{info, warn};
 
 use crate::column_type_info::get_column_info;
-use crate::connection::DbConnection;
+use crate::connection::OrmConnection;
 
 pub fn bind_column_value<'a, DB, Query>(
-    connection: &mut DbConnection,
+    connection: &mut OrmConnection,
     table_name: &'a str,
     column_name: &'a str,
     value: Option<&'a str>,
@@ -108,7 +108,7 @@ mod test {
 
     use super::*;
 
-    async fn setup_test<DB>(sqlx_pool: Pool<DB>) -> DbConnection
+    async fn setup_test<DB>(sqlx_pool: Pool<DB>) -> OrmConnection
     where
         DB: Database,
         PoolConnection<DB>: IntoDieselConnection,
