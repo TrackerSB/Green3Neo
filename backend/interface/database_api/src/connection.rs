@@ -1,5 +1,7 @@
 use database_types::connection_description::SshTunnelDescription;
+use log::warn;
 use russh::Channel;
+use russh::ChannelMsg;
 use russh::client::Msg;
 use std::sync::Arc;
 
@@ -41,45 +43,82 @@ pub enum OrmConnection {
 }
 
 pub struct SshConnection {
-    pub channel: Channel<Msg>,
+    channel: Channel<Msg>,
     // FIXME Type of shell required?
-    pub base_sql_command: String,
+    sql_login_command: String,
+    password: String,
 }
 
 impl SshConnection {
-    pub fn execute_sql(self, _sql_query: String) {
-        todo!();
+    pub async fn execute_sql(mut self, sql_query: String) {
+        let sql_login_result = self
+            .channel
+            .exec(true, self.sql_login_command.as_bytes())
+            .await;
+        match sql_login_result {
+            Ok(_) => {
+                // FIXME Check all write results
+                let _password_write_result = self
+                    .channel
+                    .data(format!("{}\n", self.password).as_bytes())
+                    .await;
+                let _sql_query_write_result = self
+                    .channel
+                    .data(format!("{};\n", sql_query).as_bytes())
+                    .await;
+                let _eof_write_result = self.channel.eof().await;
 
-        // match command_result {
-        //     Ok(_) => info!("Succeeded"),
-        //     Err(error) => error!("{}", error),
-        // }
-        // let mut code = None;
-        // let mut stdout_reader = stdout();
-        // loop {
-        //     let Some(message) = channel.wait().await else {
-        //         break;
-        //     };
-        //     match message {
-        //         ChannelMsg::Data { data } => {
-        //             let write_result = stdout_reader.write_all(&data);
-        //             match write_result {
-        //                 Ok(_) => {}
-        //                 Err(error) => error!("Could not collect stdout of command due '{}'", error),
-        //             }
-        //         }
-        //         ChannelMsg::ExitStatus { exit_status } => {
-        //             code = Some(exit_status);
-        //         }
-        //         _ => {}
-        //     }
-        // }
-        // info!("exitCode: '{:?}'", code);
-        // let close_result = channel.close().await;
-        // match close_result {
-        //     Ok(_) => info!("Closed"),
-        //     Err(error) => error!("{}", error),
-        // }
+                let mut opt_exit_status = None;
+                let mut stdout_buffer = Vec::new();
+                let mut stderr_buffer = Vec::new();
+                loop {
+                    let Some(message) = self.channel.wait().await else {
+                        break;
+                    };
+                    match message {
+                        ChannelMsg::Data { data } => stdout_buffer.extend_from_slice(&data),
+                        ChannelMsg::ExtendedData { data, ext: _ } => {
+                            stderr_buffer.extend_from_slice(&data)
+                        }
+                        ChannelMsg::ExitStatus { exit_status } => {
+                            opt_exit_status = Some(exit_status)
+                        }
+                        _ => {}
+                    }
+                }
+
+                let close_result = self.channel.close().await;
+                match close_result {
+                    Ok(_) => {}
+                    Err(error) => error!("Closing SSH channel failed due '{}'", error),
+                }
+
+                if opt_exit_status.is_none() {
+                    warn!(
+                        "Command '{}' with query '{}' finished without exit code",
+                        self.sql_login_command, sql_query
+                    );
+                }
+                let exit_status = opt_exit_status.unwrap();
+                if exit_status != 0 {
+                    error!(
+                        "Command '{}' with query '{}' finished with exit code '{}'",
+                        self.sql_login_command, sql_query, exit_status
+                    );
+                }
+
+                warn!(
+                    "Command '{}' with query '{}' yielded stderr: '{}'",
+                    self.sql_login_command,
+                    sql_query,
+                    String::from_utf8_lossy(&stderr_buffer)
+                );
+
+                // FIXME Turn logging output to function return values
+                warn!("Got stdout: '{}'", String::from_utf8_lossy(&stdout_buffer));
+            }
+            Err(error) => error!("Could not log in to database due '{}'", error),
+        }
     }
 }
 
@@ -158,22 +197,23 @@ pub async fn get_connection(connection: ConnectionDescription) -> Option<DbConne
         let ssh_client = opt_ssh_client.unwrap();
         let opt_channel = ssh_client.channel_open_session().await;
 
-        let base_sql_command = match connection.backend {
+        let sql_login_command = match connection.backend {
             DatabaseBackend::PostgreSql => todo!(),
             // FIXME What about mariadb?
             DatabaseBackend::MySql => format!(
-                "mysql -h {host} -P {port}, -u {user}, -p={password}",
+                "mysql -N -B {database} -h {host} -P {port} -u {user} -p",
                 host = db_host,
                 port = db_port,
                 user = connection.user,
-                password = connection.password
+                database = connection.name
             ),
         };
 
         return match opt_channel {
             Ok(channel) => Some(DbConnection::SshBased(SshConnection {
                 channel,
-                base_sql_command,
+                sql_login_command,
+                password: connection.password,
             })),
             Err(error) => {
                 error!("Could not create SSH session due '{}'", error);
