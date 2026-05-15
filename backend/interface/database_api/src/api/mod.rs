@@ -19,7 +19,8 @@ pub enum _DatabaseBackend {
 pub struct _SshTunnelDescription {
     pub username: String,
     pub password: String,
-    pub local_port: u16,
+    pub host: String,
+    pub port: u16,
 }
 
 #[frb(mirror(ConnectionDescription))]

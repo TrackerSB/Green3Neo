@@ -12,7 +12,8 @@ pub enum DatabaseBackend {
 pub struct SshTunnelDescription {
     pub username: String,
     pub password: String,
-    pub local_port: u16,
+    pub host: String,
+    pub port: u16,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
