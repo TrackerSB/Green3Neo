@@ -1,13 +1,33 @@
 use crate::api::models;
 use crate::connection::DbConnection::OrmBased;
 use crate::connection::DbConnection::SshBased;
+use crate::connection::OrmConnection;
+use crate::connection::SshClient;
 use crate::connection::get_connection;
 use crate::database::bind_column_value;
 use crate::schema::member::dsl as member_schema;
 use database_types::connection_description::ConnectionDescription;
 use diesel::{RunQueryDsl, SelectableHelper, query_dsl::methods::SelectDsl, sql_types::Integer};
 use log::{error, info, warn};
+use russh::client::Handle;
 use tokio::runtime::Runtime;
+
+fn get_all_members_orm(mut connection: OrmConnection) -> Option<Vec<models::Member>> {
+    let member_entries = member_schema::member
+        .select(models::Member::as_select())
+        .load(&mut connection);
+
+    if member_entries.is_ok() {
+        return Some(member_entries.unwrap());
+    }
+
+    return None;
+}
+
+async fn get_all_members_ssh(_connection: Handle<SshClient>) -> Option<Vec<models::Member>> {
+    error!("SSH connection not supported");
+    return None;
+}
 
 pub fn get_all_members(connection: ConnectionDescription) -> Option<Vec<models::Member>> {
     return Runtime::new().unwrap().block_on(async {
@@ -19,20 +39,10 @@ pub fn get_all_members(connection: ConnectionDescription) -> Option<Vec<models::
             return None;
         }
 
-        match opt_connection.unwrap() {
-            OrmBased(mut connection) => {
-                let member_entries = member_schema::member
-                    .select(models::Member::as_select())
-                    .load(&mut connection);
-
-                if member_entries.is_ok() {
-                    return Some(member_entries.unwrap());
-                }
-            }
-            SshBased(_connection) => error!("SSH based connections are not supported"),
-        }
-
-        return None;
+        return match opt_connection.unwrap() {
+            OrmBased(connection) => get_all_members_orm(connection),
+            SshBased(connection) => get_all_members_ssh(connection).await,
+        };
     });
 }
 
