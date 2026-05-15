@@ -101,10 +101,10 @@ impl LogWriter for FailingWriter {
         let message: String = record.args().to_string();
         let ignore_severe_message: bool =
             message.starts_with("slow statement: execution time exceeded alert threshold");
-        if ignore_severe_message {
-            info!("Ignoring severe message");
-        } else {
-            if is_severe_log_output {
+        if is_severe_log_output {
+            if ignore_severe_message {
+                info!("Ignoring severe message '{}'", message);
+            } else {
                 let unlocked_message_entry = get_message_entry_lock();
                 let mut locked_message_entry = unlocked_message_entry.write().unwrap();
                 locked_message_entry.push(message);
