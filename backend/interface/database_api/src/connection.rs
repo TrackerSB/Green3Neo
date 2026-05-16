@@ -20,34 +20,6 @@ use diesel::{Connection, MultiConnection};
 use log::error;
 use russh::client;
 
-struct SshClient {}
-
-impl client::Handler for SshClient {
-    type Error = russh::Error;
-
-    async fn check_server_key(
-        &mut self,
-        _server_public_key: &russh::keys::ssh_key::PublicKey,
-    ) -> Result<bool, Self::Error> {
-        // FIXME Do not accept all SSH servers
-        Ok(true)
-    }
-}
-
-pub enum DbConnection {
-    OrmBased(OrmConnection),
-    SshBased(SshConnection),
-}
-
-impl DbConnection {
-    pub fn to_string<QueryType: QueryStatementWriter>(&self, sql_query: QueryType) -> String {
-        return match self {
-            Self::OrmBased(connection) => connection.to_string(sql_query),
-            Self::SshBased(connection) => connection.to_string(sql_query),
-        };
-    }
-}
-
 #[derive(MultiConnection)]
 pub enum OrmConnection {
     #[cfg(feature = "mysql")]
@@ -155,6 +127,34 @@ impl SshConnection {
             }
             Err(error) => error!("Could not log in to database due '{}'", error),
         }
+    }
+}
+
+pub enum DbConnection {
+    OrmBased(OrmConnection),
+    SshBased(SshConnection),
+}
+
+impl DbConnection {
+    pub fn to_string<QueryType: QueryStatementWriter>(&self, sql_query: QueryType) -> String {
+        return match self {
+            Self::OrmBased(connection) => connection.to_string(sql_query),
+            Self::SshBased(connection) => connection.to_string(sql_query),
+        };
+    }
+}
+
+struct SshClient {}
+
+impl client::Handler for SshClient {
+    type Error = russh::Error;
+
+    async fn check_server_key(
+        &mut self,
+        _server_public_key: &russh::keys::ssh_key::PublicKey,
+    ) -> Result<bool, Self::Error> {
+        // FIXME Do not accept all SSH servers
+        Ok(true)
     }
 }
 
