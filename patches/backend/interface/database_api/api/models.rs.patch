@@ -1,7 +1,7 @@
 --- a/backend/interface/database_api/src/api/models.unpatched.rs
 +++ b/backend/interface/database_api/src/api/models.rs
 @@ -13,6 +13,7 @@ use crate::schema::*;
- #[derive(Queryable,Selectable, Identifiable)]
+ #[derive(Queryable,QueryableByName,Selectable, Identifiable)]
  #[diesel(primary_key(membership_id))]
  #[diesel(table_name = member)]
 +#[make_fields_non_final]
