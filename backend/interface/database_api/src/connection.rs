@@ -3,6 +3,11 @@ use log::warn;
 use russh::Channel;
 use russh::ChannelMsg;
 use russh::client::Msg;
+#[cfg(feature = "mysql")]
+use sea_query::MysqlQueryBuilder;
+#[cfg(feature = "postgres")]
+use sea_query::PostgresQueryBuilder;
+use sea_query::QueryStatementWriter;
 use std::sync::Arc;
 
 use database_types::connection_description::ConnectionDescription;
@@ -34,6 +39,15 @@ pub enum DbConnection {
     SshBased(SshConnection),
 }
 
+impl DbConnection {
+    pub fn to_string<QueryType: QueryStatementWriter>(&self, sql_query: QueryType) -> String {
+        return match self {
+            Self::OrmBased(connection) => connection.to_string(sql_query),
+            Self::SshBased(connection) => connection.to_string(sql_query),
+        };
+    }
+}
+
 #[derive(MultiConnection)]
 pub enum OrmConnection {
     #[cfg(feature = "mysql")]
@@ -42,15 +56,37 @@ pub enum OrmConnection {
     PostgreSql(PgConnection),
 }
 
+impl OrmConnection {
+    pub fn to_string<QueryType: QueryStatementWriter>(&self, sql_query: QueryType) -> String {
+        return match self {
+            #[cfg(feature = "postgres")]
+            Self::PostgreSql(_) => sql_query.to_string(PostgresQueryBuilder),
+            #[cfg(feature = "mysql")]
+            Self::MySql(_) => sql_query.to_string(MysqlQueryBuilder),
+        };
+    }
+}
+
 pub struct SshConnection {
     channel: Channel<Msg>,
     // FIXME Type of shell required?
     sql_login_command: String,
     password: String,
+    backend: DatabaseBackend,
 }
 
 impl SshConnection {
-    pub async fn execute_sql(mut self, sql_query: String) {
+    pub fn to_string<QueryType: QueryStatementWriter>(&self, sql_query: QueryType) -> String {
+        return match self.backend {
+            #[cfg(feature = "postgres")]
+            DatabaseBackend::PostgreSql => sql_query.to_string(PostgresQueryBuilder),
+            #[cfg(feature = "mysql")]
+            DatabaseBackend::MySql => sql_query.to_string(MysqlQueryBuilder),
+        };
+    }
+
+    pub async fn execute_sql<QueryType: QueryStatementWriter>(mut self, sql_query: QueryType) {
+        let sql_query_string = self.to_string(sql_query);
         let sql_login_result = self
             .channel
             .exec(true, self.sql_login_command.as_bytes())
@@ -64,7 +100,7 @@ impl SshConnection {
                     .await;
                 let _sql_query_write_result = self
                     .channel
-                    .data(format!("{};\n", sql_query).as_bytes())
+                    .data(format!("{};\n", sql_query_string).as_bytes())
                     .await;
                 let _eof_write_result = self.channel.eof().await;
 
@@ -96,21 +132,21 @@ impl SshConnection {
                 if opt_exit_status.is_none() {
                     warn!(
                         "Command '{}' with query '{}' finished without exit code",
-                        self.sql_login_command, sql_query
+                        self.sql_login_command, sql_query_string
                     );
                 }
                 let exit_status = opt_exit_status.unwrap();
                 if exit_status != 0 {
                     error!(
                         "Command '{}' with query '{}' finished with exit code '{}'",
-                        self.sql_login_command, sql_query, exit_status
+                        self.sql_login_command, sql_query_string, exit_status
                     );
                 }
 
                 warn!(
                     "Command '{}' with query '{}' yielded stderr: '{}'",
                     self.sql_login_command,
-                    sql_query,
+                    sql_query_string,
                     String::from_utf8_lossy(&stderr_buffer)
                 );
 
@@ -197,25 +233,29 @@ pub async fn get_connection(connection: ConnectionDescription) -> Option<DbConne
         let ssh_client = opt_ssh_client.unwrap();
         let opt_channel = ssh_client.channel_open_session().await;
 
-        let sql_login_command = match connection.backend {
-            #[cfg(feature = "postgres")]
-            DatabaseBackend::PostgreSql => todo!(),
-            // FIXME What about mariadb?
-            #[cfg(feature = "mysql")]
-            DatabaseBackend::MySql => format!(
-                "mysql -N -B {database} -h {host} -P {port} -u {user} -p",
-                host = db_host,
-                port = db_port,
-                user = connection.user,
-                database = connection.name
-            ),
-        };
-
         return match opt_channel {
-            Ok(channel) => Some(DbConnection::SshBased(SshConnection {
-                channel,
-                sql_login_command,
-                password: connection.password,
+            Ok(channel) => Some(DbConnection::SshBased(match connection.backend {
+                #[cfg(feature = "postgres")]
+                DatabaseBackend::PostgreSql => SshConnection {
+                    channel,
+                    sql_login_command: todo!("Implement psql login command"),
+                    password: connection.password,
+                    backend: connection.backend,
+                },
+                // FIXME What about mariadb?
+                #[cfg(feature = "mysql")]
+                DatabaseBackend::MySql => SshConnection {
+                    channel,
+                    sql_login_command: format!(
+                        "mysql -N -B {database} -h {host} -P {port} -u {user} -p",
+                        host = db_host,
+                        port = db_port,
+                        user = connection.user,
+                        database = connection.name
+                    ),
+                    password: connection.password,
+                    backend: connection.backend,
+                },
             })),
             Err(error) => {
                 error!("Could not create SSH session due '{}'", error);

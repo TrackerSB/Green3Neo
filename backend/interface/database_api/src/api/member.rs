@@ -9,6 +9,7 @@ use crate::schema::member::dsl as member_schema;
 use database_types::connection_description::ConnectionDescription;
 use diesel::{RunQueryDsl, SelectableHelper, query_dsl::methods::SelectDsl, sql_types::Integer};
 use log::{error, info, warn};
+use sea_query::Query;
 use tokio::runtime::Runtime;
 
 fn get_all_members_orm(mut connection: OrmConnection) -> Option<Vec<models::Member>> {
