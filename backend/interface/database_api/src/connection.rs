@@ -247,7 +247,7 @@ pub async fn get_connection(connection: ConnectionDescription) -> Option<DbConne
                 DatabaseBackend::MySql => SshConnection {
                     channel,
                     sql_login_command: format!(
-                        "mysql -N -B {database} -h {host} -P {port} -u {user} -p",
+                        "mysql -B {database} -h {host} -P {port} -u {user} -p",
                         host = db_host,
                         port = db_port,
                         user = connection.user,
