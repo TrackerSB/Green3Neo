@@ -1,4 +1,6 @@
 use database_types::connection_description::SshTunnelDescription;
+use diesel::RunQueryDsl;
+use log::info;
 use log::warn;
 use russh::Channel;
 use russh::ChannelMsg;
@@ -20,6 +22,8 @@ use diesel::{Connection, MultiConnection};
 use log::error;
 use russh::client;
 
+use crate::api::models;
+
 #[derive(MultiConnection)]
 pub enum OrmConnection {
     #[cfg(feature = "mysql")]
@@ -35,6 +39,26 @@ impl OrmConnection {
             Self::PostgreSql(_) => sql_query.to_string(PostgresQueryBuilder),
             #[cfg(feature = "mysql")]
             Self::MySql(_) => sql_query.to_string(MysqlQueryBuilder),
+        };
+    }
+
+    pub fn load_member<QueryType: QueryStatementWriter>(
+        &mut self,
+        sql_query: QueryType,
+    ) -> Option<Vec<models::Member>> {
+        let sql_query_string = self.to_string(sql_query);
+
+        let query_result = diesel::sql_query(&sql_query_string).load::<models::Member>(self);
+
+        return match query_result {
+            Ok(result) => Some(result),
+            Err(error) => {
+                error!(
+                    "Executing query '{}' failed due '{}'",
+                    sql_query_string, error
+                );
+                return None;
+            }
         };
     }
 }
@@ -57,7 +81,10 @@ impl SshConnection {
         };
     }
 
-    pub async fn execute_sql<QueryType: QueryStatementWriter>(mut self, sql_query: QueryType) {
+    pub async fn load_member<QueryType: QueryStatementWriter>(
+        &mut self,
+        sql_query: QueryType,
+    ) -> Option<Vec<models::Member>> {
         let sql_query_string = self.to_string(sql_query);
         let sql_login_result = self
             .channel
@@ -122,10 +149,20 @@ impl SshConnection {
                     String::from_utf8_lossy(&stderr_buffer)
                 );
 
-                // FIXME Turn logging output to function return values
-                warn!("Got stdout: '{}'", String::from_utf8_lossy(&stdout_buffer));
+                let cells: Vec<Vec<String>> = String::from_utf8_lossy(&stdout_buffer)
+                    .lines()
+                    .map(|line| line.split('\t').map(ToOwned::to_owned).collect())
+                    .collect();
+                let content: String = cells.iter().fold("".to_owned(), |accumulator, row| {
+                    accumulator + row.join(",").as_str() + "\n"
+                });
+                info!("stdout yielded:\n{}", content);
+                todo!("Conversion to member not implemented");
             }
-            Err(error) => error!("Could not log in to database due '{}'", error),
+            Err(error) => {
+                error!("Could not log in to database due '{}'", error);
+                None
+            }
         }
     }
 }
@@ -140,6 +177,16 @@ impl DbConnection {
         return match self {
             Self::OrmBased(connection) => connection.to_string(sql_query),
             Self::SshBased(connection) => connection.to_string(sql_query),
+        };
+    }
+
+    pub async fn load_member<QueryType: QueryStatementWriter>(
+        &mut self,
+        sql_query: QueryType,
+    ) -> Option<Vec<models::Member>> {
+        return match self {
+            Self::OrmBased(connection) => connection.load_member(sql_query),
+            Self::SshBased(connection) => connection.load_member(sql_query).await,
         };
     }
 }
