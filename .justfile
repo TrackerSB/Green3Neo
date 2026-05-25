@@ -83,7 +83,7 @@ diesel-generate-schema: diesel-setup
 # FIXME Verify whether exactly one of the alternative patches was applied
 # FIXME Apply formatting stabilizing which patch works
 diesel-generate-models: diesel-generate-schema
-    cd {{ database_api_dir }} && diesel_ext --model --import-types diesel::Queryable --import-types diesel::QueryableByName --import-types diesel::Selectable --import-types diesel::Identifiable --import-types backend_macros::make_fields_non_final --import-types serde::Serialize --import-types serde::Deserialize --import-types flutter_rust_bridge::frb --import-types crate::schema::* --derive Queryable,QueryableByName,Selectable,Serialize,Deserialize --add-table-name > src/api/models.rs
+    cd {{ database_api_dir }} && diesel_ext --model --import-types diesel::Queryable --import-types diesel::QueryableByName --import-types diesel::Selectable --import-types diesel::Identifiable --import-types backend_macros::make_fields_non_final --import-types backend_macros::JsonFieldConversionGenerator --import-types serde::Serialize --import-types serde::Deserialize --import-types flutter_rust_bridge::frb --import-types crate::json_field_conversion::JsonFieldConversion --import-types crate::schema::* --derive Queryable,QueryableByName,Selectable,Serialize,Deserialize,JsonFieldConversionGenerator --add-table-name > src/api/models.rs
     git apply {{ patch_folder }}/backend/interface/database_api/api/models.rs.patch
 
 sepa-generate-schemas:

@@ -22,6 +22,7 @@ use log::error;
 use russh::client;
 
 use crate::api::models;
+use crate::json_field_conversion::JsonFieldConversion;
 
 #[derive(MultiConnection)]
 pub enum OrmConnection {
@@ -73,7 +74,7 @@ pub struct SshConnection {
 struct FieldGenerator {
     field_name: String,
     column_index: usize,
-    to_json: Box<dyn Fn(String) -> serde_json::Value>,
+    to_json: Box<dyn Fn(&str) -> serde_json::Value>,
 }
 
 impl SshConnection {
@@ -134,15 +135,19 @@ impl SshConnection {
             .collect();
     }
 
-    fn create_field_generators(field_names: &Vec<String>) -> Vec<FieldGenerator> {
+    fn get_json_value_generators<SerializationType>(
+        field_names: &Vec<String>,
+    ) -> Vec<FieldGenerator>
+    where
+        SerializationType: JsonFieldConversion,
+    {
         field_names
             .iter()
             .enumerate()
             .map(|(index, name)| FieldGenerator {
                 field_name: name.clone(),
                 column_index: index,
-                // FIXME Cast to data type of column
-                to_json: Box::new(|value| serde_json::Value::String(value)),
+                to_json: SerializationType::get_json_value_generator(name.as_str()),
             })
             .collect()
     }
@@ -163,7 +168,7 @@ impl SshConnection {
             for generator in &field_generators {
                 object_properties.insert(
                     generator.field_name.clone(),
-                    (generator.to_json)(row[generator.column_index].clone()),
+                    (generator.to_json)(row[generator.column_index].as_str()),
                 );
             }
 
@@ -206,7 +211,8 @@ impl SshConnection {
 
                 let (field_names, rows) = cells_split.unwrap();
 
-                let field_generators = SshConnection::create_field_generators(field_names);
+                let field_generators =
+                    SshConnection::get_json_value_generators::<models::Member>(field_names);
 
                 let json_result = SshConnection::convert_to_json(field_generators, rows);
                 json_result

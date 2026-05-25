@@ -2,7 +2,7 @@ extern crate proc_macro;
 
 use proc_macro::TokenStream;
 use quote::quote;
-use syn::{parse_macro_input, parse_quote, Attribute, Data, DeriveInput, Fields};
+use syn::{Attribute, Data, DeriveInput, Fields, parse_macro_input, parse_quote};
 
 #[proc_macro_attribute]
 pub fn make_fields_non_final(_attr: TokenStream, item: TokenStream) -> TokenStream {
@@ -21,7 +21,7 @@ pub fn make_fields_non_final(_attr: TokenStream, item: TokenStream) -> TokenStre
     let struct_vis = &input.vis;
 
     let mut struct_attrs: Vec<Attribute> = input.attrs.clone();
-    struct_attrs.push(parse_quote!{#[frb]});
+    struct_attrs.push(parse_quote! {#[frb]});
 
     // Generate fields with attributes (currently not preserving existing ones)
     let modified_fields = struct_fields.iter().map(|f| {
@@ -41,6 +41,26 @@ pub fn make_fields_non_final(_attr: TokenStream, item: TokenStream) -> TokenStre
             #(#modified_fields)*
         }
     };
+
+    TokenStream::from(expanded)
+}
+
+#[proc_macro_derive(JsonFieldConversionGenerator)]
+pub fn implement_json_field_conversion(item: TokenStream) -> TokenStream {
+    let input = parse_macro_input!(item as DeriveInput);
+
+    let struct_name = &input.ident;
+
+    let expanded = quote! {
+        impl JsonFieldConversion for #struct_name {
+            #[frb(ignore)]
+            fn get_json_value_generator(field_name: &str )-> Box<dyn Fn(&str) -> serde_json::Value> {
+                todo!("Not implemented");
+            }
+        }
+    };
+
+    eprintln!("expanded: {}", expanded.to_string());
 
     TokenStream::from(expanded)
 }
