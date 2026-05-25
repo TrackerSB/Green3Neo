@@ -71,6 +71,12 @@ pub struct SshConnection {
     backend: DatabaseBackend,
 }
 
+struct FieldGenerator {
+    field_name: String,
+    column_index: usize,
+    to_json: Box<dyn Fn(String) -> serde_json::Value>,
+}
+
 impl SshConnection {
     pub fn to_string<QueryType: QueryStatementWriter>(&self, sql_query: QueryType) -> String {
         return match self.backend {
@@ -129,33 +135,37 @@ impl SshConnection {
             .collect();
     }
 
-    fn convert_to_json(cells: Vec<Vec<String>>) -> Vec<serde_json::Value> {
-        let cells_split = cells.split_first();
+    fn create_field_generators(field_names: &Vec<String>) -> Vec<FieldGenerator> {
+        field_names
+            .iter()
+            .enumerate()
+            .map(|(index, name)| FieldGenerator {
+                field_name: name.clone(),
+                column_index: index,
+                // FIXME Cast to data type of column
+                to_json: Box::new(|value| serde_json::Value::String(value)),
+            })
+            .collect()
+    }
 
-        if cells_split.is_none() {
-            error!("Could not create objects since field names could not be determined");
-            return vec![];
-        }
-
-        let (field_names, rows) = cells_split.unwrap();
-
-        if rows.iter().any(|row| row.len() != field_names.len()) {
+    fn convert_to_json(
+        field_generators: Vec<FieldGenerator>,
+        rows: &[Vec<String>],
+    ) -> Vec<serde_json::Value> {
+        if rows.iter().any(|row| row.len() != field_generators.len()) {
             error!("There are rows of different size than the row of field names");
             return vec![];
-        }
-
-        let mut field_to_index = HashMap::<String, usize>::new();
-        for (index, name) in field_names.iter().enumerate() {
-            field_to_index.insert(name.clone(), index);
         }
 
         let mut json_objects: Vec<serde_json::Value> = vec![];
         for row in rows {
             let mut object_properties = serde_json::Map::new();
 
-            for (field, index) in &field_to_index {
-                // FIXME Cast to data type of column
-                object_properties.insert(field.clone(), serde_json::json!(row[*index]));
+            for generator in &field_generators {
+                object_properties.insert(
+                    generator.field_name.clone(),
+                    (generator.to_json)(row[generator.column_index].clone()),
+                );
             }
 
             json_objects.push(serde_json::json!(object_properties));
@@ -187,7 +197,19 @@ impl SshConnection {
                 let _eof_write_result = self.channel.eof().await;
 
                 let cells = self.read_sql_result().await;
-                let json_result = SshConnection::convert_to_json(cells);
+
+                let cells_split = cells.split_first();
+
+                if cells_split.is_none() {
+                    error!("Could not create objects since field names could not be determined");
+                    return None;
+                }
+
+                let (field_names, rows) = cells_split.unwrap();
+
+                let field_generators = SshConnection::create_field_generators(field_names);
+
+                let json_result = SshConnection::convert_to_json(field_generators, rows);
                 json_result
                     .into_iter()
                     .map(|value| serde_json::from_value(value))
