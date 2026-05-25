@@ -10,6 +10,7 @@ use sea_query::MysqlQueryBuilder;
 #[cfg(feature = "postgres")]
 use sea_query::PostgresQueryBuilder;
 use sea_query::QueryStatementWriter;
+use std::collections::HashMap;
 use std::sync::Arc;
 
 use database_types::connection_description::ConnectionDescription;
@@ -81,6 +82,89 @@ impl SshConnection {
         };
     }
 
+    async fn read_sql_result(&mut self) -> Vec<Vec<String>> {
+        let mut opt_exit_status = None;
+        let mut stdout_buffer = Vec::new();
+        let mut stderr_buffer = Vec::new();
+        loop {
+            let Some(message) = self.channel.wait().await else {
+                break;
+            };
+            match message {
+                ChannelMsg::Data { data } => stdout_buffer.extend_from_slice(&data),
+                ChannelMsg::ExtendedData { data, ext: _ } => stderr_buffer.extend_from_slice(&data),
+                ChannelMsg::ExitStatus { exit_status } => opt_exit_status = Some(exit_status),
+                _ => {}
+            }
+        }
+
+        let close_result = self.channel.close().await;
+        match close_result {
+            Ok(_) => {}
+            Err(error) => error!("Closing SSH channel failed due '{}'", error),
+        }
+
+        if opt_exit_status.is_none() {
+            warn!(
+                "Command '{}' finished without exit code",
+                self.sql_login_command
+            );
+        }
+        let exit_status = opt_exit_status.unwrap();
+        if exit_status != 0 {
+            error!(
+                "Command '{}' finished with exit code '{}'",
+                self.sql_login_command, exit_status
+            );
+        }
+
+        warn!(
+            "Command '{}' yielded stderr: '{}'",
+            self.sql_login_command,
+            String::from_utf8_lossy(&stderr_buffer)
+        );
+
+        return String::from_utf8_lossy(&stdout_buffer)
+            .lines()
+            .map(|line| line.split('\t').map(ToOwned::to_owned).collect())
+            .collect();
+    }
+
+    fn convert_to_json(cells: Vec<Vec<String>>) -> Vec<serde_json::Value> {
+        let cells_split = cells.split_first();
+
+        if cells_split.is_none() {
+            error!("Could not create objects since field names could not be determined");
+            return vec![];
+        }
+
+        let (field_names, rows) = cells_split.unwrap();
+
+        if rows.iter().any(|row| row.len() != field_names.len()) {
+            error!("There are rows of different size than the row of field names");
+            return vec![];
+        }
+
+        let mut field_to_index = HashMap::<String, usize>::new();
+        for (index, name) in field_names.iter().enumerate() {
+            field_to_index.insert(name.clone(), index);
+        }
+
+        let mut json_objects: Vec<serde_json::Value> = vec![];
+        for row in rows {
+            let mut object_properties = serde_json::Map::new();
+
+            for (field, index) in &field_to_index {
+                // FIXME Cast to data type of column
+                object_properties.insert(field.clone(), serde_json::json!(row[*index]));
+            }
+
+            json_objects.push(serde_json::json!(object_properties));
+        }
+
+        json_objects
+    }
+
     pub async fn load_member<QueryType: QueryStatementWriter>(
         &mut self,
         sql_query: QueryType,
@@ -103,61 +187,20 @@ impl SshConnection {
                     .await;
                 let _eof_write_result = self.channel.eof().await;
 
-                let mut opt_exit_status = None;
-                let mut stdout_buffer = Vec::new();
-                let mut stderr_buffer = Vec::new();
-                loop {
-                    let Some(message) = self.channel.wait().await else {
-                        break;
-                    };
-                    match message {
-                        ChannelMsg::Data { data } => stdout_buffer.extend_from_slice(&data),
-                        ChannelMsg::ExtendedData { data, ext: _ } => {
-                            stderr_buffer.extend_from_slice(&data)
+                let cells = self.read_sql_result().await;
+                let json_result = SshConnection::convert_to_json(cells);
+                json_result
+                    .into_iter()
+                    .map(|value| serde_json::from_value(value))
+                    .filter(|result| match result {
+                        Ok(_member) => true,
+                        Err(error) => {
+                            error!("Could not interpret some row as member due '{}", error);
+                            false
                         }
-                        ChannelMsg::ExitStatus { exit_status } => {
-                            opt_exit_status = Some(exit_status)
-                        }
-                        _ => {}
-                    }
-                }
-
-                let close_result = self.channel.close().await;
-                match close_result {
-                    Ok(_) => {}
-                    Err(error) => error!("Closing SSH channel failed due '{}'", error),
-                }
-
-                if opt_exit_status.is_none() {
-                    warn!(
-                        "Command '{}' with query '{}' finished without exit code",
-                        self.sql_login_command, sql_query_string
-                    );
-                }
-                let exit_status = opt_exit_status.unwrap();
-                if exit_status != 0 {
-                    error!(
-                        "Command '{}' with query '{}' finished with exit code '{}'",
-                        self.sql_login_command, sql_query_string, exit_status
-                    );
-                }
-
-                warn!(
-                    "Command '{}' with query '{}' yielded stderr: '{}'",
-                    self.sql_login_command,
-                    sql_query_string,
-                    String::from_utf8_lossy(&stderr_buffer)
-                );
-
-                let cells: Vec<Vec<String>> = String::from_utf8_lossy(&stdout_buffer)
-                    .lines()
-                    .map(|line| line.split('\t').map(ToOwned::to_owned).collect())
-                    .collect();
-                let content: String = cells.iter().fold("".to_owned(), |accumulator, row| {
-                    accumulator + row.join(",").as_str() + "\n"
-                });
-                info!("stdout yielded:\n{}", content);
-                todo!("Conversion to member not implemented");
+                    })
+                    .map(Result::unwrap)
+                    .collect()
             }
             Err(error) => {
                 error!("Could not log in to database due '{}'", error);
