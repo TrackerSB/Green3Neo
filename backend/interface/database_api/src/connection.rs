@@ -9,7 +9,6 @@ use sea_query::MysqlQueryBuilder;
 #[cfg(feature = "postgres")]
 use sea_query::PostgresQueryBuilder;
 use sea_query::QueryStatementWriter;
-use std::collections::HashMap;
 use std::sync::Arc;
 
 use database_types::connection_description::ConnectionDescription;
