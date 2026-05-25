@@ -1,6 +1,5 @@
 use database_types::connection_description::SshTunnelDescription;
 use diesel::RunQueryDsl;
-use log::info;
 use log::warn;
 use russh::Channel;
 use russh::ChannelMsg;
