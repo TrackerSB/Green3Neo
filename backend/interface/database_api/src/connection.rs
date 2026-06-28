@@ -221,7 +221,7 @@ impl SshConnection {
                     .filter(|result| match result {
                         Ok(_member) => true,
                         Err(error) => {
-                            error!("Could not interpret some row as member due '{}", error);
+                            error!("Could not interpret some row as member due '{}'", error);
                             false
                         }
                     })
