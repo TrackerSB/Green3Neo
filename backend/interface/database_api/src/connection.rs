@@ -88,7 +88,14 @@ impl SshConnection {
         };
     }
 
-    async fn read_sql_result(&mut self) -> Vec<Vec<String>> {
+    fn split_sql_cells(output: Vec<String>) -> Vec<Vec<String>> {
+        output
+            .iter()
+            .map(|line| line.split('\t').map(ToOwned::to_owned).collect())
+            .collect()
+    }
+
+    async fn read_channel_output(&mut self) -> Vec<String> {
         let mut opt_exit_status = None;
         let mut stdout_buffer = Vec::new();
         let mut stderr_buffer = Vec::new();
@@ -132,7 +139,7 @@ impl SshConnection {
 
         return String::from_utf8_lossy(&stdout_buffer)
             .lines()
-            .map(|line| line.split('\t').map(ToOwned::to_owned).collect())
+            .map(|line| line.to_owned())
             .collect();
     }
 
@@ -223,12 +230,12 @@ impl SshConnection {
                     .await;
                 let _eof_write_result = self.channel.eof().await;
 
-                let cells = self.read_sql_result().await;
-
+                let channel_output_lines = self.read_channel_output().await;
+                let cells = Self::split_sql_cells(channel_output_lines);
                 let cells_split = cells.split_first();
 
                 if cells_split.is_none() {
-                    error!("Could not create objects since field names could not be determined");
+                    error!("Could not create objects since column names could not be determined");
                     return None;
                 }
 
