@@ -61,6 +61,26 @@ impl OrmConnection {
             }
         };
     }
+
+    pub fn execute_sql<QueryType: QueryStatementWriter>(
+        &mut self,
+        sql_query: QueryType,
+    ) -> Option<usize> {
+        let sql_query_string = self.to_string(sql_query);
+
+        let query_result = diesel::sql_query(&sql_query_string).execute(self);
+
+        return match query_result {
+            Ok(result) => Some(result),
+            Err(error) => {
+                error!(
+                    "Executing query '{}' failed due '{}'",
+                    sql_query_string, error
+                );
+                return None;
+            }
+        };
+    }
 }
 
 pub struct SshConnection {
@@ -208,10 +228,11 @@ impl SshConnection {
         json_objects
     }
 
-    pub async fn load_member<QueryType: QueryStatementWriter>(
+    // Return row major cells, i.e. a vector of rows, where each row is a vector of coloumns
+    async fn read_cells<QueryType: QueryStatementWriter>(
         &mut self,
         sql_query: QueryType,
-    ) -> Option<Vec<models::Member>> {
+    ) -> Option<Vec<Vec<String>>> {
         let sql_query_string = self.to_string(sql_query);
         let sql_login_result = self
             .channel
@@ -231,23 +252,37 @@ impl SshConnection {
                 let _eof_write_result = self.channel.eof().await;
 
                 let channel_output_lines = self.read_channel_output().await;
-                let cells = Self::split_sql_cells(channel_output_lines);
-                let cells_split = cells.split_first();
+                Some(Self::split_sql_cells(channel_output_lines))
+            }
+            Err(error) => {
+                error!("Could not log in to database due '{}'", error);
+                None
+            }
+        }
+    }
 
-                if cells_split.is_none() {
-                    error!("Could not create objects since column names could not be determined");
-                    return None;
-                }
+    pub async fn load_member<QueryType: QueryStatementWriter>(
+        &mut self,
+        sql_query: QueryType,
+    ) -> Option<Vec<models::Member>> {
+        self.read_cells(sql_query).await.map(|cells| {
+            let cells_split = cells.split_first();
 
-                let (column_names, rows) = cells_split.unwrap();
+            if cells_split.is_none() {
+                error!("Could not create objects since column names could not be determined");
+                return None;
+            }
 
-                let field_generators =
-                    SshConnection::get_json_value_generators::<models::Member>(column_names);
+            let (column_names, rows) = cells_split.unwrap();
 
-                let json_result = SshConnection::convert_to_json(field_generators, rows);
+            let field_generators =
+                SshConnection::get_json_value_generators::<models::Member>(column_names);
+
+            let json_result = SshConnection::convert_to_json(field_generators, rows);
+            Some(
                 json_result
                     .into_iter()
-                    .map(|value| serde_json::from_value(value))
+                    .map(|value| serde_json::from_value::<models::Member>(value))
                     .filter(|result| match result {
                         Ok(_member) => true,
                         Err(error) => {
@@ -256,13 +291,16 @@ impl SshConnection {
                         }
                     })
                     .map(Result::unwrap)
-                    .collect()
-            }
-            Err(error) => {
-                error!("Could not log in to database due '{}'", error);
-                None
-            }
-        }
+                    .collect::<Vec<models::Member>>(),
+            )
+        })?
+    }
+
+    pub async fn execute_sql<QueryType: QueryStatementWriter>(
+        &mut self,
+        sql_query: QueryType,
+    ) -> Option<usize> {
+        self.read_cells(sql_query).await.map(|cells| cells.len())
     }
 }
 
@@ -286,6 +324,16 @@ impl DbConnection {
         return match self {
             Self::OrmBased(connection) => connection.load_member(sql_query),
             Self::SshBased(connection) => connection.load_member(sql_query).await,
+        };
+    }
+
+    pub async fn execute_sql<QueryType: QueryStatementWriter>(
+        &mut self,
+        sql_query: QueryType,
+    ) -> Option<usize> {
+        return match self {
+            Self::OrmBased(connection) => connection.execute_sql(sql_query),
+            Self::SshBased(connection) => connection.execute_sql(sql_query).await,
         };
     }
 }
