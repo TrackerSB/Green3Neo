@@ -13,6 +13,7 @@ jobs:
       fail-fast: false
       matrix:
         db-protocol: ['postgres', 'mysql']
+        over-ssh: [false, true]
     steps:
       - uses: TrackerSB/Green3Neo-Prepare-Action@b324414b5aa90b924f2c456a56510a5eeb0c97d2
       - name: Override environment variables and update dependent ones
@@ -21,6 +22,8 @@ jobs:
           echo "DATABASE_URL=${{ matrix.db-protocol }}://$BUILD_DB_USER:$BUILD_DB_PASSWORD@$BUILD_DB_HOST:$BUILD_DB_PORT/$BUILD_DB_NAME" >> $GITHUB_ENV
         shell: bash
       - uses: ./.github/actions/prepare-backend-build
+      - uses: ./.github/actions/setup-ssh
+        if: ${{ matrix.over-ssh }}
       - name: Install command line for executing tests and combining results
         run: |
           cargo install --locked cargo-nextest
