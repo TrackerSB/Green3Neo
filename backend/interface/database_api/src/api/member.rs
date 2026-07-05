@@ -1,11 +1,7 @@
 use crate::api::models;
-use crate::connection::DbConnection::OrmBased;
-use crate::connection::DbConnection::SshBased;
 use crate::connection::get_connection;
-use crate::database::bind_column_value;
 use database_types::connection_description::ConnectionDescription;
-use diesel::{RunQueryDsl, sql_types::Integer};
-use log::{error, info, warn};
+use log::{error, info};
 use sea_query::Asterisk;
 use sea_query::Expr;
 use sea_query::Query;

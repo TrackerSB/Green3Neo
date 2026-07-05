@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_rust_bridge/flutter_rust_bridge_for_generated.dart';
 import 'package:get_it/get_it.dart';
 import 'package:green3neo/features/loaded_profile.dart';
-import 'package:green3neo/interface/backend_api/api/logging.dart';
 import 'package:green3neo/interface/database_api/api/member.dart';
 import 'package:green3neo/localizer.dart';
 import 'package:logging/logging.dart';
