@@ -22,7 +22,7 @@ jobs:
           echo "DATABASE_URL=${{ matrix.db-protocol }}://$BUILD_DB_USER:$BUILD_DB_PASSWORD@$BUILD_DB_HOST:$BUILD_DB_PORT/$BUILD_DB_NAME" >> $GITHUB_ENV
         shell: bash
       - uses: ./.github/actions/prepare-backend-build
-      - uses: ./.github/actions/setup-ssh
+      - uses: ./.github/actions/setup-ssh-server
         if: ${{ matrix.over-ssh }}
       - name: Install command line for executing tests and combining results
         run: |
