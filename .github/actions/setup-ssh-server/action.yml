@@ -6,7 +6,7 @@ runs:
     - name: Install SSH server
       if: ${{ matrix.over-ssh }}
       run: |
-        apt install openssh-server
+        sudo apt install openssh-server
       shell: bash
     - name: Configure SSH server
       run: |
