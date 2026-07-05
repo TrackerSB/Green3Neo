@@ -7,15 +7,13 @@ use database_types::connection_description::ConnectionDescription;
 use diesel::{RunQueryDsl, sql_types::Integer};
 use log::{error, info, warn};
 use sea_query::Asterisk;
+use sea_query::Expr;
 use sea_query::Query;
 use tokio::runtime::Runtime;
 
 pub fn get_all_members(connection: ConnectionDescription) -> Option<Vec<models::Member>> {
     return Runtime::new().unwrap().block_on(async {
-        let query = Query::select()
-            .column(Asterisk)
-            .from("member")
-            .to_owned();
+        let query = Query::select().column(Asterisk).from("member").to_owned();
         get_connection(connection).await?.load_member(query).await
     });
 }
@@ -31,78 +29,46 @@ pub struct ChangeRecord {
     pub new_value: Option<String>,
 }
 
-pub fn change_member(connection: ConnectionDescription, changes: Vec<ChangeRecord>) -> Vec<usize> {
+pub fn change_member(connection: ConnectionDescription, changes: Vec<ChangeRecord>) -> usize {
     return Runtime::new().unwrap().block_on(async {
         let opt_connection = get_connection(connection).await;
 
         if opt_connection.is_none() {
             // FIXME Either throw exception or log warning etc.
             error!("Could not establish connection");
-            return Vec::new();
+            return 0;
         }
 
         info!("Changing {} members...", changes.len());
 
-        let mut succeeded_update_indices: Vec<usize> = Vec::new();
+        let mut change_entries = Vec::<(_, Expr)>::new();
 
-        match opt_connection.unwrap() {
-            OrmBased(mut connection) => {
-                for (index, change) in changes.iter().enumerate() {
-                    // FIXME Determine primary key automatically
-                    // FIXME Prefer query builder over raw SQL
-                    let unbound_update_statement = diesel::sql_query(format!(
-                        "UPDATE member SET {} = $1 WHERE membershipid = $2",
-                        change.column
-                    ));
-
-                    if change.new_value.is_none() {
-                        // FIXME Verify whether column is nullable
-                        // FIXME Either throw exception or log warning etc.
-                        // FIXME Implement nullable case
-                        // FIXME Verify whether previous value corresponds to current value
-                        // let null_update_statement =
-                        //     unbound_update_statement.bind::<Nullable<Integer>, _>(None);
-                        // let update_statement = null_update_statement.bind::<Integer, _>(change.membershipid);
-                        // update_result = update_statement.execute(&mut connection);
-                        warn!("Changing values to NULL is not supported yet");
-                        continue;
-                    }
-
-                    let changed_value = change.new_value.as_ref();
-
-                    let boxed_unbound_update_statement = unbound_update_statement.into_boxed();
-                    let changed_value_update_statement = bind_column_value(
-                        &mut connection,
-                        "member",
-                        change.column.as_str(),
-                        changed_value.map(|s| s.as_str()),
-                        boxed_unbound_update_statement,
-                    )
-                    // FIXME Improve logging and error handling
-                    .expect("Could not bind column value");
-                    let update_statement =
-                        changed_value_update_statement.bind::<Integer, _>(change.membershipid);
-                    let update_result = update_statement.execute(&mut connection);
-
-                    // FIXME Improve logging and error handling
-                    match update_result {
-                        Ok(num_updated) => {
-                            info!("num updated {}", num_updated);
-                            if num_updated == 1 {
-                                succeeded_update_indices.push(index);
-                            } else {
-                                info!("Updated {} rows instead of 1", num_updated);
-                            }
-                        }
-                        Err(error) => {
-                            error!("error {}", error);
-                        }
-                    };
-                }
-            }
-            SshBased(_connection) => error!("SSH based connections are not supported"),
+        for change in changes.iter() {
+            change_entries.push((
+                change.column.clone(),
+                change
+                    .new_value
+                    .clone()
+                    .map_or(Expr::null(), |value| Expr::value(value)),
+            ));
         }
 
-        return succeeded_update_indices;
+        let update_statement = Query::update()
+            .table("member")
+            .values(change_entries)
+            .to_owned();
+
+        let mut connection = opt_connection.unwrap();
+        let num_updated_rows = connection
+            .execute_sql(connection.to_string(update_statement))
+            .await;
+
+        match num_updated_rows {
+            Some(num) => num,
+            None => {
+                error!("Updating member failed");
+                0
+            }
+        }
     });
 }
