@@ -1,6 +1,5 @@
 pub mod api;
 
-mod column_type_info;
 mod connection;
 mod database;
 mod frb_generated;
