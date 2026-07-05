@@ -62,21 +62,13 @@ impl OrmConnection {
         };
     }
 
-    pub fn execute_sql<QueryType: QueryStatementWriter>(
-        &mut self,
-        sql_query: QueryType,
-    ) -> Option<usize> {
-        let sql_query_string = self.to_string(sql_query);
-
-        let query_result = diesel::sql_query(&sql_query_string).execute(self);
+    pub fn execute_sql(&mut self, sql_query: String) -> Option<usize> {
+        let query_result = diesel::sql_query(&sql_query).execute(self);
 
         return match query_result {
             Ok(result) => Some(result),
             Err(error) => {
-                error!(
-                    "Executing query '{}' failed due '{}'",
-                    sql_query_string, error
-                );
+                error!("Executing query '{}' failed due '{}'", sql_query, error);
                 return None;
             }
         };
@@ -229,11 +221,7 @@ impl SshConnection {
     }
 
     // Return row major cells, i.e. a vector of rows, where each row is a vector of coloumns
-    async fn read_cells<QueryType: QueryStatementWriter>(
-        &mut self,
-        sql_query: QueryType,
-    ) -> Option<Vec<Vec<String>>> {
-        let sql_query_string = self.to_string(sql_query);
+    async fn read_cells(&mut self, sql_query: String) -> Option<Vec<Vec<String>>> {
         let sql_login_result = self
             .channel
             .exec(true, self.sql_login_command.as_bytes())
@@ -247,7 +235,7 @@ impl SshConnection {
                     .await;
                 let _sql_query_write_result = self
                     .channel
-                    .data(format!("{};\n", sql_query_string).as_bytes())
+                    .data(format!("{};\n", sql_query).as_bytes())
                     .await;
                 let _eof_write_result = self.channel.eof().await;
 
@@ -265,7 +253,8 @@ impl SshConnection {
         &mut self,
         sql_query: QueryType,
     ) -> Option<Vec<models::Member>> {
-        self.read_cells(sql_query).await.map(|cells| {
+        let sql_query_string = self.to_string(sql_query);
+        self.read_cells(sql_query_string).await.map(|cells| {
             let cells_split = cells.split_first();
 
             if cells_split.is_none() {
@@ -296,10 +285,7 @@ impl SshConnection {
         })?
     }
 
-    pub async fn execute_sql<QueryType: QueryStatementWriter>(
-        &mut self,
-        sql_query: QueryType,
-    ) -> Option<usize> {
+    pub async fn execute_sql(&mut self, sql_query: String) -> Option<usize> {
         self.read_cells(sql_query).await.map(|cells| cells.len())
     }
 }
@@ -327,10 +313,7 @@ impl DbConnection {
         };
     }
 
-    pub async fn execute_sql<QueryType: QueryStatementWriter>(
-        &mut self,
-        sql_query: QueryType,
-    ) -> Option<usize> {
+    pub async fn execute_sql(&mut self, sql_query: String) -> Option<usize> {
         return match self {
             Self::OrmBased(connection) => connection.execute_sql(sql_query),
             Self::SshBased(connection) => connection.execute_sql(sql_query).await,

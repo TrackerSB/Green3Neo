@@ -121,9 +121,7 @@ mod test {
         let mut diesel_connection = sqlx_connection.into_diesel_connection().await;
 
         let fixture_sql_content = fs::read_to_string("src/fixtures/allsupportedtypes.sql").unwrap();
-        diesel::sql_query(fixture_sql_content)
-            .execute(&mut diesel_connection)
-            .unwrap();
+        diesel_connection.execute_sql(fixture_sql_content);
 
         diesel_connection
     }
