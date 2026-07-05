@@ -3,7 +3,7 @@ use std::fs;
 use backend_testing::testing;
 use sqlx::{Database, Pool, any::install_default_drivers, pool::PoolConnection};
 
-use crate::connection::OrmConnection;
+use crate::connection::{DbConnection, OrmConnection};
 
 trait GetCurrentDBName {
     async fn get_current_db_name(&mut self) -> Option<String>
@@ -74,7 +74,7 @@ impl IntoDieselConnection for sqlx::pool::PoolConnection<sqlx::MySql> {
     }
 }
 
-pub async fn setup_test<DB>(sqlx_pool: Pool<DB>) -> OrmConnection
+pub async fn setup_test<DB>(sqlx_pool: Pool<DB>) -> DbConnection
 where
     DB: Database,
     PoolConnection<DB>: IntoDieselConnection,
@@ -89,7 +89,7 @@ where
     let fixture_sql_content = fs::read_to_string("src/fixtures/allsupportedtypes.sql").unwrap();
     diesel_connection.execute_sql(fixture_sql_content);
 
-    diesel_connection
+    DbConnection::OrmBased(diesel_connection)
 }
 
 pub fn tear_down(expected_num_severe_messages: usize) {

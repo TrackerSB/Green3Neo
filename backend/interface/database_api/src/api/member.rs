@@ -82,14 +82,11 @@ mod test {
     use sqlx::PgPool;
     use sqlx::{Database, Pool, pool::PoolConnection};
 
-    use crate::{
-        connection::OrmConnection,
-        test_database_common::{self, IntoDieselConnection},
-    };
+    use crate::test_database_common::{self, IntoDieselConnection};
 
     use super::*;
 
-    async fn setup_test<DB>(sqlx_pool: Pool<DB>) -> OrmConnection
+    async fn setup_test<DB>(sqlx_pool: Pool<DB>) -> DbConnection
     where
         DB: Database,
         PoolConnection<DB>: IntoDieselConnection,
@@ -110,12 +107,12 @@ mod test {
     #[cfg(feature = "postgres")]
     #[sqlx::test]
     async fn test_get_all_pg(pool: PgPool) -> sqlx::Result<()> {
-        test_get_all(DbConnection::OrmBased(setup_test(pool).await))
+        test_get_all(setup_test(pool).await)
     }
 
     #[cfg(feature = "mysql")]
     #[sqlx::test]
     async fn test_get_all_mysql(pool: MySqlPool) -> sqlx::Result<()> {
-        test_get_all(DbConnection::OrmBased(setup_test(pool).await))
+        test_get_all(setup_test(pool).await)
     }
 }
