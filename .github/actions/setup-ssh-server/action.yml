@@ -11,11 +11,11 @@ runs:
     - name: Configure SSH server
       run: |
         sudo mkdir -p /var/run/sshd # What is this for?
-        echo "fancySshUser:safePassword" | sudo chpasswd
-        sudo sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config # Is this required?
+        echo "root:safeRootPassword" | sudo chpasswd
+        sudo sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
         sudo sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/' /etc/ssh/sshd_config
       shell: bash
-    - name: Create SSH keys
+    - name: Create SSH keys (required since password auth?)
       run: |
         ssh-keygen -t ed25519 -f ~/.ssh/my_key
         cat ~/.ssh/my_key.pub >> ~/.ssh/authorized_keys
