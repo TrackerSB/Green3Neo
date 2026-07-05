@@ -84,12 +84,15 @@ where
     install_default_drivers(); // FIXME Required?
 
     let sqlx_connection = sqlx_pool.acquire().await.unwrap();
-    let mut diesel_connection = sqlx_connection.into_diesel_connection().await;
+    let diesel_connection = sqlx_connection.into_diesel_connection().await;
+
+    let mut connection = DbConnection::OrmBased(diesel_connection);
 
     let fixture_sql_content = fs::read_to_string("src/fixtures/allsupportedtypes.sql").unwrap();
-    diesel_connection.execute_sql(fixture_sql_content);
+    let _num_inserted_rows = connection.execute_sql(fixture_sql_content).await;
+    // FIXME Verify whether all rows were inserted
 
-    DbConnection::OrmBased(diesel_connection)
+    connection
 }
 
 pub fn tear_down(expected_num_severe_messages: usize) {
