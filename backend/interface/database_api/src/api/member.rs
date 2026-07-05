@@ -80,16 +80,15 @@ mod test {
     use sqlx::MySqlPool;
     #[cfg(feature = "postgres")]
     use sqlx::PgPool;
-    use sqlx::{Database, Pool, pool::PoolConnection};
+    use sqlx::{Database, Pool};
 
-    use crate::test_database_common::{self, IntoDieselConnection};
+    use crate::test_database_common::{self, GetCurrentDBName};
 
     use super::*;
 
     async fn setup_test<DB>(sqlx_pool: Pool<DB>) -> DbConnection
     where
-        DB: Database,
-        PoolConnection<DB>: IntoDieselConnection,
+        DB: Database + GetCurrentDBName,
     {
         test_database_common::setup_test(sqlx_pool).await
     }
