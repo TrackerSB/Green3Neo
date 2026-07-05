@@ -68,7 +68,10 @@ pub fn get_column_info(
         .cloned()
 }
 
-pub fn get_all_column_info(connection: &mut OrmConnection, table_name: &str) -> Vec<ColumnTypeInfo> {
+pub fn get_all_column_info(
+    connection: &mut OrmConnection,
+    table_name: &str,
+) -> Vec<ColumnTypeInfo> {
     let column_info_result = diesel::sql_query(
         "SELECT column_name, data_type, udt_name, is_nullable \
             FROM information_schema.columns \
