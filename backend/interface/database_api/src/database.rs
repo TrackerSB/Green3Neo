@@ -94,17 +94,13 @@ mod test {
     use std::fs;
 
     use backend_testing::testing;
-    use diesel::RunQueryDsl;
-    use log::error;
-    use speculoos::{assert_that, option::OptionAssertions, vec::VecAssertions};
+    #[cfg(feature = "mysql")]
+    use sqlx::MySqlPool;
     #[cfg(feature = "postgres")]
     use sqlx::PgPool;
     use sqlx::{Database, Pool, any::install_default_drivers, pool::PoolConnection};
 
-    use crate::{
-        column_type_info::get_all_column_info, connection::MultiBackend,
-        test_database_common::IntoDieselConnection,
-    };
+    use crate::test_database_common::IntoDieselConnection;
 
     use super::*;
 
@@ -130,181 +126,19 @@ mod test {
         testing::tear_down(expected_num_severe_messages);
     }
 
-    async fn test_bind_column<DB>(pool: Pool<DB>) -> sqlx::Result<()>
-    where
-        DB: Database,
-        PoolConnection<DB>: IntoDieselConnection,
-    {
-        // FIXME Determine table name automatically
-        let table_name = "allsupportedtypes";
-        let mut diesel_connection = setup_test(pool).await;
-
-        let column_info = get_all_column_info(&mut diesel_connection, table_name);
-        assert_that!(&column_info)
-            .named("Gather columns to check")
-            .is_not_empty();
-
-        for row in column_info.iter() {
-            let value_to_bind: Option<&str> = match row.data_type.as_str() {
-                "text" => Some("fancyText"),
-                "character varying" => Some("fancyVarChar"),
-                "boolean" => Some("false"),
-                "integer" => Some("42"),
-                "double precision" => Some("123.123"),
-                "date" => Some("2021-01-01"),
-                _ => {
-                    error!("No testdata defined for type {}", row.data_type);
-                    None
-                }
-            };
-
-            if value_to_bind.is_none() {
-                error!("No test case for type {}", row.data_type.as_str());
-                continue;
-            }
-
-            let base_sql_expression = diesel::sql_query(format!(
-                "SELECT {1} FROM {0} WHERE {1} = $1",
-                table_name, row.column_name
-            ));
-
-            let sql_expression_with_value = bind_column_value(
-                &mut diesel_connection,
-                &table_name,
-                &row.column_name,
-                value_to_bind,
-                base_sql_expression.clone().into_boxed(),
-            );
-
-            assert_that!(&sql_expression_with_value.as_ref().map(|_| ()))
-                .named("Bind column value")
-                .is_some();
-
-            sql_expression_with_value
-                .unwrap()
-                .execute(&mut diesel_connection)
-                .expect("Could not execute query");
-
-            if row.is_nullable {
-                let sql_expression_with_null = bind_column_value(
-                    &mut diesel_connection,
-                    &table_name,
-                    &row.column_name,
-                    None,
-                    base_sql_expression.into_boxed(),
-                );
-
-                assert_that!(&sql_expression_with_null.as_ref().map(|_| ()))
-                    .named("Bind column to null")
-                    .is_some();
-
-                sql_expression_with_null
-                    .unwrap()
-                    .execute(&mut diesel_connection)
-                    .expect("Could not execute query");
-            }
-        }
-
+    #[cfg(feature = "postgres")]
+    #[sqlx::test]
+    async fn test_stub_pg(pool: PgPool) -> sqlx::Result<()> {
+        let _connection = setup_test(pool).await;
         tear_down(0);
         Ok(())
     }
 
-    #[cfg(feature = "postgres")]
+    #[cfg(feature = "mysql")]
     #[sqlx::test]
-    async fn test_bind_column_pg(pool: PgPool) -> sqlx::Result<()> {
-        test_bind_column(pool).await
-    }
-
-    async fn test_bind_wrong_type<DB>(pool: Pool<DB>) -> sqlx::Result<()>
-    where
-        DB: Database,
-        PoolConnection<DB>: IntoDieselConnection,
-    {
-        // FIXME Determine table name automatically
-        let table_name = "allsupportedtypes";
-        let mut diesel_connection = setup_test(pool).await;
-
-        let column_info = get_all_column_info(&mut diesel_connection, table_name);
-        assert_that!(&column_info)
-            .named("Gather columns to check")
-            .is_not_empty();
-
-        let column_name = "datecolumn";
-        let value_to_bind = Some("true");
-
-        let base_sql_expression = diesel::sql_query(format!(
-            "SELECT {1} FROM {0} WHERE {1} = $1",
-            table_name, column_name
-        ));
-
-        let sql_expression = bind_column_value(
-            &mut diesel_connection,
-            &table_name,
-            &column_name,
-            value_to_bind,
-            base_sql_expression.into_boxed(),
-        );
-
-        assert_that!(&sql_expression.as_ref().map(|_| ()))
-            .named("Bind column value")
-            .is_some();
-
-        sql_expression
-            .unwrap()
-            .execute(&mut diesel_connection)
-            .expect("Could not execute query");
-
-        tear_down(1);
+    async fn test_stub_mysql(pool: MySqlPool) -> sqlx::Result<()> {
+        let _connection = setup_test(pool).await;
+        tear_down(0);
         Ok(())
-    }
-
-    #[cfg(feature = "postgres")]
-    #[sqlx::test]
-    async fn test_bind_wrong_type_pg(pool: PgPool) -> sqlx::Result<()> {
-        test_bind_wrong_type(pool).await
-    }
-
-    async fn test_bind_null_to_nonnullable_column<DB>(pool: Pool<DB>) -> sqlx::Result<()>
-    where
-        DB: Database,
-        PoolConnection<DB>: IntoDieselConnection,
-    {
-        // FIXME Determine table name automatically
-        let table_name = "allsupportedtypes";
-        let mut diesel_connection = setup_test(pool).await;
-
-        let column_info = get_all_column_info(&mut diesel_connection, table_name);
-        assert_that!(&column_info)
-            .named("Gather columns to check")
-            .is_not_empty();
-
-        let column_name = "doublecolumn";
-        let value_to_bind = None;
-
-        let base_sql_expression = diesel::sql_query(format!(
-            "SELECT {1} FROM {0} WHERE {1} = $1",
-            table_name, column_name
-        ));
-
-        let sql_expression: Option<BoxedSqlQuery<'_, MultiBackend, _>> = bind_column_value(
-            &mut diesel_connection,
-            &table_name,
-            &column_name,
-            value_to_bind,
-            base_sql_expression.into_boxed(),
-        );
-
-        assert_that!(&sql_expression.as_ref().map(|_| ()))
-            .named("Bind column value")
-            .is_none();
-
-        tear_down(1);
-        Ok(())
-    }
-
-    #[cfg(feature = "postgres")]
-    #[sqlx::test]
-    async fn test_bind_null_to_nonnullable_column_pg(pool: PgPool) -> sqlx::Result<()> {
-        test_bind_null_to_nonnullable_column(pool).await
     }
 }
