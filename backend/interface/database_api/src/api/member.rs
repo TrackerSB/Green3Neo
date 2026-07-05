@@ -1,4 +1,5 @@
 use crate::api::models;
+use crate::connection::DbConnection;
 use crate::connection::get_connection;
 use database_types::connection_description::ConnectionDescription;
 use log::{error, info};
@@ -7,11 +8,15 @@ use sea_query::Expr;
 use sea_query::Query;
 use tokio::runtime::Runtime;
 
+async fn get_all_members_impl(mut connection: DbConnection) -> Option<Vec<models::Member>> {
+    let query = Query::select().column(Asterisk).from("member").to_owned();
+    connection.load_member(query).await
+}
+
 pub fn get_all_members(connection: ConnectionDescription) -> Option<Vec<models::Member>> {
-    return Runtime::new().unwrap().block_on(async {
-        let query = Query::select().column(Asterisk).from("member").to_owned();
-        get_connection(connection).await?.load_member(query).await
-    });
+    return Runtime::new()
+        .unwrap()
+        .block_on(async { get_all_members_impl(get_connection(connection).await?).await });
 }
 
 pub struct ChangeRecord {
@@ -67,4 +72,50 @@ pub fn change_member(connection: ConnectionDescription, changes: Vec<ChangeRecor
             }
         }
     });
+}
+
+#[cfg(test)]
+mod test {
+    #[cfg(feature = "mysql")]
+    use sqlx::MySqlPool;
+    #[cfg(feature = "postgres")]
+    use sqlx::PgPool;
+    use sqlx::{Database, Pool, pool::PoolConnection};
+
+    use crate::{
+        connection::OrmConnection,
+        test_database_common::{self, IntoDieselConnection},
+    };
+
+    use super::*;
+
+    async fn setup_test<DB>(sqlx_pool: Pool<DB>) -> OrmConnection
+    where
+        DB: Database,
+        PoolConnection<DB>: IntoDieselConnection,
+    {
+        test_database_common::setup_test(sqlx_pool).await
+    }
+
+    fn tear_down(expected_num_severe_messages: usize) {
+        test_database_common::tear_down(expected_num_severe_messages);
+    }
+
+    fn test_get_all(connection: DbConnection) -> sqlx::Result<()> {
+        let _ = get_all_members_impl(connection);
+        tear_down(0);
+        Ok(())
+    }
+
+    #[cfg(feature = "postgres")]
+    #[sqlx::test]
+    async fn test_get_all_pg(pool: PgPool) -> sqlx::Result<()> {
+        test_get_all(DbConnection::OrmBased(setup_test(pool).await))
+    }
+
+    #[cfg(feature = "mysql")]
+    #[sqlx::test]
+    async fn test_get_all_mysql(pool: MySqlPool) -> sqlx::Result<()> {
+        test_get_all(DbConnection::OrmBased(setup_test(pool).await))
+    }
 }
