@@ -154,7 +154,5 @@ pub fn implement_json_field_conversion(item: TokenStream) -> TokenStream {
         }
     };
 
-    eprintln!("expanded: {}", expanded.to_string());
-
     TokenStream::from(expanded)
 }
