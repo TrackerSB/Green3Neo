@@ -12,6 +12,7 @@ runs:
         host port: ${{ env.BUILD_DB_PORT }}
         mysql user: ${{ env.BUILD_DB_USER }}
         mysql password: ${{ env.BUILD_DB_PASSWORD }}
+        mysql root password: foo
     - name: Wait for MySQL
       run: |
         success=false
@@ -38,7 +39,7 @@ runs:
           -h ${{ env.BUILD_DB_HOST }} \
           -P ${{ env.BUILD_DB_PORT }} \
           -u root \
-          -p"" \
+          -p"foo" \
           -e "GRANT CREATE, DROP ON *.* TO '${{ env.BUILD_DB_HOST }}'@'%'; FLUSH PRIVILEGES;"
       shell: bash
     - name: Create empty DB tables
