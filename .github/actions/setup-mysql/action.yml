@@ -24,13 +24,26 @@ runs:
             -u ${{ env.BUILD_DB_USER }} \
             -p${{ env.BUILD_DB_PASSWORD }}; then
             success=true
+            echo "found"
             break
           fi
           sleep 1
         done
         if [ "$success" != "true" ]; then
+          echo "NOT found"
           exit 1
         fi
+      shell: bash
+    - name: Show grants
+      run: |
+        mysql \
+          -h ${{ env.BUILD_DB_HOST }} \
+          -P ${{ env.BUILD_DB_PORT }} \
+          -u ${{ env.BUILD_DB_USER }} \
+          -p ${{ env.BUILD_DB_PASSWORD }} \
+          -e "SHOW GRANTS FOR 'testuser'@'%';"
+      env:
+        MYSQL_ROOT_PASSWORD: rootpassword
       shell: bash
     - name: Create empty DB tables
       run: just database-create-tables
