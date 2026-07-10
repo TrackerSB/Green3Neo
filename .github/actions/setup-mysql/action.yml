@@ -20,8 +20,8 @@ runs:
     - name: Verify connecting to database
       run: |
         mariadb \
-          -h ${{ env.BUILD_DB_HOST }}
-          -P ${{ env.BUILD_DB_PORT }}
+          -h ${{ env.BUILD_DB_HOST }} \
+          -P ${{ env.BUILD_DB_PORT }} \
           -u root \
           -p"extremelySafeRoot" \
           -e "SELECT CURRENT_USER(), version();"
