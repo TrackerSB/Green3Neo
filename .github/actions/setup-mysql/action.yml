@@ -14,7 +14,7 @@ runs:
         password: ${{ env.BUILD_DB_PASSWORD }}
     - name: Grant every possible permission to allow sqlx create and drop database
       run: |
-        mysql \
+        mariadb \
           --ssl \
           --ssl-mode=REQUIRED \
           --ssl-ca=${{ steps.setup-mysql.outputs.base-dir }}/var/ca.pem \
