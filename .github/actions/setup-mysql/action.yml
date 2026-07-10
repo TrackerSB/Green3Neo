@@ -24,13 +24,11 @@ runs:
             -u ${{ env.BUILD_DB_USER }} \
             -p"${{ env.BUILD_DB_PASSWORD }}"; then
             success=true
-            echo "found"
             break
           fi
           sleep 1
         done
         if [ "$success" != "true" ]; then
-          echo "NOT found"
           exit 1
         fi
       shell: bash
