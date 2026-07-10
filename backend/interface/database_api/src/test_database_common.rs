@@ -15,27 +15,28 @@ use sqlx::{Database, Pool, any::install_default_drivers, pool::PoolConnection};
 use crate::connection::{DbConnection, get_connection};
 
 pub trait GetCurrentDBName {
-    async fn get_current_db_name(connection: &mut PoolConnection<Self>) -> Option<String>
+    async fn get_current_db_name(connection: &mut PoolConnection<Self>) -> String
     where
         Self: Database;
 }
 
 #[cfg(feature = "postgres")]
 impl GetCurrentDBName for Postgres {
-    async fn get_current_db_name(connection: &mut PoolConnection<Self>) -> Option<String> {
-        Some(
-            sqlx::query_scalar::<_, String>("SELECT current_database()")
-                .fetch_one(connection.deref_mut())
-                .await
-                .expect("Querying current database name failed"),
-        )
+    async fn get_current_db_name(connection: &mut PoolConnection<Self>) -> String {
+        sqlx::query_scalar::<_, String>("SELECT current_database()")
+            .fetch_one(connection.deref_mut())
+            .await
+            .expect("Querying current database name failed")
     }
 }
 
 #[cfg(feature = "mysql")]
 impl GetCurrentDBName for MySql {
-    async fn get_current_db_name(connection: &mut PoolConnection<Self>) -> Option<String> {
-        todo!("Not implemented")
+    async fn get_current_db_name(connection: &mut PoolConnection<Self>) -> String {
+        sqlx::query_scalar::<_, String>("SELECT DATABASE()")
+            .fetch_one(connection.deref_mut())
+            .await
+            .expect("Querying current database name failed")
     }
 }
 
@@ -97,7 +98,7 @@ where
     let mut sqlx_connection = sqlx_pool.acquire().await.unwrap();
 
     let mut connection_description = read_connection_from_environment();
-    connection_description.name = DB::get_current_db_name(&mut sqlx_connection).await.unwrap();
+    connection_description.name = DB::get_current_db_name(&mut sqlx_connection).await;
 
     let mut connection = get_connection(connection_description).await.unwrap();
 
