@@ -42,7 +42,7 @@ runs:
           -p"topSecretRootPassword" \
           -e "SELECT user, host FROM mysql.user WHERE user = '${{ env.BUILD_DB_USER }}';"
       env:
-        MYSQL_ROOT_PASSWORD: ${{ env.BUILD_DB_PASSWORD }}
+        MYSQL_ROOT_PASSWORD: topSecretRootPassword
       shell: bash
     - name: Create empty DB tables
       run: just database-create-tables
