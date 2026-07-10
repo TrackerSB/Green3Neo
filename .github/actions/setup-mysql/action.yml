@@ -40,7 +40,7 @@ runs:
           -P ${{ env.BUILD_DB_PORT }} \
           -u root \
           -p"foo" \
-          -e "GRANT CREATE, DROP ON *.* TO '${{ env.BUILD_DB_HOST }}'@'%'; FLUSH PRIVILEGES;"
+          -e "CREATE USER IF NOT EXISTS '${{ env.BUILD_DB_HOST }}'@'%' IDENTIFIED BY '${{ env.BUILD_DB_PASSWORD }}'; GRANT CREATE, DROP ON *.* TO '${{ env.BUILD_DB_HOST }}'@'%'; FLUSH PRIVILEGES;"
       shell: bash
     - name: Create empty DB tables
       run: just database-create-tables
