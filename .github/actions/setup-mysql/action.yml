@@ -12,6 +12,7 @@ runs:
         host port: ${{ env.BUILD_DB_PORT }}
         mysql user: ${{ env.BUILD_DB_USER }}
         mysql password: ${{ env.BUILD_DB_PASSWORD }}
+        mysql root password: "topSecretRootPassword"
     - name: Wait for MySQL
       run: |
         success=false
@@ -37,8 +38,8 @@ runs:
         mysql \
           -h ${{ env.BUILD_DB_HOST }} \
           -P ${{ env.BUILD_DB_PORT }} \
-          -u ${{ env.BUILD_DB_USER }} \
-          -p"${{ env.BUILD_DB_PASSWORD }}" \
+          -u root \
+          -p"topSecretRootPassword" \
           -e "GRANT ALL PRIVILEGES ON *.* TO 'testuser'@'%'; FLUSH PRIVILEGES;"
       env:
         MYSQL_ROOT_PASSWORD: ${{ env.BUILD_DB_PASSWORD }}
