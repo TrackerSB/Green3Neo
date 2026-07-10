@@ -32,14 +32,14 @@ runs:
           exit 1
         fi
       shell: bash
-    - name: Show grants
+    - name: Grant every possible permission to allow sqlx create and drop database
       run: |
         mysql \
           -h ${{ env.BUILD_DB_HOST }} \
           -P ${{ env.BUILD_DB_PORT }} \
           -u ${{ env.BUILD_DB_USER }} \
           -p"${{ env.BUILD_DB_PASSWORD }}" \
-          -e "SHOW GRANTS FOR 'testuser'@'%';"
+          -e "GRANT ALL PRIVILEGES ON *.* TO 'testuser'@'%'; FLUSH PRIVILEGES;"
       env:
         MYSQL_ROOT_PASSWORD: ${{ env.BUILD_DB_PASSWORD }}
       shell: bash
