@@ -39,20 +39,6 @@ impl GetCurrentDBName for MySql {
     }
 }
 
-fn create_db_url(db_name: &str) -> String {
-    let template_db_url = std::env::var("DATABASE_URL").expect("Could not determine database URL");
-    template_db_url
-        .split_at(
-            template_db_url
-                .rfind("/")
-                .expect("Could not find slash separating DB address from DB name")
-                + 1,
-        )
-        .0
-        .to_owned()
-        + db_name
-}
-
 fn read_connection_from_environment() -> ConnectionDescription {
     let db_protocol = std::env::var("BUILD_DB_PROTOCOL").unwrap();
     let db_host = std::env::var("BUILD_DB_HOST").unwrap();
