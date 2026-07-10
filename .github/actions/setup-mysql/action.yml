@@ -6,6 +6,7 @@ runs:
     - name: Install just command runner
       uses: extractions/setup-just@v3.1.0
     - name: Setup MySQL server
+      id: setup-mariadb
       uses: shogo82148/actions-setup-mysql@v1.52.1
       with:
         distribution: "mariadb"
@@ -16,7 +17,7 @@ runs:
       run: |
         mariadb \
           --ssl \
-          --ssl-ca=${{ steps.setup-mysql.outputs.base-dir }}/var/ca.pem \
+          --ssl-ca=${{ steps.setup-mariadb.outputs.base-dir }}/var/ca.pem \
           -u root \
           -e "SELECT version();"
       shell: bash
