@@ -37,8 +37,8 @@ runs:
         mysql \
           -h ${{ env.BUILD_DB_HOST }} \
           -P ${{ env.BUILD_DB_PORT }} \
-          -u ${{ env.BUILD_DB_USER }} \
-          -p"${{ env.BUILD_DB_PASSWORD }}" \
+          -u root \
+          -p"" \
           -e "GRANT CREATE, DROP ON *.* TO '${{ env.BUILD_DB_HOST }}'@'%'; FLUSH PRIVILEGES;"
       shell: bash
     - name: Create empty DB tables
