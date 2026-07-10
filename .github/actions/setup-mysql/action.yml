@@ -11,15 +11,20 @@ runs:
       with:
         distribution: "mariadb"
         mysql-version: "12.3"
+        my-cnf: |
+          bind-address=0.0.0.0
+          port=${{ env.BUILD_DB_PORT }}
         user: ${{ env.BUILD_DB_USER }}
         password: ${{ env.BUILD_DB_PASSWORD }}
-    - name: Grant every possible permission to allow sqlx create and drop database
+        root-password: extremelySafeRoot
+    - name: Verify connecting to database
       run: |
         mariadb \
-          --ssl \
-          --ssl-ca=${{ steps.setup-mariadb.outputs.base-dir }}/var/ca.pem \
+          -h ${{ env.BUILD_DB_HOST }}
+          -P ${{ env.BUILD_DB_PORT }}
           -u root \
-          -e "SELECT version();"
+          -p"extremelySafeRoot" \
+          -e "SELECT CURRENT_USER(), version();"
       shell: bash
     - name: Create empty DB tables
       run: just database-create-tables
