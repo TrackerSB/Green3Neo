@@ -22,7 +22,7 @@ runs:
             -h ${{ env.BUILD_DB_HOST }} \
             -P ${{ env.BUILD_DB_PORT }} \
             -u ${{ env.BUILD_DB_USER }} \
-            -p${{ env.BUILD_DB_PASSWORD }}; then
+            -p ${{ env.BUILD_DB_PASSWORD }}; then
             success=true
             echo "found"
             break
