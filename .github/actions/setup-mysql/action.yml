@@ -12,7 +12,6 @@ runs:
         host port: ${{ env.BUILD_DB_PORT }}
         mysql user: ${{ env.BUILD_DB_USER }}
         mysql password: ${{ env.BUILD_DB_PASSWORD }}
-        mysql root password: "topSecretRootPassword"
     - name: Wait for MySQL
       run: |
         success=false
@@ -38,11 +37,9 @@ runs:
         mysql \
           -h ${{ env.BUILD_DB_HOST }} \
           -P ${{ env.BUILD_DB_PORT }} \
-          -u root \
-          -p"topSecretRootPassword" \
+          -u ${{ env.BUILD_DB_USER }} \
+          -p"${{ env.BUILD_DB_PASSWORD }}" \
           -e "SELECT user, host FROM mysql.user WHERE user = '${{ env.BUILD_DB_USER }}';"
-      env:
-        MYSQL_ROOT_PASSWORD: topSecretRootPassword
       shell: bash
     - name: Create empty DB tables
       run: just database-create-tables
