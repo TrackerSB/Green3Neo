@@ -6,41 +6,20 @@ runs:
     - name: Install just command runner
       uses: extractions/setup-just@v3.1.0
     - name: Setup MySQL server
-      uses: mirromutth/mysql-action@v1.1
+      uses: shogo82148/actions-setup-mysql@v1.52.1
       with:
-        mysql database:  ${{ env.BUILD_DB_NAME }}
-        host port: ${{ env.BUILD_DB_PORT }}
-        mysql user: ${{ env.BUILD_DB_USER }}
-        mysql password: ${{ env.BUILD_DB_PASSWORD }}
-        mysql root password: foo
-    - name: Wait for MySQL
-      run: |
-        success=false
-        for i in {1..20}; do
-          # NOTE 2026-04-02 Unix sockets are not supported due to Docker container
-          if mysqladmin ping \
-            --protocol=TCP \
-            -h ${{ env.BUILD_DB_HOST }} \
-            -P ${{ env.BUILD_DB_PORT }} \
-            -u ${{ env.BUILD_DB_USER }} \
-            -p"${{ env.BUILD_DB_PASSWORD }}"; then
-            success=true
-            break
-          fi
-          sleep 1
-        done
-        if [ "$success" != "true" ]; then
-          exit 1
-        fi
-      shell: bash
+        distribution: "mariadb"
+        mysql-version: "12.3"
+        user: ${{ env.BUILD_DB_USER }}
+        password: ${{ env.BUILD_DB_PASSWORD }}
     - name: Grant every possible permission to allow sqlx create and drop database
       run: |
         mysql \
-          -h ${{ env.BUILD_DB_HOST }} \
-          -P ${{ env.BUILD_DB_PORT }} \
+          --ssl \
+          --ssl-mode=REQUIRED \
+          --ssl-ca=${{ steps.setup-mysql.outputs.base-dir }}/var/ca.pem \
           -u root \
-          -p"foo" \
-          -e "CREATE USER IF NOT EXISTS '${{ env.BUILD_DB_HOST }}'@'%' IDENTIFIED BY '${{ env.BUILD_DB_PASSWORD }}'; GRANT CREATE, DROP ON *.* TO '${{ env.BUILD_DB_HOST }}'@'%'; FLUSH PRIVILEGES;"
+          -e "SELECT version();"
       shell: bash
     - name: Create empty DB tables
       run: just database-create-tables
