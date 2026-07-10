@@ -16,7 +16,6 @@ runs:
       run: |
         mariadb \
           --ssl \
-          --ssl-mode=REQUIRED \
           --ssl-ca=${{ steps.setup-mysql.outputs.base-dir }}/var/ca.pem \
           -u root \
           -e "SELECT version();"
