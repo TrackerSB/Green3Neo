@@ -39,7 +39,7 @@ runs:
           -P ${{ env.BUILD_DB_PORT }} \
           -u ${{ env.BUILD_DB_USER }} \
           -p"${{ env.BUILD_DB_PASSWORD }}" \
-          -e "SELECT user, host FROM mysql.user WHERE user = '${{ env.BUILD_DB_USER }}';"
+          -e "GRANT CREATE, DROP ON *.* TO '${{ env.BUILD_DB_HOST }}'@'%'; FLUSH PRIVILEGES;"
       shell: bash
     - name: Create empty DB tables
       run: just database-create-tables
