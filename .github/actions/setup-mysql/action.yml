@@ -16,14 +16,13 @@ runs:
           port=${{ env.BUILD_DB_PORT }}
         user: ${{ env.BUILD_DB_USER }}
         password: ${{ env.BUILD_DB_PASSWORD }}
-        root-password: extremelySafeRoot
     - name: Create DB
       run: |
         mariadb \
           -h ${{ env.BUILD_DB_HOST }} \
           -P ${{ env.BUILD_DB_PORT }} \
-          -u root \
-          -p"extremelySafeRoot" \
+          -u ${{ env.BUILD_DB_USER }} \
+          -p"${{ env.BUILD_DB_PASSWORD }}" \
           -e "CREATE OR REPLACE DATABASE ${{ env.BUILD_DB_NAME }};"
       shell: bash
     - name: Create empty DB tables
