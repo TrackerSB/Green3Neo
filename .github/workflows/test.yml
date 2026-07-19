@@ -22,6 +22,15 @@ jobs:
           echo "DATABASE_URL=${{ matrix.db-protocol }}://$BUILD_DB_USER:$BUILD_DB_PASSWORD@$BUILD_DB_HOST:$BUILD_DB_PORT/$BUILD_DB_NAME" >> $GITHUB_ENV
         shell: bash
       - uses: ./.github/actions/prepare-backend-build
+      - name: Set environment variables for SSH
+        if: ${{ matrix.over-ssh }}
+        # FIXME Do not duplicate server information. Receive it from SSH setup action instead
+        run: |
+          echo "SSH_HOST=127.0.0.1" >> $GITHUB_ENV
+          echo "SSH_PORT=22" >> $GITHUB_ENV
+          echo "SSH_USER=root" >> $GITHUB_ENV
+          echo "SSH_PASSWORD=safeRootPassword" >> $GITHUB_ENV"
+        shell: bash
       - uses: ./.github/actions/setup-ssh-server
         if: ${{ matrix.over-ssh }}
       - name: Install command line for executing tests and combining results
