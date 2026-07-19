@@ -29,7 +29,7 @@ jobs:
           echo "SSH_HOST=127.0.0.1" >> $GITHUB_ENV
           echo "SSH_PORT=22" >> $GITHUB_ENV
           echo "SSH_USER=root" >> $GITHUB_ENV
-          echo "SSH_PASSWORD=safeRootPassword" >> $GITHUB_ENV"
+          echo "SSH_PASSWORD=safeRootPassword" >> $GITHUB_ENV
         shell: bash
       - uses: ./.github/actions/setup-ssh-server
         if: ${{ matrix.over-ssh }}
