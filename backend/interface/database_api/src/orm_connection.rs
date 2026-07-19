@@ -4,11 +4,7 @@ use diesel::MysqlConnection;
 #[cfg(feature = "postgres")]
 use diesel::PgConnection;
 use diesel::{MultiConnection, RunQueryDsl};
-#[cfg(feature = "mysql")]
-use sea_query::MysqlQueryBuilder;
-#[cfg(feature = "postgres")]
-use sea_query::PostgresQueryBuilder;
-use sea_query::{QueryStatementWriter, TableCreateStatement};
+use sea_query::QueryStatementWriter;
 
 use crate::{api::models, sql_stringifier::SqlStringifier};
 use log::error;
