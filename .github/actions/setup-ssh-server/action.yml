@@ -4,7 +4,6 @@ runs:
   using: "composite"
   steps:
     - name: Install SSH server
-      if: ${{ matrix.over-ssh }}
       run: |
         sudo apt install openssh-server
       shell: bash
