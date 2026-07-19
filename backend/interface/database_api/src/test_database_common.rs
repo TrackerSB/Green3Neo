@@ -1,5 +1,4 @@
 use std::fs;
-#[cfg(feature = "postgres")]
 use std::ops::DerefMut;
 
 use backend_testing::testing;
