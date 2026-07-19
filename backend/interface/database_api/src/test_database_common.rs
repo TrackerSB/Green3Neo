@@ -1,18 +1,17 @@
-use std::fs;
 use std::ops::DerefMut;
 
 use backend_testing::testing;
 use database_types::connection_description::{
     ConnectionDescription, DatabaseBackend, SshTunnelDescription,
 };
-use sea_query::{ColumnDef, Query, SchemaBuilder, Table, extension::postgres::json_table::Column};
+use sea_query::{ColumnDef, Table};
 #[cfg(feature = "mysql")]
 use sqlx::MySql;
 #[cfg(feature = "postgres")]
 use sqlx::Postgres;
 use sqlx::{Database, Pool, any::install_default_drivers, pool::PoolConnection};
 
-use crate::connection::{DbConnection, get_connection};
+use crate::{connection::get_connection, db_connection::DbConnection};
 
 pub trait GetCurrentDBName {
     async fn get_current_db_name(connection: &mut PoolConnection<Self>) -> String
