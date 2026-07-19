@@ -9,6 +9,7 @@ use sea_query::MysqlQueryBuilder;
 #[cfg(feature = "postgres")]
 use sea_query::PostgresQueryBuilder;
 use sea_query::QueryStatementWriter;
+use sea_query::TableCreateStatement;
 use std::sync::Arc;
 
 use database_types::connection_description::ConnectionDescription;
@@ -42,6 +43,15 @@ impl OrmConnection {
         };
     }
 
+    pub fn to_string2(&self, sql_query: TableCreateStatement) -> String {
+        return match self {
+            #[cfg(feature = "postgres")]
+            Self::PostgreSql(_) => sql_query.to_string(PostgresQueryBuilder),
+            #[cfg(feature = "mysql")]
+            Self::MySql(_) => sql_query.to_string(MysqlQueryBuilder),
+        };
+    }
+
     pub fn load_member<QueryType: QueryStatementWriter>(
         &mut self,
         sql_query: QueryType,
@@ -62,13 +72,18 @@ impl OrmConnection {
         };
     }
 
-    pub fn execute_sql(&mut self, sql_query: String) -> Option<usize> {
-        let query_result = diesel::sql_query(&sql_query).execute(self);
+    pub fn execute_sql(&mut self, sql_query: TableCreateStatement) -> Option<usize> {
+        let sql_query_string = self.to_string2(sql_query);
+
+        let query_result = diesel::sql_query(&sql_query_string).execute(self);
 
         return match query_result {
             Ok(result) => Some(result),
             Err(error) => {
-                error!("Executing query '{}' failed due '{}'", sql_query, error);
+                error!(
+                    "Executing query '{}' failed due '{}'",
+                    sql_query_string, error
+                );
                 return None;
             }
         };
@@ -92,6 +107,15 @@ struct FieldGenerator {
 
 impl SshConnection {
     pub fn to_string<QueryType: QueryStatementWriter>(&self, sql_query: QueryType) -> String {
+        return match self.backend {
+            #[cfg(feature = "postgres")]
+            DatabaseBackend::PostgreSql => sql_query.to_string(PostgresQueryBuilder),
+            #[cfg(feature = "mysql")]
+            DatabaseBackend::MySql => sql_query.to_string(MysqlQueryBuilder),
+        };
+    }
+
+    pub fn to_string2(&self, sql_query: TableCreateStatement) -> String {
         return match self.backend {
             #[cfg(feature = "postgres")]
             DatabaseBackend::PostgreSql => sql_query.to_string(PostgresQueryBuilder),
@@ -285,8 +309,11 @@ impl SshConnection {
         })?
     }
 
-    pub async fn execute_sql(&mut self, sql_query: String) -> Option<usize> {
-        self.read_cells(sql_query).await.map(|cells| cells.len())
+    pub async fn execute_sql(&mut self, sql_query: TableCreateStatement) -> Option<usize> {
+        let sql_query_string = self.to_string2(sql_query);
+        self.read_cells(sql_query_string)
+            .await
+            .map(|cells| cells.len())
     }
 }
 
@@ -313,7 +340,7 @@ impl DbConnection {
         };
     }
 
-    pub async fn execute_sql(&mut self, sql_query: String) -> Option<usize> {
+    pub async fn execute_sql(&mut self, sql_query: TableCreateStatement) -> Option<usize> {
         return match self {
             Self::OrmBased(connection) => connection.execute_sql(sql_query),
             Self::SshBased(connection) => connection.execute_sql(sql_query).await,

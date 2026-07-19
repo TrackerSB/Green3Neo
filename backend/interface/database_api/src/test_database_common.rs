@@ -5,6 +5,7 @@ use backend_testing::testing;
 use database_types::connection_description::{
     ConnectionDescription, DatabaseBackend, SshTunnelDescription,
 };
+use sea_query::{ColumnDef, Query, SchemaBuilder, Table, extension::postgres::json_table::Column};
 #[cfg(feature = "mysql")]
 use sqlx::MySql;
 #[cfg(feature = "postgres")]
@@ -101,8 +102,24 @@ where
 
     let mut connection = get_connection(connection_description).await.unwrap();
 
-    let fixture_sql_content = fs::read_to_string("src/fixtures/allsupportedtypes.sql").unwrap();
-    let _num_inserted_rows = connection.execute_sql(fixture_sql_content).await;
+    let table_creation_statement = Table::create()
+        .table("allsupportedtypes")
+        .col(
+            ColumnDef::new("serialColumn")
+                .integer()
+                .auto_increment()
+                .primary_key(),
+        )
+        .col(ColumnDef::new("integerColumn").integer().not_null())
+        .col(ColumnDef::new("textColumn").text().not_null())
+        .col(ColumnDef::new("varcharColumn").string().not_null())
+        .col(ColumnDef::new("booleanColumn").boolean().not_null())
+        .col(ColumnDef::new("doubleColumn").double().not_null())
+        .col(ColumnDef::new("dateColumn").date().not_null())
+        .col(ColumnDef::new("nullableDateColumn").date().null())
+        .take();
+
+    let _num_inserted_rows = connection.execute_sql(table_creation_statement).await;
     // FIXME Verify whether all rows were inserted
 
     connection
