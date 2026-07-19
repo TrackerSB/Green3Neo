@@ -1,17 +1,13 @@
 use crate::api::models;
 use crate::json_field_conversion::JsonFieldConversion;
+use crate::sql_stringifier::SqlStringifier;
 use database_types::connection_description::DatabaseBackend;
 use log::error;
 use log::warn;
 use russh::Channel;
 use russh::ChannelMsg;
 use russh::client::Msg;
-#[cfg(feature = "mysql")]
-use sea_query::MysqlQueryBuilder;
-#[cfg(feature = "postgres")]
-use sea_query::PostgresQueryBuilder;
 use sea_query::QueryStatementWriter;
-use sea_query::TableCreateStatement;
 
 pub struct SshConnection {
     pub channel: Channel<Msg>,
@@ -29,22 +25,8 @@ struct FieldGenerator {
 }
 
 impl SshConnection {
-    pub fn to_string<QueryType: QueryStatementWriter>(&self, sql_query: QueryType) -> String {
-        return match self.backend {
-            #[cfg(feature = "postgres")]
-            DatabaseBackend::PostgreSql => sql_query.to_string(PostgresQueryBuilder),
-            #[cfg(feature = "mysql")]
-            DatabaseBackend::MySql => sql_query.to_string(MysqlQueryBuilder),
-        };
-    }
-
-    pub fn to_string2(&self, sql_query: TableCreateStatement) -> String {
-        return match self.backend {
-            #[cfg(feature = "postgres")]
-            DatabaseBackend::PostgreSql => sql_query.to_string(PostgresQueryBuilder),
-            #[cfg(feature = "mysql")]
-            DatabaseBackend::MySql => sql_query.to_string(MysqlQueryBuilder),
-        };
+    pub fn get_backend(&self) -> DatabaseBackend {
+        self.backend.clone()
     }
 
     fn split_sql_cells(output: Vec<String>) -> Vec<Vec<String>> {
@@ -196,11 +178,15 @@ impl SshConnection {
         }
     }
 
-    pub async fn load_member<QueryType: QueryStatementWriter>(
+    pub async fn load_member<QueryType>(
         &mut self,
         sql_query: QueryType,
-    ) -> Option<Vec<models::Member>> {
-        let sql_query_string = self.to_string(sql_query);
+    ) -> Option<Vec<models::Member>>
+    where
+        QueryType: QueryStatementWriter,
+        DatabaseBackend: SqlStringifier<QueryType>,
+    {
+        let sql_query_string = self.get_backend().to_sql_string(sql_query);
         self.read_cells(sql_query_string).await.map(|cells| {
             let cells_split = cells.split_first();
 
@@ -232,8 +218,11 @@ impl SshConnection {
         })?
     }
 
-    pub async fn execute_sql(&mut self, sql_query: TableCreateStatement) -> Option<usize> {
-        let sql_query_string = self.to_string2(sql_query);
+    pub async fn execute_sql<QueryType>(&mut self, sql_query: QueryType) -> Option<usize>
+    where
+        DatabaseBackend: SqlStringifier<QueryType>,
+    {
+        let sql_query_string = self.get_backend().to_sql_string(sql_query);
         self.read_cells(sql_query_string)
             .await
             .map(|cells| cells.len())

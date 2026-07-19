@@ -1,6 +1,6 @@
 use crate::api::models;
-use crate::connection::DbConnection;
 use crate::connection::get_connection;
+use crate::db_connection::DbConnection;
 use database_types::connection_description::ConnectionDescription;
 use log::{error, info};
 use sea_query::Asterisk;
@@ -60,9 +60,7 @@ pub fn change_member(connection: ConnectionDescription, changes: Vec<ChangeRecor
             .to_owned();
 
         let mut connection = opt_connection.unwrap();
-        let num_updated_rows = connection
-            .execute_sql(connection.to_string(update_statement))
-            .await;
+        let num_updated_rows = connection.execute_sql(update_statement).await;
 
         match num_updated_rows {
             Some(num) => num,

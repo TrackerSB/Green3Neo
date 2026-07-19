@@ -1,3 +1,4 @@
+use database_types::connection_description::DatabaseBackend;
 #[cfg(feature = "mysql")]
 use diesel::MysqlConnection;
 #[cfg(feature = "postgres")]
@@ -9,7 +10,7 @@ use sea_query::MysqlQueryBuilder;
 use sea_query::PostgresQueryBuilder;
 use sea_query::{QueryStatementWriter, TableCreateStatement};
 
-use crate::api::models;
+use crate::{api::models, sql_stringifier::SqlStringifier};
 use log::error;
 
 #[derive(MultiConnection)]
@@ -21,29 +22,21 @@ pub enum OrmConnection {
 }
 
 impl OrmConnection {
-    pub fn to_string<QueryType: QueryStatementWriter>(&self, sql_query: QueryType) -> String {
+    pub fn get_backend(&self) -> DatabaseBackend {
         return match self {
             #[cfg(feature = "postgres")]
-            Self::PostgreSql(_) => sql_query.to_string(PostgresQueryBuilder),
+            Self::PostgreSql(_) => DatabaseBackend::PostgreSql,
             #[cfg(feature = "mysql")]
-            Self::MySql(_) => sql_query.to_string(MysqlQueryBuilder),
+            Self::MySql(_) => DatabaseBackend::MySql,
         };
     }
 
-    pub fn to_string2(&self, sql_query: TableCreateStatement) -> String {
-        return match self {
-            #[cfg(feature = "postgres")]
-            Self::PostgreSql(_) => sql_query.to_string(PostgresQueryBuilder),
-            #[cfg(feature = "mysql")]
-            Self::MySql(_) => sql_query.to_string(MysqlQueryBuilder),
-        };
-    }
-
-    pub fn load_member<QueryType: QueryStatementWriter>(
-        &mut self,
-        sql_query: QueryType,
-    ) -> Option<Vec<models::Member>> {
-        let sql_query_string = self.to_string(sql_query);
+    pub fn load_member<QueryType>(&mut self, sql_query: QueryType) -> Option<Vec<models::Member>>
+    where
+        QueryType: QueryStatementWriter,
+        DatabaseBackend: SqlStringifier<QueryType>,
+    {
+        let sql_query_string = self.get_backend().to_sql_string(sql_query);
 
         let query_result = diesel::sql_query(&sql_query_string).load::<models::Member>(self);
 
@@ -59,8 +52,11 @@ impl OrmConnection {
         };
     }
 
-    pub fn execute_sql(&mut self, sql_query: TableCreateStatement) -> Option<usize> {
-        let sql_query_string = self.to_string2(sql_query);
+    pub fn execute_sql<QueryType>(&mut self, sql_query: QueryType) -> Option<usize>
+    where
+        DatabaseBackend: SqlStringifier<QueryType>,
+    {
+        let sql_query_string = self.get_backend().to_sql_string(sql_query);
 
         let query_result = diesel::sql_query(&sql_query_string).execute(self);
 

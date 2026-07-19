@@ -7,6 +7,7 @@ mod json_field_conversion;
 mod orm_connection;
 mod schema;
 mod ssh_connection;
+mod sql_stringifier;
 
 #[cfg(test)]
 mod test_database_common;
