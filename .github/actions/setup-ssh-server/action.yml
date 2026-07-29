@@ -14,13 +14,6 @@ runs:
         sudo sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
         sudo sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/' /etc/ssh/sshd_config
       shell: bash
-    - name: Create SSH keys (required since password auth?)
-      run: |
-        ssh-keygen -t ed25519 -f ~/.ssh/my_key
-        cat ~/.ssh/my_key.pub >> ~/.ssh/authorized_keys
-        chmod 600 ~/.ssh/authorized_keys
-        ssh-keyscan -H localhost >> ~/.ssh/known_hosts # Is this required? What does it do?
-      shell: bash
     - name: Start SSH server
       run: |
         sudo service ssh start
