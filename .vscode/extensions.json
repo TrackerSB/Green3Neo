@@ -6,6 +6,8 @@
         "Dart-Code.dart-code",
         // Flutter
         "Dart-Code.flutter",
+        // Docker
+        "ms-azuretools.vscode-containers",
         // GitHub Actions
         "github.vscode-github-actions",
         // Toml
