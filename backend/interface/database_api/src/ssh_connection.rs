@@ -72,11 +72,13 @@ impl SshConnection {
             );
         }
 
-        warn!(
-            "Command '{}' yielded stderr: '{}'",
-            self.sql_login_command,
-            String::from_utf8_lossy(&stderr_buffer)
-        );
+        if !stderr_buffer.is_empty() {
+            warn!(
+                "Command '{}' yielded stderr: '{}'",
+                self.sql_login_command,
+                String::from_utf8_lossy(&stderr_buffer)
+            );
+        }
 
         return String::from_utf8_lossy(&stdout_buffer)
             .lines()
