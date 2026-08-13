@@ -108,7 +108,15 @@ pub async fn get_connection(connection: ConnectionDescription) -> Option<DbConne
                 #[cfg(feature = "postgres")]
                 DatabaseBackend::PostgreSql => SshConnection {
                     channel,
-                    sql_login_command: todo!("Implement psql login command"),
+                    // FIXME What about character set?
+                    sql_login_command: format!(
+                        // NOTE stderr contains "Password for user XY:" resulting in a warning making the test fail
+                        "psql -d {database} -h {host} -p {port} -U {user} -W 2>/dev/null",
+                        host = db_host,
+                        port = db_port,
+                        user = connection.user,
+                        database = connection.name
+                    ),
                     password: connection.password,
                     backend: connection.backend,
                 },
