@@ -1,6 +1,6 @@
 --- a/frontend/lib/interface/database_api/api/models.dart.unpatched
 +++ b/frontend/lib/interface/database_api/api/models.dart
-@@ -5,8 +5,10 @@
+@@ -5,7 +5,9 @@
 
  import '../frb_generated.dart';
  import 'package:flutter_rust_bridge/flutter_rust_bridge_for_generated.dart';
