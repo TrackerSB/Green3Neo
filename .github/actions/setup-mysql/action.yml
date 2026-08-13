@@ -25,6 +25,16 @@ runs:
           -p"${{ env.BUILD_DB_PASSWORD }}" \
           -e "CREATE OR REPLACE DATABASE ${{ env.BUILD_DB_NAME }};"
       shell: bash
+    - name: Grant CREATE privilege for sqlx test databases
+      run: |
+        mariadb \
+          -h ${{ env.BUILD_DB_HOST }} \
+          -P ${{ env.BUILD_DB_PORT }} \
+          -u root \
+          -e "GRANT ALL PRIVILEGES ON \`_sqlx_test_%\`.* TO '${{ env.BUILD_DB_USER }}'@'%';" \
+          -e "GRANT CREATE ON *.* TO '${{ env.BUILD_DB_USER }}'@'%';" \
+          -e "FLUSH PRIVILEGES;"
+      shell: bash
     - name: Create empty DB tables
       run: just database-create-tables
       shell: bash
