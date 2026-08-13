@@ -125,7 +125,8 @@ pub async fn get_connection(connection: ConnectionDescription) -> Option<DbConne
                 DatabaseBackend::MySql => SshConnection {
                     channel,
                     sql_login_command: format!(
-                        "mysql --default-character-set=utf8mb4 -B {database} -h {host} -P {port} -u {user} -p",
+                        // NOTE stderr contains "Enter password:" resulting in a warning making the test fail
+                        "mysql --default-character-set=utf8mb4 -B {database} -h {host} -P {port} -u {user} -p 2>/dev/null",
                         host = db_host,
                         port = db_port,
                         user = connection.user,
