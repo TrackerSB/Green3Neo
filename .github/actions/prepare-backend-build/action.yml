@@ -4,11 +4,16 @@ runs:
   using: "composite"
   steps:
     - uses: ./.github/actions/setup-db
-    - name: Install Flutter SDK
-      uses: flutter-actions/setup-flutter@v4.2
-      with:
-        channel: stable
-        version: latest
+    - name: Install FVM
+      run: curl -fsSL https://fvm.app/install.sh | bash
+      shell: bash
+    - name: Install flutter via FVM
+      run: cd ${{ github.workspace }}/frontend && fvm install
+      shell: bash
+    - name: Install Flutter packages
+      working-directory: ${{ github.workspace }}/frontend
+      run: fvm flutter pub get
+      shell: bash
     - name: Install Rust command line tools for building
       run: |
         if [ "${{ env.BUILD_DB_PROTOCOL }}" = "postgres" ]; then
