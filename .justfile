@@ -117,12 +117,12 @@ frontend-generate-reflectable: backend-build
     cd {{ frontend_dir }} && dart run build_runner build
 
 frontend-build: frontend-generate-reflectable
-    cd {{ frontend_dir }} && flutter build linux
+    cd {{ frontend_dir }} && fvm flutter build linux
 
 build: backend-build frontend-build
 
 run: build
-    cd {{ frontend_dir }} && flutter run
+    cd {{ frontend_dir }} && fvm flutter run
 
 rebuild: clean build
 
