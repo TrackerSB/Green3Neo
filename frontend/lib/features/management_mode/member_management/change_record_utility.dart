@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_rust_bridge/flutter_rust_bridge_for_generated.dart';
 import 'package:get_it/get_it.dart';
 import 'package:green3neo/features/loaded_profile.dart';
 import 'package:green3neo/interface/database_api/api/member.dart';
 import 'package:green3neo/localizer.dart';
+import 'package:logging/logging.dart';
+
+// FIXME Determine DART file name automatically
+final _logger = Logger("change_record_utility");
 
 Future<bool> commitDataChanges(List<ChangeRecord> changeRecords) async {
   // Copy list for improved thread safety
@@ -18,16 +21,15 @@ Future<bool> commitDataChanges(List<ChangeRecord> changeRecords) async {
     return false;
   }
 
-  final Uint64List succeededUpdateIndices =
+  final BigInt actualNumUpdatedRows =
       await changeMember(connection: profile.connection!, changes: records);
 
-  succeededUpdateIndices.sort();
-  for (final BigInt index in succeededUpdateIndices.reversed) {
-    records.removeAt(index.toInt());
+  // FIXME Check which rows could not be updated
+  final expectedNumUpdatedRows = BigInt.from(records.length);
+  if (actualNumUpdatedRows != expectedNumUpdatedRows) {
+    _logger.warning(
+        "Updated $actualNumUpdatedRows but $expectedNumUpdatedRows were exepcted");
   }
-
-  // Add records that failed to update back to the list
-  changeRecords.addAll(records);
 
   return true;
 }

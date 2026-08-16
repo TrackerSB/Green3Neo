@@ -6,31 +6,34 @@ runs:
     - name: Install just command runner
       uses: extractions/setup-just@v3.1.0
     - name: Setup MySQL server
-      uses: mirromutth/mysql-action@v1.1
+      id: setup-mariadb
+      uses: shogo82148/actions-setup-mysql@v1.52.1
       with:
-        mysql database:  ${{ env.BUILD_DB_NAME }}
-        host port: ${{ env.BUILD_DB_PORT }}
-        mysql user: ${{ env.BUILD_DB_USER }}
-        mysql password: ${{ env.BUILD_DB_PASSWORD }}
-    - name: Wait for MySQL
+        distribution: "mariadb"
+        mysql-version: "12.3"
+        my-cnf: |
+          bind-address=0.0.0.0
+          port=${{ env.BUILD_DB_PORT }}
+        user: ${{ env.BUILD_DB_USER }}
+        password: ${{ env.BUILD_DB_PASSWORD }}
+    - name: Create DB
       run: |
-        success=false
-        for i in {1..20}; do
-          # NOTE 2026-04-02 Unix sockets are not supported due to Docker container
-          if mysqladmin ping \
-            --protocol=TCP \
-            -h ${{ env.BUILD_DB_HOST }} \
-            -P ${{ env.BUILD_DB_PORT }} \
-            -u ${{ env.BUILD_DB_USER }} \
-            -p${{ env.BUILD_DB_PASSWORD }}; then
-            success=true
-            break
-          fi
-          sleep 1
-        done
-        if [ "$success" != "true" ]; then
-          exit 1
-        fi
+        mariadb \
+          -h ${{ env.BUILD_DB_HOST }} \
+          -P ${{ env.BUILD_DB_PORT }} \
+          -u ${{ env.BUILD_DB_USER }} \
+          -p"${{ env.BUILD_DB_PASSWORD }}" \
+          -e "CREATE OR REPLACE DATABASE ${{ env.BUILD_DB_NAME }};"
+      shell: bash
+    - name: Grant CREATE privilege for sqlx test databases
+      run: |
+        mariadb \
+          -h ${{ env.BUILD_DB_HOST }} \
+          -P ${{ env.BUILD_DB_PORT }} \
+          -u root \
+          -e "GRANT ALL PRIVILEGES ON \`_sqlx_test_%\`.* TO '${{ env.BUILD_DB_USER }}'@'${{ env.BUILD_DB_HOST }}';" \
+          -e "GRANT CREATE ON *.* TO '${{ env.BUILD_DB_USER }}'@'${{ env.BUILD_DB_HOST }}';" \
+          -e "FLUSH PRIVILEGES;"
       shell: bash
     - name: Create empty DB tables
       run: just database-create-tables

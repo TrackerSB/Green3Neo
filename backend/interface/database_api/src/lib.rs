@@ -1,10 +1,13 @@
 pub mod api;
 
-mod column_type_info;
 mod connection;
-mod database;
+mod db_connection;
 mod frb_generated;
+mod json_field_conversion;
+mod orm_connection;
 mod schema;
+mod ssh_connection;
+mod sql_stringifier;
 
 #[cfg(test)]
 mod test_database_common;

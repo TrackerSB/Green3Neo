@@ -44,7 +44,7 @@ venv_python := tasks_venv_folder + "/bin/python"
 # Path to patches
 patch_folder := workspace_dir + "/patches"
 
-# All API features
+# All API features (build variants)
 all_backend_api_features := "mysql, postgres"
 all_database_api_features := "mysql, postgres"
 
@@ -83,7 +83,7 @@ diesel-generate-schema: diesel-setup
 # FIXME Verify whether exactly one of the alternative patches was applied
 # FIXME Apply formatting stabilizing which patch works
 diesel-generate-models: diesel-generate-schema
-    cd {{ database_api_dir }} && diesel_ext --model --import-types diesel::Queryable --import-types diesel::Selectable --import-types diesel::Identifiable --import-types backend_macros::make_fields_non_final --import-types flutter_rust_bridge::frb --import-types crate::schema::* --derive Queryable,Selectable --add-table-name > src/api/models.rs
+    cd {{ database_api_dir }} && diesel_ext --model --import-types diesel::Queryable --import-types diesel::QueryableByName --import-types diesel::Selectable --import-types diesel::Identifiable --import-types backend_macros::make_fields_non_final --import-types backend_macros::JsonFieldConversionGenerator --import-types serde::Serialize --import-types serde::Deserialize --import-types flutter_rust_bridge::frb --import-types crate::json_field_conversion::JsonFieldConversion --import-types crate::schema::* --derive Queryable,QueryableByName,Selectable,Serialize,Deserialize,JsonFieldConversionGenerator --add-table-name > src/api/models.rs
     git apply {{ patch_folder }}/backend/interface/database_api/api/models.rs.patch
 
 sepa-generate-schemas:
@@ -100,7 +100,8 @@ frb-generate backendApiFeatures databaseApiFeatures: diesel-generate-models sepa
 
     mkdir -p {{ frb_database_api_output_dir }}
     flutter_rust_bridge_codegen generate --no-web --no-add-mod-to-lib --rust-features "{{ databaseApiFeatures }}" --llvm-path {{ llvmIncludeDir }} --rust-input "crate::api" --rust-root {{ database_api_dir }} --dart-output {{ frb_database_api_output_dir }} --stop-on-error
-    git apply {{ patch_folder }}/frontend/interface/database_api/api/models.dart.patch
+    git apply {{ patch_folder }}/frontend/interface/database_api/api/models.dart.patch \
+      || git apply {{ patch_folder }}/frontend/interface/database_api/api/models.dart.alternative.patch
 
     mkdir -p {{ frb_sepa_api_output_dir }}
     flutter_rust_bridge_codegen generate --no-web --no-add-mod-to-lib --llvm-path {{ llvmIncludeDir }} --rust-input "crate::api" --rust-root {{ sepa_api_dir }} --dart-output {{ frb_sepa_api_output_dir }} --stop-on-error --rust-preamble "use chrono::NaiveDate;use chrono::NaiveDateTime;"
@@ -113,7 +114,7 @@ backend-build:
     just backend-api-build "{{ all_backend_api_features }}" "{{ all_database_api_features }}"
 
 frontend-generate-reflectable: backend-build
-    cd {{ frontend_dir }} && dart run build_runner build --delete-conflicting-outputs
+    cd {{ frontend_dir }} && dart run build_runner build
 
 frontend-build: frontend-generate-reflectable
     cd {{ frontend_dir }} && flutter build linux

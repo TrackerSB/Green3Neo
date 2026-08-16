@@ -1,29 +1,22 @@
 use crate::api::models;
 use crate::connection::get_connection;
-use crate::database::bind_column_value;
-use crate::schema::member::dsl as member_schema;
+use crate::db_connection::DbConnection;
 use database_types::connection_description::ConnectionDescription;
-use diesel::{RunQueryDsl, SelectableHelper, query_dsl::methods::SelectDsl, sql_types::Integer};
-use log::{error, info, warn};
+use log::{error, info};
+use sea_query::Asterisk;
+use sea_query::Expr;
+use sea_query::Query;
+use tokio::runtime::Runtime;
+
+async fn get_all_members_impl(mut connection: DbConnection) -> Option<Vec<models::Member>> {
+    let query = Query::select().column(Asterisk).from("member").to_owned();
+    connection.load_member(query).await
+}
 
 pub fn get_all_members(connection: ConnectionDescription) -> Option<Vec<models::Member>> {
-    let connection = get_connection(connection);
-
-    if connection.is_none() {
-        // FIXME Either throw exception or log warning etc.
-        error!("Could not establish connection");
-        return None;
-    }
-
-    let member_entries = member_schema::member
-        .select(models::Member::as_select())
-        .load(&mut connection.unwrap());
-
-    if member_entries.is_ok() {
-        return Some(member_entries.unwrap());
-    }
-
-    return None;
+    return Runtime::new()
+        .unwrap()
+        .block_on(async { get_all_members_impl(get_connection(connection).await?).await });
 }
 
 pub struct ChangeRecord {
@@ -37,73 +30,86 @@ pub struct ChangeRecord {
     pub new_value: Option<String>,
 }
 
-pub fn change_member(connection: ConnectionDescription, changes: Vec<ChangeRecord>) -> Vec<usize> {
-    let connection = get_connection(connection);
+pub fn change_member(connection: ConnectionDescription, changes: Vec<ChangeRecord>) -> usize {
+    return Runtime::new().unwrap().block_on(async {
+        let opt_connection = get_connection(connection).await;
 
-    if connection.is_none() {
-        // FIXME Either throw exception or log warning etc.
-        error!("Could not establish connection");
-        return Vec::new();
-    }
-
-    let mut connection = connection.unwrap();
-
-    info!("Changing {} members...", changes.len());
-
-    let mut succeeded_update_indices: Vec<usize> = Vec::new();
-
-    for (index, change) in changes.iter().enumerate() {
-        // FIXME Determine primary key automatically
-        // FIXME Prefer query builder over raw SQL
-        let unbound_update_statement = diesel::sql_query(format!(
-            "UPDATE member SET {} = $1 WHERE membershipid = $2",
-            change.column
-        ));
-
-        if change.new_value.is_none() {
-            // FIXME Verify whether column is nullable
+        if opt_connection.is_none() {
             // FIXME Either throw exception or log warning etc.
-            // FIXME Implement nullable case
-            // FIXME Verify whether previous value corresponds to current value
-            // let null_update_statement =
-            //     unbound_update_statement.bind::<Nullable<Integer>, _>(None);
-            // let update_statement = null_update_statement.bind::<Integer, _>(change.membershipid);
-            // update_result = update_statement.execute(&mut connection);
-            warn!("Changing values to NULL is not supported yet");
-            continue;
+            error!("Could not establish connection");
+            return 0;
         }
 
-        let changed_value = change.new_value.as_ref();
+        info!("Changing {} members...", changes.len());
 
-        let boxed_unbound_update_statement = unbound_update_statement.into_boxed();
-        let changed_value_update_statement = bind_column_value(
-            &mut connection,
-            "member",
-            change.column.as_str(),
-            changed_value.map(|s| s.as_str()),
-            boxed_unbound_update_statement,
-        )
-        // FIXME Improve logging and error handling
-        .expect("Could not bind column value");
-        let update_statement =
-            changed_value_update_statement.bind::<Integer, _>(change.membershipid);
-        let update_result = update_statement.execute(&mut connection);
+        let mut change_entries = Vec::<(_, Expr)>::new();
 
-        // FIXME Improve logging and error handling
-        match update_result {
-            Ok(num_updated) => {
-                info!("num updated {}", num_updated);
-                if num_updated == 1 {
-                    succeeded_update_indices.push(index);
-                } else {
-                    info!("Updated {} rows instead of 1", num_updated);
-                }
+        for change in changes.iter() {
+            change_entries.push((
+                change.column.clone(),
+                change
+                    .new_value
+                    .clone()
+                    .map_or(Expr::null(), |value| Expr::value(value)),
+            ));
+        }
+
+        let update_statement = Query::update()
+            .table("member")
+            .values(change_entries)
+            .to_owned();
+
+        let mut connection = opt_connection.unwrap();
+        let num_updated_rows = connection.execute_sql(update_statement).await;
+
+        match num_updated_rows {
+            Some(num) => num,
+            None => {
+                error!("Updating member failed");
+                0
             }
-            Err(error) => {
-                error!("error {}", error);
-            }
-        };
+        }
+    });
+}
+
+#[cfg(test)]
+mod test {
+    #[cfg(feature = "mysql")]
+    use sqlx::MySqlPool;
+    #[cfg(feature = "postgres")]
+    use sqlx::PgPool;
+    use sqlx::{Database, Pool};
+
+    use crate::test_database_common::{self, GetCurrentDBName};
+
+    use super::*;
+
+    async fn setup_test<DB>(sqlx_pool: Pool<DB>) -> DbConnection
+    where
+        DB: Database + GetCurrentDBName,
+    {
+        test_database_common::setup_test(sqlx_pool).await
     }
 
-    return succeeded_update_indices;
+    fn tear_down(expected_num_severe_messages: usize) {
+        test_database_common::tear_down(expected_num_severe_messages);
+    }
+
+    fn test_get_all(connection: DbConnection) -> sqlx::Result<()> {
+        let _ = get_all_members_impl(connection);
+        tear_down(0);
+        Ok(())
+    }
+
+    #[cfg(feature = "postgres")]
+    #[sqlx::test]
+    async fn test_get_all_pg(pool: PgPool) -> sqlx::Result<()> {
+        test_get_all(setup_test(pool).await)
+    }
+
+    #[cfg(feature = "mysql")]
+    #[sqlx::test]
+    async fn test_get_all_mysql(pool: MySqlPool) -> sqlx::Result<()> {
+        test_get_all(setup_test(pool).await)
+    }
 }

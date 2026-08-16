@@ -1,25 +1,34 @@
 {
     "recommendations": [
+        // ARB
+        "google.arb-editor",
         // Dart
         "Dart-Code.dart-code",
         // Flutter
-        "google.arb-editor",
         "Dart-Code.flutter",
+        // Docker
+        "ms-azuretools.vscode-containers",
+        // GitHub Actions
+        "github.vscode-github-actions",
         // Toml
         "tamasfe.even-better-toml",
-        // PostgreSQL
-        "ms-ossdata.vscode-pgsql",
         // SQL
+        "cweijan.vscode-mysql-client2",
         "inferrinizzard.prettier-sql-vscode",
         // Python
         "ms-python.python",
+        "ms-python.black-formatter",
         // Rust
         "rust-lang.rust-analyzer",
         "vadimcn.vscode-lldb",
         // Just
         "kokakiwi.vscode-just",
         "TobiasHochguertel.just-formatter",
+        // Testing
+        "hbenl.vscode-test-explorer",
         // XML
-        "redhat.vscode-xml"
+        "redhat.vscode-xml",
+        // YAML
+        "redhat.vscode-yaml"
     ]
 }

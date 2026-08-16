@@ -1,0 +1,20 @@
+name: Set up and start SSH server
+description: Set up, configure and start a SSH server based on environment variables (?) exposing credentials for login (?)
+runs:
+  using: "composite"
+  steps:
+    - name: Install SSH server
+      run: |
+        sudo apt install openssh-server
+      shell: bash
+    - name: Configure SSH server
+      run: |
+        sudo mkdir -p /var/run/sshd # What is this for?
+        echo "root:safeRootPassword" | sudo chpasswd
+        sudo sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+        sudo sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/' /etc/ssh/sshd_config
+      shell: bash
+    - name: Start SSH server
+      run: |
+        sudo service ssh start
+      shell: bash

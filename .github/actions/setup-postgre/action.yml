@@ -9,7 +9,7 @@ runs:
       uses: Daniel-Marynicz/postgresql-action@2.0.0
       with:
         postgres_db:  ${{ env.BUILD_DB_NAME }}
-        # There seems no way of specifying a port
+        exposed_postgres_port: ${{ env.BUILD_DB_PORT }}
         postgres_user: ${{ env.BUILD_DB_USER }}
         postgres_password: ${{ env.BUILD_DB_PASSWORD }}
     - name: Create empty DB tables
