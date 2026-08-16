@@ -11,6 +11,10 @@ runs:
       shell: bash
     - name: Install Ninja
       uses: turtlesec-no/get-ninja@1.1.0
+    - name: Install FVM
+      uses: chika3742/setup-fvm@v3.1.4
+      with:
+        project-dir: ${{ github.workspace }}/frontend
     - name: Install Flutter packages
       working-directory: ${{ github.workspace }}/frontend
       run: flutter pub get
