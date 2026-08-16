@@ -114,7 +114,7 @@ backend-build:
     just backend-api-build "{{ all_backend_api_features }}" "{{ all_database_api_features }}"
 
 frontend-generate-reflectable: backend-build
-    cd {{ frontend_dir }} && dart run build_runner build --delete-conflicting-outputs
+    cd {{ frontend_dir }} && dart run build_runner build
 
 frontend-build: frontend-generate-reflectable
     cd {{ frontend_dir }} && flutter build linux

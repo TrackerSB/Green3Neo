@@ -37,6 +37,7 @@ dev_dependencies:
   flutter_lints: ^6.0.0
   ffigen: ^19.1.0
   freezed: ^3.0.6
+  reflectable_builder: ^1.2.1
 
 flutter:
   uses-material-design: true
