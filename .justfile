@@ -1,5 +1,5 @@
-set dotenv-load := true
-set dotenv-required := true
+set dotenv-load
+set dotenv-required
 # Load environment variables if none loaded but do not override variables e.g. set by Github actions
 set dotenv-override := false
 
