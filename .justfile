@@ -131,6 +131,6 @@ backend-test:
     cd {{ backend_dir }} && cargo nextest run --config-file .nextest.toml --no-default-features --features "$BUILD_DB_PROTOCOL"
 
 frontend-test: build
-    cd {{ frontend_dir }} && fvm flutter test --machine | tojunit > build/junit.xml
+    cd {{ frontend_dir }} && fvm flutter test --machine | fvm dart pub global run junitreport:tojunit > build/junit.xml
 
 test: backend-test frontend-test
