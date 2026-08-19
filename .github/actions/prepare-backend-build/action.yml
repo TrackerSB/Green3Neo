@@ -8,7 +8,8 @@ runs:
       run: curl -fsSL https://fvm.app/install.sh | bash
       shell: bash
     - name: Install flutter via FVM
-      run: cd ${{ github.workspace }}/frontend && fvm install
+      working-directory: ${{ github.workspace }}/frontend
+      run: fvm install
       shell: bash
     - name: Install Flutter packages
       working-directory: ${{ github.workspace }}/frontend

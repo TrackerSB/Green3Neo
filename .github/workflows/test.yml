@@ -34,6 +34,7 @@ jobs:
       - uses: ./.github/actions/setup-ssh-server
         if: ${{ matrix.over-ssh }}
       - name: Install command line for executing tests and combining results
+        working-directory: ${{ github.workspace }}/frontend
         run: |
           cargo install --locked cargo-nextest
           fvm dart pub global activate junitreport
@@ -52,6 +53,7 @@ jobs:
       - uses: TrackerSB/Green3Neo-Prepare-Action@85209025d962da5a6550874cf4110f6b0b23f870
       - uses: ./.github/actions/prepare-application-build
       - name: Install command line for executing tests and combining results
+        working-directory: ${{ github.workspace }}/frontend
         run: |
           cargo install --locked cargo-nextest
           fvm dart pub global activate junitreport
