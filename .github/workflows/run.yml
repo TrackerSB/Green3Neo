@@ -15,7 +15,7 @@ jobs:
       BUILD_DB_PROTOCOL: 'postgres'
 
     steps:
-      - uses: TrackerSB/Green3Neo-Prepare-Action@79a93308cb2f2c544054c3504813f960ce20dd80
+      - uses: TrackerSB/Green3Neo-Prepare-Action@0941c0c1eff8f4f3437cd2a9a7fd01b4a9cb678e
       - uses: ./.github/actions/prepare-application-run
         with:
           virtual_display_number: ${{ env.DISPLAY }}

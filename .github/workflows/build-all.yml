@@ -14,20 +14,7 @@ jobs:
       matrix:
         db-protocol: ['postgres', 'mysql']
     steps:
-      - uses: TrackerSB/Green3Neo-Prepare-Action@79a93308cb2f2c544054c3504813f960ce20dd80
-      - run: echo $PATH
-        shell: bash
-      - run: echo $GITHUB_ENV
-        shell: bash
-      - run: echo $GITHUB_PATH
-        shell: bash
-      - name: Export PATH dirs to GITHUB_PATH
-        run: |
-          IFS=':' read -ra dirs <<< "${PATH}"
-          for dir in "${dirs[@]}"; do
-            [ -n "$dir" ] && echo "$dir" >> "$GITHUB_PATH"
-          done
-        shell: bash
+      - uses: TrackerSB/Green3Neo-Prepare-Action@0941c0c1eff8f4f3437cd2a9a7fd01b4a9cb678e
       - name: Override environment variables and update dependent ones
         run: |
           echo "BUILD_DB_PROTOCOL=${{ matrix.db-protocol }}" >> $GITHUB_ENV
