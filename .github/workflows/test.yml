@@ -36,7 +36,7 @@ jobs:
       - name: Install command line for executing tests and combining results
         run: |
           cargo install --locked cargo-nextest
-          dart pub global activate junitreport
+          fvm dart pub global activate junitreport
         shell: bash
       - name: Execute tests
         run: just backend-test
@@ -54,7 +54,7 @@ jobs:
       - name: Install command line for executing tests and combining results
         run: |
           cargo install --locked cargo-nextest
-          dart pub global activate junitreport
+          fvm dart pub global activate junitreport
         shell: bash
       - name: Execute tests
         run: just frontend-test
