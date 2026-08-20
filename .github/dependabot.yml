@@ -7,8 +7,10 @@ updates:
   - package-ecosystem: "cargo"
     directory: "/backend"
     multi-ecosystem-group: "infrastructure"
+    rebase-strategy: auto
     patterns: ["*"]
   - package-ecosystem: "pub"
     directory: "/frontend"
     multi-ecosystem-group: "infrastructure"
+    rebase-strategy: auto
     patterns: ["*"]
