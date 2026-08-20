@@ -3,8 +3,11 @@ description: A new Flutter project.
 publish_to: "none"
 version: 0.1.0
 
+# The minimum SDK (Dart) version corresponds to the Dart version bundled with flutter
+# The minimum flutter version corresponds to the FVM config file
 environment:
-  sdk: ">=3.3.0 <4.0.0"
+  sdk: ">=3.12.2 <4.0.0"
+  flutter: ">=3.44.9"
 
 dependencies:
   currency_widget: ^1.0.7
