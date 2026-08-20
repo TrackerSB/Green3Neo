@@ -37,7 +37,6 @@ doc/api/
 ### Flutter ###
 # Flutter/Dart/Pub related
 **/doc/api/
-.fvm/flutter_sdk
 .pub-cache/
 .pub/
 coverage/
@@ -104,3 +103,6 @@ lib/generated_plugin_registrant.dart
 # Generated localization files
 lib/l10n/*.dart
 untranslated_messages.json
+
+# FVM Version Cache
+.fvm/

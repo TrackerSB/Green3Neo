@@ -1,0 +1,18 @@
+name: Setup database
+description: Set up and start database
+runs:
+  using: "composite"
+  steps:
+    - name: Install just command runner
+      uses: extractions/setup-just@v3.1.0
+    - uses: ./.github/actions/setup-postgre
+      if: env.BUILD_DB_PROTOCOL == 'postgres'
+    - uses: ./.github/actions/setup-mysql
+      if: env.BUILD_DB_PROTOCOL == 'mysql'
+    - name: Fail if unsupported SQL DB
+      if: env.BUILD_DB_PROTOCOL != 'postgres' && env.BUILD_DB_PROTOCOL != 'mysql'
+      run: exit 1
+      shell: bash
+    - name: Create empty DB tables
+      run: just database-create-tables
+      shell: bash

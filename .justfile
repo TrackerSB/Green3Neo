@@ -1,5 +1,5 @@
-set dotenv-load := true
-set dotenv-required := true
+set dotenv-load
+set dotenv-required
 # Load environment variables if none loaded but do not override variables e.g. set by Github actions
 set dotenv-override := false
 
@@ -96,15 +96,15 @@ sepa-generate-schemas:
 # FIXME Apply formatting stabilizing which patch works
 frb-generate backendApiFeatures databaseApiFeatures: diesel-generate-models sepa-generate-schemas
     mkdir -p {{ frb_backend_api_output_dir }}
-    flutter_rust_bridge_codegen generate --no-web --no-add-mod-to-lib --rust-features "{{ backendApiFeatures }}" --llvm-path {{ llvmIncludeDir }} --rust-input "crate::api" --rust-root {{ backend_api_dir }} --dart-output {{ frb_backend_api_output_dir }} --stop-on-error
+    cd {{ frontend_dir }} && flutter_rust_bridge_codegen generate --no-web --no-add-mod-to-lib --rust-features "{{ backendApiFeatures }}" --llvm-path {{ llvmIncludeDir }} --rust-input "crate::api" --rust-root ../{{ backend_api_dir }} --dart-output ../{{ frb_backend_api_output_dir }} --stop-on-error
 
     mkdir -p {{ frb_database_api_output_dir }}
-    flutter_rust_bridge_codegen generate --no-web --no-add-mod-to-lib --rust-features "{{ databaseApiFeatures }}" --llvm-path {{ llvmIncludeDir }} --rust-input "crate::api" --rust-root {{ database_api_dir }} --dart-output {{ frb_database_api_output_dir }} --stop-on-error
+    cd {{ frontend_dir }} && flutter_rust_bridge_codegen generate --no-web --no-add-mod-to-lib --rust-features "{{ databaseApiFeatures }}" --llvm-path {{ llvmIncludeDir }} --rust-input "crate::api" --rust-root ../{{ database_api_dir }} --dart-output ../{{ frb_database_api_output_dir }} --stop-on-error
     git apply {{ patch_folder }}/frontend/interface/database_api/api/models.dart.patch \
       || git apply {{ patch_folder }}/frontend/interface/database_api/api/models.dart.alternative.patch
 
     mkdir -p {{ frb_sepa_api_output_dir }}
-    flutter_rust_bridge_codegen generate --no-web --no-add-mod-to-lib --llvm-path {{ llvmIncludeDir }} --rust-input "crate::api" --rust-root {{ sepa_api_dir }} --dart-output {{ frb_sepa_api_output_dir }} --stop-on-error --rust-preamble "use chrono::NaiveDate;use chrono::NaiveDateTime;"
+    cd {{ frontend_dir }} && flutter_rust_bridge_codegen generate --no-web --no-add-mod-to-lib --llvm-path {{ llvmIncludeDir }} --rust-input "crate::api" --rust-root ../{{ sepa_api_dir }} --dart-output ../{{ frb_sepa_api_output_dir }} --stop-on-error --rust-preamble "use chrono::NaiveDate;use chrono::NaiveDateTime;"
 
 backend-api-build backendApiFeatures databaseApiFeatures:
     just frb-generate "{{ backendApiFeatures }}" "{{ databaseApiFeatures }}"
@@ -114,15 +114,15 @@ backend-build:
     just backend-api-build "{{ all_backend_api_features }}" "{{ all_database_api_features }}"
 
 frontend-generate-reflectable: backend-build
-    cd {{ frontend_dir }} && dart run build_runner build
+    cd {{ frontend_dir }} && fvm dart run build_runner build
 
 frontend-build: frontend-generate-reflectable
-    cd {{ frontend_dir }} && flutter build linux
+    cd {{ frontend_dir }} && fvm flutter build linux
 
 build: backend-build frontend-build
 
 run: build
-    cd {{ frontend_dir }} && flutter run
+    cd {{ frontend_dir }} && fvm flutter run
 
 rebuild: clean build
 
@@ -131,6 +131,6 @@ backend-test:
     cd {{ backend_dir }} && cargo nextest run --config-file .nextest.toml --no-default-features --features "$BUILD_DB_PROTOCOL"
 
 frontend-test: build
-    cd {{ frontend_dir }} && flutter test --machine | tojunit > build/junit.xml
+    cd {{ frontend_dir }} && fvm flutter test --machine | fvm dart pub global run junitreport:tojunit > build/junit.xml
 
 test: backend-test frontend-test

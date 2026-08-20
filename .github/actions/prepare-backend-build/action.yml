@@ -3,19 +3,18 @@ description: Install all dependencies required for building the backend
 runs:
   using: "composite"
   steps:
-    - uses: ./.github/actions/setup-postgre
-      if: env.BUILD_DB_PROTOCOL == 'postgres'
-    - uses: ./.github/actions/setup-mysql
-      if: env.BUILD_DB_PROTOCOL == 'mysql'
-    - name: Fail if unsupported SQL DB
-      if: env.BUILD_DB_PROTOCOL != 'postgres' && env.BUILD_DB_PROTOCOL != 'mysql'
-      run: exit 1
+    - uses: ./.github/actions/setup-db
+    - name: Install FVM
+      run: curl -fsSL https://fvm.app/install.sh | bash
       shell: bash
-    - name: Install Flutter SDK
-      uses: flutter-actions/setup-flutter@v4.2
-      with:
-        channel: stable
-        version: latest
+    - name: Install flutter via FVM
+      working-directory: ${{ github.workspace }}/frontend
+      run: fvm install
+      shell: bash
+    - name: Install Flutter packages
+      working-directory: ${{ github.workspace }}/frontend
+      run: fvm flutter pub get
+      shell: bash
     - name: Install Rust command line tools for building
       run: |
         if [ "${{ env.BUILD_DB_PROTOCOL }}" = "postgres" ]; then

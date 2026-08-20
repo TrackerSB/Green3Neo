@@ -11,7 +11,3 @@ runs:
       shell: bash
     - name: Install Ninja
       uses: turtlesec-no/get-ninja@1.1.0
-    - name: Install Flutter packages
-      working-directory: ${{ github.workspace }}/frontend
-      run: flutter pub get
-      shell: bash
