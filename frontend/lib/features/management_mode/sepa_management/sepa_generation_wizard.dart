@@ -1,4 +1,4 @@
-import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 
@@ -24,47 +24,46 @@ import 'package:logging/logging.dart';
 final _logger = Logger("sepa_generation_wizard");
 
 Future<String> _generateSepaContent(
-    final MessageID messageId,
-    final Creditor creditor,
-    final List<Member> member,
-    final double value,
-    final Purpose purpose) {
-  final transactions = member.map(
-    (final Member m) {
-      final mandate = Mandate(
-        id: MandateID(value: m.membershipId.toString()),
-        // FIXME Use correct date of signature
-        dateOfSignatureUtc: DateTime.utc(2023, 5, 1),
-      );
-      final debitor = Debitor(
-        name: Name(
-            value:
-                "${m.accountholderPrename ?? m.prename} ${m.accountholderSurname ?? m.surname}"),
-        iban: IBAN(value: m.iban),
-        mandate: mandate,
-      );
-      return Transaction(
-        debitor: debitor,
-        value: value,
-        purpose: purpose,
-      );
-    },
-  ).toList();
+  final MessageID messageId,
+  final Creditor creditor,
+  final List<Member> member,
+  final double value,
+  final Purpose purpose,
+) {
+  final transactions = member.map((final Member m) {
+    final mandate = Mandate(
+      id: MandateID(value: m.membershipId.toString()),
+      // FIXME Use correct date of signature
+      dateOfSignatureUtc: DateTime.utc(2023, 5, 1),
+    );
+    final debitor = Debitor(
+      name: Name(
+        value:
+            "${m.accountholderPrename ?? m.prename} ${m.accountholderSurname ?? m.surname}",
+      ),
+      iban: IBAN(value: m.iban),
+      mandate: mandate,
+    );
+    return Transaction(debitor: debitor, value: value, purpose: purpose);
+  }).toList();
   return generateSepaDocument(
-      messageId: messageId,
-      collectionDateUtc: DateTime.now().toUtc(),
-      creditor: creditor,
-      transactions: transactions);
+    messageId: messageId,
+    collectionDateUtc: DateTime.now().toUtc(),
+    creditor: creditor,
+    transactions: transactions,
+  );
 }
 
-Future<String?> _askUserForOutputPath() {
+Future<Uri?> _saveOutputToPath(final Uint8List outputBytes) {
   final Future<String> downloadDir = getUserDownloadDir();
 
   return downloadDir.then(
-    (final String? dir) => FilePicker.platform.saveFile(
+    (final String? dir) => FilePicker.saveFile(
+      fileName: "sepaOutput.xml", // FIXME Determine meaningful file name
       allowedExtensions: ["xml"],
       lockParentWindow: true,
       type: FileType.custom,
+      bytes: outputBytes,
       initialDirectory: dir,
     ),
     onError: (final Object error, final StackTrace trace) =>
@@ -72,20 +71,8 @@ Future<String?> _askUserForOutputPath() {
   );
 }
 
-Future<bool> _writeContentToPath(
-    final Future<String> contentFuture, final Future<String?> pathFuture) {
-  return (contentFuture, pathFuture).wait.then(
-    (final (String, String?) resultRecord) {
-      final (content, path) = resultRecord;
-      if (path == null) {
-        return false;
-      }
-
-      final outputFile = File(path);
-      outputFile.writeAsStringSync(content);
-      return true;
-    },
-  );
+Uint8List _convertContentToBytes(final String content) {
+  return Uint8List.fromList(content.codeUnits);
 }
 
 class SepaGenerationWizard extends StatelessWidget {
@@ -95,30 +82,43 @@ class SepaGenerationWizard extends StatelessWidget {
   SepaGenerationWizard._create({super.key, required this.member});
 
   Future<bool> _onOkButtonPressed(
-      final MessageIdField messageIdField,
-      final CreditorNameField creditorNameField,
-      final CreditorIbanField creditorIbanField,
-      final CreditorIdField creditorIdField,
-      final CurrencyField currencyField,
-      final PurposeField purposeField) async {
+    final MessageIdField messageIdField,
+    final CreditorNameField creditorNameField,
+    final CreditorIbanField creditorIbanField,
+    final CreditorIdField creditorIdField,
+    final CurrencyField currencyField,
+    final PurposeField purposeField,
+  ) async {
     final FormBuilderState formState = _formKey.currentState!;
 
     if (!formState.saveAndValidate()) {
       return false;
     }
 
-    final MessageID? messageId =
-        formState.getTransformedValue(messageIdField.name, fromSaved: true);
-    final double? amount =
-        formState.getTransformedValue(currencyField.name, fromSaved: true);
-    final Name? creditorName =
-        formState.getTransformedValue(creditorNameField.name, fromSaved: true);
-    final IBAN? creditorIban =
-        formState.getTransformedValue(creditorIbanField.name, fromSaved: true);
-    final CreditorID? creditorId =
-        formState.getTransformedValue(creditorIdField.name, fromSaved: true);
-    final Purpose? purpose =
-        formState.getTransformedValue(purposeField.name, fromSaved: true);
+    final MessageID? messageId = formState.getTransformedValue(
+      messageIdField.name,
+      fromSaved: true,
+    );
+    final double? amount = formState.getTransformedValue(
+      currencyField.name,
+      fromSaved: true,
+    );
+    final Name? creditorName = formState.getTransformedValue(
+      creditorNameField.name,
+      fromSaved: true,
+    );
+    final IBAN? creditorIban = formState.getTransformedValue(
+      creditorIbanField.name,
+      fromSaved: true,
+    );
+    final CreditorID? creditorId = formState.getTransformedValue(
+      creditorIdField.name,
+      fromSaved: true,
+    );
+    final Purpose? purpose = formState.getTransformedValue(
+      purposeField.name,
+      fromSaved: true,
+    );
 
     if ((messageId == null) ||
         (amount == null) ||
@@ -127,20 +127,31 @@ class SepaGenerationWizard extends StatelessWidget {
         (creditorId == null) ||
         (purpose == null)) {
       _logger.severe(
-          "The form should not be valid since there are not set form fields");
+        "The form should not be valid since there are not set form fields",
+      );
       return false;
     }
 
-    final creditor =
-        Creditor(name: creditorName, id: creditorId, iban: creditorIban);
+    final creditor = Creditor(
+      name: creditorName,
+      id: creditorId,
+      iban: creditorIban,
+    );
 
-    final Future<String> sepaContent =
-        _generateSepaContent(messageId, creditor, member, amount, purpose);
-    final Future<String?> outputPath = _askUserForOutputPath();
+    final Future<String> sepaContent = _generateSepaContent(
+      messageId,
+      creditor,
+      member,
+      amount,
+      purpose,
+    );
 
-    return _writeContentToPath(sepaContent, outputPath)
-        .then((final bool wasWritten) async {
-      if (!wasWritten) {
+    final Uint8List encodedContent = _convertContentToBytes(await sepaContent);
+    final Future<Uri?> outputPathFuture = _saveOutputToPath(encodedContent);
+
+    return outputPathFuture.then((final Uri? outputPath) async {
+      if (outputPath == null) {
+        _logger.info("The user presumably aborted saving");
         return false;
       }
 
@@ -171,17 +182,18 @@ class SepaGenerationWizard extends StatelessWidget {
     final creditorIdField = CreditorIdField();
 
     final getIt = GetIt.instance;
-    getIt.getAsync<LoadedProfile>().then(
-      (final LoadedProfile profile) {
-        final FormBuilderState formState = _formKey.currentState!;
-        formState.fields[creditorNameField.name]
-            ?.didChange(profile.creditor?.name.value);
-        formState.fields[creditorIbanField.name]
-            ?.didChange(profile.creditor?.iban.value);
-        formState.fields[creditorIdField.name]
-            ?.didChange(profile.creditor?.id.value);
-      },
-    );
+    getIt.getAsync<LoadedProfile>().then((final LoadedProfile profile) {
+      final FormBuilderState formState = _formKey.currentState!;
+      formState.fields[creditorNameField.name]?.didChange(
+        profile.creditor?.name.value,
+      );
+      formState.fields[creditorIbanField.name]?.didChange(
+        profile.creditor?.iban.value,
+      );
+      formState.fields[creditorIdField.name]?.didChange(
+        profile.creditor?.id.value,
+      );
+    });
 
     return Scaffold(
       body: Column(
@@ -191,8 +203,11 @@ class SepaGenerationWizard extends StatelessWidget {
             autovalidateMode: AutovalidateMode.onUnfocus,
             child: Column(
               children: [
-                Text(Localizer.instance.text(
-                    (l) => l.numMembersSelected(numSelected: member.length))),
+                Text(
+                  Localizer.instance.text(
+                    (l) => l.numMembersSelected(numSelected: member.length),
+                  ),
+                ),
                 messageIdField,
                 creditorNameField,
                 creditorIbanField,
@@ -205,25 +220,22 @@ class SepaGenerationWizard extends StatelessWidget {
           Row(
             children: [
               ElevatedButton(
-                onPressed: () => _onOkButtonPressed(
-                        messageIdField,
-                        creditorNameField,
-                        creditorIbanField,
-                        creditorIdField,
-                        currencyField,
-                        purposeField)
-                    .then(
-                  (final bool submitted) {
-                    if (submitted && context.mounted) {
-                      Navigator.pop(context);
-                    }
-                  },
-                ),
+                onPressed: () =>
+                    _onOkButtonPressed(
+                      messageIdField,
+                      creditorNameField,
+                      creditorIbanField,
+                      creditorIdField,
+                      currencyField,
+                      purposeField,
+                    ).then((final bool submitted) {
+                      if (submitted && context.mounted) {
+                        Navigator.pop(context);
+                      }
+                    }),
                 child: Text(MaterialLocalizations.of(context).okButtonLabel),
               ),
-              CloseButton(
-                onPressed: () => Navigator.pop(context),
-              ),
+              CloseButton(onPressed: () => Navigator.pop(context)),
             ],
           ),
         ],
@@ -237,6 +249,7 @@ class SepaGenerationWizardFactory implements Feature {
   void register() {
     final getIt = GetIt.instance;
     getIt.registerFactoryParam<SepaGenerationWizard, List<Member>, void>(
-        (member, _) => SepaGenerationWizard._create(member: member));
+      (member, _) => SepaGenerationWizard._create(member: member),
+    );
   }
 }
