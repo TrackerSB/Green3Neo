@@ -7,8 +7,8 @@ updates:
   - package-ecosystem: "cargo"
     directory: "/backend"
     multi-ecosystem-group: "infrastructure"
-    patterns: [ "*" ]
+    patterns: ["*"]
   - package-ecosystem: "pub"
     directory: "/frontend"
     multi-ecosystem-group: "infrastructure"
-    patterns: [ "*" ]
+    patterns: ["*"]
