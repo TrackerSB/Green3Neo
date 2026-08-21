@@ -173,7 +173,13 @@ class MainApp extends WatchingWidget {
 
     return MaterialApp(
       title: "No title", // FIXME AppLocalizations.of(...) returns null
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      localizationsDelegates: [
+        /* WARN 2026-08-21: Do not use AppLocalizations.localizationDelegates
+         * since these include old (non-material_ui) delegates
+         */
+        AppLocalizations.delegate,
+        ...GlobalMaterialLocalizations.delegates,
+      ],
       supportedLocales: AppLocalizations.supportedLocales,
       home: StatefulBuilder(
         builder: (BuildContext context, StateSetter _) {
