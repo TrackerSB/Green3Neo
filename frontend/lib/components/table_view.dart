@@ -522,7 +522,7 @@ class TableViewSource<DataObject extends Object> extends DataTableSource {
       selected: entry.selected,
       onSelectChanged: (_onSelectedChanged == null)
           ? null
-          : (final bool? selected) {
+          : (bool? selected) {
               /* NOTE 2025-23-22: The selection state may be null at least
                * in situations where the row is disabled
                */

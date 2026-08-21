@@ -18,7 +18,7 @@ class CreditorIbanField extends FormBuilderTextField {
                     Localizer.instance.text((l) => l.invalidCreditorIban))
             // FIXME Introduce regex in backend and call match function in frontend
           ]),
-          valueTransformer: (final String? value) {
+          valueTransformer: (String? value) {
             return (value == null) ? null : IBAN(value: value);
           },
         );

@@ -45,7 +45,7 @@ class MemberView extends WatchingWidget {
 
   Future<bool> forceReloadDataFromDB() {
     final getIt = GetIt.instance;
-    return getIt.getAsync<LoadedProfile>().then((final LoadedProfile profile) {
+    return getIt.getAsync<LoadedProfile>().then((LoadedProfile profile) {
       if (profile.connection == null) {
         _logger.severe("Cannot reload data without configured connection");
         return false;
@@ -69,9 +69,9 @@ class MemberView extends WatchingWidget {
     });
   }
 
-  set viewMode(final ViewMode viewMode) => _viewMode.value = viewMode;
+  set viewMode(ViewMode viewMode) => _viewMode.value = viewMode;
 
-  set propertyFilter(final bool Function(String)? propertyFilter) {
+  set propertyFilter(bool Function(String)? propertyFilter) {
     _propertyFilter.value = propertyFilter;
   }
 
@@ -79,7 +79,7 @@ class MemberView extends WatchingWidget {
 
   ListNotifier<Member> get selectedRecords => _selectedRecords;
 
-  void _onCellChanged(final Member member, final String setterName,
+  void _onCellChanged(Member member, String setterName,
       SupportedType? previousCellValue, SupportedType? newCellValue) {
     var internalPreviousValue = previousCellValue?.value;
     var internalNewValue = newCellValue?.value;
@@ -93,7 +93,7 @@ class MemberView extends WatchingWidget {
             (internalNewValue != null) ? internalNewValue.toString() : null));
   }
 
-  void _onSelectedChanged(final Member member, final bool selected) {
+  void _onSelectedChanged(Member member, bool selected) {
     if (selected) {
       _selectedRecords.add(member);
     } else {
@@ -103,7 +103,7 @@ class MemberView extends WatchingWidget {
     }
   }
 
-  void _reinitTableSource(final BuildContext context) {
+  void _reinitTableSource(BuildContext context) {
     final onCellChanged =
         (_viewMode.value == ViewMode.editable) ? _onCellChanged : null;
     final onSelectedChanged =

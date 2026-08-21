@@ -62,7 +62,7 @@ class LoadedProfileFeature implements Feature {
   void register() {
     final getIt = GetIt.instance;
     getIt.registerLazySingletonAsync<LoadedProfile>(() async {
-      return await loadProfile().then((final Profile? profile) {
+      return await loadProfile().then((Profile? profile) {
         if (profile == null) {
           return LoadedProfile._create();
         }

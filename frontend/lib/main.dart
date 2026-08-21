@@ -32,7 +32,7 @@ void setupLogging() {
   // Reroute Dart logging output
   hierarchicalLoggingEnabled = false;
   Logger.root.level = Level.INFO;
-  Logger.root.onRecord.listen((final LogRecord record) {
+  Logger.root.onRecord.listen((LogRecord record) {
     /* FIXME Due to performance considerations make stack trace resolving
      * optional
      */
@@ -44,7 +44,7 @@ void setupLogging() {
       final List<String> frames = stackTrace.toString().split("\n");
 
       final int lastFrameInLoggingModuleIndex = frames.lastIndexWhere((
-        final String frame,
+        String frame,
       ) {
         return frame.contains("package:logging/");
       });
@@ -81,7 +81,7 @@ void setupLogging() {
             break;
         }
       },
-      (final Object error, final StackTrace stackTrace) {
+      (Object error, StackTrace stackTrace) {
         FlutterError.presentError(
           FlutterErrorDetails(
             exception: "Could not log to backend. Presenting to user",
@@ -104,7 +104,7 @@ void setupLogging() {
    * exiting application
    */
   PlatformDispatcher.instance.onError =
-      (final Object error, final StackTrace stackTrace) {
+      (Object error, StackTrace stackTrace) {
     _logger.shout("Encountered error not caught by Flutter", error, stackTrace);
     // FIXME When to consider an error "recoverable" or "not too bad"?
     return true;
@@ -176,13 +176,13 @@ class MainApp extends WatchingWidget {
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       home: StatefulBuilder(
-        builder: (final BuildContext context, final StateSetter _) {
+        builder: (BuildContext context, StateSetter _) {
           Localizer.instance.init(context);
 
           return Scaffold(
             body: StatefulBuilder(
               builder:
-                  (final BuildContext context, final StateSetter setState) {
+                  (BuildContext context, StateSetter setState) {
                 return Column(
                   children: [
                     SegmentedButton<Widget>(

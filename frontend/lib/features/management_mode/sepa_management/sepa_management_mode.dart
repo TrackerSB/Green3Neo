@@ -46,7 +46,7 @@ class SepaManagementPage extends StatelessWidget {
 
     final MemberView memberView = getIt<MemberViewFeature>().widget;
     memberView.viewMode = ViewMode.selectable;
-    memberView.propertyFilter = (final String propertyName) {
+    memberView.propertyFilter = (String propertyName) {
       return [
         "membershipid",
         "prename",

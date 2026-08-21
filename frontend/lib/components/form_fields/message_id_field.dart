@@ -17,7 +17,7 @@ class MessageIdField extends FormBuilderTextField {
                 errorText: Localizer.instance.text((l) => l.invalidMessageId))
             // FIXME Introduce regex in backend and call match function in frontend
           ]),
-          valueTransformer: (final String? value) {
+          valueTransformer: (String? value) {
             return (value == null) ? null : MessageID(value: value);
           },
         );
