@@ -60,7 +60,7 @@ Future<Uri?> _saveOutputToPath(Uint8List outputBytes) {
     (String? dir) => FilePicker.saveFile(
       fileName: "sepaOutput.xml", // FIXME Determine meaningful file name
       allowedExtensions: ["xml"],
-      lockParentWindow: true,
+      linuxOptions: LinuxOptions(lockParentWindow: true),
       type: FileType.custom,
       bytes: outputBytes,
       initialDirectory: dir,

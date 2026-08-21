@@ -15,11 +15,7 @@ import 'package:watch_it/watch_it.dart';
 // FIXME Determine DART file name automatically
 final _logger = Logger("member_view");
 
-enum ViewMode {
-  readOnly,
-  editable,
-  selectable,
-}
+enum ViewMode { readOnly, editable, selectable }
 
 class _SelfUpdatingText extends WatchingWidget {
   final ValueListenable<String> listenableText;
@@ -51,21 +47,20 @@ class MemberView extends WatchingWidget {
         return false;
       }
 
-      return getAllMembers(connection: profile.connection!).then(
-        (members) {
-          _tableViewSource.content.clear();
-          _changeRecords.clear();
+      return getAllMembers(connection: profile.connection!).then((members) {
+        _tableViewSource.content.clear();
+        _changeRecords.clear();
 
-          if (members == null) {
-            _logger.severe("Loading members returned null result");
-            return false;
-          }
+        if (members == null) {
+          _logger.severe("Loading members returned null result");
+          return false;
+        }
 
-          _tableViewSource.content.addAll(members
-              .map((m) => TableViewSourceEntry(value: m, selected: false)));
-          return true;
-        },
-      );
+        _tableViewSource.content.addAll(
+          members.map((m) => TableViewSourceEntry(value: m, selected: false)),
+        );
+        return true;
+      });
     });
   }
 
@@ -79,18 +74,26 @@ class MemberView extends WatchingWidget {
 
   ListNotifier<Member> get selectedRecords => _selectedRecords;
 
-  void _onCellChanged(Member member, String setterName,
-      SupportedType? previousCellValue, SupportedType? newCellValue) {
+  void _onCellChanged(
+    Member member,
+    String setterName,
+    SupportedType? previousCellValue,
+    SupportedType? newCellValue,
+  ) {
     var internalPreviousValue = previousCellValue?.value;
     var internalNewValue = newCellValue?.value;
-    _changeRecords.add(ChangeRecord(
+    _changeRecords.add(
+      ChangeRecord(
         membershipid: member.membershipId,
         column: setterName,
         previousValue: (internalPreviousValue != null)
             ? internalPreviousValue.toString()
             : null,
-        newValue:
-            (internalNewValue != null) ? internalNewValue.toString() : null));
+        newValue: (internalNewValue != null)
+            ? internalNewValue.toString()
+            : null,
+      ),
+    );
   }
 
   void _onSelectedChanged(Member member, bool selected) {
@@ -104,10 +107,12 @@ class MemberView extends WatchingWidget {
   }
 
   void _reinitTableSource(BuildContext context) {
-    final onCellChanged =
-        (_viewMode.value == ViewMode.editable) ? _onCellChanged : null;
-    final onSelectedChanged =
-        (_viewMode.value == ViewMode.selectable) ? _onSelectedChanged : null;
+    final onCellChanged = (_viewMode.value == ViewMode.editable)
+        ? _onCellChanged
+        : null;
+    final onSelectedChanged = (_viewMode.value == ViewMode.selectable)
+        ? _onSelectedChanged
+        : null;
 
     _tableViewSource.initialize(
       context: context,
