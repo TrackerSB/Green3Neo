@@ -50,9 +50,7 @@ class ViewManagementPage extends WatchingWidget {
             Text(formattedLastDate.value),
           ],
         ),
-        Expanded(
-          child: memberView,
-        ),
+        Expanded(child: memberView),
       ],
     );
   }

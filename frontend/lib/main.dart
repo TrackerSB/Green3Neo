@@ -55,8 +55,9 @@ void setupLogging() {
       callingFrame = frames.elementAtOrNull(0);
     }
 
-    final String? logLocation =
-        callingFrame?.replaceFirst(RegExp(r"^#\d+\s*"), "").trim();
+    final String? logLocation = callingFrame
+        ?.replaceFirst(RegExp(r"^#\d+\s*"), "")
+        .trim();
     final String message =
         "${(logLocation ?? "")} '${record.loggerName}': ${record.message}";
 
@@ -75,7 +76,8 @@ void setupLogging() {
             break;
           default:
             backend_logging.warn(
-              message: "Log level ${record.level.name} is unsupported. "
+              message:
+                  "Log level ${record.level.name} is unsupported. "
                   "Message was $message",
             );
             break;
@@ -103,8 +105,7 @@ void setupLogging() {
   /* Print errors and exceptions not caught by Flutter to logger before
    * exiting application
    */
-  PlatformDispatcher.instance.onError =
-      (Object error, StackTrace stackTrace) {
+  PlatformDispatcher.instance.onError = (Object error, StackTrace stackTrace) {
     _logger.shout("Encountered error not caught by Flutter", error, stackTrace);
     // FIXME When to consider an error "recoverable" or "not too bad"?
     return true;
@@ -187,8 +188,7 @@ class MainApp extends WatchingWidget {
 
           return Scaffold(
             body: StatefulBuilder(
-              builder:
-                  (BuildContext context, StateSetter setState) {
+              builder: (BuildContext context, StateSetter setState) {
                 return Column(
                   children: [
                     SegmentedButton<Widget>(

@@ -16,13 +16,18 @@ part 'table_view.freezed.dart';
 final _logger = Logger("table_view");
 
 typedef CellValueHandler<CellType extends SupportedType?> = void Function(
-    CellType?);
-typedef ObjectValueGetter<DataObject, CellType extends SupportedType?>
-    = CellType? Function(DataObject);
-typedef ObjectValueSetter<DataObject, CellType extends SupportedType?> = void
-    Function(DataObject, CellType?);
+  CellType?,
+);
+typedef ObjectValueGetter<DataObject, CellType extends SupportedType?> =
+    CellType? Function(DataObject);
+typedef ObjectValueSetter<DataObject, CellType extends SupportedType?> =
+    void Function(DataObject, CellType?);
 typedef ObjectChangeHandler<DataObject> = void Function(
-    DataObject, String, SupportedType?, SupportedType?);
+  DataObject,
+  String,
+  SupportedType?,
+  SupportedType?,
+);
 typedef DataCellGenerator<DataObject> = DataCell Function(DataObject);
 
 @Freezed()
@@ -53,37 +58,47 @@ CellType createDefaultValue<CellType extends SupportedType>() {
   return const SupportedType.unsupported(null) as CellType;
 }
 
-Widget _createCellPopup<CellType extends SupportedType>(CellType? initialValue,
-    bool isNullableType, CellValueHandler<CellType?> onCellValueSubmitted) {
+Widget _createCellPopup<CellType extends SupportedType>(
+  CellType? initialValue,
+  bool isNullableType,
+  CellValueHandler<CellType?> onCellValueSubmitted,
+) {
   return switch (createDefaultValue<CellType>()) {
     IntVariant(value: final int _) => TableViewIntCellPopup(
-        initialValue: initialValue as IntVariant?,
-        isNullable: isNullableType,
-        onCellValueSubmitted:
-            onCellValueSubmitted as CellValueHandler<IntVariant?>),
+      initialValue: initialValue as IntVariant?,
+      isNullable: isNullableType,
+      onCellValueSubmitted:
+          onCellValueSubmitted as CellValueHandler<IntVariant?>,
+    ),
     StringVariant(value: final String _) => TableViewStringCellPopup(
-        initialValue: initialValue as StringVariant?,
-        isNullable: isNullableType,
-        onCellValueSubmitted:
-            onCellValueSubmitted as CellValueHandler<StringVariant?>),
+      initialValue: initialValue as StringVariant?,
+      isNullable: isNullableType,
+      onCellValueSubmitted:
+          onCellValueSubmitted as CellValueHandler<StringVariant?>,
+    ),
     BoolVariant(value: final bool _) => TableViewBoolCellPopup(
-        initialValue: initialValue as BoolVariant?,
-        isNullable: isNullableType,
-        onCellValueSubmitted:
-            onCellValueSubmitted as CellValueHandler<BoolVariant?>),
+      initialValue: initialValue as BoolVariant?,
+      isNullable: isNullableType,
+      onCellValueSubmitted:
+          onCellValueSubmitted as CellValueHandler<BoolVariant?>,
+    ),
     UnsupportedVariant(value: final dynamic _) => TableViewUnsupportedCellPopup(
-        initialValue: initialValue as UnsupportedVariant?,
-        isNullable: isNullableType,
-        onCellValueSubmitted:
-            onCellValueSubmitted as CellValueHandler<UnsupportedVariant?>),
+      initialValue: initialValue as UnsupportedVariant?,
+      isNullable: isNullableType,
+      onCellValueSubmitted:
+          onCellValueSubmitted as CellValueHandler<UnsupportedVariant?>,
+    ),
   };
 }
 
 DataCellGenerator<DataObject> _createDataCellGeneratorForColumn<
-        DataObject extends Object, CellType extends SupportedType>(
-    BuildContext context,
-    VariableMirror variableMirror,
-    ObjectChangeHandler<DataObject>? onObjectValueChanged) {
+  DataObject extends Object,
+  CellType extends SupportedType
+>(
+  BuildContext context,
+  VariableMirror variableMirror,
+  ObjectChangeHandler<DataObject>? onObjectValueChanged,
+) {
   dynamic constructor;
   switch (variableMirror.type.reflectedType) {
     case String:
@@ -125,7 +140,11 @@ DataCellGenerator<DataObject> _createDataCellGeneratorForColumn<
           .reflect(object)
           .invokeSetter(variableMirror.simpleName, newCellValue?.value);
       onObjectValueChanged!(
-          object, variableMirror.simpleName, previousCellValue, newCellValue);
+        object,
+        variableMirror.simpleName,
+        previousCellValue,
+        newCellValue,
+      );
     }
 
     return DataCell(
@@ -137,8 +156,12 @@ DataCellGenerator<DataObject> _createDataCellGeneratorForColumn<
                 context: context,
                 pageBuilder: (context, animation, secondaryAnimation) {
                   return Dialog(
-                      child: _createCellPopup<CellType>(currentCellValue.value,
-                          isNullableType, onCellValueSubmitted));
+                    child: _createCellPopup<CellType>(
+                      currentCellValue.value,
+                      isNullableType,
+                      onCellValueSubmitted,
+                    ),
+                  );
                 },
               );
             },
@@ -149,13 +172,15 @@ DataCellGenerator<DataObject> _createDataCellGeneratorForColumn<
 }
 
 Map<String, DataCellGenerator<DataObject>>
-    _createColumnGenerators<DataObject extends Object>(
-        BuildContext context,
-        ObjectChangeHandler<DataObject>? onObjectValueChanged,
-        bool Function(String)? propertyFilter) {
+_createColumnGenerators<DataObject extends Object>(
+  BuildContext context,
+  ObjectChangeHandler<DataObject>? onObjectValueChanged,
+  bool Function(String)? propertyFilter,
+) {
   if (!reflectableMarker.canReflectType(DataObject)) {
     _logger.warning(
-        "Cannot generate table view for type '$DataObject' since it's not reflectable.");
+      "Cannot generate table view for type '$DataObject' since it's not reflectable.",
+    );
     return <String, DataCellGenerator<DataObject>>{};
   }
 
@@ -164,40 +189,50 @@ Map<String, DataCellGenerator<DataObject>>
   var classMirror = reflectableMarker.reflectType(DataObject) as ClassMirror;
   Map<String, DeclarationMirror> classDeclarations = classMirror.declarations;
 
-  classDeclarations.forEach(
-    (propertyName, declarationMirror) {
-      if (declarationMirror is! VariableMirror) {
-        return;
-      }
+  classDeclarations.forEach((propertyName, declarationMirror) {
+    if (declarationMirror is! VariableMirror) {
+      return;
+    }
 
-      if ((propertyFilter != null) && !propertyFilter(propertyName)) {
-        return;
-      }
+    if ((propertyFilter != null) && !propertyFilter(propertyName)) {
+      return;
+    }
 
-      switch (declarationMirror.type.reflectedType) {
-        case String:
-          columnInfos[propertyName] =
-              _createDataCellGeneratorForColumn<DataObject, StringVariant>(
-                  context, declarationMirror, onObjectValueChanged);
-          break;
-        case bool:
-          columnInfos[propertyName] =
-              _createDataCellGeneratorForColumn<DataObject, BoolVariant>(
-                  context, declarationMirror, onObjectValueChanged);
-          break;
-        case int:
-          columnInfos[propertyName] =
-              _createDataCellGeneratorForColumn<DataObject, IntVariant>(
-                  context, declarationMirror, onObjectValueChanged);
-          break;
-        default:
-          columnInfos[propertyName] =
-              _createDataCellGeneratorForColumn<DataObject, UnsupportedVariant>(
-                  context, declarationMirror, onObjectValueChanged);
-          break;
-      }
-    },
-  );
+    switch (declarationMirror.type.reflectedType) {
+      case String:
+        columnInfos[propertyName] =
+            _createDataCellGeneratorForColumn<DataObject, StringVariant>(
+              context,
+              declarationMirror,
+              onObjectValueChanged,
+            );
+        break;
+      case bool:
+        columnInfos[propertyName] =
+            _createDataCellGeneratorForColumn<DataObject, BoolVariant>(
+              context,
+              declarationMirror,
+              onObjectValueChanged,
+            );
+        break;
+      case int:
+        columnInfos[propertyName] =
+            _createDataCellGeneratorForColumn<DataObject, IntVariant>(
+              context,
+              declarationMirror,
+              onObjectValueChanged,
+            );
+        break;
+      default:
+        columnInfos[propertyName] =
+            _createDataCellGeneratorForColumn<DataObject, UnsupportedVariant>(
+              context,
+              declarationMirror,
+              onObjectValueChanged,
+            );
+        break;
+    }
+  });
   return columnInfos;
 }
 
@@ -218,8 +253,10 @@ class TableViewCellState<CellType extends SupportedType>
     setState(() => cellValue = widget.cellValueState.value?.value);
   }
 
-  void observeWidget(covariant TableViewCell<CellType>? oldWidget,
-      covariant TableViewCell<CellType> newWidget) {
+  void observeWidget(
+    covariant TableViewCell<CellType>? oldWidget,
+    covariant TableViewCell<CellType> newWidget,
+  ) {
     if (oldWidget != null) {
       oldWidget.cellValueState.removeListener(updateCellValue);
     }
@@ -257,11 +294,12 @@ abstract class TableViewCellPopup<CellType extends SupportedType>
   final bool isNullable;
   final CellValueHandler<CellType?> onCellValueSubmitted;
 
-  TableViewCellPopup(
-      {super.key,
-      required this.initialValue,
-      required this.isNullable,
-      required this.onCellValueSubmitted}) {
+  TableViewCellPopup({
+    super.key,
+    required this.initialValue,
+    required this.isNullable,
+    required this.onCellValueSubmitted,
+  }) {
     currentValue.value = initialValue;
   }
 
@@ -313,33 +351,38 @@ abstract class TableViewCellPopup<CellType extends SupportedType>
     }
 
     // WARN Non-null popup content must only be created if value is not null
-    Widget createNonNullPopupContent() => Padding(
-          padding: const EdgeInsets.all(10),
-          child: buildPopup(context),
-        );
+    Widget createNonNullPopupContent() =>
+        Padding(padding: const EdgeInsets.all(10), child: buildPopup(context));
 
     final valueIsNotNull = currentValue.map((value) => value != null);
 
     if (isNullable) {
-      return StatefulBuilder(builder:
-          (BuildContext context, void Function(void Function()) setState) {
-        return Row(
-          children: [
-            Checkbox(
-              value: valueIsNotNull.value,
-              onChanged: (newValue) =>
-                  setState(() => setInternalNullState(newValue)),
-              tristate: false,
-            ),
-            Expanded(
-              child: createPopupContent(valueIsNotNull.value
-                  ? createNonNullPopupContent()
-                  : Text(
-                      Localizer.instance.text((l) => l.unexpectedNullValue))),
-            ),
-          ],
-        );
-      });
+      return StatefulBuilder(
+        builder:
+            (BuildContext context, void Function(void Function()) setState) {
+              return Row(
+                children: [
+                  Checkbox(
+                    value: valueIsNotNull.value,
+                    onChanged: (newValue) =>
+                        setState(() => setInternalNullState(newValue)),
+                    tristate: false,
+                  ),
+                  Expanded(
+                    child: createPopupContent(
+                      valueIsNotNull.value
+                          ? createNonNullPopupContent()
+                          : Text(
+                              Localizer.instance.text(
+                                (l) => l.unexpectedNullValue,
+                              ),
+                            ),
+                    ),
+                  ),
+                ],
+              );
+            },
+      );
     }
 
     return createPopupContent(createNonNullPopupContent());
@@ -352,11 +395,12 @@ abstract class TableViewCellPopup<CellType extends SupportedType>
 
 class TableViewUnsupportedCellPopup
     extends TableViewCellPopup<UnsupportedVariant> {
-  TableViewUnsupportedCellPopup(
-      {super.key,
-      required super.initialValue,
-      required super.isNullable,
-      required super.onCellValueSubmitted});
+  TableViewUnsupportedCellPopup({
+    super.key,
+    required super.initialValue,
+    required super.isNullable,
+    required super.onCellValueSubmitted,
+  });
 
   @override
   Widget buildPopup(BuildContext context) {
@@ -365,17 +409,20 @@ class TableViewUnsupportedCellPopup
 }
 
 class TableViewIntCellPopup extends TableViewCellPopup<IntVariant> {
-  TableViewIntCellPopup(
-      {super.key,
-      required super.initialValue,
-      required super.isNullable,
-      required super.onCellValueSubmitted});
+  TableViewIntCellPopup({
+    super.key,
+    required super.initialValue,
+    required super.isNullable,
+    required super.onCellValueSubmitted,
+  });
 
   @override
   Widget buildPopup(BuildContext context) {
     return TextFormField(
-      keyboardType:
-          const TextInputType.numberWithOptions(decimal: false, signed: false),
+      keyboardType: const TextInputType.numberWithOptions(
+        decimal: false,
+        signed: false,
+      ),
       initialValue: currentValue.value?.value.toString(),
       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
       onChanged: (newValue) =>
@@ -386,11 +433,12 @@ class TableViewIntCellPopup extends TableViewCellPopup<IntVariant> {
 }
 
 class TableViewStringCellPopup extends TableViewCellPopup<StringVariant> {
-  TableViewStringCellPopup(
-      {super.key,
-      required super.initialValue,
-      required super.isNullable,
-      required super.onCellValueSubmitted});
+  TableViewStringCellPopup({
+    super.key,
+    required super.initialValue,
+    required super.isNullable,
+    required super.onCellValueSubmitted,
+  });
 
   @override
   Widget buildPopup(BuildContext context) {
@@ -403,25 +451,27 @@ class TableViewStringCellPopup extends TableViewCellPopup<StringVariant> {
 }
 
 class TableViewBoolCellPopup extends TableViewCellPopup<BoolVariant> {
-  TableViewBoolCellPopup(
-      {super.key,
-      required super.initialValue,
-      required super.isNullable,
-      required super.onCellValueSubmitted});
+  TableViewBoolCellPopup({
+    super.key,
+    required super.initialValue,
+    required super.isNullable,
+    required super.onCellValueSubmitted,
+  });
 
   @override
   Widget buildPopup(BuildContext context) {
-    return StatefulBuilder(builder:
-        (BuildContext context, void Function(void Function()) setState) {
-      return Checkbox(
-        value: currentValue.value?.value,
-        onChanged: (newValue) {
-          setState(() {
-            currentValue.value = BoolVariant(newValue == true);
-          });
-        },
-      );
-    });
+    return StatefulBuilder(
+      builder: (BuildContext context, void Function(void Function()) setState) {
+        return Checkbox(
+          value: currentValue.value?.value,
+          onChanged: (newValue) {
+            setState(() {
+              currentValue.value = BoolVariant(newValue == true);
+            });
+          },
+        );
+      },
+    );
   }
 }
 
@@ -438,12 +488,7 @@ class TableView<DataObject extends Object> extends StatelessWidget {
 
     final List<DataColumn> dataColumns = tableViewSource._generators
         .map<String, DataColumn>((columnName, columnInfo) {
-          return MapEntry(
-            columnName,
-            DataColumn(
-              label: Text(columnName),
-            ),
-          );
+          return MapEntry(columnName, DataColumn(label: Text(columnName)));
         })
         .values
         .toList();
@@ -489,8 +534,13 @@ class TableViewSource<DataObject extends Object> extends DataTableSource {
       _generators.clear();
     }
 
-    _generators.addAll(_createColumnGenerators<DataObject>(
-        context, onCellChanged, propertyFilter));
+    _generators.addAll(
+      _createColumnGenerators<DataObject>(
+        context,
+        onCellChanged,
+        propertyFilter,
+      ),
+    );
 
     if (!_isInitialized) {
       content.addListener(() {
