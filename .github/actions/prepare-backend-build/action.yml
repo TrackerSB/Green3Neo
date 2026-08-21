@@ -26,5 +26,5 @@ runs:
           exit 1
         fi
         cargo install diesel_cli_ext
-        cargo install flutter_rust_bridge_codegen@2.11.1
+        cargo install flutter_rust_bridge_codegen@2.12.0
       shell: bash
