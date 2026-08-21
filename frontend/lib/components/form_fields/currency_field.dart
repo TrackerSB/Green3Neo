@@ -1,9 +1,8 @@
-import 'package:flutter/material.dart';
-
 import 'package:currency_widget/currency_widget.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:green3neo/localizer.dart';
+import 'package:material_ui/material_ui.dart';
 
 // FIXME Maybe extend from FormBuilderFieldDecoration<String>?
 class CurrencyField extends FormBuilderField<String> {

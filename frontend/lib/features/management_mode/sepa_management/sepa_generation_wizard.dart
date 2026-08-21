@@ -1,7 +1,5 @@
 import 'dart:typed_data';
 
-import 'package:flutter/material.dart';
-
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:get_it/get_it.dart';
@@ -19,6 +17,7 @@ import 'package:green3neo/interface/sepa_api/api.dart';
 import 'package:green3neo/interface/sepa_api/api/generation.dart';
 import 'package:green3neo/localizer.dart';
 import 'package:logging/logging.dart';
+import 'package:material_ui/material_ui.dart';
 
 // FIXME Determine DART file name automatically
 final _logger = Logger("sepa_generation_wizard");

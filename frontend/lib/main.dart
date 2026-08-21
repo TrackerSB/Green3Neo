@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import 'package:green3neo/features/loaded_profile.dart';
 import 'package:green3neo/features/management_mode/management_mode.dart';
@@ -22,6 +22,7 @@ import 'package:green3neo/l10n/app_localizations.dart';
 import 'package:green3neo/localizer.dart';
 import 'package:green3neo/main.reflectable.dart';
 import 'package:logging/logging.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:watch_it/watch_it.dart';
 import 'package:window_manager/window_manager.dart';
 
