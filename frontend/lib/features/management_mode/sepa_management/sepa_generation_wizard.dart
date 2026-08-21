@@ -1,7 +1,5 @@
 import 'dart:typed_data';
 
-import 'package:flutter/material.dart';
-
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:get_it/get_it.dart';
@@ -19,18 +17,19 @@ import 'package:green3neo/interface/sepa_api/api.dart';
 import 'package:green3neo/interface/sepa_api/api/generation.dart';
 import 'package:green3neo/localizer.dart';
 import 'package:logging/logging.dart';
+import 'package:material_ui/material_ui.dart';
 
 // FIXME Determine DART file name automatically
 final _logger = Logger("sepa_generation_wizard");
 
 Future<String> _generateSepaContent(
-  final MessageID messageId,
-  final Creditor creditor,
-  final List<Member> member,
-  final double value,
-  final Purpose purpose,
+  MessageID messageId,
+  Creditor creditor,
+  List<Member> member,
+  double value,
+  Purpose purpose,
 ) {
-  final transactions = member.map((final Member m) {
+  final transactions = member.map((Member m) {
     final mandate = Mandate(
       id: MandateID(value: m.membershipId.toString()),
       // FIXME Use correct date of signature
@@ -54,11 +53,11 @@ Future<String> _generateSepaContent(
   );
 }
 
-Future<Uri?> _saveOutputToPath(final Uint8List outputBytes) {
+Future<Uri?> _saveOutputToPath(Uint8List outputBytes) {
   final Future<String> downloadDir = getUserDownloadDir();
 
   return downloadDir.then(
-    (final String? dir) => FilePicker.saveFile(
+    (String? dir) => FilePicker.saveFile(
       fileName: "sepaOutput.xml", // FIXME Determine meaningful file name
       allowedExtensions: ["xml"],
       lockParentWindow: true,
@@ -66,12 +65,12 @@ Future<Uri?> _saveOutputToPath(final Uint8List outputBytes) {
       bytes: outputBytes,
       initialDirectory: dir,
     ),
-    onError: (final Object error, final StackTrace trace) =>
+    onError: (Object error, StackTrace trace) =>
         _logger.shout("Failed to ask user for save path", error, trace),
   );
 }
 
-Uint8List _convertContentToBytes(final String content) {
+Uint8List _convertContentToBytes(String content) {
   return Uint8List.fromList(content.codeUnits);
 }
 
@@ -82,12 +81,12 @@ class SepaGenerationWizard extends StatelessWidget {
   SepaGenerationWizard._create({super.key, required this.member});
 
   Future<bool> _onOkButtonPressed(
-    final MessageIdField messageIdField,
-    final CreditorNameField creditorNameField,
-    final CreditorIbanField creditorIbanField,
-    final CreditorIdField creditorIdField,
-    final CurrencyField currencyField,
-    final PurposeField purposeField,
+    MessageIdField messageIdField,
+    CreditorNameField creditorNameField,
+    CreditorIbanField creditorIbanField,
+    CreditorIdField creditorIdField,
+    CurrencyField currencyField,
+    PurposeField purposeField,
   ) async {
     final FormBuilderState formState = _formKey.currentState!;
 
@@ -149,7 +148,7 @@ class SepaGenerationWizard extends StatelessWidget {
     final Uint8List encodedContent = _convertContentToBytes(await sepaContent);
     final Future<Uri?> outputPathFuture = _saveOutputToPath(encodedContent);
 
-    return outputPathFuture.then((final Uri? outputPath) async {
+    return outputPathFuture.then((Uri? outputPath) async {
       if (outputPath == null) {
         _logger.info("The user presumably aborted saving");
         return false;
@@ -182,7 +181,7 @@ class SepaGenerationWizard extends StatelessWidget {
     final creditorIdField = CreditorIdField();
 
     final getIt = GetIt.instance;
-    getIt.getAsync<LoadedProfile>().then((final LoadedProfile profile) {
+    getIt.getAsync<LoadedProfile>().then((LoadedProfile profile) {
       final FormBuilderState formState = _formKey.currentState!;
       formState.fields[creditorNameField.name]?.didChange(
         profile.creditor?.name.value,
@@ -228,7 +227,7 @@ class SepaGenerationWizard extends StatelessWidget {
                       creditorIdField,
                       currencyField,
                       purposeField,
-                    ).then((final bool submitted) {
+                    ).then((bool submitted) {
                       if (submitted && context.mounted) {
                         Navigator.pop(context);
                       }

@@ -1,10 +1,9 @@
-import 'package:flutter/material.dart';
-
 import 'package:get_it/get_it.dart';
 import 'package:green3neo/features/loaded_profile.dart';
 import 'package:green3neo/interface/database_api/api/member.dart';
 import 'package:green3neo/localizer.dart';
 import 'package:logging/logging.dart';
+import 'package:material_ui/material_ui.dart';
 
 // FIXME Determine DART file name automatically
 final _logger = Logger("change_record_utility");
