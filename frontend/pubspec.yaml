@@ -11,7 +11,7 @@ environment:
 
 dependencies:
   currency_widget: ^1.0.7
-  data_table_2: ^2.7.2
+  data_table_2: ^3.0.0
   ffi: ^2.0.2
   file_picker: ^12.0.0
   flutter:
