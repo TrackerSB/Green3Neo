@@ -16,6 +16,7 @@ runs:
       run: fvm flutter pub get
       shell: bash
     - name: Install Rust command line tools for building
+      working-directory: ${{ github.workspace }}/backend
       run: |
         if [ "${{ env.BUILD_DB_PROTOCOL }}" = "postgres" ]; then
           cargo install diesel_cli --no-default-features --features "postgres"
