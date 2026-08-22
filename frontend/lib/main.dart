@@ -173,7 +173,10 @@ class MainApp extends WatchingWidget {
     Widget selectedModeWidget = managementModes.first.widget;
 
     return MaterialApp(
-      title: "No title", // FIXME AppLocalizations.of(...) returns null
+      onGenerateTitle: (context) {
+        Localizer.instance.init(context);
+        return Localizer.instance.text((l) => l.appTitle);
+      },
       localizationsDelegates: [
         /* WARN 2026-08-21: Do not use AppLocalizations.localizationDelegates
          * since these include old (non-material_ui) delegates
