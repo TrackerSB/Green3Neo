@@ -7,23 +7,19 @@ edition = "2024"
 crate-type = ["cdylib"]
 
 [build-dependencies]
-flutter_rust_bridge_codegen = "=2.12.0"
+flutter_rust_bridge_codegen = { workspace = true }
 
 [dependencies]
 backend_logging = { path = "../../backend_logging" }
 backend_paths = { path = "../../backend_paths" }
 database_types = { path = "../../database_types" }
 sepa_types = { path = "../../sepa_types" }
-config = "0.15.19"
-flexi_logger = { version = "0.31.10", features = [
-    "async",
-    "colors",
-    "specfile",
-] }
-flutter_rust_bridge = { version = "=2.12.0", features = ["chrono"] }
-log = "0.4.25"
-serde = { version = "1.0.228", features = ["derive"] }
-toml = "1.1.4"
+config = { workspace = true }
+flexi_logger = { workspace = true }
+flutter_rust_bridge = { workspace = true }
+log = { workspace = true }
+serde = { workspace = true }
+toml = { workspace = true }
 
 [features]
 default = []
