@@ -7,7 +7,7 @@ edition = "2024"
 crate-type = ["rlib"]
 
 [dependencies]
-serde = { version = "1.0.228", features = ["derive"] }
+serde = { workspace = true }
 
 [features]
 default = []

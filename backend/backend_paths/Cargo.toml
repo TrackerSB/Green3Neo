@@ -7,5 +7,5 @@ edition = "2024"
 crate-type = ["rlib"]
 
 [dependencies]
-directories = "6.0.0"
-log = "0.4.25"
+directories = { workspace = true }
+log = { workspace = true }
