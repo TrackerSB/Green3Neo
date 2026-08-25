@@ -1,4 +1,4 @@
-/* Due to conflicting FRB mirror defitions this class converts all duplicated
+/* Due to conflicting FRB mirror definitions this class converts all duplicated
  * backend_api variants to the considered "original" mirror provided by the
  * other APIs
  */
