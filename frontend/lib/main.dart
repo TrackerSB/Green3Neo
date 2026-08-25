@@ -143,6 +143,8 @@ void main() async {
   }
 
   // Register all features considering currently loaded profile
+  LoadedProfileFeature().registerUnconditionally(); // FIXME Derive this from base feature defined in backend
+
   await Future.wait([
     MemberViewFeature().register(),
     MemberManagementMode().register(),

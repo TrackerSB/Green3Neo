@@ -1,6 +1,6 @@
 use serde::{Deserialize, Serialize};
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Clone, Debug, Serialize, Deserialize)]
 pub enum Feature {
     MemberManagementMode,
     MemberView,
@@ -9,6 +9,9 @@ pub enum Feature {
     SepaManagementMode,
     ViewManagementMode,
 }
+
+// The "profiles" features is always required since handling features itself is based on profiles
+pub static BASE_FEATURE: Feature = Feature::Profiles;
 
 pub struct FeatureDescription {
     // FIXME Localize feature names
