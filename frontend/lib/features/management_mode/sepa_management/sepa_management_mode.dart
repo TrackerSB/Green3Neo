@@ -1,6 +1,7 @@
 import 'package:green3neo/features/management_mode/management_mode.dart';
 import 'package:green3neo/features/management_mode/member_view.dart';
 import 'package:green3neo/features/management_mode/sepa_management/sepa_generation_wizard.dart';
+import 'package:green3neo/interface/backend_api/api/feature.dart';
 import 'package:green3neo/interface/database_api/api/models.dart';
 import 'package:green3neo/localizer.dart';
 import 'package:listen_it/listen_it.dart';
@@ -87,5 +88,10 @@ class SepaManagementMode implements ManagementMode<SepaManagementPage> {
   SepaManagementPage get widget {
     instance ??= SepaManagementPage._create();
     return instance!;
+  }
+
+  @override
+  Feature requiredFeature() {
+    return Feature.sepaManagementMode;
   }
 }

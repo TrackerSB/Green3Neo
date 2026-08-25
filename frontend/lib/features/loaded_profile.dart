@@ -6,6 +6,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:get_it/get_it.dart';
 import 'package:green3neo/features/frontend_feature.dart';
 import 'package:green3neo/interface/backend_api/api.dart' as backend_api;
+import 'package:green3neo/interface/backend_api/api/feature.dart';
 import 'package:green3neo/interface/backend_api/api/profile.dart';
 import 'package:green3neo/interface/database_api/api.dart';
 import 'package:green3neo/interface/sepa_api/api.dart';
@@ -112,5 +113,10 @@ class LoadedProfileFeature implements FrontendFeature {
         );
       });
     });
+  }
+
+  @override
+  Feature requiredFeature() {
+    return Feature.profiles;
   }
 }

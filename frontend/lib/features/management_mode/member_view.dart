@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:green3neo/components/table_view.dart';
 import 'package:green3neo/features/loaded_profile.dart';
 import 'package:green3neo/features/widget_feature.dart';
+import 'package:green3neo/interface/backend_api/api/feature.dart';
 import 'package:green3neo/interface/database_api/api/member.dart';
 import 'package:green3neo/interface/database_api/api/models.dart';
 import 'package:green3neo/localizer.dart';
@@ -172,4 +173,9 @@ class MemberViewFeature implements WidgetFeature<MemberView> {
 
   @override
   MemberView get widget => MemberView._create();
+
+  @override
+  Feature requiredFeature() {
+    return Feature.memberView;
+  }
 }

@@ -1,5 +1,6 @@
 import 'package:green3neo/features/management_mode/management_mode.dart';
 import 'package:green3neo/features/management_mode/member_view.dart';
+import 'package:green3neo/interface/backend_api/api/feature.dart';
 import 'package:green3neo/interface/database_api/api/member.dart';
 import 'package:green3neo/localizer.dart';
 import 'package:listen_it/listen_it.dart';
@@ -107,5 +108,10 @@ class MemberManagementMode implements ManagementMode<MemberManagementPage> {
   MemberManagementPage get widget {
     instance ??= MemberManagementPage._create();
     return instance!;
+  }
+
+  @override
+  Feature requiredFeature() {
+    return Feature.memberManagementMode;
   }
 }
