@@ -134,9 +134,7 @@ void main() async {
     WidgetsFlutterBinding.ensureInitialized();
     await windowManager.ensureInitialized();
 
-    WindowOptions windowOptions = const WindowOptions(
-      center: true,
-    );
+    WindowOptions windowOptions = const WindowOptions(center: true);
 
     windowManager.waitUntilReadyToShow(windowOptions, () async {
       await windowManager.show();
