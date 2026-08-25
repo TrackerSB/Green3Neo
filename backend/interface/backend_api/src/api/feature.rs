@@ -16,7 +16,7 @@ pub static BASE_FEATURE: Feature = Feature::Profiles;
 pub struct FeatureDescription {
     // FIXME Localize feature names
     pub name: String,
-    pub dependencies: Vec<Feature>,
+    pub dependencies: Vec<Feature>, // FIXME Ensure there are no duplicates
 }
 
 pub fn description(feature: Feature) -> FeatureDescription {
