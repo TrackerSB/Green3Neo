@@ -136,7 +136,6 @@ void main() async {
 
     WindowOptions windowOptions = const WindowOptions(
       center: true,
-      title: "No title", // FIXME Insert app title
     );
 
     windowManager.waitUntilReadyToShow(windowOptions, () async {
@@ -175,7 +174,9 @@ class MainApp extends WatchingWidget {
     return MaterialApp(
       onGenerateTitle: (context) {
         Localizer.instance.init(context);
-        return Localizer.instance.text((l) => l.appTitle);
+        final localizedAppTitle = Localizer.instance.text((l) => l.appTitle);
+        windowManager.setTitle(localizedAppTitle);
+        return localizedAppTitle;
       },
       localizationsDelegates: [
         /* WARN 2026-08-21: Do not use AppLocalizations.localizationDelegates
