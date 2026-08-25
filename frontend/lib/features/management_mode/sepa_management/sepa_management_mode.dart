@@ -76,7 +76,7 @@ class SepaManagementMode extends ManagementMode<SepaManagementPage> {
   static SepaManagementPage? instance;
 
   @override
-  void registerImpl() {
+  void registerUnconditionally() {
     final getIt = GetIt.instance;
     getIt.registerLazySingleton<SepaManagementMode>(() => SepaManagementMode());
   }

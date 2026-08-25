@@ -8,13 +8,13 @@ abstract class FrontendFeature {
     final getIt = GetIt.instance;
     return getIt.getAsync<LoadedProfile>().then((LoadedProfile profile) {
       if (profile.features.contains(requiredFeature())) {
-        registerImpl();
+        registerUnconditionally();
       }
     });
   }
 
   // Do not call this method directly
-  void registerImpl();
+  void registerUnconditionally();
 
   Feature requiredFeature();
 }

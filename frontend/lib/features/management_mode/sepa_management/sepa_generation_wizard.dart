@@ -246,7 +246,7 @@ class SepaGenerationWizard extends StatelessWidget {
 
 class SepaGenerationWizardFactory extends FrontendFeature {
   @override
-  void registerImpl() {
+  void registerUnconditionally() {
     final getIt = GetIt.instance;
     getIt.registerFactoryParam<SepaGenerationWizard, List<Member>, void>(
       (member, _) => SepaGenerationWizard._create(member: member),

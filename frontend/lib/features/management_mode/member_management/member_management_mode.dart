@@ -95,7 +95,7 @@ class MemberManagementMode extends ManagementMode<MemberManagementPage> {
   static MemberManagementPage? instance;
 
   @override
-  void registerImpl() {
+  void registerUnconditionally() {
     final getIt = GetIt.instance;
     getIt.registerLazySingleton<MemberManagementMode>(
         () => MemberManagementMode());

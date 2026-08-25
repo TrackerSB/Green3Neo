@@ -61,7 +61,7 @@ class ViewManagementMode extends ManagementMode<ViewManagementPage> {
   static ViewManagementPage? instance;
 
   @override
-  void registerImpl() {
+  void registerUnconditionally() {
     final getIt = GetIt.instance;
     getIt.registerLazySingleton<ViewManagementMode>(() => ViewManagementMode());
   }
