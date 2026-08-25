@@ -30,20 +30,21 @@ class LoadedProfile with _$LoadedProfile {
         : backend_api.Creditor(
             name: backend_api.Name(value: creditor!.name.value),
             id: backend_api.CreditorID(value: creditor!.id.value),
-            iban: backend_api.IBAN(value: creditor!.iban.value));
+            iban: backend_api.IBAN(value: creditor!.iban.value),
+          );
 
     final backend_api.ConnectionDescription? mirroredConnection =
         (connection == null)
-            ? null
-            : backend_api.ConnectionDescription(
-                backend: backend_api
-                    .DatabaseBackend.values[connection!.backend.index],
-                host: connection!.host,
-                port: connection!.port,
-                user: connection!.user,
-                password: connection!.password,
-                name: connection!.name,
-              );
+        ? null
+        : backend_api.ConnectionDescription(
+            backend:
+                backend_api.DatabaseBackend.values[connection!.backend.index],
+            host: connection!.host,
+            port: connection!.port,
+            user: connection!.user,
+            password: connection!.password,
+            name: connection!.name,
+          );
 
     await saveProfile(
       profile: Profile(
@@ -89,7 +90,8 @@ class LoadedProfileFeature implements FrontendFeature {
                 username: mirroredSshTunnel.username,
                 password: mirroredSshTunnel.password,
                 host: mirroredSshTunnel.host,
-                port: mirroredSshTunnel.port);
+                port: mirroredSshTunnel.port,
+              );
 
         final ConnectionDescription? connection = (mirroredConnection == null)
             ? null
@@ -101,7 +103,8 @@ class LoadedProfileFeature implements FrontendFeature {
                 user: mirroredConnection.user,
                 password: mirroredConnection.password,
                 name: mirroredConnection.name,
-                sshTunnel: sshTunnel);
+                sshTunnel: sshTunnel,
+              );
 
         return LoadedProfile._create(
           creditor: creditor,
