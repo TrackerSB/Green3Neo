@@ -11,8 +11,10 @@ import 'package:watch_it/watch_it.dart';
 class _StartSepaGenerationWizardButton extends WatchingWidget {
   final ListNotifier<Member> selectedMember;
 
-  const _StartSepaGenerationWizardButton(
-      {super.key, required this.selectedMember});
+  const _StartSepaGenerationWizardButton({
+    super.key,
+    required this.selectedMember,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,8 +24,9 @@ class _StartSepaGenerationWizardButton extends WatchingWidget {
           : () {
               final getIt = GetIt.instance;
 
-              final wizard =
-                  getIt<SepaGenerationWizard>(param1: selectedMember);
+              final wizard = getIt<SepaGenerationWizard>(
+                param1: selectedMember,
+              );
               Navigator.push(
                 context,
                 MaterialPageRoute<void>(
@@ -56,17 +59,16 @@ class SepaManagementPage extends StatelessWidget {
         "accountholdersurname",
         "iban",
         "bic",
-        "iscontributionfree"
+        "iscontributionfree",
       ].map((p) => p.toLowerCase()).contains(propertyName.toLowerCase());
     };
 
     return Column(
       children: [
         _StartSepaGenerationWizardButton(
-            selectedMember: memberView.selectedRecords),
-        Expanded(
-          child: memberView,
+          selectedMember: memberView.selectedRecords,
         ),
+        Expanded(child: memberView),
       ],
     );
   }

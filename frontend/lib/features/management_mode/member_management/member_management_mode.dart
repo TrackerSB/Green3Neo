@@ -19,7 +19,9 @@ class _ApplyChangeRecordsButton extends WatchingWidget {
   const _ApplyChangeRecordsButton({super.key, required this.changeRecords});
 
   void _showPersistChangesDialog(
-      BuildContext context, List<ChangeRecord> changeRecords) {
+    BuildContext context,
+    List<ChangeRecord> changeRecords,
+  ) {
     List<ChangeRecord> mergedChangeRecords = mergeChangeRecords(changeRecords);
 
     if (mergedChangeRecords.isEmpty) {
@@ -38,8 +40,9 @@ class _ApplyChangeRecordsButton extends WatchingWidget {
               children: [
                 TextButton(
                   onPressed: Navigator.of(context).pop,
-                  child:
-                      Text(MaterialLocalizations.of(context).cancelButtonLabel),
+                  child: Text(
+                    MaterialLocalizations.of(context).cancelButtonLabel,
+                  ),
                 ),
                 TextButton(
                   onPressed: () {
@@ -83,9 +86,7 @@ class MemberManagementPage extends StatelessWidget {
     return Column(
       children: [
         _ApplyChangeRecordsButton(changeRecords: memberView.changeRecords),
-        Expanded(
-          child: memberView,
-        ),
+        Expanded(child: memberView),
       ],
     );
   }
@@ -98,7 +99,8 @@ class MemberManagementMode extends ManagementMode<MemberManagementPage> {
   void registerUnconditionally() {
     final getIt = GetIt.instance;
     getIt.registerLazySingleton<MemberManagementMode>(
-        () => MemberManagementMode());
+      () => MemberManagementMode(),
+    );
   }
 
   @override
