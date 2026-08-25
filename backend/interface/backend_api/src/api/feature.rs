@@ -19,31 +19,33 @@ pub struct FeatureDescription {
     pub dependencies: Vec<Feature>, // FIXME Ensure there are no duplicates
 }
 
+impl FeatureDescription {
+    fn new(name: String, mut dependencies: Vec<Feature>) -> Self {
+        dependencies.push(BASE_FEATURE.clone());
+
+        Self {
+            name: name,
+            dependencies: dependencies,
+        }
+    }
+}
+
 pub fn description(feature: Feature) -> FeatureDescription {
     match feature {
-        Feature::MemberManagementMode => FeatureDescription {
-            name: "memberManagementMode".to_owned(),
-            dependencies: vec![Feature::MemberView],
-        },
-        Feature::MemberView => FeatureDescription {
-            name: "memberView".to_owned(),
-            dependencies: vec![],
-        },
-        Feature::Profiles => FeatureDescription {
-            name: "profiles".to_owned(),
-            dependencies: vec![],
-        },
-        Feature::SepaGenerationWizard => FeatureDescription {
-            name: "sepaGenerationWizard".to_owned(),
-            dependencies: vec![Feature::SepaManagementMode],
-        },
-        Feature::SepaManagementMode => FeatureDescription {
-            name: "sepaManagementMode".to_owned(),
-            dependencies: vec![Feature::MemberView],
-        },
-        Feature::ViewManagementMode => FeatureDescription {
-            name: "viewManagementMode".to_owned(),
-            dependencies: vec![Feature::MemberView],
-        },
+        Feature::MemberManagementMode => {
+            FeatureDescription::new("memberManagementMode".to_owned(), vec![Feature::MemberView])
+        }
+        Feature::MemberView => FeatureDescription::new("memberView".to_owned(), vec![]),
+        Feature::Profiles => FeatureDescription::new("profiles".to_owned(), vec![]),
+        Feature::SepaGenerationWizard => FeatureDescription::new(
+            "sepaGenerationWizard".to_owned(),
+            vec![Feature::SepaManagementMode],
+        ),
+        Feature::SepaManagementMode => {
+            FeatureDescription::new("sepaManagementMode".to_owned(), vec![Feature::MemberView])
+        }
+        Feature::ViewManagementMode => {
+            FeatureDescription::new("viewManagementMode".to_owned(), vec![Feature::MemberView])
+        }
     }
 }
