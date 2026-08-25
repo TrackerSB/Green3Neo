@@ -165,11 +165,16 @@ class MainApp extends WatchingWidget {
   Widget build(BuildContext context) {
     final getIt = GetIt.instance;
 
-    final List<ManagementMode<Widget>> managementModes = [
-      getIt<ViewManagementMode>(),
-      getIt<MemberManagementMode>(),
-      getIt<SepaManagementMode>(),
-    ];
+    List<ManagementMode<Widget>> managementModes = [];
+    if (getIt.isRegistered<ViewManagementMode>()) {
+      managementModes.add(getIt<ViewManagementMode>());
+    }
+    if (getIt.isRegistered<MemberManagementMode>()) {
+      managementModes.add(getIt<MemberManagementMode>());
+    }
+    if (getIt.isRegistered<SepaManagementMode>()) {
+      managementModes.add(getIt<SepaManagementMode>());
+    }
 
     Widget selectedModeWidget = managementModes.first.widget;
 
