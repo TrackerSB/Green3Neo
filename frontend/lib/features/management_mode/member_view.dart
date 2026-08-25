@@ -164,9 +164,9 @@ class MemberView extends WatchingWidget {
   }
 }
 
-class MemberViewFeature implements WidgetFeature<MemberView> {
+class MemberViewFeature extends WidgetFeature<MemberView> {
   @override
-  void register() {
+  void registerImpl() {
     final getIt = GetIt.instance;
     getIt.registerLazySingleton<MemberViewFeature>(() => MemberViewFeature());
   }

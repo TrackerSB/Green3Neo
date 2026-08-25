@@ -59,9 +59,9 @@ class LoadedProfile with _$LoadedProfile {
   }
 }
 
-class LoadedProfileFeature implements FrontendFeature {
+class LoadedProfileFeature extends FrontendFeature {
   @override
-  void register() {
+  void registerImpl() {
     final getIt = GetIt.instance;
     getIt.registerLazySingletonAsync<LoadedProfile>(() async {
       return await loadProfile().then((Profile? profile) {

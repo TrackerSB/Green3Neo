@@ -57,11 +57,11 @@ class ViewManagementPage extends WatchingWidget {
   }
 }
 
-class ViewManagementMode implements ManagementMode<ViewManagementPage> {
+class ViewManagementMode extends ManagementMode<ViewManagementPage> {
   static ViewManagementPage? instance;
 
   @override
-  void register() {
+  void registerImpl() {
     final getIt = GetIt.instance;
     getIt.registerLazySingleton<ViewManagementMode>(() => ViewManagementMode());
   }

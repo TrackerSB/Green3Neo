@@ -91,11 +91,11 @@ class MemberManagementPage extends StatelessWidget {
   }
 }
 
-class MemberManagementMode implements ManagementMode<MemberManagementPage> {
+class MemberManagementMode extends ManagementMode<MemberManagementPage> {
   static MemberManagementPage? instance;
 
   @override
-  void register() {
+  void registerImpl() {
     final getIt = GetIt.instance;
     getIt.registerLazySingleton<MemberManagementMode>(
         () => MemberManagementMode());

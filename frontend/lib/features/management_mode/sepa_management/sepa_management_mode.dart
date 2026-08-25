@@ -72,11 +72,11 @@ class SepaManagementPage extends StatelessWidget {
   }
 }
 
-class SepaManagementMode implements ManagementMode<SepaManagementPage> {
+class SepaManagementMode extends ManagementMode<SepaManagementPage> {
   static SepaManagementPage? instance;
 
   @override
-  void register() {
+  void registerImpl() {
     final getIt = GetIt.instance;
     getIt.registerLazySingleton<SepaManagementMode>(() => SepaManagementMode());
   }
