@@ -9,7 +9,7 @@ import 'package:green3neo/components/form_fields/creditor_name_field.dart';
 import 'package:green3neo/components/form_fields/currency_field.dart';
 import 'package:green3neo/components/form_fields/message_id_field.dart';
 import 'package:green3neo/components/form_fields/purpose_field.dart';
-import 'package:green3neo/features/feature.dart';
+import 'package:green3neo/features/frontend_feature.dart';
 import 'package:green3neo/features/loaded_profile.dart';
 import 'package:green3neo/interface/backend_api/api/paths.dart';
 import 'package:green3neo/interface/database_api/api/models.dart';
@@ -243,7 +243,7 @@ class SepaGenerationWizard extends StatelessWidget {
   }
 }
 
-class SepaGenerationWizardFactory implements Feature {
+class SepaGenerationWizardFactory implements FrontendFeature {
   @override
   void register() {
     final getIt = GetIt.instance;
