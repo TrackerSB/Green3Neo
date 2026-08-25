@@ -13,7 +13,7 @@ use crate::api::feature::Feature;
 pub struct Profile {
     pub creditor: Option<Creditor>,
     pub connection: Option<ConnectionDescription>,
-    pub features: Vec<Feature>,
+    pub features: Vec<Feature>, // FIXME Use set like structure
 }
 
 static PROFILE_CONFIG_FILE_STEM: &str = "profile";
