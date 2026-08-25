@@ -136,7 +136,6 @@ void main() async {
 
     WindowOptions windowOptions = const WindowOptions(
       center: true,
-      title: "No title", // FIXME Insert app title
     );
 
     windowManager.waitUntilReadyToShow(windowOptions, () async {
@@ -173,7 +172,12 @@ class MainApp extends WatchingWidget {
     Widget selectedModeWidget = managementModes.first.widget;
 
     return MaterialApp(
-      title: "No title", // FIXME AppLocalizations.of(...) returns null
+      onGenerateTitle: (context) {
+        Localizer.instance.init(context);
+        final localizedAppTitle = Localizer.instance.text((l) => l.appTitle);
+        windowManager.setTitle(localizedAppTitle);
+        return localizedAppTitle;
+      },
       localizationsDelegates: [
         /* WARN 2026-08-21: Do not use AppLocalizations.localizationDelegates
          * since these include old (non-material_ui) delegates
