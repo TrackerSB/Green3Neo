@@ -143,6 +143,7 @@ void main() async {
   }
 
   // Register all features ignoring any potential dependencies between them
+  // FIXME Wait for all registrations to complete before starting app
   MemberViewFeature().register();
   MemberManagementMode().register();
   ViewManagementMode().register();

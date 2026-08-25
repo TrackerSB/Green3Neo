@@ -19,10 +19,13 @@ class LoadedProfile with _$LoadedProfile {
   Creditor? creditor;
   @override
   ConnectionDescription? connection;
+  @override
+  List<Feature> features;
 
   LoadedProfile._create({
-    @Default(null) this.creditor,
-    @Default(null) this.connection,
+    this.creditor,
+    this.connection,
+    this.features = const [],
   });
 
   Future<void> save() async {
@@ -51,6 +54,7 @@ class LoadedProfile with _$LoadedProfile {
       profile: Profile(
         creditor: mirroredCreditor,
         connection: mirroredConnection,
+        features: features,
       ),
     );
 
@@ -110,6 +114,7 @@ class LoadedProfileFeature extends FrontendFeature {
         return LoadedProfile._create(
           creditor: creditor,
           connection: connection,
+          features: profile.features,
         );
       });
     });

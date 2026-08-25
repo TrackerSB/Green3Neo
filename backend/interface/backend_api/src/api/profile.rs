@@ -7,10 +7,13 @@ use log::warn;
 use sepa_types::creditor::Creditor;
 use serde::{Deserialize, Serialize};
 
+use crate::api::feature::Feature;
+
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Profile {
     pub creditor: Option<Creditor>,
     pub connection: Option<ConnectionDescription>,
+    pub features: Vec<Feature>,
 }
 
 static PROFILE_CONFIG_FILE_STEM: &str = "profile";
