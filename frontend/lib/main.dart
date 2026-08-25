@@ -142,14 +142,15 @@ void main() async {
     });
   }
 
-  // Register all features ignoring any potential dependencies between them
-  // FIXME Wait for all registrations to complete before starting app
-  MemberViewFeature().register();
-  MemberManagementMode().register();
-  ViewManagementMode().register();
-  SepaManagementMode().register();
-  SepaGenerationWizardFactory().register();
-  LoadedProfileFeature().register();
+  // Register all features considering currently loaded profile
+  await Future.wait([
+    MemberViewFeature().register(),
+    MemberManagementMode().register(),
+    ViewManagementMode().register(),
+    SepaManagementMode().register(),
+    SepaGenerationWizardFactory().register(),
+    LoadedProfileFeature().register(),
+  ]);
 
   // Start app
   runApp(const MainApp());
