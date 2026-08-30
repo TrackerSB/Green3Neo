@@ -31,8 +31,8 @@ class MemberManagementPage extends WatchingWidget {
       builder: (BuildContext context, StateSetter setState) {
         return managementModes.isEmpty
             ? Text(
-                "No suitable member management mode feature enabled. See feature configuration",
-              ) // FIXME Introduce placeholder page
+                "No member management mode features enabled", // FIXME Localize
+              )
             : Column(
                 children: [
                   SegmentedButton<ManagementMode<Widget>>(

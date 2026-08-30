@@ -190,7 +190,7 @@ class MainApp extends WatchingWidget {
                 getIt.maybeGet<MemberManagementView>()?.widget ??
                 Placeholder(
                   child: Text(
-                    "Feature ${MemberManagementView().requiredFeature().name} unavailable",
+                    "Feature ${MemberManagementView().requiredFeature().name} unavailable", // FIXME Localize
                   ),
                 ),
           );
