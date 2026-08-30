@@ -185,7 +185,15 @@ class MainApp extends WatchingWidget {
         builder: (BuildContext context, StateSetter _) {
           Localizer.instance.init(context);
 
-          return Scaffold(body: getIt<MemberManagementView>().widget);
+          return Scaffold(
+            body:
+                getIt.maybeGet<MemberManagementView>()?.widget ??
+                Placeholder(
+                  child: Text(
+                    "Feature ${MemberManagementView().requiredFeature().name} unavailable",
+                  ),
+                ),
+          );
         },
       ),
     );
