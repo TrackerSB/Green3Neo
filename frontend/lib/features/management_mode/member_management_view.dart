@@ -62,7 +62,7 @@ class MemberManagementPage extends WatchingWidget {
                   ),
                   Expanded(
                     child: _selectedMode.value!.widget,
-                  ), // FIXME Handle unavailable modes
+                  ),
                 ],
               );
       },
