@@ -4,8 +4,8 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 
 import 'package:green3neo/features/loaded_profile.dart';
-import 'package:green3neo/features/management_mode/management_mode.dart';
 import 'package:green3neo/features/management_mode/member_management/member_management_mode.dart';
+import 'package:green3neo/features/management_mode/member_management_view.dart';
 import 'package:green3neo/features/management_mode/member_view.dart';
 import 'package:green3neo/features/management_mode/sepa_management/sepa_generation_wizard.dart';
 import 'package:green3neo/features/management_mode/sepa_management/sepa_management_mode.dart';
@@ -147,6 +147,7 @@ void main() async {
 
   await Future.wait([
     MemberViewFeature().register(),
+    MemberManagementView().register(),
     MemberManagementMode().register(),
     ViewManagementMode().register(),
     SepaManagementMode().register(),
@@ -164,19 +165,6 @@ class MainApp extends WatchingWidget {
   @override
   Widget build(BuildContext context) {
     final getIt = GetIt.instance;
-
-    List<ManagementMode<Widget>> managementModes = [];
-    if (getIt.isRegistered<ViewManagementMode>()) {
-      managementModes.add(getIt<ViewManagementMode>());
-    }
-    if (getIt.isRegistered<MemberManagementMode>()) {
-      managementModes.add(getIt<MemberManagementMode>());
-    }
-    if (getIt.isRegistered<SepaManagementMode>()) {
-      managementModes.add(getIt<SepaManagementMode>());
-    }
-
-    Widget selectedModeWidget = managementModes.first.widget;
 
     return MaterialApp(
       onGenerateTitle: (context) {
@@ -197,37 +185,7 @@ class MainApp extends WatchingWidget {
         builder: (BuildContext context, StateSetter _) {
           Localizer.instance.init(context);
 
-          return Scaffold(
-            body: StatefulBuilder(
-              builder: (BuildContext context, StateSetter setState) {
-                return Column(
-                  children: [
-                    SegmentedButton<Widget>(
-                      segments: managementModes.map((mode) {
-                        return ButtonSegment(
-                          value: mode.widget,
-                          label: Text(mode.modeName),
-                        );
-                      }).toList(),
-                      selected: {selectedModeWidget},
-                      emptySelectionAllowed: false,
-                      multiSelectionEnabled: false,
-                      onSelectionChanged: (Set<Widget>? selectedModes) {
-                        assert(
-                          selectedModes != null && selectedModes.isNotEmpty,
-                        );
-
-                        setState(() {
-                          selectedModeWidget = selectedModes!.first;
-                        });
-                      },
-                    ),
-                    Expanded(child: selectedModeWidget),
-                  ],
-                );
-              },
-            ),
-          );
+          return Scaffold(body: getIt<MemberManagementView>().widget);
         },
       ),
     );

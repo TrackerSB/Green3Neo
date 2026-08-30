@@ -3,6 +3,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub enum Feature {
     MemberManagementMode,
+    MemberManagementView,
     MemberView,
     Profiles,
     SepaGenerationWizard,
@@ -35,6 +36,10 @@ pub fn description(feature: Feature) -> FeatureDescription {
         Feature::MemberManagementMode => {
             FeatureDescription::new("memberManagementMode".to_owned(), vec![Feature::MemberView])
         }
+        Feature::MemberManagementView => FeatureDescription {
+            name: "memberManagementView".to_owned(),
+            dependencies: vec![],
+        },
         Feature::MemberView => FeatureDescription::new("memberView".to_owned(), vec![]),
         Feature::Profiles => FeatureDescription::new("profiles".to_owned(), vec![]),
         Feature::SepaGenerationWizard => FeatureDescription::new(
