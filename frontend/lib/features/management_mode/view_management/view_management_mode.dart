@@ -1,5 +1,6 @@
 import 'package:green3neo/features/management_mode/management_mode.dart';
 import 'package:green3neo/features/management_mode/member_view.dart';
+import 'package:green3neo/interface/backend_api/api/feature.dart';
 import 'package:green3neo/localizer.dart';
 import 'package:listen_it/listen_it.dart';
 import 'package:material_ui/material_ui.dart';
@@ -56,11 +57,11 @@ class ViewManagementPage extends WatchingWidget {
   }
 }
 
-class ViewManagementMode implements ManagementMode<ViewManagementPage> {
+class ViewManagementMode extends ManagementMode<ViewManagementPage> {
   static ViewManagementPage? instance;
 
   @override
-  void register() {
+  void registerUnconditionally() {
     final getIt = GetIt.instance;
     getIt.registerLazySingleton<ViewManagementMode>(() => ViewManagementMode());
   }
@@ -72,5 +73,10 @@ class ViewManagementMode implements ManagementMode<ViewManagementPage> {
   ViewManagementPage get widget {
     instance ??= ViewManagementPage._create();
     return instance!;
+  }
+
+  @override
+  Feature requiredFeature() {
+    return Feature.viewManagementMode;
   }
 }

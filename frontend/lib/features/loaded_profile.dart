@@ -1,11 +1,12 @@
-/* Due to conflicting FRB mirror defitions this class converts all duplicated
+/* Due to conflicting FRB mirror definitions this class converts all duplicated
  * backend_api variants to the considered "original" mirror provided by the
  * other APIs
  */
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:get_it/get_it.dart';
-import 'package:green3neo/features/feature.dart';
+import 'package:green3neo/features/frontend_feature.dart';
 import 'package:green3neo/interface/backend_api/api.dart' as backend_api;
+import 'package:green3neo/interface/backend_api/api/feature.dart';
 import 'package:green3neo/interface/backend_api/api/profile.dart';
 import 'package:green3neo/interface/database_api/api.dart';
 import 'package:green3neo/interface/sepa_api/api.dart';
@@ -18,10 +19,13 @@ class LoadedProfile with _$LoadedProfile {
   Creditor? creditor;
   @override
   ConnectionDescription? connection;
+  @override
+  List<Feature> features;
 
   LoadedProfile._create({
-    @Default(null) this.creditor,
-    @Default(null) this.connection,
+    this.creditor,
+    this.connection,
+    this.features = const [],
   });
 
   Future<void> save() async {
@@ -30,25 +34,27 @@ class LoadedProfile with _$LoadedProfile {
         : backend_api.Creditor(
             name: backend_api.Name(value: creditor!.name.value),
             id: backend_api.CreditorID(value: creditor!.id.value),
-            iban: backend_api.IBAN(value: creditor!.iban.value));
+            iban: backend_api.IBAN(value: creditor!.iban.value),
+          );
 
     final backend_api.ConnectionDescription? mirroredConnection =
         (connection == null)
-            ? null
-            : backend_api.ConnectionDescription(
-                backend: backend_api
-                    .DatabaseBackend.values[connection!.backend.index],
-                host: connection!.host,
-                port: connection!.port,
-                user: connection!.user,
-                password: connection!.password,
-                name: connection!.name,
-              );
+        ? null
+        : backend_api.ConnectionDescription(
+            backend:
+                backend_api.DatabaseBackend.values[connection!.backend.index],
+            host: connection!.host,
+            port: connection!.port,
+            user: connection!.user,
+            password: connection!.password,
+            name: connection!.name,
+          );
 
     await saveProfile(
       profile: Profile(
         creditor: mirroredCreditor,
         connection: mirroredConnection,
+        features: features,
       ),
     );
 
@@ -57,9 +63,9 @@ class LoadedProfile with _$LoadedProfile {
   }
 }
 
-class LoadedProfileFeature implements Feature {
+class LoadedProfileFeature extends FrontendFeature {
   @override
-  void register() {
+  void registerUnconditionally() {
     final getIt = GetIt.instance;
     getIt.registerLazySingletonAsync<LoadedProfile>(() async {
       return await loadProfile().then((Profile? profile) {
@@ -89,7 +95,8 @@ class LoadedProfileFeature implements Feature {
                 username: mirroredSshTunnel.username,
                 password: mirroredSshTunnel.password,
                 host: mirroredSshTunnel.host,
-                port: mirroredSshTunnel.port);
+                port: mirroredSshTunnel.port,
+              );
 
         final ConnectionDescription? connection = (mirroredConnection == null)
             ? null
@@ -101,13 +108,20 @@ class LoadedProfileFeature implements Feature {
                 user: mirroredConnection.user,
                 password: mirroredConnection.password,
                 name: mirroredConnection.name,
-                sshTunnel: sshTunnel);
+                sshTunnel: sshTunnel,
+              );
 
         return LoadedProfile._create(
           creditor: creditor,
           connection: connection,
+          features: profile.features,
         );
       });
     });
+  }
+
+  @override
+  Feature requiredFeature() {
+    return Feature.profiles;
   }
 }

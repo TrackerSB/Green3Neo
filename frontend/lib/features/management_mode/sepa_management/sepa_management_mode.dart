@@ -1,6 +1,7 @@
 import 'package:green3neo/features/management_mode/management_mode.dart';
 import 'package:green3neo/features/management_mode/member_view.dart';
 import 'package:green3neo/features/management_mode/sepa_management/sepa_generation_wizard.dart';
+import 'package:green3neo/interface/backend_api/api/feature.dart';
 import 'package:green3neo/interface/database_api/api/models.dart';
 import 'package:green3neo/localizer.dart';
 import 'package:listen_it/listen_it.dart';
@@ -10,8 +11,10 @@ import 'package:watch_it/watch_it.dart';
 class _StartSepaGenerationWizardButton extends WatchingWidget {
   final ListNotifier<Member> selectedMember;
 
-  const _StartSepaGenerationWizardButton(
-      {super.key, required this.selectedMember});
+  const _StartSepaGenerationWizardButton({
+    super.key,
+    required this.selectedMember,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +24,9 @@ class _StartSepaGenerationWizardButton extends WatchingWidget {
           : () {
               final getIt = GetIt.instance;
 
-              final wizard =
-                  getIt<SepaGenerationWizard>(param1: selectedMember);
+              final wizard = getIt<SepaGenerationWizard>(
+                param1: selectedMember,
+              );
               Navigator.push(
                 context,
                 MaterialPageRoute<void>(
@@ -55,27 +59,26 @@ class SepaManagementPage extends StatelessWidget {
         "accountholdersurname",
         "iban",
         "bic",
-        "iscontributionfree"
+        "iscontributionfree",
       ].map((p) => p.toLowerCase()).contains(propertyName.toLowerCase());
     };
 
     return Column(
       children: [
         _StartSepaGenerationWizardButton(
-            selectedMember: memberView.selectedRecords),
-        Expanded(
-          child: memberView,
+          selectedMember: memberView.selectedRecords,
         ),
+        Expanded(child: memberView),
       ],
     );
   }
 }
 
-class SepaManagementMode implements ManagementMode<SepaManagementPage> {
+class SepaManagementMode extends ManagementMode<SepaManagementPage> {
   static SepaManagementPage? instance;
 
   @override
-  void register() {
+  void registerUnconditionally() {
     final getIt = GetIt.instance;
     getIt.registerLazySingleton<SepaManagementMode>(() => SepaManagementMode());
   }
@@ -87,5 +90,10 @@ class SepaManagementMode implements ManagementMode<SepaManagementPage> {
   SepaManagementPage get widget {
     instance ??= SepaManagementPage._create();
     return instance!;
+  }
+
+  @override
+  Feature requiredFeature() {
+    return Feature.sepaManagementMode;
   }
 }

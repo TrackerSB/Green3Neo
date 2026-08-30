@@ -4,8 +4,8 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 
 import 'package:green3neo/features/loaded_profile.dart';
-import 'package:green3neo/features/management_mode/management_mode.dart';
 import 'package:green3neo/features/management_mode/member_management/member_management_mode.dart';
+import 'package:green3neo/features/management_mode/member_management_view.dart';
 import 'package:green3neo/features/management_mode/member_view.dart';
 import 'package:green3neo/features/management_mode/sepa_management/sepa_generation_wizard.dart';
 import 'package:green3neo/features/management_mode/sepa_management/sepa_management_mode.dart';
@@ -134,9 +134,7 @@ void main() async {
     WidgetsFlutterBinding.ensureInitialized();
     await windowManager.ensureInitialized();
 
-    WindowOptions windowOptions = const WindowOptions(
-      center: true,
-    );
+    WindowOptions windowOptions = const WindowOptions(center: true);
 
     windowManager.waitUntilReadyToShow(windowOptions, () async {
       await windowManager.show();
@@ -144,13 +142,18 @@ void main() async {
     });
   }
 
-  // Register all features ignoring any potential dependencies between them
-  MemberViewFeature().register();
-  MemberManagementMode().register();
-  ViewManagementMode().register();
-  SepaManagementMode().register();
-  SepaGenerationWizardFactory().register();
-  LoadedProfileFeature().register();
+  // Register all features considering currently loaded profile
+  LoadedProfileFeature().registerUnconditionally(); // FIXME Derive this from base feature defined in backend
+
+  await Future.wait([
+    MemberViewFeature().register(),
+    MemberManagementView().register(),
+    MemberManagementMode().register(),
+    ViewManagementMode().register(),
+    SepaManagementMode().register(),
+    SepaGenerationWizardFactory().register(),
+    LoadedProfileFeature().register(),
+  ]);
 
   // Start app
   runApp(const MainApp());
@@ -162,14 +165,6 @@ class MainApp extends WatchingWidget {
   @override
   Widget build(BuildContext context) {
     final getIt = GetIt.instance;
-
-    final List<ManagementMode<Widget>> managementModes = [
-      getIt<ViewManagementMode>(),
-      getIt<MemberManagementMode>(),
-      getIt<SepaManagementMode>(),
-    ];
-
-    Widget selectedModeWidget = managementModes.first.widget;
 
     return MaterialApp(
       onGenerateTitle: (context) {
@@ -191,35 +186,13 @@ class MainApp extends WatchingWidget {
           Localizer.instance.init(context);
 
           return Scaffold(
-            body: StatefulBuilder(
-              builder: (BuildContext context, StateSetter setState) {
-                return Column(
-                  children: [
-                    SegmentedButton<Widget>(
-                      segments: managementModes.map((mode) {
-                        return ButtonSegment(
-                          value: mode.widget,
-                          label: Text(mode.modeName),
-                        );
-                      }).toList(),
-                      selected: {selectedModeWidget},
-                      emptySelectionAllowed: false,
-                      multiSelectionEnabled: false,
-                      onSelectionChanged: (Set<Widget>? selectedModes) {
-                        assert(
-                          selectedModes != null && selectedModes.isNotEmpty,
-                        );
-
-                        setState(() {
-                          selectedModeWidget = selectedModes!.first;
-                        });
-                      },
-                    ),
-                    Expanded(child: selectedModeWidget),
-                  ],
-                );
-              },
-            ),
+            body:
+                getIt.maybeGet<MemberManagementView>()?.widget ??
+                Placeholder(
+                  child: Text(
+                    "Feature ${MemberManagementView().requiredFeature().name} unavailable", // FIXME Localize
+                  ),
+                ),
           );
         },
       ),
