@@ -30,8 +30,10 @@ class MemberManagementPage extends WatchingWidget {
     return StatefulBuilder(
       builder: (BuildContext context, StateSetter setState) {
         return managementModes.isEmpty
-            ? Text(
-                "No member management mode features enabled", // FIXME Localize
+            ? Placeholder(
+                child: Text(
+                  "No member management mode features enabled", // FIXME Localize
+                ),
               )
             : Column(
                 children: [
