@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 
+import 'package:green3neo/features/feature_view.dart';
 import 'package:green3neo/features/loaded_profile.dart';
 import 'package:green3neo/features/management_mode/member_management/member_management_mode.dart';
 import 'package:green3neo/features/management_mode/member_management_view.dart';
@@ -142,17 +143,16 @@ void main() async {
     });
   }
 
-  // Register all features considering currently loaded profile
-  LoadedProfileFeature().registerUnconditionally(); // FIXME Derive this from base feature defined in backend
-
+  // Register all features considering currently loaded profile and system features
   await Future.wait([
+    FeatureSettings().register(),
+    LoadedProfileFeature().register(),
     MemberViewFeature().register(),
     MemberManagementView().register(),
     MemberManagementMode().register(),
     ViewManagementMode().register(),
     SepaManagementMode().register(),
     SepaGenerationWizardFactory().register(),
-    LoadedProfileFeature().register(),
   ]);
 
   // Start app
@@ -186,6 +186,28 @@ class MainApp extends WatchingWidget {
           Localizer.instance.init(context);
 
           return Scaffold(
+            appBar: AppBar(
+              actions: [
+                ElevatedButton(
+                  onPressed: () => {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (BuildContext context) {
+                          return getIt.maybeGet<FeatureSettings>()?.widget ??
+                              Placeholder(
+                                child: Text(
+                                  "Feature ${FeatureSettings().requiredFeature().name} unavailable", // FIXME Localize
+                                ),
+                              );
+                        },
+                      ),
+                    ),
+                  },
+                  child: Text(Localizer.instance.text((l) => l.settings)),
+                ),
+              ],
+            ),
             body:
                 getIt.maybeGet<MemberManagementView>()?.widget ??
                 Placeholder(
