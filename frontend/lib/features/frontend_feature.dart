@@ -14,7 +14,7 @@ abstract class FrontendFeature {
       return Future.value();
     }
 
-    return description(feature: requiredFeature()).then((description) async {
+    return description(feature: associatedFeature()).then((description) async {
       if (description.isSystemFeature) {
         // FIXME Verify whether system feature is enabled
         registerUnconditionally();
@@ -27,7 +27,7 @@ abstract class FrontendFeature {
         });
 
         await getIt.getAsync<LoadedProfile>().then((LoadedProfile profile) {
-          if (profile.features.contains(requiredFeature())) {
+          if (profile.features.contains(associatedFeature())) {
             registerUnconditionally();
             _featureRegistered = true;
           }
@@ -39,5 +39,5 @@ abstract class FrontendFeature {
   // Do not call this method directly
   void registerUnconditionally();
 
-  Feature requiredFeature();
+  Feature associatedFeature();
 }

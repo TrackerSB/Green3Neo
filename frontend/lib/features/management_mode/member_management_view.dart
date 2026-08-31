@@ -60,9 +60,7 @@ class MemberManagementPage extends WatchingWidget {
                           });
                         },
                   ),
-                  Expanded(
-                    child: _selectedMode.value!.widget,
-                  ),
+                  Expanded(child: _selectedMode.value!.widget),
                 ],
               );
       },
@@ -88,7 +86,7 @@ class MemberManagementView extends WidgetFeature {
   }
 
   @override
-  Feature requiredFeature() {
+  Feature associatedFeature() {
     return Feature.memberManagementView;
   }
 }

@@ -76,7 +76,7 @@ class ViewManagementMode extends ManagementMode<ViewManagementPage> {
   }
 
   @override
-  Feature requiredFeature() {
+  Feature associatedFeature() {
     return Feature.viewManagementMode;
   }
 }

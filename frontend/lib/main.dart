@@ -197,7 +197,7 @@ class MainApp extends WatchingWidget {
                           return getIt.maybeGet<FeatureSettings>()?.widget ??
                               Placeholder(
                                 child: Text(
-                                  "Feature ${FeatureSettings().requiredFeature().name} unavailable", // FIXME Localize
+                                  "Feature ${FeatureSettings().associatedFeature().name} unavailable", // FIXME Localize
                                 ),
                               );
                         },
@@ -212,7 +212,7 @@ class MainApp extends WatchingWidget {
                 getIt.maybeGet<MemberManagementView>()?.widget ??
                 Placeholder(
                   child: Text(
-                    "Feature ${MemberManagementView().requiredFeature().name} unavailable", // FIXME Localize
+                    "Feature ${MemberManagementView().associatedFeature().name} unavailable", // FIXME Localize
                   ),
                 ),
           );

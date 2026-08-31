@@ -23,7 +23,7 @@ class FeatureSettings extends WidgetFeature {
   }
 
   @override
-  Feature requiredFeature() {
+  Feature associatedFeature() {
     return Feature.featureSettings;
   }
 
