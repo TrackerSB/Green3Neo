@@ -7,13 +7,16 @@ use log::warn;
 use sepa_types::creditor::Creditor;
 use serde::{Deserialize, Serialize};
 
-use crate::api::feature::{BASE_FEATURE, Feature};
+use crate::api::feature::{ALWAYS_ON_FEATURES, Feature};
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Default, Serialize, Deserialize)]
+#[serde(default)]
 pub struct Profile {
     pub creditor: Option<Creditor>,
     pub connection: Option<ConnectionDescription>,
-    pub features: Vec<Feature>, // FIXME Use set like structure
+    // FIXME Separate system features from profile features
+    // FIXME Use set like structure
+    pub features: Vec<Feature>,
 }
 
 static PROFILE_CONFIG_FILE_STEM: &str = "profile";
@@ -46,7 +49,9 @@ pub fn load_profile() -> Option<Profile> {
     }
 
     let mut profile: Profile = deserialized_profile.unwrap();
-    profile.features.push(BASE_FEATURE.clone());
+    for feature in ALWAYS_ON_FEATURES.iter() {
+        profile.features.push(feature.clone());
+    }
 
     Some(profile)
 }

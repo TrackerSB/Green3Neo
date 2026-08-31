@@ -113,7 +113,7 @@ class MemberManagementMode extends ManagementMode<MemberManagementPage> {
   }
 
   @override
-  Feature requiredFeature() {
+  Feature associatedFeature() {
     return Feature.memberManagementMode;
   }
 }

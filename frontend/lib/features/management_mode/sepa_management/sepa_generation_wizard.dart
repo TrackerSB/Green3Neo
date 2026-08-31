@@ -254,7 +254,7 @@ class SepaGenerationWizardFactory extends FrontendFeature {
   }
 
   @override
-  Feature requiredFeature() {
+  Feature associatedFeature() {
     return Feature.sepaGenerationWizard;
   }
 }
