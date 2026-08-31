@@ -22,15 +22,12 @@ class FeatureSettingsPage extends WatchingWidget {
       ..orientation = SugiyamaConfiguration.ORIENTATION_TOP_BOTTOM;
 
     return Scaffold(
-      backgroundColor: Colors.amber,
       body: GraphView.builder(
         graph: graph,
         algorithm: SugiyamaAlgorithm(algorithmConfig),
         builder: (node) {
           final nodeId = node.key!.value as String;
           return Container(
-            width: 40,
-            height: 40,
             decoration: BoxDecoration(color: Colors.blue),
             child: Center(child: Text(nodeId)),
           );
