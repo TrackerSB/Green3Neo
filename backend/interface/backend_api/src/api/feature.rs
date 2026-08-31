@@ -19,6 +19,7 @@ pub static BASE_FEATURE: Feature = Feature::Profiles;
 pub static ALWAYS_ON_FEATURES: LazyLock<HashSet<Feature>> =
     LazyLock::new(|| HashSet::from([BASE_FEATURE.clone(), Feature::FeatureSettings]));
 // FIXME Verify that always on features are system features
+// FIXME Verify that no system feature has a dependency to a profile feature
 
 pub struct FeatureDescription {
     // FIXME Localize feature names
