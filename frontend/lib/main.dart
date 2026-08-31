@@ -143,7 +143,9 @@ void main() async {
     });
   }
 
-  // Register all features considering currently loaded profile and system features
+  // Register all features
+  // FIXME Reload system features on change
+  // FIXME Reload profile features on profile change or profile switch
   await Future.wait([
     FeatureSettings().register(),
     LoadedProfileFeature().register(),
