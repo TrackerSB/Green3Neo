@@ -40,7 +40,7 @@ impl FeatureDescription {
     }
 }
 
-pub fn description(feature: Feature) -> FeatureDescription {
+pub fn get_feature_description(feature: Feature) -> FeatureDescription {
     match feature {
         Feature::FeatureSettings => {
             FeatureDescription::new("featureSettings".to_owned(), vec![], true)

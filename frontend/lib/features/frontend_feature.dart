@@ -14,26 +14,27 @@ abstract class FrontendFeature {
       return Future.value();
     }
 
-    return description(feature: associatedFeature()).then((description) async {
-      if (description.isSystemFeature) {
-        // FIXME Verify whether system feature is enabled
-        registerUnconditionally();
-        _featureRegistered = true;
-      } else {
-        // FIXME Do not wait indefinitely
-        Future.doWhile(() {
-          final bool profileAvailable = getIt.isRegistered<LoadedProfile>();
-          return !profileAvailable;
-        });
-
-        await getIt.getAsync<LoadedProfile>().then((LoadedProfile profile) {
-          if (profile.features.contains(associatedFeature())) {
+    return getFeatureDescription(feature: associatedFeature())
+        .then((description) async {
+          if (description.isSystemFeature) {
+            // FIXME Verify whether system feature is enabled
             registerUnconditionally();
             _featureRegistered = true;
+          } else {
+            // FIXME Do not wait indefinitely
+            Future.doWhile(() {
+              final bool profileAvailable = getIt.isRegistered<LoadedProfile>();
+              return !profileAvailable;
+            });
+
+            await getIt.getAsync<LoadedProfile>().then((LoadedProfile profile) {
+              if (profile.features.contains(associatedFeature())) {
+                registerUnconditionally();
+                _featureRegistered = true;
+              }
+            });
           }
         });
-      }
-    });
   }
 
   // Do not call this method directly
