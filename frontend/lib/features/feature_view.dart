@@ -10,14 +10,14 @@ final _logger = Logger("feature_view");
 
 class _GraphNode extends WatchingWidget {
   // FIXME Specify meaningful placeholder text
-  final nodeId = ValueNotifier<String>("unknown");
+  final nodeText = ValueNotifier<String>("unknown");
   final FeatureDescription nodeValue;
 
   _GraphNode.create({super.key, required this.nodeValue});
 
   @override
   Widget build(BuildContext context) {
-    nodeId.value = nodeValue.name;
+    nodeText.value = nodeValue.name;
 
     final backgroundColor = nodeValue.isSystemFeature
         ? Colors.indigo
@@ -33,7 +33,7 @@ class _GraphNode extends WatchingWidget {
           child: FittedBox(
             fit: BoxFit.scaleDown,
             child: Text(
-              watch(nodeId).value,
+              watch(nodeText).value,
               maxLines: 1,
               softWrap: false,
               style: TextStyle(
