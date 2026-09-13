@@ -19,16 +19,32 @@ class _GraphNode extends WatchingWidget {
   Widget build(BuildContext context) {
     nodeId.value = nodeValue.name;
 
+    final backgroundColor = nodeValue.isSystemFeature
+        ? Colors.indigo
+        : Colors.pink;
+
     return SizedBox(
       // FIXME Determine suitable size of nodes
       width: 180,
       height: 40,
       child: Container(
-        decoration: BoxDecoration(color: Colors.blue),
+        decoration: BoxDecoration(color: backgroundColor),
         child: Center(
           child: FittedBox(
             fit: BoxFit.scaleDown,
-            child: Text(watch(nodeId).value, maxLines: 1, softWrap: false),
+            child: Text(
+              watch(nodeId).value,
+              maxLines: 1,
+              softWrap: false,
+              style: TextStyle(
+                color: Color.from(
+                  alpha: 1,
+                  red: 1 - backgroundColor.r,
+                  green: 1 - backgroundColor.g,
+                  blue: 1 - backgroundColor.b,
+                ),
+              ),
+            ),
           ),
         ),
       ),
