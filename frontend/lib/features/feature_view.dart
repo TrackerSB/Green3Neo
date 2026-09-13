@@ -17,7 +17,7 @@ class _GraphNode extends WatchingWidget {
   final nodeText = ValueNotifier<String>("unknown");
   final Feature feature;
   final FeatureDescription description;
-  final _featureEnabled = ValueNotifier<bool>(false);
+  final featureEnabled = ValueNotifier<bool>(false);
   late final ValueListenable<Color> backgroundColor;
   late final ValueListenable<Color> fontColor;
 
@@ -27,7 +27,7 @@ class _GraphNode extends WatchingWidget {
     required this.description,
     required bool enableFeature,
   }) {
-    backgroundColor = _featureEnabled.map((bool enabled) {
+    backgroundColor = featureEnabled.map((bool enabled) {
       return description.isSystemFeature
           ? (enabled
                 ? Colors.lightBlue
@@ -38,7 +38,7 @@ class _GraphNode extends WatchingWidget {
       // FIXME Adapt to background color
       return Colors.black;
     });
-    _featureEnabled.value = enableFeature;
+    featureEnabled.value = enableFeature;
   }
 
   @override
@@ -66,11 +66,9 @@ class _GraphNode extends WatchingWidget {
           ),
         ),
       ),
+      onTap: () => featureEnabled.value = !featureEnabled.value,
     );
   }
-
-  ValueListenable<bool> get featureEnabled =>
-      _featureEnabled.select((bool enabled) => enabled);
 }
 
 Future<Map<Feature, FeatureDescription>> _loadDescriptions() async {
@@ -172,13 +170,28 @@ Widget _createGraph(
     algorithm: algorithm,
     builder: (node) {
       final nodeEntry = node.key?.value;
+      final feature = nodeEntry.key;
+      final description = nodeEntry.value;
 
-      return _GraphNode.create(
-        feature: nodeEntry.key,
-        description: nodeEntry.value,
+      final graphNode = _GraphNode.create(
+        feature: feature,
+        description: description,
         // FIXME Handle system features
-        enableFeature: profile.features.contains(nodeEntry.key),
+        enableFeature: profile.features.contains(feature),
       );
+
+      graphNode.featureEnabled.addListener(() {
+        if (graphNode.featureEnabled.value) {
+          // FIXME Make features a set instead of a list
+          if (!profile.features.contains(feature)) {
+            profile.features.add(feature);
+          }
+        } else {
+          profile.features.remove(feature);
+        }
+      });
+
+      return graphNode;
     },
     controller: graphViewController,
     autoZoomToFit: true,
