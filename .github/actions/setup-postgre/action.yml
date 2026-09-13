@@ -4,9 +4,27 @@ runs:
   using: "composite"
   steps:
     - name: Setup PostgreSQL server
-      uses: Daniel-Marynicz/postgresql-action@2.0.0
-      with:
-        postgres_db:  ${{ env.BUILD_DB_NAME }}
-        exposed_postgres_port: ${{ env.BUILD_DB_PORT }}
-        postgres_user: ${{ env.BUILD_DB_USER }}
-        postgres_password: ${{ env.BUILD_DB_PASSWORD }}
+      run: |
+        postgres_container_name=green3neo-postgres
+        sudo chmod 666 /var/run/docker.sock
+        docker rm --force "$postgres_container_name" 2>/dev/null || true
+        docker run --detach \
+          --name "$postgres_container_name" \
+          --publish "${{ env.BUILD_DB_PORT }}:5432" \
+          --env POSTGRES_DB="${{ env.BUILD_DB_NAME }}" \
+          --env POSTGRES_USER="${{ env.BUILD_DB_USER }}" \
+          --env POSTGRES_PASSWORD="${{ env.BUILD_DB_PASSWORD }}" \
+          postgres:17
+
+        for attempt in $(seq 1 30); do
+          if docker exec "$postgres_container_name" pg_isready \
+            --username="${{ env.BUILD_DB_USER }}" \
+            --dbname="${{ env.BUILD_DB_NAME }}"; then
+            exit 0
+          fi
+          sleep 1
+        done
+
+        docker logs "$postgres_container_name"
+        exit 1
+      shell: bash
