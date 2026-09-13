@@ -29,8 +29,15 @@ pub struct FeatureDescription {
 }
 
 impl FeatureDescription {
-    fn new(name: String, mut dependencies: Vec<Feature>, is_system_feature: bool) -> Self {
-        dependencies.push(BASE_FEATURE.clone());
+    fn new(
+        feature: Feature,
+        name: String,
+        mut dependencies: Vec<Feature>,
+        is_system_feature: bool,
+    ) -> Self {
+        if feature != BASE_FEATURE.clone() {
+            dependencies.push(BASE_FEATURE.clone());
+        }
 
         Self {
             name: name,
@@ -40,32 +47,47 @@ impl FeatureDescription {
     }
 }
 
+// FIXME Detect cycles in dependencies
 pub fn get_feature_description(feature: Feature) -> FeatureDescription {
     match feature {
-        Feature::FeatureSettings => {
-            FeatureDescription::new("featureSettings".to_owned(), vec![], true)
-        }
+        Feature::FeatureSettings => FeatureDescription::new(
+            Feature::FeatureSettings,
+            "featureSettings".to_owned(),
+            vec![],
+            true,
+        ),
         Feature::MemberManagementMode => FeatureDescription::new(
+            Feature::MemberManagementMode,
             "memberManagementMode".to_owned(),
             vec![Feature::MemberView],
             false,
         ),
-        Feature::MemberManagementView => {
-            FeatureDescription::new("memberManagementView".to_owned(), vec![], false)
+        Feature::MemberManagementView => FeatureDescription::new(
+            Feature::MemberManagementView,
+            "memberManagementView".to_owned(),
+            vec![],
+            false,
+        ),
+        Feature::MemberView => {
+            FeatureDescription::new(Feature::MemberView, "memberView".to_owned(), vec![], false)
         }
-        Feature::MemberView => FeatureDescription::new("memberView".to_owned(), vec![], false),
-        Feature::Profiles => FeatureDescription::new("profiles".to_owned(), vec![], true),
+        Feature::Profiles => {
+            FeatureDescription::new(Feature::Profiles, "profiles".to_owned(), vec![], true)
+        }
         Feature::SepaGenerationWizard => FeatureDescription::new(
+            Feature::SepaGenerationWizard,
             "sepaGenerationWizard".to_owned(),
             vec![Feature::SepaManagementMode],
             false,
         ),
         Feature::SepaManagementMode => FeatureDescription::new(
+            Feature::SepaManagementMode,
             "sepaManagementMode".to_owned(),
             vec![Feature::MemberView],
             false,
         ),
         Feature::ViewManagementMode => FeatureDescription::new(
+            Feature::ViewManagementMode,
             "viewManagementMode".to_owned(),
             vec![Feature::MemberView],
             false,
