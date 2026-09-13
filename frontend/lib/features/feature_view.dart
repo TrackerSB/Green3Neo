@@ -1,6 +1,10 @@
+import 'package:flutter/foundation.dart';
+
 import 'package:graphview/GraphView.dart';
+import 'package:green3neo/features/loaded_profile.dart';
 import 'package:green3neo/features/widget_feature.dart';
 import 'package:green3neo/interface/backend_api/api/feature.dart';
+import 'package:listen_it/listen_it.dart';
 import 'package:logging/logging.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:watch_it/watch_it.dart';
@@ -11,38 +15,57 @@ final _logger = Logger("feature_view");
 class _GraphNode extends WatchingWidget {
   // FIXME Specify meaningful placeholder text
   final nodeText = ValueNotifier<String>("unknown");
+  final Feature feature;
   final FeatureDescription description;
+  final featureEnabled = ValueNotifier<bool>(false);
+  late final ValueListenable<Color> backgroundColor;
+  late final ValueListenable<Color> fontColor;
 
-  _GraphNode.create({super.key, required this.description});
+  _GraphNode.create({
+    super.key,
+    required this.feature,
+    required this.description,
+  }) {
+    backgroundColor = featureEnabled.map((bool enabled) {
+      return description.isSystemFeature
+          ? (enabled
+                ? Colors.lightBlue
+                : const Color.fromARGB(255, 61, 97, 114))
+          : (enabled ? Colors.pink : const Color.fromARGB(255, 172, 112, 132));
+    });
+    fontColor = backgroundColor.map((Color color) {
+      // FIXME Adapt to background color
+      return Colors.black;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
+    final getIt = GetIt.instance;
+
     nodeText.value = description.name;
 
-    final backgroundColor = description.isSystemFeature
-        ? Colors.indigo
-        : Colors.pink;
+    // FIXME Handle system features
+    getIt.getAsync<LoadedProfile>().then((LoadedProfile loadedProfile) {
+      featureEnabled.value = loadedProfile.features.contains(feature);
+    });
 
-    return SizedBox(
-      // FIXME Determine suitable size of nodes
-      width: 180,
-      height: 40,
-      child: Container(
-        decoration: BoxDecoration(color: backgroundColor),
-        child: Center(
-          child: FittedBox(
-            fit: BoxFit.scaleDown,
-            child: Text(
-              watch(nodeText).value,
-              maxLines: 1,
-              softWrap: false,
-              style: TextStyle(
-                color: Color.from(
-                  alpha: 1,
-                  red: 1 - backgroundColor.r,
-                  green: 1 - backgroundColor.g,
-                  blue: 1 - backgroundColor.b,
-                ),
+    return GestureDetector(
+      child: SizedBox(
+        // FIXME Determine suitable size of nodes
+        width: 180,
+        height: 40,
+        child: Container(
+          decoration: BoxDecoration(color: watch(backgroundColor).value),
+          padding: EdgeInsets.all(5),
+          child: Center(
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Text(
+                watch(nodeText).value,
+                maxLines: 1,
+                softWrap: false,
+                style: TextStyle(color: watch(fontColor).value),
               ),
             ),
           ),
@@ -105,7 +128,7 @@ Widget _createGraph(Map<Feature, FeatureDescription> descriptions) {
   final featureToNode = <Feature, Node>{};
 
   for (final entry in descriptions.entries) {
-    featureToNode[entry.key] = Node.Id(entry.value);
+    featureToNode[entry.key] = Node.Id(entry);
   }
 
   final graph = Graph();
@@ -146,16 +169,14 @@ Widget _createGraph(Map<Feature, FeatureDescription> descriptions) {
   final graphView = GraphView.builder(
     graph: graph,
     algorithm: algorithm,
-    builder: (node) => _GraphNode.create(
-      description:
-          // FIXME Warn about null values in nodes
-          node.key?.value ??
-          FeatureDescription(
-            name: "nullPlaceholder",
-            dependencies: [],
-            isSystemFeature: true,
-          ),
-    ),
+    builder: (node) {
+      final nodeEntry = node.key?.value;
+
+      return _GraphNode.create(
+        feature: nodeEntry.key,
+        description: nodeEntry.value,
+      );
+    },
     controller: graphViewController,
     autoZoomToFit: true,
     centerGraph: true,
