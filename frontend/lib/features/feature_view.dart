@@ -130,6 +130,7 @@ Widget _createGraph(Map<Feature, FeatureDescription> descriptions) {
     algorithm: algorithm,
     builder: (node) => _GraphNode.create(
       nodeValue:
+          // FIXME Warn about null values in nodes
           node.key?.value ??
           FeatureDescription(
             name: "nullPlaceholder",
