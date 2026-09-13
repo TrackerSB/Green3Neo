@@ -11,15 +11,15 @@ final _logger = Logger("feature_view");
 class _GraphNode extends WatchingWidget {
   // FIXME Specify meaningful placeholder text
   final nodeText = ValueNotifier<String>("unknown");
-  final FeatureDescription nodeValue;
+  final FeatureDescription description;
 
-  _GraphNode.create({super.key, required this.nodeValue});
+  _GraphNode.create({super.key, required this.description});
 
   @override
   Widget build(BuildContext context) {
-    nodeText.value = nodeValue.name;
+    nodeText.value = description.name;
 
-    final backgroundColor = nodeValue.isSystemFeature
+    final backgroundColor = description.isSystemFeature
         ? Colors.indigo
         : Colors.pink;
 
@@ -147,7 +147,7 @@ Widget _createGraph(Map<Feature, FeatureDescription> descriptions) {
     graph: graph,
     algorithm: algorithm,
     builder: (node) => _GraphNode.create(
-      nodeValue:
+      description:
           // FIXME Warn about null values in nodes
           node.key?.value ??
           FeatureDescription(
