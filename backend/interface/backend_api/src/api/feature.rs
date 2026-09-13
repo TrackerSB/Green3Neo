@@ -77,13 +77,13 @@ pub fn get_feature_description(feature: Feature) -> FeatureDescription {
         Feature::SepaGenerationWizard => FeatureDescription::new(
             Feature::SepaGenerationWizard,
             "sepaGenerationWizard".to_owned(),
-            vec![Feature::SepaManagementMode],
+            vec![],
             false,
         ),
         Feature::SepaManagementMode => FeatureDescription::new(
             Feature::SepaManagementMode,
             "sepaManagementMode".to_owned(),
-            vec![Feature::MemberView],
+            vec![Feature::MemberView, Feature::SepaGenerationWizard],
             false,
         ),
         Feature::ViewManagementMode => FeatureDescription::new(
