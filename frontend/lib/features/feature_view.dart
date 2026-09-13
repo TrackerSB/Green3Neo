@@ -141,7 +141,9 @@ Widget _createGraph(Map<Feature, FeatureDescription> descriptions) {
     ..orientation = SugiyamaConfiguration.ORIENTATION_LEFT_RIGHT;
   final algorithm = SugiyamaAlgorithm(algorithmConfig);
 
-  return GraphView.builder(
+  final graphViewController = GraphViewController();
+
+  final graphView = GraphView.builder(
     graph: graph,
     algorithm: algorithm,
     builder: (node) => _GraphNode.create(
@@ -154,9 +156,15 @@ Widget _createGraph(Map<Feature, FeatureDescription> descriptions) {
             isSystemFeature: true,
           ),
     ),
+    controller: graphViewController,
     autoZoomToFit: true,
     centerGraph: true,
     animated: true,
+  );
+
+  return GestureDetector(
+    child: graphView,
+    onDoubleTap: () => graphViewController.zoomToFit(),
   );
 }
 
