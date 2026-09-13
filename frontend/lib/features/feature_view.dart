@@ -120,89 +120,100 @@ bool _isValidEdge(
   return true;
 }
 
-Widget _createGraph(
-  Map<Feature, FeatureDescription> descriptions,
-  LoadedProfile profile,
-) {
-  final featureToNode = <Feature, Node>{};
+class _FeatureSettingsView extends StatelessWidget {
+  final Map<Feature, FeatureDescription> descriptions;
+  final profileFeatures = ListNotifier<Feature>();
 
-  for (final entry in descriptions.entries) {
-    featureToNode[entry.key] = Node.Id(entry);
+  _FeatureSettingsView({
+    super.key,
+    required this.descriptions,
+    required initialFeatures,
+  }) {
+    profileFeatures.addAll(initialFeatures);
   }
 
-  final graph = Graph();
+  @override
+  Widget build(BuildContext context) {
+    final featureToNode = <Feature, Node>{};
 
-  for (final entry in descriptions.entries) {
-    final sourceNode = featureToNode[entry.key];
-
-    if (sourceNode == null) {
-      _logger.warning("Skip feature without associated source");
-      continue;
-    } else {
-      graph.addNode(sourceNode);
+    for (final entry in descriptions.entries) {
+      featureToNode[entry.key] = Node.Id(entry);
     }
 
-    for (final dependency in entry.value.dependencies) {
-      final destinationNode = featureToNode[dependency];
-      if (_isValidEdge(
-        graph,
-        entry.key,
-        dependency,
-        sourceNode,
-        destinationNode,
-      )) {
-        graph.addEdge(sourceNode, destinationNode!);
+    final graph = Graph();
+
+    for (final entry in descriptions.entries) {
+      final sourceNode = featureToNode[entry.key];
+
+      if (sourceNode == null) {
+        _logger.warning("Skip feature without associated source");
+        continue;
+      } else {
+        graph.addNode(sourceNode);
+      }
+
+      for (final dependency in entry.value.dependencies) {
+        final destinationNode = featureToNode[dependency];
+        if (_isValidEdge(
+          graph,
+          entry.key,
+          dependency,
+          sourceNode,
+          destinationNode,
+        )) {
+          graph.addEdge(sourceNode, destinationNode!);
+        }
       }
     }
-  }
 
-  final algorithmConfig = SugiyamaConfiguration()
-    ..nodeSeparation = 20
-    ..levelSeparation = 40
-    ..bendPointShape = MaxCurvedBendPointShape()
-    ..orientation = SugiyamaConfiguration.ORIENTATION_LEFT_RIGHT;
-  final algorithm = SugiyamaAlgorithm(algorithmConfig);
+    final algorithmConfig = SugiyamaConfiguration()
+      ..nodeSeparation = 20
+      ..levelSeparation = 40
+      ..bendPointShape = MaxCurvedBendPointShape()
+      ..orientation = SugiyamaConfiguration.ORIENTATION_LEFT_RIGHT;
+    final algorithm = SugiyamaAlgorithm(algorithmConfig);
 
-  final graphViewController = GraphViewController();
+    final graphViewController = GraphViewController();
 
-  final graphView = GraphView.builder(
-    graph: graph,
-    algorithm: algorithm,
-    builder: (node) {
-      final nodeEntry = node.key?.value;
-      final feature = nodeEntry.key;
-      final description = nodeEntry.value;
+    final graphView = GraphView.builder(
+      graph: graph,
+      algorithm: algorithm,
+      builder: (node) {
+        final nodeEntry = node.key?.value;
+        final feature = nodeEntry.key;
+        final description = nodeEntry.value;
 
-      final graphNode = _GraphNode.create(
-        feature: feature,
-        description: description,
-        // FIXME Handle system features
-        enableFeature: profile.features.contains(feature),
-      );
+        final graphNode = _GraphNode.create(
+          feature: feature,
+          description: description,
+          // FIXME Handle system features
+          enableFeature: profileFeatures.contains(feature),
+        );
 
-      graphNode.featureEnabled.addListener(() {
-        if (graphNode.featureEnabled.value) {
-          // FIXME Make features a set instead of a list
-          if (!profile.features.contains(feature)) {
-            profile.features.add(feature);
+        graphNode.featureEnabled.addListener(() {
+          if (graphNode.featureEnabled.value) {
+            // FIXME Make features a set instead of a list
+            if (!profileFeatures.contains(feature)) {
+              profileFeatures.add(feature);
+            }
+          } else {
+            profileFeatures.remove(feature);
           }
-        } else {
-          profile.features.remove(feature);
-        }
-      });
+        });
 
-      return graphNode;
-    },
-    controller: graphViewController,
-    autoZoomToFit: true,
-    centerGraph: true,
-    animated: true,
-  );
+        return graphNode;
+      },
+      controller: graphViewController,
+      autoZoomToFit: true,
+      centerGraph: true,
+      animated: true,
+    );
 
-  return GestureDetector(
-    child: graphView,
-    onDoubleTap: () => graphViewController.zoomToFit(),
-  );
+    return GestureDetector(
+      child: graphView,
+      onDoubleTap: () => graphViewController.zoomToFit(),
+    );
+  }
 }
 
 class _PreloadingData {
@@ -242,9 +253,9 @@ class FeatureSettingsPage extends StatelessWidget {
                   } else {
                     final snapshotData = snapshot.data!;
 
-                    return _createGraph(
-                      snapshotData.descriptions!,
-                      snapshotData.profile!,
+                    return _FeatureSettingsView(
+                      descriptions: snapshotData.descriptions!,
+                      initialFeatures: snapshotData.profile!.features,
                     );
                   }
               }
