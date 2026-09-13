@@ -236,8 +236,25 @@ class FeatureSettingsPage extends StatelessWidget {
           return data;
         });
 
+    LoadedProfile? currentChangedProfile;
+
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        actions: [
+          ElevatedButton(
+            onPressed: () async {
+              if (currentChangedProfile == null) {
+                _logger.warning(
+                  "Could not save profile since it's not been loaded",
+                );
+              } else {
+                await currentChangedProfile?.save();
+              }
+            },
+            child: Text(MaterialLocalizations.of(context).saveButtonLabel),
+          ),
+        ],
+      ),
       body: FutureBuilder<_PreloadingData>(
         future: requiredDataFuture,
         builder:
@@ -253,10 +270,19 @@ class FeatureSettingsPage extends StatelessWidget {
                   } else {
                     final snapshotData = snapshot.data!;
 
-                    return _FeatureSettingsView(
+                    currentChangedProfile = snapshotData.profile!;
+
+                    final featureView = _FeatureSettingsView(
                       descriptions: snapshotData.descriptions!,
-                      initialFeatures: snapshotData.profile!.features,
+                      initialFeatures: currentChangedProfile!.features,
                     );
+
+                    featureView.profileFeatures.addListener(() {
+                      currentChangedProfile!.features =
+                          featureView.profileFeatures.value;
+                    });
+
+                    return featureView;
                   }
               }
             },
