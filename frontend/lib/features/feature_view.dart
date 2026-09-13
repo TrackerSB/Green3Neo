@@ -48,7 +48,7 @@ Future<Map<Feature, FeatureDescription>> _loadDescriptions() async {
 bool _isValidEdge(
   Graph graph,
   Feature sourceFeature,
-  Feature dependency,
+  Feature destinationFeature,
   Node? source,
   Node? destination,
 ) {
@@ -60,20 +60,24 @@ bool _isValidEdge(
 
   // Disallow automatic (and silent) creation of destination nodes
   if (destination == null) {
-    _logger.warning("Ignore dependency with unknown dependecy $dependency");
+    _logger.warning(
+      "Ignore dependency with unknown dependecy $destinationFeature",
+    );
     return false;
   }
 
   // Disallow self-dependencies (since unsupported by Sugiyama)
   if (source == destination) {
-    _logger.warning("Ignore self dependency $sourceFeature -> $dependency");
+    _logger.warning(
+      "Ignore self dependency $sourceFeature -> $destinationFeature",
+    );
     return false;
   }
 
   // Disallow duplicated edges (since unsupported by Sugiyama)
   if (graph.getEdgeBetween(source, destination) != null) {
     _logger.warning(
-      "Ignore duplicate dependency $sourceFeature -> $dependency",
+      "Ignore duplicate dependency $sourceFeature -> $destinationFeature",
     );
     return false;
   }
