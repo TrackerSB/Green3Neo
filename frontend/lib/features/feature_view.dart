@@ -17,7 +17,7 @@ class _GraphNode extends WatchingWidget {
   final nodeText = ValueNotifier<String>("unknown");
   final Feature feature;
   final FeatureDescription description;
-  final featureEnabled = ValueNotifier<bool>(false);
+  final _featureEnabled = ValueNotifier<bool>(false);
   late final ValueListenable<Color> backgroundColor;
   late final ValueListenable<Color> fontColor;
 
@@ -25,8 +25,9 @@ class _GraphNode extends WatchingWidget {
     super.key,
     required this.feature,
     required this.description,
+    required bool enableFeature,
   }) {
-    backgroundColor = featureEnabled.map((bool enabled) {
+    backgroundColor = _featureEnabled.map((bool enabled) {
       return description.isSystemFeature
           ? (enabled
                 ? Colors.lightBlue
@@ -37,18 +38,12 @@ class _GraphNode extends WatchingWidget {
       // FIXME Adapt to background color
       return Colors.black;
     });
+    _featureEnabled.value = enableFeature;
   }
 
   @override
   Widget build(BuildContext context) {
-    final getIt = GetIt.instance;
-
     nodeText.value = description.name;
-
-    // FIXME Handle system features
-    getIt.getAsync<LoadedProfile>().then((LoadedProfile loadedProfile) {
-      featureEnabled.value = loadedProfile.features.contains(feature);
-    });
 
     return GestureDetector(
       child: SizedBox(
@@ -73,6 +68,9 @@ class _GraphNode extends WatchingWidget {
       ),
     );
   }
+
+  ValueListenable<bool> get featureEnabled =>
+      _featureEnabled.select((bool enabled) => enabled);
 }
 
 Future<Map<Feature, FeatureDescription>> _loadDescriptions() async {
@@ -124,7 +122,10 @@ bool _isValidEdge(
   return true;
 }
 
-Widget _createGraph(Map<Feature, FeatureDescription> descriptions) {
+Widget _createGraph(
+  Map<Feature, FeatureDescription> descriptions,
+  LoadedProfile profile,
+) {
   final featureToNode = <Feature, Node>{};
 
   for (final entry in descriptions.entries) {
@@ -175,6 +176,8 @@ Widget _createGraph(Map<Feature, FeatureDescription> descriptions) {
       return _GraphNode.create(
         feature: nodeEntry.key,
         description: nodeEntry.value,
+        // FIXME Handle system features
+        enableFeature: profile.features.contains(nodeEntry.key),
       );
     },
     controller: graphViewController,
@@ -189,20 +192,32 @@ Widget _createGraph(Map<Feature, FeatureDescription> descriptions) {
   );
 }
 
+class _PreloadingData {
+  Map<Feature, FeatureDescription>? descriptions;
+  LoadedProfile? profile;
+}
+
 class FeatureSettingsPage extends StatelessWidget {
   FeatureSettingsPage._create({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final requiredDataFuture = Future.value(_PreloadingData())
+        .then((data) async {
+          data.descriptions = await _loadDescriptions();
+
+          final getIt = GetIt.instance;
+          data.profile = await getIt.getAsync<LoadedProfile>();
+
+          return data;
+        });
+
     return Scaffold(
       appBar: AppBar(),
-      body: FutureBuilder<Map<Feature, FeatureDescription>>(
-        future: _loadDescriptions(),
+      body: FutureBuilder<_PreloadingData>(
+        future: requiredDataFuture,
         builder:
-            (
-              BuildContext context,
-              AsyncSnapshot<Map<Feature, FeatureDescription>> snapshot,
-            ) {
+            (BuildContext context, AsyncSnapshot<_PreloadingData> snapshot) {
               switch (snapshot.connectionState) {
                 case ConnectionState.waiting:
                   return Center(child: CircularProgressIndicator.adaptive());
@@ -212,7 +227,12 @@ class FeatureSettingsPage extends StatelessWidget {
                   if (snapshot.hasError) {
                     throw UnimplementedError();
                   } else {
-                    return _createGraph(snapshot.data!);
+                    final snapshotData = snapshot.data!;
+
+                    return _createGraph(
+                      snapshotData.descriptions!,
+                      snapshotData.profile!,
+                    );
                   }
               }
             },
