@@ -1,9 +1,8 @@
-import 'package:flutter/material.dart';
-
 import 'package:graphview/GraphView.dart';
 import 'package:green3neo/features/widget_feature.dart';
 import 'package:green3neo/interface/backend_api/api/feature.dart';
 import 'package:logging/logging.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:watch_it/watch_it.dart';
 
 // FIXME Determine DART file name automatically
