@@ -121,7 +121,7 @@ class LoadedProfileFeature extends FrontendFeature {
   }
 
   @override
-  Feature requiredFeature() {
+  Feature associatedFeature() {
     return Feature.profiles;
   }
 }

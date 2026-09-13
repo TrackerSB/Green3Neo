@@ -175,7 +175,7 @@ class MemberViewFeature extends WidgetFeature<MemberView> {
   MemberView get widget => MemberView._create();
 
   @override
-  Feature requiredFeature() {
+  Feature associatedFeature() {
     return Feature.memberView;
   }
 }

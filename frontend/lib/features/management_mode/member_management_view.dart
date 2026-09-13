@@ -27,44 +27,40 @@ class MemberManagementPage extends WatchingWidget {
       managementModes.add(getIt<SepaManagementMode>());
     }
 
+    if (managementModes.isEmpty) {
+      return Placeholder(
+        child: Text(
+          "No member management mode features enabled", // FIXME Localize
+        ),
+      );
+    }
+
+    _selectedMode.value = managementModes.first;
+
     return StatefulBuilder(
       builder: (BuildContext context, StateSetter setState) {
-        return managementModes.isEmpty
-            ? Placeholder(
-                child: Text(
-                  "No member management mode features enabled", // FIXME Localize
-                ),
-              )
-            : Column(
-                children: [
-                  SegmentedButton<ManagementMode<Widget>>(
-                    segments: managementModes.map((mode) {
-                      return ButtonSegment(
-                        value: mode,
-                        label: Text(mode.modeName),
-                      );
-                    }).toList(),
-                    selected: {
-                      ?_selectedMode.value,
-                    }, // FIXME What does the leading question mark do?
-                    emptySelectionAllowed: false,
-                    multiSelectionEnabled: false,
-                    onSelectionChanged:
-                        (Set<ManagementMode<Widget>>? selectedModes) {
-                          assert(
-                            selectedModes != null && selectedModes.isNotEmpty,
-                          );
+        return Column(
+          children: [
+            SegmentedButton<ManagementMode<Widget>>(
+              segments: managementModes.map((mode) {
+                return ButtonSegment(value: mode, label: Text(mode.modeName));
+              }).toList(),
+              selected: {
+                ?_selectedMode.value,
+              }, // FIXME What does the leading question mark do?
+              emptySelectionAllowed: false,
+              multiSelectionEnabled: false,
+              onSelectionChanged: (Set<ManagementMode<Widget>>? selectedModes) {
+                assert(selectedModes != null && selectedModes.isNotEmpty);
 
-                          setState(() {
-                            _selectedMode.value = selectedModes!.first;
-                          });
-                        },
-                  ),
-                  Expanded(
-                    child: _selectedMode.value!.widget,
-                  ), // FIXME Handle unavailable modes
-                ],
-              );
+                setState(() {
+                  _selectedMode.value = selectedModes!.first;
+                });
+              },
+            ),
+            Expanded(child: _selectedMode.value!.widget),
+          ],
+        );
       },
     );
   }
@@ -88,7 +84,7 @@ class MemberManagementView extends WidgetFeature {
   }
 
   @override
-  Feature requiredFeature() {
+  Feature associatedFeature() {
     return Feature.memberManagementView;
   }
 }

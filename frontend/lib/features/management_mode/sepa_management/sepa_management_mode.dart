@@ -93,7 +93,7 @@ class SepaManagementMode extends ManagementMode<SepaManagementPage> {
   }
 
   @override
-  Feature requiredFeature() {
+  Feature associatedFeature() {
     return Feature.sepaManagementMode;
   }
 }
