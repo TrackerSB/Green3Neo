@@ -18,6 +18,7 @@ class _GraphNode extends WatchingWidget {
   final Feature feature;
   final FeatureDescription description;
   final featureUserRequested = ValueNotifier<bool>(false);
+  late final ValueListenable<bool> featureEnabled;
   late final ValueListenable<Color> backgroundColor;
   late final ValueListenable<Color> fontColor;
 
@@ -27,6 +28,7 @@ class _GraphNode extends WatchingWidget {
     required this.description,
     required bool userRequested,
   }) {
+    featureEnabled = featureUserRequested; // FIXME Check transitive requirement
     backgroundColor = featureUserRequested.map((bool enabled) {
       return description.isSystemFeature
           ? (enabled
@@ -190,8 +192,8 @@ class _FeatureSettingsView extends StatelessWidget {
           userRequested: profileFeatures.contains(feature),
         );
 
-        graphNode.featureUserRequested.addListener(() {
-          if (graphNode.featureUserRequested.value) {
+        graphNode.featureEnabled.addListener(() {
+          if (graphNode.featureEnabled.value) {
             // FIXME Make features a set instead of a list
             if (!profileFeatures.contains(feature)) {
               profileFeatures.add(feature);
