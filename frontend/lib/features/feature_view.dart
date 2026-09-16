@@ -17,7 +17,7 @@ class _GraphNode extends WatchingWidget {
   final nodeText = ValueNotifier<String>("unknown");
   final Feature feature;
   final FeatureDescription description;
-  final featureEnabled = ValueNotifier<bool>(false);
+  final featureUserRequested = ValueNotifier<bool>(false);
   late final ValueListenable<Color> backgroundColor;
   late final ValueListenable<Color> fontColor;
 
@@ -25,9 +25,9 @@ class _GraphNode extends WatchingWidget {
     super.key,
     required this.feature,
     required this.description,
-    required bool enableFeature,
+    required bool userRequested,
   }) {
-    backgroundColor = featureEnabled.map((bool enabled) {
+    backgroundColor = featureUserRequested.map((bool enabled) {
       return description.isSystemFeature
           ? (enabled
                 ? Colors.lightBlue
@@ -38,7 +38,7 @@ class _GraphNode extends WatchingWidget {
       // FIXME Adapt to background color
       return Colors.black;
     });
-    featureEnabled.value = enableFeature;
+    featureUserRequested.value = userRequested;
   }
 
   @override
@@ -66,7 +66,7 @@ class _GraphNode extends WatchingWidget {
           ),
         ),
       ),
-      onTap: () => featureEnabled.value = !featureEnabled.value,
+      onTap: () => featureUserRequested.value = !featureUserRequested.value,
     );
   }
 }
@@ -187,11 +187,11 @@ class _FeatureSettingsView extends StatelessWidget {
           feature: feature,
           description: description,
           // FIXME Handle system features
-          enableFeature: profileFeatures.contains(feature),
+          userRequested: profileFeatures.contains(feature),
         );
 
-        graphNode.featureEnabled.addListener(() {
-          if (graphNode.featureEnabled.value) {
+        graphNode.featureUserRequested.addListener(() {
+          if (graphNode.featureUserRequested.value) {
             // FIXME Make features a set instead of a list
             if (!profileFeatures.contains(feature)) {
               profileFeatures.add(feature);
