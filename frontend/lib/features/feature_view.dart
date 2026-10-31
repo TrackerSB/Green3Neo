@@ -306,7 +306,10 @@ class FeatureSettingsPage extends StatelessWidget {
                 );
               } else {
                 for (final entry in profileFeatureStates!.entries) {
-                  if (entry.value.featureEnabled.value) {
+                  /* Store only features as enabled that are explicitly
+                   * requested by the user
+                   */
+                  if (entry.value.featureUserRequested.value) {
                     if (!currentChangedProfile!.features.contains(entry.key)) {
                       currentChangedProfile!.features.add(entry.key);
                     }
