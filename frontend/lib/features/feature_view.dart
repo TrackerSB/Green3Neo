@@ -16,20 +16,10 @@ final _logger = Logger("feature_view");
 
 class _GraphNode extends WatchingWidget {
   final _ProfileFeatureState featureState;
-  late final ValueListenable<String> nodeText;
   late final ValueListenable<Color> backgroundColor;
   late final ValueListenable<Color> fontColor;
 
   _GraphNode.create({super.key, required this.featureState}) {
-    nodeText = featureState.featureDependencyRequested.combineLatest(
-      featureState.featureUserRequested,
-      (bool dependencyRequested, bool userRequested) {
-        // FIXME Replace with icons
-        return (dependencyRequested ? "locked " : "") +
-            (userRequested ? "checked " : "") +
-            featureState.description.name;
-      },
-    );
     backgroundColor = featureState.featureEnabled.map((bool enabled) {
       return featureState.description.isSystemFeature
           ? (enabled
@@ -56,11 +46,31 @@ class _GraphNode extends WatchingWidget {
           child: Center(
             child: FittedBox(
               fit: BoxFit.scaleDown,
-              child: Text(
-                watch(nodeText).value,
-                maxLines: 1,
-                softWrap: false,
-                style: TextStyle(color: watch(fontColor).value),
+              child: Row(
+                children: [
+                  ValueListenableBuilder(
+                    valueListenable: featureState.featureDependencyRequested,
+                    builder: (innerContext, value, child) {
+                      return value
+                          ? Icon(Icons.lock, color: Colors.brown)
+                          : SizedBox.shrink();
+                    },
+                  ),
+                  ValueListenableBuilder(
+                    valueListenable: featureState.featureUserRequested,
+                    builder: (innerContext, value, child) {
+                      return value
+                          ? Icon(Icons.check, color: Colors.green)
+                          : SizedBox.shrink();
+                    },
+                  ),
+                  Text(
+                    featureState.description.name,
+                    maxLines: 1,
+                    softWrap: false,
+                    style: TextStyle(color: watch(fontColor).value),
+                  ),
+                ],
               ),
             ),
           ),
