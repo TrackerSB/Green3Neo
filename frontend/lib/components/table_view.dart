@@ -136,6 +136,7 @@ DataCellGenerator<DataObject> _createDataCellGeneratorForColumn<
       final CellType? previousCellValue = currentCellValue.value;
       currentCellValue.value = newCellValue;
       // FIXME Is the setter result required for anything?
+      // ignore: unused_local_variable
       final setterResult = reflectableMarker
           .reflect(object)
           .invokeSetter(variableMirror.simpleName, newCellValue?.value);

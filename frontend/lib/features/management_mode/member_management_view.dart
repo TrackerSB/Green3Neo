@@ -10,7 +10,7 @@ import 'package:watch_it/watch_it.dart';
 class MemberManagementPage extends WatchingWidget {
   final _selectedMode = ValueNotifier<ManagementMode<Widget>?>(null);
 
-  MemberManagementPage._create({super.key});
+  MemberManagementPage._create();
 
   @override
   Widget build(BuildContext context) {

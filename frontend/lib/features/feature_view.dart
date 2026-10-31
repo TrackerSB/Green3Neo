@@ -19,7 +19,7 @@ class _GraphNode extends WatchingWidget {
   late final ValueListenable<Color> backgroundColor;
   late final ValueListenable<Color> fontColor;
 
-  _GraphNode.create({super.key, required this.featureState}) {
+  _GraphNode.create({required this.featureState}) {
     backgroundColor = featureState.featureEnabled.map((bool enabled) {
       return featureState.description.isSystemFeature
           ? (enabled
@@ -155,7 +155,6 @@ class _FeatureSettingsView extends StatelessWidget {
   final profileFeatures = <Feature, _ProfileFeatureState>{};
 
   _FeatureSettingsView({
-    super.key,
     required Map<Feature, FeatureDescription> descriptions,
     required List<Feature> initialFeatures,
   }) {

@@ -21,7 +21,7 @@ enum ViewMode { readOnly, editable, selectable }
 class _SelfUpdatingText extends WatchingWidget {
   final ValueListenable<String> listenableText;
 
-  const _SelfUpdatingText({super.key, required this.listenableText});
+  const _SelfUpdatingText({required this.listenableText});
 
   @override
   Widget build(BuildContext context) {

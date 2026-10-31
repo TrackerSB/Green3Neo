@@ -12,7 +12,6 @@ class _StartSepaGenerationWizardButton extends WatchingWidget {
   final ListNotifier<Member> selectedMember;
 
   const _StartSepaGenerationWizardButton({
-    super.key,
     required this.selectedMember,
   });
 
@@ -41,7 +40,7 @@ class _StartSepaGenerationWizardButton extends WatchingWidget {
 }
 
 class SepaManagementPage extends StatelessWidget {
-  const SepaManagementPage._create({super.key});
+  const SepaManagementPage._create();
 
   @override
   Widget build(BuildContext context) {

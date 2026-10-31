@@ -16,7 +16,7 @@ final _logger = Logger("member_management_mode");
 class _ApplyChangeRecordsButton extends WatchingWidget {
   final ListNotifier<ChangeRecord> changeRecords;
 
-  const _ApplyChangeRecordsButton({super.key, required this.changeRecords});
+  const _ApplyChangeRecordsButton({required this.changeRecords});
 
   void _showPersistChangesDialog(
     BuildContext context,
