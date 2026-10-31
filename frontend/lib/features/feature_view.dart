@@ -277,20 +277,15 @@ class _PreloadingData {
 }
 
 class FeatureSettingsPage extends StatelessWidget {
-  const FeatureSettingsPage._create({super.key});
+  final Future<_PreloadingData> preloadingDataLoader;
+
+  const FeatureSettingsPage._create({
+    super.key,
+    required this.preloadingDataLoader,
+  });
 
   @override
   Widget build(BuildContext context) {
-    final requiredDataFuture = Future.value(_PreloadingData())
-        .then((data) async {
-          data.descriptions = await _loadDescriptions();
-
-          final getIt = GetIt.instance;
-          data.profile = await getIt.getAsync<LoadedProfile>();
-
-          return data;
-        });
-
     LoadedProfile? currentChangedProfile;
     Map<Feature, _ProfileFeatureState>? profileFeatureStates;
 
@@ -325,7 +320,7 @@ class FeatureSettingsPage extends StatelessWidget {
         ],
       ),
       body: FutureBuilder<_PreloadingData>(
-        future: requiredDataFuture,
+        future: preloadingDataLoader,
         builder:
             (BuildContext context, AsyncSnapshot<_PreloadingData> snapshot) {
               switch (snapshot.connectionState) {
@@ -373,7 +368,16 @@ class FeatureSettings extends WidgetFeature {
 
   @override
   FeatureSettingsPage get widget {
-    instance ??= FeatureSettingsPage._create();
+    instance ??= FeatureSettingsPage._create(
+      preloadingDataLoader: Future.value(_PreloadingData()).then((data) async {
+        data.descriptions = await _loadDescriptions();
+
+        final getIt = GetIt.instance;
+        data.profile = await getIt.getAsync<LoadedProfile>();
+
+        return data;
+      }),
+    );
     return instance!;
   }
 }
