@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'package:flutter/foundation.dart';
 
 import 'package:graphview/GraphView.dart';
@@ -13,24 +15,23 @@ import 'package:watch_it/watch_it.dart';
 final _logger = Logger("feature_view");
 
 class _GraphNode extends WatchingWidget {
-  // FIXME Specify meaningful placeholder text
-  final nodeText = ValueNotifier<String>("unknown");
-  final Feature feature;
-  final FeatureDescription description;
-  final featureUserRequested = ValueNotifier<bool>(false);
-  late final ValueListenable<bool> featureEnabled;
+  final _ProfileFeatureState featureState;
+  late final ValueListenable<String> nodeText;
   late final ValueListenable<Color> backgroundColor;
   late final ValueListenable<Color> fontColor;
 
-  _GraphNode.create({
-    super.key,
-    required this.feature,
-    required this.description,
-    required bool userRequested,
-  }) {
-    featureEnabled = featureUserRequested; // FIXME Check transitive requirement
-    backgroundColor = featureUserRequested.map((bool enabled) {
-      return description.isSystemFeature
+  _GraphNode.create({super.key, required this.featureState}) {
+    nodeText = featureState.featureDependencyRequested.combineLatest(
+      featureState.featureUserRequested,
+      (bool dependencyRequested, bool userRequested) {
+        // FIXME Replace with icons
+        return (dependencyRequested ? "locked " : "") +
+            (userRequested ? "checked " : "") +
+            featureState.description.name;
+      },
+    );
+    backgroundColor = featureState.featureEnabled.map((bool enabled) {
+      return featureState.description.isSystemFeature
           ? (enabled
                 ? Colors.lightBlue
                 : const Color.fromARGB(255, 61, 97, 114))
@@ -40,13 +41,10 @@ class _GraphNode extends WatchingWidget {
       // FIXME Adapt to background color
       return Colors.black;
     });
-    featureUserRequested.value = userRequested;
   }
 
   @override
   Widget build(BuildContext context) {
-    nodeText.value = description.name;
-
     return GestureDetector(
       child: SizedBox(
         // FIXME Determine suitable size of nodes
@@ -68,7 +66,8 @@ class _GraphNode extends WatchingWidget {
           ),
         ),
       ),
-      onTap: () => featureUserRequested.value = !featureUserRequested.value,
+      onTap: () => featureState.featureUserRequested.value =
+          !featureState.featureUserRequested.value,
     );
   }
 }
@@ -122,40 +121,68 @@ bool _isValidEdge(
   return true;
 }
 
+class _ProfileFeatureState {
+  final FeatureDescription description;
+  final featureUserRequested = ValueNotifier<bool>(false);
+  final featureDependencyRequested = ValueNotifier<bool>(false);
+  late final ValueListenable<bool> featureEnabled;
+
+  _ProfileFeatureState({
+    required this.description,
+    required bool initialUserRequested,
+  }) {
+    featureEnabled = featureUserRequested.combineLatest(
+      featureDependencyRequested,
+      (bool userRequested, bool dependencyRequested) =>
+          userRequested || dependencyRequested,
+    );
+
+    featureUserRequested.value = initialUserRequested;
+  }
+}
+
 class _FeatureSettingsView extends StatelessWidget {
-  final Map<Feature, FeatureDescription> descriptions;
-  final profileFeatures = ListNotifier<Feature>();
+  final profileFeatures = <Feature, _ProfileFeatureState>{};
 
   _FeatureSettingsView({
     super.key,
-    required this.descriptions,
-    required initialFeatures,
+    required Map<Feature, FeatureDescription> descriptions,
+    required List<Feature> initialFeatures,
   }) {
-    profileFeatures.addAll(initialFeatures);
+    for (final entry in descriptions.entries) {
+      profileFeatures[entry.key] = _ProfileFeatureState(
+        description: entry.value,
+        initialUserRequested: initialFeatures.contains(entry.key),
+      );
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     final featureToNode = <Feature, Node>{};
 
-    for (final entry in descriptions.entries) {
-      featureToNode[entry.key] = Node.Id(entry);
-    }
-
     final graph = Graph();
 
-    for (final entry in descriptions.entries) {
-      final sourceNode = featureToNode[entry.key];
+    for (final entry in profileFeatures.entries) {
+      final node = Node.Id(entry.value);
+
+      featureToNode[entry.key] = node;
+      graph.addNode(node);
+    }
+
+    for (final entry in profileFeatures.entries) {
+      final Node? sourceNode = featureToNode[entry.key];
 
       if (sourceNode == null) {
-        _logger.warning("Skip feature without associated source");
+        _logger.warning(
+          "Skipping feature ${entry.key} since there is no node representing it",
+        );
         continue;
-      } else {
-        graph.addNode(sourceNode);
       }
 
-      for (final dependency in entry.value.dependencies) {
-        final destinationNode = featureToNode[dependency];
+      for (final dependency in entry.value.description.dependencies) {
+        final Node? destinationNode = featureToNode[dependency];
+
         if (_isValidEdge(
           graph,
           entry.key,
@@ -177,30 +204,46 @@ class _FeatureSettingsView extends StatelessWidget {
 
     final graphViewController = GraphViewController();
 
+    _ProfileFeatureState getStateOfNode(Node n) {
+      return n.key?.value;
+    }
+
+    void updateFeatureDependencyRequestedStates(Node startNode) {
+      final nodesToCheck = Queue<Node>();
+      nodesToCheck.addAll(graph.successorsOf(startNode));
+
+      while (nodesToCheck.isNotEmpty) {
+        final Node currentNode = nodesToCheck.removeFirst();
+        final List<Node> currentNodePredecessors = graph.predecessorsOf(
+          currentNode,
+        );
+        final Iterable<_ProfileFeatureState> currentNodePredecessorStates =
+            currentNodePredecessors.map(getStateOfNode);
+        final _ProfileFeatureState currentNodeState = getStateOfNode(
+          currentNode,
+        );
+        currentNodeState.featureDependencyRequested.value =
+            currentNodePredecessorStates.any((s) {
+              return s.featureEnabled.value;
+            });
+      }
+    }
+
+    // Ensure initial state
+    for (final Node node in graph.nodes) {
+      updateFeatureDependencyRequestedStates(node);
+    }
+
     final graphView = GraphView.builder(
       graph: graph,
       algorithm: algorithm,
       builder: (node) {
-        final nodeEntry = node.key?.value;
-        final feature = nodeEntry.key;
-        final description = nodeEntry.value;
+        final _ProfileFeatureState featureState = getStateOfNode(node);
 
-        final graphNode = _GraphNode.create(
-          feature: feature,
-          description: description,
-          // FIXME Handle system features
-          userRequested: profileFeatures.contains(feature),
-        );
+        final graphNode = _GraphNode.create(featureState: featureState);
 
-        graphNode.featureEnabled.addListener(() {
-          if (graphNode.featureEnabled.value) {
-            // FIXME Make features a set instead of a list
-            if (!profileFeatures.contains(feature)) {
-              profileFeatures.add(feature);
-            }
-          } else {
-            profileFeatures.remove(feature);
-          }
+        featureState.featureEnabled.addListener(() {
+          updateFeatureDependencyRequestedStates(node);
         });
 
         return graphNode;
@@ -224,7 +267,7 @@ class _PreloadingData {
 }
 
 class FeatureSettingsPage extends StatelessWidget {
-  FeatureSettingsPage._create({super.key});
+  const FeatureSettingsPage._create({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -239,18 +282,29 @@ class FeatureSettingsPage extends StatelessWidget {
         });
 
     LoadedProfile? currentChangedProfile;
+    Map<Feature, _ProfileFeatureState>? profileFeatureStates;
 
     return Scaffold(
       appBar: AppBar(
         actions: [
           ElevatedButton(
             onPressed: () async {
-              if (currentChangedProfile == null) {
+              if (currentChangedProfile == null ||
+                  profileFeatureStates == null) {
                 _logger.warning(
                   "Could not save profile since it's not been loaded",
                 );
               } else {
-                await currentChangedProfile?.save();
+                for (final entry in profileFeatureStates!.entries) {
+                  if (entry.value.featureEnabled.value) {
+                    if (!currentChangedProfile!.features.contains(entry.key)) {
+                      currentChangedProfile!.features.add(entry.key);
+                    }
+                  } else {
+                    currentChangedProfile!.features.remove(entry.key);
+                  }
+                }
+                await currentChangedProfile!.save();
               }
             },
             child: Text(MaterialLocalizations.of(context).saveButtonLabel),
@@ -279,10 +333,7 @@ class FeatureSettingsPage extends StatelessWidget {
                       initialFeatures: currentChangedProfile!.features,
                     );
 
-                    featureView.profileFeatures.addListener(() {
-                      currentChangedProfile!.features =
-                          featureView.profileFeatures.value;
-                    });
+                    profileFeatureStates = featureView.profileFeatures;
 
                     return featureView;
                   }
