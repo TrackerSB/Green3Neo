@@ -23,3 +23,6 @@ jobs:
       - uses: ./.github/actions/prepare-application-build
       - name: Execute full build
         run: just build
+      - name: Analyze frontend
+        working-directory: frontend
+        run: fvm flutter analyze --fatal-infos
