@@ -7,6 +7,7 @@ use diesel::MysqlConnection;
 #[cfg(feature = "postgres")]
 use diesel::PgConnection;
 use log::error;
+use russh::keys::PublicKeyOrCertificate;
 use std::sync::Arc;
 
 use russh::client;
@@ -21,7 +22,7 @@ impl client::Handler for SshClient {
 
     async fn check_server_key(
         &mut self,
-        _server_public_key: &russh::keys::ssh_key::PublicKey,
+        _server_public_key: &PublicKeyOrCertificate,
     ) -> Result<bool, Self::Error> {
         // FIXME Do not accept all SSH servers
         Ok(true)

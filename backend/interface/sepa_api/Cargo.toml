@@ -3,11 +3,14 @@ name = "sepa_api"
 version = "0.1.0"
 edition = "2024"
 
+[lints]
+workspace = true
+
 [lib]
 crate-type = ["cdylib"]
 
 [build-dependencies]
-flutter_rust_bridge_codegen = "=2.12.0"
+flutter_rust_bridge_codegen = { workspace = true }
 
 [dev-dependencies]
 backend_testing = { path = "../../backend_testing" }
