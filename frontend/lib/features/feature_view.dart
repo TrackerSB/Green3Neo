@@ -273,6 +273,8 @@ class _FeatureSettingsView extends StatelessWidget {
 class PreloadingData {
   Map<Feature, FeatureDescription>? descriptions;
   LoadedProfile? profile;
+
+  PreloadingData.create({required this.descriptions, required this.profile});
 }
 
 class FeatureSettingsPage extends StatelessWidget {
@@ -368,15 +370,17 @@ class FeatureSettings extends WidgetFeature {
 
   @override
   FeatureSettingsPage get widget {
+    final getIt = GetIt.instance;
     instance ??= FeatureSettingsPage.create(
-      preloadingDataLoader: Future.value(PreloadingData()).then((data) async {
-        data.descriptions = await _loadDescriptions();
-
-        final getIt = GetIt.instance;
-        data.profile = await getIt.getAsync<LoadedProfile>();
-
-        return data;
-      }),
+      preloadingDataLoader:
+          Future.wait([_loadDescriptions(), getIt.getAsync<LoadedProfile>()])
+              .then((List<Object> values) async {
+                return PreloadingData.create(
+                  descriptions:
+                      values.elementAt(0) as Map<Feature, FeatureDescription>,
+                  profile: values.elementAt(1) as LoadedProfile,
+                );
+              }),
     );
     return instance!;
   }

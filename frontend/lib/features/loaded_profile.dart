@@ -25,7 +25,8 @@ class LoadedProfile with _$LoadedProfile {
   // ignore: override_on_non_overriding_member
   List<Feature> features;
 
-  LoadedProfile._create({
+  @visibleForTesting
+  LoadedProfile.create({
     this.creditor,
     this.connection,
     this.features = const [],
@@ -73,7 +74,7 @@ class LoadedProfileFeature extends FrontendFeature {
     getIt.registerLazySingletonAsync<LoadedProfile>(() async {
       return await loadProfile().then((Profile? profile) {
         if (profile == null) {
-          return LoadedProfile._create();
+          return LoadedProfile.create();
         }
 
         final backend_api.Creditor? mirroredCreditor = profile.creditor;
@@ -114,7 +115,7 @@ class LoadedProfileFeature extends FrontendFeature {
                 sshTunnel: sshTunnel,
               );
 
-        return LoadedProfile._create(
+        return LoadedProfile.create(
           creditor: creditor,
           connection: connection,
           features: profile.features,
