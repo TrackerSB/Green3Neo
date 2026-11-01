@@ -7,7 +7,7 @@ on:
     branches:
       - main
 jobs:
-  Build-All:
+  Analyze-Project:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
