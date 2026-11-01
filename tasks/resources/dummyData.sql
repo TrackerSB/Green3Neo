@@ -22,7 +22,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -79,7 +79,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -136,7 +136,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -193,7 +193,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -250,7 +250,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -307,7 +307,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -364,7 +364,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -421,7 +421,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -478,7 +478,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -535,7 +535,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -592,7 +592,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -649,7 +649,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -706,7 +706,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -763,7 +763,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -820,7 +820,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -877,7 +877,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -934,7 +934,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -991,7 +991,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -1048,7 +1048,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -1105,7 +1105,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -1162,7 +1162,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -1219,7 +1219,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -1276,7 +1276,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -1333,7 +1333,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -1390,7 +1390,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -1447,7 +1447,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -1504,7 +1504,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -1561,7 +1561,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -1618,7 +1618,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -1675,7 +1675,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -1732,7 +1732,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -1789,7 +1789,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -1846,7 +1846,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -1903,7 +1903,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -1960,7 +1960,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -2017,7 +2017,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -2074,7 +2074,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -2131,7 +2131,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -2188,7 +2188,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -2245,7 +2245,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -2302,7 +2302,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -2359,7 +2359,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -2416,7 +2416,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -2473,7 +2473,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -2530,7 +2530,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -2587,7 +2587,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -2644,7 +2644,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -2701,7 +2701,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -2758,7 +2758,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -2815,7 +2815,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -2872,7 +2872,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -2929,7 +2929,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -2986,7 +2986,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -3043,7 +3043,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -3100,7 +3100,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -3157,7 +3157,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -3214,7 +3214,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -3271,7 +3271,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -3328,7 +3328,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -3385,7 +3385,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -3442,7 +3442,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -3499,7 +3499,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -3556,7 +3556,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -3613,7 +3613,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -3670,7 +3670,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -3727,7 +3727,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -3784,7 +3784,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -3841,7 +3841,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -3898,7 +3898,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -3955,7 +3955,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -4012,7 +4012,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -4069,7 +4069,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -4126,7 +4126,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -4183,7 +4183,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -4240,7 +4240,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -4297,7 +4297,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -4354,7 +4354,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -4411,7 +4411,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -4468,7 +4468,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -4525,7 +4525,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -4582,7 +4582,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -4639,7 +4639,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -4696,7 +4696,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -4753,7 +4753,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -4810,7 +4810,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -4867,7 +4867,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -4924,7 +4924,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -4981,7 +4981,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -5038,7 +5038,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -5095,7 +5095,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -5152,7 +5152,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -5209,7 +5209,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -5266,7 +5266,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -5323,7 +5323,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -5380,7 +5380,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -5437,7 +5437,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -5494,7 +5494,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -5551,7 +5551,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -5608,7 +5608,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -5665,7 +5665,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -5722,7 +5722,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -5779,7 +5779,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -5836,7 +5836,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -5893,7 +5893,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -5950,7 +5950,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -6007,7 +6007,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -6064,7 +6064,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -6121,7 +6121,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -6178,7 +6178,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -6235,7 +6235,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -6292,7 +6292,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -6349,7 +6349,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -6406,7 +6406,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -6463,7 +6463,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -6520,7 +6520,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -6577,7 +6577,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -6634,7 +6634,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -6691,7 +6691,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -6748,7 +6748,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -6805,7 +6805,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -6862,7 +6862,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -6919,7 +6919,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -6976,7 +6976,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -7033,7 +7033,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -7090,7 +7090,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -7147,7 +7147,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -7204,7 +7204,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -7261,7 +7261,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -7318,7 +7318,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -7375,7 +7375,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -7432,7 +7432,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -7489,7 +7489,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -7546,7 +7546,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -7603,7 +7603,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -7660,7 +7660,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -7717,7 +7717,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -7774,7 +7774,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -7831,7 +7831,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -7888,7 +7888,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -7945,7 +7945,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -8002,7 +8002,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -8059,7 +8059,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -8116,7 +8116,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -8173,7 +8173,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -8230,7 +8230,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -8287,7 +8287,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -8344,7 +8344,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -8401,7 +8401,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -8458,7 +8458,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -8515,7 +8515,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -8572,7 +8572,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -8629,7 +8629,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -8686,7 +8686,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -8743,7 +8743,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -8800,7 +8800,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -8857,7 +8857,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -8914,7 +8914,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -8971,7 +8971,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -9028,7 +9028,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -9085,7 +9085,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -9142,7 +9142,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -9199,7 +9199,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -9256,7 +9256,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -9313,7 +9313,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -9370,7 +9370,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -9427,7 +9427,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -9484,7 +9484,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -9541,7 +9541,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -9598,7 +9598,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -9655,7 +9655,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -9712,7 +9712,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -9769,7 +9769,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -9826,7 +9826,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -9883,7 +9883,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -9940,7 +9940,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -9997,7 +9997,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -10054,7 +10054,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -10111,7 +10111,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -10168,7 +10168,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -10225,7 +10225,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -10282,7 +10282,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -10339,7 +10339,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -10396,7 +10396,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -10453,7 +10453,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -10510,7 +10510,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -10567,7 +10567,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -10624,7 +10624,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -10681,7 +10681,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -10738,7 +10738,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -10795,7 +10795,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -10852,7 +10852,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -10909,7 +10909,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -10966,7 +10966,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -11023,7 +11023,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -11080,7 +11080,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -11137,7 +11137,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -11194,7 +11194,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -11251,7 +11251,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -11308,7 +11308,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -11365,7 +11365,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -11422,7 +11422,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -11479,7 +11479,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -11536,7 +11536,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -11593,7 +11593,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -11650,7 +11650,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -11707,7 +11707,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -11764,7 +11764,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -11821,7 +11821,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -11878,7 +11878,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -11935,7 +11935,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -11992,7 +11992,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -12049,7 +12049,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -12106,7 +12106,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -12163,7 +12163,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -12220,7 +12220,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -12277,7 +12277,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -12334,7 +12334,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -12391,7 +12391,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -12448,7 +12448,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -12505,7 +12505,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -12562,7 +12562,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -12619,7 +12619,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -12676,7 +12676,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -12733,7 +12733,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -12790,7 +12790,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -12847,7 +12847,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -12904,7 +12904,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -12961,7 +12961,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -13018,7 +13018,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -13075,7 +13075,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -13132,7 +13132,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -13189,7 +13189,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -13246,7 +13246,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -13303,7 +13303,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -13360,7 +13360,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -13417,7 +13417,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -13474,7 +13474,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -13531,7 +13531,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -13588,7 +13588,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -13645,7 +13645,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -13702,7 +13702,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -13759,7 +13759,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -13816,7 +13816,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -13873,7 +13873,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -13930,7 +13930,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -13987,7 +13987,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -14044,7 +14044,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -14101,7 +14101,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -14158,7 +14158,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -14215,7 +14215,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -14272,7 +14272,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -14329,7 +14329,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -14386,7 +14386,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -14443,7 +14443,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -14500,7 +14500,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -14557,7 +14557,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -14614,7 +14614,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -14671,7 +14671,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -14728,7 +14728,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -14785,7 +14785,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -14842,7 +14842,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -14899,7 +14899,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -14956,7 +14956,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -15013,7 +15013,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -15070,7 +15070,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -15127,7 +15127,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -15184,7 +15184,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -15241,7 +15241,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -15298,7 +15298,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -15355,7 +15355,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -15412,7 +15412,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -15469,7 +15469,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -15526,7 +15526,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -15583,7 +15583,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -15640,7 +15640,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -15697,7 +15697,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -15754,7 +15754,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -15811,7 +15811,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -15868,7 +15868,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -15925,7 +15925,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -15982,7 +15982,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -16039,7 +16039,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -16096,7 +16096,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -16153,7 +16153,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -16210,7 +16210,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -16267,7 +16267,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -16324,7 +16324,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -16381,7 +16381,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -16438,7 +16438,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -16495,7 +16495,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -16552,7 +16552,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -16609,7 +16609,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -16666,7 +16666,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -16723,7 +16723,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -16780,7 +16780,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -16837,7 +16837,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -16894,7 +16894,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -16951,7 +16951,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -17008,7 +17008,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -17065,7 +17065,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -17122,7 +17122,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -17179,7 +17179,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -17236,7 +17236,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -17293,7 +17293,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -17350,7 +17350,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -17407,7 +17407,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -17464,7 +17464,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -17521,7 +17521,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -17578,7 +17578,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -17635,7 +17635,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -17692,7 +17692,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -17749,7 +17749,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -17806,7 +17806,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -17863,7 +17863,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -17920,7 +17920,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -17977,7 +17977,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -18034,7 +18034,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -18091,7 +18091,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -18148,7 +18148,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -18205,7 +18205,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -18262,7 +18262,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -18319,7 +18319,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -18376,7 +18376,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -18433,7 +18433,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -18490,7 +18490,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -18547,7 +18547,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -18604,7 +18604,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -18661,7 +18661,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -18718,7 +18718,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -18775,7 +18775,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -18832,7 +18832,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -18889,7 +18889,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -18946,7 +18946,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -19003,7 +19003,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -19060,7 +19060,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -19117,7 +19117,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -19174,7 +19174,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -19231,7 +19231,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -19288,7 +19288,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -19345,7 +19345,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -19402,7 +19402,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -19459,7 +19459,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -19516,7 +19516,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -19573,7 +19573,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -19630,7 +19630,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -19687,7 +19687,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -19744,7 +19744,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -19801,7 +19801,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -19858,7 +19858,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -19915,7 +19915,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -19972,7 +19972,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -20029,7 +20029,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -20086,7 +20086,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -20143,7 +20143,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -20200,7 +20200,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -20257,7 +20257,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -20314,7 +20314,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -20371,7 +20371,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -20428,7 +20428,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -20485,7 +20485,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -20542,7 +20542,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -20599,7 +20599,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -20656,7 +20656,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -20713,7 +20713,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -20770,7 +20770,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -20827,7 +20827,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -20884,7 +20884,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -20941,7 +20941,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -20998,7 +20998,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -21055,7 +21055,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -21112,7 +21112,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -21169,7 +21169,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -21226,7 +21226,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -21283,7 +21283,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -21340,7 +21340,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -21397,7 +21397,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -21454,7 +21454,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -21511,7 +21511,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -21568,7 +21568,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -21625,7 +21625,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -21682,7 +21682,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -21739,7 +21739,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -21796,7 +21796,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -21853,7 +21853,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -21910,7 +21910,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -21967,7 +21967,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -22024,7 +22024,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -22081,7 +22081,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -22138,7 +22138,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -22195,7 +22195,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -22252,7 +22252,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -22309,7 +22309,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -22366,7 +22366,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -22423,7 +22423,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -22480,7 +22480,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -22537,7 +22537,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -22594,7 +22594,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -22651,7 +22651,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -22708,7 +22708,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -22765,7 +22765,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -22822,7 +22822,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -22879,7 +22879,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -22936,7 +22936,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -22993,7 +22993,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -23050,7 +23050,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -23107,7 +23107,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -23164,7 +23164,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -23221,7 +23221,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -23278,7 +23278,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -23335,7 +23335,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -23392,7 +23392,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -23449,7 +23449,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -23506,7 +23506,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -23563,7 +23563,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -23620,7 +23620,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -23677,7 +23677,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -23734,7 +23734,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -23791,7 +23791,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -23848,7 +23848,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -23905,7 +23905,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -23962,7 +23962,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -24019,7 +24019,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -24076,7 +24076,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -24133,7 +24133,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -24190,7 +24190,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -24247,7 +24247,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -24304,7 +24304,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -24361,7 +24361,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -24418,7 +24418,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -24475,7 +24475,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -24532,7 +24532,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -24589,7 +24589,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -24646,7 +24646,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -24703,7 +24703,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -24760,7 +24760,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -24817,7 +24817,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -24874,7 +24874,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -24931,7 +24931,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -24988,7 +24988,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -25045,7 +25045,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -25102,7 +25102,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -25159,7 +25159,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -25216,7 +25216,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -25273,7 +25273,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -25330,7 +25330,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -25387,7 +25387,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -25444,7 +25444,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -25501,7 +25501,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -25558,7 +25558,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -25615,7 +25615,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -25672,7 +25672,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -25729,7 +25729,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -25786,7 +25786,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -25843,7 +25843,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -25900,7 +25900,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -25957,7 +25957,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -26014,7 +26014,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -26071,7 +26071,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -26128,7 +26128,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -26185,7 +26185,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -26242,7 +26242,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -26299,7 +26299,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -26356,7 +26356,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -26413,7 +26413,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -26470,7 +26470,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -26527,7 +26527,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -26584,7 +26584,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -26641,7 +26641,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -26698,7 +26698,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -26755,7 +26755,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -26812,7 +26812,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -26869,7 +26869,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -26926,7 +26926,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -26983,7 +26983,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -27040,7 +27040,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -27097,7 +27097,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -27154,7 +27154,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -27211,7 +27211,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -27268,7 +27268,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -27325,7 +27325,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -27382,7 +27382,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -27439,7 +27439,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -27496,7 +27496,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -27553,7 +27553,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -27610,7 +27610,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -27667,7 +27667,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -27724,7 +27724,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -27781,7 +27781,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -27838,7 +27838,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -27895,7 +27895,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -27952,7 +27952,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -28009,7 +28009,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -28066,7 +28066,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -28123,7 +28123,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -28180,7 +28180,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -28237,7 +28237,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -28294,7 +28294,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -28351,7 +28351,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -28408,7 +28408,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -28465,7 +28465,7 @@ insert into
         iban,
         bic,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )

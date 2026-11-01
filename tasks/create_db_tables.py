@@ -39,7 +39,7 @@ def _create_tables(connection: db_connection.DbConnection) -> None:
             bic varchar(255) NOT NULL,
             -- mandate_since date NOT NULL DEFAULT CURRENT_DATE,
             has_gau_ehrenzeichen boolean NOT NULL DEFAULT FALSE,
-            is_ehrenschriftführer boolean NOT NULL DEFAULT FALSE,
+            is_ehrenschriftfuehrer boolean NOT NULL DEFAULT FALSE,
             is_ehrenvorstand boolean NOT NULL DEFAULT FALSE,
             is_member_of_board boolean NOT NULL DEFAULT FALSE
         );

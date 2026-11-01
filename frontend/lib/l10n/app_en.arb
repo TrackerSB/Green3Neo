@@ -85,5 +85,7 @@
     "messageId": "Message ID",
     "@messageId": {},
     "invalidMessageId": "Invalid Message ID",
-    "@invalidMessageId": {}
+    "@invalidMessageId": {},
+    "settings": "Settings",
+    "@settings": {}
 }

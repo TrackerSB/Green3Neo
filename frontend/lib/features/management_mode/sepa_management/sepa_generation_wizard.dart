@@ -66,8 +66,10 @@ Future<Uri?> _saveOutputToPath(Uint8List outputBytes) {
       bytes: outputBytes,
       initialDirectory: dir,
     ),
-    onError: (Object error, StackTrace trace) =>
-        _logger.shout("Failed to ask user for save path", error, trace),
+    onError: (Object error, StackTrace trace) {
+      _logger.shout("Failed to ask user for save path", error, trace);
+      return null;
+    },
   );
 }
 
@@ -79,7 +81,7 @@ class SepaGenerationWizard extends StatelessWidget {
   final _formKey = GlobalKey<FormBuilderState>();
   final List<Member> member;
 
-  SepaGenerationWizard._create({super.key, required this.member});
+  SepaGenerationWizard._create({required this.member});
 
   Future<bool> _onOkButtonPressed(
     MessageIdField messageIdField,
@@ -254,7 +256,7 @@ class SepaGenerationWizardFactory extends FrontendFeature {
   }
 
   @override
-  Feature requiredFeature() {
+  Feature associatedFeature() {
     return Feature.sepaGenerationWizard;
   }
 }

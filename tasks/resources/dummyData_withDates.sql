@@ -25,7 +25,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -88,7 +88,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -151,7 +151,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -214,7 +214,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -277,7 +277,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -340,7 +340,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -403,7 +403,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -466,7 +466,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -529,7 +529,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -592,7 +592,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -655,7 +655,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -718,7 +718,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -781,7 +781,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -844,7 +844,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -907,7 +907,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -970,7 +970,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -1033,7 +1033,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -1096,7 +1096,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -1159,7 +1159,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -1222,7 +1222,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -1285,7 +1285,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -1348,7 +1348,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -1411,7 +1411,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -1474,7 +1474,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -1537,7 +1537,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -1600,7 +1600,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -1663,7 +1663,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -1726,7 +1726,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -1789,7 +1789,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -1852,7 +1852,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -1915,7 +1915,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -1978,7 +1978,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -2041,7 +2041,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -2104,7 +2104,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -2167,7 +2167,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -2230,7 +2230,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -2293,7 +2293,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -2356,7 +2356,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -2419,7 +2419,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -2482,7 +2482,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -2545,7 +2545,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -2608,7 +2608,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -2671,7 +2671,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -2734,7 +2734,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -2797,7 +2797,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -2860,7 +2860,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -2923,7 +2923,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -2986,7 +2986,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -3049,7 +3049,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -3112,7 +3112,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -3175,7 +3175,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -3238,7 +3238,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -3301,7 +3301,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -3364,7 +3364,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -3427,7 +3427,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -3490,7 +3490,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -3553,7 +3553,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -3616,7 +3616,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -3679,7 +3679,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -3742,7 +3742,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -3805,7 +3805,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -3868,7 +3868,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -3931,7 +3931,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -3994,7 +3994,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -4057,7 +4057,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -4120,7 +4120,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -4183,7 +4183,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -4246,7 +4246,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -4309,7 +4309,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -4372,7 +4372,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -4435,7 +4435,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -4498,7 +4498,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -4561,7 +4561,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -4624,7 +4624,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -4687,7 +4687,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -4750,7 +4750,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -4813,7 +4813,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -4876,7 +4876,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -4939,7 +4939,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -5002,7 +5002,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -5065,7 +5065,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -5128,7 +5128,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -5191,7 +5191,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -5254,7 +5254,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -5317,7 +5317,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -5380,7 +5380,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -5443,7 +5443,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -5506,7 +5506,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -5569,7 +5569,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -5632,7 +5632,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -5695,7 +5695,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -5758,7 +5758,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -5821,7 +5821,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -5884,7 +5884,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -5947,7 +5947,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -6010,7 +6010,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -6073,7 +6073,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -6136,7 +6136,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -6199,7 +6199,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -6262,7 +6262,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -6325,7 +6325,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -6388,7 +6388,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -6451,7 +6451,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -6514,7 +6514,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -6577,7 +6577,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -6640,7 +6640,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -6703,7 +6703,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -6766,7 +6766,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -6829,7 +6829,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -6892,7 +6892,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -6955,7 +6955,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -7018,7 +7018,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -7081,7 +7081,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -7144,7 +7144,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -7207,7 +7207,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -7270,7 +7270,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -7333,7 +7333,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -7396,7 +7396,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -7459,7 +7459,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -7522,7 +7522,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -7585,7 +7585,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -7648,7 +7648,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -7711,7 +7711,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -7774,7 +7774,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -7837,7 +7837,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -7900,7 +7900,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -7963,7 +7963,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -8026,7 +8026,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -8089,7 +8089,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -8152,7 +8152,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -8215,7 +8215,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -8278,7 +8278,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -8341,7 +8341,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -8404,7 +8404,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -8467,7 +8467,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -8530,7 +8530,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -8593,7 +8593,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -8656,7 +8656,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -8719,7 +8719,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -8782,7 +8782,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -8845,7 +8845,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -8908,7 +8908,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -8971,7 +8971,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -9034,7 +9034,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -9097,7 +9097,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -9160,7 +9160,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -9223,7 +9223,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -9286,7 +9286,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -9349,7 +9349,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -9412,7 +9412,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -9475,7 +9475,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -9538,7 +9538,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -9601,7 +9601,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -9664,7 +9664,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -9727,7 +9727,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -9790,7 +9790,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -9853,7 +9853,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -9916,7 +9916,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -9979,7 +9979,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -10042,7 +10042,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -10105,7 +10105,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -10168,7 +10168,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -10231,7 +10231,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -10294,7 +10294,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -10357,7 +10357,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -10420,7 +10420,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -10483,7 +10483,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -10546,7 +10546,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -10609,7 +10609,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -10672,7 +10672,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -10735,7 +10735,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -10798,7 +10798,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -10861,7 +10861,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -10924,7 +10924,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -10987,7 +10987,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -11050,7 +11050,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -11113,7 +11113,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -11176,7 +11176,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -11239,7 +11239,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -11302,7 +11302,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -11365,7 +11365,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -11428,7 +11428,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -11491,7 +11491,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -11554,7 +11554,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -11617,7 +11617,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -11680,7 +11680,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -11743,7 +11743,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -11806,7 +11806,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -11869,7 +11869,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -11932,7 +11932,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -11995,7 +11995,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -12058,7 +12058,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -12121,7 +12121,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -12184,7 +12184,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -12247,7 +12247,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -12310,7 +12310,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -12373,7 +12373,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -12436,7 +12436,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -12499,7 +12499,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -12562,7 +12562,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -12625,7 +12625,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -12688,7 +12688,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -12751,7 +12751,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -12814,7 +12814,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -12877,7 +12877,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -12940,7 +12940,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -13003,7 +13003,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -13066,7 +13066,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -13129,7 +13129,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -13192,7 +13192,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -13255,7 +13255,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -13318,7 +13318,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -13381,7 +13381,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -13444,7 +13444,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -13507,7 +13507,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -13570,7 +13570,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -13633,7 +13633,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -13696,7 +13696,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -13759,7 +13759,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -13822,7 +13822,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -13885,7 +13885,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -13948,7 +13948,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -14011,7 +14011,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -14074,7 +14074,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -14137,7 +14137,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -14200,7 +14200,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -14263,7 +14263,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -14326,7 +14326,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -14389,7 +14389,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -14452,7 +14452,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -14515,7 +14515,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -14578,7 +14578,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -14641,7 +14641,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -14704,7 +14704,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -14767,7 +14767,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -14830,7 +14830,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -14893,7 +14893,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -14956,7 +14956,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -15019,7 +15019,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -15082,7 +15082,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -15145,7 +15145,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -15208,7 +15208,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -15271,7 +15271,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -15334,7 +15334,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -15397,7 +15397,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -15460,7 +15460,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -15523,7 +15523,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -15586,7 +15586,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -15649,7 +15649,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -15712,7 +15712,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -15775,7 +15775,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -15838,7 +15838,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -15901,7 +15901,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -15964,7 +15964,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -16027,7 +16027,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -16090,7 +16090,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -16153,7 +16153,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -16216,7 +16216,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -16279,7 +16279,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -16342,7 +16342,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -16405,7 +16405,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -16468,7 +16468,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -16531,7 +16531,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -16594,7 +16594,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -16657,7 +16657,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -16720,7 +16720,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -16783,7 +16783,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -16846,7 +16846,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -16909,7 +16909,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -16972,7 +16972,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -17035,7 +17035,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -17098,7 +17098,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -17161,7 +17161,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -17224,7 +17224,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -17287,7 +17287,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -17350,7 +17350,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -17413,7 +17413,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -17476,7 +17476,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -17539,7 +17539,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -17602,7 +17602,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -17665,7 +17665,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -17728,7 +17728,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -17791,7 +17791,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -17854,7 +17854,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -17917,7 +17917,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -17980,7 +17980,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -18043,7 +18043,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -18106,7 +18106,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -18169,7 +18169,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -18232,7 +18232,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -18295,7 +18295,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -18358,7 +18358,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -18421,7 +18421,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -18484,7 +18484,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -18547,7 +18547,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -18610,7 +18610,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -18673,7 +18673,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -18736,7 +18736,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -18799,7 +18799,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -18862,7 +18862,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -18925,7 +18925,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -18988,7 +18988,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -19051,7 +19051,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -19114,7 +19114,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -19177,7 +19177,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -19240,7 +19240,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -19303,7 +19303,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -19366,7 +19366,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -19429,7 +19429,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -19492,7 +19492,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -19555,7 +19555,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -19618,7 +19618,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -19681,7 +19681,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -19744,7 +19744,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -19807,7 +19807,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -19870,7 +19870,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -19933,7 +19933,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -19996,7 +19996,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -20059,7 +20059,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -20122,7 +20122,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -20185,7 +20185,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -20248,7 +20248,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -20311,7 +20311,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -20374,7 +20374,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -20437,7 +20437,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -20500,7 +20500,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -20563,7 +20563,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -20626,7 +20626,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -20689,7 +20689,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -20752,7 +20752,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -20815,7 +20815,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -20878,7 +20878,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -20941,7 +20941,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -21004,7 +21004,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -21067,7 +21067,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -21130,7 +21130,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -21193,7 +21193,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -21256,7 +21256,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -21319,7 +21319,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -21382,7 +21382,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -21445,7 +21445,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -21508,7 +21508,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -21571,7 +21571,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -21634,7 +21634,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -21697,7 +21697,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -21760,7 +21760,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -21823,7 +21823,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -21886,7 +21886,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -21949,7 +21949,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -22012,7 +22012,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -22075,7 +22075,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -22138,7 +22138,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -22201,7 +22201,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -22264,7 +22264,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -22327,7 +22327,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -22390,7 +22390,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -22453,7 +22453,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -22516,7 +22516,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -22579,7 +22579,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -22642,7 +22642,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -22705,7 +22705,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -22768,7 +22768,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -22831,7 +22831,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -22894,7 +22894,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -22957,7 +22957,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -23020,7 +23020,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -23083,7 +23083,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -23146,7 +23146,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -23209,7 +23209,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -23272,7 +23272,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -23335,7 +23335,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -23398,7 +23398,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -23461,7 +23461,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -23524,7 +23524,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -23587,7 +23587,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -23650,7 +23650,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -23713,7 +23713,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -23776,7 +23776,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -23839,7 +23839,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -23902,7 +23902,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -23965,7 +23965,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -24028,7 +24028,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -24091,7 +24091,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -24154,7 +24154,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -24217,7 +24217,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -24280,7 +24280,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -24343,7 +24343,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -24406,7 +24406,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -24469,7 +24469,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -24532,7 +24532,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -24595,7 +24595,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -24658,7 +24658,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -24721,7 +24721,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -24784,7 +24784,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -24847,7 +24847,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -24910,7 +24910,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -24973,7 +24973,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -25036,7 +25036,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -25099,7 +25099,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -25162,7 +25162,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -25225,7 +25225,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -25288,7 +25288,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -25351,7 +25351,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -25414,7 +25414,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -25477,7 +25477,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -25540,7 +25540,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -25603,7 +25603,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -25666,7 +25666,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -25729,7 +25729,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -25792,7 +25792,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -25855,7 +25855,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -25918,7 +25918,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -25981,7 +25981,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -26044,7 +26044,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -26107,7 +26107,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -26170,7 +26170,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -26233,7 +26233,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -26296,7 +26296,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -26359,7 +26359,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -26422,7 +26422,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -26485,7 +26485,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -26548,7 +26548,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -26611,7 +26611,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -26674,7 +26674,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -26737,7 +26737,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -26800,7 +26800,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -26863,7 +26863,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -26926,7 +26926,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -26989,7 +26989,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -27052,7 +27052,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -27115,7 +27115,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -27178,7 +27178,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -27241,7 +27241,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -27304,7 +27304,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -27367,7 +27367,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -27430,7 +27430,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -27493,7 +27493,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -27556,7 +27556,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -27619,7 +27619,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -27682,7 +27682,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -27745,7 +27745,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -27808,7 +27808,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -27871,7 +27871,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -27934,7 +27934,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -27997,7 +27997,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -28060,7 +28060,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -28123,7 +28123,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -28186,7 +28186,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -28249,7 +28249,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -28312,7 +28312,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -28375,7 +28375,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -28438,7 +28438,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -28501,7 +28501,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -28564,7 +28564,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -28627,7 +28627,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -28690,7 +28690,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -28753,7 +28753,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -28816,7 +28816,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -28879,7 +28879,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -28942,7 +28942,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -29005,7 +29005,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -29068,7 +29068,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -29131,7 +29131,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -29194,7 +29194,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -29257,7 +29257,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -29320,7 +29320,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -29383,7 +29383,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -29446,7 +29446,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -29509,7 +29509,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -29572,7 +29572,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -29635,7 +29635,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -29698,7 +29698,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -29761,7 +29761,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -29824,7 +29824,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -29887,7 +29887,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -29950,7 +29950,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -30013,7 +30013,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -30076,7 +30076,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -30139,7 +30139,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -30202,7 +30202,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -30265,7 +30265,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -30328,7 +30328,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -30391,7 +30391,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -30454,7 +30454,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -30517,7 +30517,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -30580,7 +30580,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -30643,7 +30643,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -30706,7 +30706,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -30769,7 +30769,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -30832,7 +30832,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -30895,7 +30895,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -30958,7 +30958,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -31021,7 +31021,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -31084,7 +31084,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -31147,7 +31147,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -31210,7 +31210,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -31273,7 +31273,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -31336,7 +31336,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -31399,7 +31399,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )
@@ -31462,7 +31462,7 @@ insert into
         bic,
         mandate_since,
         has_gau_ehrenzeichen,
-        is_ehrenschriftführer,
+        is_ehrenschriftfuehrer,
         is_ehrenvorstand,
         is_member_of_board
     )

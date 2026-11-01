@@ -9,7 +9,7 @@ import 'package:watch_it/watch_it.dart';
 class ViewManagementPage extends WatchingWidget {
   final _lastMemberSourceUpdate = ValueNotifier<DateTime?>(null);
 
-  ViewManagementPage._create({super.key});
+  ViewManagementPage._create();
 
   void _receiveDataFromDB(MemberView memberView) {
     memberView.forceReloadDataFromDB().then((reloadSucceeded) {
@@ -76,7 +76,7 @@ class ViewManagementMode extends ManagementMode<ViewManagementPage> {
   }
 
   @override
-  Feature requiredFeature() {
+  Feature associatedFeature() {
     return Feature.viewManagementMode;
   }
 }
