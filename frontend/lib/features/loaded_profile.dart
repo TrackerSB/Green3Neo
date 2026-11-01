@@ -16,10 +16,13 @@ part 'loaded_profile.freezed.dart';
 @Freezed()
 class LoadedProfile with _$LoadedProfile {
   @override
+  // ignore: override_on_non_overriding_member
   Creditor? creditor;
   @override
+  // ignore: override_on_non_overriding_member
   ConnectionDescription? connection;
   @override
+  // ignore: override_on_non_overriding_member
   List<Feature> features;
 
   LoadedProfile._create({
