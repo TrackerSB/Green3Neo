@@ -130,7 +130,14 @@ backend-test:
     just backend-api-build "$BUILD_DB_PROTOCOL" "$BUILD_DB_PROTOCOL"
     cd {{ backend_dir }} && cargo nextest run --config-file .nextest.toml --no-default-features --features "$BUILD_DB_PROTOCOL"
 
+backend-test-coverage:
+    just backend-api-build "$BUILD_DB_PROTOCOL" "$BUILD_DB_PROTOCOL"
+    cd {{ backend_dir }} && mkdir -p target/llvm-cov && cargo llvm-cov nextest --lcov --output-path target/llvm-cov/lcov.info --config-file .nextest.toml --no-default-features --features "$BUILD_DB_PROTOCOL"
+
 frontend-test: build
     cd {{ frontend_dir }} && fvm flutter test --machine | fvm dart pub global run junitreport:tojunit > build/junit.xml
+
+frontend-test-coverage: build
+    cd {{ frontend_dir }} && fvm flutter test --coverage --machine | fvm dart pub global run junitreport:tojunit > build/junit.xml
 
 test: backend-test frontend-test
