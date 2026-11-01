@@ -13,6 +13,10 @@ members = [
     "sepa_xsd_to_rust_generator",
 ]
 
+[workspace.lints.rust]
+# See https://cjycode.com/flutter_rust_bridge/manual/troubleshooting#warning-unexpected-cfg-condition-name-frb_expand
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(frb_expand)'] }
+
 [workspace.dependencies]
 chrono = { version = "^0.4.42", features = ["alloc", "unstable-locales"] }
 clap = { version = "^4.5.53", features = ["derive"] }
