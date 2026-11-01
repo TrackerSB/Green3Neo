@@ -37,18 +37,29 @@ jobs:
         working-directory: ${{ github.workspace }}/backend
         run: cargo install --locked cargo-nextest
         shell: bash
+      - name: Install command line tool for measuring Rust coverage
+        uses: taiki-e/install-action@cargo-llvm-cov
       - name: Install command line tool for combining test results
         working-directory: ${{ github.workspace }}/frontend
         run: fvm dart pub global activate junitreport
         shell: bash
       - name: Execute tests
-        run: just backend-test
+        run: just backend-test-coverage
       - name: Upload test results
         if: ${{ !cancelled() && !github.event.act }}
         uses: actions/upload-artifact@v7.0.0
         with:
           name: testResultsArtifact_backend_${{ matrix.db-protocol }}
           path: backend/target/nextest/default/junit.xml
+      - name: Upload backend coverage to Codecov
+        if: ${{ success() && !github.event.act }}
+        uses: codecov/codecov-action@v5
+        with:
+          files: backend/target/llvm-cov/lcov.info
+          flags: backend,backend-${{ matrix.db-protocol }}-${{ matrix.over-ssh }}
+          name: backend-${{ matrix.db-protocol }}-${{ matrix.over-ssh }}
+          token: ${{ secrets.CODECOV_TOKEN }}
+          fail_ci_if_error: true
   Test-Frontend:
     runs-on: ubuntu-latest
     steps:
@@ -63,13 +74,22 @@ jobs:
         run: fvm dart pub global activate junitreport
         shell: bash
       - name: Execute tests
-        run: just frontend-test
+        run: just frontend-test-coverage
       - name: Upload test results
         if: ${{ !cancelled() && !github.event.act }}
         uses: actions/upload-artifact@v7.0.0
         with:
           name: testResultsArtifact_frontend
           path: frontend/build/junit.xml
+      - name: Upload frontend coverage to Codecov
+        if: ${{ success() && !github.event.act }}
+        uses: codecov/codecov-action@v5
+        with:
+          files: frontend/coverage/lcov.info
+          flags: frontend
+          name: frontend
+          token: ${{ secrets.CODECOV_TOKEN }}
+          fail_ci_if_error: true
   Publish-Test-Results:
     runs-on: ubuntu-latest
     needs: [Test-Backend, Test-Frontend]
