@@ -1,4 +1,5 @@
 use std::{
+    collections::{HashSet, VecDeque},
     fs,
     path::{Path, PathBuf},
 };
@@ -18,8 +19,7 @@ pub struct Profile {
     pub creditor: Option<Creditor>,
     pub connection: Option<ConnectionDescription>,
     // FIXME Separate system features from profile features
-    // FIXME Use set like structure
-    pub features: Vec<Feature>,
+    pub features: HashSet<Feature>,
 }
 
 static PROFILE_CONFIG_FILE_STEM: &str = "profile";
@@ -70,26 +70,22 @@ fn load_profile_from_path(config_save_path: &Path) -> Option<Profile> {
     Some(profile)
 }
 
-fn add_missing_required_features(profile: &mut Profile) -> Vec<Feature> {
-    let mut added_features = Vec::new();
+fn add_missing_required_features(profile: &mut Profile) -> HashSet<Feature> {
+    let mut added_features = HashSet::new();
     for feature in ALWAYS_ON_FEATURES.iter() {
-        if !profile.features.contains(feature) {
-            profile.features.push(feature.clone());
-            added_features.push(feature.clone());
+        if profile.features.insert(feature.clone()) {
+            added_features.insert(feature.clone());
         }
     }
 
-    let mut feature_index = 0;
-
-    while feature_index < profile.features.len() {
-        let feature = profile.features[feature_index].clone();
+    let mut features_to_check: VecDeque<_> = profile.features.iter().cloned().collect();
+    while let Some(feature) = features_to_check.pop_front() {
         for dependency in get_feature_description(feature).dependencies {
-            if !profile.features.contains(&dependency) {
-                profile.features.push(dependency.clone());
-                added_features.push(dependency);
+            if profile.features.insert(dependency.clone()) {
+                added_features.insert(dependency.clone());
+                features_to_check.push_back(dependency);
             }
         }
-        feature_index += 1;
     }
 
     added_features
@@ -125,6 +121,7 @@ fn save_profile_to_path(profile: Profile, config_save_path: &Path) {
 #[cfg(test)]
 mod tests {
     use std::{
+        collections::HashSet,
         fs,
         path::PathBuf,
         sync::atomic::{AtomicUsize, Ordering},
@@ -162,7 +159,7 @@ mod tests {
     fn saved_profile_can_be_loaded_with_its_features() {
         let test_file = TestProfilePath::new();
         let profile = Profile {
-            features: vec![Feature::MemberView],
+            features: HashSet::from([Feature::MemberView]),
             ..Profile::default()
         };
 
@@ -217,8 +214,11 @@ mod tests {
     #[test]
     fn loading_a_profile_adds_feature_dependencies() {
         let test_file = TestProfilePath::new();
-        fs::write(&test_file.path, "features = [\"SepaManagementMode\"]")
-            .expect("write profile with missing feature dependencies");
+        fs::write(
+            &test_file.path,
+            "features = [\"SepaManagementMode\", \"SepaManagementMode\"]",
+        )
+        .expect("write profile with missing feature dependencies");
 
         let loaded_profile = load_profile_from_path(&test_file.path)
             .expect("load profile with missing dependencies");
@@ -237,5 +237,6 @@ mod tests {
         for feature in ALWAYS_ON_FEATURES.iter() {
             assert!(loaded_profile.features.contains(feature));
         }
+        assert_eq!(loaded_profile.features.len(), 5);
     }
 }
