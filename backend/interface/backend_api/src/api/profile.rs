@@ -10,7 +10,7 @@ use log::warn;
 use sepa_types::creditor::Creditor;
 use serde::{Deserialize, Serialize};
 
-use crate::api::feature::{ALWAYS_ON_FEATURES, Feature};
+use crate::api::feature::{ALWAYS_ON_FEATURES, Feature, get_feature_description};
 
 #[derive(Debug, Default, Serialize, Deserialize)]
 #[serde(default)]
@@ -59,11 +59,40 @@ fn load_profile_from_path(config_save_path: &Path) -> Option<Profile> {
     }
 
     let mut profile: Profile = deserialized_profile.unwrap();
-    for feature in ALWAYS_ON_FEATURES.iter() {
-        profile.features.push(feature.clone());
+    let added_features = add_missing_required_features(&mut profile);
+    if !added_features.is_empty() {
+        warn!(
+            "Added required profile features {:?} while loading profile",
+            added_features
+        );
     }
 
     Some(profile)
+}
+
+fn add_missing_required_features(profile: &mut Profile) -> Vec<Feature> {
+    let mut added_features = Vec::new();
+    for feature in ALWAYS_ON_FEATURES.iter() {
+        if !profile.features.contains(feature) {
+            profile.features.push(feature.clone());
+            added_features.push(feature.clone());
+        }
+    }
+
+    let mut feature_index = 0;
+
+    while feature_index < profile.features.len() {
+        let feature = profile.features[feature_index].clone();
+        for dependency in get_feature_description(feature).dependencies {
+            if !profile.features.contains(&dependency) {
+                profile.features.push(dependency.clone());
+                added_features.push(dependency);
+            }
+        }
+        feature_index += 1;
+    }
+
+    added_features
 }
 
 pub fn save_profile(profile: Profile) {
@@ -180,6 +209,31 @@ mod tests {
         assert!(loaded_profile.creditor.is_none());
         assert!(loaded_profile.connection.is_none());
         assert_eq!(loaded_profile.features.len(), ALWAYS_ON_FEATURES.len());
+        for feature in ALWAYS_ON_FEATURES.iter() {
+            assert!(loaded_profile.features.contains(feature));
+        }
+    }
+
+    #[test]
+    fn loading_a_profile_adds_feature_dependencies() {
+        let test_file = TestProfilePath::new();
+        fs::write(&test_file.path, "features = [\"SepaManagementMode\"]")
+            .expect("write profile with missing feature dependencies");
+
+        let loaded_profile = load_profile_from_path(&test_file.path)
+            .expect("load profile with missing dependencies");
+
+        assert!(
+            loaded_profile
+                .features
+                .contains(&Feature::SepaManagementMode)
+        );
+        assert!(loaded_profile.features.contains(&Feature::MemberView));
+        assert!(
+            loaded_profile
+                .features
+                .contains(&Feature::SepaGenerationWizard)
+        );
         for feature in ALWAYS_ON_FEATURES.iter() {
             assert!(loaded_profile.features.contains(feature));
         }
