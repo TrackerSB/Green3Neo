@@ -88,7 +88,7 @@ diesel-generate-models: diesel-generate-schema
 
 sepa-generate-schemas:
     mkdir -p {{ rust_sepa_api_output_dir }}
-    cd {{ sepa_xsd_to_rust_generator_dir }} && cargo run --release -- --output-folder ../../{{ rust_sepa_api_output_dir }}
+    cd {{ sepa_xsd_to_rust_generator_dir }} && cargo run --release --locked -- --output-folder ../../{{ rust_sepa_api_output_dir }}
 
 # FIXME Verify that FRB versions in Cargo.toml, pubspec.yaml and the installed FRB codegen (locally and in Github
 # Actions) correspond to each other
@@ -108,7 +108,7 @@ frb-generate backendApiFeatures databaseApiFeatures: diesel-generate-models sepa
 
 backend-api-build backendApiFeatures databaseApiFeatures:
     just frb-generate "{{ backendApiFeatures }}" "{{ databaseApiFeatures }}"
-    cd {{ backend_dir }} && cargo build --release -p backend_api -p database_api -p sepa_api --features "{{ backendApiFeatures }} {{ databaseApiFeatures }}"
+    cd {{ backend_dir }} && cargo build --release --locked -p backend_api -p database_api -p sepa_api --features "{{ backendApiFeatures }} {{ databaseApiFeatures }}"
 
 backend-build:
     just backend-api-build "{{ all_backend_api_features }}" "{{ all_database_api_features }}"
