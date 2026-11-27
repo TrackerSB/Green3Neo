@@ -2405,9 +2405,9 @@ checksum = "743fb55ba31b18fb1ecef6bdc9aa2743314978ac084044301a7eee33fb99a20d"
 
 [[package]]
 name = "mysqlclient-sys"
-version = "0.5.2"
+version = "0.5.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b72511f8f6991fe4ac86421ea0625630fd94e360b906cc59720506499f9e8f3b"
+checksum = "8d887805b0b6bba56a2cc859b8a0ab9c693723be1da6bdc107abd1f373d0c475"
 dependencies = [
  "pkg-config",
  "semver",
