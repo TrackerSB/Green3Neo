@@ -9,7 +9,7 @@ runs:
       shell: bash
     - name: Configure SSH server
       run: |
-        sudo mkdir -p /var/run/sshd # What is this for?
+        sudo mkdir -p /var/run/sshd
         sudo mkdir -p /etc/ssh/sshd_config.d
         echo "root:safeRootPassword" | sudo chpasswd
         printf 'PermitRootLogin yes\nPasswordAuthentication yes\n' \
