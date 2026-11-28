@@ -38,7 +38,7 @@ jobs:
           APP_PID=$!
           echo "APP_PID=$APP_PID" >> $GITHUB_ENV
           echo "Application started with PID $APP_PID"
-      - name: Verify application window and visible content
+      - name: Wait for application window
         run: |
           set -euo pipefail
           for attempt in $(seq 1 60); do
@@ -58,7 +58,11 @@ jobs:
             cat app.log
             exit 1
           fi
+          echo "WINDOW_ID=$WINDOW_ID" >> "$GITHUB_ENV"
 
+      - name: Verify visible application content
+        run: |
+          set -euo pipefail
           SCREENSHOT="$GITHUB_WORKSPACE/app-smoke-test.png"
           OCR_SCREENSHOT="$(mktemp --suffix=.png)"
           trap 'rm -f "$OCR_SCREENSHOT"' EXIT
