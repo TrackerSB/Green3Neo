@@ -98,7 +98,7 @@ lib/generated_plugin_registrant.dart
 *.reflectable.dart
 
 # Injectable
-lib/injection.config.dart
+*.config.dart
 
 # Flutter freezed
 *.freezed.dart
