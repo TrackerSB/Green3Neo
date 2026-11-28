@@ -16,7 +16,7 @@ runs:
           | sudo tee /etc/ssh/sshd_config.d/00-green3neo-ci.conf
         sudo sshd -t
       shell: bash
-    - name: Start SSH server
+    - name: Restart SSH server and verify settings
       run: |
         sudo service ssh restart
         sudo sshd -T | grep -x 'permitrootlogin yes' >/dev/null
