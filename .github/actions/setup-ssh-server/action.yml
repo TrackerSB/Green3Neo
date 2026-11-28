@@ -19,6 +19,6 @@ runs:
     - name: Start SSH server
       run: |
         sudo service ssh restart
-        sudo sshd -T | grep -qx 'permitrootlogin yes'
-        sudo sshd -T | grep -qx 'passwordauthentication yes'
+        sudo sshd -T | grep -x 'permitrootlogin yes' >/dev/null
+        sudo sshd -T | grep -x 'passwordauthentication yes' >/dev/null
       shell: bash
