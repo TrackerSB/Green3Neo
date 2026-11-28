@@ -2,8 +2,10 @@ import 'package:green3neo/features/management_mode/management_mode.dart';
 import 'package:green3neo/features/management_mode/member_management/member_management_mode.dart';
 import 'package:green3neo/features/management_mode/sepa_management/sepa_management_mode.dart';
 import 'package:green3neo/features/management_mode/view_management/view_management_mode.dart';
+import 'package:green3neo/features/feature_registration.dart';
 import 'package:green3neo/features/widget_feature.dart';
 import 'package:green3neo/interface/backend_api/api/feature.dart';
+import 'package:injectable/injectable.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:watch_it/watch_it.dart';
 
@@ -66,15 +68,14 @@ class MemberManagementPage extends WatchingWidget {
   }
 }
 
+@Named("memberManagementView")
+@Singleton(as: FeatureRegistration)
 class MemberManagementView extends WidgetFeature {
   static MemberManagementPage? instance;
 
   @override
   void registerUnconditionally() {
-    final getIt = GetIt.instance;
-    getIt.registerLazySingleton<MemberManagementView>(
-      () => MemberManagementView(),
-    );
+    GetIt.instance.registerSingleton<MemberManagementView>(this);
   }
 
   @override

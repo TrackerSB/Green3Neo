@@ -9,6 +9,7 @@ import 'package:green3neo/components/form_fields/creditor_name_field.dart';
 import 'package:green3neo/components/form_fields/currency_field.dart';
 import 'package:green3neo/components/form_fields/message_id_field.dart';
 import 'package:green3neo/components/form_fields/purpose_field.dart';
+import 'package:green3neo/features/feature_registration.dart';
 import 'package:green3neo/features/frontend_feature.dart';
 import 'package:green3neo/features/loaded_profile.dart';
 import 'package:green3neo/interface/backend_api/api/feature.dart';
@@ -17,6 +18,7 @@ import 'package:green3neo/interface/database_api/api/models.dart';
 import 'package:green3neo/interface/sepa_api/api.dart';
 import 'package:green3neo/interface/sepa_api/api/generation.dart';
 import 'package:green3neo/localizer.dart';
+import 'package:injectable/injectable.dart';
 import 'package:logging/logging.dart';
 import 'package:material_ui/material_ui.dart';
 
@@ -246,6 +248,8 @@ class SepaGenerationWizard extends StatelessWidget {
   }
 }
 
+@Named("sepaGenerationWizardFactory")
+@Singleton(as: FeatureRegistration)
 class SepaGenerationWizardFactory extends FrontendFeature {
   @override
   void registerUnconditionally() {

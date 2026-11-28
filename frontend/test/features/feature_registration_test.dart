@@ -40,7 +40,7 @@ class _SecondFeature extends FrontendFeature {
 }
 
 void main() {
-  test("registers derived features independently", () async {
+  test("registers feature registrations independently", () async {
     RustLib.initMock(api: _FakeRustLibApi());
     addTearDown(RustLib.dispose);
     final first = _FirstFeature();

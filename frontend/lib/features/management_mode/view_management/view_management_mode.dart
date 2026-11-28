@@ -1,7 +1,9 @@
 import 'package:green3neo/features/management_mode/management_mode.dart';
 import 'package:green3neo/features/management_mode/member_view.dart';
+import 'package:green3neo/features/feature_registration.dart';
 import 'package:green3neo/interface/backend_api/api/feature.dart';
 import 'package:green3neo/localizer.dart';
+import 'package:injectable/injectable.dart';
 import 'package:listen_it/listen_it.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:watch_it/watch_it.dart';
@@ -57,13 +59,14 @@ class ViewManagementPage extends WatchingWidget {
   }
 }
 
+@Named("viewManagementMode")
+@Singleton(as: FeatureRegistration)
 class ViewManagementMode extends ManagementMode<ViewManagementPage> {
   static ViewManagementPage? instance;
 
   @override
   void registerUnconditionally() {
-    final getIt = GetIt.instance;
-    getIt.registerLazySingleton<ViewManagementMode>(() => ViewManagementMode());
+    GetIt.instance.registerSingleton<ViewManagementMode>(this);
   }
 
   @override
