@@ -1,8 +1,10 @@
 import 'package:green3neo/features/management_mode/management_mode.dart';
 import 'package:green3neo/features/management_mode/member_view.dart';
+import 'package:green3neo/features/feature_registration.dart';
 import 'package:green3neo/interface/backend_api/api/feature.dart';
 import 'package:green3neo/interface/database_api/api/member.dart';
 import 'package:green3neo/localizer.dart';
+import 'package:injectable/injectable.dart';
 import 'package:listen_it/listen_it.dart';
 import 'package:logging/logging.dart';
 import 'package:material_ui/material_ui.dart';
@@ -92,15 +94,14 @@ class MemberManagementPage extends StatelessWidget {
   }
 }
 
+@Named("memberManagementMode")
+@Singleton(as: FeatureRegistration)
 class MemberManagementMode extends ManagementMode<MemberManagementPage> {
   static MemberManagementPage? instance;
 
   @override
   void registerUnconditionally() {
-    final getIt = GetIt.instance;
-    getIt.registerLazySingleton<MemberManagementMode>(
-      () => MemberManagementMode(),
-    );
+    GetIt.instance.registerSingleton<MemberManagementMode>(this);
   }
 
   @override

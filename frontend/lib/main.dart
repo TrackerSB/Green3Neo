@@ -3,14 +3,9 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 
+import 'package:green3neo/features/feature_catalog.dart';
 import 'package:green3neo/features/feature_view.dart';
-import 'package:green3neo/features/loaded_profile.dart';
-import 'package:green3neo/features/management_mode/member_management/member_management_mode.dart';
 import 'package:green3neo/features/management_mode/member_management_view.dart';
-import 'package:green3neo/features/management_mode/member_view.dart';
-import 'package:green3neo/features/management_mode/sepa_management/sepa_generation_wizard.dart';
-import 'package:green3neo/features/management_mode/sepa_management/sepa_management_mode.dart';
-import 'package:green3neo/features/management_mode/view_management/view_management_mode.dart';
 import 'package:green3neo/interface/backend_api/api/logging.dart'
     as backend_logging;
 import 'package:green3neo/interface/backend_api/frb_generated.dart'
@@ -18,6 +13,7 @@ import 'package:green3neo/interface/backend_api/frb_generated.dart'
 import 'package:green3neo/interface/database_api/frb_generated.dart'
     as database_api;
 import 'package:green3neo/interface/sepa_api/frb_generated.dart' as sepa_api;
+import 'package:green3neo/injection.dart';
 import 'package:green3neo/l10n/app_localizations.dart';
 import 'package:green3neo/localizer.dart';
 import 'package:green3neo/main.reflectable.dart';
@@ -143,19 +139,12 @@ void main() async {
     });
   }
 
-  // Register all features
+  configureDependencies();
+
+  // Register all enabled features
   // FIXME Reload system features on change
   // FIXME Reload profile features on profile change or profile switch
-  await Future.wait([
-    FeatureSettings().register(),
-    LoadedProfileFeature().register(),
-    MemberViewFeature().register(),
-    MemberManagementView().register(),
-    MemberManagementMode().register(),
-    ViewManagementMode().register(),
-    SepaManagementMode().register(),
-    SepaGenerationWizardFactory().register(),
-  ]);
+  await FeatureCatalog(getIt).registerEnabledFeatures();
 
   // Start app
   runApp(const MainApp());

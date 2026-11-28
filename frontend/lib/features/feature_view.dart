@@ -3,9 +3,11 @@ import 'dart:collection';
 import 'package:flutter/foundation.dart';
 
 import 'package:graphview/GraphView.dart';
+import 'package:green3neo/features/feature_registration.dart';
 import 'package:green3neo/features/loaded_profile.dart';
 import 'package:green3neo/features/widget_feature.dart';
 import 'package:green3neo/interface/backend_api/api/feature.dart';
+import 'package:injectable/injectable.dart';
 import 'package:listen_it/listen_it.dart';
 import 'package:logging/logging.dart';
 import 'package:material_ui/material_ui.dart';
@@ -354,13 +356,14 @@ class FeatureSettingsPage extends StatelessWidget {
   }
 }
 
+@Named("featureSettings")
+@Singleton(as: FeatureRegistration)
 class FeatureSettings extends WidgetFeature {
   FeatureSettingsPage? instance;
 
   @override
   void registerUnconditionally() {
-    final getIt = GetIt.instance;
-    getIt.registerLazySingleton<FeatureSettings>(() => FeatureSettings());
+    GetIt.instance.registerSingleton<FeatureSettings>(this);
   }
 
   @override
