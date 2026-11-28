@@ -29,8 +29,6 @@ jobs:
       - name: Start headless smoke test application
         run: |
           cd frontend/build/linux/x64/debug/bundle
-          LANG=en_US.UTF-8 \
-          LC_ALL=en_US.UTF-8 \
           FLUTTER_ENGINE_SWITCHES=2 \
           FLUTTER_ENGINE_SWITCH_1='enable-software-rendering=true' \
           FLUTTER_ENGINE_SWITCH_2='enable-impeller=false' \
