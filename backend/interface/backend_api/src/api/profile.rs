@@ -1,4 +1,8 @@
-use std::fs;
+use std::{
+    collections::{HashSet, VecDeque},
+    fs,
+    path::{Path, PathBuf},
+};
 
 use backend_paths::paths::get_user_config_dir;
 use config::{FileFormat, FileStoredFormat};
@@ -7,7 +11,7 @@ use log::warn;
 use sepa_types::creditor::Creditor;
 use serde::{Deserialize, Serialize};
 
-use crate::api::feature::{ALWAYS_ON_FEATURES, Feature};
+use crate::api::feature::{ALWAYS_ON_FEATURES, Feature, get_feature_description};
 
 #[derive(Debug, Default, Serialize, Deserialize)]
 #[serde(default)]
@@ -15,18 +19,24 @@ pub struct Profile {
     pub creditor: Option<Creditor>,
     pub connection: Option<ConnectionDescription>,
     // FIXME Separate system features from profile features
-    // FIXME Use set like structure
-    pub features: Vec<Feature>,
+    pub features: HashSet<Feature>,
 }
 
 static PROFILE_CONFIG_FILE_STEM: &str = "profile";
 static PROFILE_CONFIG_FILE_FORMAT: FileFormat = FileFormat::Toml;
 
-pub fn load_profile() -> Option<Profile> {
-    let config_save_path = get_user_config_dir()
+fn get_profile_config_path() -> PathBuf {
+    get_user_config_dir()
         .join(PROFILE_CONFIG_FILE_STEM)
-        .with_extension(PROFILE_CONFIG_FILE_FORMAT.file_extensions()[0]);
-    let serialized_profile = fs::read_to_string(&config_save_path);
+        .with_extension(PROFILE_CONFIG_FILE_FORMAT.file_extensions()[0])
+}
+
+pub fn load_profile() -> Option<Profile> {
+    load_profile_from_path(&get_profile_config_path())
+}
+
+fn load_profile_from_path(config_save_path: &Path) -> Option<Profile> {
+    let serialized_profile = fs::read_to_string(config_save_path);
 
     if serialized_profile.is_err() {
         warn!(
@@ -49,17 +59,43 @@ pub fn load_profile() -> Option<Profile> {
     }
 
     let mut profile: Profile = deserialized_profile.unwrap();
-    for feature in ALWAYS_ON_FEATURES.iter() {
-        profile.features.push(feature.clone());
+    let added_features = add_missing_required_features(&mut profile);
+    if !added_features.is_empty() {
+        warn!(
+            "Added required profile features {:?} while loading profile",
+            added_features
+        );
     }
 
     Some(profile)
 }
 
+fn add_missing_required_features(profile: &mut Profile) -> HashSet<Feature> {
+    let mut added_features = HashSet::new();
+    for feature in ALWAYS_ON_FEATURES.iter() {
+        if profile.features.insert(feature.clone()) {
+            added_features.insert(feature.clone());
+        }
+    }
+
+    let mut features_to_check: VecDeque<_> = profile.features.iter().cloned().collect();
+    while let Some(feature) = features_to_check.pop_front() {
+        for dependency in get_feature_description(feature).dependencies {
+            if profile.features.insert(dependency.clone()) {
+                added_features.insert(dependency.clone());
+                features_to_check.push_back(dependency);
+            }
+        }
+    }
+
+    added_features
+}
+
 pub fn save_profile(profile: Profile) {
-    let config_save_path = get_user_config_dir()
-        .join(PROFILE_CONFIG_FILE_STEM)
-        .with_extension(PROFILE_CONFIG_FILE_FORMAT.file_extensions()[0]);
+    save_profile_to_path(profile, &get_profile_config_path());
+}
+
+fn save_profile_to_path(profile: Profile, config_save_path: &Path) {
     let serialized_profile = toml::to_string_pretty(&profile);
 
     if serialized_profile.is_err() {
@@ -71,7 +107,7 @@ pub fn save_profile(profile: Profile) {
         return;
     }
 
-    let write_result = std::fs::write(&config_save_path, serialized_profile.as_ref().unwrap());
+    let write_result = fs::write(config_save_path, serialized_profile.as_ref().unwrap());
 
     if write_result.is_err() {
         warn!(
@@ -79,5 +115,128 @@ pub fn save_profile(profile: Profile) {
             serialized_profile.unwrap(),
             config_save_path.display()
         );
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use std::{
+        collections::HashSet,
+        fs,
+        path::PathBuf,
+        sync::atomic::{AtomicUsize, Ordering},
+    };
+
+    use super::{Profile, load_profile_from_path, save_profile_to_path};
+    use crate::api::feature::{ALWAYS_ON_FEATURES, Feature};
+
+    struct TestProfilePath {
+        path: PathBuf,
+    }
+
+    impl TestProfilePath {
+        fn new() -> Self {
+            static NEXT_ID: AtomicUsize = AtomicUsize::new(0);
+            Self {
+                path: std::env::temp_dir().join(format!(
+                    "green3neo-profile-test-{}-{}.toml",
+                    std::process::id(),
+                    NEXT_ID.fetch_add(1, Ordering::Relaxed)
+                )),
+            }
+        }
+    }
+
+    impl Drop for TestProfilePath {
+        fn drop(&mut self) {
+            if self.path.exists() {
+                fs::remove_file(&self.path).expect("remove isolated profile test file");
+            }
+        }
+    }
+
+    #[test]
+    fn saved_profile_can_be_loaded_with_its_features() {
+        let test_file = TestProfilePath::new();
+        let profile = Profile {
+            features: HashSet::from([Feature::MemberView]),
+            ..Profile::default()
+        };
+
+        save_profile_to_path(profile, &test_file.path);
+        let loaded_profile = load_profile_from_path(&test_file.path).expect("load saved profile");
+
+        assert!(loaded_profile.features.contains(&Feature::MemberView));
+        for feature in ALWAYS_ON_FEATURES.iter() {
+            assert!(loaded_profile.features.contains(feature));
+        }
+    }
+
+    #[test]
+    fn loading_a_missing_profile_returns_none() {
+        let test_file = TestProfilePath::new();
+
+        assert!(load_profile_from_path(&test_file.path).is_none());
+    }
+
+    #[test]
+    fn loading_malformed_toml_returns_none() {
+        let test_file = TestProfilePath::new();
+        fs::write(&test_file.path, "features = [").expect("write invalid profile");
+
+        assert!(load_profile_from_path(&test_file.path).is_none());
+    }
+
+    #[test]
+    fn loading_a_profile_with_an_invalid_field_type_returns_none() {
+        let test_file = TestProfilePath::new();
+        fs::write(&test_file.path, "features = 'not a list'").expect("write invalid profile");
+
+        assert!(load_profile_from_path(&test_file.path).is_none());
+    }
+
+    #[test]
+    fn loading_a_profile_with_missing_entries_uses_defaults() {
+        let test_file = TestProfilePath::new();
+        fs::write(&test_file.path, "").expect("write empty profile");
+
+        let loaded_profile =
+            load_profile_from_path(&test_file.path).expect("load profile with missing entries");
+
+        assert!(loaded_profile.creditor.is_none());
+        assert!(loaded_profile.connection.is_none());
+        assert_eq!(loaded_profile.features.len(), ALWAYS_ON_FEATURES.len());
+        for feature in ALWAYS_ON_FEATURES.iter() {
+            assert!(loaded_profile.features.contains(feature));
+        }
+    }
+
+    #[test]
+    fn loading_a_profile_adds_feature_dependencies() {
+        let test_file = TestProfilePath::new();
+        fs::write(
+            &test_file.path,
+            "features = [\"SepaManagementMode\", \"SepaManagementMode\"]",
+        )
+        .expect("write profile with missing feature dependencies");
+
+        let loaded_profile = load_profile_from_path(&test_file.path)
+            .expect("load profile with missing dependencies");
+
+        assert!(
+            loaded_profile
+                .features
+                .contains(&Feature::SepaManagementMode)
+        );
+        assert!(loaded_profile.features.contains(&Feature::MemberView));
+        assert!(
+            loaded_profile
+                .features
+                .contains(&Feature::SepaGenerationWizard)
+        );
+        for feature in ALWAYS_ON_FEATURES.iter() {
+            assert!(loaded_profile.features.contains(feature));
+        }
+        assert_eq!(loaded_profile.features.len(), 5);
     }
 }

@@ -9,12 +9,16 @@ runs:
       shell: bash
     - name: Configure SSH server
       run: |
-        sudo mkdir -p /var/run/sshd # What is this for?
+        sudo mkdir -p /var/run/sshd
+        sudo mkdir -p /etc/ssh/sshd_config.d
         echo "root:safeRootPassword" | sudo chpasswd
-        sudo sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
-        sudo sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/' /etc/ssh/sshd_config
+        printf 'PermitRootLogin yes\nPasswordAuthentication yes\n' \
+          | sudo tee /etc/ssh/sshd_config.d/00-green3neo-ci.conf
+        sudo sshd -t
       shell: bash
-    - name: Start SSH server
+    - name: Restart SSH server and verify settings
       run: |
-        sudo service ssh start
+        sudo service ssh restart
+        sudo sshd -T | grep -x 'permitrootlogin yes' >/dev/null
+        sudo sshd -T | grep -x 'passwordauthentication yes' >/dev/null
       shell: bash

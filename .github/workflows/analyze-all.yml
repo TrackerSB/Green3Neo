@@ -21,8 +21,8 @@ jobs:
           echo "DATABASE_URL=${{ matrix.db-protocol }}://$BUILD_DB_USER:$BUILD_DB_PASSWORD@$BUILD_DB_HOST:$BUILD_DB_PORT/$BUILD_DB_NAME" >> $GITHUB_ENV
         shell: bash
       - uses: ./.github/actions/prepare-application-build
-      - name: Execute full build
-        run: just build
+      - name: Build for selected database protocol
+        run: just build "$BUILD_DB_PROTOCOL" "$BUILD_DB_PROTOCOL"
       - name: Analyze frontend
         working-directory: frontend
         run: fvm flutter analyze --fatal-infos

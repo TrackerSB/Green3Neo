@@ -8,7 +8,7 @@ import 'package:material_ui/material_ui.dart';
 Future<void> pumpFeatureView(
   WidgetTester tester,
   Map<Feature, FeatureDescription> descriptions,
-  List<Feature> enabledFeatures,
+  Set<Feature> enabledFeatures,
 ) async {
   final loader = Future<PreloadingData>.sync(() {
     final loadedProfile = LoadedProfile.create(features: enabledFeatures);
@@ -83,7 +83,7 @@ void main() {
         name: featureName,
       ),
     };
-    final enabledFeatures = <Feature>[];
+    final enabledFeatures = <Feature>{};
     await pumpFeatureView(tester, descriptions, enabledFeatures);
 
     expect(find.byType(FeatureSettingsPage), findsOneWidget);
@@ -104,7 +104,7 @@ void main() {
       ),
     };
 
-    await pumpFeatureView(tester, descriptions, [Feature.profiles]);
+    await pumpFeatureView(tester, descriptions, {Feature.profiles});
 
     verifyVisualNodeContent(
       tester,
@@ -134,7 +134,7 @@ void main() {
       ),
     };
 
-    await pumpFeatureView(tester, descriptions, [Feature.memberManagementMode]);
+    await pumpFeatureView(tester, descriptions, {Feature.memberManagementMode});
 
     verifyVisualNodeContent(
       tester,
@@ -178,7 +178,7 @@ void main() {
       ),
     };
 
-    await pumpFeatureView(tester, descriptions, [Feature.memberManagementMode]);
+    await pumpFeatureView(tester, descriptions, {Feature.memberManagementMode});
 
     tester
         .widget<GestureDetector>(findVisualNodeTapTarget(dependencyName))
@@ -241,7 +241,7 @@ void main() {
       ),
     };
 
-    await pumpFeatureView(tester, descriptions, []);
+    await pumpFeatureView(tester, descriptions, {});
 
     verifyVisualNodeContent(
       tester,
@@ -346,7 +346,7 @@ void main() {
       ),
     };
 
-    await pumpFeatureView(tester, descriptions, [Feature.featureSettings]);
+    await pumpFeatureView(tester, descriptions, {Feature.featureSettings});
 
     verifyVisualNodeContent(
       tester,

@@ -23,13 +23,13 @@ class LoadedProfile with _$LoadedProfile {
   ConnectionDescription? connection;
   @override
   // ignore: override_on_non_overriding_member
-  List<Feature> features;
+  Set<Feature> features;
 
   @visibleForTesting
   LoadedProfile.create({
     this.creditor,
     this.connection,
-    this.features = const [],
+    this.features = const {},
   });
 
   Future<void> save() async {

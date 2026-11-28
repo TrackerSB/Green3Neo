@@ -156,7 +156,7 @@ class _FeatureSettingsView extends StatelessWidget {
 
   _FeatureSettingsView({
     required Map<Feature, FeatureDescription> descriptions,
-    required List<Feature> initialFeatures,
+    required Set<Feature> initialFeatures,
   }) {
     for (final entry in descriptions.entries) {
       profileFeatures[entry.key] = _ProfileFeatureState(
