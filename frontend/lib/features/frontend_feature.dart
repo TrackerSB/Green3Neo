@@ -3,23 +3,24 @@ import 'package:green3neo/features/loaded_profile.dart';
 import 'package:green3neo/interface/backend_api/api/feature.dart';
 
 abstract class FrontendFeature {
-  static bool _featureRegistered = false;
+  static final Set<Feature> _registeredFeatures = {};
 
   Future<Null> register() {
     final getIt = GetIt.instance;
+    final feature = associatedFeature();
 
     // FIXME Allow unregistering features
 
-    if (_featureRegistered) {
+    if (_registeredFeatures.contains(feature)) {
       return Future.value();
     }
 
-    return getFeatureDescription(feature: associatedFeature())
+    return getFeatureDescription(feature: feature)
         .then((description) async {
           if (description.isSystemFeature) {
             // FIXME Verify whether system feature is enabled
             registerUnconditionally();
-            _featureRegistered = true;
+            _registeredFeatures.add(feature);
           } else {
             // FIXME Do not wait indefinitely
             Future.doWhile(() {
@@ -28,9 +29,9 @@ abstract class FrontendFeature {
             });
 
             await getIt.getAsync<LoadedProfile>().then((LoadedProfile profile) {
-              if (profile.features.contains(associatedFeature())) {
+              if (profile.features.contains(feature)) {
                 registerUnconditionally();
-                _featureRegistered = true;
+                _registeredFeatures.add(feature);
               }
             });
           }

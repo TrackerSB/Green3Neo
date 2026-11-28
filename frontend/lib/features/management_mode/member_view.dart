@@ -142,25 +142,19 @@ class MemberView extends WatchingWidget {
       );
     });
 
-    final Widget expandedTableView = Expanded(
-      child: ChangeNotifierProvider(
-        create: (_) => _tableViewSource,
-        child: TableView<Member>(tableViewSource: _tableViewSource),
-      ),
+    final Widget tableView = ChangeNotifierProvider(
+      create: (_) => _tableViewSource,
+      child: TableView<Member>(tableViewSource: _tableViewSource),
     );
 
-    /* NOTE 2025-12-22: Embedding the table view in Expanded and Column or Row
-     * mitigates sizing problems. This pattern should be reused by any other
-     * component including this widget
-     */
     return (watch(_viewMode).value == ViewMode.selectable)
         ? Column(
             children: [
               _SelfUpdatingText(listenableText: selectionText),
-              expandedTableView,
+              Expanded(child: tableView),
             ],
           )
-        : expandedTableView;
+        : tableView;
   }
 }
 
