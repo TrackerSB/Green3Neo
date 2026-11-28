@@ -49,7 +49,7 @@ jobs:
         if: ${{ !cancelled() && !github.event.act }}
         uses: actions/upload-artifact@v7.0.0
         with:
-          name: testResultsArtifact_backend_${{ matrix.db-protocol }}
+          name: testResultsArtifact_backend_${{ matrix.db-protocol }}_${{ matrix.over-ssh }}
           path: backend/target/nextest/default/junit.xml
       - name: Upload backend coverage to Codecov
         if: ${{ success() && !github.event.act }}
