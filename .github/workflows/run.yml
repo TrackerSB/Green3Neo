@@ -23,7 +23,7 @@ jobs:
       - name: Install GUI smoke-test tools
         run: |
           sudo apt-get update
-          sudo apt-get install -y xdotool imagemagick tesseract-ocr
+          sudo apt-get install -y xdotool imagemagick tesseract-ocr tesseract-ocr-deu
       - name: Build debug application
         run: just frontend-build-debug
       - name: Start headless smoke test application
@@ -58,10 +58,13 @@ jobs:
           fi
 
           SCREENSHOT="$GITHUB_WORKSPACE/app-smoke-test.png"
+          OCR_SCREENSHOT="$(mktemp --suffix=.png)"
+          trap 'rm -f "$OCR_SCREENSHOT"' EXIT
           OCR_TEXT=""
           for attempt in $(seq 1 10); do
             import -window "$WINDOW_ID" "$SCREENSHOT"
-            OCR_TEXT="$(tesseract "$SCREENSHOT" stdout 2>/dev/null)"
+            convert "$SCREENSHOT" -resize 200% "$OCR_SCREENSHOT"
+            OCR_TEXT="$(tesseract "$OCR_SCREENSHOT" stdout -l eng+deu --psm 11 2>/dev/null)"
             if grep -qiE 'Settings|Einstellungen' <<< "$OCR_TEXT"; then
               break
             fi
