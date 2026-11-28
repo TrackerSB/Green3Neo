@@ -15,5 +15,5 @@ runs:
         sudo apt install --fix-missing xvfb
       shell: bash
     - name: Start virtual display
-      run: Xvfb ${{ inputs.virtual_display_number }} -screen 0 1024x768x16 &
+      run: Xvfb ${{ inputs.virtual_display_number }} -screen 0 1600x900x24 &
       shell: bash

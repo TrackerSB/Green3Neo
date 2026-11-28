@@ -121,6 +121,10 @@ frontend-build backendApiFeatures=all_backend_api_features databaseApiFeatures=a
     just frontend-generate-reflectable "{{backendApiFeatures}}" "{{databaseApiFeatures}}"
     cd {{ frontend_dir }} && fvm flutter build linux
 
+frontend-build-debug backendApiFeatures=all_backend_api_features databaseApiFeatures=all_database_api_features:
+    just frontend-generate-reflectable "{{backendApiFeatures}}" "{{databaseApiFeatures}}"
+    cd {{ frontend_dir }} && fvm flutter build linux --debug
+
 build backendApiFeatures=all_backend_api_features databaseApiFeatures=all_database_api_features:
     just frontend-build "{{backendApiFeatures}}" "{{databaseApiFeatures}}"
 

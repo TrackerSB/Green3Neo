@@ -24,11 +24,15 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y xdotool imagemagick tesseract-ocr
-      - name: Build application
-        run: just build
-      - name: Start built application
+      - name: Build debug application
+        run: just frontend-build-debug
+      - name: Start headless smoke test application
         run: |
-          ./frontend/build/linux/x64/release/bundle/green3neo > app.log 2>&1 &
+          cd frontend/build/linux/x64/debug/bundle
+          FLUTTER_ENGINE_SWITCHES=2 \
+          FLUTTER_ENGINE_SWITCH_1='enable-software-rendering=true' \
+          FLUTTER_ENGINE_SWITCH_2='enable-impeller=false' \
+          ./green3neo > "$GITHUB_WORKSPACE/app.log" 2>&1 &
           APP_PID=$!
           echo "APP_PID=$APP_PID" >> $GITHUB_ENV
           echo "Application started with PID $APP_PID"
@@ -58,13 +62,13 @@ jobs:
           for attempt in $(seq 1 10); do
             import -window "$WINDOW_ID" "$SCREENSHOT"
             OCR_TEXT="$(tesseract "$SCREENSHOT" stdout 2>/dev/null)"
-            if grep -qi 'Settings' <<< "$OCR_TEXT"; then
+            if grep -qiE 'Settings|Einstellungen' <<< "$OCR_TEXT"; then
               break
             fi
             sleep 1
           done
           echo "$OCR_TEXT"
-          if ! grep -qi 'Settings' <<< "$OCR_TEXT"; then
+          if ! grep -qiE 'Settings|Einstellungen' <<< "$OCR_TEXT"; then
             echo "Expected visible Settings control was not found in the application window"
             exit 1
           fi
