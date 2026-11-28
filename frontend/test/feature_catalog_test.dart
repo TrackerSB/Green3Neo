@@ -33,7 +33,7 @@ void main() {
     expect(GetIt.instance.getAll<FeatureRegistration>(), hasLength(8));
     expect(GetIt.instance.isRegistered<FeatureSettings>(), isFalse);
 
-    await FeatureCatalog(GetIt.instance).registerEnabledFeatures();
+    await FeatureCatalog().registerEnabledFeatures();
 
     expect(GetIt.instance.isRegistered<FeatureSettings>(), isTrue);
   });

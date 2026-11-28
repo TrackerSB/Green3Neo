@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 
+import 'package:get_it/get_it.dart';
 import 'package:green3neo/features/feature_catalog.dart';
 import 'package:green3neo/features/feature_view.dart';
 import 'package:green3neo/features/management_mode/member_management_view.dart';
@@ -144,7 +145,7 @@ void main() async {
   // Register all enabled features
   // FIXME Reload system features on change
   // FIXME Reload profile features on profile change or profile switch
-  await FeatureCatalog(getIt).registerEnabledFeatures();
+  await FeatureCatalog().registerEnabledFeatures();
 
   // Start app
   runApp(const MainApp());
