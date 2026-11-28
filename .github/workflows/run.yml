@@ -13,35 +13,73 @@ jobs:
     env:
       DISPLAY: :99
       BUILD_DB_PROTOCOL: 'postgres'
+      WINDOW_TITLE: Green3Neo
 
     steps:
       - uses: TrackerSB/Green3Neo-Prepare-Action@a9a0a3cc1c9fff98990c4c25d0ec55c67e9c35c1
       - uses: ./.github/actions/prepare-application-run
         with:
           virtual_display_number: ${{ env.DISPLAY }}
-      - name: Execute application in the background
+      - name: Install GUI smoke-test tools
         run: |
-          just run &
+          sudo apt-get update
+          sudo apt-get install -y xdotool imagemagick tesseract-ocr
+      - name: Build application
+        run: just build
+      - name: Start built application
+        run: |
+          ./frontend/build/linux/x64/release/bundle/green3neo > app.log 2>&1 &
           APP_PID=$!
           echo "APP_PID=$APP_PID" >> $GITHUB_ENV
           echo "Application started with PID $APP_PID"
-      - name: Install x11-utils for xwininfo
-        run: sudo apt-get install -y x11-utils
-      - name: Wait for GTK window
+      - name: Verify application window and visible content
         run: |
-          timeout=30 # Maximum waiting time in seconds
-          interval=1 # Check frequency in seconds
-          elapsed=0 # Elapsed time in seconds
-          while ! xwininfo -root -tree; do # FIXME Search for specific window title
-            if [ $elapsed -ge $timeout ]; then
-              echo "GTK window with title $window_title did not appear within $timeout seconds"
+          set -euo pipefail
+          for attempt in $(seq 1 60); do
+            if ! kill -0 "$APP_PID" 2>/dev/null; then
+              echo "Application exited before creating its window"
+              cat app.log
               exit 1
             fi
-            sleep $interval
-            elapsed=$((elapsed + interval))
+            WINDOW_ID="$(xdotool search --onlyvisible --name "^${WINDOW_TITLE}$" 2>/dev/null | head -n 1 || true)"
+            if [ -n "$WINDOW_ID" ]; then
+              break
+            fi
+            sleep 1
           done
+          if [ -z "${WINDOW_ID:-}" ]; then
+            echo "Application window titled $WINDOW_TITLE did not appear"
+            cat app.log
+            exit 1
+          fi
+
+          SCREENSHOT="$GITHUB_WORKSPACE/app-smoke-test.png"
+          OCR_TEXT=""
+          for attempt in $(seq 1 10); do
+            import -window "$WINDOW_ID" "$SCREENSHOT"
+            OCR_TEXT="$(tesseract "$SCREENSHOT" stdout 2>/dev/null)"
+            if grep -qi 'Settings' <<< "$OCR_TEXT"; then
+              break
+            fi
+            sleep 1
+          done
+          echo "$OCR_TEXT"
+          if ! grep -qi 'Settings' <<< "$OCR_TEXT"; then
+            echo "Expected visible Settings control was not found in the application window"
+            exit 1
+          fi
       - name: Stop application
         if: always()
         run: |
-          kill $APP_PID || true # Ignore errors from kill
-          wait $APP_PID || true # Ignore errors from wait
+          if [ -n "${APP_PID:-}" ]; then
+            kill "$APP_PID" 2>/dev/null || true
+            wait "$APP_PID" 2>/dev/null || true
+          fi
+      - name: Upload application smoke-test evidence
+        if: always()
+        uses: actions/upload-artifact@v7.0.0
+        with:
+          name: application-smoke-test
+          path: |
+            app.log
+            app-smoke-test.png
